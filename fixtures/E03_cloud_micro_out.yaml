@@ -1,0 +1,23 @@
+scenario_id: E03
+name: cloud_micro_out
+description_it: >
+  Fornitore cloud di dimensione micro/piccola: esclusione dimensionale generale
+  dall'ambito NIS2 (Racc. 2003/361/CE, art. 3 D.Lgs. 138/2024).
+corpus_version: 0.2.0
+sector: cloud_computing
+
+inputs:
+  psnc: no
+  dora: no
+  cloud_pa: no
+  pertinenza_pubblica_cloud: no
+  fornisce_servizi_gestiti_b2b: no
+  dimension: micro_or_piccola
+
+expected:
+  assessment_mode: out_of_scope
+  verdict_outcome: likely_out_of_scope
+  signals: []
+  corpus_ref: "sectors/cloud_computing.yaml#qualification_rules[dimension==micro_or_piccola]"
+
+citations: [dlgs_138_2024_art_3, racc_ue_2003_361, faq_amb_di_1]

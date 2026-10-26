@@ -1,0 +1,26 @@
+# ============================================================================
+# Regime: Cloud PA — ROUTING ONLY
+# ============================================================================
+# STATUS v0.1.0: questo file NON contiene ancora logica di categorizzazione.
+# Quando una domanda di disambiguazione instrada qui (cloud_pa == yes), il
+# decision engine applica l'override dichiarato nel settore (model_substitution:
+# modello Cloud PA ordinari/critici/strategici in luogo del modello NIS) e rinvia
+# alla voce del catalogo eccezioni. Modellazione completa rinviata a v0.2.
+#
+# Voce del catalogo eccezioni corrispondente (classe: GESTITO / model_substitution):
+#   "Cloud PA — servizi cloud classificati per la PA (Regolamento Cloud)".
+#
+# NOTA: se anche psnc == yes, l'intersezione con il category_override PSNC non e'
+# risolta dalle fonti -> l'engine emette escalate_to_advisor (verdict_outcome:
+# ambiguous), vedi wizard/wizard__disambiguation.yaml#multi_regime_intersection.
+
+meta:
+  regime_id: cloud_pa
+  status: routing_only_v0_1
+  routing_effect: model_substitution
+  exceptions_catalog_entry: cloud_pa_model_substitution
+  referenced_by:
+    - "wizard/wizard__disambiguation.yaml#questions.cloud_pa"
+    - "sectors/sectors__cloud_computing.yaml#overrides"
+    - "sectors/sectors__pubblica_amministrazione.yaml#overrides"
+  citations: [dd_acn_21007_24_art_3, det_acn_155238_2026_art_4]

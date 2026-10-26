@@ -1,0 +1,24 @@
+scenario_id: E01
+name: cloud_grande_nessun_regime
+description_it: >
+  Fornitore cloud privato di grande dimensione, nessun regime correlato attivo.
+  Percorso categoriale standard: soggetto essenziale (Allegato I p. 8).
+corpus_version: 0.2.0
+sector: cloud_computing
+
+inputs:
+  psnc: no
+  dora: no
+  cloud_pa: no
+  pertinenza_pubblica_cloud: no
+  fornisce_servizi_gestiti_b2b: no
+  dimension: grande
+
+expected:
+  assessment_mode: categorical_assessment
+  verdict_outcome: likely_in_scope
+  qualifica: essenziale
+  signals: []
+  corpus_ref: "sectors/cloud_computing.yaml#qualification_rules[dimension==grande]"
+
+citations: [dlgs_138_2024_art_6, faq_amb_di_1]

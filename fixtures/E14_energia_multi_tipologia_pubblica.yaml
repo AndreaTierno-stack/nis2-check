@@ -1,0 +1,29 @@
+scenario_id: E14
+name: energia_multi_tipologia_pubblica
+description_it: >
+  Multiutility elettrica verticalmente integrata: DSO (principale) + fornitura
+  (ulteriore), a capitale prevalentemente pubblico, grande dimensione. Verdetto
+  categoriale essenziale; identita' multiple intra-settore -> registrazione separata
+  per tipologia (cross_sector_multi_tipologia_elettrica); cumulo L. 90 e possibile
+  canale Allegato IV in-house (cross_sector_inhouse_all_iv).
+corpus_version: 0.2.0
+sector: energia_elettrica
+
+inputs:
+  psnc: no
+  dora: no
+  cloud_pa: no
+  tipologia_elettrica: dso
+  attivita_elettriche_ulteriori: [impresa_fornitura]
+  pertinenza_pubblica_energia: yes
+  tipo_partecipazione_pubblica: capitale_prevalente
+  dimension: grande
+
+expected:
+  assessment_mode: categorical_assessment
+  verdict_outcome: likely_in_scope
+  qualifica: essenziale
+  signals: [cross_sector_multi_tipologia_elettrica, l90_cumulo, cross_sector_inhouse_all_iv]
+  corpus_ref: "sectors/energia_elettrica.yaml#qualification_rules[dimension==grande] + multi_identity_intra_sector + wizard.pertinenza_pubblica_energia[capitale_prevalente]"
+
+citations: [dlgs_138_2024_art_6, faq_amb_di_1, faq_settori_sottosettori, dlgs_138_2024_art_7]

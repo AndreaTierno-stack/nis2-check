@@ -1,0 +1,26 @@
+scenario_id: E13
+name: cloud_msp_multi_identity
+description_it: >
+  Fornitore cloud grande che eroga anche servizi gestiti B2B (SOC/MDR/gestione TIC).
+  Verdetto categoriale essenziale per l'identita' cloud (Allegato I p. 8); in aggiunta
+  possibile identita' MSP/MSSP (Allegato I p. 9) con registrazione separata
+  (cross_sector_cloud_msp).
+corpus_version: 0.2.0
+sector: cloud_computing
+
+inputs:
+  psnc: no
+  dora: no
+  cloud_pa: no
+  pertinenza_pubblica_cloud: no
+  fornisce_servizi_gestiti_b2b: yes
+  dimension: grande
+
+expected:
+  assessment_mode: categorical_assessment
+  verdict_outcome: likely_in_scope
+  qualifica: essenziale
+  signals: [cross_sector_cloud_msp]
+  corpus_ref: "sectors/cloud_computing.yaml#qualification_rules[dimension==grande] + tipologie.cloud_provider.multi_identity_possible"
+
+citations: [dlgs_138_2024_art_6, faq_amb_di_1, faq_a1_p9, faq_settori_msp]

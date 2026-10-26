@@ -1,0 +1,34 @@
+scenario_id: E06
+name: dora_massive_disapplication
+description_it: >
+  Entita' finanziaria DORA (Reg. UE 2022/2554). La disambiguazione dora==yes
+  instrada al regime dora (routing_only_v0_1): override massive_disapplication —
+  regime NIS disapplicato salvo l'art. 7 c. 1 (registrazione su piattaforma ACN).
+  Gli esoneri DORA sono attestati con granularita' di comma sul testo ufficiale
+  (art. 7 c. 6, art. 16 c. 13, art. 20 c. 6 Det. 127437/2026): DIV-P1 chiusa.
+corpus_version: 0.2.1
+sector: cloud_computing
+
+inputs:
+  psnc: no
+  dora: yes
+  cloud_pa: no
+  pertinenza_pubblica_cloud: no
+  fornisce_servizi_gestiti_b2b: no
+  dimension: grande
+
+expected:
+  assessment_mode: massive_disapplication
+  verdict_outcome:
+    derived_from: override_routing
+  regime: dora
+  routing_effect: massive_disapplication
+  residual_nis_obligation: "art. 7 c. 1 D.Lgs. 138/2024 (registrazione su piattaforma ACN)"
+  open_points: []
+  corpus_ref: "sectors/cloud_computing.yaml#overrides[dora==yes] -> regimes/dora.yaml"
+
+citations:
+  - dlgs_138_2024_art_3_c_14
+  - det_piattaforma_127437_2026_art_7_c_6
+  - det_piattaforma_127437_2026_art_16_c_13
+  - det_piattaforma_127437_2026_art_20_c_6

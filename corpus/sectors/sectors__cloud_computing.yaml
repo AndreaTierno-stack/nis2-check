@@ -1,0 +1,82 @@
+# ============================================================================
+# Settore: Cloud Computing — MODELLO DATI
+# Allegato I p. 8 — Infrastrutture digitali (settore altamente critico)
+# Le domande del wizard vivono in wizard/cloud_computing.yaml
+# ============================================================================
+
+meta:
+  sector_id: cloud_computing
+  allegato: I
+  punto: 8
+  critical_tier: altamente_critico
+  size_cap_applicable: true
+  size_blind: false
+  pilot_mvp_v0_1_0: true
+  citations:
+    - dir_nis2_art_6_30
+    - dlgs_138_2024_allegato_I
+    - faq_settori_sottosettori
+  cumulative_regulations:
+    - reg_ue_2024_2690
+    - det_acn_379907_2025
+  technical_measures_source: cumulative
+  incident_thresholds_source: reg_ue_2024_2690_art_3_e_7
+  notification_timeline: nis2_art_23_par_4
+
+tipologie:
+  - id: cloud_provider
+    label_it: "Fornitore di servizi di cloud computing"
+    base_legal_definition: dir_nis2_art_6_30
+    citations: [dir_nis2_art_6_30, faq_settori_cloud]
+    verdict_strategy: categorical_assessment
+    categorization_model: model_2
+    typical_psnc_overlap: medium
+    typical_dora_overlap: none
+    typical_l90_overlap: conditional
+    multi_identity_possible:
+      - signal: cross_sector_cloud_msp
+        condition_source: wizard_question
+        condition_ref: fornisce_servizi_gestiti_b2b
+
+qualification_rules:
+  - condition: dimension == micro_or_piccola
+    outcome: out_of_scope
+    verdict_outcome: likely_out_of_scope   # vincolo fisso: out_of_scope -> likely_out_of_scope
+    reasoning_trace: "Dimensione micro/piccola impresa esclusa dall'ambito NIS2 in via generale (Racc. 2003/361/CE; D.Lgs. 138/2024 art. 3)."
+    citations: [dlgs_138_2024_art_3, racc_ue_2003_361, faq_amb_di_1]
+  - condition: dimension == media
+    outcome: categorical_assessment
+    qualifica: importante
+    verdict_outcome: likely_in_scope   # vincolo fisso: categorical_assessment in-scope -> likely_in_scope
+    reasoning_trace: "Soggetto di dimensione media (50-249 dipendenti o 10-50 M€); in settore Allegato I p. 8 (Infrastrutture digitali) qualificato come soggetto importante."
+    citations: [dlgs_138_2024_art_6, faq_amb_di_1]
+  - condition: dimension == grande
+    outcome: categorical_assessment
+    qualifica: essenziale
+    verdict_outcome: likely_in_scope   # vincolo fisso: categorical_assessment in-scope -> likely_in_scope
+    reasoning_trace: "Soggetto di dimensione grande (>250 dipendenti o >50 M€); in settore Allegato I (altamente critico) qualificato come soggetto essenziale."
+    citations: [dlgs_138_2024_art_6, faq_amb_di_1]
+
+overrides:
+  - trigger: cloud_pa == yes
+    override_kind: model_substitution
+    reference: regimes/cloud_pa.yaml
+    reasoning_trace: "Servizio cloud erogato a Pubblica Amministrazione; applica il modello Cloud PA (ordinari/critici/strategici) in luogo del modello NIS, ai sensi del Decreto Direttoriale ACN n. 21007/24 del 27 giugno 2024, art. 3 (Regolamento Cloud) e art. 4 Det. ACN 155238/2026."
+    citations: [dd_acn_21007_24_art_3, det_acn_155238_2026_art_4]
+  - trigger: psnc == yes
+    override_kind: category_override
+    reference: regimes/psnc.yaml
+    reasoning_trace: "Servizi PSNC del soggetto categorizzati come 'alto' d'ufficio, fuori dal procedimento ordinario, ai sensi dell'art. 5 Det. ACN 155238/2026. I servizi NIS non PSNC mantengono procedimento ordinario."
+    citations: [det_acn_155238_2026_art_5]
+  - trigger: dora == yes
+    override_kind: massive_disapplication
+    reference: regimes/dora.yaml
+    reasoning_trace: "Entità DORA: disapplicato il regime NIS salvo l'art. 7 c. 1 (registrazione su piattaforma ACN). Esonero dalla categorizzazione ai sensi dell'art. 20 Det. piattaforma 127437/2026."
+    citations: [dlgs_138_2024_art_3_c_14, det_piattaforma_127437_2026_art_20]
+
+out_of_scope_mvp:
+  - case: cloud_provider_multi_eu_jurisdiction
+    handling: cross_sector_signal
+    verdict_outcome: ambiguous   # giurisdizione/stabilimento principale non risolvibile in self-assessment: segnalato, non un esito di ambito
+    scope_evolution_note: "La determinazione dello stabilimento principale (main establishment) per soggetti operanti in più Stati UE non è gestita nel MVP. Riferimento primario: art. 5 c. 2 D.Lgs. 138/2024 (stabilimento principale UE nel recepimento italiano); l'art. 26 NIS2 resta riferimento unionale secondario."
+    citations: [dlgs_138_2024_art_5, nis2_art_26]

@@ -1,0 +1,27 @@
+scenario_id: E04
+name: energia_gestore_ricarica_pun_no
+description_it: >
+  Gestore di punti di ricarica NON obbligato alla registrazione su PUN. Secondo
+  A1.1.a.3 "non rientra automaticamente" per questo solo titolo: NON e'
+  un'esclusione categoriale, ma una segnalazione (verso "fuori"). La dimensione
+  e' raccolta ma non determina l'esito, che si origina al nodo registrato_pun.
+corpus_version: 0.2.0
+sector: energia_elettrica
+
+inputs:
+  psnc: no
+  dora: no
+  cloud_pa: no
+  tipologia_elettrica: gestore_punti_ricarica
+  attivita_elettriche_ulteriori: []
+  registrato_pun: no
+  pertinenza_pubblica_energia: no
+  dimension: media
+
+expected:
+  assessment_mode: qualitative_signal_only
+  verdict_outcome: likely_out_of_scope
+  signals: []
+  corpus_ref: "wizard/energia_elettrica.yaml#registrato_pun[answer==no]"
+
+citations: [faq_a1_1_a_3]

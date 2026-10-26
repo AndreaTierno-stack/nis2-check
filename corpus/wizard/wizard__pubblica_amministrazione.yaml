@@ -1,0 +1,96 @@
+# ============================================================================
+# Wizard: Pubblica Amministrazione — MODELLO DI INTERAZIONE
+# Referenzia il blocco comune disambiguation.yaml + domande specifiche
+# ============================================================================
+#
+# NOTE DI FLUSSO (specificita' PA rispetto a Cloud/Energia):
+# - NIENTE domanda dimensione: la PA e' size-blind (rientro a prescindere).
+# - NIENTE domanda "pertinenza pubblica" generica: per la PA e' implicita.
+#   Il caso in-house/partecipate e' gestito via il canale Allegato IV, non
+#   via la domanda pertinenza pubblica di Cloud/Energia.
+# - NIENTE domanda ISTAT (strada 2): l'inclusione nella Lista S13 e' assunta
+#   e dichiarata nei reasoning_trace, non chiesta all'utente.
+# ============================================================================
+
+meta:
+  wizard_id: pubblica_amministrazione
+  references_common_block: disambiguation
+  sector_data: sectors/pubblica_amministrazione.yaml
+
+flow_order:
+  - disambiguation       # PSNC (possibile per PA centrali/ASL), DORA (di norma no), Cloud PA (frequente)
+  - sector_specific
+  # NON c'e' standard_identification: il settore e' size-blind
+
+sector_specific_questions:
+  # Domanda principale: quale categoria dell'Allegato III
+  - id: categoria_pa
+    kind: single_select
+    label_it: "A quale tipo di pubblica amministrazione appartiene il soggetto?"
+    help_text_it: |
+      Seleziona la categoria che descrive il soggetto. Se non rientri in
+      nessuna di queste ma sei un soggetto pubblico (trasporto pubblico
+      locale, istituto di ricerca, ente culturale, società in-house),
+      scegli l'ultima opzione: esiste un canale di rientro specifico.
+    options:
+      - id: a
+        label_it: "Amministrazione centrale dello Stato (ministero, agenzia statale, organo costituzionale)"
+      - id: b
+        label_it: "Regione o Provincia autonoma"
+      - id: c
+        label_it: "Amministrazione locale (città metropolitana, comune grande, ASL)"
+      - id: d
+        label_it: "Ente a struttura associativa (es. ANCI, UPI, Unioncamere)"
+      - id: canale_allegato_iv
+        label_it: "Nessuna delle precedenti, ma è un soggetto pubblico (TPL, ricerca, cultura, in-house)"
+
+  # Sotto-domanda condizionale: sottotipo della categoria c)
+  - id: sottotipo_c
+    kind: single_select
+    conditional_on:
+      question: categoria_pa
+      equals: c
+    label_it: "Quale tipo di amministrazione locale?"
+    help_text_it: |
+      La distinzione è rilevante: le ASL hanno una doppia identità (sono anche
+      soggetti sanitari) e richiedono una registrazione separata.
+    options:
+      - id: citta_metropolitana
+        label_it: "Città metropolitana"
+      - id: comune_oltre_100k
+        label_it: "Comune con più di 100.000 abitanti"
+      - id: comune_capoluogo
+        label_it: "Comune capoluogo di Regione"
+      - id: asl
+        label_it: "Azienda Sanitaria Locale (ASL)"
+        on_selected:
+          activates_signals: [cross_sector_asl_sanitario]
+
+  # Sotto-domanda condizionale: profilo del canale Allegato IV
+  - id: profilo_allegato_iv
+    kind: single_select
+    conditional_on:
+      question: categoria_pa
+      equals: canale_allegato_iv
+    label_it: "Quale tipo di soggetto pubblico?"
+    help_text_it: |
+      Questi soggetti possono rientrare nel perimetro NIS tramite individuazione
+      governativa (Allegato IV). Non è un rientro automatico: dipende da una
+      determinazione dell'autorità competente. Lo strumento può solo segnalarti
+      questa possibilità.
+    options:
+      - id: tpl
+        label_it: "Trasporto pubblico locale"
+        activates_signals: [allegato_iv_individuazione, l90_cumulo]
+      - id: istituto_ricerca
+        label_it: "Istituto di istruzione che svolge ricerca"
+        activates_signals: [allegato_iv_individuazione]
+      - id: attivita_culturale
+        label_it: "Soggetto che svolge attività di interesse culturale"
+        activates_signals: [allegato_iv_individuazione]
+      - id: societa_inhouse
+        label_it: "Società in-house, partecipata o controllata da ente pubblico"
+        # Per gli in-house il canale All. IV coincide con il signal in-house;
+        # attiviamo entrambi gli id che puntano allo stesso fenomeno (l'engine
+        # deduplica in fase di rendering del verdetto).
+        activates_signals: [allegato_iv_individuazione, cross_sector_inhouse_all_iv, l90_cumulo]

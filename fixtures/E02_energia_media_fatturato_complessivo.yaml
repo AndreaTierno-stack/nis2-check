@@ -1,0 +1,26 @@
+scenario_id: E02
+name: energia_media_fatturato_complessivo
+description_it: >
+  Impresa elettrica di fornitura di dimensione media. Esercita la regola del
+  fatturato complessivo (FAQ A1.2): il fatturato rilevante e' quello dell'intero
+  soggetto, non solo dell'attivita' NIS. Soggetto importante.
+corpus_version: 0.2.0
+sector: energia_elettrica
+
+inputs:
+  psnc: no
+  dora: no
+  cloud_pa: no
+  tipologia_elettrica: impresa_fornitura
+  attivita_elettriche_ulteriori: []
+  pertinenza_pubblica_energia: no
+  dimension: media
+
+expected:
+  assessment_mode: categorical_assessment
+  verdict_outcome: likely_in_scope
+  qualifica: importante
+  signals: []
+  corpus_ref: "sectors/energia_elettrica.yaml#qualification_rules[dimension==media]"
+
+citations: [dlgs_138_2024_art_6, faq_amb_di_1, faq_a1_2]

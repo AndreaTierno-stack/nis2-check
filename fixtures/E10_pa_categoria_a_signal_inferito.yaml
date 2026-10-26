@@ -1,0 +1,24 @@
+scenario_id: E10
+name: pa_categoria_a_signal_inferito
+description_it: >
+  Amministrazione centrale dello Stato (Allegato III lett. a). La qualifica di
+  soggetto essenziale e' ricostruita dall'architettura del decreto, non da fonte
+  puntuale gia' verificata: outcome qualitative_signal_only con qualifica_inferita
+  essenziale (verdetto categoriale differito a v0.2). Signal di cumulo L. 90 attivo.
+corpus_version: 0.2.0
+sector: pubblica_amministrazione
+
+inputs:
+  psnc: no
+  dora: no
+  cloud_pa: no
+  categoria_pa: a
+
+expected:
+  assessment_mode: qualitative_signal_only
+  verdict_outcome: likely_in_scope
+  qualifica_inferita: essenziale
+  signals: [l90_cumulo]
+  corpus_ref: "sectors/pubblica_amministrazione.yaml#qualification_rules[categoria==a]"
+
+citations: [dlgs_138_2024_allegato_III, dlgs_138_2024_art_3_c_6, l_196_2009_art_1_c_3]

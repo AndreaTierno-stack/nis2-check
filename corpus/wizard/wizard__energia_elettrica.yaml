@@ -1,0 +1,131 @@
+# ============================================================================
+# Wizard: Energia elettrica — MODELLO DI INTERAZIONE
+# Referenzia il blocco comune disambiguation.yaml + domande specifiche
+# ============================================================================
+
+meta:
+  wizard_id: energia_elettrica
+  references_common_block: disambiguation
+  sector_data: sectors/energia_elettrica.yaml
+
+flow_order:
+  - disambiguation
+  - sector_specific
+  - standard_identification
+
+sector_specific_questions:
+  # Prima la tipologia: il settore ha 7 tipologie con scoping diverso
+  - id: tipologia_elettrica
+    kind: single_select
+    label_it: "Quale attività svolge principalmente il soggetto nel settore elettrico?"
+    help_text_it: |
+      Se il soggetto svolge più attività (es. distribuzione e vendita), il
+      decreto NIS richiede registrazione separata per ciascuna tipologia.
+      Seleziona l'attività principale; ti segnaleremo le eventuali identità multiple.
+    options:
+      - id: tso
+        label_it: "Gestione della rete di trasmissione (TSO)"
+      - id: dso
+        label_it: "Gestione della rete di distribuzione (DSO)"
+      - id: impresa_fornitura
+        label_it: "Vendita/fornitura di energia elettrica a clienti finali"
+      - id: produttore
+        label_it: "Produzione di energia elettrica"
+      - id: gestore_mercato
+        label_it: "Gestione del mercato elettrico (soggetto designato)"
+      - id: partecipante_aggregazione
+        label_it: "Aggregazione, gestione della domanda o stoccaggio"
+      - id: gestore_punti_ricarica
+        label_it: "Gestione di punti di ricarica (registrati su PUN)"
+
+  # Multi-identita' intra-settore: rileva attivita' elettriche ulteriori oltre la principale
+  # NOTA IMPLEMENTAZIONE: l'UI deve escludere a runtime l'opzione gia' scelta in
+  # tipologia_elettrica (non si seleziona "ulteriore" cio' che e' gia' "principale").
+  - id: attivita_elettriche_ulteriori
+    kind: multi_select
+    label_it: "Oltre all'attività principale, il soggetto ne svolge altre tra queste nel settore elettrico?"
+    help_text_it: |
+      Molte società elettriche sono verticalmente integrate (es. distribuzione
+      e vendita insieme). Il decreto NIS richiede una registrazione separata per
+      ciascuna tipologia. Seleziona tutte le attività ulteriori; se non ne svolgi
+      altre, lascia vuoto e prosegui.
+    optional: true
+    options:
+      - id: tso
+        label_it: "Gestione della rete di trasmissione (TSO)"
+      - id: dso
+        label_it: "Gestione della rete di distribuzione (DSO)"
+      - id: impresa_fornitura
+        label_it: "Vendita/fornitura a clienti finali"
+      - id: produttore
+        label_it: "Produzione"
+      - id: gestore_mercato
+        label_it: "Gestione del mercato elettrico"
+      - id: partecipante_aggregazione
+        label_it: "Aggregazione, gestione domanda, stoccaggio"
+      - id: gestore_punti_ricarica
+        label_it: "Gestione punti di ricarica (su PUN)"
+    on_any_selected:
+      activates_signals: [cross_sector_multi_tipologia_elettrica]
+
+  # Follow-up PUN: pertinente solo se il soggetto e' (anche) gestore di punti di ricarica.
+  # A1.1.a.3 (verificato in KB, FAQ Settori): i gestori registrati su PUN rientrano; i
+  # punti vendita con ricarica non obbligati alla registrazione su PUN "non rientrano
+  # automaticamente". NON e' un'esclusione categoriale -> il ramo "no" e'
+  # qualitative_signal_only (verso "fuori"), non out_of_scope.
+  - id: registrato_pun
+    kind: single_select
+    conditional: true
+    visible_if: "tipologia_elettrica == gestore_punti_ricarica OR attivita_elettriche_ulteriori contains gestore_punti_ricarica"
+    label_it: "Il soggetto è obbligato a registrarsi sul PUN (Piattaforma Unica Nazionale) come gestore di punti di ricarica, ai sensi del DM MASE n. 106 del 16/03/2023?"
+    help_text_it: |
+      Rientrano nel settore elettrico i gestori di punti di ricarica registrati
+      su PUN. I punti vendita che offrono ricarica ma non sono obbligati alla
+      registrazione su PUN non rientrano automaticamente per questo solo titolo.
+    options:
+      - id: si
+        label_it: "Sì, registrato o obbligato alla registrazione su PUN"
+      - id: no
+        label_it: "No, non obbligato alla registrazione su PUN"
+      - id: non_so
+        label_it: "Non so"
+    outcome_mapping:
+      - answer: si
+        outcome: categorical_assessment   # tipologia confermata: prosegue con l'identificazione standard (esito per dimensione)
+        verdict_outcome: likely_in_scope   # provvisorio: la regola dimensionale del settore puo' rifinirlo (micro/piccola -> likely_out_of_scope)
+        reasoning_trace: "Gestore di punti di ricarica registrato o obbligato alla registrazione su PUN (DM MASE 106/2023): rientra nella tipologia elettrica; la qualifica segue le regole dimensionali del settore (importante/essenziale)."
+        citations: [faq_a1_1_a_3, dm_mase_106_2023]
+      - answer: no
+        outcome: qualitative_signal_only   # "non rientrano automaticamente" NON e' esclusione categoriale
+        verdict_outcome: likely_out_of_scope
+        reasoning_trace: "Punti di ricarica non obbligati alla registrazione su PUN: secondo A1.1.a.3 non rientrano automaticamente per questo solo titolo. Non e' un'esclusione categoriale: il soggetto potrebbe rientrare per altra tipologia o per obbligo PUN sopravvenuto. Segnalazione, non verdetto di esclusione. Verifica con consulente qualificato."
+        citations: [faq_a1_1_a_3]
+      - answer: non_so
+        outcome: qualitative_signal_only
+        verdict_outcome: ambiguous
+        reasoning_trace: "Obbligo di registrazione su PUN non noto: la qualificazione del gestore di punti di ricarica dipende da tale obbligo (A1.1.a.3, DM MASE 106/2023). Segnalazione con invito a verificare l'obbligo PUN. Verifica con consulente qualificato."
+        citations: [faq_a1_1_a_3, dm_mase_106_2023]
+
+  # Pertinenza pubblica: identica a Cloud (multiutility comunali sono comuni nell'energia)
+  - id: pertinenza_pubblica_energia
+    kind: binary_with_conditional_followup
+    label_it: "Il soggetto è un ente pubblico o ha capitale, quote o partecipazioni pubbliche?"
+    help_text_it: |
+      Molte società elettriche locali (multiutility) hanno capitale comunale o
+      regionale. Rispondi "sì" se il soggetto ha tra i propri soci un ente
+      pubblico, in qualunque misura.
+    conditional_followup:
+      trigger_on: "yes"
+      label_it: "Quale tipo di partecipazione pubblica?"
+      kind: single_select
+      options:
+        - id: ente_pubblico
+          label_it: "Ente pubblico"
+          activates_signals: [l90_cumulo, cross_sector_pa]
+        - id: capitale_prevalente
+          label_it: "Società con capitale interamente o prevalentemente pubblico (in-house, controllata, partecipata di maggioranza)"
+          activates_signals: [l90_cumulo, cross_sector_inhouse_all_iv]
+        - id: capitale_minoritario
+          label_it: "Società con partecipazione pubblica minoritaria (sotto il 50%)"
+          activates_signals: []
+          note_it: "La partecipazione minoritaria non attiva, di norma, signal di cumulo L. 90; verifica con consulente in caso di partecipazione qualificata o controllo congiunto."

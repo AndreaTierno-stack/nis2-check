@@ -1,0 +1,52 @@
+# ============================================================================
+# Wizard: Cloud Computing — MODELLO DI INTERAZIONE
+# Referenzia il blocco comune disambiguation.yaml + domande specifiche
+# Gli id citati qui (signal, condition_ref) devono esistere nel modello dati
+# ============================================================================
+
+meta:
+  wizard_id: cloud_computing
+  references_common_block: disambiguation
+  sector_data: sectors/cloud_computing.yaml
+
+# Ordine del flusso: disambiguazione comune -> domande settore -> identificazione standard
+flow_order:
+  - disambiguation          # blocco comune (PSNC, DORA, Cloud PA)
+  - sector_specific         # domande sotto
+  - standard_identification # dimensione (size-cap)
+
+sector_specific_questions:
+  - id: pertinenza_pubblica_cloud
+    kind: binary_with_conditional_followup
+    label_it: "Il soggetto è un ente pubblico o ha capitale, quote o partecipazioni pubbliche?"
+    help_text_it: |
+      Rispondi "sì" se il soggetto è una pubblica amministrazione, oppure se
+      ha tra i propri soci (o quote) un ente pubblico (Stato, Regione, Comune,
+      Provincia, ASL, eccetera), in qualunque misura.
+    conditional_followup:
+      trigger_on: "yes"
+      label_it: "Quale tipo di partecipazione pubblica?"
+      kind: single_select
+      options:
+        - id: ente_pubblico
+          label_it: "Ente pubblico (PA centrale, Regione, Comune, ASL, eccetera)"
+          activates_signals: [l90_cumulo, cross_sector_pa]
+        - id: capitale_prevalente
+          label_it: "Società con capitale interamente o prevalentemente pubblico (in-house, controllata, partecipata di maggioranza)"
+          activates_signals: [l90_cumulo, cross_sector_inhouse_all_iv]
+        - id: capitale_minoritario
+          label_it: "Società con partecipazione pubblica minoritaria (sotto il 50%)"
+          activates_signals: []
+          note_it: "La partecipazione minoritaria non attiva, di norma, signal di cumulo L. 90; verifica con consulente in caso di partecipazione qualificata o controllo congiunto."
+
+  - id: fornisce_servizi_gestiti_b2b
+    kind: binary
+    label_it: "Il soggetto fornisce anche servizi gestiti di sicurezza o di gestione TIC a terzi (B2B)?"
+    help_text_it: |
+      Riguarda i fornitori cloud che offrono anche servizi gestiti (es. SOC,
+      MDR, gestione infrastrutture TIC) ad altre aziende. Se è il caso,
+      potresti rientrare anche come MSP/MSSP (Allegato I p. 9), con
+      registrazione separata.
+    on_yes:
+      activates_signals: [cross_sector_cloud_msp]
+    citations: [faq_a1_p9, faq_settori_msp]

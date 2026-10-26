@@ -1,0 +1,155 @@
+# ============================================================================
+# Settore: Energia / Energia elettrica — MODELLO DATI
+# Allegato I p. 1 — Energia (settore altamente critico)
+# Sottosettore A1.1.a — Energia elettrica
+# Le domande del wizard vivono in wizard/energia_elettrica.yaml
+# ============================================================================
+
+meta:
+  sector_id: energia_elettrica
+  allegato: I
+  punto: 1
+  sottosettore_id: A1_1_a
+  critical_tier: altamente_critico
+  size_cap_applicable: true
+  size_blind: false
+  pilot_mvp_v0_1_0: true
+  citations:
+    - dlgs_138_2024_allegato_I
+    - faq_settori_sottosettori
+    - dir_ue_2019_944           # base UE settore elettrico (Clean Energy Package)
+  # A differenza di Cloud: nessun atto di esecuzione UE sulle misure tecniche
+  cumulative_regulations:
+    - det_acn_379907_2025       # specifiche di base ACN (unico atto cumulativo rilevante)
+  technical_measures_source: det_acn_379907_2025_only
+  incident_thresholds_source: det_acn_379907_2025   # NON Reg. UE 2024/2690 (non applicabile)
+  notification_timeline: nis2_art_23_par_4
+  # Nota esplicita: il Reg. UE 2024/2690 (DSP) non si applica al settore energia
+  reg_ue_2024_2690_applicable: false
+
+tipologie:
+  - id: tso
+    label_it: "Gestore del sistema di trasmissione (TSO)"
+    faq_code: A1_1_a_1
+    citations: [faq_a1_1_a_1, dir_ue_2019_944]
+    verdict_strategy: categorical_assessment
+    categorization_model: model_1
+    typical_psnc_overlap: very_high      # il TSO nazionale e' in PSNC
+    typical_l90_overlap: conditional
+
+  - id: dso
+    label_it: "Gestore del sistema di distribuzione (DSO)"
+    faq_code: A1_1_a_1
+    citations: [faq_a1_1_a_1, dir_ue_2019_944]
+    verdict_strategy: categorical_assessment
+    categorization_model: model_1
+    typical_psnc_overlap: high           # grandi DSO si', medi da verificare
+    typical_l90_overlap: conditional
+
+  - id: impresa_fornitura
+    label_it: "Impresa elettrica di fornitura (vendita)"
+    faq_code: A1_1_a_1, A1_1_a_2
+    citations: [faq_a1_1_a_1, faq_a1_1_a_2]
+    verdict_strategy: categorical_assessment
+    categorization_model: model_1
+    typical_psnc_overlap: medium
+    typical_l90_overlap: conditional
+
+  - id: produttore
+    label_it: "Produttore di energia elettrica"
+    faq_code: A1_1_a_1
+    citations: [faq_a1_1_a_1]
+    verdict_strategy: categorical_assessment
+    categorization_model: model_1
+    typical_psnc_overlap: medium         # possibile per impianti critici
+    typical_l90_overlap: conditional
+    scoping_note_it: "Esclusi i clienti attivi/prosumer ai sensi di A1.1.a.4."
+
+  - id: gestore_mercato
+    label_it: "Gestore del mercato elettrico designato"
+    faq_code: A1_1_a_1
+    citations: [faq_a1_1_a_1]
+    verdict_strategy: categorical_assessment
+    categorization_model: model_1
+    typical_psnc_overlap: very_high
+    typical_l90_overlap: conditional
+
+  - id: partecipante_aggregazione
+    label_it: "Partecipante al mercato elettrico (aggregazione, gestione domanda, stoccaggio)"
+    faq_code: A1_1_a_1
+    citations: [faq_a1_1_a_1]
+    verdict_strategy: categorical_assessment
+    categorization_model: model_1
+    typical_psnc_overlap: low
+    typical_l90_overlap: conditional
+
+  - id: gestore_punti_ricarica
+    label_it: "Gestore di punti di ricarica"
+    faq_code: A1_1_a_3
+    citations: [faq_a1_1_a_3]
+    verdict_strategy: categorical_assessment
+    categorization_model: model_1
+    typical_psnc_overlap: none
+    typical_l90_overlap: conditional
+    scoping_note_it: "Rientra solo se registrato su PUN (DM MASE 106/2023). I meri punti vendita con ricarica non registrati su PUN non rientrano automaticamente (A1.1.a.3)."
+
+qualification_rules:
+  - condition: dimension == micro_or_piccola
+    outcome: out_of_scope
+    verdict_outcome: likely_out_of_scope   # vincolo fisso: out_of_scope -> likely_out_of_scope
+    reasoning_trace: "Dimensione micro/piccola impresa esclusa dall'ambito NIS2 in via generale (Racc. 2003/361/CE; D.Lgs. 138/2024 art. 3). Per il settore elettrico, si segnala l'esclusione esplicita di clienti attivi e prosumer (FAQ A1.1.a.4)."
+    citations: [dlgs_138_2024_art_3, racc_ue_2003_361, faq_a1_1_a_4]
+  - condition: dimension == media
+    outcome: categorical_assessment
+    qualifica: importante
+    verdict_outcome: likely_in_scope   # vincolo fisso: categorical_assessment in-scope -> likely_in_scope
+    reasoning_trace: "Soggetto di dimensione media (50-249 dipendenti o 10-50 M€); in settore Allegato I p. 1 (Energia) qualificato come soggetto importante. Per 'fatturato' si intende quello complessivo del soggetto, non solo dell'attività NIS (FAQ A1.2)."
+    citations: [dlgs_138_2024_art_6, faq_amb_di_1, faq_a1_2]
+  - condition: dimension == grande
+    outcome: categorical_assessment
+    qualifica: essenziale
+    verdict_outcome: likely_in_scope   # vincolo fisso: categorical_assessment in-scope -> likely_in_scope
+    reasoning_trace: "Soggetto di dimensione grande (>250 dipendenti o >50 M€); in settore Allegato I (altamente critico) qualificato come soggetto essenziale."
+    citations: [dlgs_138_2024_art_6, faq_amb_di_1]
+
+overrides:
+  # PSNC: per Energia e' la condizione TIPICA dei soggetti grandi, non eccezione marginale
+  - trigger: psnc == yes
+    override_kind: category_override
+    reference: regimes/psnc.yaml
+    reasoning_trace: "Servizi PSNC del soggetto categorizzati come 'alto' d'ufficio, fuori dal procedimento ordinario, ai sensi dell'art. 5 Det. ACN 155238/2026. Per il settore elettrico, TSO e grandi DSO sono tipicamente in perimetro PSNC. I servizi NIS non PSNC mantengono procedimento ordinario."
+    citations: [det_acn_155238_2026_art_5, dl_105_2019_art_1_c_2_bis]
+  # DORA: non pertinente al settore energia, ma la domanda comune resta nel flusso;
+  # se positiva qui e' verosimilmente un errore di compilazione -> comunque gestito
+  - trigger: dora == yes
+    override_kind: massive_disapplication
+    reference: regimes/dora.yaml
+    reasoning_trace: "Entità DORA: disapplicato il regime NIS salvo l'art. 7 c. 1. Nota: per un soggetto del settore energia questa risposta è inattesa; verifica che il soggetto sia effettivamente un'entità finanziaria regolata da DORA."
+    citations: [dlgs_138_2024_art_3_c_14, det_piattaforma_127437_2026_art_20]
+  # Cloud PA: non pertinente al settore energia -> nessun override
+  # (la domanda Cloud PA nel blocco comune resta, ma per Energia non instrada nulla)
+
+# Identita' multiple intra-settore (trigger; definizione in signals/cross_sector.yaml)
+multi_identity_intra_sector:
+  - signal: cross_sector_multi_tipologia_elettrica
+    condition_source: wizard_question
+    condition_ref: attivita_elettriche_ulteriori
+    trigger: any_selected
+
+out_of_scope_mvp:
+  - case: regime_transitorio_ose
+    handling: cross_sector_signal
+    verdict_outcome: ambiguous   # regime OSE transitorio solo segnalato, non valutato
+    scope_evolution_note: "Il regime transitorio OSE (art. 5 Det. 379907/2025) per i soggetti già OSE energia ex D.Lgs. 65/2018 non è modellato nel MVP; segnalato come possibile applicabilità."
+  - case: cer_dlgs_134_2024
+    handling: cross_sector_signal
+    verdict_outcome: ambiguous   # regime parallelo (soggetti critici) solo segnalato, non valutato
+    scope_evolution_note: "L'energia è settore soggetto alla disciplina sui soggetti critici (D.Lgs. 134/2024, resilienza fisica; CER = Critical Entities Resilience). Il MVP non valuta il rientro tra i soggetti critici; segnalato come regime parallelo da non confondere né con il NIS2 né con le comunità energetiche rinnovabili (CACER)."
+
+# ============================================================================
+# Vincoli di copy (rendering verdetto/signal) — collisione acronimo "CER"
+# ============================================================================
+copy_constraints:
+  - id: cer_cacer_disambiguation
+    rule_it: "Mai usare l'acronimo nudo 'CER' nel copy del verdetto o dei signal. La disciplina D.Lgs. 134/2024 va resa come 'soggetti critici (D.Lgs. 134/2024)' oppure 'Critical Entities Resilience'; le comunità energetiche vanno rese come 'comunità energetiche rinnovabili (CACER)'. Nel settore energia 'CER' è ambiguo tra i due istituti."
+    applies_to: [cer_signal, "out_of_scope_mvp.cer_dlgs_134_2024"]

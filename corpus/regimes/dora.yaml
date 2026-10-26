@@ -1,0 +1,36 @@
+# ============================================================================
+# Regime: DORA (Reg. UE 2022/2554) — ROUTING ONLY
+# ============================================================================
+# STATUS v0.1.0: questo file NON contiene ancora logica di categorizzazione.
+# Quando una domanda di disambiguazione instrada qui (dora == yes), il decision
+# engine applica l'override dichiarato nel settore (massive_disapplication: il
+# regime NIS e' disapplicato salvo l'art. 7 c. 1 — registrazione) e rinvia alla
+# voce del catalogo eccezioni. Modellazione completa rinviata a v0.2.
+#
+# Voce del catalogo eccezioni corrispondente (classe: GESTITO / massive_disapplication):
+#   "DORA — entita' finanziaria ex Reg. UE 2022/2554, esonero NIS parziale".
+# Cfr. KB: [[concepts/Coordinamento DORA-NIS]].
+#
+# CHIUSO (DIV-P1, v0.2.1): l'elenco puntuale degli esoneri DORA (art. 7 c. 6 referente
+# CSIRT, art. 16 c. 13 esonero da c. 3 lett. b) e art. 17, art. 20 c. 6 elencazione e
+# categorizzazione — Det. piattaforma 127437/2026) e' stato riconciliato verbatim sul
+# testo ufficiale (PDF firmato detacn_piattaformanis_251218-v9_signed). Ogni esonero
+# reca "e' fatta salva l'adesione a tali previsioni su base volontaria". Cfr. callout
+# verificati nei nodi KB [[concepts/Coordinamento DORA-NIS]] e nodo source piattaforma.
+
+meta:
+  regime_id: dora
+  status: routing_only_v0_1
+  routing_effect: massive_disapplication
+  exceptions_catalog_entry: dora_massive_disapplication
+  residual_nis_obligation: "art. 7 c. 1 D.Lgs. 138/2024 (registrazione su piattaforma ACN)"
+  referenced_by:
+    - "wizard/wizard__disambiguation.yaml#questions.dora"
+    - "sectors/sectors__cloud_computing.yaml#overrides"
+    - "sectors/sectors__energia_elettrica.yaml#overrides"
+  citations:
+    - dlgs_138_2024_art_3_c_14
+    - det_piattaforma_127437_2026_art_7_c_6
+    - det_piattaforma_127437_2026_art_16_c_13
+    - det_piattaforma_127437_2026_art_20_c_6
+  open_points: []

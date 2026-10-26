@@ -1,0 +1,23 @@
+# ============================================================================
+# Regime: PSNC (Perimetro di Sicurezza Nazionale Cibernetica) — ROUTING ONLY
+# ============================================================================
+# STATUS v0.1.0: questo file NON contiene ancora logica di categorizzazione.
+# Quando una domanda di disambiguazione instrada qui (psnc == yes), il decision
+# engine applica l'override dichiarato nel settore (category_override: servizi
+# PSNC categorizzati "alto" d'ufficio) e rinvia alla voce del catalogo eccezioni.
+# La modellazione completa del regime e' rinviata a v0.2.
+#
+# Voce del catalogo eccezioni corrispondente (classe: GESTITO / category_override):
+#   "PSNC — inserimento formale nel Perimetro di Sicurezza Nazionale Cibernetica".
+# Cfr. KB: [[concepts/Soggetti PSNC-NIS]] (art. 1 c. 2-bis D.L. 105/2019).
+
+meta:
+  regime_id: psnc
+  status: routing_only_v0_1
+  routing_effect: category_override
+  exceptions_catalog_entry: psnc_category_override
+  referenced_by:
+    - "wizard/wizard__disambiguation.yaml#questions.psnc"
+    - "sectors/sectors__cloud_computing.yaml#overrides"
+    - "sectors/sectors__energia_elettrica.yaml#overrides"
+  citations: [det_acn_155238_2026_art_5, dl_105_2019_art_1_c_2_bis]

@@ -1,0 +1,57 @@
+# ============================================================================
+# Signal di cumulo con REGIMI PARALLELI — definizioni condivise
+# ============================================================================
+#
+# Un "signal di cumulo regime" segnala che il soggetto, oltre al regime NIS,
+# rientra (o potrebbe rientrare) in un regime parallelo che si applica IN
+# AGGIUNTA al NIS. NON altera il flusso del decision engine (quello lo fanno
+# i regimes/), si limita ad aggiungere una voce nel verdetto.
+#
+# DEFINIZIONE vs TRIGGER:
+# - qui vive la DEFINIZIONE (reasoning_trace, template, citazioni)
+# - il TRIGGER (quando il signal si attiva) resta nei file di settore/wizard
+#   (es. applies_to_categories, oppure activates_signals in una domanda)
+#
+# Il campo sector_context arricchisce il base_reasoning_trace quando il signal
+# e' attivato da un settore specifico. Il decision engine concatena:
+#   base_reasoning_trace + (sector_context[settore] se presente)
+# ============================================================================
+
+signals:
+  - id: l90_cumulo
+    kind: cumulative_regime
+    target_regime: legge_90_2024
+    message_template: l90_cumulo
+    base_reasoning_trace: "Il soggetto rientra molto probabilmente anche nel perimetro della Legge 90/2024 art. 1 c. 1 (cybersicurezza nazionale), che si cumula con il regime NIS senza sostituirlo. Verifica con consulente qualificato."
+    sector_context:
+      pubblica_amministrazione: " La concessione di unificare il ruolo di Punto di contatto NIS con il Referente per la cybersicurezza (art. 4 c. 8 Det. piattaforma 127437/2026) e' la prassi attesa per i soggetti pubblici in entrambi i perimetri."
+      energia_elettrica: " Per le societa' elettriche a controllo pubblico, l'appartenenza al perimetro L. 90 va verificata sulla natura del soggetto piu' che sul settore di attivita'."
+      cloud_computing: " Per i fornitori cloud a controllo pubblico, l'appartenenza al perimetro L. 90 dipende dalla natura pubblica del soggetto, non dal servizio cloud erogato."
+    citations: [l90_2024_art_1_c_1, det_piattaforma_127437_2026_art_4_c_8]
+
+# ----------------------------------------------------------------------------
+# PLACEHOLDER per regimi paralleli non modellati nel MVP v0.1.0
+# (presenti come signal informativi dove i settori li attivano via out_of_scope)
+# ----------------------------------------------------------------------------
+
+  # ID esplicito: salvaguardia DIMENSIONALE (deroga al consolidamento dimensionale
+  # di gruppo), da non confondere con l'esclusione di sicurezza nazionale
+  # NIS2 art. 2(7)-(8). Mai usare la sola parola "salvaguardia" in ID/label/copy.
+  - id: safeguard_dimensional_dpcm_221
+    kind: cumulative_regime
+    target_regime: dpcm_221_2024
+    status: placeholder_v0_2
+    message_template: safeguard_dimensional_dpcm_221
+    base_reasoning_trace: "Se il soggetto appartiene a un gruppo con imprese collegate o associate, potrebbe accedere alla clausola di salvaguardia dimensionale (DPCM 221/2024) che disapplica il consolidamento dimensionale di gruppo e, in casi di totale indipendenza dei sistemi e delle attivita', puo' farlo uscire dall'ambito NIS. La concessione e' discrezionale dell'Autorita' di settore: lo strumento puo' solo segnalare la possibilita'. Verifica con consulente qualificato."
+    # art. 3 c. 4 = deroga sostanziale (proporzionalita' / indipendenza dalle imprese
+    # collegate); art. 3 c. 12 = l'ACN applica la deroga di cui al c. 4 secondo i criteri
+    # ex art. 40 c. 1 (base del DPCM 221/2024). Funzioni distinte, entrambe citate.
+    citations: [dpcm_221_2024, dlgs_138_2024_art_3_c_4, dlgs_138_2024_art_3_c_12]
+
+  - id: cer_signal
+    kind: cumulative_regime
+    target_regime: dlgs_134_2024
+    status: placeholder_v0_2
+    message_template: cer_parallelo
+    base_reasoning_trace: "Il settore di attivita' del soggetto e' coperto anche dalla disciplina sui soggetti critici (Critical Entities Resilience, D.Lgs. 134/2024), che riguarda la sicurezza FISICA ed e' un regime parallelo e distinto dal NIS2 (sicurezza cyber). Da non confondere con le comunita' energetiche rinnovabili (CACER), altro significato dell'acronimo 'CER' nel settore energia. Lo strumento non valuta il rientro tra i soggetti critici; lo segnala per non confondere i regimi. Verifica con consulente qualificato."
+    citations: [dlgs_134_2024]

@@ -1,0 +1,25 @@
+scenario_id: E11
+name: pa_allegato_iv_inhouse_ambiguous
+description_it: >
+  Societa' in-house tramite il canale Allegato IV (individuazione governativa).
+  Non e' un rientro automatico: dipende da una determinazione ACN su proposta
+  dell'autorita' di settore (art. 3 c. 8 + art. 13). Non self-assessable ->
+  qualitative_signal_only / ambiguous. Per gli in-house il canale All. IV coincide
+  con il signal in-house (l'engine deduplica in rendering).
+corpus_version: 0.2.0
+sector: pubblica_amministrazione
+
+inputs:
+  psnc: no
+  dora: no
+  cloud_pa: no
+  categoria_pa: canale_allegato_iv
+  profilo_allegato_iv: societa_inhouse
+
+expected:
+  assessment_mode: qualitative_signal_only
+  verdict_outcome: ambiguous
+  signals: [allegato_iv_individuazione, cross_sector_inhouse_all_iv, l90_cumulo]
+  corpus_ref: "sectors/pubblica_amministrazione.yaml#allegato_iv_channel[profilo==societa_inhouse]"
+
+citations: [dlgs_138_2024_art_3_c_8, dlgs_138_2024_art_13, faq_a4_3_3, faq_a4_3_4]

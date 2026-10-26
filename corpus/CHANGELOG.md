@@ -1,0 +1,56 @@
+# Changelog — Corpus NIS2 Tool
+
+Tutte le modifiche rilevanti al corpus normativo (wizard, sectors, signals, regimes, fixtures) sono registrate in questo file.
+
+Formato ispirato a [Keep a Changelog](https://keepachangelog.com/it/1.1.0/); versioning [SemVer](https://semver.org/lang/it/) applicato al **contenuto del corpus** (non al codice dell'engine):
+- **major**: cambia il contratto dati letto dall'engine in modo incompatibile.
+- **minor**: nuove domande del questionario o nuovi campi di schema retro-compatibili.
+- **patch**: correzioni di citazioni/testo senza modifiche di schema.
+
+## [0.2.1] — 2026-07-02 — Patch di attestazione: DIV-P1 chiusa (esoneri DORA)
+
+Patch di sole citazioni/testo (nessuna modifica di schema). Chiude la divergenza **DIV-P1** dopo la riconciliazione degli esoneri DORA sul testo ufficiale della Det. ACN 127437/2026 (PDF firmato `detacn_piattaformanis_251218-v9_signed`, ingerito e verificato verbatim).
+
+### Changed
+- **`regimes/dora.yaml`** — `open_points` svuotato (`[]`); intestazione APERTO (DIV-P1) → CHIUSO. `citations` passate da granularità di articolo (`det_piattaforma_127437_2026_art_20`) a granularità di comma verificata: `det_piattaforma_127437_2026_art_7_c_6` (esonero referente CSIRT), `_art_16_c_13` (esonero da c. 3 lett. b) e art. 17), `_art_20_c_6` (esonero elencazione/categorizzazione). Ogni comma reca "è fatta salva l'adesione a tali previsioni su base volontaria".
+- **`fixtures/E06_dora_massive_disapplication.yaml`** — `open_points: [DIV-P1]` → `[]`; `corpus_version` 0.2.0 → 0.2.1; `citations` allineate ai commi verificati; descrizione aggiornata.
+
+### Notes
+- Retag doppio (ADR 0006): i callout DIV-P1 nei nodi KB `[[sources/Determinazione ACN piattaforma e procedure - 2026-04-13]]` e `[[concepts/Coordinamento DORA-NIS]]` sono stati convertiti da `> [!warning]` APERTO a `> [!note]` verificato, con lo stesso set di commi. Il `source_path` del nodo piattaforma è stato agganciato al PDF firmato reale.
+- Contesto documentale e checklist ingest estesa in `docs/decisions/0007-*.md`.
+
+## [0.2.0] — 2026-07-02 — Patch coordinato KB↔corpus
+
+Introduzione del vocabolario `verdict_outcome`, della domanda condizionale PUN, dei file di routing dei regimi e del set di fixtures golden. Modifiche allineate con le attestazioni normative della KB (vedi `docs/decisions/`).
+
+### Added
+- **B1** — Campo `verdict_outcome` (`likely_in_scope` | `likely_out_of_scope` | `ambiguous`) su tutte le regole che dichiarano un esito: `qualification_rules`, `out_of_scope_mvp`, `multi_regime_intersection`, `allegato_iv_channel`. L'engine copia il valore senza inferenza. Vincoli fissi: `out_of_scope`→`likely_out_of_scope`; `categorical_assessment` in-scope→`likely_in_scope`; `escalate_to_advisor`→`ambiguous`; `qualitative_signal_only` caso per caso (vedi ADR DIV-S2).
+- **B2** — Domanda condizionale `registrato_pun` in `wizard/wizard__energia_elettrica.yaml`, visibile solo se la tipologia elettrica (principale o ulteriore) è `gestore_punti_ricarica`. Mapping esiti: `si`→`categorical_assessment`/`likely_in_scope` (provvisorio); `no`→`qualitative_signal_only`/`likely_out_of_scope` (A1.1.a.3 "non rientra automaticamente", non esclusione categoriale); `non_so`→`qualitative_signal_only`/`ambiguous` (vedi ADR DIV-C1).
+- **B4** — File di routing dei regimi `regimes/psnc.yaml`, `regimes/dora.yaml`, `regimes/cloud_pa.yaml` (`status: routing_only_v0_1`). Non contengono logica di categorizzazione: dichiarano `routing_effect` e la voce del catalogo eccezioni. `dora.yaml` porta `open_points: [DIV-P1]` (elenco esoneri DORA da riconciliare sul testo ufficiale).
+- **Fixtures** — 15 scenari golden congelati in `fixtures/` (E01–E15), destinazione futura `packages/engine/tests/fixtures/`. Ogni file: `corpus_version`, input serializzati con ID reali del wizard, `expected` (`assessment_mode` + `verdict_outcome`), citation ID del corpus.
+
+### Changed
+- **B3** — Patch di citazioni:
+  - `dl_105_2019_art_1` → `dl_105_2019_art_1_c_2_bis` (granularità di comma attestata in KB `[[concepts/Soggetti PSNC-NIS]]`), in `wizard__disambiguation.yaml` e `sectors__energia_elettrica.yaml`.
+  - Giurisdizione/stabilimento principale cloud: `dlgs_138_2024_art_5` come riferimento primario (recepimento italiano, art. 5 c. 2), `nis2_art_26` come riferimento unionale secondario; `verdict_outcome: ambiguous`.
+- **B5** — Rinominato il signal `safeguard_clause_signal` → `safeguard_dimensional_dpcm_221` (id, message_template, copy): "clausola di salvaguardia dimensionale" (DPCM 221/2024), da non confondere con l'esclusione di sicurezza nazionale NIS2 art. 2(7)-(8). Mai la sola parola "salvaguardia" in ID/label/copy.
+- **B6** — Riscritto il copy di `cer_signal` e di `out_of_scope_mvp.cer_dlgs_134_2024`: mai l'acronimo nudo "CER"; resa esplicita la disambiguazione tra soggetti critici (D.Lgs. 134/2024, Critical Entities Resilience) e comunità energetiche rinnovabili (CACER). Aggiunto blocco `copy_constraints` (`cer_cacer_disambiguation`) in `sectors__energia_elettrica.yaml`.
+
+### Notes
+- Le decisioni di modellazione sono documentate in `docs/decisions/` (ADR DIV-S1, DIV-S2, DIV-C1, CER/CACER, Dir 2019/944, cross-walk retag).
+- **APERTO (DIV-P1)**: l'elenco puntuale degli esoneri DORA (art. 7 c. 6, art. 16 c. 13, art. 20 c. 6) resta da riconciliare sul testo ufficiale prima della codifica con granularità di comma.
+
+## [0.1.0] — 2026-07-02 — Stato pre-patch (baseline)
+
+Prima versione tracciata del corpus. Stato di fatto al momento dell'introduzione di `VERSION`/`CHANGELOG`, prima del patch coordinato KB↔corpus.
+
+### Contenuto
+- 3 settori pilota MVP: `cloud_computing`, `energia_elettrica`, `pubblica_amministrazione`.
+- Blocco comune di disambiguazione di regime a 3 domande binarie (`psnc`, `dora`, `cloud_pa`) in `wizard/wizard__disambiguation.yaml`.
+- `qualification_rules` per settore in `sectors/sectors__*.yaml`.
+- Signal di cumulo con regimi paralleli (`l90_cumulo`) e placeholder `safeguard_clause_signal`, `cer_signal` in `signals/signals__cumulative_regimes.yaml`.
+- Signal cross-settore in `signals/signals__cross_sector.yaml`.
+
+### Lacune note (rispetto al design a 5 livelli)
+- Mancano le cartelle `regimes/`, `rules/`, `categorization/`, `docs/`, `fixtures/`.
+- I regimi (`psnc`, `dora`, `cloud_pa`) sono referenziati da `reference: regimes/*.yaml` ma i file non esistono ancora.
