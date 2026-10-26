@@ -33,7 +33,7 @@ Le organizzazioni (diverse dalle PA) devono svolgere un'**autovalutazione in tre
 
 #### PDA2 — Dimensione (Raccomandazione 2003/361/CE)
 
-- **PDA2.1** — Se l'organizzazione **supera i massimali di micro/piccola** (cioè ≥50 dipendenti **o** fatturato/bilancio ≥10M€) → procedere a PDA3.
+- **PDA2.1** — Se l'organizzazione **supera i massimali di micro/piccola** ed è quindi media o grande impresa ai sensi della Racc. 2003/361/CE → procedere a PDA3. La FAQ non esplicita qui la regola di superamento (≥50 effettivi, oppure fatturato e bilancio entrambi oltre 10 M€): cfr. [[sources/FAQ NIS - Ambito]] `AMB.DI.1` e [[concepts/Size-cap rule]].
 - **PDA2.2** — *Eccezione* di **identificazione indipendentemente dalla dimensione**: prestatori di servizi fiduciari, gestori registri TLD, fornitori DNS, fornitori servizi registrazione nomi di dominio → **registrazione obbligatoria a prescindere dalla dimensione**, processo interrotto.
 - **PDA2.3** — Salvo PDA2.2, micro/piccole imprese → fuori ambito, processo interrotto.
 - Per il calcolo dimensionale di soggetti con imprese collegate/associate o appartenenti a gruppo: vedi **art. 6 par. 2** dell'allegato alla Racc. 2003/361/CE (cfr. [[sources/FAQ NIS - Ambito]] AMB.DI.1..3).

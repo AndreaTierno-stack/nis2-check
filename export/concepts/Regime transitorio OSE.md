@@ -27,7 +27,7 @@ OSE identificati ex D.Lgs. 65/2018 nei settori NIS1: energia, trasporti, banche,
 
 ## Collegamenti
 
-- [[D.Lgs. 65/2018]] (NIS1) — abrogato dal D.Lgs. 138/2024
+- [[D.Lgs. 65-2018]] (NIS1) — abrogato dal D.Lgs. 138/2024
 - [[concepts/Specifiche tecniche di base]]
 - [[concepts/Misure di sicurezza di base]]
 - [[concepts/Regime transitorio telco]] — analogo per gli operatori di telecomunicazioni

@@ -59,7 +59,7 @@ I soggetti NIS **non sono tenuti** a indicare attività o servizi per macro-aree
 
 ## Eccezioni
 
-- I servizi soggetti al [[D.L. 105/2019 (perimetro)]] sono **esclusi dal procedimento di categorizzazione ordinaria** e ricevono d'ufficio la categoria "impatto alto".
+- I servizi soggetti al [[D.L. 105-2019 (perimetro)]] sono **esclusi dal procedimento di categorizzazione ordinaria** e ricevono d'ufficio la categoria "impatto alto".
 - I soggetti che hanno già classificato dati e servizi ex Decreto Direttoriale ACN n. 21007/24 (cloud PA) **applicano quel modello** in luogo delle macro-aree NIS.
 
 ## Collegamenti

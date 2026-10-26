@@ -40,7 +40,7 @@ L'unica differenza tra i due modelli è che la **Logistica** scende da basso a m
 
 ## Regola automatica per il perimetro PSNC
 
-L'art. 5 della determinazione dispone che alle attività e ai servizi a cui si applicano gli **obblighi del [[D.L. 105/2019 (perimetro)]]** è **automaticamente attribuita la categoria "impatto alto"** — e tali servizi sono **esclusi dal procedimento ordinario** di categorizzazione (art. 3).
+L'art. 5 della determinazione dispone che alle attività e ai servizi a cui si applicano gli **obblighi del [[D.L. 105-2019 (perimetro)]]** è **automaticamente attribuita la categoria "impatto alto"** — e tali servizi sono **esclusi dal procedimento ordinario** di categorizzazione (art. 3).
 
 ## Coordinamento con la classificazione cloud PA
 

@@ -33,7 +33,7 @@ tags: [NIS2, ACN, categorizzazione, macro-aree, rilevanza, Det. 155238/2026]
 - **Deroga motivata** (art. 3 c. 3): il soggetto può indicare una categoria di rilevanza **diversa da quella pre-assegnata** sulla base di una propria valutazione documentata dell'impatto (la documentazione va conservata).
 - **Macro-aree non applicabili**: il soggetto NIS non è tenuto a indicare attività/servizi per macro-aree che non svolge.
 - **Coordinamento con la classificazione cloud PA** (art. 4): i soggetti che hanno già svolto la classificazione ex Decreto Direttoriale ACN n. 21007/24 del 27/06/2024 (cloud PA) **applicano quel modello in luogo del modello NIS**. Razionale: evitare duplicazione di sforzi per le PA cloud-mature.
-- **Coordinamento con il perimetro PSNC** (art. 5): alle attività e servizi soggetti agli obblighi del [[D.L. 105/2019 (perimetro)]] è **automaticamente attribuita la categoria "impatto alto"** e tali servizi sono **esclusi dal procedimento ordinario** di categorizzazione (art. 3).
+- **Coordinamento con il perimetro PSNC** (art. 5): alle attività e servizi soggetti agli obblighi del [[D.L. 105-2019 (perimetro)]] è **automaticamente attribuita la categoria "impatto alto"** e tali servizi sono **esclusi dal procedimento ordinario** di categorizzazione (art. 3).
 - **Disposizioni finanziarie**: oneri a carico dell'Autorità nazionale competente NIS (art. 10 decreto NIS).
 - **Applicazione**: dal **1° maggio 2026**.
 - **Numero di protocollo**: **Det. ACN 155238/2026**.

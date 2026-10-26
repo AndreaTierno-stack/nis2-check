@@ -16,7 +16,7 @@ In Italia la cybersicurezza dei soggetti pubblici e privati è disciplinata da *
 ## I cinque regimi
 
 ### 1. PSNC — Perimetro di Sicurezza Nazionale Cibernetica
-- **Atto base**: [[D.L. 105/2019 (perimetro)]] (convertito L. 133/2019) + DPCM attuativi.
+- **Atto base**: [[D.L. 105-2019 (perimetro)]] (convertito L. 133/2019) + DPCM attuativi.
 - **Ambito soggettivo**: soggetti che svolgono **funzioni essenziali per lo Stato** o erogano servizi la cui interruzione comprometterebbe sicurezza nazionale, ordine pubblico, difesa.
 - **Logica regolatoria**: identificazione **autoritativa** (decreto del Presidente del Consiglio); elenco classificato; obblighi tecnici stringenti (notifica incidenti golden power, ispezioni, scrutinio tecnologico CVCN).
 - **Numero soggetti**: ristretto (poche centinaia, classificato).
@@ -45,7 +45,7 @@ In Italia la cybersicurezza dei soggetti pubblici e privati è disciplinata da *
 - **Logica regolatoria**: notifica incidenti scaglionata **24h+72h** (no report 1 mese, cfr. [[concepts/Notifica di incidente significativo]] § disallineamento); adeguamento a segnalazioni vulnerabilità ACN entro 15 gg (art. 2); designazione del [[concepts/Referente per la cybersicurezza (L. 90-2024)|referente per la cybersicurezza]] (art. 8 c. 2) all'interno di una struttura interna con 7 funzioni (art. 8 c. 1); [[concepts/Elementi essenziali di cybersicurezza (procurement)|elementi essenziali di cybersicurezza]] nei contratti pubblici ICT strategici (art. 14); sanzioni € 25-125k per reiterata inosservanza (art. 1 c. 6, allineate alle PA NIS).
 - **Art. 15-bis — Disposizione di coordinamento (chiave)**: *"Ogni riferimento al D.Lgs. 65/2018 è da intendersi alle corrispondenti disposizioni di cui al D.Lgs. 138/2024, a decorrere dalla data in cui le stesse acquistano efficacia."* → risolve la transizione NIS1 → NIS2 nei rinvii della L. 90.
 - **Numero soggetti**: limitato (~200-300), parzialmente sovrapposto con PA NIS (Allegato III) — ma per la maggioranza dei soggetti L. 90 ∩ NIS, l'art. 1 c. 7 lett. a) **disapplica la L. 90** a favore del solo NIS.
-- **Capo II (artt. 16-23)** — non strettamente "regime di compliance", ma rilevante per consulenza GRC: riforma reati informatici (615-ter et seq.) con aumento pene + **estorsione informatica** (nuovo 629 c. 3 c.p., 6-12 anni) + estensione [[D.Lgs. 231/2001]] all'aggiornato catalogo cyber-criminale. Per dettaglio: source L. 90 §§ Capo II.
+- **Capo II (artt. 16-23)** — non strettamente "regime di compliance", ma rilevante per consulenza GRC: riforma reati informatici (615-ter et seq.) con aumento pene + **estorsione informatica** (nuovo 629 c. 3 c.p., 6-12 anni) + estensione [[D.Lgs. 231-2001]] all'aggiornato catalogo cyber-criminale. Per dettaglio: source L. 90 §§ Capo II.
 
 ## Matrice di intersezione
 

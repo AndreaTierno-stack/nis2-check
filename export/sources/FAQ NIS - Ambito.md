@@ -126,6 +126,8 @@ Se entrambi i parametri contabili sono superati **oppure** se il criterio degli 
 - 50 ≤ x < 250 dipendenti, fatturato + bilancio ≤ 10 M€ → **media** (effettivi limita).
 - ≥250 dipendenti, fatturato + bilancio ≤ 10 M€ → **grande** (effettivi limita).
 
+> *Nota dell'agente:* l'esempio 4 è riportato come nel testo della FAQ ("un fatturato di almeno 50 milioni e un bilancio di almeno 43 milioni, ricade nella categoria delle grandi imprese"). La definizione di media impresa nella stessa FAQ usa invece "non superiore a 50 milioni" / "non superiore a 43 milioni": un soggetto con valori esattamente pari a 50 M€ e 43 M€ sarebbe media secondo la definizione e grande secondo l'esempio. Ambiguità al confine, da risolvere sul testo della Racc. 2003/361/CE.
+
 **Calcolo per gruppi**: art. 6 par. 2 Racc. 2003/361/CE — consolidamento con imprese collegate/associate. Possibile **deroga** ex art. 3 c. 4 decreto NIS via [[concepts/Clausola di salvaguardia]] DPCM 221/2024.
 
 > Nota della FAQ: l'impostazione segue anche l'**Autorità nazionale competente NIS belga**; le interpretazioni di fonti non ufficiali non saranno prese in considerazione.

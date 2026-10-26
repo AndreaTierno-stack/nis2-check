@@ -40,7 +40,7 @@ Restano applicabili le specifiche regole tecniche del PSNC, lex specialis sui si
 
 ## Collegamenti
 
-- [[D.L. 105/2019 (perimetro)]]
+- [[D.L. 105-2019 (perimetro)]]
 - [[concepts/Categorizzazione dei soggetti]]
 - [[concepts/Categorie di rilevanza]]
 - [[concepts/Clausola di salvaguardia]]

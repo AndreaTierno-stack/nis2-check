@@ -30,8 +30,8 @@ Determinazione del Direttore generale ACN n. 379907 del 19 dicembre 2025, adotta
   - **Misure di sicurezza di base**: specifiche per gli obblighi degli artt. 23 e 24, sviluppate **in accordo al Framework Nazionale** per la Cybersecurity e la Data Protection (edizione 2025) e organizzate in funzioni, categorie, sottocategorie e requisiti.
   - **Incidenti significativi di base**: specifiche che descrivono gli incidenti significativi ex art. 25.
   - **Sistemi informativi e di rete rilevanti**: sistemi la cui compromissione comporterebbe un **impatto significativo su riservatezza, integrità, disponibilità** delle attività e dei servizi NIS.
-  - **Soggetti PSNC-NIS**: soggetti ex art. 1 c. 2-bis del [[D.L. 105/2019 (perimetro)]] che sono anche soggetti NIS.
-  - **Operatori di servizi essenziali (OSE)**: soggetti già identificati ai sensi del [[D.Lgs. 65/2018]] (NIS1) prima dell'entrata in vigore del decreto NIS.
+  - **Soggetti PSNC-NIS**: soggetti ex art. 1 c. 2-bis del [[D.L. 105-2019 (perimetro)]] che sono anche soggetti NIS.
+  - **Operatori di servizi essenziali (OSE)**: soggetti già identificati ai sensi del [[D.Lgs. 65-2018]] (NIS1) prima dell'entrata in vigore del decreto NIS.
   - **Operatori telco**: soggetti che forniscono reti pubbliche di comunicazione elettronica o servizi accessibili al pubblico ex D.Lgs. 259/2003 con utenza ≥ 1% della base nazionale (Osservatorio AGCom) o ≥ 1 milione di utenti.
 - **Termini di adozione** (art. 3):
   - Adozione delle **misure di sicurezza di base** (all. 1 e 2): **18 mesi** dalla ricezione della comunicazione di inserimento nell'elenco dei soggetti NIS.

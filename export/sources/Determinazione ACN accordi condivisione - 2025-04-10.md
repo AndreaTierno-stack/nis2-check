@@ -8,6 +8,8 @@ url: https://www.acn.gov.it/portale/nis/normativa
 author: Direttore generale ACN — Bruno Frattasi
 date_published: 2025-04-10
 date_ingested: 2026-04-29
+protocol_number: Det. ACN 136118/2025
+protocol_source: attribuzione da pagina ufficiale ACN "La normativa NIS" ([[sources/La normativa NIS - Pagina ACN]], voce "Determinazione ACN 136118 del 10 aprile 2025 – Notifica degli accordi di condivisione delle informazioni sulla sicurezza informatica di cui all'articolo 17 del decreto NIS"); il testo firmato non stampa il numero di protocollo e riporta "data del protocollo"
 tags: [NIS2, ACN, accordi condivisione, information sharing, piattaforma]
 ---
 
