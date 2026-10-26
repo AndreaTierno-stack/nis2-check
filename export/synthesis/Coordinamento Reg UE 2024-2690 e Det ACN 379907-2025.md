@@ -118,7 +118,7 @@ Per il NIS2 Tool **pilot Cloud**, lo strumento deve poter verificare il rientro 
 
 ### Avvertenza testuale che il Tool dovrebbe esporre nel verdetto Cloud
 
-> *Suggerimento di copy* (italiano, semplice, non legalese; versione riformulata in sessione collaborativa con Andrea, 2026-05-19, alla luce di Wave 6 Sessione 3):
+> *Suggerimento di copy* (italiano, semplice, non legalese; versione riformulata in sessione collaborativa con l'autore, 2026-05-19, alla luce di Wave 6 Sessione 3):
 >
 > "Sulla base degli input forniti, l'analisi suggerisce che il soggetto rientri nel perimetro NIS2 italiano come **fornitore di servizi di cloud computing**. Verifica obbligatoria con consulente qualificato prima di assumere conclusioni operative.
 >
@@ -166,10 +166,10 @@ Per il NIS2 Tool **pilot Cloud**, lo strumento deve poter verificare il rientro 
 
 ## Action items
 
-- **Per Andrea — NIS2 Tool**: incorporare l'avvertenza testuale (sezione *Conseguenze operative*) nel verdetto del pilot Cloud. Far rivedere a un consulente GRC esterno prima del go-live (gate pre-launch già previsto nel brief).
+- **Per l'autore — NIS2 Tool**: incorporare l'avvertenza testuale (sezione *Conseguenze operative*) nel verdetto del pilot Cloud. Far rivedere a un consulente GRC esterno prima del go-live (gate pre-launch già previsto nel brief).
 - **Per la wiki**: monitorare se ACN o ENISA pubblicheranno guidance sulla coordinazione Reg. UE 2024/2690 / specifiche nazionali. Aggiornare questo nodo quando disponibile.
 - **Per la wiki**: ✅ ingest TIG ENISA v1.0 eseguito in Wave 6 Cluster B Sessione 1 ([[sources/ENISA Technical Implementation Guidance v1.0 - 2025-06-26]]); le risposte alle Q1-Q4 sono nel nodo follow-up [[synthesis/Risposta TIG ENISA alle Q1-Q4 della coordinamento UE-IT]]. Tutte e 4 le Q sono **ristrette** (non chiuse interamente per il vincolo di soft-law della TIG), confermando la tesi 3a + 3c.
-- **Per Andrea — GRC personale**: il regolamento UE in oggetto è un caso pulito di **regime ibrido** (atto UE direttamente applicabile + recepimento nazionale con margine di dettaglio). È uno strumento didattico ideale per spiegare il concetto in eventuali contributi LinkedIn o materiale di studio per la certificazione ISO 27001 LA (dove la dimensione "interazione tra norme" è ricorrente).
+- **Per l'autore — GRC personale**: il regolamento UE in oggetto è un caso pulito di **regime ibrido** (atto UE direttamente applicabile + recepimento nazionale con margine di dettaglio). È uno strumento didattico ideale per spiegare il concetto in eventuali contributi LinkedIn o materiale di studio per la certificazione ISO 27001 LA (dove la dimensione "interazione tra norme" è ricorrente).
 
 ## Collegamenti
 

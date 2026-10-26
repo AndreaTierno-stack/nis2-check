@@ -208,9 +208,9 @@ Operativamente, il **piano di trattamento del rischio** (board-approved sotto il
 
 | Per chi | Action | Priorità |
 |---|---|---|
-| Andrea — NIS2 Tool | Mantenere l'avvertenza testuale pilot Cloud come è (review post consulente GRC) | Alta |
-| Andrea — wiki | Aggiornare Q1-Q4 in [[synthesis/Coordinamento Reg UE 2024-2690 e Det ACN 379907-2025]] con nota di rinvio a questo nodo | Alta (eseguito in questa sessione) |
-| Andrea — GRC personale | Per il proprio percorso GRC: dimestichezza con la TIG = vantaggio competitivo (è il documento operativo più recente di interpretazione art. 21 NIS2 a livello UE) | Media |
+| Autore — NIS2 Tool | Mantenere l'avvertenza testuale pilot Cloud come è (review post consulente GRC) | Alta |
+| Autore — wiki | Aggiornare Q1-Q4 in [[synthesis/Coordinamento Reg UE 2024-2690 e Det ACN 379907-2025]] con nota di rinvio a questo nodo | Alta (eseguito in questa sessione) |
+| Autore — GRC personale | Per il proprio percorso GRC: dimestichezza con la TIG = vantaggio competitivo (è il documento operativo più recente di interpretazione art. 21 NIS2 a livello UE) | Media |
 | Wiki | Monitorare versioni future della TIG (v1.x, v2.0) — l'introduzione la dichiara *living document* | Media |
 | Wiki | Considerare ingest del **Compendium of Risk-Management Frameworks ENISA** (citato dalla TIG cap. 2.1, nota 14) — outlook GRC | Bassa |
 
@@ -233,4 +233,4 @@ Operativamente, il **piano di trattamento del rischio** (board-approved sotto il
 
 - *Sintesi dell'agente:* questo nodo dimostra il **valore del workflow iterativo** della wiki: una synthesis (Coordinamento UE-IT) pone 4 open question esplicite, un successivo ingest mirato (TIG ENISA) le restringe sistematicamente, e il risultato è una posizione interpretativa **più solida da portare al consulente GRC esterno** per la review pre-launch del NIS2 Tool. La domanda al consulente non è più "Cosa fare di Q1-Q4?", è "*Confermi le risposte ristrette? Hai precedenti applicativi italiani che chiudano i punti residui?*". È una domanda di livello superiore.
 - *Sintesi dell'agente:* la **lezione architetturale** è che gli ingest "reattivi" (su domande aperte di synthesis precedenti) producono valore superiore rispetto agli ingest "esaustivi" (lettura del documento intero senza una domanda di guida). La TIG ENISA letta in modo orientato a Q1-Q4 produce questo nodo in poche ore; letta in modo esaustivo richiederebbe giorni.
-- *Sintesi dell'agente:* per la transizione GRC di Andrea, questo nodo è **anche un asset didattico**: dimostra come si conduce un'analisi di coordinamento UE/IT su norma cyber. È riusabile come case study in materiale di studio per ISO 27001 LA + per contributi pubblici (LinkedIn, blog, articoli) sulla materia NIS2.
+- *Sintesi dell'agente:* per una transizione da software engineering a GRC, questo nodo è **anche un asset didattico**: dimostra come si conduce un'analisi di coordinamento UE/IT su norma cyber. È riusabile come case study in materiale di studio per ISO 27001 LA + per contributi pubblici (LinkedIn, blog, articoli) sulla materia NIS2.

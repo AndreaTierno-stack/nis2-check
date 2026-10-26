@@ -164,13 +164,13 @@ FAQ ACN sui **ruoli organizzativi** e sulle **procedure operative** sul Portale 
 
 ## Concetti collegati
 
-- [[concepts/Punto di contatto NIS]]
-- [[concepts/Referente CSIRT]]
+- [[entities/Punto di contatto NIS]]
+- [[entities/Referente CSIRT]]
 - [[concepts/Organi di amministrazione e direttivi]]
-- [[concepts/Notifica incidente significativo]]
+- [[concepts/Notifica di incidente significativo]]
 - [[concepts/Portale dei Servizi ACN]]
 - [[concepts/Piattaforma digitale ACN]]
-- [[concepts/Rappresentante nell'Unione]]
+- [[entities/Rappresentante NIS in Italia]]
 - [[concepts/Sistemi informativi e di rete]]
 
 ## Note dell'agente

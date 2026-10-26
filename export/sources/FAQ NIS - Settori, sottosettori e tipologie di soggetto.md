@@ -278,14 +278,14 @@ Reg. 178/2002/CE (D.Lgs. 190/2006): imprese alimentari che si occupano di distri
 
 ## Concetti collegati
 
-- [[concepts/Settori altamente critici]]
-- [[concepts/Settori critici]]
+- [[concepts/Settori altamente critici e critici|Settori altamente critici]]
+- [[concepts/Settori altamente critici e critici|Settori critici]]
 - [[concepts/Tipologie di soggetto]]
 - [[concepts/Soggetti essenziali e importanti]]
 - [[concepts/Servizi gestiti]]
 - [[concepts/Servizi di sicurezza gestiti]]
 - [[concepts/Pubbliche amministrazioni NIS]]
-- [[concepts/Identificazione soggetti NIS]]
+- [[concepts/Identificazione dei soggetti NIS]]
 - [[concepts/Imprese collegate (art. 3 c. 10)]]
 - [[concepts/Eccezioni di prevalenza]]
 - [[concepts/Giurisdizione nazionale]]

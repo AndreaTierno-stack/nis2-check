@@ -179,9 +179,9 @@ Le sanzioni € 25-125k per la PA sono identiche per i 3 regimi (NIS art. 38 c. 
 
 ## Action items
 
-- **Per Andrea — wiki**: monitorare emanazione DPCM art. 11 + DPCM art. 14 + determinazione ACN tassonomia incidenti L. 90. Quando disponibili, ingest come fonti dedicate.
-- **Per Andrea — consulenza GRC**: usare questa synthesis come asset di posizionamento. La distinzione "*chi è in NIS, chi in L. 90, chi in entrambe*" è un test diagnostico immediato per identificare il livello di seniority del consulente. Pochi junior la sanno applicare correttamente.
-- **Per Andrea — modello 231 dei clienti**: indipendentemente dal regime NIS/L. 90, verificare aggiornamento del modello 231 con il pacchetto cyber-criminale aggiornato dal Capo II L. 90 (estorsione informatica + 635-quater.1 nuovo + aumento quote 24-bis D.Lgs. 231).
+- **Per l'autore — wiki**: monitorare emanazione DPCM art. 11 + DPCM art. 14 + determinazione ACN tassonomia incidenti L. 90. Quando disponibili, ingest come fonti dedicate.
+- **Per l'autore — consulenza GRC**: usare questa synthesis come asset di posizionamento. La distinzione "*chi è in NIS, chi in L. 90, chi in entrambe*" è un test diagnostico immediato per identificare il livello di seniority del consulente. Pochi junior la sanno applicare correttamente.
+- **Per l'autore — modello 231 dei clienti**: indipendentemente dal regime NIS/L. 90, verificare aggiornamento del modello 231 con il pacchetto cyber-criminale aggiornato dal Capo II L. 90 (estorsione informatica + 635-quater.1 nuovo + aumento quote 24-bis D.Lgs. 231).
 
 ## Collegamenti
 
