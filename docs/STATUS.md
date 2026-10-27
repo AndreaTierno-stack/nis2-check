@@ -4,7 +4,7 @@
 > (data, stato sintetico, punti aperti, una riga di log). Le regole stabili vivono nelle
 > Custom Instructions del Project e in CLAUDE.md — qui solo lo stato.
 
-**Aggiornato**: 2026-10-26 · sessione "T0 fissato"
+**Aggiornato**: 2026-10-27 · sessione "T0 confermato"
 
 ## Stato sintetico
 
@@ -20,7 +20,8 @@
 
 Nota 2026-10-26: nessuna attività sui file tra il 2026-07-02 e il 2026-10-26. Report di riconciliazione completo nella sessione Claude del 2026-10-26.
 
-1. **FASE 0 — post LinkedIn di lancio KB**: CHIUSO 2026-10-26: post programmato (T0 = 2026-10-27). Link del post da aggiungere qui dopo la pubblicazione.
+1. **FASE 0 — post LinkedIn di lancio KB**: CHIUSO 2026-10-26: post programmato (T0 = 2026-10-27). Post: https://www.linkedin.com/posts/andrea-tierno-412b28182_nis2-cybersecurity-grc-ugcPost-7520512549063278593-lxNC
+   Pubblicato 2026-10-27 07:46. T0+7h: 51 impressioni, 22 utenti raggiunti, 2 reazioni, 0 commenti, 0 click sul link, 0 visite al profilo. Pubblico raggiunto: prevalentemente IT/software, livello base, nessun segnale GRC. Baseline follower: 88.
 2. **Caricamento export PK nel Project**: CHIUSO 2026-10-26: 72 nodi caricati nel Project e riallineati al commit eb1a192.
 3. **Identificazione e contatto reviewer GRC (ambiente corso ISO 27001)**: Decisione perimetro CHIUSA (ADR 0008). Contatto: non avviato, parte a engine verde sulle fixture.
 4. **Scaffolding monorepo + CI minimale** (dopo il punto 2). Poi kickoff coding v0.1.0.
@@ -32,12 +33,20 @@ Nota 2026-10-26: nessuna attività sui file tra il 2026-07-02 e il 2026-10-26. R
 10. Kickoff v0.2 (controlli): ritaggare a both i concept Misure di gestione del rischio cyber (citato da 23 nodi esportati), Clausole basate sul rischio, Approccio multi-rischio; oggi grc_personal e assenti dal Project Knowledge.
 11. Scaffolding v0.1.0, corpus 0.2.2 prima dell'engine: domanda dimension assente dal wizard (la logica deve seguire FAQ AMB.DI.1: effettivi più almeno un parametro contabile, salita di categoria); id tipo_partecipazione_pubblica inesistente (E14); riferimenti a file non prefissati; verdict_outcome {derived_from: override_routing} fuori vocabolario Verdict; granularità DORA negli override di settore (art. 20 nudo); corpus_version delle fixture; ambiguità v0.1.0 nel contatore stop-and-ingest.
 
+## Segnali GRC (T0 → 2027-01-05)
+
+Tipo di segnale: commento / connessione / citazione / richiesta / colloquio.
+
+| Data | Tipo di segnale | Profilo e ruolo | Fonte |
+|------|-----------------|-----------------|-------|
+
 ## Prossima milestone
 
 v0.1.0 in tre blocchi: corpus 0.3.0 (S1) → scaffold + CI (S2) → engine a fixture verdi (S3, 30-40h). A 8-10h/settimana osservate: fine gennaio / febbraio 2027. La review GRC terza parte a engine verde.
 
 ## Log sessioni recenti
 
+- 2026-10-27 · T0 confermato: post LinkedIn pubblicato 07:46, link e prime metriche (T0+7h) registrati al punto aperto 1; aperta la tabella Segnali GRC.
 - 2026-10-26 · T0 fissato al 27/10 (post programmato 07:45). Decisione ADR 0009 presa nel Project (override di regime → escalate_to_advisor + regimeRouting), da scrivere in S1.
 - 2026-10-26 · Fase 0 eseguita: git init + repo privati; riconciliazione stato; housekeeping e sweep KB; ADR 0008; README/LICENSE/DEC-005; de-personalizzazione; export_kb.py + export rigenerato; lint Size-cap rule da query; squash e pubblicazione nis2-knowledge-it; Project Knowledge caricato e riallineato. Residuo: post LinkedIn.
 - 2026-07-02 · Igiene raw/ (sweep 34 OK / 6 mismatch / 1 orfano archiviato), CLAUDE.md v2 confermato installato, 3 skill (6 file) rigenerate su corpus reale. Repoint 6 source_path morti → PDF firmati reali (vault pulito). Export PK generato in `export/`: 72 nodi (25 sources / 31 concepts / 10 entities / 6 synthesis), 0 link morti. DEC-002 annotato in ADR 0006. Regola STATUS.md aggiunta a CLAUDE.md. Residuo: caricamento manuale dei 72 file nel Project.
