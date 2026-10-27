@@ -21,7 +21,8 @@ Monorepo pnpm workspaces:
 
 ```
 nis2-check/
-  apps/web            → Next.js 14 App Router, TypeScript strict, TailwindCSS, shadcn/ui
+  apps/web            → Next.js 15.5 App Router (export statico), React 19, TypeScript strict, TailwindCSS 3, shadcn/ui
+                        (pin 15.5: la linea 14.x è fuori supporto, con CVE senza fix — S2, 2026-10-28)
   packages/engine     → funzione pura, zero dipendenze runtime, nessun I/O
     tests/fixtures/   → scenari golden E01–E15 (legati a corpus_version)
   packages/corpus     → loader YAML + schemi zod + corpus:validate

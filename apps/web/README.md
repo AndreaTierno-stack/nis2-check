@@ -1,6 +1,6 @@
 # @nis2-check/web
 
-Shell Next.js 14 (App Router, export statico) del wizard di pre-screening NIS2.
+Shell Next.js 15.5 (App Router, React 19, export statico) del wizard di pre-screening NIS2.
 Il wizard gira interamente nel browser: nessuna API route, nessuna persistenza,
 nessuna chiamata di rete a runtime oltre agli asset statici (CLAUDE.md, vincolo 7).
 
