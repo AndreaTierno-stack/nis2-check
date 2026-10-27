@@ -3,7 +3,7 @@ name: cloud_micro_out
 description_it: >
   Fornitore cloud di dimensione micro/piccola: esclusione dimensionale generale
   dall'ambito NIS2 (Racc. 2003/361/CE, art. 3 D.Lgs. 138/2024).
-corpus_version: 0.3.1
+corpus_version: 0.4.0
 sector: cloud_computing
 
 inputs:

@@ -5,7 +5,7 @@ description_it: >
   soggetto essenziale e' ricostruita dall'architettura del decreto, non da fonte
   puntuale gia' verificata: outcome qualitative_signal_only con qualifica_inferita
   essenziale (verdetto categoriale differito a v0.2). Signal di cumulo L. 90 attivo.
-corpus_version: 0.3.1
+corpus_version: 0.4.0
 sector: pubblica_amministrazione
 
 inputs:

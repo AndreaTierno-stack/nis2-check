@@ -6,7 +6,7 @@ description_it: >
   override model_substitution (modello Cloud PA in luogo del modello NIS).
   Esito atteso: escalate_to_advisor / ambiguous copiati dal meta del regime
   (ADR 0009), con regime_routing per Explainability e PDF.
-corpus_version: 0.3.1
+corpus_version: 0.4.0
 sector: cloud_computing
 
 inputs:

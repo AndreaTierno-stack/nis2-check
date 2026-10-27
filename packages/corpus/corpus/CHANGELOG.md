@@ -9,14 +9,31 @@ Formato ispirato a [Keep a Changelog](https://keepachangelog.com/it/1.1.0/); ver
 
 Ogni bump ha una voce in questo file; le fixture dichiarano `corpus_version` e si riallineano a ogni minor/major.
 
-## [Unreleased] — verso 0.4.0 (S2, prima versione validata dallo schema zod)
+## [0.4.0] — 2026-10-28 — Contratto formalizzato: schema zod, `visible_if` strutturata (ADR 0010), input delle regole PA
 
-Non ancora rilasciata: `corpus:validate` riporta 2 violazioni della grammatica di `visible_if`, in attesa di decisione dell'autore (vedi `docs/STATUS.md`). Il bump a 0.4.0 e il riallineamento delle fixture seguono la decisione.
+Prima versione del corpus validata dallo schema zod (`pnpm corpus:validate`, S2). Minor: formalizza il contratto letto dall'engine, cambia la forma delle condizioni di visibilità del questionario (ADR 0010) e delle fixture rispetto a 0.3.1, aggiunge l'ID `tipo_partecipazione_pubblica` al follow-up cloud (introdotto in 0.3.1) e le citazioni dimensionali. Nessun `verdict_outcome` né `assessment_mode` atteso cambia.
+
+Nota sul bump precedente: 0.3.1 fu tenuto patch, su decisione dell'autore, pur con argomenti per minor (forma di `regime_routing` nelle fixture, ID nuovo su una domanda esistente). Questa versione consolida quei cambiamenti in una minor.
+
+### Added
+- **Schema zod del corpus** (`packages/corpus/src/schemas/`): forma di settori, wizard, regimi, signal e fixture; chiavi formalizzate `standard_identification_questions`, `phase`, `visibility_citations`, `meta.assessment_mode` / `meta.verdict_outcome` dei regimi, `residual_nis_obligation` nullable, `regime_routing` come lista nelle fixture (chiude STATUS 12.6). Invarianti elencati con il loro ADR in `docs/ARCHITECTURE.md` §3.
+- **Invariante nuovo `E_RULE_INPUT`**: ogni input letto da una regola (`condition`, `trigger`, `condition_ref`, `multi_regime_intersection`) esiste nel wizard del settore o nel blocco comune, con valore tra le sue opzioni. Al primo controllo falliva su `categoria` e `sottotipo` della PA (STATUS 17).
+- **Invariante `E_DIMENSION_CITATIONS`**: ogni regola che consuma `dimension` cita `faq_amb_di_1` e `racc_ue_2003_361`.
+- **`docs/decisions/0010-visible-if-condizione-strutturata.md`** — ADR 0010.
 
 ### Changed
-- **`sectors/sectors__cloud_computing.yaml`, `sectors/sectors__energia_elettrica.yaml`** — le 5 regole dimensionali prive di una delle due fonti nominate dal `reasoning_trace` ricevono `faq_amb_di_1` (micro/piccola energia) o `racc_ue_2003_361` (media e grande, cloud ed energia). Invariante di schema: ogni regola che consuma `dimension` cita entrambi gli ID. Chiude STATUS 12.9.
-- **Fixture E01, E02, E13, E14, E15** — `citations` allineate alle regole che le soddisfano (`racc_ue_2003_361` aggiunto).
+- **`visible_if` strutturata (ADR 0010)**: oggetto `{input, op: eq | neq | includes, value}` o `any_of` / `all_of` a un livello; forma stringa ritirata.
+  - `wizard/wizard__energia_elettrica.yaml`, `registrato_pun`: `any_of` (`tipologia_elettrica` `eq`, `attivita_elettriche_ulteriori` `includes` `gestore_punti_ricarica`); rimosso il flag ridondante `conditional: true`.
+  - `wizard/wizard__pubblica_amministrazione.yaml`: `conditional_on` di `sottotipo_c` e `profilo_allegato_iv` unificato in `visible_if` (stesso concetto); `conditional_on` ritirato.
+  - `wizard/wizard__disambiguation.yaml`, `dimension`: rimossi `visible_if` e `visibility_citations`; l'esclusione della PA è strutturale (`flow_order` del wizard PA, `size_blind`; art. 3 c. 6 già in `meta.citations` del settore PA).
+- **`sectors/sectors__pubblica_amministrazione.yaml`** — input delle regole allineati al wizard (non toccato): `categoria` → `categoria_pa` nelle 4 `qualification_rules`, `sottotipo` → `sottotipo_c` nel trigger di `cross_sector_asl_sanitario`. Nessun contenuto normativo cambia. `corpus_ref` di E09, E10, E12 aggiornati; E11 invariato.
+- **`sectors/sectors__cloud_computing.yaml`, `sectors/sectors__energia_elettrica.yaml`** — le 5 regole dimensionali prive di una delle due fonti nominate dal `reasoning_trace` ricevono `faq_amb_di_1` (micro/piccola energia) o `racc_ue_2003_361` (media e grande, cloud ed energia). Chiude STATUS 12.9.
+- **Fixture** — `corpus_version` 0.3.1 → 0.4.0 su tutte le 15; `citations` di E01, E02, E13, E14, E15 allineate alle regole che le soddisfano (`racc_ue_2003_361`).
 - **Posizione dei file** — il corpus vive in `packages/corpus/corpus/` e le fixture in `packages/engine/tests/fixtures/`; i `corpus_ref` restano relativi alla radice del corpus.
+
+### Notes
+- `scripts/validate-corpus.mjs` (controllo interim di S1.1) e la copia locale di js-yaml sono stati rimossi: i suoi 11 controlli vivono nello schema zod e nel lint di `corpus:validate`, coperti dai test di guasto in `packages/corpus/tests`.
+- Da fissare in S3 (ADR 0010): valore di una condizione di visibilità il cui `input` non ha risposta.
 
 ## [0.3.1] — 2026-10-27 — Chiusura dei punti aperti di corpus 0.3.0 (S1.1)
 

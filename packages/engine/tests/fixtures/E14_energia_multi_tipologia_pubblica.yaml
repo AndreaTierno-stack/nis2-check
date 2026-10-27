@@ -6,7 +6,7 @@ description_it: >
   categoriale essenziale; identita' multiple intra-settore -> registrazione separata
   per tipologia (cross_sector_multi_tipologia_elettrica); cumulo L. 90 e possibile
   canale Allegato IV in-house (cross_sector_inhouse_all_iv).
-corpus_version: 0.3.1
+corpus_version: 0.4.0
 sector: energia_elettrica
 
 inputs:

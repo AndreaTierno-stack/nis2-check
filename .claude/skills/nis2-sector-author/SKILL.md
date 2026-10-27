@@ -87,7 +87,7 @@ Riferimento vivo: `references/yaml-schema.md` + il file reale più vicino al cas
 2. **Attesta contro la KB**: per ogni claim, individua il nodo KB (`LLM_Wiki/wiki/`) e il comma/FAQ che lo sostiene. Se manca o è impreciso → open point, non deduzione.
 3. **Leggi il file reale più vicino** (`sectors__*.yaml`) per stile e schema. Copia i pattern, non reinventarli.
 4. **Componi/aggiorna il YAML** rispettando i 4 vincoli sopra. Ogni voce con esito porta `verdict_outcome` col mapping fisso.
-5. **Aggiorna il wizard** (`wizard__<settore>.yaml`) se aggiungi domande; le domande dei 3 gate vivono in `wizard__disambiguation.yaml`.
+5. **Aggiorna il wizard** (`wizard__<settore>.yaml`) se aggiungi domande; le domande dei 3 gate vivono in `wizard__disambiguation.yaml`. Le condizioni di visibilità si scrivono solo come `visible_if` strutturata `{input, op: eq|neq|includes, value}` o `any_of`/`all_of` a un livello (ADR 0010); ogni input letto da una regola deve esistere nel wizard del settore o nel blocco comune (`E_RULE_INPUT`).
 6. **Fixture verdi**: aggiungi/aggiorna una fixture in `packages/engine/tests/fixtures/` (E01–E15+) che eserciti la nuova regola (input con ID reali del wizard, `expected` con `assessment_mode` + `verdict_outcome`, `citations`). Le fixture devono restare verdi (obbligo gestito da `nis2-corpus-update`).
 7. **Versione**: qualunque modifica al contenuto è un bump del corpus → passa a `nis2-corpus-update` per VERSION/CHANGELOG/fixture.
 8. **Commit proposto** (inglese, conventional): `corpus: add <sector> qualification rules` con `Refs:` ai riferimenti normativi.
