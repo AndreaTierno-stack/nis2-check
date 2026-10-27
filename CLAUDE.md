@@ -52,6 +52,8 @@ Struttura: `sectors/`, `wizard/`, `signals/`, `regimes/`, più `VERSION` e `CHAN
 
 **Semver corpus**: MAJOR = cambio di schema incompatibile; MINOR = cambia questionario o regole; PATCH = correzioni di attestazione/copy senza effetto sugli esiti. Ogni bump → voce CHANGELOG. Le fixture dichiarano `corpus_version` e vanno riallineate a ogni MINOR/MAJOR.
 
+**Lacuna strutturale e stop-and-ingest** (regola stabile): una lacuna è strutturale quando soddisfa 2 criteri su 3: fonte primaria mancante, impatto sul tool, centralità. Una lacuna strutturale impone stop-and-ingest. Un riscontro con esito no-op non consuma il credito (DEC-003).
+
 ## Tipo Verdict
 
 ```ts
