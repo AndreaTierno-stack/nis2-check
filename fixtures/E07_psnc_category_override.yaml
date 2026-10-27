@@ -7,27 +7,27 @@ description_it: >
   155238/2026). Per il settore elettrico e' la condizione tipica dei grandi TSO.
   Esito atteso: escalate_to_advisor / ambiguous copiati dal meta del regime
   (ADR 0009), con regime_routing per Explainability e PDF.
-corpus_version: 0.3.0
+corpus_version: 0.3.1
 sector: energia_elettrica
 
 inputs:
-  psnc: yes
-  dora: no
-  cloud_pa: no
+  psnc: "yes"
+  dora: "no"
+  cloud_pa: "no"
   tipologia_elettrica: tso
   attivita_elettriche_ulteriori: []
-  pertinenza_pubblica_energia: no
+  pertinenza_pubblica_energia: "no"
   dimension: grande
 
 expected:
   # ADR 0009: instradamento a regime = escalation, copiata dal meta del regime
   assessment_mode: escalate_to_advisor
   verdict_outcome: ambiguous
-  regime_routing:
-    regime: psnc
-    routing_effect: category_override
-    residual_nis_obligation: null   # assente nel meta di regimes/psnc.yaml
-    exceptions_catalog_entry: psnc_category_override
+  regime_routing:   # lista, ordine = ordine degli override nel file di settore (ADR 0009, amendment)
+    - regime: psnc
+      routing_effect: category_override
+      residual_nis_obligation: null   # null = non attestato nel corpus (assente nel meta di regimes/psnc.yaml), non "nessuno"
+      exceptions_catalog_entry: psnc_category_override
   corpus_ref: "sectors/sectors__energia_elettrica.yaml#overrides[psnc==yes] -> regimes/psnc.yaml"
 
 citations: [det_acn_155238_2026_art_5, dl_105_2019_art_1_c_2_bis]

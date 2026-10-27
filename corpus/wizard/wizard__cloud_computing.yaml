@@ -24,6 +24,7 @@ sector_specific_questions:
       ha tra i propri soci (o quote) un ente pubblico (Stato, Regione, Comune,
       Provincia, ASL, eccetera), in qualunque misura.
     conditional_followup:
+      id: tipo_partecipazione_pubblica   # stesso ID e stesse opzioni di wizard__energia_elettrica.yaml
       trigger_on: "yes"
       label_it: "Quale tipo di partecipazione pubblica?"
       kind: single_select

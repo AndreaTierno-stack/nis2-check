@@ -6,13 +6,13 @@ description_it: >
   p. 5, essenziale se medio-grande). Il verdetto categoriale e' emesso per l'identita'
   PA; il settore Sanitario non e' pilota del MVP -> segnalato ma non valutato
   (cross_sector_asl_sanitario, ambiguous per l'identita' sanitaria).
-corpus_version: 0.3.0
+corpus_version: 0.3.1
 sector: pubblica_amministrazione
 
 inputs:
-  psnc: no
-  dora: no
-  cloud_pa: no
+  psnc: "no"
+  dora: "no"
+  cloud_pa: "no"
   categoria_pa: c
   sottotipo_c: asl
 
@@ -21,6 +21,7 @@ expected:
   verdict_outcome: likely_in_scope
   qualifica: importante
   signals: [cross_sector_asl_sanitario, l90_cumulo]
+  regime_routing: []
   sanitario_secondary:
     handling: cross_sector_signal
     verdict_outcome: ambiguous

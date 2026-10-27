@@ -42,19 +42,19 @@ qualification_rules:
   - condition: dimension == micro_or_piccola
     outcome: out_of_scope
     verdict_outcome: likely_out_of_scope   # vincolo fisso: out_of_scope -> likely_out_of_scope
-    reasoning_trace: "Dimensione micro/piccola impresa esclusa dall'ambito NIS2 in via generale (Racc. 2003/361/CE; D.Lgs. 138/2024 art. 3)."
+    reasoning_trace: "Dimensione dichiarata: Micro o piccola impresa. Classificazione secondo FAQ ACN AMB.DI.1 e Racc. UE 2003/361. Esclusione dall'ambito NIS2 in via generale (D.Lgs. 138/2024 art. 3)."
     citations: [dlgs_138_2024_art_3, racc_ue_2003_361, faq_amb_di_1]
   - condition: dimension == media
     outcome: categorical_assessment
     qualifica: importante
     verdict_outcome: likely_in_scope   # vincolo fisso: categorical_assessment in-scope -> likely_in_scope
-    reasoning_trace: "Soggetto di dimensione media (50-249 dipendenti o 10-50 M€); in settore Allegato I p. 8 (Infrastrutture digitali) qualificato come soggetto importante."
+    reasoning_trace: "Dimensione dichiarata: Media impresa. Classificazione secondo FAQ ACN AMB.DI.1 e Racc. UE 2003/361. In settore Allegato I p. 8 (Infrastrutture digitali) qualificato come soggetto importante."
     citations: [dlgs_138_2024_art_6, faq_amb_di_1]
   - condition: dimension == grande
     outcome: categorical_assessment
     qualifica: essenziale
     verdict_outcome: likely_in_scope   # vincolo fisso: categorical_assessment in-scope -> likely_in_scope
-    reasoning_trace: "Soggetto di dimensione grande (>250 dipendenti o >50 M€); in settore Allegato I (altamente critico) qualificato come soggetto essenziale."
+    reasoning_trace: "Dimensione dichiarata: Grande impresa. Classificazione secondo FAQ ACN AMB.DI.1 e Racc. UE 2003/361. In settore Allegato I (altamente critico) qualificato come soggetto essenziale."
     citations: [dlgs_138_2024_art_6, faq_amb_di_1]
 
 overrides:
@@ -67,7 +67,8 @@ overrides:
     override_kind: category_override
     reference: regimes/psnc.yaml
     reasoning_trace: "Servizi PSNC del soggetto categorizzati come 'alto' d'ufficio, fuori dal procedimento ordinario, ai sensi dell'art. 5 Det. ACN 155238/2026. I servizi NIS non PSNC mantengono procedimento ordinario."
-    citations: [det_acn_155238_2026_art_5]
+    # citations coincidenti con regimes/psnc.yaml (invariante override/regime, ADR 0009)
+    citations: [det_acn_155238_2026_art_5, dl_105_2019_art_1_c_2_bis]
   - trigger: dora == yes
     override_kind: massive_disapplication
     reference: regimes/dora.yaml

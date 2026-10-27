@@ -82,3 +82,49 @@ dalla semantica dell'override, cioè senza violare il vincolo 2 di CLAUDE.md
 - Vincolo derivato dalla struttura del corpus e dal tipo `Verdict` in CLAUDE.md
   (non da fonte normativa esterna).
 - `corpus/regimes/{psnc,dora,cloud_pa}.yaml`; fixture E05, E06, E07.
+
+## Amendment 2026-10-28
+
+Corpus 0.3.1. Il corpo dell'ADR resta invariato; le regole seguenti lo
+modificano dove contrastano.
+
+1. **`Verdict.regimeRouting` diventa un array** `RegimeRouting[]`, sempre
+   presente: vuoto se nessun override di regime matcha; un elemento per ogni
+   override che matcha, nell'**ordine in cui gli override compaiono nel file di
+   settore**. L'ordine è posizionale, non una precedenza: non esprime quale
+   regime prevale.
+
+   ```ts
+   interface RegimeRouting {
+     regimeId: string;
+     routingEffect: 'category_override' | 'massive_disapplication' | 'model_substitution';
+     residualNisObligation: string | null;
+     exceptionsCatalogEntry: string;
+   }
+   regimeRouting: RegimeRouting[];
+   ```
+
+2. **Semantica di `residual_nis_obligation: null`**: "non attestato nel corpus",
+   distinto da "nessun obbligo residuo". Vale oggi per PSNC e Cloud PA, il cui
+   `meta` non dichiara il campo. Un regime che non lascia obblighi NIS residui
+   andrebbe dichiarato esplicitamente (valore da definire quando servirà, non
+   dedotto dall'assenza).
+
+3. **Intersezione multipla** (E08, `psnc == yes AND cloud_pa == yes`): l'esito
+   resta quello di `multi_regime_intersection` (`escalate_to_advisor` /
+   `ambiguous`); `regimeRouting` elenca entrambi i regimi nell'ordine degli
+   override di `sectors__cloud_computing.yaml` (`cloud_pa`, poi `psnc`).
+
+### Alternativa scartata
+
+- **Routing singolo con ordine di priorità tra regimi.** Richiederebbe di
+  scegliere quale regime riportare quando più override matchano, cioè una
+  precedenza tra regimi che le fonti non attestano (cfr. punto aperto 6 di
+  `docs/STATUS.md`, precedenza PSNC / Cloud PA non esplicitata).
+
+### Conseguenze
+
+- Fixture E05, E06, E07: `regime_routing` diventa una lista di un elemento; E08
+  una lista di due elementi; le altre fixture dichiarano `regime_routing: []`.
+- Il validatore verifica che ogni elemento coincida con il `meta` del regime e
+  che l'ordine della lista segua l'ordine degli override nel file di settore.

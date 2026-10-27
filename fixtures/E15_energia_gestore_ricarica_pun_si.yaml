@@ -5,17 +5,17 @@ description_it: >
   106/2023). Il ramo registrato_pun==si conferma la tipologia (categorical_assessment,
   likely_in_scope provvisorio) e prosegue con l'identificazione standard: dimensione
   media -> soggetto importante. Variante speculare di E04 (PUN "no").
-corpus_version: 0.3.0
+corpus_version: 0.3.1
 sector: energia_elettrica
 
 inputs:
-  psnc: no
-  dora: no
-  cloud_pa: no
+  psnc: "no"
+  dora: "no"
+  cloud_pa: "no"
   tipologia_elettrica: gestore_punti_ricarica
   attivita_elettriche_ulteriori: []
   registrato_pun: si
-  pertinenza_pubblica_energia: no
+  pertinenza_pubblica_energia: "no"
   dimension: media
 
 expected:
@@ -23,6 +23,7 @@ expected:
   verdict_outcome: likely_in_scope
   qualifica: importante
   signals: []
+  regime_routing: []
   corpus_ref: "wizard/wizard__energia_elettrica.yaml#registrato_pun[answer==si] -> sectors/sectors__energia_elettrica.yaml#qualification_rules[dimension==media]"
 
 citations: [faq_a1_1_a_3, dm_mase_106_2023, dlgs_138_2024_art_6, faq_amb_di_1, faq_a1_2]

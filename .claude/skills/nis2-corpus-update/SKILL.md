@@ -7,7 +7,7 @@ description: Use this skill whenever the user records an ACN regulatory update (
 
 Skill per registrare aggiornamenti normativi ACN nel corpus **reale** (`corpus/`), bumpare la versione semantica applicata al **contenuto**, aggiornare `CHANGELOG.md`, riallineare le fixture golden e proporre il commit `corpus:`.
 
-> Fonte di verità: `corpus/VERSION` (plain text, oggi `0.3.0`), `corpus/CHANGELOG.md` (Keep a Changelog), `CLAUDE.md`. **Prima di scrivere, leggi VERSION e le ultime due voci del CHANGELOG** — non ricostruire il formato a memoria. La modellazione del contenuto (regole, tipologie, signal) è di `nis2-sector-author`: questo skill governa il *bump* e la *coerenza di versione* che seguono.
+> Fonte di verità: `corpus/VERSION` (plain text, oggi `0.3.1`), `corpus/CHANGELOG.md` (Keep a Changelog), `CLAUDE.md`. **Prima di scrivere, leggi VERSION e le ultime due voci del CHANGELOG** — non ricostruire il formato a memoria. La modellazione del contenuto (regole, tipologie, signal) è di `nis2-sector-author`: questo skill governa il *bump* e la *coerenza di versione* che seguono.
 
 ## Quando si attiva
 

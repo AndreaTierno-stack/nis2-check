@@ -5,15 +5,15 @@ description_it: >
   Verdetto categoriale essenziale per l'identita' cloud (Allegato I p. 8); in aggiunta
   possibile identita' MSP/MSSP (Allegato I p. 9) con registrazione separata
   (cross_sector_cloud_msp).
-corpus_version: 0.3.0
+corpus_version: 0.3.1
 sector: cloud_computing
 
 inputs:
-  psnc: no
-  dora: no
-  cloud_pa: no
-  pertinenza_pubblica_cloud: no
-  fornisce_servizi_gestiti_b2b: yes
+  psnc: "no"
+  dora: "no"
+  cloud_pa: "no"
+  pertinenza_pubblica_cloud: "no"
+  fornisce_servizi_gestiti_b2b: "yes"
   dimension: grande
 
 expected:
@@ -21,6 +21,7 @@ expected:
   verdict_outcome: likely_in_scope
   qualifica: essenziale
   signals: [cross_sector_cloud_msp]
+  regime_routing: []
   corpus_ref: "sectors/sectors__cloud_computing.yaml#qualification_rules[dimension==grande] + tipologie.cloud_provider.multi_identity_possible"
 
 citations: [dlgs_138_2024_art_6, faq_amb_di_1, faq_a1_p9, faq_settori_msp]

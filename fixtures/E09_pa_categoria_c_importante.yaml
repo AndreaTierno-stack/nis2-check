@@ -4,13 +4,13 @@ description_it: >
   Comune con oltre 100.000 abitanti (Allegato III lett. c). Categoria ben coperta
   dalle FAQ: verdetto categoriale come soggetto importante, a prescindere dalla
   dimensione (art. 3 c. 6). Signal di cumulo L. 90 attivo (categoria c in elenco).
-corpus_version: 0.3.0
+corpus_version: 0.3.1
 sector: pubblica_amministrazione
 
 inputs:
-  psnc: no
-  dora: no
-  cloud_pa: no
+  psnc: "no"
+  dora: "no"
+  cloud_pa: "no"
   categoria_pa: c
   sottotipo_c: comune_oltre_100k
 
@@ -19,6 +19,7 @@ expected:
   verdict_outcome: likely_in_scope
   qualifica: importante
   signals: [l90_cumulo]
+  regime_routing: []
   corpus_ref: "sectors/sectors__pubblica_amministrazione.yaml#qualification_rules[categoria==c]"
 
 citations: [dlgs_138_2024_allegato_III, dlgs_138_2024_art_3_c_6, faq_settori_sottosettori]

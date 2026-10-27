@@ -8,26 +8,26 @@ description_it: >
   (art. 7 c. 6, art. 16 c. 13, art. 20 c. 6 Det. 127437/2026): DIV-P1 chiusa.
   Esito atteso: escalate_to_advisor / ambiguous copiati dal meta del regime
   (ADR 0009), con regime_routing per Explainability e PDF.
-corpus_version: 0.3.0
+corpus_version: 0.3.1
 sector: cloud_computing
 
 inputs:
-  psnc: no
-  dora: yes
-  cloud_pa: no
-  pertinenza_pubblica_cloud: no
-  fornisce_servizi_gestiti_b2b: no
+  psnc: "no"
+  dora: "yes"
+  cloud_pa: "no"
+  pertinenza_pubblica_cloud: "no"
+  fornisce_servizi_gestiti_b2b: "no"
   dimension: grande
 
 expected:
   # ADR 0009: instradamento a regime = escalation, copiata dal meta del regime
   assessment_mode: escalate_to_advisor
   verdict_outcome: ambiguous
-  regime_routing:
-    regime: dora
-    routing_effect: massive_disapplication
-    residual_nis_obligation: "art. 7 c. 1 D.Lgs. 138/2024 (registrazione su piattaforma ACN)"
-    exceptions_catalog_entry: dora_massive_disapplication
+  regime_routing:   # lista, ordine = ordine degli override nel file di settore (ADR 0009, amendment)
+    - regime: dora
+      routing_effect: massive_disapplication
+      residual_nis_obligation: "art. 7 c. 1 D.Lgs. 138/2024 (registrazione su piattaforma ACN)"
+      exceptions_catalog_entry: dora_massive_disapplication
   open_points: []
   corpus_ref: "sectors/sectors__cloud_computing.yaml#overrides[dora==yes] -> regimes/dora.yaml"
 

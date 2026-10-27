@@ -9,6 +9,25 @@ Formato ispirato a [Keep a Changelog](https://keepachangelog.com/it/1.1.0/); ver
 
 Ogni bump ha una voce in questo file; le fixture dichiarano `corpus_version` e si riallineano a ogni minor/major.
 
+## [0.3.1] — 2026-10-28 — Chiusura dei punti aperti di corpus 0.3.0 (S1.1)
+
+Patch: nessun esito atteso cambia (`assessment_mode` e `verdict_outcome` di E01–E15 invariati), nessuna domanda nuova, nessuna regola nuova. Cambiano citazioni (allineamento a un regime), copy dei `reasoning_trace`, un ID di follow-up già esistente come struttura, la quotatura di `yes`/`no` (stessi valori con il parser YAML 1.2) e la forma di `regime_routing` nelle fixture (ADR 0009, amendment).
+
+### Changed
+- **`sectors/sectors__cloud_computing.yaml`** — override PSNC: `citations` da `[det_acn_155238_2026_art_5]` a `[det_acn_155238_2026_art_5, dl_105_2019_art_1_c_2_bis]`, come `regimes/psnc.yaml` (invariante citations override/regime, ADR 0009). Unico disallineamento trovato sui 6 override.
+- **`sectors/sectors__cloud_computing.yaml`, `sectors/sectors__energia_elettrica.yaml`** — `reasoning_trace` delle 6 `qualification_rules` dimensionali: rimosse le soglie numeriche ("50-249 dipendenti o 10-50 M€", ">250 dipendenti o >50 M€"), che non seguivano la regola AMB.DI.1. Nuova apertura: "Dimensione dichiarata: {Micro o piccola impresa | Media impresa | Grande impresa}. Classificazione secondo FAQ ACN AMB.DI.1 e Racc. UE 2003/361."; restano le frasi senza soglie (qualifica, A1.1.a.4, A1.2). `citations` invariate. La PA non ha trace dimensionale (art. 3 c. 6).
+- **`wizard/wizard__cloud_computing.yaml`** — il `conditional_followup` di `pertinenza_pubblica_cloud` riceve `id: tipo_partecipazione_pubblica`, come in energia; ID di opzione già coincidenti (`ente_pubblico`, `capitale_prevalente`, `capitale_minoritario`). Nessuna fixture lo usa.
+- **`yes`/`no` quotati** come valori e ID di opzione in corpus e fixture: `wizard__energia_elettrica.yaml` (`registrato_pun`: opzione `id: "no"`, `answer: "no"`), `sectors__pubblica_amministrazione.yaml` (`l90_overlap: "yes"` ×2), input delle 15 fixture.
+- **`fixtures/*`** — `regime_routing` diventa una lista (ADR 0009, amendment 2026-10-28): un elemento in E05, E06, E07; due in E08 (`cloud_pa`, `psnc`, ordine degli override di `sectors__cloud_computing.yaml`); `[]` nelle altre 11. `residual_nis_obligation: null` documentato come "non attestato nel corpus", non "nessuno". `corpus_version` → 0.3.1.
+
+### Added
+- **`docs/decisions/0009-*.md`** — sezione "Amendment 2026-10-28": `Verdict.regimeRouting: RegimeRouting[]` (vuoto se nessun routing, ordine = ordine degli override nel file di settore), semantica di `null`, alternativa scartata (routing singolo con priorità: precedenza tra regimi non attestata).
+- **`scripts/validate-corpus.mjs`** — controllo statico interim (solo js-yaml v4): parsing, `verdict_outcome` dichiarato, invariante escalate → ambiguous, citations override = regime, ID di ogni domanda e opzione, riferimenti a file, coerenza delle fixture (versione, input, signal, `regime_routing` in ordine di file), lint dei booleani YAML 1.1 non quotati (`yes`/`no`/`on`/`off`/`y`/`n`). Diventa `corpus:validate` in S2.
+
+### Notes
+- Verifica di lettura (AMB.DI.1, concept Size-cap rule, testo della FAQ): la fascia "grande" parte da 250 effettivi ("almeno 250"), la media è "meno di 250". Le etichette della domanda `dimension` sono coerenti: nessuna correzione.
+- Restano nelle `citations` delle regole dimensionali le asimmetrie già presenti (per esempio la micro/piccola di energia non cita `faq_amb_di_1`; media e grande non citano `racc_ue_2003_361`), anche se il nuovo trace nomina entrambe le fonti. Non corrette: richiesta "citations invariate"; segnalate in `docs/STATUS.md`.
+
 ## [0.3.0] — 2026-10-27 — Patch coordinata pre-engine: domanda dimension, override di regime come escalation (ADR 0009), riferimenti a file, citazioni DORA
 
 Minor: cambia il questionario (nuova domanda `dimension`, ID del follow-up di pertinenza pubblica nel settore energia) e cambia l'esito atteso di E05, E06, E07. Chiude le voci del punto aperto 11 di `docs/STATUS.md` che bloccavano l'avvio dell'engine.

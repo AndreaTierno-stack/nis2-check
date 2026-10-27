@@ -173,7 +173,7 @@ allegato_iv_channel:
       label_it: "Trasporto pubblico locale"
       autorita_proponente: MIT
       categorization_model: model_1   # All. IV tipo 1 -> modello 1
-      l90_overlap: yes                  # TPL e' nell'elenco L. 90 art. 1 c. 1
+      l90_overlap: "yes"                  # TPL e' nell'elenco L. 90 art. 1 c. 1
     - id: istituto_ricerca
       label_it: "Istituto di istruzione che svolge ricerca"
       autorita_proponente: MUR
@@ -185,7 +185,7 @@ allegato_iv_channel:
     - id: societa_inhouse
       label_it: "Societa' in-house, partecipata, controllata (D.Lgs. 175/2016)"
       autorita_proponente: autorita_di_settore
-      l90_overlap: yes                  # in-house e' nell'elenco L. 90 art. 1 c. 1
+      l90_overlap: "yes"                  # in-house e' nell'elenco L. 90 art. 1 c. 1
       # Per gli in-house questo signal coincide con cross_sector_inhouse_all_iv
       # gia' attivato dalla pertinenza pubblica negli altri settori.
       unifies_with: cross_sector_inhouse_all_iv

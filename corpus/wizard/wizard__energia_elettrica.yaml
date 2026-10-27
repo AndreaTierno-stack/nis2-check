@@ -85,7 +85,7 @@ sector_specific_questions:
     options:
       - id: si
         label_it: "Sì, registrato o obbligato alla registrazione su PUN"
-      - id: no
+      - id: "no"
         label_it: "No, non obbligato alla registrazione su PUN"
       - id: non_so
         label_it: "Non so"
@@ -95,7 +95,7 @@ sector_specific_questions:
         verdict_outcome: likely_in_scope   # provvisorio: la regola dimensionale del settore puo' rifinirlo (micro/piccola -> likely_out_of_scope)
         reasoning_trace: "Gestore di punti di ricarica registrato o obbligato alla registrazione su PUN (DM MASE 106/2023): rientra nella tipologia elettrica; la qualifica segue le regole dimensionali del settore (importante/essenziale)."
         citations: [faq_a1_1_a_3, dm_mase_106_2023]
-      - answer: no
+      - answer: "no"
         outcome: qualitative_signal_only   # "non rientrano automaticamente" NON e' esclusione categoriale
         verdict_outcome: likely_out_of_scope
         reasoning_trace: "Punti di ricarica non obbligati alla registrazione su PUN: secondo A1.1.a.3 non rientrano automaticamente per questo solo titolo. Non e' un'esclusione categoriale: il soggetto potrebbe rientrare per altra tipologia o per obbligo PUN sopravvenuto. Segnalazione, non verdetto di esclusione. Verifica con consulente qualificato."
