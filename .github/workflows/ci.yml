@@ -1,0 +1,41 @@
+# CI: install -> lint -> typecheck -> corpus:validate -> test -> build.
+# Only GitHub-owned actions; pnpm comes from corepack (bundled with Node 24).
+# No third-party services, no telemetry (Next.js telemetry disabled).
+name: CI
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    env:
+      NEXT_TELEMETRY_DISABLED: "1"
+      COREPACK_ENABLE_DOWNLOAD_PROMPT: "0"
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+      - name: Enable pnpm (corepack, version from packageManager)
+        run: corepack enable
+      - name: Install
+        run: pnpm install --frozen-lockfile
+      - name: Lint
+        run: pnpm lint
+      - name: Typecheck
+        run: pnpm typecheck
+      - name: corpus:validate
+        run: pnpm corpus:validate
+      - name: Test
+        run: pnpm test
+      - name: Build
+        run: pnpm build
