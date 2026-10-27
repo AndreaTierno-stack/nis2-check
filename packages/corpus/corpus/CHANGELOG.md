@@ -9,6 +9,15 @@ Formato ispirato a [Keep a Changelog](https://keepachangelog.com/it/1.1.0/); ver
 
 Ogni bump ha una voce in questo file; le fixture dichiarano `corpus_version` e si riallineano a ogni minor/major.
 
+## [Unreleased] — verso 0.4.0 (S2, prima versione validata dallo schema zod)
+
+Non ancora rilasciata: `corpus:validate` riporta 2 violazioni della grammatica di `visible_if`, in attesa di decisione dell'autore (vedi `docs/STATUS.md`). Il bump a 0.4.0 e il riallineamento delle fixture seguono la decisione.
+
+### Changed
+- **`sectors/sectors__cloud_computing.yaml`, `sectors/sectors__energia_elettrica.yaml`** — le 5 regole dimensionali prive di una delle due fonti nominate dal `reasoning_trace` ricevono `faq_amb_di_1` (micro/piccola energia) o `racc_ue_2003_361` (media e grande, cloud ed energia). Invariante di schema: ogni regola che consuma `dimension` cita entrambi gli ID. Chiude STATUS 12.9.
+- **Fixture E01, E02, E13, E14, E15** — `citations` allineate alle regole che le soddisfano (`racc_ue_2003_361` aggiunto).
+- **Posizione dei file** — il corpus vive in `packages/corpus/corpus/` e le fixture in `packages/engine/tests/fixtures/`; i `corpus_ref` restano relativi alla radice del corpus.
+
 ## [0.3.1] — 2026-10-27 — Chiusura dei punti aperti di corpus 0.3.0 (S1.1)
 
 Patch: nessun esito atteso cambia (`assessment_mode` e `verdict_outcome` di E01–E15 invariati), nessuna domanda nuova, nessuna regola nuova. Cambiano citazioni (allineamento a un regime), copy dei `reasoning_trace`, un ID di follow-up già esistente come struttura, la quotatura di `yes`/`no` (stessi valori con il parser YAML 1.2) e la forma di `regime_routing` nelle fixture (ADR 0009, amendment).

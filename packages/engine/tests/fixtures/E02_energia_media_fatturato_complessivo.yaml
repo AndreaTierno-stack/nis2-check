@@ -24,4 +24,4 @@ expected:
   regime_routing: []
   corpus_ref: "sectors/sectors__energia_elettrica.yaml#qualification_rules[dimension==media]"
 
-citations: [dlgs_138_2024_art_6, faq_amb_di_1, faq_a1_2]
+citations: [dlgs_138_2024_art_6, faq_amb_di_1, racc_ue_2003_361, faq_a1_2]

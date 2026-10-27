@@ -49,13 +49,13 @@ qualification_rules:
     qualifica: importante
     verdict_outcome: likely_in_scope   # vincolo fisso: categorical_assessment in-scope -> likely_in_scope
     reasoning_trace: "Dimensione dichiarata: Media impresa. Classificazione secondo FAQ ACN AMB.DI.1 e Racc. UE 2003/361. In settore Allegato I p. 8 (Infrastrutture digitali) qualificato come soggetto importante."
-    citations: [dlgs_138_2024_art_6, faq_amb_di_1]
+    citations: [dlgs_138_2024_art_6, faq_amb_di_1, racc_ue_2003_361]
   - condition: dimension == grande
     outcome: categorical_assessment
     qualifica: essenziale
     verdict_outcome: likely_in_scope   # vincolo fisso: categorical_assessment in-scope -> likely_in_scope
     reasoning_trace: "Dimensione dichiarata: Grande impresa. Classificazione secondo FAQ ACN AMB.DI.1 e Racc. UE 2003/361. In settore Allegato I (altamente critico) qualificato come soggetto essenziale."
-    citations: [dlgs_138_2024_art_6, faq_amb_di_1]
+    citations: [dlgs_138_2024_art_6, faq_amb_di_1, racc_ue_2003_361]
 
 overrides:
   - trigger: cloud_pa == yes

@@ -98,19 +98,19 @@ qualification_rules:
     outcome: out_of_scope
     verdict_outcome: likely_out_of_scope   # vincolo fisso: out_of_scope -> likely_out_of_scope
     reasoning_trace: "Dimensione dichiarata: Micro o piccola impresa. Classificazione secondo FAQ ACN AMB.DI.1 e Racc. UE 2003/361. Esclusione dall'ambito NIS2 in via generale (D.Lgs. 138/2024 art. 3). Per il settore elettrico, si segnala l'esclusione esplicita di clienti attivi e prosumer (FAQ A1.1.a.4)."
-    citations: [dlgs_138_2024_art_3, racc_ue_2003_361, faq_a1_1_a_4]
+    citations: [dlgs_138_2024_art_3, racc_ue_2003_361, faq_amb_di_1, faq_a1_1_a_4]
   - condition: dimension == media
     outcome: categorical_assessment
     qualifica: importante
     verdict_outcome: likely_in_scope   # vincolo fisso: categorical_assessment in-scope -> likely_in_scope
     reasoning_trace: "Dimensione dichiarata: Media impresa. Classificazione secondo FAQ ACN AMB.DI.1 e Racc. UE 2003/361. In settore Allegato I p. 1 (Energia) qualificato come soggetto importante. Per 'fatturato' si intende quello complessivo del soggetto, non solo dell'attività NIS (FAQ A1.2)."
-    citations: [dlgs_138_2024_art_6, faq_amb_di_1, faq_a1_2]
+    citations: [dlgs_138_2024_art_6, faq_amb_di_1, racc_ue_2003_361, faq_a1_2]
   - condition: dimension == grande
     outcome: categorical_assessment
     qualifica: essenziale
     verdict_outcome: likely_in_scope   # vincolo fisso: categorical_assessment in-scope -> likely_in_scope
     reasoning_trace: "Dimensione dichiarata: Grande impresa. Classificazione secondo FAQ ACN AMB.DI.1 e Racc. UE 2003/361. In settore Allegato I (altamente critico) qualificato come soggetto essenziale."
-    citations: [dlgs_138_2024_art_6, faq_amb_di_1]
+    citations: [dlgs_138_2024_art_6, faq_amb_di_1, racc_ue_2003_361]
 
 overrides:
   # PSNC: per Energia e' la condizione TIPICA dei soggetti grandi, non eccezione marginale
