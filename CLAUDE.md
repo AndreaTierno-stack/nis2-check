@@ -43,7 +43,7 @@ Struttura: `sectors/`, `wizard/`, `signals/`, `regimes/`, più `VERSION` e `CHAN
 
 **Outcome delle regole** (`assessment_mode`): `categorical_assessment` | `qualitative_signal_only` | `escalate_to_advisor` | `out_of_scope`. Ogni regola con esito dichiara anche `verdict_outcome` (vedi vincolo 2). Mapping fisso: categorical in ambito → `likely_in_scope`; `out_of_scope` → `likely_out_of_scope`; `escalate` → `ambiguous`; `qualitative_signal_only` → dichiarato caso per caso con commento giustificativo.
 
-**Regimi**: `regimes/{psnc,dora,cloud_pa}.yaml` hanno `status: routing_only_v0_1` — instradano, non risolvono nel merito. In v0.1 ogni regime dichiara nel `meta` `assessment_mode: escalate_to_advisor` e `verdict_outcome: ambiguous`, copiati dall'engine attraverso il `reference` dell'override, e popola un elemento di `Verdict.regimeRouting` (array, un elemento per override che matcha, nell'ordine del file di settore; ADR 0009 + amendment 2026-10-28). Non implementare la risoluzione senza decisione esplicita di scope (è v0.2+).
+**Regimi**: `regimes/{psnc,dora,cloud_pa}.yaml` hanno `status: routing_only_v0_1` — instradano, non risolvono nel merito. In v0.1 ogni regime dichiara nel `meta` `assessment_mode: escalate_to_advisor` e `verdict_outcome: ambiguous`, copiati dall'engine attraverso il `reference` dell'override, e popola un elemento di `Verdict.regimeRouting` (array, un elemento per override che matcha, nell'ordine del file di settore; ADR 0009 + amendment 2026-10-27). Non implementare la risoluzione senza decisione esplicita di scope (è v0.2+).
 
 **Semver corpus**: MAJOR = cambio di schema incompatibile; MINOR = cambia questionario o regole; PATCH = correzioni di attestazione/copy senza effetto sugli esiti. Ogni bump → voce CHANGELOG. Le fixture dichiarano `corpus_version` e vanno riallineate a ogni MINOR/MAJOR.
 
@@ -57,7 +57,7 @@ type AssessmentMode =
   | 'escalate_to_advisor'
   | 'out_of_scope';
 
-interface RegimeRouting {             // popolato dal meta del regime (ADR 0009 + amendment 2026-10-28)
+interface RegimeRouting {             // popolato dal meta del regime (ADR 0009 + amendment 2026-10-27)
   regimeId: string;
   routingEffect: 'category_override' | 'massive_disapplication' | 'model_substitution';
   residualNisObligation: string | null; // null = non attestato nel corpus, NON "nessuno"

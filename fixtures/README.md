@@ -10,7 +10,7 @@ Questi file sono qui in via provvisoria, **accanto a `corpus/`**. La destinazion
 - `corpus_version`: versione del corpus contro cui l'esito è atteso
 - `sector`: wizard/settore di ingresso
 - `inputs`: input serializzati campo per campo con gli **ID reali del wizard** (`psnc`/`dora`/`cloud_pa` dal blocco disambiguation; ID sector-specific; `dimension` per lo `standard_identification`; assente per la PA size-blind)
-- `expected`: `assessment_mode` (vocabolario del Verdict: `categorical_assessment` | `qualitative_signal_only` | `out_of_scope` | `escalate_to_advisor`), `verdict_outcome` (`likely_in_scope` | `likely_out_of_scope` | `ambiguous`), eventuale `qualifica`/`qualifica_inferita`, `signals` attesi, `regime_routing`: lista sempre presente, `[]` se nessun routing, un elemento (`regime`, `routing_effect`, `residual_nis_obligation`, `exceptions_catalog_entry`) per ogni override che matcha, nell'ordine del file di settore (ADR 0009, amendment 2026-10-28), `corpus_ref` (path reali con prefisso: `sectors/sectors__*.yaml`, `wizard/wizard__*.yaml`)
+- `expected`: `assessment_mode` (vocabolario del Verdict: `categorical_assessment` | `qualitative_signal_only` | `out_of_scope` | `escalate_to_advisor`), `verdict_outcome` (`likely_in_scope` | `likely_out_of_scope` | `ambiguous`), eventuale `qualifica`/`qualifica_inferita`, `signals` attesi, `regime_routing`: lista sempre presente, `[]` se nessun routing, un elemento (`regime`, `routing_effect`, `residual_nis_obligation`, `exceptions_catalog_entry`) per ogni override che matcha, nell'ordine del file di settore (ADR 0009, amendment 2026-10-27), `corpus_ref` (path reali con prefisso: `sectors/sectors__*.yaml`, `wizard/wizard__*.yaml`)
 - `citations`: **citation ID del corpus** (NON wikilink)
 
 ## Note

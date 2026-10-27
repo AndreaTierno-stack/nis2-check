@@ -83,7 +83,7 @@ dalla semantica dell'override, cioè senza violare il vincolo 2 di CLAUDE.md
   (non da fonte normativa esterna).
 - `corpus/regimes/{psnc,dora,cloud_pa}.yaml`; fixture E05, E06, E07.
 
-## Amendment 2026-10-28
+## Amendment 2026-10-27
 
 Corpus 0.3.1. Il corpo dell'ADR resta invariato; le regole seguenti lo
 modificano dove contrastano.

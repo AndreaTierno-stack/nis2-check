@@ -108,7 +108,7 @@ overrides:
 ```
 
 Note di modellazione:
-- Gli override **non portano `verdict_outcome`** sul settore: instradano a un regime (`reference: regimes/<x>.yaml`). Il `meta` del regime dichiara `assessment_mode: escalate_to_advisor` e `verdict_outcome: ambiguous` (ADR 0009); nelle fixture l'esito atteso è quello del regime, più la lista `regime_routing` (un elemento per override che matcha, nell'ordine del file di settore; `[]` se nessun routing — ADR 0009, amendment 2026-10-28).
+- Gli override **non portano `verdict_outcome`** sul settore: instradano a un regime (`reference: regimes/<x>.yaml`). Il `meta` del regime dichiara `assessment_mode: escalate_to_advisor` e `verdict_outcome: ambiguous` (ADR 0009); nelle fixture l'esito atteso è quello del regime, più la lista `regime_routing` (un elemento per override che matcha, nell'ordine del file di settore; `[]` se nessun routing — ADR 0009, amendment 2026-10-27).
 - I regimi in `regimes/*.yaml` hanno `status: routing_only_v0_1`: **instradano, non risolvono nel merito** in v0.1.0.
 - L'override `dora` è modellato anche se "inatteso" per l'energia: la domanda comune resta nel flusso, quindi il caso va gestito (con nota di verifica), non ignorato. Il commento `# Cloud PA: non pertinente → nessun override` documenta l'assenza deliberata.
 

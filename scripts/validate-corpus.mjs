@@ -22,7 +22,7 @@
  *  6. wizard meta.sector_data and fixture corpus_ref files exist;
  *  7. fixtures: corpus_version == corpus/VERSION, input ids exist in the wizard,
  *     expected signals are defined, regime_routing == meta of the regimes of the
- *     matching overrides, in sector-file order (ADR 0009 amendment 2026-10-28);
+ *     matching overrides, in sector-file order (ADR 0009 amendment 2026-10-27);
  *  8. lint: no unquoted YAML 1.1 boolean-like scalar (yes/no/on/off/y/n).
  */
 import fs from 'node:fs';
