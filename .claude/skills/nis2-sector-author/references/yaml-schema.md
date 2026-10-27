@@ -83,7 +83,7 @@ overrides:
     citations: [citation_id, ...]
 ```
 
-Per le voci instradate a un regime, l'esito atteso nelle fixture è la semantica dell'override (`derived_from: override_routing`), **non** un `verdict_outcome` sul settore. I regimi in `regimes/*.yaml` hanno `status: routing_only_v0_1`: instradano, non risolvono nel merito.
+Per le voci instradate a un regime, l'esito è dichiarato nel `meta` del regime (`assessment_mode: escalate_to_advisor`, `verdict_outcome: ambiguous`, ADR 0009) e copiato dall'engine attraverso il `reference` dell'override, **non** un `verdict_outcome` sul settore; il `meta` popola anche `Verdict.regimeRouting`. I regimi in `regimes/*.yaml` hanno `status: routing_only_v0_1`: instradano, non risolvono nel merito.
 
 ### Trigger dei signal
 

@@ -1,7 +1,7 @@
 # ============================================================================
 # Settore: Cloud Computing — MODELLO DATI
 # Allegato I p. 8 — Infrastrutture digitali (settore altamente critico)
-# Le domande del wizard vivono in wizard/cloud_computing.yaml
+# Le domande del wizard vivono in wizard/wizard__cloud_computing.yaml
 # ============================================================================
 
 meta:
@@ -71,8 +71,9 @@ overrides:
   - trigger: dora == yes
     override_kind: massive_disapplication
     reference: regimes/dora.yaml
-    reasoning_trace: "Entità DORA: disapplicato il regime NIS salvo l'art. 7 c. 1 (registrazione su piattaforma ACN). Esonero dalla categorizzazione ai sensi dell'art. 20 Det. piattaforma 127437/2026."
-    citations: [dlgs_138_2024_art_3_c_14, det_piattaforma_127437_2026_art_20]
+    reasoning_trace: "Entità DORA: disapplicato il regime NIS salvo l'art. 7 c. 1 (registrazione su piattaforma ACN). Esonero dalla categorizzazione ai sensi dell'art. 20 c. 6 Det. piattaforma 127437/2026."
+    # citations coincidenti con regimes/dora.yaml (commi verificati, DIV-P1 chiusa in 0.2.1)
+    citations: [dlgs_138_2024_art_3_c_14, det_piattaforma_127437_2026_art_7_c_6, det_piattaforma_127437_2026_art_16_c_13, det_piattaforma_127437_2026_art_20_c_6]
 
 out_of_scope_mvp:
   - case: cloud_provider_multi_eu_jurisdiction

@@ -5,7 +5,7 @@ description_it: >
   A1.1.a.3 "non rientra automaticamente" per questo solo titolo: NON e'
   un'esclusione categoriale, ma una segnalazione (verso "fuori"). La dimensione
   e' raccolta ma non determina l'esito, che si origina al nodo registrato_pun.
-corpus_version: 0.2.0
+corpus_version: 0.3.0
 sector: energia_elettrica
 
 inputs:
@@ -22,6 +22,6 @@ expected:
   assessment_mode: qualitative_signal_only
   verdict_outcome: likely_out_of_scope
   signals: []
-  corpus_ref: "wizard/energia_elettrica.yaml#registrato_pun[answer==no]"
+  corpus_ref: "wizard/wizard__energia_elettrica.yaml#registrato_pun[answer==no]"
 
 citations: [faq_a1_1_a_3]

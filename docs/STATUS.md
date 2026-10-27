@@ -4,12 +4,12 @@
 > (data, stato sintetico, punti aperti, una riga di log). Le regole stabili vivono nelle
 > Custom Instructions del Project e in CLAUDE.md — qui solo lo stato.
 
-**Aggiornato**: 2026-10-27 · sessione "T0 confermato"
+**Aggiornato**: 2026-10-27 · sessione "corpus 0.3.0"
 
 ## Stato sintetico
 
 - **KB**: 103 nodi (40 sources / 17 entities / 39 concepts / 7 synthesis). Scope: 69 `both` / 31 `grc_personal` / 3 `nis2_tool` (post retag Cross-walk → `both`, DEC-002, esecuzione anticipata di ADR 0006). Sweep raw/ completato: identità documentali tutte verificate; 6 source_path morti (`_tmp/*.txt`) **ripuntati ai PDF firmati reali** (vault pulito, 0 residui); duplicato termini archiviato in `raw/_archive/` (DEC-004). Repo nis2-knowledge-it PUBBLICO dal 2026-10-26 (commit unico eb1a192, storia privata schiacciata; rischio residuo accettato: SHA dei commit pre-squash potenzialmente in cache GitHub fino alla garbage collection). Correzioni di contenuto del 2026-10-26: Size-cap rule e Soggetti essenziali e importanti allineati a FAQ AMB.DI.1; Direttiva allineata a AMB.GE.2; protocolli 136118 e 112335 attestati via pagina ACN.
-- **Corpus**: v0.2.1. 3 gate (PSNC / DORA / Cloud PA) + segnale cumulativo `l90_cumulo`; `verdict_outcome` dichiarativo su ogni regola; regimi `routing_only_v0_1`; catalogo eccezioni 4 gestite / 8 segnalate / 10 non gestite; 15 fixture golden E01–E15 (corpus_version 0.2.1); ADR 0001–0007.
+- **Corpus**: v0.3.0. 3 gate (PSNC / DORA / Cloud PA) + segnale cumulativo `l90_cumulo`; `verdict_outcome` dichiarativo su ogni regola; regimi `routing_only_v0_1` con escalation dichiarata nel `meta` (ADR 0009); domanda `dimension` (standard_identification) nel wizard; catalogo eccezioni 4 gestite / 8 segnalate / 10 non gestite; 15 fixture golden E01–E15 (corpus_version 0.3.0); ADR 0001–0009 (prossimo: 0010).
 - **Claude Code config**: CLAUDE.md v2 installato in root; 3 skill (6 file) rigenerate su corpus reale; vecchia bozza in `nis2-claude-config/` superata (non usare). Regola "STATUS.md fonte unica dello stato" aggiunta a CLAUDE.md (sezione CI/CD e workflow).
 - **Tool**: codice non iniziato. Repo GitHub: nis2-knowledge-it PUBBLICO dal 2026-10-26; nis2-check privato fino al pre-rilascio v0.1.0 (ADR 0008).
 - **Contatore stop-and-ingest**: 1 residuo fino alla release v0.1.0 del tool (non alla versione 0.1.0 del corpus) (budget 2; consumato: Wave 7).
@@ -31,7 +31,14 @@ Nota 2026-10-26: nessuna attività sui file tra il 2026-07-02 e il 2026-10-26. R
 8. **Date corso ISO 27001 + ore residue effettive**: [DA CONFERMARE dall'utente] — senza questi dati il piano ha durate, non date.
 9. Lint post-T0 sulla KB: 4 link dubbi (Autorità nazionale competente NIS, Portale dei Servizi ACN, Sistemi informativi e di rete, Organi di amministrazione e direttivi), 7 concept stub, esempio al confine 50/43 M€ in FAQ Ambito AMB.DI.1.
 10. Kickoff v0.2 (controlli): ritaggare a both i concept Misure di gestione del rischio cyber (citato da 23 nodi esportati), Clausole basate sul rischio, Approccio multi-rischio; oggi grc_personal e assenti dal Project Knowledge.
-11. Scaffolding v0.1.0, corpus 0.2.2 prima dell'engine: domanda dimension assente dal wizard (la logica deve seguire FAQ AMB.DI.1: effettivi più almeno un parametro contabile, salita di categoria); id tipo_partecipazione_pubblica inesistente (E14); riferimenti a file non prefissati; verdict_outcome {derived_from: override_routing} fuori vocabolario Verdict; granularità DORA negli override di settore (art. 20 nudo); corpus_version delle fixture; ambiguità v0.1.0 nel contatore stop-and-ingest.
+11. Scaffolding v0.1.0, corpus prima dell'engine: CHIUSO 2026-10-27 (corpus 0.3.0) per domanda dimension (da FAQ AMB.DI.1), id tipo_partecipazione_pubblica (E14), riferimenti a file prefissati, verdict_outcome {derived_from: override_routing} sostituito da escalation dichiarata nel regime (ADR 0009), citazioni DORA a comma negli override, corpus_version delle fixture. RESTA APERTA: ambiguità v0.1.0 nel contatore stop-and-ingest.
+12. Open point emersi con corpus 0.3.0 (richiedono decisione dell'autore):
+   - Override PSNC in `sectors__cloud_computing.yaml` cita solo `det_acn_155238_2026_art_5`; `regimes/psnc.yaml` cita anche `dl_105_2019_art_1_c_2_bis`. Contrasta con la regola "citations dell'override = citations del regime" (ADR 0009).
+   - `reasoning_trace` dimensionali di cloud ed energia ("50-249 dipendenti o 10-50 M€", ">250 dipendenti o >50 M€") non seguono la regola AMB.DI.1 (effettivi sempre, più almeno un parametro contabile; grande = 250 effettivi o più, oppure fatturato e bilancio entrambi oltre soglia). Copy del verdetto, serve conferma.
+   - Il follow-up di `pertinenza_pubblica_cloud` non ha ID (manca la simmetria con `tipo_partecipazione_pubblica` di energia).
+   - KB: il nodo `D.Lgs. 138-2024 (Decreto NIS)` non attesta l'art. 3 c. 6 (attestato sul PDF ufficiale e nel nodo FAQ Settori). Da integrare a monte.
+   - `Verdict.regimeRouting` è singolo: per E08 (PSNC + Cloud PA, escalate da `multi_regime_intersection`) non è deciso se e come popolarlo.
+   - Chiavi nuove ancora senza schema zod: `standard_identification_questions`, `phase`, `visibility_citations`, `meta.assessment_mode` / `meta.verdict_outcome` dei regimi. Da formalizzare allo scaffolding.
 
 ## Segnali GRC (T0 → 2027-01-05)
 
@@ -42,10 +49,11 @@ Tipo di segnale: commento / connessione / citazione / richiesta / colloquio.
 
 ## Prossima milestone
 
-v0.1.0 in tre blocchi: corpus 0.3.0 (S1) → scaffold + CI (S2) → engine a fixture verdi (S3, 30-40h). A 8-10h/settimana osservate: fine gennaio / febbraio 2027. La review GRC terza parte a engine verde.
+v0.1.0 in tre blocchi: corpus 0.3.0 (S1, completato 2026-10-27) → scaffold + CI (S2) → engine a fixture verdi (S3, 30-40h). A 8-10h/settimana osservate: fine gennaio / febbraio 2027. La review GRC terza parte a engine verde.
 
 ## Log sessioni recenti
 
+- 2026-10-27 · Corpus 0.3.0: ADR 0009 scritto (override di regime = escalation dichiarata nel meta del regime + Verdict.regimeRouting); domanda dimension; id tipo_partecipazione_pubblica; riferimenti a file prefissati; citazioni DORA a comma negli override; fixture a 0.3.0 (E05-E07 con nuovo esito); CLAUDE.md vincolo 2 + tipo Verdict; nota datata in ADR 0007 (raw/_archive). Punto 11 chiuso salvo contatore; nuovo punto 12.
 - 2026-10-27 · T0 confermato: post LinkedIn pubblicato 07:46, link e prime metriche (T0+7h) registrati al punto aperto 1; aperta la tabella Segnali GRC.
 - 2026-10-26 · T0 fissato al 27/10 (post programmato 07:45). Decisione ADR 0009 presa nel Project (override di regime → escalate_to_advisor + regimeRouting), da scrivere in S1.
 - 2026-10-26 · Fase 0 eseguita: git init + repo privati; riconciliazione stato; housekeeping e sweep KB; ADR 0008; README/LICENSE/DEC-005; de-personalizzazione; export_kb.py + export rigenerato; lint Size-cap rule da query; squash e pubblicazione nis2-knowledge-it; Project Knowledge caricato e riallineato. Residuo: post LinkedIn.

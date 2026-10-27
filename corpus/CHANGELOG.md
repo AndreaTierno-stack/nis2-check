@@ -3,9 +3,34 @@
 Tutte le modifiche rilevanti al corpus normativo (wizard, sectors, signals, regimes, fixtures) sono registrate in questo file.
 
 Formato ispirato a [Keep a Changelog](https://keepachangelog.com/it/1.1.0/); versioning [SemVer](https://semver.org/lang/it/) applicato al **contenuto del corpus** (non al codice dell'engine):
-- **major**: cambia il contratto dati letto dall'engine in modo incompatibile.
-- **minor**: nuove domande del questionario o nuovi campi di schema retro-compatibili.
-- **patch**: correzioni di citazioni/testo senza modifiche di schema.
+- **major**: cambio di schema incompatibile (il contratto dati letto dall'engine cambia in modo non retro-compatibile).
+- **minor**: cambia il questionario o cambiano le regole (incluse le modifiche che alterano un esito atteso delle fixture).
+- **patch**: correzioni di attestazione o di copy senza effetto sugli esiti.
+
+Ogni bump ha una voce in questo file; le fixture dichiarano `corpus_version` e si riallineano a ogni minor/major.
+
+## [0.3.0] — 2026-10-27 — Patch coordinata pre-engine: domanda dimension, override di regime come escalation (ADR 0009), riferimenti a file, citazioni DORA
+
+Minor: cambia il questionario (nuova domanda `dimension`, ID del follow-up di pertinenza pubblica nel settore energia) e cambia l'esito atteso di E05, E06, E07. Chiude le voci del punto aperto 11 di `docs/STATUS.md` che bloccavano l'avvio dell'engine.
+
+### Added
+- **`wizard/wizard__disambiguation.yaml`** — nuova sezione `standard_identification_questions` con la domanda `dimension` (fase `standard_identification`, `single_select`, opzioni `micro_or_piccola` / `media` / `grande`). Saltata per la PA (`visible_if: "sector != pubblica_amministrazione"`, `visibility_citations: [dlgs_138_2024_art_3_c_6]`): size-blind, art. 3 c. 6 D.Lgs. 138/2024 verificato sul testo ufficiale. Testo di aiuto con la tabella effettivi/fatturato/bilancio, la regola "effettivi sempre, più almeno uno tra fatturato e bilancio" e la regola di salita, da FAQ `AMB.DI.1` e dal concept Size-cap rule. `citations: [faq_amb_di_1, racc_ue_2003_361]` (ID già in uso nel corpus). La domanda era referenziata da `qualification_rules` e fixture ma non esisteva nel wizard.
+- **`regimes/{psnc,dora,cloud_pa}.yaml`** — in `meta`: `assessment_mode: escalate_to_advisor`, `verdict_outcome: ambiguous` (ADR 0009). L'engine li copia nel Verdict attraverso il `reference` dell'override; il `meta` del regime popola il nuovo campo `Verdict.regimeRouting` (`regimeId`, `routingEffect`, `residualNisObligation?`, `exceptionsCatalogEntry`).
+- **`docs/decisions/0009-override-regime-escalate-routing.md`** — ADR 0009.
+
+### Changed
+- **`fixtures/E05`, `E06`, `E07`** — `expected` passa da `assessment_mode: <routing effect>` + `verdict_outcome: {derived_from: override_routing}` (fuori dal vocabolario del Verdict) a `assessment_mode: escalate_to_advisor`, `verdict_outcome: ambiguous`, più il blocco `regime_routing` (`regime`, `routing_effect`, `residual_nis_obligation`, `exceptions_catalog_entry`) con i valori del `meta` del regime. `residual_nis_obligation: null` per PSNC e Cloud PA (non dichiarato nel loro `meta`). Citations invariate. Motivazione: ADR 0009.
+- **`wizard/wizard__energia_elettrica.yaml`** — il `conditional_followup` di `pertinenza_pubblica_energia` riceve `id: tipo_partecipazione_pubblica`, l'ID già usato come input da E14.
+- **`sectors/sectors__cloud_computing.yaml`, `sectors/sectors__energia_elettrica.yaml`** — override DORA: `citations` da `[dlgs_138_2024_art_3_c_14, det_piattaforma_127437_2026_art_20]` (articolo) a quelle di `regimes/dora.yaml` (commi verificati in 0.2.1: `_art_7_c_6`, `_art_16_c_13`, `_art_20_c_6`). Regola: le citations di un override coincidono con quelle del regime referenziato. `reasoning_trace` cloud: "art. 20" → "art. 20 c. 6".
+- **Header dei regimi** — "STATUS v0.1.0" → "STATUS: routing-only fino alla release v0.1.0 del tool; risoluzione nel merito in v0.2" (la versione 0.1.0 è del tool, non del corpus).
+- **Riferimenti a file** — normalizzati ai nomi reali con prefisso (`sectors__`, `wizard__`, `signals__`): `meta.sector_data` dei 3 wizard, header dei wizard e dei settori, commenti di rinvio ai signal in `sectors__energia_elettrica.yaml` e `sectors__pubblica_amministrazione.yaml`, `signals__cross_sector.yaml`, `corpus_ref` delle 15 fixture. In E14 il riferimento informale `wizard.pertinenza_pubblica_energia[...]` diventa `wizard/wizard__energia_elettrica.yaml#pertinenza_pubblica_energia.tipo_partecipazione_pubblica[capitale_prevalente]`.
+- **Intestazione di questo file** — definizione di semver allineata a CLAUDE.md.
+- **`fixtures/*`** — `corpus_version` → 0.3.0 su tutte le 15 fixture; `fixtures/README.md` aggiornato.
+
+### Notes
+- Attestazioni: art. 3 c. 6 D.Lgs. 138/2024 sul PDF ufficiale `raw/articles/Decreto NIS2.pdf` e sul nodo `[[sources/FAQ NIS - Settori, sottosettori e tipologie di soggetto]]` (sezione Allegato III); il nodo `[[sources/D.Lgs. 138-2024 (Decreto NIS)]]` non attesta il comma (lacuna KB segnalata a monte). Soglie e regole della dimensione: `[[sources/FAQ NIS - Ambito]]` `AMB.DI.1`, `[[concepts/Size-cap rule]]`. Commi DORA: `[[sources/Determinazione ACN piattaforma e procedure - 2026-04-13]]`.
+- Il confine 50 M€ / 43 M€ resta ambiguo nella FAQ `AMB.DI.1` (definizione "non superiore a" contro esempio "almeno"): le etichette delle opzioni seguono la definizione ("fino a" / "oltre"). Punto aperto 9 di `docs/STATUS.md`.
+- **Backlog v0.2**: (1) calcolo automatico della categoria dimensionale a partire dai tre numeri (effettivi, fatturato, bilancio), incluso il consolidamento di gruppo; (2) risoluzione nel merito dei regimi PSNC, DORA, Cloud PA, che con ADR 0009 richiede di modificare solo i file `regimes/*.yaml`.
 
 ## [0.2.1] — 2026-07-02 — Patch di attestazione: DIV-P1 chiusa (esoneri DORA)
 

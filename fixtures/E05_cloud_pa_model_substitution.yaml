@@ -4,7 +4,9 @@ description_it: >
   Fornitore cloud i cui servizi sono classificati per la PA (Regolamento Cloud).
   La disambiguazione cloud_pa==yes instrada al regime cloud_pa (routing_only_v0_1):
   override model_substitution (modello Cloud PA in luogo del modello NIS).
-corpus_version: 0.2.0
+  Esito atteso: escalate_to_advisor / ambiguous copiati dal meta del regime
+  (ADR 0009), con regime_routing per Explainability e PDF.
+corpus_version: 0.3.0
 sector: cloud_computing
 
 inputs:
@@ -16,11 +18,14 @@ inputs:
   dimension: grande
 
 expected:
-  assessment_mode: model_substitution
-  verdict_outcome:
-    derived_from: override_routing
-  regime: cloud_pa
-  routing_effect: model_substitution
-  corpus_ref: "sectors/cloud_computing.yaml#overrides[cloud_pa==yes] -> regimes/cloud_pa.yaml"
+  # ADR 0009: instradamento a regime = escalation, copiata dal meta del regime
+  assessment_mode: escalate_to_advisor
+  verdict_outcome: ambiguous
+  regime_routing:
+    regime: cloud_pa
+    routing_effect: model_substitution
+    residual_nis_obligation: null   # assente nel meta di regimes/cloud_pa.yaml
+    exceptions_catalog_entry: cloud_pa_model_substitution
+  corpus_ref: "sectors/sectors__cloud_computing.yaml#overrides[cloud_pa==yes] -> regimes/cloud_pa.yaml"
 
 citations: [dd_acn_21007_24_art_3, det_acn_155238_2026_art_4]

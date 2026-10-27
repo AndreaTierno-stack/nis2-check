@@ -1,6 +1,6 @@
 # ============================================================================
 # Wizard: Pubblica Amministrazione — MODELLO DI INTERAZIONE
-# Referenzia il blocco comune disambiguation.yaml + domande specifiche
+# Referenzia il blocco comune wizard__disambiguation.yaml + domande specifiche
 # ============================================================================
 #
 # NOTE DI FLUSSO (specificita' PA rispetto a Cloud/Energia):
@@ -15,7 +15,7 @@
 meta:
   wizard_id: pubblica_amministrazione
   references_common_block: disambiguation
-  sector_data: sectors/pubblica_amministrazione.yaml
+  sector_data: sectors/sectors__pubblica_amministrazione.yaml
 
 flow_order:
   - disambiguation       # PSNC (possibile per PA centrali/ASL), DORA (di norma no), Cloud PA (frequente)

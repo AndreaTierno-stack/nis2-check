@@ -109,6 +109,11 @@ tra brief e testo, **prevale il testo** e si ferma per segnalare.
   differisce solo l'MD5 per metadati PDF). È una **copia ridondante** non rimossa:
   la cancellazione in `raw/` non è stata autorizzata. Consolidamento rimesso a
   decisione dell'utente.
+  > **Nota 2026-10-27 (correzione):** il file non è più in `raw/articles/`. Con
+  > DEC-004 (2026-07-02, `_meta/decision_log.md` della KB) è stato spostato, non
+  > cancellato, in `raw/_archive/detacn_misuresicurezza-v4_post.pdf`. Verificato
+  > sul filesystem della KB il 2026-10-27: presente in `raw/_archive/`, assente in
+  > `raw/articles/`.
 - La checklist estesa integra la regola di autorità del progetto (citazioni solo
   a granularità verificata) con una regola di **identità** a monte: prima *quale
   atto è*, poi *cosa cita*.

@@ -6,7 +6,7 @@ description_it: >
   categoriale essenziale; identita' multiple intra-settore -> registrazione separata
   per tipologia (cross_sector_multi_tipologia_elettrica); cumulo L. 90 e possibile
   canale Allegato IV in-house (cross_sector_inhouse_all_iv).
-corpus_version: 0.2.0
+corpus_version: 0.3.0
 sector: energia_elettrica
 
 inputs:
@@ -24,6 +24,6 @@ expected:
   verdict_outcome: likely_in_scope
   qualifica: essenziale
   signals: [cross_sector_multi_tipologia_elettrica, l90_cumulo, cross_sector_inhouse_all_iv]
-  corpus_ref: "sectors/energia_elettrica.yaml#qualification_rules[dimension==grande] + multi_identity_intra_sector + wizard.pertinenza_pubblica_energia[capitale_prevalente]"
+  corpus_ref: "sectors/sectors__energia_elettrica.yaml#qualification_rules[dimension==grande] + multi_identity_intra_sector + wizard/wizard__energia_elettrica.yaml#pertinenza_pubblica_energia.tipo_partecipazione_pubblica[capitale_prevalente]"
 
 citations: [dlgs_138_2024_art_6, faq_amb_di_1, faq_settori_sottosettori, dlgs_138_2024_art_7]

@@ -1,4 +1,4 @@
-# CLAUDE.md — nis2-check (v2 — luglio 2026, corpus ≥ 0.2.1)
+# CLAUDE.md — nis2-check (v2 — luglio 2026, corpus ≥ 0.3.0)
 
 Tool open source di **pre-screening dell'ambito NIS2 italiano**. Web-first, client-side, zero raccolta dati. Il valore del progetto è il **corpus normativo dichiarativo** (derivato dalla KB "LLM Wiki" dell'autore, repo separato): il codice lo esegue, non lo interpreta. Progetto hobbistico non commerciale: strumento **informativo**, mai di compliance, audit o certificazione — questo vincolo vale per codice, copy, naming e documentazione.
 
@@ -7,7 +7,7 @@ Repo gemello: `nis2-knowledge-it` (KB, CC-BY-4.0). Questo repo: MIT.
 ## Vincoli non negoziabili — leggere per primi
 
 1. **Mai verdetti categorici.** Ogni testo rivolto all'utente usa formulazioni probabilistiche: *"Sulla base degli input forniti, l'analisi suggerisce che il soggetto rientri nel perimetro NIS2 italiano come [tipologia]. Verifica obbligatoria con consulente qualificato."* Vietato in qualunque output: "Rientri", "Sei dentro", "Sei conforme", "Devi", "Sei tenuto a", "Adempi a", "Implementa", "Report di compliance", "audit", "diagnosi", "certificazione".
-2. **`verdict_outcome` si copia, mai si inferisce.** L'engine legge il campo `verdict_outcome` dichiarato nella regola del corpus e lo riporta nel Verdict. Se una regola ne è priva, è un errore di corpus che la validazione zod deve bloccare in build — non un caso da gestire con fallback o euristiche (ADR 0002).
+2. **`verdict_outcome` si copia, mai si inferisce.** L'engine legge il campo `verdict_outcome` dichiarato nella regola del corpus e lo riporta nel Verdict. Per un override di regime lo legge, insieme ad `assessment_mode`, dal `meta` del regime referenziato (`reference: regimes/<id>.yaml`). **Nessun `verdict_outcome` e nessun `reference` a un regime che lo dichiara = errore bloccante**: la validazione zod lo blocca in build, non è un caso da gestire con fallback o euristiche (ADR 0002, ADR 0009).
 3. **Citazioni solo a granularità verificata.** Ogni citation ID nel corpus corrisponde a un'attestazione nella KB (articolo, comma, protocollo, codice FAQ). Un comma non attestato si degrada, non si assume. Mai inventare riferimenti normativi: in dubbio, open point.
 4. **Naming vincolato** (ADR 0004, 0005): mai "salvaguardia" nuda — sempre "salvaguardia dimensionale (DPCM 221/2024)" distinta dalle "esclusioni di sicurezza nazionale (art. 2 par. 7-8 NIS2)"; ID: `safeguard_dimensional_dpcm_221`. Mai "CER" nudo nel settore energia — sempre "soggetti critici (D.Lgs. 134/2024)" vs "comunità energetiche rinnovabili (CACER)".
 5. **`disclaimerRequired: true`** è un literal type, incondizionato, in ogni Verdict.
@@ -33,7 +33,7 @@ nis2-check/
 
 `packages/engine`: `evaluate(answers, corpus) => Verdict`. Pura, deterministica, testabile senza DOM. Non contiene conoscenza normativa: solo meccanica di esecuzione (routing dei gate, applicazione qualification_rules, raccolta signals, composizione reasoning trace).
 
-## Corpus — fonte di verità (v0.2.1+)
+## Corpus — fonte di verità (v0.3.0+)
 
 Struttura: `sectors/`, `wizard/`, `signals/`, `regimes/`, più `VERSION` e `CHANGELOG.md`. Convenzione filename con prefisso di cartella (`sectors__`, `wizard__`, `signals__`) per evitare collisioni.
 
@@ -43,7 +43,7 @@ Struttura: `sectors/`, `wizard/`, `signals/`, `regimes/`, più `VERSION` e `CHAN
 
 **Outcome delle regole** (`assessment_mode`): `categorical_assessment` | `qualitative_signal_only` | `escalate_to_advisor` | `out_of_scope`. Ogni regola con esito dichiara anche `verdict_outcome` (vedi vincolo 2). Mapping fisso: categorical in ambito → `likely_in_scope`; `out_of_scope` → `likely_out_of_scope`; `escalate` → `ambiguous`; `qualitative_signal_only` → dichiarato caso per caso con commento giustificativo.
 
-**Regimi**: `regimes/{psnc,dora,cloud_pa}.yaml` hanno `status: routing_only_v0_1` — instradano, non risolvono nel merito. Non implementare la risoluzione senza decisione esplicita di scope (è v0.2+).
+**Regimi**: `regimes/{psnc,dora,cloud_pa}.yaml` hanno `status: routing_only_v0_1` — instradano, non risolvono nel merito. In v0.1 ogni regime dichiara nel `meta` `assessment_mode: escalate_to_advisor` e `verdict_outcome: ambiguous`, copiati dall'engine attraverso il `reference` dell'override, e popola `Verdict.regimeRouting` (ADR 0009). Non implementare la risoluzione senza decisione esplicita di scope (è v0.2+).
 
 **Semver corpus**: MAJOR = cambio di schema incompatibile; MINOR = cambia questionario o regole; PATCH = correzioni di attestazione/copy senza effetto sugli esiti. Ogni bump → voce CHANGELOG. Le fixture dichiarano `corpus_version` e vanno riallineate a ogni MINOR/MAJOR.
 
@@ -61,6 +61,12 @@ interface Verdict {
   outcome: VerdictOutcome;          // copiato da corpus.verdict_outcome — MAI inferito
   assessmentMode: AssessmentMode;   // alimenta l'Explainability Mode
   qualifica?: { value: 'essenziale' | 'importante'; inferita: boolean }; // strada 3 PA
+  regimeRouting?: {                 // popolato dal meta del regime (ADR 0009)
+    regimeId: string;
+    routingEffect: 'category_override' | 'massive_disapplication' | 'model_substitution';
+    residualNisObligation?: string;
+    exceptionsCatalogEntry: string;
+  };
   signals: SignalRef[];             // l90_cumulo, cross_sector_*, ecc.
   reasoningTrace: ReasoningStep[];  // observability client-side
   citations: CitationId[];          // solo granularità verificata
@@ -87,7 +93,7 @@ Consentito: `reasoningTrace` nel Verdict; console log strutturati gated `?debug=
 
 ## CI/CD e workflow
 
-GitHub Actions su ogni push/PR: install → lint → typecheck → `corpus:validate` → test → build. Conventional commits (`feat:`, `fix:`, `docs:`, `chore:`, `test:`, `corpus:`); i commit `corpus:` citano la versione (es. `corpus: bump 0.2.1 — attestation patch, DIV-P1 closed`). `docs/ARCHITECTURE.md` è documentazione viva: si aggiorna nello stesso commit che cambia l'architettura. Le decisioni con alternative scartate → ADR in `docs/decisions/` (prossimo numero: 0008). `docs/STATUS.md` è la fonte unica dello stato di avanzamento e dei punti aperti; si aggiorna in chiusura di ogni sessione (data, stato sintetico, punti aperti, una riga di log).
+GitHub Actions su ogni push/PR: install → lint → typecheck → `corpus:validate` → test → build. Conventional commits (`feat:`, `fix:`, `docs:`, `chore:`, `test:`, `corpus:`); i commit `corpus:` citano la versione (es. `corpus: bump 0.2.1 — attestation patch, DIV-P1 closed`). `docs/ARCHITECTURE.md` è documentazione viva: si aggiorna nello stesso commit che cambia l'architettura. Le decisioni con alternative scartate → ADR in `docs/decisions/` (prossimo numero: 0010). `docs/STATUS.md` è la fonte unica dello stato di avanzamento e dei punti aperti; si aggiorna in chiusura di ogni sessione (data, stato sintetico, punti aperti, una riga di log).
 
 ## Autonomia di Claude Code
 

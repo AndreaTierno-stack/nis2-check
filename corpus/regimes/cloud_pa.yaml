@@ -1,7 +1,8 @@
 # ============================================================================
 # Regime: Cloud PA — ROUTING ONLY
 # ============================================================================
-# STATUS v0.1.0: questo file NON contiene ancora logica di categorizzazione.
+# STATUS: routing-only fino alla release v0.1.0 del tool; risoluzione nel merito in v0.2.
+# Questo file NON contiene ancora logica di categorizzazione.
 # Quando una domanda di disambiguazione instrada qui (cloud_pa == yes), il
 # decision engine applica l'override dichiarato nel settore (model_substitution:
 # modello Cloud PA ordinari/critici/strategici in luogo del modello NIS) e rinvia
@@ -18,6 +19,11 @@ meta:
   regime_id: cloud_pa
   status: routing_only_v0_1
   routing_effect: model_substitution
+  # ADR 0009: in v0.1 l'instradamento al regime e' un'escalation. L'engine copia
+  # assessment_mode e verdict_outcome nel Verdict attraverso il reference
+  # dell'override (nessuna inferenza); routing_effect alimenta Verdict.regimeRouting.
+  assessment_mode: escalate_to_advisor
+  verdict_outcome: ambiguous   # invariante: escalate_to_advisor -> sempre ambiguous
   exceptions_catalog_entry: cloud_pa_model_substitution
   referenced_by:
     - "wizard/wizard__disambiguation.yaml#questions.cloud_pa"

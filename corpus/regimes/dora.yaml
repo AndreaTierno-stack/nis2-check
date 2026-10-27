@@ -1,7 +1,8 @@
 # ============================================================================
 # Regime: DORA (Reg. UE 2022/2554) — ROUTING ONLY
 # ============================================================================
-# STATUS v0.1.0: questo file NON contiene ancora logica di categorizzazione.
+# STATUS: routing-only fino alla release v0.1.0 del tool; risoluzione nel merito in v0.2.
+# Questo file NON contiene ancora logica di categorizzazione.
 # Quando una domanda di disambiguazione instrada qui (dora == yes), il decision
 # engine applica l'override dichiarato nel settore (massive_disapplication: il
 # regime NIS e' disapplicato salvo l'art. 7 c. 1 — registrazione) e rinvia alla
@@ -22,6 +23,11 @@ meta:
   regime_id: dora
   status: routing_only_v0_1
   routing_effect: massive_disapplication
+  # ADR 0009: in v0.1 l'instradamento al regime e' un'escalation. L'engine copia
+  # assessment_mode e verdict_outcome nel Verdict attraverso il reference
+  # dell'override (nessuna inferenza); routing_effect alimenta Verdict.regimeRouting.
+  assessment_mode: escalate_to_advisor
+  verdict_outcome: ambiguous   # invariante: escalate_to_advisor -> sempre ambiguous
   exceptions_catalog_entry: dora_massive_disapplication
   residual_nis_obligation: "art. 7 c. 1 D.Lgs. 138/2024 (registrazione su piattaforma ACN)"
   referenced_by:

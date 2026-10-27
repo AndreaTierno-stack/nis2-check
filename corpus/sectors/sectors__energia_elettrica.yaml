@@ -2,7 +2,7 @@
 # Settore: Energia / Energia elettrica — MODELLO DATI
 # Allegato I p. 1 — Energia (settore altamente critico)
 # Sottosettore A1.1.a — Energia elettrica
-# Le domande del wizard vivono in wizard/energia_elettrica.yaml
+# Le domande del wizard vivono in wizard/wizard__energia_elettrica.yaml
 # ============================================================================
 
 meta:
@@ -125,11 +125,12 @@ overrides:
     override_kind: massive_disapplication
     reference: regimes/dora.yaml
     reasoning_trace: "Entità DORA: disapplicato il regime NIS salvo l'art. 7 c. 1. Nota: per un soggetto del settore energia questa risposta è inattesa; verifica che il soggetto sia effettivamente un'entità finanziaria regolata da DORA."
-    citations: [dlgs_138_2024_art_3_c_14, det_piattaforma_127437_2026_art_20]
+    # citations coincidenti con regimes/dora.yaml (commi verificati, DIV-P1 chiusa in 0.2.1)
+    citations: [dlgs_138_2024_art_3_c_14, det_piattaforma_127437_2026_art_7_c_6, det_piattaforma_127437_2026_art_16_c_13, det_piattaforma_127437_2026_art_20_c_6]
   # Cloud PA: non pertinente al settore energia -> nessun override
   # (la domanda Cloud PA nel blocco comune resta, ma per Energia non instrada nulla)
 
-# Identita' multiple intra-settore (trigger; definizione in signals/cross_sector.yaml)
+# Identita' multiple intra-settore (trigger; definizione in signals/signals__cross_sector.yaml)
 multi_identity_intra_sector:
   - signal: cross_sector_multi_tipologia_elettrica
     condition_source: wizard_question

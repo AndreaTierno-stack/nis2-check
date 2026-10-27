@@ -1,7 +1,9 @@
 # ============================================================================
 # Domande binarie di disambiguazione di regime — COMUNI a tutti i settori
-# Referenziate dai file wizard/<settore>.yaml
+# Referenziate dai file wizard/wizard__<settore>.yaml
 # Ordine di esecuzione: queste 3 domande precedono l'identificazione standard
+# Ospita anche la domanda comune della fase standard_identification
+# (dimension, sezione in fondo al file): non esiste un file dedicato.
 # ============================================================================
 
 meta:
@@ -66,3 +68,54 @@ multi_regime_intersection:
     verdict_outcome: ambiguous   # vincolo fisso: escalate_to_advisor -> sempre ambiguous (l'engine copia senza inferenza)
     reasoning_trace: "Il soggetto appare contemporaneamente in perimetro PSNC e nella disciplina Cloud PA. L'ordine di precedenza tra l'automatismo 'alto' PSNC (art. 5) e la sostituzione di modello Cloud PA (art. 4) non è esplicitato nelle fonti normative disponibili. Consulenza qualificata necessaria, con eventuale interlocuzione diretta ACN."
     citations: [det_acn_155238_2026_art_4, det_acn_155238_2026_art_5]
+
+# ============================================================================
+# Identificazione standard — domanda comune ai settori size-cap (corpus 0.3.0)
+# ============================================================================
+# Fase standard_identification: segue disambiguation e sector_specific. Alimenta
+# le qualification_rules dei settori con condition su "dimension".
+# La PA la salta: size-blind, il decreto si applica alle PA dell'Allegato III
+# "indipendentemente dalle loro dimensioni" (art. 3 c. 6 D.Lgs. 138/2024,
+# verificato sul testo ufficiale; nodo KB: FAQ Settori, sezione Allegato III).
+# Il testo di aiuto deriva da FAQ AMB.DI.1 e dal concept Size-cap rule.
+# BACKLOG v0.2: calcolo automatico della categoria da tre numeri (effettivi,
+# fatturato, bilancio); in v0.1 l'utente seleziona la categoria.
+
+standard_identification_questions:
+  - id: dimension
+    phase: standard_identification
+    kind: single_select
+    visible_if: "sector != pubblica_amministrazione"   # saltata per la PA (size-blind)
+    visibility_citations: [dlgs_138_2024_art_3_c_6]
+    label_it: "A quale categoria dimensionale appartiene il soggetto, secondo la Raccomandazione UE 2003/361/CE?"
+    help_text_it: |
+      La categoria si ricava da tre dati: gli effettivi (le persone occupate),
+      il fatturato annuo e il totale di bilancio annuo.
+      Le soglie, come riportate dalla FAQ ACN AMB.DI.1:
+
+      | Categoria | Effettivi   | Fatturato annuo | Bilancio annuo |
+      |-----------|-------------|-----------------|----------------|
+      | Micro     | meno di 10  | fino a 2 M€     | fino a 2 M€    |
+      | Piccola   | meno di 50  | fino a 10 M€    | fino a 10 M€   |
+      | Media     | meno di 250 | fino a 50 M€    | fino a 43 M€   |
+
+      Oltre le soglie della media impresa si parla di grande impresa.
+
+      Come si legge la tabella: per stare in una categoria contano sempre gli
+      effettivi, più almeno uno tra fatturato e bilancio (i due dati contabili
+      sono alternativi). Se gli effettivi superano la soglia, oppure se la
+      superano entrambi i dati contabili, il soggetto passa alla categoria
+      successiva. Esempio dalla FAQ: con meno di 10 effettivi, ma fatturato e
+      bilancio entrambi tra 10 e 43 M€, il soggetto risulta media impresa.
+
+      Se il soggetto fa parte di un gruppo, i dati possono andare sommati con
+      quelli delle imprese collegate o associate. In caso di dubbio sul calcolo,
+      è opportuno un confronto con un consulente qualificato.
+    options:
+      - id: micro_or_piccola
+        label_it: "Micro o piccola impresa (meno di 50 effettivi e fatturato o bilancio fino a 10 M€)"
+      - id: media
+        label_it: "Media impresa (non piccola; meno di 250 effettivi e fatturato fino a 50 M€ o bilancio fino a 43 M€)"
+      - id: grande
+        label_it: "Grande impresa (250 effettivi o più, oppure fatturato oltre 50 M€ e bilancio oltre 43 M€)"
+    citations: [faq_amb_di_1, racc_ue_2003_361]

@@ -1,13 +1,13 @@
 # ============================================================================
 # Wizard: Cloud Computing — MODELLO DI INTERAZIONE
-# Referenzia il blocco comune disambiguation.yaml + domande specifiche
+# Referenzia il blocco comune wizard__disambiguation.yaml + domande specifiche
 # Gli id citati qui (signal, condition_ref) devono esistere nel modello dati
 # ============================================================================
 
 meta:
   wizard_id: cloud_computing
   references_common_block: disambiguation
-  sector_data: sectors/cloud_computing.yaml
+  sector_data: sectors/sectors__cloud_computing.yaml
 
 # Ordine del flusso: disambiguazione comune -> domande settore -> identificazione standard
 flow_order:

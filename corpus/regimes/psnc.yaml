@@ -1,7 +1,8 @@
 # ============================================================================
 # Regime: PSNC (Perimetro di Sicurezza Nazionale Cibernetica) — ROUTING ONLY
 # ============================================================================
-# STATUS v0.1.0: questo file NON contiene ancora logica di categorizzazione.
+# STATUS: routing-only fino alla release v0.1.0 del tool; risoluzione nel merito in v0.2.
+# Questo file NON contiene ancora logica di categorizzazione.
 # Quando una domanda di disambiguazione instrada qui (psnc == yes), il decision
 # engine applica l'override dichiarato nel settore (category_override: servizi
 # PSNC categorizzati "alto" d'ufficio) e rinvia alla voce del catalogo eccezioni.
@@ -15,6 +16,11 @@ meta:
   regime_id: psnc
   status: routing_only_v0_1
   routing_effect: category_override
+  # ADR 0009: in v0.1 l'instradamento al regime e' un'escalation. L'engine copia
+  # assessment_mode e verdict_outcome nel Verdict attraverso il reference
+  # dell'override (nessuna inferenza); routing_effect alimenta Verdict.regimeRouting.
+  assessment_mode: escalate_to_advisor
+  verdict_outcome: ambiguous   # invariante: escalate_to_advisor -> sempre ambiguous
   exceptions_catalog_entry: psnc_category_override
   referenced_by:
     - "wizard/wizard__disambiguation.yaml#questions.psnc"

@@ -49,7 +49,7 @@ Ogni voce che produce un esito (`qualification_rules`, `out_of_scope_mvp`, `mult
 | `escalate_to_advisor`                     | `ambiguous` (sempre — invariante)          |
 | `qualitative_signal_only`                 | caso per caso, con commento giustificativo |
 
-Invariante rinforzata (schema zod + assert engine): `assessment_mode == escalate_to_advisor` ⇒ `verdict_outcome == ambiguous`. Per le voci instradate a un regime (override), l'esito atteso nelle fixture è la semantica dell'override (`derived_from: override_routing`), non un `verdict_outcome` sul settore.
+Invariante rinforzata (schema zod + assert engine): `assessment_mode == escalate_to_advisor` ⇒ `verdict_outcome == ambiguous`. Per le voci instradate a un regime (override), l'esito è dichiarato nel `meta` del regime (`escalate_to_advisor` / `ambiguous`, ADR 0009) e copiato attraverso il `reference`, non un `verdict_outcome` sul settore. Le `citations` di un override coincidono con quelle del regime referenziato.
 
 ### 2. Citazioni solo a granularità verificata
 Ogni `citations: [...]` è una lista di **citation ID** (`snake_case`), non wikilink, non prosa. Ogni ID corrisponde a un'attestazione nel nodo KB pertinente (articolo, comma, protocollo, codice FAQ). Convenzioni osservate nel corpus reale:

@@ -1,6 +1,6 @@
 # ADR 0002 — DIV-S2: `verdict_outcome` dichiarativo, copiato senza inferenza
 
-- **Stato:** accettato
+- **Stato:** accettato; la "Nota override" è superata da ADR 0009 (2026-10-27)
 - **Data:** 2026-07-02
 - **Ambito:** schema del corpus / contratto engine
 - **Codice divergenza:** DIV-S2

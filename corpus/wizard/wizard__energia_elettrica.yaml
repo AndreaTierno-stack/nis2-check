@@ -1,12 +1,12 @@
 # ============================================================================
 # Wizard: Energia elettrica — MODELLO DI INTERAZIONE
-# Referenzia il blocco comune disambiguation.yaml + domande specifiche
+# Referenzia il blocco comune wizard__disambiguation.yaml + domande specifiche
 # ============================================================================
 
 meta:
   wizard_id: energia_elettrica
   references_common_block: disambiguation
-  sector_data: sectors/energia_elettrica.yaml
+  sector_data: sectors/sectors__energia_elettrica.yaml
 
 flow_order:
   - disambiguation
@@ -115,6 +115,7 @@ sector_specific_questions:
       regionale. Rispondi "sì" se il soggetto ha tra i propri soci un ente
       pubblico, in qualunque misura.
     conditional_followup:
+      id: tipo_partecipazione_pubblica   # ID dell'input serializzato (fixture E14)
       trigger_on: "yes"
       label_it: "Quale tipo di partecipazione pubblica?"
       kind: single_select

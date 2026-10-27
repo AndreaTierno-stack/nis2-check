@@ -8,7 +8,7 @@
 # riceve un verdetto unico + uno o piu' cross-sector signal che lo avvertono
 # di registrazioni separate da effettuare.
 #
-# DEFINIZIONE vs TRIGGER: come per cumulative_regimes.yaml, qui vive la
+# DEFINIZIONE vs TRIGGER: come per signals__cumulative_regimes.yaml, qui vive la
 # definizione; il trigger resta nei file di settore/wizard.
 #
 # NOTA RENDERING: il decision engine deve DEDUPLICARE i signal per id prima

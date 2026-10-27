@@ -6,7 +6,9 @@ description_it: >
   regime NIS disapplicato salvo l'art. 7 c. 1 (registrazione su piattaforma ACN).
   Gli esoneri DORA sono attestati con granularita' di comma sul testo ufficiale
   (art. 7 c. 6, art. 16 c. 13, art. 20 c. 6 Det. 127437/2026): DIV-P1 chiusa.
-corpus_version: 0.2.1
+  Esito atteso: escalate_to_advisor / ambiguous copiati dal meta del regime
+  (ADR 0009), con regime_routing per Explainability e PDF.
+corpus_version: 0.3.0
 sector: cloud_computing
 
 inputs:
@@ -18,14 +20,16 @@ inputs:
   dimension: grande
 
 expected:
-  assessment_mode: massive_disapplication
-  verdict_outcome:
-    derived_from: override_routing
-  regime: dora
-  routing_effect: massive_disapplication
-  residual_nis_obligation: "art. 7 c. 1 D.Lgs. 138/2024 (registrazione su piattaforma ACN)"
+  # ADR 0009: instradamento a regime = escalation, copiata dal meta del regime
+  assessment_mode: escalate_to_advisor
+  verdict_outcome: ambiguous
+  regime_routing:
+    regime: dora
+    routing_effect: massive_disapplication
+    residual_nis_obligation: "art. 7 c. 1 D.Lgs. 138/2024 (registrazione su piattaforma ACN)"
+    exceptions_catalog_entry: dora_massive_disapplication
   open_points: []
-  corpus_ref: "sectors/cloud_computing.yaml#overrides[dora==yes] -> regimes/dora.yaml"
+  corpus_ref: "sectors/sectors__cloud_computing.yaml#overrides[dora==yes] -> regimes/dora.yaml"
 
 citations:
   - dlgs_138_2024_art_3_c_14
