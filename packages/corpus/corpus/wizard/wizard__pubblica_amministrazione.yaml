@@ -47,9 +47,7 @@ sector_specific_questions:
   # Sotto-domanda condizionale: sottotipo della categoria c)
   - id: sottotipo_c
     kind: single_select
-    conditional_on:
-      question: categoria_pa
-      equals: c
+    visible_if: { input: categoria_pa, op: eq, value: c }   # ADR 0010 (era conditional_on)
     label_it: "Quale tipo di amministrazione locale?"
     help_text_it: |
       La distinzione è rilevante: le ASL hanno una doppia identità (sono anche
@@ -69,9 +67,7 @@ sector_specific_questions:
   # Sotto-domanda condizionale: profilo del canale Allegato IV
   - id: profilo_allegato_iv
     kind: single_select
-    conditional_on:
-      question: categoria_pa
-      equals: canale_allegato_iv
+    visible_if: { input: categoria_pa, op: eq, value: canale_allegato_iv }   # ADR 0010 (era conditional_on)
     label_it: "Quale tipo di soggetto pubblico?"
     help_text_it: |
       Questi soggetti possono rientrare nel perimetro NIS tramite individuazione

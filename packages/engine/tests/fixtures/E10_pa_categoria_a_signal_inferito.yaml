@@ -20,6 +20,6 @@ expected:
   qualifica_inferita: essenziale
   signals: [l90_cumulo]
   regime_routing: []
-  corpus_ref: "sectors/sectors__pubblica_amministrazione.yaml#qualification_rules[categoria==a]"
+  corpus_ref: "sectors/sectors__pubblica_amministrazione.yaml#qualification_rules[categoria_pa==a]"
 
 citations: [dlgs_138_2024_allegato_III, dlgs_138_2024_art_3_c_6, l_196_2009_art_1_c_3]

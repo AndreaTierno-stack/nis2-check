@@ -26,6 +26,6 @@ expected:
     handling: cross_sector_signal
     verdict_outcome: ambiguous
     corpus_ref: "sectors/sectors__pubblica_amministrazione.yaml#out_of_scope_mvp[settore_sanitario_allegato_I_p5]"
-  corpus_ref: "sectors/sectors__pubblica_amministrazione.yaml#qualification_rules[categoria==c] + cross_sector_signals[sottotipo==asl]"
+  corpus_ref: "sectors/sectors__pubblica_amministrazione.yaml#qualification_rules[categoria_pa==c] + cross_sector_signals[sottotipo_c==asl]"
 
 citations: [dlgs_138_2024_allegato_III, faq_a3_c_4_1, faq_a3_c_4_5]

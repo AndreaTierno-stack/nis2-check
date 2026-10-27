@@ -102,7 +102,7 @@ categorie:
 
 qualification_rules:
   # Categoria a) — essenziale INFERITA -> qualitative_signal_only (strada 3)
-  - condition: categoria == a
+  - condition: categoria_pa == a
     outcome: qualitative_signal_only
     verdict_outcome: likely_in_scope   # qualitative_signal_only con qualifica_inferita essenziale: rientro probabile inferito, verdetto categoriale differito a v0.2
     qualifica_inferita: essenziale
@@ -111,7 +111,7 @@ qualification_rules:
     citations: [dlgs_138_2024_allegato_III, dlgs_138_2024_art_3_c_6, l_196_2009_art_1_c_3]
 
   # Categoria b) — essenziale INFERITA -> qualitative_signal_only
-  - condition: categoria == b
+  - condition: categoria_pa == b
     outcome: qualitative_signal_only
     verdict_outcome: likely_in_scope   # qualitative_signal_only con qualifica_inferita essenziale: rientro probabile inferito, verdetto categoriale differito a v0.2
     qualifica_inferita: essenziale
@@ -120,7 +120,7 @@ qualification_rules:
     citations: [dlgs_138_2024_allegato_III, dlgs_138_2024_art_3_c_6, l_196_2009_art_1_c_3]
 
   # Categoria c) — importante, ben coperta dalle FAQ -> categorical_assessment
-  - condition: categoria == c
+  - condition: categoria_pa == c
     outcome: categorical_assessment
     verdict_outcome: likely_in_scope   # vincolo fisso: categorical_assessment in-scope -> likely_in_scope
     qualifica: importante
@@ -129,7 +129,7 @@ qualification_rules:
 
   # Categoria d) — importante INFERITA -> qualitative_signal_only
   # (e nessun signal L. 90 — vedi nota nella categoria d)
-  - condition: categoria == d
+  - condition: categoria_pa == d
     outcome: qualitative_signal_only
     verdict_outcome: likely_in_scope   # qualitative_signal_only con qualifica_inferita importante: rientro probabile inferito, verdetto categoriale differito a v0.2
     qualifica_inferita: importante
@@ -159,7 +159,7 @@ cumulative_signals:
 # Cross-sector signal (trigger; definizione in signals/signals__cross_sector.yaml)
 cross_sector_signals:
   - signal: cross_sector_asl_sanitario
-    trigger: sottotipo == asl
+    trigger: sottotipo_c == asl
 
 # Canale Allegato IV — individuazione governativa (NON determinabile dal tool)
 # Definizione del signal in signals/signals__cross_sector.yaml (allegato_iv_individuazione).

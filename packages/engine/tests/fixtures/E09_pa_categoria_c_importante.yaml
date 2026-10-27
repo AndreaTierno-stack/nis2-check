@@ -20,6 +20,6 @@ expected:
   qualifica: importante
   signals: [l90_cumulo]
   regime_routing: []
-  corpus_ref: "sectors/sectors__pubblica_amministrazione.yaml#qualification_rules[categoria==c]"
+  corpus_ref: "sectors/sectors__pubblica_amministrazione.yaml#qualification_rules[categoria_pa==c]"
 
 citations: [dlgs_138_2024_allegato_III, dlgs_138_2024_art_3_c_6, faq_settori_sottosettori]

@@ -7,14 +7,14 @@
 import { z } from 'zod';
 import { resolveCorpusRef } from '../corpusRef.ts';
 import { E, msg } from './common.ts';
-import { Fixture, RegimeFile, SectorFile, SignalsFile, WizardFile, type Question } from './files.ts';
+import { Fixture, RegimeFile, SectorFile, SignalsFile, WizardFile, conditionsOf, type Question } from './files.ts';
 
 /**
- * Grammar of `visible_if` (STATUS 12.6, S2): exactly one comparison between an
- * input id and an option id, operators `==` / `!=`. No AND/OR, no `contains`.
- * Both identifiers must exist in the wizard (checked below).
+ * Comparison inside a rule expression (`condition`, `trigger`): `<input> == <value>`
+ * or `!=`, possibly joined by AND/OR. Used to check that every input a rule reads
+ * exists in the sector's wizard (STATUS 17).
  */
-export const VISIBLE_IF_RE = /^\s*([a-z][a-z0-9_]*)\s*(==|!=)\s*([a-z0-9][a-z0-9_]*)\s*$/;
+const RULE_COMPARISON_RE = /([a-z][a-z0-9_]*)\s*(==|!=)\s*([a-z0-9_]+)/g;
 
 /** Grammar of override triggers: one equality between a gate input and a value. */
 export const OVERRIDE_TRIGGER_RE = /^\s*([a-z][a-z0-9_]*)\s*==\s*([a-z0-9_]+)\s*$/;
@@ -62,18 +62,17 @@ export const CorpusSchema = CorpusInput.superRefine((c, ctx) => {
 
   // ----- question / option index per wizard; common block is visible to every wizard -----
   const commonBlocks = Object.entries(c.wizard).filter(([, w]) => w.meta.block_id);
+  /** Inputs visible to a wizard (its own questions plus the common block): id -> kind and accepted values. */
   const questionIndex = (wizardPath: string) => {
-    const idx = new Map<string, Set<string>>();
+    const idx = new Map<string, { kind: string; values: Set<string> }>();
     const add = (w: CorpusShape['wizard'][string]) =>
-      questionsOf(w).forEach(({ q }) => idx.set(q.id, new Set((q.options ?? []).map((o) => o.id))));
+      questionsOf(w).forEach(({ q }) => {
+        // binary questions accept "yes"/"no" (serialized as strings, YAML 1.2)
+        const binary = q.kind === 'binary' || q.kind === 'binary_with_conditional_followup';
+        idx.set(q.id, { kind: q.kind, values: new Set(binary ? ['yes', 'no'] : (q.options ?? []).map((o) => o.id)) });
+      });
     add(c.wizard[wizardPath]!);
     for (const [p, w] of commonBlocks) if (p !== wizardPath) add(w);
-    // binary questions accept "yes"/"no" (serialized as strings, YAML 1.2)
-    questionsOf(c.wizard[wizardPath]!).concat(...commonBlocks.map(([, w]) => questionsOf(w))).forEach(({ q }) => {
-      if ('kind' in q && (q.kind === 'binary' || q.kind === 'binary_with_conditional_followup')) {
-        idx.set(q.id, new Set(['yes', 'no']));
-      }
-    });
     return idx;
   };
   const allQuestionIds = new Set(Object.values(c.wizard).flatMap((w) => questionsOf(w).map(({ q }) => q.id)));
@@ -90,6 +89,14 @@ export const CorpusSchema = CorpusInput.superRefine((c, ctx) => {
       issue([...base, 'meta', 'sector_data'], E.REF_FILE, `file ${w.meta.sector_data} not found`);
     }
     const idx = questionIndex(wp);
+    (w.multi_regime_intersection ?? []).forEach((m, i) => {
+      for (const [, input, , value] of m.trigger.matchAll(RULE_COMPARISON_RE)) {
+        const target = idx.get(input!);
+        const p = [...base, 'multi_regime_intersection', i, 'trigger'];
+        if (!target) issue(p, E.RULE_INPUT, `input "${input}" is not a question of the wizard`);
+        else if (!target.values.has(value!)) issue(p, E.RULE_INPUT, `"${value}" is not an option of "${input}"`);
+      }
+    });
     for (const { q, path } of questionsOf(w)) {
       const qp = [...base, ...path];
       (q.options ?? []).forEach((o, i) => {
@@ -107,20 +114,19 @@ export const CorpusSchema = CorpusInput.superRefine((c, ctx) => {
       (question.outcome_mapping ?? []).forEach((m, i) => {
         if (!optionIds.has(m.answer)) issue([...qp, 'outcome_mapping', i, 'answer'], E.REF_QUESTION, `answer "${m.answer}" is not an option of "${question.id}"`);
       });
-      if (question.conditional_on) {
-        const opts = idx.get(question.conditional_on.question);
-        if (!opts) issue([...qp, 'conditional_on'], E.REF_QUESTION, `question "${question.conditional_on.question}" not found`);
-        else if (!opts.has(question.conditional_on.equals)) issue([...qp, 'conditional_on'], E.REF_QUESTION, `"${question.conditional_on.equals}" is not an option of "${question.conditional_on.question}"`);
-      }
       if (question.visible_if !== undefined) {
-        const m = VISIBLE_IF_RE.exec(question.visible_if);
-        if (!m) {
-          issue([...qp, 'visible_if'], E.VISIBLE_IF, `"${question.visible_if}" is outside the grammar (one comparison, == or !=)`);
-        } else {
-          const [, input, , value] = m;
-          const opts = idx.get(input!);
-          if (!opts) issue([...qp, 'visible_if'], E.VISIBLE_IF, `"${input}" is not an input of the wizard`);
-          else if (!opts.has(value!)) issue([...qp, 'visible_if'], E.VISIBLE_IF, `"${value}" is not an option of "${input}"`);
+        // ADR 0010: input exists in the wizard, value is one of its options, includes only on multi_select
+        for (const cond of conditionsOf(question.visible_if)) {
+          const target = idx.get(cond.input);
+          if (!target) {
+            issue([...qp, 'visible_if'], E.VISIBLE_IF, `"${cond.input}" is not an input of the wizard`);
+            continue;
+          }
+          if (cond.input === question.id) issue([...qp, 'visible_if'], E.VISIBLE_IF, 'a question cannot depend on itself');
+          if (!target.values.has(cond.value)) issue([...qp, 'visible_if'], E.VISIBLE_IF, `"${cond.value}" is not an option of "${cond.input}"`);
+          if (cond.op === 'includes' && target.kind !== 'multi_select') {
+            issue([...qp, 'visible_if'], E.VISIBLE_IF, `"includes" requires a multi_select input ("${cond.input}" is ${target.kind})`);
+          }
         }
       }
     }
@@ -146,6 +152,39 @@ export const CorpusSchema = CorpusInput.superRefine((c, ctx) => {
   // ----- sectors -----
   for (const [sp, s] of Object.entries(c.sectors)) {
     const base: Path = ['sectors', sp];
+
+    // Every input a rule reads exists in the sector's wizard or in the common block
+    // (disambiguation + standard_identification), with a value among its options (STATUS 17).
+    const wizardPath = Object.entries(c.wizard).find(([, w]) => w.meta.sector_data === sp)?.[0];
+    if (!wizardPath) {
+      issue([...base, 'meta'], E.RULE_INPUT, 'no wizard declares this file as meta.sector_data');
+    } else {
+      const inputs = questionIndex(wizardPath);
+      const checkExpression = (expr: string, path: Path) => {
+        for (const [, input, , value] of expr.matchAll(RULE_COMPARISON_RE)) {
+          const target = inputs.get(input!);
+          if (!target) issue(path, E.RULE_INPUT, `input "${input}" is not a question of ${wizardPath} or of the common block`);
+          else if (!target.values.has(value!)) issue(path, E.RULE_INPUT, `"${value}" is not an option of "${input}"`);
+        }
+      };
+      const checkRef = (ref: string, path: Path) => {
+        if (!inputs.has(ref)) issue(path, E.RULE_INPUT, `input "${ref}" is not a question of ${wizardPath} or of the common block`);
+      };
+      s.qualification_rules.forEach((r, i) => checkExpression(r.condition, [...base, 'qualification_rules', i, 'condition']));
+      (s.overrides ?? []).forEach((o, i) => checkExpression(o.trigger, [...base, 'overrides', i, 'trigger']));
+      for (const key of ['cumulative_signals', 'cross_sector_signals', 'multi_identity_intra_sector'] as const) {
+        (s[key] ?? []).forEach((t, i) => {
+          if (typeof t.trigger === 'string') checkExpression(t.trigger, [...base, key, i, 'trigger']);
+          if (typeof t.condition_ref === 'string') checkRef(t.condition_ref, [...base, key, i, 'condition_ref']);
+        });
+      }
+      (s.tipologie ?? []).forEach((t, i) =>
+        (t.multi_identity_possible ?? []).forEach((m, j) =>
+          checkRef(m.condition_ref, [...base, 'tipologie', i, 'multi_identity_possible', j, 'condition_ref']),
+        ),
+      );
+    }
+
     s.qualification_rules.forEach((r, i) => {
       if (/\bdimension\b/.test(r.condition)) {
         if (s.meta.size_blind) issue([...base, 'qualification_rules', i, 'condition'], E.SIZE_BLIND, 'size_blind sector with a dimension condition');
@@ -177,7 +216,6 @@ export const CorpusSchema = CorpusInput.superRefine((c, ctx) => {
     (s.tipologie ?? []).forEach((t, i) =>
       (t.multi_identity_possible ?? []).forEach((m, j) => {
         checkSignals([m.signal], [...base, 'tipologie', i, 'multi_identity_possible', j, 'signal']);
-        if (!allQuestionIds.has(m.condition_ref)) issue([...base, 'tipologie', i, 'multi_identity_possible', j, 'condition_ref'], E.REF_QUESTION, `question "${m.condition_ref}" not found`);
       }),
     );
     if (s.allegato_iv_channel) {

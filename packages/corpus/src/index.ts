@@ -1,7 +1,7 @@
 /**
  * @nis2-check/corpus — declarative normative corpus, zod schemas and loader.
  */
-export { CorpusSchema, CorpusInput, VISIBLE_IF_RE, OVERRIDE_TRIGGER_RE, DIMENSION_CITATIONS } from './schemas/corpus.ts';
+export { CorpusSchema, CorpusInput, OVERRIDE_TRIGGER_RE, DIMENSION_CITATIONS } from './schemas/corpus.ts';
 export type { Corpus } from './schemas/corpus.ts';
 export * from './schemas/files.ts';
 export { E, CITATION_ID_RE, type ErrorCode } from './schemas/common.ts';

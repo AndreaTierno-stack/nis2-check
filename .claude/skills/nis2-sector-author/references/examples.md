@@ -2,7 +2,7 @@
 
 Walkthrough annotato di `packages/corpus/corpus/sectors/sectors__energia_elettrica.yaml` (corpus v0.2.1). È un file **reale del repo**, non un template inventato: usalo come riferimento di stile e per capire *perché* ogni blocco è modellato così. Le annotazioni `# →` sono commento didattico, non parte del file.
 
-> Per un settore `size_blind` (PA) la struttura cambia: `categorie` invece di `tipologie`, `qualification_rules` che condizionano su `categoria == x`, blocco `allegato_iv_channel`. Vedi `sectors__pubblica_amministrazione.yaml`.
+> Per un settore `size_blind` (PA) la struttura cambia: `categorie` invece di `tipologie`, `qualification_rules` che condizionano su `categoria_pa == x`, blocco `allegato_iv_channel`. Vedi `sectors__pubblica_amministrazione.yaml`.
 
 ## `meta` — identità e cumulo del settore
 

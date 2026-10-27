@@ -79,7 +79,7 @@ Riferimento vivo: `references/yaml-schema.md` + il file reale più vicino al cas
 - **`out_of_scope_mvp`**: casi non modellati nel MVP, ciascuno con `handling`, `verdict_outcome`, `scope_evolution_note`.
 - **`copy_constraints`** / **`allegato_iv_channel`** (PA): come nei file reali.
 
-`size_blind: true` è **documentale/validazione**, non un branch: se true, nessuna `qualification_rule` deve avere condizioni sulla dimensione (la PA usa `condition: categoria == x`). `verdict_strategy` NON è proprietà della tipologia: è l'`outcome` della regola che matcha.
+`size_blind: true` è **documentale/validazione**, non un branch: se true, nessuna `qualification_rule` deve avere condizioni sulla dimensione (la PA usa `condition: categoria_pa == x`). `verdict_strategy` NON è proprietà della tipologia: è l'`outcome` della regola che matcha.
 
 ## Procedura standard
 

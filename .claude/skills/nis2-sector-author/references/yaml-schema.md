@@ -25,7 +25,7 @@ meta:
   notification_timeline: string     # riferimento ai termini di notifica
 ```
 
-`size_blind: true` è **documentale/validazione, non un branch**. Se true, nessuna `qualification_rule` del file deve avere condizioni sulla dimensione (la PA usa `condition: categoria == x`). La validazione zod lo verifica.
+`size_blind: true` è **documentale/validazione, non un branch**. Se true, nessuna `qualification_rule` del file deve avere condizioni sulla dimensione (la PA usa `condition: categoria_pa == x`). La validazione zod lo verifica.
 
 ### Blocco `tipologie` (settori size-cap) o `categorie` (PA)
 
@@ -49,7 +49,7 @@ tipologie:                          # o "categorie" per la PA
 
 ```yaml
 qualification_rules:
-  - condition: string               # es. "dimensione == media" o "categoria == c"
+  - condition: string               # es. "dimension == media" o "categoria_pa == c"; ogni input deve esistere nel wizard del settore o nel blocco comune
     outcome: categorical_assessment | qualitative_signal_only | escalate_to_advisor | out_of_scope
     verdict_outcome: likely_in_scope | likely_out_of_scope | ambiguous   # OBBLIGATORIO
     qualifica: essenziale | importante           # SOLO se outcome == categorical_assessment

@@ -75,8 +75,10 @@ sector_specific_questions:
   # qualitative_signal_only (verso "fuori"), non out_of_scope.
   - id: registrato_pun
     kind: single_select
-    conditional: true
-    visible_if: "tipologia_elettrica == gestore_punti_ricarica OR attivita_elettriche_ulteriori contains gestore_punti_ricarica"
+    visible_if:   # ADR 0010: principale OPPURE tra le ulteriori
+      any_of:
+        - { input: tipologia_elettrica, op: eq, value: gestore_punti_ricarica }
+        - { input: attivita_elettriche_ulteriori, op: includes, value: gestore_punti_ricarica }
     label_it: "Il soggetto è obbligato a registrarsi sul PUN (Piattaforma Unica Nazionale) come gestore di punti di ricarica, ai sensi del DM MASE n. 106 del 16/03/2023?"
     help_text_it: |
       Rientrano nel settore elettrico i gestori di punti di ricarica registrati

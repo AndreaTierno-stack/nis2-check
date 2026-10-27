@@ -61,6 +61,41 @@ export const ConditionalFollowup = z
 
 export const Phase = z.enum(['disambiguation', 'sector_specific', 'standard_identification']);
 
+/** Simple visibility condition (ADR 0010). Identifiers are checked against the wizard in corpus.ts. */
+export const VisibleIfCondition = z
+  .object({
+    input: Id,
+    op: z.enum(['eq', 'neq', 'includes']),
+    value: Id,
+  })
+  .strict();
+
+/**
+ * `visible_if` (ADR 0010): a simple condition, or `any_of` / `all_of` over at least
+ * two simple conditions, one level only. The string form is retired.
+ */
+export const VisibleIf = z.union(
+  [
+    VisibleIfCondition,
+    z.object({ any_of: z.array(VisibleIfCondition).min(2) }).strict(),
+    z.object({ all_of: z.array(VisibleIfCondition).min(2) }).strict(),
+  ],
+  {
+    errorMap: (_issue, ctx) => ({
+      message:
+        typeof ctx.data === 'string'
+          ? msg(E.VISIBLE_IF, `string form "${ctx.data}" is retired: use {input, op, value} (ADR 0010)`)
+          : msg(E.VISIBLE_IF, 'expected {input, op: eq|neq|includes, value} or {any_of|all_of: [conditions]} with no nesting (ADR 0010)'),
+    }),
+  },
+);
+export type VisibleIfCondition = z.infer<typeof VisibleIfCondition>;
+export type VisibleIf = z.infer<typeof VisibleIf>;
+
+/** Flattens a visible_if into its simple conditions. */
+export const conditionsOf = (v: VisibleIf): VisibleIfCondition[] =>
+  'any_of' in v ? v.any_of : 'all_of' in v ? v.all_of : [v];
+
 export const Question = z
   .object({
     id: RequiredId,
@@ -69,12 +104,17 @@ export const Question = z
     phase: Phase.optional(),
     label_it: z.string(),
     help_text_it: z.string().optional(),
-    /** Single comparison, grammar in corpus.ts (VISIBLE_IF_RE); identifiers checked cross-file. */
-    visible_if: z.string().optional(),
-    /** Citations that ground the visibility rule (e.g. size-blind PA, art. 3 c. 6). */
+    /** Structured visibility condition (ADR 0010); identifiers checked cross-file. */
+    visible_if: VisibleIf.optional(),
+    /** Citations that ground a visibility condition (none used today). */
     visibility_citations: Citations.optional(),
-    conditional: z.boolean().optional(),
-    conditional_on: z.object({ question: Id, equals: Id }).optional(),
+    // retired by ADR 0010: objects are passthrough, so reject them explicitly
+    conditional_on: z
+      .undefined({ invalid_type_error: msg(E.VISIBLE_IF, 'conditional_on is retired: use visible_if (ADR 0010)') })
+      .optional(),
+    conditional: z
+      .undefined({ invalid_type_error: msg(E.VISIBLE_IF, 'conditional is retired: visibility is visible_if (ADR 0010)') })
+      .optional(),
     optional: z.boolean().optional(),
     options: z.array(Option).optional(),
     conditional_followup: ConditionalFollowup.optional(),
