@@ -11,3 +11,9 @@ dist/
 # OS artifacts
 .DS_Store
 Thumbs.db
+
+# Next.js static export
+out/
+
+# Test coverage
+coverage/

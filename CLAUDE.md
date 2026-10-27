@@ -23,11 +23,15 @@ Monorepo pnpm workspaces:
 nis2-check/
   apps/web            → Next.js 14 App Router, TypeScript strict, TailwindCSS, shadcn/ui
   packages/engine     → funzione pura, zero dipendenze runtime, nessun I/O
-  packages/corpus     → YAML + schemi zod + validazione build-time
+    tests/fixtures/   → scenari golden E01–E15 (legati a corpus_version)
+  packages/corpus     → loader YAML + schemi zod + corpus:validate
+    corpus/           → il corpus: VERSION, CHANGELOG.md, sectors/, wizard/, signals/, regimes/
   packages/pdf        → generazione PDF client-side
-  fixtures/           → scenari golden E01–E15 (legati a corpus_version)
-  docs/               → ARCHITECTURE.md (viva), decisions/ (ADR), CORPUS_SCHEMA.md
+  docs/               → ARCHITECTURE.md (viva), decisions/ (ADR), STATUS.md, CORPUS_SCHEMA.md
+  export/             → export della KB per il Project Knowledge (scripts/export_kb.py)
 ```
+
+I `corpus_ref` delle fixture sono relativi alla radice del corpus (`packages/corpus/corpus/`), non al monorepo.
 
 `apps/web`: il wizard gira interamente client-side; nessuna API route trasporta risposte dell'utente; server components solo per shell statica. Stato di sessione in memoria — nessuna persistenza (no localStorage per i dati dell'utente: la promessa è zero raccolta, l'export è solo manuale ed esplicito).
 
@@ -74,7 +78,7 @@ interface Verdict {
   citations: CitationId[];          // solo granularità verificata
   disclaimerRequired: true;         // literal, incondizionato
   inputHash: string;                // sha256 delle risposte serializzate
-  corpusVersion: string;            // da corpus/VERSION
+  corpusVersion: string;            // da packages/corpus/corpus/VERSION
 }
 ```
 

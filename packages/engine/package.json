@@ -1,0 +1,20 @@
+{
+  "name": "@nis2-check/engine",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Decision engine: evaluate(answers, corpus) => Verdict. Pure, deterministic, no I/O.",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run"
+  },
+  "devDependencies": {
+    "@nis2-check/corpus": "workspace:*",
+    "@types/node": "^24",
+    "typescript": "~5.9.3",
+    "vitest": "^3.2.7"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "name": "@nis2-check/corpus",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Corpus normativo dichiarativo (YAML), schemi zod, loader e corpus:validate.",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "corpus:validate": "node src/cli.ts",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "js-yaml": "^4.1.0",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "@types/js-yaml": "^4.0.9",
+    "@types/node": "^24",
+    "typescript": "~5.9.3",
+    "vitest": "^3.2.7"
+  }
+}

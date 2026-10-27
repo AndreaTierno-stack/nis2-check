@@ -1,0 +1,6 @@
+{
+  "name": "@nis2-check/pdf",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Generazione client-side del PDF \"Esito preliminare di verifica dell'ambito NIS2\" (v0.1.0: da implementare)."
+}

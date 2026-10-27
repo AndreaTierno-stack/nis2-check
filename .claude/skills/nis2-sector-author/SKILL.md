@@ -5,22 +5,22 @@ description: Use this skill whenever the user wants to add, modify, or review a 
 
 # NIS2 Sector Author
 
-Skill per modellare settori, tipologie, regole di qualificazione, override di regime e signal del **corpus reale del NIS2 Tool** (`corpus/`), garantendo schema valido, `verdict_outcome` dichiarato, citazioni a granularità verificata e copy non categorico.
+Skill per modellare settori, tipologie, regole di qualificazione, override di regime e signal del **corpus reale del NIS2 Tool** (`packages/corpus/corpus/`), garantendo schema valido, `verdict_outcome` dichiarato, citazioni a granularità verificata e copy non categorico.
 
-> Fonte di verità: il corpus reale in `corpus/` (v0.2.1+) e i vincoli in `CLAUDE.md`. Prima di scrivere, **leggi un file esistente dello stesso tipo** — non ricostruire lo schema a memoria. Lo schema canonico distillato è in `references/yaml-schema.md`; un esempio commentato reale è in `references/examples.md`.
+> Fonte di verità: il corpus reale in `packages/corpus/corpus/` (v0.2.1+) e i vincoli in `CLAUDE.md`. Prima di scrivere, **leggi un file esistente dello stesso tipo** — non ricostruire lo schema a memoria. Lo schema canonico distillato è in `references/yaml-schema.md`; un esempio commentato reale è in `references/examples.md`.
 
 ## Quando si attiva
 
-- Aggiunta/modifica di un settore in `corpus/sectors/sectors__<id>.yaml`.
-- Aggiunta/modifica delle domande di settore in `corpus/wizard/wizard__<id>.yaml`.
+- Aggiunta/modifica di un settore in `packages/corpus/corpus/sectors/sectors__<id>.yaml`.
+- Aggiunta/modifica delle domande di settore in `packages/corpus/corpus/wizard/wizard__<id>.yaml`.
 - Aggiunta/modifica di `qualification_rules`, `overrides`, `out_of_scope_mvp`, `copy_constraints`, `allegato_iv_channel`.
-- Definizione di signal in `corpus/signals/signals__cumulative_regimes.yaml` o `signals__cross_sector.yaml`.
+- Definizione di signal in `packages/corpus/corpus/signals/signals__cumulative_regimes.yaml` o `signals__cross_sector.yaml`.
 - Correzione di citation ID o di reasoning_trace.
 
 ## Struttura reale del corpus (NON la vecchia `data/nis2-corpus/`)
 
 ```
-corpus/
+packages/corpus/corpus/
   sectors/    sectors__cloud_computing.yaml · sectors__energia_elettrica.yaml · sectors__pubblica_amministrazione.yaml
   wizard/     wizard__disambiguation.yaml (3 gate comuni) · wizard__<settore>.yaml
   signals/    signals__cumulative_regimes.yaml (cumulo regimi) · signals__cross_sector.yaml (identità multiple)
@@ -88,13 +88,13 @@ Riferimento vivo: `references/yaml-schema.md` + il file reale più vicino al cas
 3. **Leggi il file reale più vicino** (`sectors__*.yaml`) per stile e schema. Copia i pattern, non reinventarli.
 4. **Componi/aggiorna il YAML** rispettando i 4 vincoli sopra. Ogni voce con esito porta `verdict_outcome` col mapping fisso.
 5. **Aggiorna il wizard** (`wizard__<settore>.yaml`) se aggiungi domande; le domande dei 3 gate vivono in `wizard__disambiguation.yaml`.
-6. **Fixture verdi**: aggiungi/aggiorna una fixture in `fixtures/` (E01–E15+) che eserciti la nuova regola (input con ID reali del wizard, `expected` con `assessment_mode` + `verdict_outcome`, `citations`). Le fixture devono restare verdi (obbligo gestito da `nis2-corpus-update`).
+6. **Fixture verdi**: aggiungi/aggiorna una fixture in `packages/engine/tests/fixtures/` (E01–E15+) che eserciti la nuova regola (input con ID reali del wizard, `expected` con `assessment_mode` + `verdict_outcome`, `citations`). Le fixture devono restare verdi (obbligo gestito da `nis2-corpus-update`).
 7. **Versione**: qualunque modifica al contenuto è un bump del corpus → passa a `nis2-corpus-update` per VERSION/CHANGELOG/fixture.
 8. **Commit proposto** (inglese, conventional): `corpus: add <sector> qualification rules` con `Refs:` ai riferimenti normativi.
 
 ## Cosa NON fare
 
-- Non usare la vecchia struttura `data/nis2-corpus/settori/`, `eccezioni/`, `version.json`, `pnpm validate:corpus` — non esistono nel repo reale (usa `corpus/`, `VERSION`, `corpus:validate`).
+- Non usare la vecchia struttura `data/nis2-corpus/settori/`, `eccezioni/`, `version.json`, `pnpm validate:corpus` — non esistono nel repo reale (usa `packages/corpus/corpus/`, `VERSION`, `corpus:validate`).
 - Non lasciare una voce con esito priva di `verdict_outcome`.
 - Non mettere `qualifica` e `qualifica_inferita` sulla stessa voce.
 - Non risolvere nel merito i regimi (`regimes/*.yaml` sono `routing_only_v0_1`): instradano soltanto in v0.1.0.

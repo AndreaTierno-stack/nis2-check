@@ -1,6 +1,6 @@
 # Schema YAML del corpus NIS2 (reale, v0.2.1+)
 
-Schema canonico distillato dai file **reali** in `corpus/`. Non è ricostruito a memoria: rispecchia `corpus/sectors/sectors__energia_elettrica.yaml`, `sectors__pubblica_amministrazione.yaml`, `sectors__cloud_computing.yaml`, `corpus/wizard/`, `corpus/signals/`, `corpus/regimes/`. Validazione zod build-time nel package `packages/corpus` (comando `corpus:validate`).
+Schema canonico distillato dai file **reali** in `packages/corpus/corpus/`. Non è ricostruito a memoria: rispecchia `packages/corpus/corpus/sectors/sectors__energia_elettrica.yaml`, `sectors__pubblica_amministrazione.yaml`, `sectors__cloud_computing.yaml`, `packages/corpus/corpus/wizard/`, `packages/corpus/corpus/signals/`, `packages/corpus/corpus/regimes/`. Validazione zod build-time nel package `packages/corpus` (comando `corpus:validate`).
 
 > Prima di scrivere, **leggi sempre il file reale più vicino al caso**. Questo schema è una mappa, non il territorio. Chiavi di schema in inglese; testo user-facing in italiano nei campi `*_it` e `reasoning_trace`. ID interni in `snake_case` (mai kebab-case).
 
@@ -87,7 +87,7 @@ Per le voci instradate a un regime, l'esito è dichiarato nel `meta` del regime 
 
 ### Trigger dei signal
 
-La **definizione** del signal (reasoning_trace + citazioni) sta in `corpus/signals/`. Nel file settore vive solo il **trigger**.
+La **definizione** del signal (reasoning_trace + citazioni) sta in `packages/corpus/corpus/signals/`. Nel file settore vive solo il **trigger**.
 
 ```yaml
 cumulative_signals:                 # es. l90_cumulo

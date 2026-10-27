@@ -1,0 +1,17 @@
+{
+  "name": "nis2-check",
+  "private": true,
+  "description": "Pre-screening informativo dell'ambito NIS2 italiano — monorepo (web, engine, corpus, pdf).",
+  "license": "MIT",
+  "packageManager": "pnpm@9.15.9",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "lint": "pnpm -r --if-present lint",
+    "typecheck": "pnpm -r --if-present typecheck",
+    "corpus:validate": "pnpm --filter @nis2-check/corpus corpus:validate",
+    "test": "pnpm -r --if-present test",
+    "build": "pnpm -r --if-present build"
+  }
+}

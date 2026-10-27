@@ -5,9 +5,9 @@ description: Use this skill whenever the user records an ACN regulatory update (
 
 # NIS2 Corpus Update
 
-Skill per registrare aggiornamenti normativi ACN nel corpus **reale** (`corpus/`), bumpare la versione semantica applicata al **contenuto**, aggiornare `CHANGELOG.md`, riallineare le fixture golden e proporre il commit `corpus:`.
+Skill per registrare aggiornamenti normativi ACN nel corpus **reale** (`packages/corpus/corpus/`), bumpare la versione semantica applicata al **contenuto**, aggiornare `CHANGELOG.md`, riallineare le fixture golden e proporre il commit `corpus:`.
 
-> Fonte di verità: `corpus/VERSION` (plain text, oggi `0.3.1`), `corpus/CHANGELOG.md` (Keep a Changelog), `CLAUDE.md`. **Prima di scrivere, leggi VERSION e le ultime due voci del CHANGELOG** — non ricostruire il formato a memoria. La modellazione del contenuto (regole, tipologie, signal) è di `nis2-sector-author`: questo skill governa il *bump* e la *coerenza di versione* che seguono.
+> Fonte di verità: `packages/corpus/corpus/VERSION` (plain text, oggi `0.3.1`), `packages/corpus/corpus/CHANGELOG.md` (Keep a Changelog), `CLAUDE.md`. **Prima di scrivere, leggi VERSION e le ultime due voci del CHANGELOG** — non ricostruire il formato a memoria. La modellazione del contenuto (regole, tipologie, signal) è di `nis2-sector-author`: questo skill governa il *bump* e la *coerenza di versione* che seguono.
 
 ## Quando si attiva
 
@@ -21,11 +21,11 @@ Skill per registrare aggiornamenti normativi ACN nel corpus **reale** (`corpus/`
 Non esistono nel repo: `version.json`, `<CorpusBanner/>`, `pnpm validate:corpus`, `pnpm test:engine`, `metadata.recepito_in_corpus_versione`. Usa invece:
 
 ```
-corpus/
+packages/corpus/corpus/
   VERSION          # plain text, una riga. Es. "0.2.1"
   CHANGELOG.md     # Keep a Changelog; voci in italiano, sezioni Added/Changed/Notes
   sectors/ wizard/ signals/ regimes/
-fixtures/          # E01–E15+, ognuna dichiara corpus_version
+packages/engine/tests/fixtures/  # E01–E15+, ognuna dichiara corpus_version
 ```
 
 Comandi reali: `corpus:validate` (schema zod build-time). CI su ogni push/PR: install → lint → typecheck → `corpus:validate` → test → build.
@@ -58,7 +58,7 @@ Regola di dubbio: se un cambiamento **modifica un esito atteso** (verdict_outcom
 
 Se l'aggiornamento aggiunge/modifica regole, tipologie, override o signal, la modellazione YAML è di **`nis2-sector-author`** (schema valido, `verdict_outcome` dichiarato, citazioni a granularità verificata, copy non categorico). Questo skill interviene **dopo**, per versione + changelog + fixture. Non duplicare qui la logica di modellazione.
 
-### 4. Aggiorna `corpus/VERSION`
+### 4. Aggiorna `packages/corpus/corpus/VERSION`
 
 File plain text di **una riga**. Sostituisci il numero:
 
@@ -68,7 +68,7 @@ File plain text di **una riga**. Sostituisci il numero:
 
 Niente JSON, niente metadati: solo la versione.
 
-### 5. Aggiorna `corpus/CHANGELOG.md`
+### 5. Aggiorna `packages/corpus/corpus/CHANGELOG.md`
 
 Inserisci la voce **in cima** (sotto l'intestazione), stesso stile delle voci reali: header con versione + data + titolo in italiano; sezioni Keep a Changelog (`### Added`, `### Changed`, `### Notes`); corpo in italiano; ogni voce cita i file toccati e i citation ID a granularità verificata.
 
@@ -81,7 +81,7 @@ Sintesi in 1-2 frasi: cosa cambia e su quale attestazione (testo ufficiale, PDF 
 - **`sectors/sectors__<id>.yaml`** — <regola/tipologia aggiunta>; `verdict_outcome` dichiarato; citazioni a granularità di comma verificata (`<citation_id>`).
 
 ### Changed
-- **`fixtures/E<nn>_<slug>.yaml`** — `corpus_version` 0.2.1 → 0.2.2; citazioni allineate.
+- **`packages/engine/tests/fixtures/E<nn>_<slug>.yaml`** — `corpus_version` 0.2.1 → 0.2.2; citazioni allineate.
 
 ### Notes
 - Attestazione: nodo KB `[[sources/...]]`; ADR di riferimento `docs/decisions/<nnnn>-*.md`.
@@ -92,7 +92,7 @@ Ordine di prevalenza dei numeri (regola dei tre punti, ADR 0007): protocollo su 
 
 ### 6. Riallinea le fixture golden (E01–E15+)
 
-Le fixture in `fixtures/` sono la suite di regressione dell'engine e dichiarano `corpus_version`. Regole:
+Le fixture in `packages/engine/tests/fixtures/` sono la suite di regressione dell'engine e dichiarano `corpus_version`. Regole:
 
 - **MINOR/MAJOR** → aggiorna `corpus_version` in **ogni** fixture al nuovo numero e verifica che gli `expected` (`assessment_mode` + `verdict_outcome` + `citations`) restino coerenti.
 - Se il cambiamento **modifica un esito atteso**, aggiorna la fixture interessata **con motivazione esplicita nel commit** — mai "aggiustare il test perché passi".

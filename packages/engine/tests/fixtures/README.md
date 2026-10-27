@@ -2,8 +2,8 @@
 
 15 scenari golden congelati che esercitano il corpus **v0.3.1** (wizard + sectors + signals + regimes).
 
-## Destinazione futura
-Questi file sono qui in via provvisoria, **accanto a `corpus/`**. La destinazione definitiva è `packages/engine/tests/fixtures/` (test del decision engine). Spostarli lì quando il package engine sarà inizializzato.
+## Posizione
+Da S2 i file vivono in `packages/engine/tests/fixtures/` (test del decision engine). I `corpus_ref` restano relativi alla radice del corpus (`packages/corpus/corpus/`), non al monorepo.
 
 ## Schema di ogni file
 - `scenario_id`, `name`, `description_it`
@@ -36,4 +36,4 @@ Questi file sono qui in via provvisoria, **accanto a `corpus/`**. La destinazion
 - E15 energia_gestore_ricarica_pun_si (variante PUN "sì")
 
 ## Controllo
-`node scripts/validate-corpus.mjs` (richiede js-yaml v4 risolvibile da `node_modules/`): verifica fixture e corpus, incluso il lint dei `yes`/`no` non quotati. Diventa `corpus:validate` in S2.
+`pnpm corpus:validate` (package `@nis2-check/corpus`): schema zod del corpus e delle fixture, invarianti incrociate, risoluzione dei `corpus_ref`, lint dei `yes`/`no` non quotati. I test dell'engine (`pnpm --filter @nis2-check/engine test`) eseguono le fixture, non ne ricontrollano la forma.
