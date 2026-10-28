@@ -1,14 +1,16 @@
 /**
  * corpus:validate — parse, schema (with cross-file invariants) and lints.
  */
-import { CorpusSchema, type Corpus } from './schemas/corpus.ts';
-import { E, msg } from './schemas/common.ts';
+import { CorpusSchema, unusedRegistryEntries, type Corpus } from './schemas/corpus.ts';
+import { E, W, msg } from './schemas/common.ts';
 import { lintCatalogCopy, lintYamlBooleans } from './lint.ts';
 import type { RawCorpus, SourceTexts } from './load.ts';
 
 export interface ValidationResult {
   ok: boolean;
   errors: string[];
+  /** Coded warnings (e.g. W_CITATION_UNUSED): reported, they do not fail validation. */
+  warnings: string[];
   corpus?: Corpus;
 }
 
@@ -34,7 +36,10 @@ export function validateCorpus(raw: RawCorpus, sources: SourceTexts = {}, parseE
     }
   }
   errors.push(...lintYamlBooleans(sources), ...lintCatalogCopy(raw.exceptions ?? {}));
-  const result: ValidationResult = { ok: errors.length === 0, errors };
+  const warnings = parsed.success
+    ? unusedRegistryEntries(parsed.data).map((e) => `[${W.CITATION_UNUSED}] ${e}: registry entry not used by the corpus or the fixtures`)
+    : [];
+  const result: ValidationResult = { ok: errors.length === 0, errors, warnings };
   if (parsed.success) result.corpus = parsed.data;
   return result;
 }

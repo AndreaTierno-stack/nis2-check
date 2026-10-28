@@ -170,6 +170,51 @@ describe('corpus:validate', () => {
       expectCode(errors, 'E_REF_QUESTION', 'wizard__pubblica_amministrazione.yaml');
     });
 
+    it('citation ID missing from the registry -> E_CITATION_UNREGISTERED', () => {
+      const errors = errorsAfter((c) => {
+        sector(c, 'energia_elettrica').qualification_rules[1].citations.push('dlgs_138_2024_art_99');
+      });
+      expectCode(errors, 'E_CITATION_UNREGISTERED', 'sectors__energia_elettrica.yaml');
+    });
+
+    it('citation ID in a fixture missing from the registry -> E_CITATION_UNREGISTERED', () => {
+      const errors = errorsAfter((c) => {
+        fixture(c, 'E01_').citations.push('faq_settori_cloud');
+      });
+      expectCode(errors, 'E_CITATION_UNREGISTERED', 'E01_');
+    });
+
+    it('registry entry used nowhere -> W_CITATION_UNUSED (warning, still valid)', () => {
+      const { corpus, sources } = fresh();
+      (corpus.citations['citations/citations__registry.yaml'] as Doc).citations.push({
+        id: 'dlgs_138_2024_art_99',
+        kb_node: 'wiki/sources/D.Lgs. 138-2024 (Decreto NIS).md',
+        kb_lines: '1',
+        attestation: 'voce di prova',
+      });
+      const result = validateCorpus(corpus, sources);
+      expect(result.errors).toEqual([]);
+      expect(result.warnings.filter((w) => w.includes('[W_CITATION_UNUSED]') && w.includes('dlgs_138_2024_art_99'))).toHaveLength(1);
+    });
+
+    it('segnalato catalog entry referenced by no notice -> E_CATALOG_UNREFERENCED', () => {
+      const errors = errorsAfter((c) => {
+        const rule = sector(c, 'energia_elettrica').qualification_rules.find((r: Doc) => r.condition.startsWith('dimension == media'));
+        rule.notices = [];
+        for (const r of sector(c, 'energia_elettrica').qualification_rules) {
+          if (r.notices) r.notices = r.notices.filter((n: string) => n !== 'energia_regime_transitorio_ose');
+        }
+      });
+      expectCode(errors, 'E_CATALOG_UNREFERENCED', 'exceptions__catalog.yaml');
+    });
+
+    it('non_gestito catalog entry may be unreferenced', () => {
+      const { corpus, sources } = fresh();
+      const cat = corpus.exceptions['exceptions/exceptions__catalog.yaml'] as Doc;
+      cat.exceptions.push({ ...cat.exceptions.find((e: Doc) => e.id === 'confine_50_43'), id: 'voce_di_prova_non_gestita' });
+      expect(validateCorpus(corpus, sources).errors).toEqual([]);
+    });
+
     it('rule reading an input missing from the wizard -> E_RULE_INPUT', () => {
       const errors = errorsAfter((c) => {
         sector(c, 'pubblica_amministrazione').qualification_rules[2].condition = 'categoria == c';

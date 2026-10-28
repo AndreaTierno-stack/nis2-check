@@ -21,6 +21,8 @@ export const E = {
   REF_QUESTION: 'E_REF_QUESTION',
   RULE_INPUT: 'E_RULE_INPUT',
   CATALOG_REF: 'E_CATALOG_REF',
+  CATALOG_UNREFERENCED: 'E_CATALOG_UNREFERENCED',
+  CITATION_UNREGISTERED: 'E_CITATION_UNREGISTERED',
   COPY: 'E_COPY',
   REGIME_META: 'E_REGIME_META',
   OVERRIDE_CITATIONS: 'E_OVERRIDE_CITATIONS',
@@ -37,6 +39,40 @@ export const E = {
   YAML_BOOL: 'E_YAML_BOOL',
 } as const;
 export type ErrorCode = (typeof E)[keyof typeof E];
+
+/** Stable warning codes: reported by corpus:validate, they do not fail it. */
+export const W = {
+  CITATION_UNUSED: 'W_CITATION_UNUSED',
+} as const;
+export type WarningCode = (typeof W)[keyof typeof W];
+
+/**
+ * Keys whose values are citation IDs, wherever they appear in corpus files and
+ * fixtures (arrays of IDs, or a single ID for base_legal_definition).
+ */
+export const CITATION_KEYS = ['citations', 'cumulative_regulations', 'base_legal_definition'] as const;
+
+/**
+ * Collects the citation IDs used in a parsed document, with their paths.
+ *
+ * @param doc - parsed YAML document (objects are passthrough, so every key survives)
+ * @param base - path prefix of the document
+ */
+export function collectCitationIds(doc: unknown, base: (string | number)[]): { id: string; path: (string | number)[] }[] {
+  const out: { id: string; path: (string | number)[] }[] = [];
+  const walk = (node: unknown, path: (string | number)[]) => {
+    if (Array.isArray(node)) return node.forEach((x, i) => walk(x, [...path, i]));
+    if (node === null || typeof node !== 'object') return;
+    for (const [k, v] of Object.entries(node)) {
+      if ((CITATION_KEYS as readonly string[]).includes(k)) {
+        if (typeof v === 'string') out.push({ id: v, path: [...path, k] });
+        else if (Array.isArray(v)) v.forEach((x, i) => typeof x === 'string' && out.push({ id: x, path: [...path, k, i] }));
+      } else walk(v, [...path, k]);
+    }
+  };
+  walk(doc, base);
+  return out;
+}
 
 /** Formats an issue message with its error code. */
 export const msg = (code: ErrorCode, text: string): string => `[${code}] ${text}`;

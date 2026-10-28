@@ -184,3 +184,41 @@ exceptions:
     description: "Il rientro delle pubbliche amministrazioni dell'Allegato III presuppone che il soggetto sia tra le amministrazioni pubbliche di cui all'art. 1 c. 3 L. 196/2009, cioè nell'elenco ISTAT delle amministrazioni pubbliche (art. 3 c. 6 D.Lgs. 138/2024). Lo strumento non verifica l'inclusione nell'elenco, che va confermata con un consulente qualificato."
     citations: [l_196_2009_art_1_c_3, dlgs_138_2024_art_3_c_6]
     applies_to: [pubblica_amministrazione]
+
+  # --------------------------------------------------------------------------
+  # Non gestiti: fuori dal perimetro dello strumento, dichiarati
+  # --------------------------------------------------------------------------
+  - id: safeguard_dimensional_dpcm_221
+    status: non_gestito
+    title: "Salvaguardia dimensionale (DPCM 221/2024)"
+    description: "L'art. 3 c. 4 D.Lgs. 138/2024 consente di non applicare il consolidamento dimensionale con le imprese collegate quando non è proporzionato, tenuto conto dell'indipendenza del soggetto in termini di sistemi informativi e di rete e di servizi forniti; l'ACN applica questa salvaguardia dimensionale secondo i criteri stabiliti con DPCM (art. 3 c. 12; DPCM 221/2024). Lo strumento non la valuta."
+    citations: [dlgs_138_2024_art_3_c_4, dlgs_138_2024_art_3_c_12, dpcm_221_2024]
+    applies_to: [cloud_computing, energia_elettrica]
+
+  - id: dimensione_autodichiarata
+    status: non_gestito
+    title: "Categoria dimensionale indicata dall'utente"
+    description: "La categoria dimensionale (micro o piccola, media, grande impresa) è indicata dall'utente secondo la Raccomandazione 2003/361/CE, come riportata dalla FAQ ACN AMB.DI.1. Lo strumento non la calcola a partire da effettivi, fatturato e totale di bilancio."
+    citations: [faq_amb_di_1, racc_ue_2003_361]
+    applies_to: [cloud_computing, energia_elettrica]
+
+  - id: consolidamento_di_gruppo
+    status: non_gestito
+    title: "Dati dimensionali delle imprese collegate o associate"
+    description: "Per un soggetto che fa parte di un gruppo, i dati dimensionali possono andare sommati con quelli delle imprese collegate o associate (art. 3 c. 4 D.Lgs. 138/2024, che rinvia all'art. 6 par. 2 dell'allegato della Raccomandazione 2003/361/CE). Lo strumento non esegue questo calcolo: usa la categoria indicata dall'utente."
+    citations: [dlgs_138_2024_art_3_c_4, racc_ue_2003_361]
+    applies_to: [cloud_computing, energia_elettrica]
+
+  - id: confine_50_43
+    status: non_gestito
+    title: "Soglie di fatturato e di bilancio della media impresa"
+    description: "Per la media impresa contano gli effettivi e almeno uno dei due dati contabili: fatturato annuo fino a 50 milioni di euro oppure totale di bilancio annuo fino a 43 milioni di euro (Raccomandazione 2003/361/CE, come riportata dalla FAQ ACN AMB.DI.1). Quando i due dati cadono su lati diversi delle soglie la classificazione richiede attenzione; lo strumento non la calcola e usa la categoria indicata dall'utente."
+    citations: [faq_amb_di_1, racc_ue_2003_361]
+    applies_to: [cloud_computing, energia_elettrica]
+
+  - id: copertura_settoriale_parziale
+    status: non_gestito
+    title: "Settori e tipologie valutati dallo strumento"
+    description: "Lo strumento valuta tre ambiti: il sottosettore energia elettrica (Allegato I, punto 1, lettera a), i fornitori di servizi di cloud computing (Allegato I, punto 8) e le pubbliche amministrazioni dell'Allegato III. Gli altri settori, sottosettori e tipologie degli Allegati I, II e IV non sono valutati."
+    citations: [dlgs_138_2024_art_3, dlgs_138_2024_allegato_I, dlgs_138_2024_allegato_III]
+    applies_to: [cloud_computing, energia_elettrica, pubblica_amministrazione]

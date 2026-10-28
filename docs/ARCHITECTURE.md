@@ -105,7 +105,7 @@ analizzi il corpus. Ogni violazione porta un codice stabile tra parentesi quadre
 | 18 | Fixture: `corpus_version` = `VERSION`; input = id di domande; signal definiti; `corpus_ref` risolvibili; `regime_routing` = `meta` dei regimi degli override che matchano, nell'ordine del file di settore; con un solo regime, esito = `meta` del regime | `E_FIXTURE_VERSION`, `E_FIXTURE_INPUT`, `E_FIXTURE_SIGNAL`, `E_CORPUS_REF`, `E_REGIME_ROUTING` | ADR 0009 + amendment, CLAUDE.md Testing |
 | 19 | Nessun booleano YAML 1.1 non quotato (`yes`/`no`/`on`/`off`/`y`/`n`) | `E_YAML_BOOL` | S1.1 (lint testuale, non dello schema) |
 | 20 | Catalogo eccezioni con schema stretto; ogni riferimento al catalogo (`notices` delle regole e di `allegato_iv_channel`, `meta.exceptions_catalog_entry` dei regimi, `notices` e `regime_routing` delle fixture) risolve; id unici; `applies_to` solo settori o regimi | `E_CATALOG_REF` | ADR 0012 |
-| 21 | Testi del catalogo (`title`, `description`) senza formule categoriche o prescrittive e con il naming vincolato ("salvaguardia dimensionale", mai "CER" nudo, "esclusioni di sicurezza nazionale") | `E_COPY` | CLAUDE.md vincolo 1, ADR 0004, ADR 0005, ADR 0012 |
+| 21 | Testi del catalogo (`title`, `description`) senza formule categoriche o prescrittive e con il naming vincolato ("salvaguardia dimensionale", mai "CER" nudo, "esclusioni di sicurezza nazionale") | `E_COPY` | CLAUDE.md vincolo 1, ADR 0004 ("CER"), CHANGELOG 0.2.0 B5 ("salvaguardia"), ADR 0012 |
 | 22 | Registro citazioni con schema stretto (nodo KB, righe, attestazione) e id unici | `E_CITATION_ID` | ADR 0011 (rinvio KB per ogni ID nuovo) |
 
 Gli invarianti incrociati (2, 7–10, 13–18, 20, 22) girano solo se la forma dei file è

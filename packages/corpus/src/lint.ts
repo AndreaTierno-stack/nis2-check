@@ -25,7 +25,9 @@ export function lintYamlBooleans(sources: SourceTexts): string[] {
 /**
  * Copy lint for texts shown to the tool's user from the exceptions catalog
  * (ADR 0012): forbidden categorical/prescriptive wording (CLAUDE.md, constraint 1)
- * and constrained naming (ADR 0004/0005; "esclusioni" only with "di sicurezza nazionale").
+ * and constrained naming: "CER" (ADR 0004), "salvaguardia" only as "salvaguardia
+ * dimensionale" (corpus CHANGELOG 0.2.0, B5; no ADR), "esclusioni" only with
+ * "di sicurezza nazionale".
  */
 const FORBIDDEN: { re: RegExp; why: string }[] = [
   { re: /\brientri\b/i, why: '"Rientri" (categorical)' },
@@ -37,8 +39,8 @@ const FORBIDDEN: { re: RegExp; why: string }[] = [
   { re: /\baudit\b/i, why: '"audit"' },
   { re: /\bdiagnosi\b/i, why: '"diagnosi"' },
   { re: /\bcertificazione\b/i, why: '"certificazione"' },
-  { re: /\bsalvaguardia\b(?! dimensionale)/i, why: 'bare "salvaguardia" (ADR 0004)' },
-  { re: /\bCER\b/, why: 'bare "CER" (ADR 0005)' },
+  { re: /\bsalvaguardia\b(?! dimensionale)/i, why: 'bare "salvaguardia" (CHANGELOG 0.2.0, B5)' },
+  { re: /\bCER\b/, why: 'bare "CER" (ADR 0004)' },
   { re: /\besclusioni\b(?! di sicurezza nazionale)/i, why: 'bare "esclusioni": use "esclusioni di sicurezza nazionale (art. 4 D.Lgs. 138/2024)"' },
 ];
 

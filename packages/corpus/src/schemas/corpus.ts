@@ -6,7 +6,7 @@
  */
 import { z } from 'zod';
 import { resolveCorpusRef } from '../corpusRef.ts';
-import { E, msg } from './common.ts';
+import { E, collectCitationIds, msg } from './common.ts';
 import {
   CitationRegistryFile,
   ExceptionsCatalogFile,
@@ -184,6 +184,45 @@ export const CorpusSchema = CorpusInput.superRefine((c, ctx) => {
     }
   }
 
+  // ----- citation registry coverage (corpus 0.6.0) -----
+  // Every citation ID used in the corpus files and in the fixtures has a registry
+  // entry with KB node and line (CLAUDE.md, constraint 3). Unused entries are a
+  // warning, reported by validate.ts (unusedRegistryEntries).
+  for (const [group, files] of [
+    ['sectors', c.sectors], ['wizard', c.wizard], ['regimes', c.regimes], ['signals', c.signals],
+    ['exceptions', c.exceptions], ['fixtures', c.fixtures],
+  ] as const) {
+    for (const [fp, doc] of Object.entries(files)) {
+      for (const { id, path } of collectCitationIds(doc, [group, fp])) {
+        if (!registered.has(id)) issue(path, E.CITATION_UNREGISTERED, `citation "${id}" has no entry in the citation registry`);
+      }
+    }
+  }
+
+  // ----- catalog entries "segnalato" are shown somewhere (corpus 0.6.0) -----
+  // A segnalato entry is, by definition, shown in the verdict: at least one notice of
+  // the corpus (rules, allegato_iv_channel, on_yes, on_selected, outcome_mapping,
+  // multi_regime_intersection) or a regime meta points to it. Fixtures do not count.
+  // gestito and non_gestito entries may be unreferenced.
+  const referencedCatalog = new Set<string>();
+  const collectNotices = (node: unknown): void => {
+    if (Array.isArray(node)) return node.forEach(collectNotices);
+    if (node === null || typeof node !== 'object') return;
+    for (const [k, v] of Object.entries(node)) {
+      if (k === 'notices' && Array.isArray(v)) v.forEach((x) => typeof x === 'string' && referencedCatalog.add(x));
+      else if (k === 'exceptions_catalog_entry' && typeof v === 'string') referencedCatalog.add(v);
+      else collectNotices(v);
+    }
+  };
+  [c.sectors, c.wizard, c.regimes].forEach((files) => Object.values(files).forEach(collectNotices));
+  for (const [ep, f] of Object.entries(c.exceptions)) {
+    f.exceptions.forEach((e, i) => {
+      if (e.status === 'segnalato' && !referencedCatalog.has(e.id)) {
+        issue(['exceptions', ep, 'exceptions', i, 'id'], E.CATALOG_UNREFERENCED, `segnalato entry "${e.id}" is referenced by no notice or regime`);
+      }
+    });
+  }
+
   // ----- regimes -----
   for (const [rp, r] of Object.entries(c.regimes)) {
     checkCatalog([r.meta.exceptions_catalog_entry], ['regimes', rp, 'meta', 'exceptions_catalog_entry']);
@@ -340,3 +379,17 @@ export const CorpusSchema = CorpusInput.superRefine((c, ctx) => {
 });
 
 export type Corpus = z.infer<typeof CorpusSchema>;
+
+/**
+ * Registry entries whose ID no corpus file or fixture uses (warning W_CITATION_UNUSED).
+ *
+ * @param c - corpus that passed CorpusSchema
+ * @returns the unused IDs, as "<registry file> > <id>"
+ */
+export function unusedRegistryEntries(c: Corpus): string[] {
+  const used = new Set<string>();
+  for (const files of [c.sectors, c.wizard, c.regimes, c.signals, c.exceptions, c.fixtures]) {
+    for (const [fp, doc] of Object.entries(files)) collectCitationIds(doc, [fp]).forEach(({ id }) => used.add(id));
+  }
+  return Object.entries(c.citations).flatMap(([cp, f]) => f.citations.filter((r) => !used.has(r.id)).map((r) => `${cp} > ${r.id}`));
+}

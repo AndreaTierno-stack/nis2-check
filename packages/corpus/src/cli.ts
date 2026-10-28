@@ -8,6 +8,7 @@ const [corpusDir = DEFAULT_CORPUS_DIR, fixturesDir = DEFAULT_FIXTURES_DIR] = pro
 const { corpus, sources, parseErrors } = loadFromDisk(corpusDir, fixturesDir);
 const result = validateCorpus(corpus, sources, parseErrors);
 const files = Object.keys(sources).length;
+for (const w of result.warnings) console.log(`WARN  ${w}`);
 
 if (result.ok) {
   console.log(`corpus:validate OK — corpus ${corpus.version}, ${files} YAML files (${Object.keys(corpus.fixtures).length} fixtures)`);
