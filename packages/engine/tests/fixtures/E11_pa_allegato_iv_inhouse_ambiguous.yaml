@@ -6,7 +6,7 @@ description_it: >
   dell'autorita' di settore (art. 3 c. 8 + art. 13). Non self-assessable ->
   qualitative_signal_only / ambiguous. Per gli in-house il canale All. IV coincide
   con il signal in-house (l'engine deduplica in rendering).
-corpus_version: 0.4.0
+corpus_version: 0.5.0
 sector: pubblica_amministrazione
 
 inputs:

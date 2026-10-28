@@ -9,6 +9,38 @@ Formato ispirato a [Keep a Changelog](https://keepachangelog.com/it/1.1.0/); ver
 
 Ogni bump ha una voce in questo file; le fixture dichiarano `corpus_version` e si riallineano a ogni minor/major.
 
+## [0.5.0] — 2026-10-28 — PA dell'Allegato III (ADR 0011, C1-C6) e catalogo eccezioni (ADR 0012)
+
+Minor: cambiano gli esiti delle lettere a), b) e d) dell'Allegato III, il questionario PA (opzioni nuove, domande nuove) e lo schema (catalogo eccezioni, avvisi `notices`, registro citazioni). Base normativa: D.Lgs. 138/2024 Allegato III, art. 3 cc. 6-7, art. 4 cc. 2-3, art. 6 cc. 1-3, art. 40 c. 2 lett. b) e c. 5 lett. a), riscontrati parola per parola su Normattiva il 2026-10-27 (DEC-007 A) e riportati nel nodo KB `sources/D.Lgs. 138-2024 (Decreto NIS)` (righe 8 e 25-36).
+
+### Added
+- **`exceptions/exceptions__catalog.yaml`** (ADR 0012) — catalogo eccezioni con schema stretto (`id`, `status` gestito | segnalato | non_gestito, `title`, `description`, `citations`, `applies_to`). 8 voci: `psnc_category_override`, `dora_massive_disapplication`, `cloud_pa_model_substitution` (gestite come escalation, ADR 0009); `pa_esclusioni_sicurezza_nazionale_art_4_c_3`, `pa_organi_costituzionali_capo_v_art_4_c_2`, `pa_qualifica_elevabile_art_6_c_2`, `pa_categorie_aggiunte_dpcm_art_3_c_7`, `pa_lett_d_cumulo_l90_non_attestato` (segnalate; l'ultima chiude STATUS 14).
+- **Avvisi `notices`** su `qualification_rules` e `allegato_iv_channel`; `expected.notices` nelle fixture; `Verdict.notices`. Invariante `E_CATALOG_REF`: ogni riferimento al catalogo risolve, compresi `meta.exceptions_catalog_entry` dei regimi e `regime_routing` delle fixture. Lint di copy `E_COPY` sui testi del catalogo.
+- **`citations/citations__registry.yaml`** — nodo KB e riga per gli 8 citation ID nuovi: `dlgs_138_2024_art_3_c_7`, `_art_4_c_2`, `_art_4_c_3`, `_art_6_c_1_lett_e`, `_art_6_c_2`, `_art_6_c_3`, `_art_40_c_2_lett_b`, `_art_40_c_5_lett_a`. Convenzione: `_art_<n>_c_<n>_lett_<x>`; allegati con numero romano maiuscolo (resta `dlgs_138_2024_allegato_III`, già in uso).
+- **`wizard/wizard__pubblica_amministrazione.yaml`** — opzione `esclusa_art_4_c_2` di `categoria_pa`; domanda `sottotipo_d` (Allegato III lett. d) 1-6, `visible_if` ADR 0010); domanda `classificazione_cloud_pa` (C5).
+- **Fixture E16-E20**: lett. d) 5 ente di ricerca e lett. d) 4 ente culturale (importante), lett. b) Regione (importante con avviso art. 6 c. 2), soggetto escluso dall'art. 4 c. 2 (`likely_out_of_scope`), PA lett. c) con override Cloud PA (`regime_routing` [cloud_pa]).
+- **ADR 0011, ADR 0012.**
+
+### Changed
+- **`sectors/sectors__pubblica_amministrazione.yaml`** (ADR 0011) — lettere a)-d) `categorical_assessment` → `likely_in_scope`:
+  - a) da `qualitative_signal_only` con qualifica essenziale inferita a qualifica **essenziale** (art. 6 c. 1 lett. e));
+  - b) da `qualitative_signal_only` con qualifica essenziale inferita a **importante** (art. 6 c. 3), con avviso art. 6 c. 2;
+  - c) invariata nell'esito (importante), con base art. 6 c. 3 e avviso art. 6 c. 2;
+  - d) da `qualitative_signal_only` (solo enti a struttura associativa) a **importante** per i sei sottotipi della lett. d), con avviso art. 6 c. 2;
+  - nuova regola per `esclusa_art_4_c_2` (`out_of_scope` / `likely_out_of_scope`);
+  - trace di a) senza "determinazione ACN identificativa delle PA NIS": art. 40 c. 5 lett. a) (C6); nessuna soglia numerica nei trace;
+  - override Cloud PA: trigger `classificazione_cloud_pa == yes` (era `cloud_pa == yes`, domanda per i fornitori, irraggiungibile per la PA con una risposta corretta); citazioni invariate;
+  - rimosso `out_of_scope_mvp.pa_categoria_a_b_d_verdetto_categoriale` (strada 3 superata).
+- **`categoria_pa`** — etichette con i sottotipi testuali dell'Allegato III ("agenzia statale" rimossa: lett. a) 3 sono le Agenzie fiscali); il testo di aiuto indica la lett. d) per enti di ricerca e culturali inclusi nell'elenco ISTAT, e il canale Allegato IV per i soggetti fuori dall'Allegato III.
+- **`regimes/cloud_pa.yaml`** — `referenced_by` include la domanda `classificazione_cloud_pa`.
+- **Fixture** — E10 rinominata `E10_pa_categoria_a_essenziale` (esito atteso cambiato per ADR 0011); E09, E11, E12 rispondono a `classificazione_cloud_pa` e verificano `notices`; `corpus_version` → 0.5.0 su tutte le 20.
+- **Schema** — rimossa la chiave `visibility_citations` (dichiarata in 0.4.0, mai usata).
+
+### Notes
+- La "strada 3" (ADR 0002) è superata: la sua premessa era l'assenza di una fonte puntuale, rimossa dal riscontro del 2026-10-27.
+- Art. 40 c. 5 lett. a): il riscontro Normattiva lo elenca (nodo KB, riga 8), ma le righe 25-36 non ne riportano il testo; il registro rinvia al testo ufficiale (PDF in raw/). Da integrare nel nodo KB.
+- La domanda comune `cloud_pa` resta visibile anche nel percorso PA, dove non instrada nulla; l'intersezione PSNC + Cloud PA (`multi_regime_intersection`) non considera `classificazione_cloud_pa`. Il settore PA non ha override PSNC né DORA.
+
 ## [0.4.0] — 2026-10-28 — Contratto formalizzato: schema zod, `visible_if` strutturata (ADR 0010), input delle regole PA
 
 Prima versione del corpus validata dallo schema zod (`pnpm corpus:validate`, S2). Minor: formalizza il contratto letto dall'engine, cambia la forma delle condizioni di visibilità del questionario (ADR 0010) e delle fixture rispetto a 0.3.1, aggiunge l'ID `tipo_partecipazione_pubblica` al follow-up cloud (introdotto in 0.3.1) e le citazioni dimensionali. Nessun `verdict_outcome` né `assessment_mode` atteso cambia.

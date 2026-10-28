@@ -5,7 +5,7 @@ description_it: >
   l'automatismo "alto" PSNC (art. 5) e la sostituzione di modello Cloud PA (art. 4)
   non e' esplicitato nelle fonti. Il decision engine emette escalate_to_advisor
   invece di tentare di risolvere. Vincolo fisso: escalate_to_advisor -> ambiguous.
-corpus_version: 0.4.0
+corpus_version: 0.5.0
 sector: cloud_computing
 
 inputs:

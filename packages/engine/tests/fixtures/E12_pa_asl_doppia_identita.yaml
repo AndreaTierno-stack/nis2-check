@@ -6,7 +6,7 @@ description_it: >
   p. 5, essenziale se medio-grande). Il verdetto categoriale e' emesso per l'identita'
   PA; il settore Sanitario non e' pilota del MVP -> segnalato ma non valutato
   (cross_sector_asl_sanitario, ambiguous per l'identita' sanitaria).
-corpus_version: 0.4.0
+corpus_version: 0.5.0
 sector: pubblica_amministrazione
 
 inputs:

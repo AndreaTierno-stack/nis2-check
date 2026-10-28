@@ -8,7 +8,7 @@ description_it: >
   (art. 7 c. 6, art. 16 c. 13, art. 20 c. 6 Det. 127437/2026): DIV-P1 chiusa.
   Esito atteso: escalate_to_advisor / ambiguous copiati dal meta del regime
   (ADR 0009), con regime_routing per Explainability e PDF.
-corpus_version: 0.4.0
+corpus_version: 0.5.0
 sector: cloud_computing
 
 inputs:
