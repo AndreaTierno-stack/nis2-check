@@ -142,6 +142,27 @@ describe('corpus:validate', () => {
       expectCode(errors, 'E_COPY', 'exceptions__catalog.yaml');
     });
 
+    it('PA rule reading an excluded common question -> E_RULE_INPUT', () => {
+      const errors = errorsAfter((c) => {
+        sector(c, 'pubblica_amministrazione').qualification_rules[2].condition = 'categoria_pa == b AND dimension == media';
+      });
+      expectCode(errors, 'E_RULE_INPUT', 'sectors__pubblica_amministrazione.yaml');
+    });
+
+    it('PA fixture answering an excluded common question -> E_FIXTURE_INPUT', () => {
+      const errors = errorsAfter((c) => {
+        fixture(c, 'E09_').inputs.dimension = 'grande';
+      });
+      expectCode(errors, 'E_FIXTURE_INPUT', 'E09_');
+    });
+
+    it('excluded_common_questions naming a non-common question -> E_REF_QUESTION', () => {
+      const errors = errorsAfter((c) => {
+        wizard(c, 'pubblica_amministrazione').excluded_common_questions.push('categoria_pa');
+      });
+      expectCode(errors, 'E_REF_QUESTION', 'wizard__pubblica_amministrazione.yaml');
+    });
+
     it('rule reading an input missing from the wizard -> E_RULE_INPUT', () => {
       const errors = errorsAfter((c) => {
         sector(c, 'pubblica_amministrazione').qualification_rules[2].condition = 'categoria == c';

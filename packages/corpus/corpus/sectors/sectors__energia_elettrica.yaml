@@ -94,18 +94,26 @@ tipologie:
     scoping_note_it: "Rientra solo se registrato su PUN (DM MASE 106/2023). I meri punti vendita con ricarica non registrati su PUN non rientrano automaticamente (A1.1.a.3)."
 
 qualification_rules:
-  - condition: dimension == micro_or_piccola
+  # ADR 0015: soggetto critico (D.Lgs. 134/2024) -> essenziale a prescindere dalla
+  # dimensione; le regole dimensionali valgono solo con soggetto_critico == no.
+  - condition: soggetto_critico == yes
+    outcome: categorical_assessment
+    qualifica: essenziale
+    verdict_outcome: likely_in_scope   # vincolo fisso: categorical_assessment in-scope -> likely_in_scope
+    reasoning_trace: "Il soggetto risulta individuato come soggetto critico ai sensi del D.Lgs. 134/2024. Sulla base degli input forniti, l'analisi suggerisce il rientro nel perimetro NIS2 italiano come soggetto essenziale, indipendentemente dalla dimensione (art. 3 c. 5 lett. a) e art. 6 c. 1 lett. b) D.Lgs. 138/2024; FAQ ACN AMB.NO.1). Verifica obbligatoria con consulente qualificato."
+    citations: [dlgs_138_2024_art_3_c_5_lett_a, dlgs_138_2024_art_6_c_1_lett_b, faq_amb_no_1]
+  - condition: dimension == micro_or_piccola AND soggetto_critico == no
     outcome: out_of_scope
     verdict_outcome: likely_out_of_scope   # vincolo fisso: out_of_scope -> likely_out_of_scope
     reasoning_trace: "Dimensione dichiarata: Micro o piccola impresa. Classificazione secondo FAQ ACN AMB.DI.1 e Racc. UE 2003/361. Esclusione dall'ambito NIS2 in via generale (D.Lgs. 138/2024 art. 3). Per il settore elettrico, si segnala l'esclusione esplicita di clienti attivi e prosumer (FAQ A1.1.a.4)."
     citations: [dlgs_138_2024_art_3, racc_ue_2003_361, faq_amb_di_1, faq_a1_1_a_4]
-  - condition: dimension == media
+  - condition: dimension == media AND soggetto_critico == no
     outcome: categorical_assessment
     qualifica: importante
     verdict_outcome: likely_in_scope   # vincolo fisso: categorical_assessment in-scope -> likely_in_scope
     reasoning_trace: "Dimensione dichiarata: Media impresa. Classificazione secondo FAQ ACN AMB.DI.1 e Racc. UE 2003/361. In settore Allegato I p. 1 (Energia) qualificato come soggetto importante. Per 'fatturato' si intende quello complessivo del soggetto, non solo dell'attività NIS (FAQ A1.2)."
     citations: [dlgs_138_2024_art_6, faq_amb_di_1, racc_ue_2003_361, faq_a1_2]
-  - condition: dimension == grande
+  - condition: dimension == grande AND soggetto_critico == no
     outcome: categorical_assessment
     qualifica: essenziale
     verdict_outcome: likely_in_scope   # vincolo fisso: categorical_assessment in-scope -> likely_in_scope
@@ -136,10 +144,6 @@ out_of_scope_mvp:
     handling: cross_sector_signal
     verdict_outcome: ambiguous   # regime OSE transitorio solo segnalato, non valutato
     scope_evolution_note: "Il regime transitorio OSE (art. 5 Det. 379907/2025) per i soggetti già OSE energia ex D.Lgs. 65/2018 non è modellato nel MVP; segnalato come possibile applicabilità."
-  - case: cer_dlgs_134_2024
-    handling: cross_sector_signal
-    verdict_outcome: ambiguous   # regime parallelo (soggetti critici) solo segnalato, non valutato
-    scope_evolution_note: "L'energia è settore soggetto alla disciplina sui soggetti critici (D.Lgs. 134/2024, resilienza fisica; CER = Critical Entities Resilience). Il MVP non valuta il rientro tra i soggetti critici; segnalato come regime parallelo da non confondere né con il NIS2 né con le comunità energetiche rinnovabili (CACER)."
 
 # ============================================================================
 # Vincoli di copy (rendering verdetto/signal) — collisione acronimo "CER"
@@ -147,4 +151,6 @@ out_of_scope_mvp:
 copy_constraints:
   - id: cer_cacer_disambiguation
     rule_it: "Mai usare l'acronimo nudo 'CER' nel copy del verdetto o dei signal. La disciplina D.Lgs. 134/2024 va resa come 'soggetti critici (D.Lgs. 134/2024)' oppure 'Critical Entities Resilience'; le comunità energetiche vanno rese come 'comunità energetiche rinnovabili (CACER)'. Nel settore energia 'CER' è ambiguo tra i due istituti."
-    applies_to: [cer_signal, "out_of_scope_mvp.cer_dlgs_134_2024"]
+    # ADR 0015: il caso out_of_scope_mvp.cer_dlgs_134_2024 e' rimosso (soggetti critici
+    # trattati dalla domanda comune soggetto_critico e dalla prima qualification_rule).
+    applies_to: [cer_signal, "wizard/wizard__disambiguation.yaml#soggetto_critico"]

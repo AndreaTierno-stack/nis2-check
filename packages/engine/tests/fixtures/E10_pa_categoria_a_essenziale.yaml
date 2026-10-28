@@ -15,6 +15,7 @@ inputs:
   cloud_pa: "no"
   categoria_pa: a
   classificazione_cloud_pa: "no"
+  soggetto_critico: "no"
 
 expected:
   assessment_mode: categorical_assessment

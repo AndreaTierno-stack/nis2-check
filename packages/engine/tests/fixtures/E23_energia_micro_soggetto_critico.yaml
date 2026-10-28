@@ -1,0 +1,30 @@
+scenario_id: E23
+name: energia_micro_soggetto_critico
+description_it: >
+  Gestore del sistema di distribuzione (DSO) di dimensione micro, individuato come
+  soggetto critico ai sensi del D.Lgs. 134/2024. ADR 0015: art. 3 c. 5 lett. a) e
+  art. 6 c. 1 lett. b) D.Lgs. 138/2024 (FAQ AMB.NO.1) -> essenziale indipendentemente
+  dalla dimensione; la regola micro/piccola non si applica. Signal sui soggetti
+  critici (cer_signal).
+corpus_version: 0.5.0
+sector: energia_elettrica
+
+inputs:
+  psnc: "no"
+  dora: "no"
+  cloud_pa: "no"
+  tipologia_elettrica: dso
+  attivita_elettriche_ulteriori: []
+  pertinenza_pubblica_energia: "no"
+  dimension: micro_or_piccola
+  soggetto_critico: "yes"
+
+expected:
+  assessment_mode: categorical_assessment
+  verdict_outcome: likely_in_scope
+  qualifica: essenziale
+  signals: [cer_signal]
+  regime_routing: []
+  corpus_ref: "wizard/wizard__disambiguation.yaml#soggetto_critico -> sectors/sectors__energia_elettrica.yaml#qualification_rules[soggetto_critico==yes] + signals/signals__cumulative_regimes.yaml#signals[cer_signal]"
+
+citations: [dlgs_138_2024_art_3_c_5_lett_a, dlgs_138_2024_art_6_c_1_lett_b, faq_amb_no_1]

@@ -43,6 +43,16 @@ exceptions:
     applies_to: [cloud_pa, pubblica_amministrazione]
 
   # --------------------------------------------------------------------------
+  # Soggetti critici (ADR 0015)
+  # --------------------------------------------------------------------------
+  - id: soggetti_critici_dlgs_134_2024_art_3_c_5_lett_a
+    status: gestito
+    title: "Soggetti critici (D.Lgs. 134/2024)"
+    description: "Per un soggetto individuato come soggetto critico ai sensi del D.Lgs. 134/2024 il decreto NIS si applica indipendentemente dalla dimensione e il soggetto è considerato essenziale (art. 3 c. 5 lett. a) e art. 6 c. 1 lett. b) D.Lgs. 138/2024). Lo strumento chiede se l'individuazione è avvenuta e ne tiene conto nell'esito; non valuta gli obblighi della disciplina dei soggetti critici, distinta da quella NIS2."
+    citations: [dlgs_138_2024_art_3_c_5_lett_a, dlgs_138_2024_art_6_c_1_lett_b, faq_amb_no_1, dlgs_134_2024]
+    applies_to: [cloud_computing, energia_elettrica, pubblica_amministrazione]
+
+  # --------------------------------------------------------------------------
   # Domande comuni dora e cloud_pa come segnali (ADR 0014)
   # --------------------------------------------------------------------------
   - id: dora_entita_finanziaria_fuori_settori_3_4

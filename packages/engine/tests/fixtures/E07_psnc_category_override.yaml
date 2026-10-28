@@ -18,6 +18,7 @@ inputs:
   attivita_elettriche_ulteriori: []
   pertinenza_pubblica_energia: "no"
   dimension: grande
+  soggetto_critico: "no"
 
 expected:
   # ADR 0009: instradamento a regime = escalation, copiata dal meta del regime

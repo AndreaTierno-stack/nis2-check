@@ -62,12 +62,15 @@ questions:
     citations: [faq_a1_8_2, det_acn_155238_2026_art_4, faq_cat_8]
 
 # ============================================================================
-# Identificazione standard — domanda comune ai settori size-cap (corpus 0.3.0)
+# Identificazione standard — domande comuni (dimension da 0.3.0, soggetto_critico da 0.6.0)
 # ============================================================================
 # Fase standard_identification: segue disambiguation e sector_specific. Alimenta
-# le qualification_rules dei settori con condition su "dimension".
-# La PA non la incontra per struttura, non per condizione (ADR 0010): il wizard PA
-# non ha la fase standard_identification in flow_order e il settore e' size_blind.
+# le qualification_rules dei settori con condition su "soggetto_critico" e "dimension".
+# ADR 0015: soggetto_critico vale per tutti i settori, PA compresa (art. 3 c. 5
+# lett. a) e art. 6 c. 1 lett. b) D.Lgs. 138/2024: essenziale a prescindere dalla
+# dimensione). La PA non incontra dimension per struttura, non per condizione
+# (ADR 0010, ADR 0015): il wizard PA la elenca in excluded_common_questions e il
+# settore e' size_blind.
 # Fondamento: le PA dell'Allegato III rientrano "indipendentemente dalle loro
 # dimensioni" (art. 3 c. 6 D.Lgs. 138/2024, in meta.citations del settore PA).
 # Il testo di aiuto deriva da FAQ AMB.DI.1 e dal concept Size-cap rule.
@@ -75,6 +78,24 @@ questions:
 # fatturato, bilancio); in v0.1 l'utente seleziona la categoria.
 
 standard_identification_questions:
+  # ADR 0015: soggetti critici (D.Lgs. 134/2024). Con "si'" le regole dei settori
+  # danno categorical_assessment, essenziale, indipendentemente dalla dimensione.
+  - id: soggetto_critico
+    phase: standard_identification
+    kind: binary
+    label_it: "Il soggetto è stato individuato come soggetto critico ai sensi del D.Lgs. 134/2024?"
+    help_text_it: |
+      Il D.Lgs. 134/2024 recepisce la direttiva (UE) 2022/2557 sulla resilienza
+      dei soggetti critici. Secondo la FAQ ACN AMB.NO.1, la qualifica di soggetto
+      critico si acquisisce con l'inserimento nell'elenco dei soggetti critici
+      adottato con decreto del Presidente del Consiglio dei ministri, e
+      dell'inclusione è data notizia al soggetto. Non riguarda le comunità
+      energetiche rinnovabili (CACER). Se il soggetto non ha ricevuto questa
+      notizia, rispondi "no".
+    on_yes:
+      activates_signals: [cer_signal]
+    citations: [dlgs_138_2024_art_3_c_5_lett_a, dlgs_138_2024_art_6_c_1_lett_b, faq_amb_no_1]
+
   - id: dimension
     phase: standard_identification
     kind: single_select

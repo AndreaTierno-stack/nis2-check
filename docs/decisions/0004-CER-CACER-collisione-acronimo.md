@@ -1,8 +1,16 @@
 # ADR 0004 — Collisione dell'acronimo "CER": vincolo di copy
 
-- **Stato:** accettato
+- **Stato:** accettato; descrizione del D.Lgs. 134/2024 superata da ADR 0015 (2026-10-28)
 - **Data:** 2026-07-02
 - **Ambito:** copy di verdetto e signal (settore energia)
+
+> **Nota di superamento (2026-10-28, corpus 0.6.0).** La descrizione dei soggetti
+> critici come "regime parallelo e distinto dal NIS2", il cui rientro lo strumento
+> "non valuta", è superata da ADR 0015: l'individuazione come soggetto critico ai sensi
+> del D.Lgs. 134/2024 porta il soggetto in ambito NIS come essenziale, a prescindere
+> dalla dimensione (art. 3 c. 5 lett. a) e art. 6 c. 1 lett. b) D.Lgs. 138/2024; FAQ
+> AMB.NO.1). `out_of_scope_mvp.cer_dlgs_134_2024` è rimosso e `cer_signal` non è più un
+> segnaposto. Il vincolo di naming di questo ADR resta in vigore.
 
 ## Contesto
 

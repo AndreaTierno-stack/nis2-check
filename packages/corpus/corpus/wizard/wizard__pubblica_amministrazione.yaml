@@ -5,6 +5,9 @@
 #
 # NOTE DI FLUSSO (specificita' PA rispetto a Cloud/Energia):
 # - NIENTE domanda dimensione: la PA e' size-blind (rientro a prescindere).
+#   Da corpus 0.6.0 (ADR 0015) il percorso PA ha la fase standard_identification
+#   per la sola domanda comune soggetto_critico; dimension e' esclusa
+#   (excluded_common_questions), per struttura e non per condizione.
 # - NIENTE domanda "pertinenza pubblica" generica: per la PA e' implicita.
 #   Il caso in-house/partecipate e' gestito via il canale Allegato IV, non
 #   via la domanda pertinenza pubblica di Cloud/Energia.
@@ -20,9 +23,14 @@ meta:
   sector_data: sectors/sectors__pubblica_amministrazione.yaml
 
 flow_order:
-  - disambiguation       # PSNC (possibile per PA centrali/ASL), DORA (di norma no), Cloud PA (frequente)
+  - disambiguation       # PSNC (possibile per PA centrali/ASL), DORA (di norma no)
   - sector_specific
-  # NON c'e' standard_identification: il settore e' size-blind
+  - standard_identification   # solo soggetto_critico (ADR 0015)
+
+# Domande del blocco comune non poste alla PA (ADR 0015):
+# - dimension: settore size_blind (art. 3 c. 6 D.Lgs. 138/2024).
+excluded_common_questions:
+  - dimension
 
 sector_specific_questions:
   # Domanda principale: quale categoria dell'Allegato III

@@ -157,6 +157,11 @@ export const WizardFile = z
       })
       .passthrough(),
     flow_order: z.array(Phase).optional(),
+    /**
+     * Questions of the common block not asked in this wizard (ADR 0014, ADR 0015):
+     * no rule, trigger or fixture of the sector may read them.
+     */
+    excluded_common_questions: z.array(Id).optional(),
     questions: z.array(Question).optional(),
     sector_specific_questions: z.array(Question).optional(),
     standard_identification_questions: z.array(Question).optional(),

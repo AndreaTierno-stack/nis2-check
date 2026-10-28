@@ -17,6 +17,7 @@ inputs:
   registrato_pun: si
   pertinenza_pubblica_energia: "no"
   dimension: media
+  soggetto_critico: "no"
 
 expected:
   assessment_mode: categorical_assessment
@@ -24,6 +25,6 @@ expected:
   qualifica: importante
   signals: []
   regime_routing: []
-  corpus_ref: "wizard/wizard__energia_elettrica.yaml#registrato_pun[answer==si] -> sectors/sectors__energia_elettrica.yaml#qualification_rules[dimension==media]"
+  corpus_ref: "wizard/wizard__energia_elettrica.yaml#registrato_pun[answer==si] -> sectors/sectors__energia_elettrica.yaml#qualification_rules[dimension==media AND soggetto_critico==no]"
 
 citations: [faq_a1_1_a_3, dm_mase_106_2023, dlgs_138_2024_art_6, faq_amb_di_1, racc_ue_2003_361, faq_a1_2]

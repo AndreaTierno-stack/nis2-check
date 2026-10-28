@@ -135,7 +135,7 @@ qualification_rules:
     citations: [dlgs_138_2024_art_4_c_2]
 
   # Categoria b) — importante per art. 6 c. 3, elevabile ex art. 6 c. 2
-  - condition: categoria_pa == b
+  - condition: categoria_pa == b AND soggetto_critico == no
     outcome: categorical_assessment
     verdict_outcome: likely_in_scope   # vincolo fisso: categorical_assessment in-scope -> likely_in_scope
     qualifica: importante
@@ -144,7 +144,7 @@ qualification_rules:
     notices: [pa_qualifica_elevabile_art_6_c_2, pa_esclusioni_sicurezza_nazionale_art_4_c_3]
 
   # Categoria c) — importante per art. 6 c. 3, elevabile ex art. 6 c. 2
-  - condition: categoria_pa == c
+  - condition: categoria_pa == c AND soggetto_critico == no
     outcome: categorical_assessment
     verdict_outcome: likely_in_scope   # vincolo fisso: categorical_assessment in-scope -> likely_in_scope
     qualifica: importante
@@ -153,13 +153,40 @@ qualification_rules:
     notices: [pa_qualifica_elevabile_art_6_c_2, pa_esclusioni_sicurezza_nazionale_art_4_c_3]
 
   # Categoria d) — importante per art. 6 c. 3, elevabile ex art. 6 c. 2
-  - condition: categoria_pa == d
+  - condition: categoria_pa == d AND soggetto_critico == no
     outcome: categorical_assessment
     verdict_outcome: likely_in_scope   # vincolo fisso: categorical_assessment in-scope -> likely_in_scope
     qualifica: importante
     reasoning_trace: "Per gli altri soggetti pubblici dell'Allegato III lett. d) (enti di regolazione dell'attivita' economica, enti produttori di servizi economici, enti a struttura associativa, enti produttori di servizi assistenziali, ricreativi e culturali, enti e istituzioni di ricerca, istituti zooprofilattici sperimentali), l'analisi suggerisce il rientro nel perimetro NIS2 italiano come soggetto importante, indipendentemente dalla dimensione (art. 3 c. 6 e art. 6 c. 3 D.Lgs. 138/2024); la qualifica puo' essere elevata a essenziale con individuazione dell'ACN (art. 6 c. 2). La valutazione presuppone l'inclusione nell'elenco ISTAT (Lista S13). Verifica obbligatoria con consulente qualificato."
     citations: [dlgs_138_2024_allegato_III, dlgs_138_2024_art_3_c_6, dlgs_138_2024_art_6_c_3, dlgs_138_2024_art_6_c_2, l_196_2009_art_1_c_3]
     notices: [pa_qualifica_elevabile_art_6_c_2, pa_esclusioni_sicurezza_nazionale_art_4_c_3, pa_lett_d_cumulo_l90_non_attestato]
+
+  # ADR 0015: soggetto critico (D.Lgs. 134/2024) -> essenziale per art. 6 c. 1 lett. b),
+  # che prevale sull'importante delle lett. b)-d) (art. 6 c. 3 riguarda i soggetti non
+  # essenziali ai sensi dei cc. 1-2). La lett. a) e' gia' essenziale (art. 6 c. 1 lett. e)).
+  - condition: categoria_pa == b AND soggetto_critico == yes
+    outcome: categorical_assessment
+    verdict_outcome: likely_in_scope   # vincolo fisso: categorical_assessment in-scope -> likely_in_scope
+    qualifica: essenziale
+    reasoning_trace: "Per le Regioni e Province autonome (Allegato III lett. b) individuate come soggetto critico ai sensi del D.Lgs. 134/2024, l'analisi suggerisce il rientro nel perimetro NIS2 italiano come soggetto essenziale, indipendentemente dalla dimensione (art. 3 cc. 5 lett. a) e 6, art. 6 c. 1 lett. b) D.Lgs. 138/2024; FAQ ACN AMB.NO.1). La valutazione presuppone l'inclusione nell'elenco ISTAT (Lista S13). Verifica obbligatoria con consulente qualificato."
+    citations: [dlgs_138_2024_allegato_III, dlgs_138_2024_art_3_c_6, dlgs_138_2024_art_3_c_5_lett_a, dlgs_138_2024_art_6_c_1_lett_b, faq_amb_no_1, l_196_2009_art_1_c_3]
+    notices: [pa_esclusioni_sicurezza_nazionale_art_4_c_3]
+
+  - condition: categoria_pa == c AND soggetto_critico == yes
+    outcome: categorical_assessment
+    verdict_outcome: likely_in_scope   # vincolo fisso: categorical_assessment in-scope -> likely_in_scope
+    qualifica: essenziale
+    reasoning_trace: "Per le amministrazioni locali (Allegato III lett. c) individuate come soggetto critico ai sensi del D.Lgs. 134/2024, l'analisi suggerisce il rientro nel perimetro NIS2 italiano come soggetto essenziale, indipendentemente dalla dimensione (art. 3 cc. 5 lett. a) e 6, art. 6 c. 1 lett. b) D.Lgs. 138/2024; FAQ ACN AMB.NO.1). La valutazione presuppone l'inclusione nell'elenco ISTAT (Lista S13). Verifica obbligatoria con consulente qualificato."
+    citations: [dlgs_138_2024_allegato_III, dlgs_138_2024_art_3_c_6, dlgs_138_2024_art_3_c_5_lett_a, dlgs_138_2024_art_6_c_1_lett_b, faq_amb_no_1, l_196_2009_art_1_c_3]
+    notices: [pa_esclusioni_sicurezza_nazionale_art_4_c_3]
+
+  - condition: categoria_pa == d AND soggetto_critico == yes
+    outcome: categorical_assessment
+    verdict_outcome: likely_in_scope   # vincolo fisso: categorical_assessment in-scope -> likely_in_scope
+    qualifica: essenziale
+    reasoning_trace: "Per gli altri soggetti pubblici dell'Allegato III lett. d) individuati come soggetto critico ai sensi del D.Lgs. 134/2024, l'analisi suggerisce il rientro nel perimetro NIS2 italiano come soggetto essenziale, indipendentemente dalla dimensione (art. 3 cc. 5 lett. a) e 6, art. 6 c. 1 lett. b) D.Lgs. 138/2024; FAQ ACN AMB.NO.1). La valutazione presuppone l'inclusione nell'elenco ISTAT (Lista S13). Verifica obbligatoria con consulente qualificato."
+    citations: [dlgs_138_2024_allegato_III, dlgs_138_2024_art_3_c_6, dlgs_138_2024_art_3_c_5_lett_a, dlgs_138_2024_art_6_c_1_lett_b, faq_amb_no_1, l_196_2009_art_1_c_3]
+    notices: [pa_esclusioni_sicurezza_nazionale_art_4_c_3, pa_lett_d_cumulo_l90_non_attestato]
 
 # ============================================================================
 # Override di regime — solo Cloud PA e' PA-specifico

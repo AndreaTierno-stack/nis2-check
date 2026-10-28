@@ -79,16 +79,22 @@ export const CorpusSchema = CorpusInput.superRefine((c, ctx) => {
   /** Inputs visible to a wizard (its own questions plus the common block): id -> kind and accepted values. */
   const questionIndex = (wizardPath: string) => {
     const idx = new Map<string, { kind: string; values: Set<string> }>();
-    const add = (w: CorpusShape['wizard'][string]) =>
+    const own = c.wizard[wizardPath]!;
+    // common questions the wizard does not ask (ADR 0014, ADR 0015)
+    const excluded = new Set(own.excluded_common_questions ?? []);
+    const add = (w: CorpusShape['wizard'][string], skip: Set<string>) =>
       questionsOf(w).forEach(({ q }) => {
+        if (skip.has(q.id)) return;
         // binary questions accept "yes"/"no" (serialized as strings, YAML 1.2)
         const binary = q.kind === 'binary' || q.kind === 'binary_with_conditional_followup';
         idx.set(q.id, { kind: q.kind, values: new Set(binary ? ['yes', 'no'] : (q.options ?? []).map((o) => o.id)) });
       });
-    add(c.wizard[wizardPath]!);
-    for (const [p, w] of commonBlocks) if (p !== wizardPath) add(w);
+    add(own, new Set());
+    for (const [p, w] of commonBlocks) if (p !== wizardPath) add(w, excluded);
     return idx;
   };
+  /** Ids of the questions of the common blocks (targets of excluded_common_questions). */
+  const commonQuestionIds = new Set(commonBlocks.flatMap(([, w]) => questionsOf(w).map(({ q }) => q.id)));
   const allQuestionIds = new Set(Object.values(c.wizard).flatMap((w) => questionsOf(w).map(({ q }) => q.id)));
 
   const checkSignals = (ids: readonly string[] | undefined, path: Path) =>
@@ -127,6 +133,9 @@ export const CorpusSchema = CorpusInput.superRefine((c, ctx) => {
     if (w.meta.sector_data && !fileExists(w.meta.sector_data)) {
       issue([...base, 'meta', 'sector_data'], E.REF_FILE, `file ${w.meta.sector_data} not found`);
     }
+    (w.excluded_common_questions ?? []).forEach((id, i) => {
+      if (!commonQuestionIds.has(id)) issue([...base, 'excluded_common_questions', i], E.REF_QUESTION, `"${id}" is not a question of the common block`);
+    });
     const idx = questionIndex(wp);
     (w.multi_regime_intersection ?? []).forEach((m, i) => {
       for (const [, input, , value] of m.trigger.matchAll(RULE_COMPARISON_RE)) {
@@ -273,9 +282,6 @@ export const CorpusSchema = CorpusInput.superRefine((c, ctx) => {
   for (const [fp, x] of Object.entries(c.fixtures)) {
     const base: Path = ['fixtures', fp];
     if (x.corpus_version !== c.version) issue([...base, 'corpus_version'], E.FIXTURE_VERSION, `${x.corpus_version} != corpus VERSION ${c.version}`);
-    for (const k of Object.keys(x.inputs)) {
-      if (!allQuestionIds.has(k)) issue([...base, 'inputs', k], E.FIXTURE_INPUT, `"${k}" is not a wizard question id`);
-    }
     checkSignals(x.expected.signals, [...base, 'expected', 'signals']);
     checkCatalog(x.expected.notices, [...base, 'expected', 'notices']);
     x.expected.regime_routing.forEach((r, i) => checkCatalog([r.exceptions_catalog_entry], [...base, 'expected', 'regime_routing', i, 'exceptions_catalog_entry']));
@@ -292,6 +298,15 @@ export const CorpusSchema = CorpusInput.superRefine((c, ctx) => {
     if (!sector) {
       issue([...base, 'sector'], E.REF_FILE, `no sector file for "${x.sector}"`);
       continue;
+    }
+    // inputs are questions the sector's wizard asks (own questions plus the common
+    // block, minus excluded_common_questions: ADR 0014, ADR 0015)
+    const sectorPath = Object.entries(c.sectors).find(([, s]) => s === sector)![0];
+    const sectorWizard = Object.entries(c.wizard).find(([, w]) => w.meta.sector_data === sectorPath)?.[0];
+    const asked = sectorWizard ? questionIndex(sectorWizard) : new Map();
+    for (const k of Object.keys(x.inputs)) {
+      if (!allQuestionIds.has(k)) issue([...base, 'inputs', k], E.FIXTURE_INPUT, `"${k}" is not a wizard question id`);
+      else if (!asked.has(k)) issue([...base, 'inputs', k], E.FIXTURE_INPUT, `"${k}" is not asked in the wizard of "${x.sector}"`);
     }
     const matching = (sector.overrides ?? []).filter((o) => {
       const m = OVERRIDE_TRIGGER_RE.exec(o.trigger);

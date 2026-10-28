@@ -18,6 +18,7 @@ inputs:
   pertinenza_pubblica_cloud: "no"
   fornisce_servizi_gestiti_b2b: "no"
   dimension: grande
+  soggetto_critico: "no"
 
 expected:
   assessment_mode: escalate_to_advisor

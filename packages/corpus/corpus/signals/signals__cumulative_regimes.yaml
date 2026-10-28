@@ -48,10 +48,13 @@ signals:
     # ex art. 40 c. 1 (base del DPCM 221/2024). Funzioni distinte, entrambe citate.
     citations: [dpcm_221_2024, dlgs_138_2024_art_3_c_4, dlgs_138_2024_art_3_c_12]
 
+  # ADR 0015 (corpus 0.6.0): attivato dalla risposta "si'" a soggetto_critico
+  # (wizard__disambiguation.yaml). Supera il testo "regime parallelo e distinto dal
+  # NIS2" (ADR 0004): l'individuazione come soggetto critico porta il soggetto in
+  # ambito NIS come essenziale (art. 3 c. 5 lett. a), art. 6 c. 1 lett. b)).
   - id: cer_signal
     kind: cumulative_regime
     target_regime: dlgs_134_2024
-    status: placeholder_v0_2
-    message_template: cer_parallelo
-    base_reasoning_trace: "Il settore di attivita' del soggetto e' coperto anche dalla disciplina sui soggetti critici (Critical Entities Resilience, D.Lgs. 134/2024), che riguarda la sicurezza FISICA ed e' un regime parallelo e distinto dal NIS2 (sicurezza cyber). Da non confondere con le comunita' energetiche rinnovabili (CACER), altro significato dell'acronimo 'CER' nel settore energia. Lo strumento non valuta il rientro tra i soggetti critici; lo segnala per non confondere i regimi. Verifica con consulente qualificato."
-    citations: [dlgs_134_2024]
+    message_template: soggetti_critici_dlgs_134_2024
+    base_reasoning_trace: "Il soggetto risulta individuato come soggetto critico ai sensi del D.Lgs. 134/2024, che recepisce la direttiva (UE) 2022/2557 sulla resilienza dei soggetti critici. Questa individuazione porta il soggetto nel perimetro NIS2 italiano come soggetto essenziale, indipendentemente dalla dimensione (art. 3 c. 5 lett. a) e art. 6 c. 1 lett. b) D.Lgs. 138/2024; FAQ ACN AMB.NO.1); la disciplina dei soggetti critici resta distinta e si aggiunge a quella NIS2. Da non confondere con le comunita' energetiche rinnovabili (CACER). Lo strumento non valuta gli obblighi della disciplina dei soggetti critici. Verifica con consulente qualificato."
+    citations: [dlgs_134_2024, dlgs_138_2024_art_3_c_5_lett_a, dlgs_138_2024_art_6_c_1_lett_b, faq_amb_no_1]

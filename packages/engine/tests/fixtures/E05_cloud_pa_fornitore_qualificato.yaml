@@ -18,6 +18,7 @@ inputs:
   pertinenza_pubblica_cloud: "no"
   fornisce_servizi_gestiti_b2b: "no"
   dimension: grande
+  soggetto_critico: "no"
 
 expected:
   assessment_mode: categorical_assessment
@@ -26,6 +27,6 @@ expected:
   signals: []
   notices: [cloud_pa_fornitore_qualificato_a1_8_2]
   regime_routing: []
-  corpus_ref: "wizard/wizard__disambiguation.yaml#questions.cloud_pa -> sectors/sectors__cloud_computing.yaml#qualification_rules[dimension==grande] + exceptions/exceptions__catalog.yaml#exceptions[cloud_pa_fornitore_qualificato_a1_8_2]"
+  corpus_ref: "wizard/wizard__disambiguation.yaml#questions.cloud_pa -> sectors/sectors__cloud_computing.yaml#qualification_rules[dimension==grande AND soggetto_critico==no] + exceptions/exceptions__catalog.yaml#exceptions[cloud_pa_fornitore_qualificato_a1_8_2]"
 
 citations: [dlgs_138_2024_art_6, faq_amb_di_1, racc_ue_2003_361]

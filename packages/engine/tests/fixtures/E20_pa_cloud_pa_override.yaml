@@ -16,6 +16,7 @@ inputs:
   categoria_pa: c
   sottotipo_c: comune_capoluogo
   classificazione_cloud_pa: "yes"
+  soggetto_critico: "no"
 
 expected:
   # ADR 0009: instradamento a regime = escalation, copiata dal meta del regime

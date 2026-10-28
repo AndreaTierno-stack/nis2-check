@@ -18,6 +18,7 @@ inputs:
   pertinenza_pubblica_cloud: "no"
   fornisce_servizi_gestiti_b2b: "no"
   dimension: grande
+  soggetto_critico: "no"
 
 expected:
   assessment_mode: categorical_assessment
@@ -27,6 +28,6 @@ expected:
   notices: [dora_entita_finanziaria_fuori_settori_3_4, dora_soggetti_esentati_art_3_c_15]
   regime_routing: []
   open_points: []
-  corpus_ref: "wizard/wizard__disambiguation.yaml#questions.dora -> sectors/sectors__cloud_computing.yaml#qualification_rules[dimension==grande] + exceptions/exceptions__catalog.yaml#exceptions[dora_entita_finanziaria_fuori_settori_3_4, dora_soggetti_esentati_art_3_c_15]"
+  corpus_ref: "wizard/wizard__disambiguation.yaml#questions.dora -> sectors/sectors__cloud_computing.yaml#qualification_rules[dimension==grande AND soggetto_critico==no] + exceptions/exceptions__catalog.yaml#exceptions[dora_entita_finanziaria_fuori_settori_3_4, dora_soggetti_esentati_art_3_c_15]"
 
 citations: [dlgs_138_2024_art_6, faq_amb_di_1, racc_ue_2003_361]

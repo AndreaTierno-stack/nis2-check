@@ -16,6 +16,7 @@ inputs:
   categoria_pa: canale_allegato_iv
   profilo_allegato_iv: societa_inhouse
   classificazione_cloud_pa: "no"
+  soggetto_critico: "no"
 
 expected:
   assessment_mode: qualitative_signal_only

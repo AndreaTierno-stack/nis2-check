@@ -17,6 +17,7 @@ inputs:
   registrato_pun: "no"
   pertinenza_pubblica_energia: "no"
   dimension: media
+  soggetto_critico: "no"
 
 expected:
   assessment_mode: qualitative_signal_only

@@ -13,12 +13,13 @@ inputs:
   pertinenza_pubblica_cloud: "no"
   fornisce_servizi_gestiti_b2b: "no"
   dimension: micro_or_piccola
+  soggetto_critico: "no"
 
 expected:
   assessment_mode: out_of_scope
   verdict_outcome: likely_out_of_scope
   signals: []
   regime_routing: []
-  corpus_ref: "sectors/sectors__cloud_computing.yaml#qualification_rules[dimension==micro_or_piccola]"
+  corpus_ref: "sectors/sectors__cloud_computing.yaml#qualification_rules[dimension==micro_or_piccola AND soggetto_critico==no]"
 
 citations: [dlgs_138_2024_art_3, racc_ue_2003_361, faq_amb_di_1]
