@@ -69,6 +69,7 @@ v0.1.0 in tre blocchi: corpus 0.3.0 (S1, completato 2026-10-27) → scaffold + C
 
 ## Log sessioni recenti
 
+- 2026-10-28 · Report di verifica archiviati in `docs/verifications/`: `2026-10-27-pa-allegato-iii.md` (ambito PA, Allegato III) e `2026-10-28-cloud-energia-dora.md` (cloud, energia elettrica, override DORA, catalogo), trascritti dalla chat del Project.
 - 2026-10-28 · KB, DEC-008: correzioni dalla lettura del 2026-10-28 in 16 nodi, un commit per passo (55d69b7..6b64897, pushed); regola di naming "soggetti critici" in `_meta/convenzioni_di_naming.md`. Export KB sincronizzato (16 file). Nuovo punto 19, punto 16 aggiornato.
 - 2026-10-28 · Contatore stop-and-ingest riallineato a DEC-007 A (nota del 2026-10-28: riscontro no-op, DEC-003), voce "riallineare DEC-007" chiusa; export KB sincronizzato (9 file).
 - 2026-10-28 · Corpus 0.5.0: ADR 0011 (PA Allegato III lett. a)-d) categoriale; a) essenziale, b)-d) importanti con avviso art. 6 c. 2; opzione art. 4 c. 2; sottotipo_d; C5 classificazione_cloud_pa; C6), ADR 0012 (catalogo eccezioni, 8 voci, notices, E_CATALOG_REF, lint di copy), registro citazioni con 8 ID nuovi; fixture E10 aggiornata, E16-E20 nuove; visibility_citations rimossa. Punti 13 e 14 chiusi, 7 superato. Prossimo: lettura cloud/energia + DORA, poi S3.
