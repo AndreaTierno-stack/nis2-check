@@ -1,42 +1,51 @@
 # ============================================================================
-# Regime: DORA (Reg. UE 2022/2554) — ROUTING ONLY
+# Regime: DORA (Reg. UE 2022/2554) — ROUTING ONLY, riservato ai settori 3-4
 # ============================================================================
 # STATUS: routing-only fino alla release v0.1.0 del tool; risoluzione nel merito in v0.2.
-# Questo file NON contiene ancora logica di categorizzazione.
-# Quando una domanda di disambiguazione instrada qui (dora == yes), il decision
-# engine applica l'override dichiarato nel settore (massive_disapplication: il
-# regime NIS e' disapplicato salvo l'art. 7 c. 1 — registrazione) e rinvia alla
-# voce del catalogo eccezioni. Modellazione completa rinviata a v0.2.
+# Questo file NON contiene logica di categorizzazione.
 #
-# Voce del catalogo eccezioni corrispondente (classe: GESTITO / massive_disapplication):
-#   "DORA — entita' finanziaria ex Reg. UE 2022/2554, esonero NIS parziale".
-# Cfr. KB: [[concepts/Coordinamento DORA-NIS]].
+# ADR 0014 (corpus 0.6.0): nessun settore del corpus instrada a questo regime.
+# L'art. 3 c. 14 D.Lgs. 138/2024 esclude l'art. 17 e i Capi IV e V per i soli
+# soggetti essenziali o importanti dei settori 3 (settore bancario) e 4
+# (infrastrutture dei mercati finanziari) dell'Allegato I, ai quali si applica il
+# Reg. UE 2022/2554. Questi settori non sono tra i settori del corpus: il regime
+# resta dichiarato per quando lo saranno. Nei settori del corpus la domanda comune
+# dora e' un segnale con avvisi di catalogo (wizard/wizard__disambiguation.yaml):
+#   - dora_entita_finanziaria_fuori_settori_3_4 (esoneri di piattaforma della
+#     Det. 127437/2026, art. 7 c. 6, art. 16 c. 13, art. 20 c. 6; Capi IV e V
+#     applicabili secondo il testo dell'art. 3 c. 14);
+#   - dora_soggetti_esentati_art_3_c_15.
 #
-# CHIUSO (DIV-P1, v0.2.1): l'elenco puntuale degli esoneri DORA (art. 7 c. 6 referente
-# CSIRT, art. 16 c. 13 esonero da c. 3 lett. b) e art. 17, art. 20 c. 6 elencazione e
-# categorizzazione — Det. piattaforma 127437/2026) e' stato riconciliato verbatim sul
-# testo ufficiale (PDF firmato detacn_piattaformanis_251218-v9_signed). Ogni esonero
-# reca "e' fatta salva l'adesione a tali previsioni su base volontaria". Cfr. callout
-# verificati nei nodi KB [[concepts/Coordinamento DORA-NIS]] e nodo source piattaforma.
+# Fino a 0.5.0 gli override DORA di cloud ed energia disapplicavano il regime NIS
+# "salvo l'art. 7 c. 1" citando il c. 14: inferenza, il c. 14 non copre i settori
+# 1 e 8 (verifica del 2026-10-28, docs/verifications/2026-10-28-cloud-energia-dora.md).
+#
+# Cfr. KB: [[concepts/Coordinamento DORA-NIS]] (legge distinta dagli esoneri per
+# determinazione, DEC-008) e [[sources/FAQ NIS - Ambito]] (AMB.NO.2).
 
 meta:
   regime_id: dora
   status: routing_only_v0_1
   routing_effect: massive_disapplication
-  # ADR 0009: in v0.1 l'instradamento al regime e' un'escalation. L'engine copia
-  # assessment_mode e verdict_outcome nel Verdict attraverso il reference
-  # dell'override (nessuna inferenza); routing_effect alimenta Verdict.regimeRouting.
+  # ADR 0009: se un settore instradera' qui, l'esito sara' un'escalation copiata
+  # attraverso il reference dell'override (nessuna inferenza).
   assessment_mode: escalate_to_advisor
   verdict_outcome: ambiguous   # invariante: escalate_to_advisor -> sempre ambiguous
   exceptions_catalog_entry: dora_massive_disapplication
-  residual_nis_obligation: "art. 7 c. 1 D.Lgs. 138/2024 (registrazione su piattaforma ACN)"
-  referenced_by:
-    - "wizard/wizard__disambiguation.yaml#questions.dora"
-    - "sectors/sectors__cloud_computing.yaml#overrides"
-    - "sectors/sectors__energia_elettrica.yaml#overrides"
+  # null = non attestato nel corpus (ADR 0009 amendment). Il c. 14 esclude art. 17 e
+  # Capi IV-V; la FAQ AMB.NO.2 dice "solamente ... l'obbligo di registrazione (art. 7
+  # c. 1)" e poi che il c. 14 "disapplica ... solo le previsioni dell'articolo 17 e dei
+  # capi IV e V": la FAQ e' incoerente al suo interno, e la Det. 127437/2026 (art. 16
+  # c. 13) presuppone l'aggiornamento annuale salvo il c. 3 lett. b).
+  residual_nis_obligation: null
+  referenced_by: []   # ADR 0014: nessun override nei settori del corpus
   citations:
     - dlgs_138_2024_art_3_c_14
+    - faq_amb_no_2
     - det_piattaforma_127437_2026_art_7_c_6
     - det_piattaforma_127437_2026_art_16_c_13
     - det_piattaforma_127437_2026_art_20_c_6
-  open_points: []
+  open_points:
+    - "Obbligo NIS residuo per i settori 3 e 4: l'art. 3 c. 14 esclude art. 17 e Capi IV-V; la FAQ AMB.NO.2 indica la sola registrazione (art. 7 c. 1) ed e' incoerente al suo interno; la Det. 127437/2026 art. 16 c. 13 presuppone l'aggiornamento annuale salvo il c. 3 lett. b). Da attestare prima di popolare residual_nis_obligation."
+    - "Fornitori terzi di servizi TIC ai sensi del Reg. UE 2022/2554: nessuna citazione del corpus li riguarda (non sono entita' finanziarie ne' soggetti dei settori 3-4); il testo DORA non e' in raw/."
+    - "Art. 3 c. 15: il decreto non si applica ai soggetti esentati dall'ambito del Reg. UE 2022/2554; segnalato con la voce di catalogo dora_soggetti_esentati_art_3_c_15, non valutato."

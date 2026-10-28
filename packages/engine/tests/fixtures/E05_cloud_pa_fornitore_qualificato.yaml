@@ -1,0 +1,31 @@
+scenario_id: E05
+name: cloud_pa_fornitore_qualificato
+description_it: >
+  Fornitore cloud di grande dimensione i cui servizi sono qualificati per la PA
+  (Regolamento Cloud). ADR 0014: la domanda comune cloud_pa non instrada piu' al
+  regime cloud_pa, perche' l'art. 4 Det. 155238/2026 riguarda i soggetti che hanno
+  svolto la classificazione dei propri dati e servizi (le PA, FAQ CAT.8) e il
+  fornitore qualificato rientra come fornitore cloud (FAQ A1.8.2). Esito dalle regole
+  dimensionali del settore (essenziale), con avviso di catalogo.
+  Esito cambiato in 0.6.0: era escalate_to_advisor / ambiguous con regime_routing [cloud_pa].
+corpus_version: 0.5.0
+sector: cloud_computing
+
+inputs:
+  psnc: "no"
+  dora: "no"
+  cloud_pa: "yes"
+  pertinenza_pubblica_cloud: "no"
+  fornisce_servizi_gestiti_b2b: "no"
+  dimension: grande
+
+expected:
+  assessment_mode: categorical_assessment
+  verdict_outcome: likely_in_scope
+  qualifica: essenziale
+  signals: []
+  notices: [cloud_pa_fornitore_qualificato_a1_8_2]
+  regime_routing: []
+  corpus_ref: "wizard/wizard__disambiguation.yaml#questions.cloud_pa -> sectors/sectors__cloud_computing.yaml#qualification_rules[dimension==grande] + exceptions/exceptions__catalog.yaml#exceptions[cloud_pa_fornitore_qualificato_a1_8_2]"
+
+citations: [dlgs_138_2024_art_6, faq_amb_di_1, racc_ue_2003_361]

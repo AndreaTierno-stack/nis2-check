@@ -1,0 +1,34 @@
+scenario_id: E08
+name: cloud_psnc_e_cloud_pa
+description_it: >
+  Fornitore cloud di grande dimensione inserito nel PSNC e con servizi qualificati per
+  la PA. ADR 0014: nel settore cloud la domanda cloud_pa non instrada piu'; resta
+  l'override PSNC (escalation copiata dal meta del regime psnc, ADR 0009), con
+  l'avviso sul fornitore qualificato. L'intersezione PSNC + Cloud PA vive ora nel
+  percorso PA (classificazione_cloud_pa, fixture E22).
+  Esito cambiato in 0.6.0: regime_routing da [cloud_pa, psnc] a [psnc]; esito
+  invariato (escalate_to_advisor / ambiguous), ora dal meta del regime psnc.
+corpus_version: 0.5.0
+sector: cloud_computing
+
+inputs:
+  psnc: "yes"
+  dora: "no"
+  cloud_pa: "yes"
+  pertinenza_pubblica_cloud: "no"
+  fornisce_servizi_gestiti_b2b: "no"
+  dimension: grande
+
+expected:
+  assessment_mode: escalate_to_advisor
+  verdict_outcome: ambiguous
+  signals: []
+  notices: [cloud_pa_fornitore_qualificato_a1_8_2]
+  regime_routing:
+    - regime: psnc
+      routing_effect: category_override
+      residual_nis_obligation: null   # null = non attestato nel corpus, non "nessuno"
+      exceptions_catalog_entry: psnc_category_override
+  corpus_ref: "sectors/sectors__cloud_computing.yaml#overrides[psnc==yes] -> regimes/psnc.yaml + exceptions/exceptions__catalog.yaml#exceptions[psnc_category_override, cloud_pa_fornitore_qualificato_a1_8_2]"
+
+citations: [det_acn_155238_2026_art_5, dl_105_2019_art_1_c_2_bis]

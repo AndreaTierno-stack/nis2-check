@@ -26,23 +26,50 @@ exceptions:
     citations: [det_acn_155238_2026_art_5, dl_105_2019_art_1_c_2_bis]
     applies_to: [psnc]
 
+  # ADR 0014: nessun settore del corpus instrada al regime DORA (art. 3 c. 14 riservato
+  # ai settori 3 e 4 dell'Allegato I). Voce del meta del regime, oggi non gestita.
   - id: dora_massive_disapplication
+    status: non_gestito
+    title: "Settore bancario e infrastrutture dei mercati finanziari (art. 3 c. 14)"
+    description: "Ai soggetti essenziali o importanti dei settori 3 (settore bancario) e 4 (infrastrutture dei mercati finanziari) dell'Allegato I non si applicano l'art. 17 e i Capi IV e V del decreto; per questi soggetti si applica il Regolamento (UE) 2022/2554, noto come DORA (art. 3 c. 14 D.Lgs. 138/2024). Questi settori non sono tra quelli valutati dallo strumento in questa versione."
+    citations: [dlgs_138_2024_art_3_c_14, faq_amb_no_2]
+    applies_to: [dora]
+
+  - id: cloud_pa_model_substitution
     status: gestito
-    title: "Entità finanziarie DORA (Reg. UE 2022/2554)"
-    description: "Per le entità finanziarie regolate da DORA il regime NIS è in larga parte disapplicato, salvo la registrazione sulla piattaforma ACN. Lo strumento riconosce il caso e indirizza la valutazione a un consulente qualificato, senza valutare il regime nel merito."
+    title: "Dati e servizi classificati dalla PA (Regolamento Cloud)"
+    description: "Per i soggetti che hanno svolto la classificazione dei propri dati e servizi ai sensi dell'art. 3 del Regolamento Cloud per la PA si applica il modello Cloud PA (ordinari, critici, strategici) in luogo del modello di categorizzazione NIS (art. 4 Det. ACN 155238/2026). Lo strumento riconosce il caso nel percorso della pubblica amministrazione e indirizza la valutazione a un consulente qualificato, senza valutare il regime nel merito."
+    citations: [dd_acn_21007_24_art_3, det_acn_155238_2026_art_4]
+    applies_to: [cloud_pa, pubblica_amministrazione]
+
+  # --------------------------------------------------------------------------
+  # Domande comuni dora e cloud_pa come segnali (ADR 0014)
+  # --------------------------------------------------------------------------
+  - id: dora_entita_finanziaria_fuori_settori_3_4
+    status: segnalato
+    title: "Entità finanziarie DORA fuori dai settori 3 e 4 dell'Allegato I"
+    description: "L'art. 3 c. 14 D.Lgs. 138/2024 esclude l'art. 17 e i Capi IV e V del decreto solo per i soggetti dei settori 3 (settore bancario) e 4 (infrastrutture dei mercati finanziari) dell'Allegato I. Per un'entità finanziaria regolata dal Regolamento (UE) 2022/2554 che rientra nell'ambito NIS per un altro settore, la Det. ACN 127437/2026 prevede esoneri limitati agli adempimenti sulla piattaforma ACN (referente CSIRT, art. 7 c. 6; parte dell'aggiornamento annuale, art. 16 c. 13; elencazione e categorizzazione delle attività, art. 20 c. 6), mentre i Capi IV e V restano applicabili secondo il testo dell'art. 3 c. 14. L'esito indicato segue le regole del settore; il caso va approfondito con un consulente qualificato."
     citations:
       - dlgs_138_2024_art_3_c_14
       - det_piattaforma_127437_2026_art_7_c_6
       - det_piattaforma_127437_2026_art_16_c_13
       - det_piattaforma_127437_2026_art_20_c_6
-    applies_to: [dora]
+      - faq_amb_no_2
+    applies_to: [cloud_computing, energia_elettrica, dora]
 
-  - id: cloud_pa_model_substitution
-    status: gestito
-    title: "Servizi cloud classificati per la PA (Regolamento Cloud)"
-    description: "Per i servizi cloud classificati ai sensi del Regolamento Cloud per la PA si applica il modello Cloud PA (ordinari, critici, strategici) in luogo del modello di categorizzazione NIS. Lo strumento riconosce il caso e indirizza la valutazione a un consulente qualificato, senza valutare il regime nel merito."
-    citations: [dd_acn_21007_24_art_3, det_acn_155238_2026_art_4]
-    applies_to: [cloud_pa]
+  - id: dora_soggetti_esentati_art_3_c_15
+    status: segnalato
+    title: "Soggetti esentati dall'ambito del Regolamento DORA (art. 3 c. 15)"
+    description: "Il decreto non si applica ai soggetti esentati dall'ambito di applicazione del Regolamento (UE) 2022/2554 (art. 3 c. 15 D.Lgs. 138/2024). Lo strumento non valuta questa esenzione: se il caso è pertinente, l'esito va riesaminato con un consulente qualificato."
+    citations: [dlgs_138_2024_art_3_c_15]
+    applies_to: [cloud_computing, energia_elettrica, dora]
+
+  - id: cloud_pa_fornitore_qualificato_a1_8_2
+    status: segnalato
+    title: "Fornitori cloud qualificati per la PA (Regolamento Cloud)"
+    description: "Secondo la FAQ ACN A1.8.2, i fornitori di servizi cloud qualificati ai sensi del Regolamento Cloud (Decreto Direttoriale ACN n. 21007/24) che superano i massimali delle piccole imprese rientrano nell'ambito NIS come fornitori di servizi di cloud computing (Allegato I, punto 8). La sostituzione del modello di categorizzazione prevista dall'art. 4 della Det. ACN 155238/2026 riguarda i soggetti che hanno svolto la classificazione dei propri dati e servizi, cioè le pubbliche amministrazioni (FAQ CAT.8): per il fornitore l'esito segue le regole ordinarie del settore."
+    citations: [faq_a1_8_2, det_acn_155238_2026_art_4, faq_cat_8]
+    applies_to: [cloud_computing, cloud_pa]
 
   # --------------------------------------------------------------------------
   # Pubblica amministrazione (ADR 0011)

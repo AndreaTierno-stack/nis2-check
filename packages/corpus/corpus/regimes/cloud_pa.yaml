@@ -11,9 +11,15 @@
 # Voce del catalogo eccezioni corrispondente (classe: GESTITO / model_substitution):
 #   "Cloud PA — servizi cloud classificati per la PA (Regolamento Cloud)".
 #
+# ADR 0014 (corpus 0.6.0): instradato solo dal percorso PA (domanda
+# classificazione_cloud_pa). L'art. 4 Det. 155238/2026 riguarda i soggetti NIS che
+# "hanno svolto la classificazione dei dati e dei servizi" ex art. 3 DD 21007/24,
+# cioe' le PA (FAQ CAT.8); il fornitore cloud qualificato rientra come fornitore
+# cloud (FAQ A1.8.2) e non e' instradato qui.
+#
 # NOTA: se anche psnc == yes, l'intersezione con il category_override PSNC non e'
 # risolta dalle fonti -> l'engine emette escalate_to_advisor (verdict_outcome:
-# ambiguous), vedi wizard/wizard__disambiguation.yaml#multi_regime_intersection.
+# ambiguous), vedi wizard/wizard__pubblica_amministrazione.yaml#multi_regime_intersection.
 
 meta:
   regime_id: cloud_pa
@@ -26,8 +32,6 @@ meta:
   verdict_outcome: ambiguous   # invariante: escalate_to_advisor -> sempre ambiguous
   exceptions_catalog_entry: cloud_pa_model_substitution
   referenced_by:
-    - "wizard/wizard__disambiguation.yaml#questions.cloud_pa"
-    - "sectors/sectors__cloud_computing.yaml#overrides"
     - "sectors/sectors__pubblica_amministrazione.yaml#overrides"
     - "wizard/wizard__pubblica_amministrazione.yaml#classificazione_cloud_pa"
   citations: [dd_acn_21007_24_art_3, det_acn_155238_2026_art_4]

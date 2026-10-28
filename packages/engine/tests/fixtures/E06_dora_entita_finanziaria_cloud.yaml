@@ -1,0 +1,32 @@
+scenario_id: E06
+name: dora_entita_finanziaria_cloud
+description_it: >
+  Fornitore cloud di grande dimensione che dichiara di essere un'entita' finanziaria
+  regolata da DORA (Reg. UE 2022/2554). ADR 0014: l'art. 3 c. 14 D.Lgs. 138/2024
+  esclude art. 17 e Capi IV-V solo per i settori 3 e 4 dell'Allegato I; nel settore
+  cloud (Allegato I p. 8) la domanda dora non instrada al regime dora. Esito dalle
+  regole dimensionali (essenziale), con gli avvisi sugli esoneri di piattaforma della
+  Det. 127437/2026 e sull'art. 3 c. 15.
+  Esito cambiato in 0.6.0: era escalate_to_advisor / ambiguous con regime_routing [dora].
+corpus_version: 0.5.0
+sector: cloud_computing
+
+inputs:
+  psnc: "no"
+  dora: "yes"
+  cloud_pa: "no"
+  pertinenza_pubblica_cloud: "no"
+  fornisce_servizi_gestiti_b2b: "no"
+  dimension: grande
+
+expected:
+  assessment_mode: categorical_assessment
+  verdict_outcome: likely_in_scope
+  qualifica: essenziale
+  signals: []
+  notices: [dora_entita_finanziaria_fuori_settori_3_4, dora_soggetti_esentati_art_3_c_15]
+  regime_routing: []
+  open_points: []
+  corpus_ref: "wizard/wizard__disambiguation.yaml#questions.dora -> sectors/sectors__cloud_computing.yaml#qualification_rules[dimension==grande] + exceptions/exceptions__catalog.yaml#exceptions[dora_entita_finanziaria_fuori_settori_3_4, dora_soggetti_esentati_art_3_c_15]"
+
+citations: [dlgs_138_2024_art_6, faq_amb_di_1, racc_ue_2003_361]

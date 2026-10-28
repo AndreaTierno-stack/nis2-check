@@ -57,24 +57,20 @@ qualification_rules:
     reasoning_trace: "Dimensione dichiarata: Grande impresa. Classificazione secondo FAQ ACN AMB.DI.1 e Racc. UE 2003/361. In settore Allegato I (altamente critico) qualificato come soggetto essenziale."
     citations: [dlgs_138_2024_art_6, faq_amb_di_1, racc_ue_2003_361]
 
+# ADR 0014: in v0.1 l'unico regime instradato dal settore cloud e' il PSNC.
+# - Cloud PA: l'art. 4 Det. 155238/2026 riguarda i soggetti che "hanno svolto la
+#   classificazione dei dati e dei servizi" ex art. 3 DD 21007/24, cioe' le PA
+#   (FAQ CAT.8); il fornitore qualificato rientra come fornitore cloud (FAQ A1.8.2).
+#   La domanda comune cloud_pa resta come segnale (notice di catalogo), senza override.
+# - DORA: l'art. 3 c. 14 D.Lgs. 138/2024 riguarda solo i settori 3 e 4 dell'Allegato I.
+#   La domanda comune dora resta come segnale (notice di catalogo), senza override.
 overrides:
-  - trigger: cloud_pa == yes
-    override_kind: model_substitution
-    reference: regimes/cloud_pa.yaml
-    reasoning_trace: "Servizio cloud erogato a Pubblica Amministrazione; applica il modello Cloud PA (ordinari/critici/strategici) in luogo del modello NIS, ai sensi del Decreto Direttoriale ACN n. 21007/24 del 27 giugno 2024, art. 3 (Regolamento Cloud) e art. 4 Det. ACN 155238/2026."
-    citations: [dd_acn_21007_24_art_3, det_acn_155238_2026_art_4]
   - trigger: psnc == yes
     override_kind: category_override
     reference: regimes/psnc.yaml
     reasoning_trace: "Servizi PSNC del soggetto categorizzati come 'alto' d'ufficio, fuori dal procedimento ordinario, ai sensi dell'art. 5 Det. ACN 155238/2026. I servizi NIS non PSNC mantengono procedimento ordinario."
     # citations coincidenti con regimes/psnc.yaml (invariante override/regime, ADR 0009)
     citations: [det_acn_155238_2026_art_5, dl_105_2019_art_1_c_2_bis]
-  - trigger: dora == yes
-    override_kind: massive_disapplication
-    reference: regimes/dora.yaml
-    reasoning_trace: "Entità DORA: disapplicato il regime NIS salvo l'art. 7 c. 1 (registrazione su piattaforma ACN). Esonero dalla categorizzazione ai sensi dell'art. 20 c. 6 Det. piattaforma 127437/2026."
-    # citations coincidenti con regimes/dora.yaml (commi verificati, DIV-P1 chiusa in 0.2.1)
-    citations: [dlgs_138_2024_art_3_c_14, det_piattaforma_127437_2026_art_7_c_6, det_piattaforma_127437_2026_art_16_c_13, det_piattaforma_127437_2026_art_20_c_6]
 
 out_of_scope_mvp:
   - case: cloud_provider_multi_eu_jurisdiction

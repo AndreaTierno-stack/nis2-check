@@ -77,11 +77,19 @@ describe('corpus:validate', () => {
       expectCode(errors, 'E_ESCALATE_AMBIGUOUS', 'regimes/psnc.yaml');
     });
 
-    it('E08 routing order changed -> E_REGIME_ROUTING', () => {
+    it('E08 routing removed -> E_REGIME_ROUTING', () => {
       const errors = errorsAfter((c) => {
-        fixture(c, 'E08_').expected.regime_routing.reverse();
+        fixture(c, 'E08_').expected.regime_routing = [];
       });
       expectCode(errors, 'E_REGIME_ROUTING', 'E08_');
+    });
+
+    it('gate notice pointing to a missing catalog entry -> E_CATALOG_REF', () => {
+      const errors = errorsAfter((c) => {
+        const q = (c.wizard['wizard/wizard__disambiguation.yaml'] as Doc).questions.find((x: Doc) => x.id === 'dora');
+        q.on_yes.notices.push('voce_inesistente');
+      });
+      expectCode(errors, 'E_CATALOG_REF', 'wizard__disambiguation.yaml');
     });
 
     it('verdict_outcome missing on a rule -> E_VERDICT_OUTCOME', () => {

@@ -123,6 +123,8 @@ export const Question = z
         effect: RoutingEffect.optional(),
         reference: RegimeRef.optional(),
         activates_signals: SignalList.optional(),
+        /** Verdict notices added when the answer is "yes" (gate questions kept as signals, ADR 0014). */
+        notices: Notices.optional(),
       })
       .passthrough()
       .optional(),

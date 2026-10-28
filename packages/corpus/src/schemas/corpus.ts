@@ -96,6 +96,31 @@ export const CorpusSchema = CorpusInput.superRefine((c, ctx) => {
       if (!signalIds.has(s)) issue([...path, i], E.REF_SIGNAL, `signal "${s}" is not defined in signals/`);
     });
 
+  // ----- exceptions catalog (ADR 0012) and citation registry -----
+  const catalogIds = new Set<string>();
+  const regimeIds = new Set(Object.values(c.regimes).map((r) => r.meta.regime_id));
+  for (const [ep, f] of Object.entries(c.exceptions)) {
+    f.exceptions.forEach((e, i) => {
+      const p: Path = ['exceptions', ep, 'exceptions', i];
+      if (catalogIds.has(e.id)) issue([...p, 'id'], E.CATALOG_REF, `duplicate catalog id "${e.id}"`);
+      catalogIds.add(e.id);
+      e.applies_to.forEach((a, j) => {
+        if (!sectorIds.has(a) && !regimeIds.has(a)) issue([...p, 'applies_to', j], E.CATALOG_REF, `"${a}" is neither a sector nor a regime id`);
+      });
+    });
+  }
+  const checkCatalog = (ids: readonly string[] | undefined, path: Path) =>
+    (ids ?? []).forEach((id, i) => {
+      if (!catalogIds.has(id)) issue([...path, i], E.CATALOG_REF, `"${id}" is not an entry of the exceptions catalog`);
+    });
+  const registered = new Set<string>();
+  for (const [cp, f] of Object.entries(c.citations)) {
+    f.citations.forEach((r, i) => {
+      if (registered.has(r.id)) issue(['citations', cp, 'citations', i, 'id'], E.CITATION_ID, `duplicate registry entry "${r.id}"`);
+      registered.add(r.id);
+    });
+  }
+
   // ----- wizard -----
   for (const [wp, w] of Object.entries(c.wizard)) {
     const base: Path = ['wizard', wp];
@@ -120,6 +145,7 @@ export const CorpusSchema = CorpusInput.superRefine((c, ctx) => {
       if (!('kind' in q) || !('label_it' in q)) continue;
       const question = q as Question;
       checkSignals(question.on_yes?.activates_signals, [...qp, 'on_yes', 'activates_signals']);
+      checkCatalog(question.on_yes?.notices, [...qp, 'on_yes', 'notices']);
       checkSignals(question.on_any_selected?.activates_signals, [...qp, 'on_any_selected', 'activates_signals']);
       if (question.on_yes?.reference && !fileExists(question.on_yes.reference)) {
         issue([...qp, 'on_yes', 'reference'], E.REF_FILE, `file ${question.on_yes.reference} not found`);
@@ -144,31 +170,6 @@ export const CorpusSchema = CorpusInput.superRefine((c, ctx) => {
         }
       }
     }
-  }
-
-  // ----- exceptions catalog (ADR 0012) and citation registry -----
-  const catalogIds = new Set<string>();
-  const regimeIds = new Set(Object.values(c.regimes).map((r) => r.meta.regime_id));
-  for (const [ep, f] of Object.entries(c.exceptions)) {
-    f.exceptions.forEach((e, i) => {
-      const p: Path = ['exceptions', ep, 'exceptions', i];
-      if (catalogIds.has(e.id)) issue([...p, 'id'], E.CATALOG_REF, `duplicate catalog id "${e.id}"`);
-      catalogIds.add(e.id);
-      e.applies_to.forEach((a, j) => {
-        if (!sectorIds.has(a) && !regimeIds.has(a)) issue([...p, 'applies_to', j], E.CATALOG_REF, `"${a}" is neither a sector nor a regime id`);
-      });
-    });
-  }
-  const checkCatalog = (ids: readonly string[] | undefined, path: Path) =>
-    (ids ?? []).forEach((id, i) => {
-      if (!catalogIds.has(id)) issue([...path, i], E.CATALOG_REF, `"${id}" is not an entry of the exceptions catalog`);
-    });
-  const registered = new Set<string>();
-  for (const [cp, f] of Object.entries(c.citations)) {
-    f.citations.forEach((r, i) => {
-      if (registered.has(r.id)) issue(['citations', cp, 'citations', i, 'id'], E.CITATION_ID, `duplicate registry entry "${r.id}"`);
-      registered.add(r.id);
-    });
   }
 
   // ----- regimes -----

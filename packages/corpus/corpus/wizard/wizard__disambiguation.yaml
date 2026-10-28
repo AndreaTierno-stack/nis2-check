@@ -2,18 +2,23 @@
 # Domande binarie di disambiguazione di regime — COMUNI a tutti i settori
 # Referenziate dai file wizard/wizard__<settore>.yaml
 # Ordine di esecuzione: queste 3 domande precedono l'identificazione standard
-# Ospita anche la domanda comune della fase standard_identification
-# (dimension, sezione in fondo al file): non esiste un file dedicato.
+# Ospita anche le domande comuni della fase standard_identification
+# (sezione in fondo al file): non esiste un file dedicato.
+# ============================================================================
+#
+# ADR 0014 (corpus 0.6.0): in v0.1 instradano a un regime solo psnc (cloud,
+# energia, PA) e, nel solo percorso PA, la domanda classificazione_cloud_pa del
+# wizard PA. Le domande dora e cloud_pa restano come segnali: con "si'" aggiungono
+# avvisi del catalogo eccezioni (on_yes.notices), l'esito segue le regole del settore.
 # ============================================================================
 
 meta:
   block_id: disambiguation
   execution_order: pre_standard_identification
   description_it: |
-    Tre domande binarie iniziali che instradano il flusso verso percorsi
-    alternativi quando il soggetto rientra in un regime correlato. Ogni
-    domanda altera il flusso in modo diverso: PSNC sovrascrive la categoria,
-    DORA disapplica, Cloud PA sostituisce il modello.
+    Tre domande binarie iniziali sui regimi correlati. La domanda PSNC instrada
+    al regime PSNC (sovrascrive la categoria dei servizi PSNC); le domande DORA
+    e Cloud PA aggiungono al verdetto un avviso, senza instradare.
 
 questions:
   - id: psnc
@@ -28,46 +33,33 @@ questions:
       reference: regimes/psnc.yaml
     citations: [dl_105_2019_art_1_c_2_bis, det_acn_155238_2026_art_5]
 
+  # ADR 0014: segnale, non gate. L'art. 3 c. 14 D.Lgs. 138/2024 riguarda solo i
+  # settori 3 e 4 dell'Allegato I, che non sono tra i settori valutati dallo strumento.
   - id: dora
     kind: binary
-    label_it: "Il soggetto è un'entità finanziaria regolata dal Regolamento (UE) 2022/2554 (DORA) — ad esempio banca, impresa di investimento, infrastruttura dei mercati finanziari?"
+    label_it: "Il soggetto è un'entità finanziaria regolata dal Regolamento (UE) 2022/2554 (DORA), ad esempio un ente creditizio (banca) o un gestore di una sede di negoziazione?"
     help_text_it: |
       DORA è la normativa europea sulla resilienza operativa digitale del
       settore finanziario. Se il soggetto è una banca o un'infrastruttura
       dei mercati finanziari di dimensione media o grande, rispondi "sì".
     on_yes:
-      effect: massive_disapplication
-      reference: regimes/dora.yaml
-    citations: [reg_ue_2022_2554, dlgs_138_2024_art_3_c_14, faq_amb_no_2]
+      notices: [dora_entita_finanziaria_fuori_settori_3_4, dora_soggetti_esentati_art_3_c_15]
+    citations: [reg_ue_2022_2554, dlgs_138_2024_allegato_I, dlgs_138_2024_art_3_c_14, faq_amb_no_2]
 
+  # ADR 0014: segnale, non gate. La sostituzione del modello (art. 4 Det. 155238/2026)
+  # riguarda le PA che hanno classificato i propri dati e servizi (FAQ CAT.8): nel
+  # percorso PA conta la domanda classificazione_cloud_pa. Il fornitore qualificato
+  # rientra come fornitore cloud (FAQ A1.8.2).
   - id: cloud_pa
     kind: binary
-    label_it: "Il soggetto eroga servizi cloud destinati a una Pubblica Amministrazione, classificati ai sensi della disciplina Cloud PA (ordinari/critici/strategici)?"
+    label_it: "Il soggetto eroga servizi cloud destinati a una Pubblica Amministrazione, qualificati ai sensi del Regolamento Cloud per la PA (Decreto Direttoriale ACN n. 21007/24)?"
     help_text_it: |
       Riguarda i fornitori cloud i cui servizi sono stati qualificati nel
       quadro della strategia Cloud per la PA. Se i tuoi servizi cloud sono
       destinati a clienti privati, rispondi "no".
     on_yes:
-      effect: model_substitution
-      reference: regimes/cloud_pa.yaml
-    citations: [dd_acn_21007_24_art_3, det_acn_155238_2026_art_4]
-
-# ============================================================================
-# Caso di intersezione multipla — open question normativa
-# ============================================================================
-
-multi_regime_intersection:
-  # Se PSNC e Cloud PA sono entrambi positivi, l'ordine di precedenza tra
-  # l'automatismo "alto" PSNC (art. 5) e la sostituzione di modello Cloud PA
-  # (art. 4) non e' esplicitato nelle fonti. Il decision engine produce
-  # escalate_to_advisor invece di tentare di risolvere.
-  # NOTA: DORA non entra nel conflitto perche' disapplica massivamente e
-  # prevale come lex specialis, senza conflitto di precedenza.
-  - trigger: psnc == yes AND cloud_pa == yes
-    outcome: escalate_to_advisor
-    verdict_outcome: ambiguous   # vincolo fisso: escalate_to_advisor -> sempre ambiguous (l'engine copia senza inferenza)
-    reasoning_trace: "Il soggetto appare contemporaneamente in perimetro PSNC e nella disciplina Cloud PA. L'ordine di precedenza tra l'automatismo 'alto' PSNC (art. 5) e la sostituzione di modello Cloud PA (art. 4) non è esplicitato nelle fonti normative disponibili. Consulenza qualificata necessaria, con eventuale interlocuzione diretta ACN."
-    citations: [det_acn_155238_2026_art_4, det_acn_155238_2026_art_5]
+      notices: [cloud_pa_fornitore_qualificato_a1_8_2]
+    citations: [faq_a1_8_2, det_acn_155238_2026_art_4, faq_cat_8]
 
 # ============================================================================
 # Identificazione standard — domanda comune ai settori size-cap (corpus 0.3.0)

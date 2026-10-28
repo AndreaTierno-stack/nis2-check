@@ -119,16 +119,10 @@ overrides:
     reference: regimes/psnc.yaml
     reasoning_trace: "Servizi PSNC del soggetto categorizzati come 'alto' d'ufficio, fuori dal procedimento ordinario, ai sensi dell'art. 5 Det. ACN 155238/2026. Per il settore elettrico, TSO e grandi DSO sono tipicamente in perimetro PSNC. I servizi NIS non PSNC mantengono procedimento ordinario."
     citations: [det_acn_155238_2026_art_5, dl_105_2019_art_1_c_2_bis]
-  # DORA: non pertinente al settore energia, ma la domanda comune resta nel flusso;
-  # se positiva qui e' verosimilmente un errore di compilazione -> comunque gestito
-  - trigger: dora == yes
-    override_kind: massive_disapplication
-    reference: regimes/dora.yaml
-    reasoning_trace: "Entità DORA: disapplicato il regime NIS salvo l'art. 7 c. 1. Nota: per un soggetto del settore energia questa risposta è inattesa; verifica che il soggetto sia effettivamente un'entità finanziaria regolata da DORA."
-    # citations coincidenti con regimes/dora.yaml (commi verificati, DIV-P1 chiusa in 0.2.1)
-    citations: [dlgs_138_2024_art_3_c_14, det_piattaforma_127437_2026_art_7_c_6, det_piattaforma_127437_2026_art_16_c_13, det_piattaforma_127437_2026_art_20_c_6]
-  # Cloud PA: non pertinente al settore energia -> nessun override
-  # (la domanda Cloud PA nel blocco comune resta, ma per Energia non instrada nulla)
+  # ADR 0014: nessun override DORA. L'art. 3 c. 14 D.Lgs. 138/2024 riguarda solo i
+  # settori 3 e 4 dell'Allegato I; la domanda comune dora resta come segnale (notice
+  # di catalogo), l'esito segue le regole del settore.
+  # Cloud PA: non pertinente al settore energia -> nessun override.
 
 # Identita' multiple intra-settore (trigger; definizione in signals/signals__cross_sector.yaml)
 multi_identity_intra_sector:
