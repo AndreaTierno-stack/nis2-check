@@ -1,0 +1,36 @@
+scenario_id: E22
+name: pa_psnc_e_cloud_pa
+description_it: >
+  Variante di E20: comune capoluogo di regione (Allegato III lett. c) inserito nel
+  PSNC e che ha classificato i propri dati e servizi ai sensi del Regolamento Cloud.
+  ADR 0014: l'intersezione PSNC + Cloud PA vive nel wizard PA; la precedenza non e'
+  attestata (STATUS 6), esito escalate_to_advisor / ambiguous con avviso di
+  catalogo. regime_routing elenca i due regimi nell'ordine degli override del file
+  di settore (cloud_pa, poi psnc): ordine posizionale, non precedenza.
+corpus_version: 0.5.0
+sector: pubblica_amministrazione
+
+inputs:
+  psnc: "yes"
+  dora: "no"
+  categoria_pa: c
+  sottotipo_c: comune_capoluogo
+  classificazione_cloud_pa: "yes"
+  soggetto_critico: "no"
+
+expected:
+  assessment_mode: escalate_to_advisor
+  verdict_outcome: ambiguous
+  notices: [psnc_cloud_pa_precedenza_non_attestata]
+  regime_routing:
+    - regime: cloud_pa
+      routing_effect: model_substitution
+      residual_nis_obligation: null   # null = non attestato nel corpus, non "nessuno"
+      exceptions_catalog_entry: cloud_pa_model_substitution
+    - regime: psnc
+      routing_effect: category_override
+      residual_nis_obligation: null   # null = non attestato nel corpus, non "nessuno"
+      exceptions_catalog_entry: psnc_category_override
+  corpus_ref: "wizard/wizard__pubblica_amministrazione.yaml#multi_regime_intersection[psnc==yes AND classificazione_cloud_pa==yes] + sectors/sectors__pubblica_amministrazione.yaml#overrides[classificazione_cloud_pa==yes, psnc==yes] -> regimes/cloud_pa.yaml, regimes/psnc.yaml + exceptions/exceptions__catalog.yaml#exceptions[psnc_cloud_pa_precedenza_non_attestata]"
+
+citations: [det_acn_155238_2026_art_4, det_acn_155238_2026_art_5]

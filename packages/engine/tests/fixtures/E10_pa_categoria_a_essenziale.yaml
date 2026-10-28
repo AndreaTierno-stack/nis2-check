@@ -12,7 +12,6 @@ sector: pubblica_amministrazione
 inputs:
   psnc: "no"
   dora: "no"
-  cloud_pa: "no"
   categoria_pa: a
   classificazione_cloud_pa: "no"
   soggetto_critico: "no"
@@ -22,8 +21,8 @@ expected:
   verdict_outcome: likely_in_scope
   qualifica: essenziale
   signals: [l90_cumulo]
-  notices: [pa_organi_costituzionali_capo_v_art_4_c_2, pa_esclusioni_sicurezza_nazionale_art_4_c_3]
+  notices: [pa_organi_costituzionali_capo_v_art_4_c_2, pa_esclusioni_sicurezza_nazionale_art_4_c_3, pa_prerequisito_istat_s13]
   regime_routing: []
-  corpus_ref: "wizard/wizard__pubblica_amministrazione.yaml#categoria_pa[a] -> sectors/sectors__pubblica_amministrazione.yaml#qualification_rules[categoria_pa==a] + exceptions/exceptions__catalog.yaml#exceptions[pa_organi_costituzionali_capo_v_art_4_c_2, pa_esclusioni_sicurezza_nazionale_art_4_c_3]"
+  corpus_ref: "wizard/wizard__pubblica_amministrazione.yaml#categoria_pa[a] -> sectors/sectors__pubblica_amministrazione.yaml#qualification_rules[categoria_pa==a] + exceptions/exceptions__catalog.yaml#exceptions[pa_organi_costituzionali_capo_v_art_4_c_2, pa_esclusioni_sicurezza_nazionale_art_4_c_3, pa_prerequisito_istat_s13]"
 
 citations: [dlgs_138_2024_allegato_III, dlgs_138_2024_art_3_c_6, dlgs_138_2024_art_6_c_1_lett_e, dlgs_138_2024_art_40_c_5_lett_a, l_196_2009_art_1_c_3]

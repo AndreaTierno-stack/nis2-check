@@ -12,7 +12,6 @@ sector: pubblica_amministrazione
 inputs:
   psnc: "no"
   dora: "no"
-  cloud_pa: "no"
   categoria_pa: c
   sottotipo_c: comune_capoluogo
   classificazione_cloud_pa: "yes"

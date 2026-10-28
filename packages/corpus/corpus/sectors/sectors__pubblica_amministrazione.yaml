@@ -125,7 +125,7 @@ qualification_rules:
     qualifica: essenziale
     reasoning_trace: "Per le amministrazioni centrali dell'Allegato III lett. a) (organi costituzionali e di rilievo costituzionale, Presidenza del Consiglio dei ministri e Ministeri, Agenzie fiscali, Autorita' amministrative indipendenti), l'analisi suggerisce il rientro nel perimetro NIS2 italiano come soggetto essenziale, indipendentemente dalla dimensione (art. 3 c. 6 e art. 6 c. 1 lett. e) D.Lgs. 138/2024). L'elenco dei soggetti essenziali e importanti e' stabilito con determinazione dell'ACN (art. 40 c. 5 lett. a)). La valutazione presuppone l'inclusione nell'elenco ISTAT (Lista S13). Verifica obbligatoria con consulente qualificato."
     citations: [dlgs_138_2024_allegato_III, dlgs_138_2024_art_3_c_6, dlgs_138_2024_art_6_c_1_lett_e, dlgs_138_2024_art_40_c_5_lett_a, l_196_2009_art_1_c_3]
-    notices: [pa_organi_costituzionali_capo_v_art_4_c_2, pa_esclusioni_sicurezza_nazionale_art_4_c_3]
+    notices: [pa_organi_costituzionali_capo_v_art_4_c_2, pa_esclusioni_sicurezza_nazionale_art_4_c_3, pa_prerequisito_istat_s13]
 
   # Soggetti che l'art. 4 c. 2 non ricomprende tra le PA dell'art. 3 cc. 6-7
   - condition: categoria_pa == esclusa_art_4_c_2
@@ -141,7 +141,7 @@ qualification_rules:
     qualifica: importante
     reasoning_trace: "Per le Regioni e Province autonome (Allegato III lett. b), l'analisi suggerisce il rientro nel perimetro NIS2 italiano come soggetto importante, indipendentemente dalla dimensione (art. 3 c. 6 e art. 6 c. 3 D.Lgs. 138/2024); la qualifica puo' essere elevata a essenziale con individuazione dell'ACN (art. 6 c. 2). La valutazione presuppone l'inclusione nell'elenco ISTAT (Lista S13). Verifica obbligatoria con consulente qualificato."
     citations: [dlgs_138_2024_allegato_III, dlgs_138_2024_art_3_c_6, dlgs_138_2024_art_6_c_3, dlgs_138_2024_art_6_c_2, l_196_2009_art_1_c_3]
-    notices: [pa_qualifica_elevabile_art_6_c_2, pa_esclusioni_sicurezza_nazionale_art_4_c_3]
+    notices: [pa_qualifica_elevabile_art_6_c_2, pa_esclusioni_sicurezza_nazionale_art_4_c_3, pa_prerequisito_istat_s13]
 
   # Categoria c) — importante per art. 6 c. 3, elevabile ex art. 6 c. 2
   - condition: categoria_pa == c AND soggetto_critico == no
@@ -150,7 +150,7 @@ qualification_rules:
     qualifica: importante
     reasoning_trace: "Per le amministrazioni locali (Allegato III lett. c), l'analisi suggerisce il rientro nel perimetro NIS2 italiano come soggetto importante, indipendentemente dalla dimensione (art. 3 c. 6 e art. 6 c. 3 D.Lgs. 138/2024); la qualifica puo' essere elevata a essenziale con individuazione dell'ACN (art. 6 c. 2). La valutazione presuppone l'inclusione nell'elenco ISTAT (Lista S13). Verifica obbligatoria con consulente qualificato prima di assumere conclusioni operative."
     citations: [dlgs_138_2024_allegato_III, dlgs_138_2024_art_3_c_6, dlgs_138_2024_art_6_c_3, dlgs_138_2024_art_6_c_2, faq_settori_sottosettori]
-    notices: [pa_qualifica_elevabile_art_6_c_2, pa_esclusioni_sicurezza_nazionale_art_4_c_3]
+    notices: [pa_qualifica_elevabile_art_6_c_2, pa_esclusioni_sicurezza_nazionale_art_4_c_3, pa_prerequisito_istat_s13]
 
   # Categoria d) — importante per art. 6 c. 3, elevabile ex art. 6 c. 2
   - condition: categoria_pa == d AND soggetto_critico == no
@@ -159,7 +159,7 @@ qualification_rules:
     qualifica: importante
     reasoning_trace: "Per gli altri soggetti pubblici dell'Allegato III lett. d) (enti di regolazione dell'attivita' economica, enti produttori di servizi economici, enti a struttura associativa, enti produttori di servizi assistenziali, ricreativi e culturali, enti e istituzioni di ricerca, istituti zooprofilattici sperimentali), l'analisi suggerisce il rientro nel perimetro NIS2 italiano come soggetto importante, indipendentemente dalla dimensione (art. 3 c. 6 e art. 6 c. 3 D.Lgs. 138/2024); la qualifica puo' essere elevata a essenziale con individuazione dell'ACN (art. 6 c. 2). La valutazione presuppone l'inclusione nell'elenco ISTAT (Lista S13). Verifica obbligatoria con consulente qualificato."
     citations: [dlgs_138_2024_allegato_III, dlgs_138_2024_art_3_c_6, dlgs_138_2024_art_6_c_3, dlgs_138_2024_art_6_c_2, l_196_2009_art_1_c_3]
-    notices: [pa_qualifica_elevabile_art_6_c_2, pa_esclusioni_sicurezza_nazionale_art_4_c_3, pa_lett_d_cumulo_l90_non_attestato]
+    notices: [pa_qualifica_elevabile_art_6_c_2, pa_esclusioni_sicurezza_nazionale_art_4_c_3, pa_lett_d_cumulo_l90_non_attestato, pa_prerequisito_istat_s13]
 
   # ADR 0015: soggetto critico (D.Lgs. 134/2024) -> essenziale per art. 6 c. 1 lett. b),
   # che prevale sull'importante delle lett. b)-d) (art. 6 c. 3 riguarda i soggetti non
@@ -170,7 +170,7 @@ qualification_rules:
     qualifica: essenziale
     reasoning_trace: "Per le Regioni e Province autonome (Allegato III lett. b) individuate come soggetto critico ai sensi del D.Lgs. 134/2024, l'analisi suggerisce il rientro nel perimetro NIS2 italiano come soggetto essenziale, indipendentemente dalla dimensione (art. 3 cc. 5 lett. a) e 6, art. 6 c. 1 lett. b) D.Lgs. 138/2024; FAQ ACN AMB.NO.1). La valutazione presuppone l'inclusione nell'elenco ISTAT (Lista S13). Verifica obbligatoria con consulente qualificato."
     citations: [dlgs_138_2024_allegato_III, dlgs_138_2024_art_3_c_6, dlgs_138_2024_art_3_c_5_lett_a, dlgs_138_2024_art_6_c_1_lett_b, faq_amb_no_1, l_196_2009_art_1_c_3]
-    notices: [pa_esclusioni_sicurezza_nazionale_art_4_c_3]
+    notices: [pa_esclusioni_sicurezza_nazionale_art_4_c_3, pa_prerequisito_istat_s13]
 
   - condition: categoria_pa == c AND soggetto_critico == yes
     outcome: categorical_assessment
@@ -178,7 +178,7 @@ qualification_rules:
     qualifica: essenziale
     reasoning_trace: "Per le amministrazioni locali (Allegato III lett. c) individuate come soggetto critico ai sensi del D.Lgs. 134/2024, l'analisi suggerisce il rientro nel perimetro NIS2 italiano come soggetto essenziale, indipendentemente dalla dimensione (art. 3 cc. 5 lett. a) e 6, art. 6 c. 1 lett. b) D.Lgs. 138/2024; FAQ ACN AMB.NO.1). La valutazione presuppone l'inclusione nell'elenco ISTAT (Lista S13). Verifica obbligatoria con consulente qualificato."
     citations: [dlgs_138_2024_allegato_III, dlgs_138_2024_art_3_c_6, dlgs_138_2024_art_3_c_5_lett_a, dlgs_138_2024_art_6_c_1_lett_b, faq_amb_no_1, l_196_2009_art_1_c_3]
-    notices: [pa_esclusioni_sicurezza_nazionale_art_4_c_3]
+    notices: [pa_esclusioni_sicurezza_nazionale_art_4_c_3, pa_prerequisito_istat_s13]
 
   - condition: categoria_pa == d AND soggetto_critico == yes
     outcome: categorical_assessment
@@ -186,13 +186,13 @@ qualification_rules:
     qualifica: essenziale
     reasoning_trace: "Per gli altri soggetti pubblici dell'Allegato III lett. d) individuati come soggetto critico ai sensi del D.Lgs. 134/2024, l'analisi suggerisce il rientro nel perimetro NIS2 italiano come soggetto essenziale, indipendentemente dalla dimensione (art. 3 cc. 5 lett. a) e 6, art. 6 c. 1 lett. b) D.Lgs. 138/2024; FAQ ACN AMB.NO.1). La valutazione presuppone l'inclusione nell'elenco ISTAT (Lista S13). Verifica obbligatoria con consulente qualificato."
     citations: [dlgs_138_2024_allegato_III, dlgs_138_2024_art_3_c_6, dlgs_138_2024_art_3_c_5_lett_a, dlgs_138_2024_art_6_c_1_lett_b, faq_amb_no_1, l_196_2009_art_1_c_3]
-    notices: [pa_esclusioni_sicurezza_nazionale_art_4_c_3, pa_lett_d_cumulo_l90_non_attestato]
+    notices: [pa_esclusioni_sicurezza_nazionale_art_4_c_3, pa_lett_d_cumulo_l90_non_attestato, pa_prerequisito_istat_s13]
 
 # ============================================================================
-# Override di regime — solo Cloud PA e' PA-specifico
-# PSNC e DORA sono delegati al blocco generico wizard/wizard__disambiguation.yaml (niente da
-# aggiungere di PA-specifico). Cloud PA invece ha significato diverso per una
-# PA (consumatore di servizi cloud classificati) rispetto a un fornitore privato.
+# Override di regime (ADR 0014): Cloud PA (trigger classificazione_cloud_pa, domanda
+# del wizard PA) e PSNC (trigger psnc, domanda del blocco comune). Nessun override
+# DORA (art. 3 c. 14 riservato ai settori 3-4). L'ordine degli override e' l'ordine
+# di Verdict.regimeRouting: posizionale, non una precedenza (ADR 0009, amendment).
 # ============================================================================
 
 overrides:
@@ -203,6 +203,13 @@ overrides:
     reference: regimes/cloud_pa.yaml
     reasoning_trace: "Per una Pubblica Amministrazione, la classificazione dei dati e dei servizi ai sensi del Regolamento Cloud (Decreto Direttoriale ACN n. 21007/24 del 27 giugno 2024, art. 3) comporta l'applicazione del modello Cloud PA (ordinari/critici/strategici) in luogo del modello di categorizzazione NIS, ai sensi dell'art. 4 Det. ACN 155238/2026. L'elenco delle attivita' e dei servizi coincide con quello dei dati e servizi digitali classificati ai sensi del Regolamento Cloud."
     citations: [dd_acn_21007_24_art_3, det_acn_155238_2026_art_4]
+  # ADR 0014 (corpus 0.6.0): PSNC per la PA, sul regime esistente
+  - trigger: psnc == yes
+    override_kind: category_override
+    reference: regimes/psnc.yaml
+    reasoning_trace: "Servizi PSNC dell'amministrazione categorizzati come 'alto' d'ufficio, fuori dal procedimento ordinario, ai sensi dell'art. 5 Det. ACN 155238/2026. I servizi NIS non PSNC mantengono procedimento ordinario."
+    # citations coincidenti con regimes/psnc.yaml (invariante override/regime, ADR 0009)
+    citations: [det_acn_155238_2026_art_5, dl_105_2019_art_1_c_2_bis]
 
 # Signal di cumulo regimi (trigger; definizione in signals/signals__cumulative_regimes.yaml)
 cumulative_signals:
@@ -222,7 +229,7 @@ allegato_iv_channel:
   verdict_strategy: qualitative_signal_only
   verdict_outcome: ambiguous   # canale All. IV (incl. in-house): dipende da atto dell'autorita', non determinabile in self-assessment
   # soggetti pubblici fuori dalle categorie dell'Allegato III: possibili categorie aggiunte con DPCM
-  notices: [pa_categorie_aggiunte_dpcm_art_3_c_7]
+  notices: [pa_categorie_aggiunte_dpcm_art_3_c_7, allegato_iv_individuazione_art_3_c_8]
   profili:
     - id: tpl
       label_it: "Trasporto pubblico locale"

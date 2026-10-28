@@ -13,8 +13,10 @@
 #   via la domanda pertinenza pubblica di Cloud/Energia.
 # - NIENTE domanda ISTAT (strada 2): l'inclusione nella Lista S13 e' assunta
 #   e dichiarata nei reasoning_trace, non chiesta all'utente.
-# - Cloud PA (corpus 0.5.0, C5): la domanda comune cloud_pa e' per i fornitori;
-#   per la PA conta la domanda classificazione_cloud_pa (trigger dell'override).
+# - Cloud PA (corpus 0.5.0, C5; ADR 0014): la domanda comune cloud_pa e' per i
+#   fornitori e non e' posta alla PA (excluded_common_questions); per la PA conta la
+#   domanda classificazione_cloud_pa (trigger dell'override).
+# - PSNC (ADR 0014): la domanda comune psnc instrada al regime PSNC anche per la PA.
 # ============================================================================
 
 meta:
@@ -27,10 +29,12 @@ flow_order:
   - sector_specific
   - standard_identification   # solo soggetto_critico (ADR 0015)
 
-# Domande del blocco comune non poste alla PA (ADR 0015):
-# - dimension: settore size_blind (art. 3 c. 6 D.Lgs. 138/2024).
+# Domande del blocco comune non poste alla PA:
+# - dimension: settore size_blind (art. 3 c. 6 D.Lgs. 138/2024; ADR 0015);
+# - cloud_pa: domanda per i fornitori; per la PA conta classificazione_cloud_pa (ADR 0014).
 excluded_common_questions:
   - dimension
+  - cloud_pa
 
 sector_specific_questions:
   # Domanda principale: quale categoria dell'Allegato III
@@ -65,7 +69,8 @@ sector_specific_questions:
     label_it: "Quale tipo di amministrazione locale?"
     help_text_it: |
       La distinzione è rilevante: le ASL hanno una doppia identità (sono anche
-      soggetti sanitari) e richiedono una registrazione separata.
+      prestatori di assistenza sanitaria) e la registrazione indica le tipologie
+      di entrambe le identità.
     options:
       - id: citta_metropolitana
         label_it: "Città metropolitana"
@@ -77,6 +82,7 @@ sector_specific_questions:
         label_it: "Azienda Sanitaria Locale (ASL)"
         on_selected:
           activates_signals: [cross_sector_asl_sanitario]
+          notices: [pa_asl_identita_sanitaria]
 
   # Sotto-domanda condizionale: sottotipo della categoria d) (corpus 0.5.0)
   - id: sottotipo_d
@@ -137,3 +143,19 @@ sector_specific_questions:
       e strategici. Se l'amministrazione non ha effettuato la classificazione,
       rispondi «no».
     citations: [dd_acn_21007_24_art_3, det_acn_155238_2026_art_4]
+
+# ============================================================================
+# Intersezione PSNC + Cloud PA (ADR 0014: dal blocco comune al percorso PA)
+# ============================================================================
+multi_regime_intersection:
+  # Se PSNC e Cloud PA sono entrambi positivi, l'ordine di precedenza tra
+  # l'automatismo "alto" PSNC (art. 5) e la sostituzione di modello Cloud PA
+  # (art. 4) non e' esplicitato nelle fonti (STATUS 6). Il decision engine produce
+  # escalate_to_advisor invece di tentare di risolvere; regimeRouting elenca i due
+  # regimi nell'ordine degli override del file di settore, che non e' una precedenza.
+  - trigger: psnc == yes AND classificazione_cloud_pa == yes
+    outcome: escalate_to_advisor
+    verdict_outcome: ambiguous   # vincolo fisso: escalate_to_advisor -> sempre ambiguous (l'engine copia senza inferenza)
+    reasoning_trace: "L'amministrazione appare contemporaneamente in perimetro PSNC e tra i soggetti che hanno classificato dati e servizi ai sensi del Regolamento Cloud. L'ordine di precedenza tra l'automatismo 'alto' PSNC (art. 5 Det. ACN 155238/2026) e la sostituzione di modello Cloud PA (art. 4) non è esplicitato nelle fonti normative disponibili. Consulenza qualificata necessaria, con eventuale interlocuzione diretta ACN."
+    citations: [det_acn_155238_2026_art_4, det_acn_155238_2026_art_5]
+    notices: [psnc_cloud_pa_precedenza_non_attestata]

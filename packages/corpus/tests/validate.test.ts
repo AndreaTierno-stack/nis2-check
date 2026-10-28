@@ -77,6 +77,13 @@ describe('corpus:validate', () => {
       expectCode(errors, 'E_ESCALATE_AMBIGUOUS', 'regimes/psnc.yaml');
     });
 
+    it('E22 routing order changed -> E_REGIME_ROUTING', () => {
+      const errors = errorsAfter((c) => {
+        fixture(c, 'E22_').expected.regime_routing.reverse();
+      });
+      expectCode(errors, 'E_REGIME_ROUTING', 'E22_');
+    });
+
     it('E08 routing removed -> E_REGIME_ROUTING', () => {
       const errors = errorsAfter((c) => {
         fixture(c, 'E08_').expected.regime_routing = [];

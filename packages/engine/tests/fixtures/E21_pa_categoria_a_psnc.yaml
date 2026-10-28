@@ -1,0 +1,29 @@
+scenario_id: E21
+name: pa_categoria_a_psnc
+description_it: >
+  Variante di E10: amministrazione centrale (Allegato III lett. a) inserita nel PSNC.
+  ADR 0014: il settore PA ha l'override PSNC sul regime esistente, con trigger la
+  domanda comune psnc. Instradamento al regime psnc come escalation copiata dal
+  meta del regime (ADR 0009), regime_routing [psnc].
+corpus_version: 0.5.0
+sector: pubblica_amministrazione
+
+inputs:
+  psnc: "yes"
+  dora: "no"
+  categoria_pa: a
+  classificazione_cloud_pa: "no"
+  soggetto_critico: "no"
+
+expected:
+  # ADR 0009: instradamento a regime = escalation, copiata dal meta del regime
+  assessment_mode: escalate_to_advisor
+  verdict_outcome: ambiguous
+  regime_routing:
+    - regime: psnc
+      routing_effect: category_override
+      residual_nis_obligation: null   # null = non attestato nel corpus, non "nessuno"
+      exceptions_catalog_entry: psnc_category_override
+  corpus_ref: "sectors/sectors__pubblica_amministrazione.yaml#overrides[psnc==yes] -> regimes/psnc.yaml + exceptions/exceptions__catalog.yaml#exceptions[psnc_category_override]"
+
+citations: [det_acn_155238_2026_art_5, dl_105_2019_art_1_c_2_bis]

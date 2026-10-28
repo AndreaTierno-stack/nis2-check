@@ -156,3 +156,31 @@ exceptions:
     description: "La FAQ ACN A1.1.a.4 esclude dall'ambito le organizzazioni che rispondono ai requisiti della definizione di «clienti attivi» (direttiva (UE) 2019/944, art. 2, punto 8) e non svolgono altre attività riconducibili agli Allegati I e II. Il testo di quella definizione non è tra le fonti verificate dallo strumento: l'esito dipende dalla risposta fornita e va confermato con un consulente qualificato."
     citations: [faq_a1_1_a_4]
     applies_to: [energia_elettrica]
+
+  - id: psnc_cloud_pa_precedenza_non_attestata
+    status: segnalato
+    title: "PSNC e Cloud PA insieme: precedenza non indicata dalle fonti"
+    description: "Per un'amministrazione inserita nel PSNC che ha anche classificato i propri dati e servizi ai sensi del Regolamento Cloud, le fonti disponibili non indicano quale disciplina prevalga tra l'attribuzione d'ufficio della categoria «alto» ai servizi PSNC (art. 5 Det. ACN 155238/2026) e la sostituzione del modello di categorizzazione (art. 4). Lo strumento indirizza il caso a un consulente qualificato; l'ordine con cui i due regimi sono elencati non indica una precedenza."
+    citations: [det_acn_155238_2026_art_4, det_acn_155238_2026_art_5]
+    applies_to: [pubblica_amministrazione, psnc, cloud_pa]
+
+  - id: allegato_iv_individuazione_art_3_c_8
+    status: segnalato
+    title: "Tipologie dell'Allegato IV: rientro solo su individuazione dell'ACN"
+    description: "I soggetti delle tipologie dell'Allegato IV (trasporto pubblico locale, istituti di istruzione che svolgono attività di ricerca, soggetti che svolgono attività di interesse culturale, società in house, partecipate o a controllo pubblico) rientrano nel decreto, indipendentemente dalla dimensione, solo se individuati dall'ACN su proposta delle autorità di settore, con notifica al soggetto (art. 3 cc. 8 e 13 D.Lgs. 138/2024). Lo strumento non può determinare questa individuazione."
+    citations: [dlgs_138_2024_art_3_c_8, dlgs_138_2024_art_3_c_13, faq_a4_3_4, faq_settori_sottosettori]
+    applies_to: [pubblica_amministrazione]
+
+  - id: pa_asl_identita_sanitaria
+    status: segnalato
+    title: "Aziende sanitarie locali: identità nel settore sanitario non valutata"
+    description: "Le Aziende sanitarie locali che erogano servizi di assistenza sanitaria sono riconducibili anche al settore sanitario dell'Allegato I, come prestatori di assistenza sanitaria: in questa veste sono soggetti importanti, ed essenziali se superano i massimali della media impresa (FAQ A3.c.4.1). Lo strumento valuta l'identità di amministrazione locale (Allegato III lett. c) e non il settore sanitario."
+    citations: [faq_a3_c_4_1, faq_a3_c_4_5]
+    applies_to: [pubblica_amministrazione]
+
+  - id: pa_prerequisito_istat_s13
+    status: segnalato
+    title: "Inclusione nell'elenco ISTAT delle amministrazioni pubbliche"
+    description: "Il rientro delle pubbliche amministrazioni dell'Allegato III presuppone che il soggetto sia tra le amministrazioni pubbliche di cui all'art. 1 c. 3 L. 196/2009, cioè nell'elenco ISTAT delle amministrazioni pubbliche (art. 3 c. 6 D.Lgs. 138/2024). Lo strumento non verifica l'inclusione nell'elenco, che va confermata con un consulente qualificato."
+    citations: [l_196_2009_art_1_c_3, dlgs_138_2024_art_3_c_6]
+    applies_to: [pubblica_amministrazione]

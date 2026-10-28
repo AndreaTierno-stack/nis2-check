@@ -12,7 +12,6 @@ sector: pubblica_amministrazione
 inputs:
   psnc: "no"
   dora: "no"
-  cloud_pa: "no"
   categoria_pa: c
   sottotipo_c: asl
   classificazione_cloud_pa: "no"
@@ -23,12 +22,12 @@ expected:
   verdict_outcome: likely_in_scope
   qualifica: importante
   signals: [cross_sector_asl_sanitario, l90_cumulo]
-  notices: [pa_qualifica_elevabile_art_6_c_2, pa_esclusioni_sicurezza_nazionale_art_4_c_3]
+  notices: [pa_qualifica_elevabile_art_6_c_2, pa_esclusioni_sicurezza_nazionale_art_4_c_3, pa_prerequisito_istat_s13, pa_asl_identita_sanitaria]
   regime_routing: []
   sanitario_secondary:
     handling: cross_sector_signal
     verdict_outcome: ambiguous
     corpus_ref: "sectors/sectors__pubblica_amministrazione.yaml#out_of_scope_mvp[settore_sanitario_allegato_I_p5]"
-  corpus_ref: "sectors/sectors__pubblica_amministrazione.yaml#qualification_rules[categoria_pa==c AND soggetto_critico==no] + cross_sector_signals[sottotipo_c==asl] + exceptions/exceptions__catalog.yaml#exceptions[pa_qualifica_elevabile_art_6_c_2, pa_esclusioni_sicurezza_nazionale_art_4_c_3]"
+  corpus_ref: "sectors/sectors__pubblica_amministrazione.yaml#qualification_rules[categoria_pa==c AND soggetto_critico==no] + cross_sector_signals[sottotipo_c==asl] + exceptions/exceptions__catalog.yaml#exceptions[pa_qualifica_elevabile_art_6_c_2, pa_esclusioni_sicurezza_nazionale_art_4_c_3, pa_prerequisito_istat_s13, pa_asl_identita_sanitaria]"
 
 citations: [dlgs_138_2024_allegato_III, dlgs_138_2024_art_3_c_6, dlgs_138_2024_art_6_c_3, dlgs_138_2024_art_6_c_2, faq_a3_c_4_1, faq_a3_c_4_5]

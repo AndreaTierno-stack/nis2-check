@@ -26,4 +26,5 @@ meta:
     - "wizard/wizard__disambiguation.yaml#questions.psnc"
     - "sectors/sectors__cloud_computing.yaml#overrides"
     - "sectors/sectors__energia_elettrica.yaml#overrides"
+    - "sectors/sectors__pubblica_amministrazione.yaml#overrides"   # ADR 0014
   citations: [det_acn_155238_2026_art_5, dl_105_2019_art_1_c_2_bis]
