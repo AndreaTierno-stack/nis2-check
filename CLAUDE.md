@@ -54,6 +54,8 @@ Struttura: `sectors/`, `wizard/`, `signals/`, `regimes/`, più `VERSION` e `CHAN
 
 **Lacuna strutturale e stop-and-ingest** (regola stabile): una lacuna è strutturale quando soddisfa 2 criteri su 3: fonte primaria mancante, impatto sul tool, centralità. Una lacuna strutturale impone stop-and-ingest. Un riscontro con esito no-op non consuma il credito (DEC-003).
 
+**Report di verifica** (regola stabile): i report di verifica e gli audit dei subagenti si scrivono in `docs/verifications/` (`AAAA-MM-GG-<oggetto>.md`) prima del report in chat.
+
 ## Tipo Verdict
 
 ```ts
