@@ -9,6 +9,13 @@ Formato ispirato a [Keep a Changelog](https://keepachangelog.com/it/1.1.0/); ver
 
 Ogni bump ha una voce in questo file; le fixture dichiarano `corpus_version` e si riallineano a ogni minor/major.
 
+## [Unreleased]
+
+Modifiche successive al rilascio di 0.5.0, senza effetto sul contenuto del corpus né sugli esiti.
+
+### Notes
+- **Contatore stop-and-ingest riallineato (2026-10-28)** — chiusa la voce aperta "riallineare DEC-007": la nota del 2026-10-28 in DEC-007 parte A (decision_log della KB) qualifica il riscontro del D.Lgs. 138/2024 su Normattiva come no-op, che non consuma il credito (DEC-003). Contatore a 1 residuo fino al pre-rilascio v0.1.0 (`docs/STATUS.md`).
+
 ## [0.5.0] — 2026-10-28 — PA dell'Allegato III (ADR 0011, C1-C6) e catalogo eccezioni (ADR 0012)
 
 Minor: cambiano gli esiti delle lettere a), b) e d) dell'Allegato III, il questionario PA (opzioni nuove, domande nuove) e lo schema (catalogo eccezioni, avvisi `notices`, registro citazioni). Base normativa: D.Lgs. 138/2024 Allegato III, art. 3 cc. 6-7, art. 4 cc. 2-3, art. 6 cc. 1-3, art. 40 c. 2 lett. b) e c. 5 lett. a), riscontrati parola per parola su Normattiva il 2026-10-27 (DEC-007 A) e riportati nel nodo KB `sources/D.Lgs. 138-2024 (Decreto NIS)` (righe 8 e 25-36).
