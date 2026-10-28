@@ -1,0 +1,29 @@
+scenario_id: E17
+name: pa_lett_d_ente_culturale
+description_it: >
+  Ente culturale incluso nell'elenco ISTAT (Allegato III lett. d) 4, "Enti produttori
+  di servizi assistenziali, ricreativi e culturali"). Rientro per legge come PA
+  dell'Allegato III (art. 3 c. 6), non tramite il canale Allegato IV ("attività di
+  interesse culturale"); qualifica importante (art. 6 c. 3), elevabile a essenziale con
+  individuazione dell'ACN (art. 6 c. 2). Nessun signal L. 90 (avviso dal catalogo).
+corpus_version: 0.4.0
+sector: pubblica_amministrazione
+
+inputs:
+  psnc: "no"
+  dora: "no"
+  cloud_pa: "no"
+  categoria_pa: d
+  sottotipo_d: enti_servizi_assistenziali_ricreativi_culturali
+  classificazione_cloud_pa: "no"
+
+expected:
+  assessment_mode: categorical_assessment
+  verdict_outcome: likely_in_scope
+  qualifica: importante
+  signals: []
+  notices: [pa_qualifica_elevabile_art_6_c_2, pa_esclusioni_sicurezza_nazionale_art_4_c_3, pa_lett_d_cumulo_l90_non_attestato]
+  regime_routing: []
+  corpus_ref: "wizard/wizard__pubblica_amministrazione.yaml#sottotipo_d[enti_servizi_assistenziali_ricreativi_culturali] -> sectors/sectors__pubblica_amministrazione.yaml#qualification_rules[categoria_pa==d] + exceptions/exceptions__catalog.yaml#exceptions[pa_qualifica_elevabile_art_6_c_2, pa_esclusioni_sicurezza_nazionale_art_4_c_3, pa_lett_d_cumulo_l90_non_attestato]"
+
+citations: [dlgs_138_2024_allegato_III, dlgs_138_2024_art_3_c_6, dlgs_138_2024_art_6_c_3, dlgs_138_2024_art_6_c_2, l_196_2009_art_1_c_3]

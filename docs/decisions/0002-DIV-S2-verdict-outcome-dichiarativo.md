@@ -1,6 +1,6 @@
 # ADR 0002 — DIV-S2: `verdict_outcome` dichiarativo, copiato senza inferenza
 
-- **Stato:** accettato; la "Nota override" è superata da ADR 0009 (2026-10-27)
+- **Stato:** accettato; la "Nota override" è superata da ADR 0009 (2026-10-27); la "strada 3" PA è superata da ADR 0011 (2026-10-28)
 - **Data:** 2026-07-02
 - **Ambito:** schema del corpus / contratto engine
 - **Codice divergenza:** DIV-S2
@@ -41,6 +41,13 @@ Il caso `qualitative_signal_only` è deliberatamente non fisso: per la PA
 categorie a/b/d con `qualifica_inferita` il rientro è probabile
 (`likely_in_scope`, verdetto categoriale differito a v0.2); per il PUN "no"
 (A1.1.a.3) è `likely_out_of_scope`; per canali non self-assessable è `ambiguous`.
+
+> **Nota 2026-10-28 (superamento):** la "strada 3" per la PA (categorie a/b/d
+> `qualitative_signal_only` con `qualifica_inferita`, verdetto categoriale differito)
+> è superata da ADR 0011 (corpus 0.5.0): le lettere a)-d) dell'Allegato III hanno
+> verdetto categoriale. La premessa era l'assenza di una fonte puntuale; il riscontro
+> del D.Lgs. 138/2024 su Normattiva del 2026-10-27 (DEC-007 A) l'ha rimossa. Il caso
+> `qualitative_signal_only` resta valido per PUN "no" e per i canali non self-assessable.
 
 ## Conseguenze
 

@@ -10,6 +10,8 @@
 #   via la domanda pertinenza pubblica di Cloud/Energia.
 # - NIENTE domanda ISTAT (strada 2): l'inclusione nella Lista S13 e' assunta
 #   e dichiarata nei reasoning_trace, non chiesta all'utente.
+# - Cloud PA (corpus 0.5.0, C5): la domanda comune cloud_pa e' per i fornitori;
+#   per la PA conta la domanda classificazione_cloud_pa (trigger dell'override).
 # ============================================================================
 
 meta:
@@ -26,23 +28,27 @@ sector_specific_questions:
   # Domanda principale: quale categoria dell'Allegato III
   - id: categoria_pa
     kind: single_select
-    label_it: "A quale tipo di pubblica amministrazione appartiene il soggetto?"
+    label_it: "A quale categoria dell'Allegato III appartiene il soggetto?"
     help_text_it: |
-      Seleziona la categoria che descrive il soggetto. Se non rientri in
-      nessuna di queste ma sei un soggetto pubblico (trasporto pubblico
-      locale, istituto di ricerca, ente culturale, società in-house),
-      scegli l'ultima opzione: esiste un canale di rientro specifico.
+      Le categorie riprendono l'Allegato III del D.Lgs. 138/2024, che riguarda
+      le pubbliche amministrazioni incluse nell'elenco ISTAT (art. 1 c. 3 L. 196/2009).
+      Un ente di ricerca o un ente culturale incluso nell'elenco ISTAT si indica
+      nella lettera d). L'ultima opzione è per i soggetti pubblici che non si
+      ritrovano in nessuna delle categorie precedenti.
     options:
       - id: a
-        label_it: "Amministrazione centrale dello Stato (ministero, agenzia statale, organo costituzionale)"
+        label_it: "Amministrazione centrale (lett. a): Organi costituzionali e di rilievo costituzionale; Presidenza del Consiglio dei ministri e Ministeri; Agenzie fiscali; Autorità amministrative indipendenti"
+      # Soggetti che l'art. 4 c. 2 non ricomprende tra le PA dell'art. 3 cc. 6-7
+      - id: esclusa_art_4_c_2
+        label_it: "Organo escluso dall'art. 4 c. 2: Parlamento italiano, Autorità giudiziaria, Banca d'Italia, Unità di informazione finanziaria per l'Italia"
       - id: b
-        label_it: "Regione o Provincia autonoma"
+        label_it: "Amministrazione regionale (lett. b): Regioni e Province autonome"
       - id: c
-        label_it: "Amministrazione locale (città metropolitana, comune grande, ASL)"
+        label_it: "Amministrazione locale (lett. c): Città metropolitane; Comuni con popolazione superiore a 100.000 abitanti; Comuni capoluoghi di regione; Aziende sanitarie locali"
       - id: d
-        label_it: "Ente a struttura associativa (es. ANCI, UPI, Unioncamere)"
+        label_it: "Altro soggetto pubblico (lett. d): enti di regolazione dell'attività economica, enti produttori di servizi economici, enti a struttura associativa, enti produttori di servizi assistenziali, ricreativi e culturali, enti e istituzioni di ricerca, istituti zooprofilattici sperimentali"
       - id: canale_allegato_iv
-        label_it: "Nessuna delle precedenti, ma è un soggetto pubblico (TPL, ricerca, cultura, in-house)"
+        label_it: "Nessuna delle precedenti: soggetto pubblico o a partecipazione pubblica fuori dall'Allegato III (es. trasporto pubblico locale, istituto di istruzione che svolge ricerca, soggetto di interesse culturale, società in-house)"
 
   # Sotto-domanda condizionale: sottotipo della categoria c)
   - id: sottotipo_c
@@ -63,6 +69,28 @@ sector_specific_questions:
         label_it: "Azienda Sanitaria Locale (ASL)"
         on_selected:
           activates_signals: [cross_sector_asl_sanitario]
+
+  # Sotto-domanda condizionale: sottotipo della categoria d) (corpus 0.5.0)
+  - id: sottotipo_d
+    kind: single_select
+    visible_if: { input: categoria_pa, op: eq, value: d }
+    label_it: "Quale tipo di soggetto pubblico della lettera d)?"
+    help_text_it: |
+      Le voci riprendono l'Allegato III lett. d) del D.Lgs. 138/2024.
+    options:
+      - id: enti_regolazione_attivita_economica
+        label_it: "Enti di regolazione dell'attività economica"
+      - id: enti_produttori_servizi_economici
+        label_it: "Enti produttori di servizi economici"
+      - id: enti_struttura_associativa
+        label_it: "Enti a struttura associativa"
+      - id: enti_servizi_assistenziali_ricreativi_culturali
+        label_it: "Enti produttori di servizi assistenziali, ricreativi e culturali"
+      - id: enti_istituzioni_ricerca
+        label_it: "Enti e Istituzioni di ricerca"
+      - id: istituti_zooprofilattici_sperimentali
+        label_it: "Istituti zooprofilattici sperimentali"
+    citations: [dlgs_138_2024_allegato_III]
 
   # Sotto-domanda condizionale: profilo del canale Allegato IV
   - id: profilo_allegato_iv
@@ -90,3 +118,14 @@ sector_specific_questions:
         # attiviamo entrambi gli id che puntano allo stesso fenomeno (l'engine
         # deduplica in fase di rendering del verdetto).
         activates_signals: [allegato_iv_individuazione, cross_sector_inhouse_all_iv, l90_cumulo]
+
+  # Cloud PA nel percorso PA (C5, corpus 0.5.0): trigger dell'override del settore.
+  # La domanda comune cloud_pa di wizard__disambiguation.yaml resta per i fornitori.
+  - id: classificazione_cloud_pa
+    kind: binary
+    label_it: "L'amministrazione ha classificato i propri dati e servizi digitali ai sensi del Regolamento Cloud per la PA (Decreto Direttoriale ACN n. 21007/24, art. 3)?"
+    help_text_it: |
+      La classificazione distingue dati e servizi digitali in ordinari, critici
+      e strategici. Se l'amministrazione non ha effettuato la classificazione,
+      rispondi «no».
+    citations: [dd_acn_21007_24_art_3, det_acn_155238_2026_art_4]

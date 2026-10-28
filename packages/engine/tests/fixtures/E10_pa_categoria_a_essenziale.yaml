@@ -1,10 +1,11 @@
 scenario_id: E10
-name: pa_categoria_a_signal_inferito
+name: pa_categoria_a_essenziale
 description_it: >
-  Amministrazione centrale dello Stato (Allegato III lett. a). La qualifica di
-  soggetto essenziale e' ricostruita dall'architettura del decreto, non da fonte
-  puntuale gia' verificata: outcome qualitative_signal_only con qualifica_inferita
-  essenziale (verdetto categoriale differito a v0.2). Signal di cumulo L. 90 attivo.
+  Amministrazione centrale (Allegato III lett. a), ad esempio un Ministero. Rientro
+  per legge indipendentemente dalla dimensione (art. 3 c. 6); qualifica essenziale
+  per art. 6 c. 1 lett. e) (ADR 0011, supera la "strada 3"). Avvisi dal catalogo:
+  Capo V non applicabile agli organi costituzionali (art. 4 c. 2) ed esclusioni di
+  sicurezza nazionale (art. 4 D.Lgs. 138/2024) per attività. Signal di cumulo L. 90 attivo.
 corpus_version: 0.4.0
 sector: pubblica_amministrazione
 
@@ -13,13 +14,15 @@ inputs:
   dora: "no"
   cloud_pa: "no"
   categoria_pa: a
+  classificazione_cloud_pa: "no"
 
 expected:
-  assessment_mode: qualitative_signal_only
+  assessment_mode: categorical_assessment
   verdict_outcome: likely_in_scope
-  qualifica_inferita: essenziale
+  qualifica: essenziale
   signals: [l90_cumulo]
+  notices: [pa_organi_costituzionali_capo_v_art_4_c_2, pa_esclusioni_sicurezza_nazionale_art_4_c_3]
   regime_routing: []
-  corpus_ref: "sectors/sectors__pubblica_amministrazione.yaml#qualification_rules[categoria_pa==a]"
+  corpus_ref: "wizard/wizard__pubblica_amministrazione.yaml#categoria_pa[a] -> sectors/sectors__pubblica_amministrazione.yaml#qualification_rules[categoria_pa==a] + exceptions/exceptions__catalog.yaml#exceptions[pa_organi_costituzionali_capo_v_art_4_c_2, pa_esclusioni_sicurezza_nazionale_art_4_c_3]"
 
-citations: [dlgs_138_2024_allegato_III, dlgs_138_2024_art_3_c_6, l_196_2009_art_1_c_3]
+citations: [dlgs_138_2024_allegato_III, dlgs_138_2024_art_3_c_6, dlgs_138_2024_art_6_c_1_lett_e, dlgs_138_2024_art_40_c_5_lett_a, l_196_2009_art_1_c_3]

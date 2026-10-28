@@ -2,7 +2,7 @@
  * Fault-injection tests of corpus:validate. Each test validates an in-memory copy
  * of the real corpus with one injected fault and expects its error code: the seven
  * faults injected by hand in S1.1 plus the three introduced with ADR 0010 and the
- * rule-input invariant (S2).
+ * rule-input invariant (S2), and the exceptions catalog checks (corpus 0.5.0, ADR 0012).
  */
 import { beforeAll, describe, expect, it } from 'vitest';
 import { loadFromDisk, validateCorpus, type RawCorpus, type SourceTexts } from '../src/index.ts';
@@ -100,7 +100,7 @@ describe('corpus:validate', () => {
     });
   });
 
-  describe('S2 faults (ADR 0010, rule inputs)', () => {
+  describe('S2 and 0.5.0 faults (ADR 0010, rule inputs, ADR 0012)', () => {
     const registratoPun = (c: RawCorpus) =>
       wizard(c, 'energia_elettrica').sector_specific_questions.find((x: Doc) => x.id === 'registrato_pun');
 
@@ -117,6 +117,21 @@ describe('corpus:validate', () => {
         q.visible_if = { any_of: [{ all_of: q.visible_if.any_of }, q.visible_if.any_of[0]] };
       });
       expectCode(errors, 'E_VISIBLE_IF', 'wizard__energia_elettrica.yaml');
+    });
+
+    it('notice pointing to a missing catalog entry -> E_CATALOG_REF', () => {
+      const errors = errorsAfter((c) => {
+        sector(c, 'pubblica_amministrazione').qualification_rules[0].notices.push('voce_inesistente');
+      });
+      expectCode(errors, 'E_CATALOG_REF', 'sectors__pubblica_amministrazione.yaml');
+    });
+
+    it('prescriptive wording in the catalog -> E_COPY', () => {
+      const errors = errorsAfter((c) => {
+        const cat = c.exceptions['exceptions/exceptions__catalog.yaml'] as Doc;
+        cat.exceptions[0].description = 'Devi verificare il regime con un consulente.';
+      });
+      expectCode(errors, 'E_COPY', 'exceptions__catalog.yaml');
     });
 
     it('rule reading an input missing from the wizard -> E_RULE_INPUT', () => {

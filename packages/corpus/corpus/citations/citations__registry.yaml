@@ -1,0 +1,49 @@
+# ============================================================================
+# Registro delle citazioni — attestazione KB dei citation ID (corpus 0.5.0)
+# ============================================================================
+# Ogni voce collega un citation ID al nodo KB che lo attesta, con riga e modo
+# dell'attestazione. Il registro parte dagli ID introdotti in 0.5.0 (pacchetto PA,
+# ADR 0011); gli ID precedenti non sono ancora registrati.
+#
+# Convenzione degli ID (dedotta dal corpus): <atto>_<numero>_<anno>, poi
+# _art_<n>, _c_<n> (comma), _lett_<x> (lettera, nuova in 0.5.0, minuscola);
+# allegati con il numero romano maiuscolo (_allegato_III, come in uso dal 0.1.0).
+#
+# Nodo KB: LLM_Wiki, wiki/sources/D.Lgs. 138-2024 (Decreto NIS).md (stesse righe
+# nell'export del Project Knowledge). Riscontro su Normattiva del 2026-10-27,
+# DEC-007 parte A (provenance_note, riga 8).
+# ============================================================================
+
+citations:
+  - id: dlgs_138_2024_art_3_c_7
+    kb_node: "wiki/sources/D.Lgs. 138-2024 (Decreto NIS).md"
+    kb_lines: "34"
+    attestation: "Categorie di PA aggiunte con DPCM ('ulteriori categorie di pubbliche amministrazioni'), con l'art. 40 c. 2 lett. b). Riscontro Normattiva 2026-10-27 (riga 8)."
+  - id: dlgs_138_2024_art_40_c_2_lett_b
+    kb_node: "wiki/sources/D.Lgs. 138-2024 (Decreto NIS).md"
+    kb_lines: "34"
+    attestation: "DPCM che possono individuare ulteriori categorie di PA di cui all'art. 3 cc. 6-7. Riscontro Normattiva 2026-10-27 (riga 8)."
+  - id: dlgs_138_2024_art_4_c_2
+    kb_node: "wiki/sources/D.Lgs. 138-2024 (Decreto NIS).md"
+    kb_lines: "35"
+    attestation: "Verbatim: i soggetti dei cc. 6-7 'non ricomprendono il Parlamento italiano, l'Autorità giudiziaria, la Banca d'Italia e l'Unità di informazione finanziaria per l'Italia'; agli organi costituzionali e di rilievo costituzionale non si applica il Capo V. Riscontro Normattiva 2026-10-27 (riga 8)."
+  - id: dlgs_138_2024_art_4_c_3
+    kb_node: "wiki/sources/D.Lgs. 138-2024 (Decreto NIS).md"
+    kb_lines: "35"
+    attestation: "Decreto non applicabile a enti, organi e articolazioni della PA che operano nei settori della pubblica sicurezza, della difesa nazionale o dell'attività di contrasto, agli organismi di informazione per la sicurezza (L. 124/2007) e all'ACN. Riscontro Normattiva 2026-10-27 (riga 8)."
+  - id: dlgs_138_2024_art_6_c_1_lett_e
+    kb_node: "wiki/sources/D.Lgs. 138-2024 (Decreto NIS).md"
+    kb_lines: "36"
+    attestation: "Verbatim: essenziali 'indipendentemente dalle loro dimensioni, le pubbliche amministrazioni centrali di cui all'allegato III, comma 1, lettera a)'. Riscontro Normattiva 2026-10-27 (riga 8)."
+  - id: dlgs_138_2024_art_6_c_2
+    kb_node: "wiki/sources/D.Lgs. 138-2024 (Decreto NIS).md"
+    kb_lines: "36"
+    attestation: "L'ACN individua, con le modalità dell'art. 40 c. 5, i soggetti dell'art. 3 cc. 6, 8, 9 e 10 considerati essenziali. Riscontro Normattiva 2026-10-27 (riga 8)."
+  - id: dlgs_138_2024_art_6_c_3
+    kb_node: "wiki/sources/D.Lgs. 138-2024 (Decreto NIS).md"
+    kb_lines: "36"
+    attestation: "Sono importanti i soggetti dell'art. 3 non considerati essenziali ai sensi dei cc. 1 e 2; ne segue che la PA delle lett. b)-d) è importante salvo individuazione ex c. 2. Riscontro Normattiva 2026-10-27 (riga 8)."
+  - id: dlgs_138_2024_art_40_c_5_lett_a
+    kb_node: "wiki/sources/D.Lgs. 138-2024 (Decreto NIS).md"
+    kb_lines: "8, 36"
+    attestation: "Riscontro parola per parola su Normattiva del 2026-10-27 (provenance_note, riga 8); la riga 36 rinvia all'art. 40 c. 5 senza riportarne il testo. Testo ufficiale (PDF in raw/): con determinazione ACN, ai sensi degli artt. 3 e 6, è stabilito l'elenco dei soggetti essenziali e dei soggetti importanti di cui all'art. 7 c. 2."

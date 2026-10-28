@@ -15,6 +15,7 @@
 # - qualifica vs qualifica_inferita: 'qualifica' quando il tool la EMETTE
 #   (outcome categorical_assessment); 'qualifica_inferita' quando la SEGNALA
 #   soltanto (outcome qualitative_signal_only). Mai entrambe sulla stessa voce.
+#   Da corpus 0.5.0 (ADR 0011) tutte le lettere a)-d) emettono la qualifica.
 # - Filtro ISTAT (Lista S13): strada 2 — non chiesto al wizard, assunto e
 #   dichiarato nel reasoning_trace come prerequisito da verificare.
 # ============================================================================
@@ -53,22 +54,20 @@ rientro_prerequisite:
 
 categorie:
   - id: a
-    label_it: "Amministrazioni centrali dello Stato"
-    descrizione_it: "Ministeri, Presidenza del Consiglio, organi costituzionali, agenzie statali in elenco ISTAT."
+    label_it: "Amministrazioni centrali"
+    descrizione_it: "Allegato III lett. a): Organi costituzionali e di rilievo costituzionale; Presidenza del Consiglio dei ministri e Ministeri; Agenzie fiscali; Autorita' amministrative indipendenti. L'art. 4 c. 2 non vi ricomprende Parlamento italiano, Autorita' giudiziaria, Banca d'Italia e Unita' di informazione finanziaria per l'Italia."
     faq_code: A3_a
-    citations: [dlgs_138_2024_allegato_III, faq_settori_sottosettori]
-    # Qualifica architetturale INFERITA (la KB la ricostruisce, non da fonte puntuale)
-    # -> outcome qualitative_signal_only (vedi qualification_rules)
+    citations: [dlgs_138_2024_allegato_III, dlgs_138_2024_art_4_c_2, faq_settori_sottosettori]
 
   - id: b
-    label_it: "Regioni e Province autonome"
-    descrizione_it: "Giunte e Consigli regionali (registrazione separata dell'organo, A3.b.1.1)."
+    label_it: "Amministrazioni regionali"
+    descrizione_it: "Allegato III lett. b): Regioni e Province autonome (registrazione separata dell'organo, A3.b.1.1)."
     faq_code: A3_b
     citations: [dlgs_138_2024_allegato_III, faq_settori_sottosettori]
 
   - id: c
     label_it: "Amministrazioni locali"
-    descrizione_it: "Quattro sottotipi con trattamento non uniforme (l'ASL ha doppia identita')."
+    descrizione_it: "Allegato III lett. c): quattro sottotipi con trattamento non uniforme (l'ASL ha doppia identita')."
     faq_code: A3_c
     citations: [dlgs_138_2024_allegato_III, faq_settori_sottosettori]
     sottotipi:
@@ -88,54 +87,79 @@ categorie:
         special_handling: doppia_identita_sanitario
 
   - id: d
-    label_it: "Enti a struttura associativa"
-    descrizione_it: "Soggetti dell'omonima categoria ISTAT (es. ANCI, UPI, Unioncamere)."
+    label_it: "Altri soggetti pubblici"
+    descrizione_it: "Allegato III lett. d): sei sottotipi (vedi wizard, domanda sottotipo_d)."
     faq_code: A3_d
     citations: [dlgs_138_2024_allegato_III, faq_settori_sottosettori]
-    # NOTA: la categoria d) NON e' nell'elenco dei soggetti L. 90 art. 1 c. 1.
-    # Il signal L. 90 NON si attiva per questa categoria (opzione B con rigore).
+    sottotipi:
+      - id: enti_regolazione_attivita_economica
+        label_it: "Enti di regolazione dell'attivita' economica"
+      - id: enti_produttori_servizi_economici
+        label_it: "Enti produttori di servizi economici"
+      - id: enti_struttura_associativa
+        label_it: "Enti a struttura associativa"
+      - id: enti_servizi_assistenziali_ricreativi_culturali
+        label_it: "Enti produttori di servizi assistenziali, ricreativi e culturali"
+      - id: enti_istituzioni_ricerca
+        label_it: "Enti e Istituzioni di ricerca"
+      - id: istituti_zooprofilattici_sperimentali
+        label_it: "Istituti zooprofilattici sperimentali"
+    # NOTA: il cumulo con la L. 90/2024 per la lett. d) non e' attestato: il signal
+    # l90_cumulo non si attiva (applies_to_categories [a, b, c]); avviso dal catalogo
+    # eccezioni (pa_lett_d_cumulo_l90_non_attestato, STATUS 14).
 
 # ============================================================================
 # Regole di qualificazione (size-blind: condizione sulla CATEGORIA)
 # La strategia di verdetto (outcome) vive QUI, non nelle categorie.
+# ADR 0011: la PA dell'Allegato III lett. a)-d) rientra per legge, indipendentemente
+# dalla dimensione (art. 3 c. 6): tutte e quattro le lettere hanno un verdetto
+# categoriale. Supera la "strada 3" (ADR 0002, nota sul qualitative_signal_only PA).
+# Gli avvisi (notices) puntano al catalogo eccezioni (ADR 0012).
 # ============================================================================
 
 qualification_rules:
-  # Categoria a) — essenziale INFERITA -> qualitative_signal_only (strada 3)
+  # Categoria a) — essenziale per art. 6 c. 1 lett. e)
   - condition: categoria_pa == a
-    outcome: qualitative_signal_only
-    verdict_outcome: likely_in_scope   # qualitative_signal_only con qualifica_inferita essenziale: rientro probabile inferito, verdetto categoriale differito a v0.2
-    qualifica_inferita: essenziale
-    qualitative_signal_template: pa_categoria_inferita
-    reasoning_trace: "Per le amministrazioni centrali dello Stato (Allegato III lett. a), la qualifica di soggetto essenziale e' ricostruita dall'architettura del decreto e non da una fonte normativa puntuale gia' verificata. Lo strumento segnala il probabile rientro senza emettere una qualifica categoriale. La valutazione presuppone l'inclusione nell'elenco ISTAT (Lista S13). Verifica obbligatoria con consulente qualificato e con la determinazione ACN identificativa delle PA NIS."
-    citations: [dlgs_138_2024_allegato_III, dlgs_138_2024_art_3_c_6, l_196_2009_art_1_c_3]
+    outcome: categorical_assessment
+    verdict_outcome: likely_in_scope   # vincolo fisso: categorical_assessment in-scope -> likely_in_scope
+    qualifica: essenziale
+    reasoning_trace: "Per le amministrazioni centrali dell'Allegato III lett. a) (organi costituzionali e di rilievo costituzionale, Presidenza del Consiglio dei ministri e Ministeri, Agenzie fiscali, Autorita' amministrative indipendenti), l'analisi suggerisce il rientro nel perimetro NIS2 italiano come soggetto essenziale, indipendentemente dalla dimensione (art. 3 c. 6 e art. 6 c. 1 lett. e) D.Lgs. 138/2024). L'elenco dei soggetti essenziali e importanti e' stabilito con determinazione dell'ACN (art. 40 c. 5 lett. a)). La valutazione presuppone l'inclusione nell'elenco ISTAT (Lista S13). Verifica obbligatoria con consulente qualificato."
+    citations: [dlgs_138_2024_allegato_III, dlgs_138_2024_art_3_c_6, dlgs_138_2024_art_6_c_1_lett_e, dlgs_138_2024_art_40_c_5_lett_a, l_196_2009_art_1_c_3]
+    notices: [pa_organi_costituzionali_capo_v_art_4_c_2, pa_esclusioni_sicurezza_nazionale_art_4_c_3]
 
-  # Categoria b) — essenziale INFERITA -> qualitative_signal_only
+  # Soggetti che l'art. 4 c. 2 non ricomprende tra le PA dell'art. 3 cc. 6-7
+  - condition: categoria_pa == esclusa_art_4_c_2
+    outcome: out_of_scope
+    verdict_outcome: likely_out_of_scope   # vincolo fisso: out_of_scope -> likely_out_of_scope
+    reasoning_trace: "Il soggetto indicato (Parlamento italiano, Autorita' giudiziaria, Banca d'Italia o Unita' di informazione finanziaria per l'Italia) e' tra quelli che l'art. 4 c. 2 D.Lgs. 138/2024 non ricomprende tra le pubbliche amministrazioni dell'art. 3 cc. 6-7. Sulla base degli input forniti, l'analisi suggerisce che il soggetto non rientri nel perimetro NIS2 italiano come pubblica amministrazione dell'Allegato III. Verifica obbligatoria con consulente qualificato."
+    citations: [dlgs_138_2024_art_4_c_2]
+
+  # Categoria b) — importante per art. 6 c. 3, elevabile ex art. 6 c. 2
   - condition: categoria_pa == b
-    outcome: qualitative_signal_only
-    verdict_outcome: likely_in_scope   # qualitative_signal_only con qualifica_inferita essenziale: rientro probabile inferito, verdetto categoriale differito a v0.2
-    qualifica_inferita: essenziale
-    qualitative_signal_template: pa_categoria_inferita
-    reasoning_trace: "Per le Regioni e Province autonome (Allegato III lett. b), la qualifica di soggetto essenziale e' ricostruita dall'architettura del decreto e non da una fonte normativa puntuale gia' verificata. Lo strumento segnala il probabile rientro senza emettere una qualifica categoriale. La valutazione presuppone l'inclusione nell'elenco ISTAT (Lista S13). Verifica obbligatoria con consulente qualificato."
-    citations: [dlgs_138_2024_allegato_III, dlgs_138_2024_art_3_c_6, l_196_2009_art_1_c_3]
+    outcome: categorical_assessment
+    verdict_outcome: likely_in_scope   # vincolo fisso: categorical_assessment in-scope -> likely_in_scope
+    qualifica: importante
+    reasoning_trace: "Per le Regioni e Province autonome (Allegato III lett. b), l'analisi suggerisce il rientro nel perimetro NIS2 italiano come soggetto importante, indipendentemente dalla dimensione (art. 3 c. 6 e art. 6 c. 3 D.Lgs. 138/2024); la qualifica puo' essere elevata a essenziale con individuazione dell'ACN (art. 6 c. 2). La valutazione presuppone l'inclusione nell'elenco ISTAT (Lista S13). Verifica obbligatoria con consulente qualificato."
+    citations: [dlgs_138_2024_allegato_III, dlgs_138_2024_art_3_c_6, dlgs_138_2024_art_6_c_3, dlgs_138_2024_art_6_c_2, l_196_2009_art_1_c_3]
+    notices: [pa_qualifica_elevabile_art_6_c_2, pa_esclusioni_sicurezza_nazionale_art_4_c_3]
 
-  # Categoria c) — importante, ben coperta dalle FAQ -> categorical_assessment
+  # Categoria c) — importante per art. 6 c. 3, elevabile ex art. 6 c. 2
   - condition: categoria_pa == c
     outcome: categorical_assessment
     verdict_outcome: likely_in_scope   # vincolo fisso: categorical_assessment in-scope -> likely_in_scope
     qualifica: importante
-    reasoning_trace: "Per le amministrazioni locali (Allegato III lett. c), l'analisi suggerisce il rientro come soggetto importante, a prescindere dalla dimensione (art. 3 c. 6 D.Lgs. 138/2024). La valutazione presuppone l'inclusione nell'elenco ISTAT (Lista S13). Verifica obbligatoria con consulente qualificato prima di assumere conclusioni operative."
-    citations: [dlgs_138_2024_allegato_III, dlgs_138_2024_art_3_c_6, faq_settori_sottosettori]
+    reasoning_trace: "Per le amministrazioni locali (Allegato III lett. c), l'analisi suggerisce il rientro nel perimetro NIS2 italiano come soggetto importante, indipendentemente dalla dimensione (art. 3 c. 6 e art. 6 c. 3 D.Lgs. 138/2024); la qualifica puo' essere elevata a essenziale con individuazione dell'ACN (art. 6 c. 2). La valutazione presuppone l'inclusione nell'elenco ISTAT (Lista S13). Verifica obbligatoria con consulente qualificato prima di assumere conclusioni operative."
+    citations: [dlgs_138_2024_allegato_III, dlgs_138_2024_art_3_c_6, dlgs_138_2024_art_6_c_3, dlgs_138_2024_art_6_c_2, faq_settori_sottosettori]
+    notices: [pa_qualifica_elevabile_art_6_c_2, pa_esclusioni_sicurezza_nazionale_art_4_c_3]
 
-  # Categoria d) — importante INFERITA -> qualitative_signal_only
-  # (e nessun signal L. 90 — vedi nota nella categoria d)
+  # Categoria d) — importante per art. 6 c. 3, elevabile ex art. 6 c. 2
   - condition: categoria_pa == d
-    outcome: qualitative_signal_only
-    verdict_outcome: likely_in_scope   # qualitative_signal_only con qualifica_inferita importante: rientro probabile inferito, verdetto categoriale differito a v0.2
-    qualifica_inferita: importante
-    qualitative_signal_template: pa_categoria_inferita
-    reasoning_trace: "Per gli enti a struttura associativa (Allegato III lett. d), la qualifica di soggetto importante e' ricostruita dall'architettura del decreto e non da una fonte normativa puntuale gia' verificata. Lo strumento segnala il probabile rientro senza emettere una qualifica categoriale. La valutazione presuppone l'inclusione nell'elenco ISTAT (Lista S13). Verifica obbligatoria con consulente qualificato."
-    citations: [dlgs_138_2024_allegato_III, dlgs_138_2024_art_3_c_6, l_196_2009_art_1_c_3]
+    outcome: categorical_assessment
+    verdict_outcome: likely_in_scope   # vincolo fisso: categorical_assessment in-scope -> likely_in_scope
+    qualifica: importante
+    reasoning_trace: "Per gli altri soggetti pubblici dell'Allegato III lett. d) (enti di regolazione dell'attivita' economica, enti produttori di servizi economici, enti a struttura associativa, enti produttori di servizi assistenziali, ricreativi e culturali, enti e istituzioni di ricerca, istituti zooprofilattici sperimentali), l'analisi suggerisce il rientro nel perimetro NIS2 italiano come soggetto importante, indipendentemente dalla dimensione (art. 3 c. 6 e art. 6 c. 3 D.Lgs. 138/2024); la qualifica puo' essere elevata a essenziale con individuazione dell'ACN (art. 6 c. 2). La valutazione presuppone l'inclusione nell'elenco ISTAT (Lista S13). Verifica obbligatoria con consulente qualificato."
+    citations: [dlgs_138_2024_allegato_III, dlgs_138_2024_art_3_c_6, dlgs_138_2024_art_6_c_3, dlgs_138_2024_art_6_c_2, l_196_2009_art_1_c_3]
+    notices: [pa_qualifica_elevabile_art_6_c_2, pa_esclusioni_sicurezza_nazionale_art_4_c_3, pa_lett_d_cumulo_l90_non_attestato]
 
 # ============================================================================
 # Override di regime — solo Cloud PA e' PA-specifico
@@ -145,7 +169,9 @@ qualification_rules:
 # ============================================================================
 
 overrides:
-  - trigger: cloud_pa == yes
+  # C5 (corpus 0.5.0): la domanda comune cloud_pa e' per i fornitori; per la PA il
+  # trigger e' la condizione stessa dell'override (PA che ha classificato dati e servizi).
+  - trigger: classificazione_cloud_pa == yes
     override_kind: model_substitution
     reference: regimes/cloud_pa.yaml
     reasoning_trace: "Per una Pubblica Amministrazione, la classificazione dei dati e dei servizi ai sensi del Regolamento Cloud (Decreto Direttoriale ACN n. 21007/24 del 27 giugno 2024, art. 3) comporta l'applicazione del modello Cloud PA (ordinari/critici/strategici) in luogo del modello di categorizzazione NIS, ai sensi dell'art. 4 Det. ACN 155238/2026. L'elenco delle attivita' e dei servizi coincide con quello dei dati e servizi digitali classificati ai sensi del Regolamento Cloud."
@@ -168,6 +194,8 @@ allegato_iv_channel:
   signal: allegato_iv_individuazione
   verdict_strategy: qualitative_signal_only
   verdict_outcome: ambiguous   # canale All. IV (incl. in-house): dipende da atto dell'autorita', non determinabile in self-assessment
+  # soggetti pubblici fuori dalle categorie dell'Allegato III: possibili categorie aggiunte con DPCM
+  notices: [pa_categorie_aggiunte_dpcm_art_3_c_7]
   profili:
     - id: tpl
       label_it: "Trasporto pubblico locale"
@@ -195,10 +223,6 @@ allegato_iv_channel:
 # ============================================================================
 
 out_of_scope_mvp:
-  - case: pa_categoria_a_b_d_verdetto_categoriale
-    handling: qualitative_signal_only
-    verdict_outcome: likely_in_scope   # rientro inferito per a)/b)/d); il verdetto categoriale e' differito, non l'ambito
-    scope_evolution_note: "Il verdetto categoriale per le categorie a), b), d) e' previsto a v0.2, previo ingest della determinazione ACN identificativa delle PA NIS (lacuna strutturale nota, backlog Wave 8+)."
   - case: settore_sanitario_allegato_I_p5
     handling: cross_sector_signal
     verdict_outcome: ambiguous   # settore sanitario non pilota: doppia identita' ASL segnalata, non valutata
