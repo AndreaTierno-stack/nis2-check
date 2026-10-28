@@ -5,6 +5,7 @@ scope: both
 tags: [nis2, italia, identificazione, registrazione, acn, art-7]
 sources: ["[[sources/D.Lgs. 138-2024 (Decreto NIS)]]", "[[sources/Direttiva (UE) 2022-2555 (NIS2)]]", "[[sources/Determinazione ACN piattaforma e procedure - 2026-04-13]]", "[[sources/Determinazione ACN termini soggetti 2026 - 2026-04-30]]", "[[sources/FAQ NIS - Profili generali]]", "[[sources/FAQ NIS - Ambito]]", "[[sources/FAQ NIS - Settori, sottosettori e tipologie di soggetto]]", "[[sources/FAQ NIS - Registrazione]]"]
 aliases: [Identificazione governativa, Registrazione NIS, Iscrizione NIS]
+updated: 2026-10-27
 ---
 
 ## Definizione
@@ -20,7 +21,7 @@ Disciplina nel [[sources/D.Lgs. 138-2024 (Decreto NIS)|D.Lgs. 138/2024 Art. 7]] 
 - **Finestra di registrazione annuale**: dal **1° gennaio al 28 febbraio** di ogni anno.
 - **Comunicazione di ACN**: entro il **31 marzo** ACN comunica al soggetto la classificazione (essenziale / importante / non rientrante).
 - **Decorrenza obblighi**: dal **1° gennaio dell'anno successivo** alla classificazione.
-- **Eccezioni alla soglia dimensionale**: alcuni soggetti rientrano **a prescindere dalla dimensione** (PA centrali, soggetti unici/critici, fornitori DNS, registri TLD, prestatori di servizi fiduciari qualificati, ecc.).
+- **Eccezioni alla soglia dimensionale**: alcuni soggetti rientrano **a prescindere dalla dimensione** (PA dell'Allegato III lett. a)-d), art. 3 c. 6 [[sources/D.Lgs. 138-2024 (Decreto NIS)|D.Lgs. 138/2024]]; soggetti unici/critici, fornitori DNS, registri TLD, prestatori di servizi fiduciari qualificati, ecc.).
 - **Concorso autorità di settore**: le [[entities/Autorità di settore NIS]] cooperano nell'identificazione dei soggetti del proprio settore tramite il [[entities/Tavolo per l'attuazione della disciplina NIS|Tavolo NIS]].
 
 ### Calendario annuale completo (post-registrazione)

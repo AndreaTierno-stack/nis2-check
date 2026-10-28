@@ -5,18 +5,19 @@ scope: both
 tags: [nis2, settori, allegati, ambito]
 sources: ["[[sources/Direttiva (UE) 2022-2555 (NIS2)]]", "[[sources/D.Lgs. 138-2024 (Decreto NIS)]]", "[[sources/FAQ NIS - Settori, sottosettori e tipologie di soggetto]]"]
 aliases: [Settori NIS2, Settori Allegato I, Settori Allegato II]
+updated: 2026-10-27
 ---
 
 ## Definizione
 
 NIS2 distingue gli ambiti settoriali coperti in due gruppi:
 
-- **Settori altamente critici** (Allegato I direttiva / Allegato I D.Lgs. 138): 11 settori la cui perturbazione produce impatti sistemici sull'economia o sulla società. I soggetti grandi qui dentro sono **soggetti essenziali**.
+- **Settori altamente critici** (Allegato I direttiva / Allegato I D.Lgs. 138): 11 settori nella direttiva, 10 nel D.Lgs. 138, la cui perturbazione produce impatti sistemici sull'economia o sulla società. I soggetti grandi qui dentro sono **soggetti essenziali**.
 - **Settori critici** (Allegato II direttiva / Allegato II D.Lgs. 138): 7 settori comunque rilevanti ma con impatto sistemico minore. I soggetti rientranti qui dentro sono **soggetti importanti**.
 
-Plus alcuni allegati aggiuntivi del decreto italiano (Allegato III/IV) per le **PA** e altre categorie particolari.
+Plus alcuni allegati aggiuntivi del decreto italiano (Allegato III/IV) per le **PA** e altre categorie particolari: la PA dell'Allegato III lett. a)-d) rientra per legge a prescindere dalla dimensione (art. 3 c. 6 [[sources/D.Lgs. 138-2024 (Decreto NIS)|D.Lgs. 138/2024]]).
 
-## Allegato I — Settori altamente critici (11)
+## Allegato I — Settori altamente critici (10 nel D.Lgs. 138)
 
 1. **Energia** — elettricità, gas, petrolio, teleriscaldamento/raffreddamento, idrogeno
 2. **Trasporti** — aerei, ferroviari, marittimi, stradali
@@ -27,8 +28,9 @@ Plus alcuni allegati aggiuntivi del decreto italiano (Allegato III/IV) per le **
 7. **Acque reflue**
 8. **Infrastrutture digitali** — IXP, DNS, TLD, cloud, data center, CDN, servizi fiduciari, reti e servizi di comunicazione elettronica
 9. **Gestione dei servizi TIC (B2B)** — MSP, MSSP
-10. **PA** — amministrazioni centrali (regionali secondo identificazione nazionale)
-11. **Spazio**
+10. **Spazio**
+
+Nella direttiva la PA è il settore 10 dell'Allegato I (Spazio è l'11). Il [[sources/D.Lgs. 138-2024 (Decreto NIS)|D.Lgs. 138/2024]] la toglie dall'Allegato I e la disciplina nell'Allegato III (lett. a)-d), art. 3 c. 6).
 
 ## Allegato II — Settori critici (7)
 

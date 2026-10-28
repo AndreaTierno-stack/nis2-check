@@ -5,6 +5,7 @@ scope: both
 tags: [italia, l90-2024, perimetro, ambito-soggettivo, pa, art-1]
 sources: ["[[sources/Legge 90-2024 (cybersicurezza nazionale)]]", "[[sources/D.Lgs. 138-2024 (Decreto NIS)]]"]
 aliases: [Ambito soggettivo L. 90, Soggetti L. 90, Platea L. 90]
+updated: 2026-10-27
 ---
 
 ## Definizione
@@ -74,7 +75,7 @@ Il perimetro L. 90 è **simile ma non coincidente** con l'Allegato III del decre
 
 ## Funzione
 
-- **Chiude il gap** lasciato da NIS2 sul settore pubblico: l'All. III NIS copre PA centrali + locali grandi, ma esclude le **società in house** e i **trasporti pubblici locali** (che entrano in NIS solo via individuazione All. IV, procedura lenta).
+- **Chiude il gap** lasciato da NIS2 sul settore pubblico: l'All. III NIS copre le PA delle lett. a)-d) (centrali, regionali, locali, altri soggetti pubblici; elenco nel [[sources/D.Lgs. 138-2024 (Decreto NIS)|D.Lgs. 138/2024]]), ma esclude le **società in house** e i **trasporti pubblici locali** (che entrano in NIS solo via individuazione All. IV, procedura lenta).
 - **Anticipa NIS2** per i soggetti pubblici dove l'identificazione NIS2 richiede tempo (notifica All. IV).
 - **Estende il principio del referente cyber** (art. 8) anche oltre l'ambito strettamente NIS.
 

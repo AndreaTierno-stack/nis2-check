@@ -5,7 +5,7 @@ scope: both
 tags: [nis2, soglia, dimensione, ambito, classificazione]
 sources: ["[[sources/Direttiva (UE) 2022-2555 (NIS2)]]", "[[sources/D.Lgs. 138-2024 (Decreto NIS)]]", "[[sources/FAQ NIS - Ambito]]"]
 aliases: [Regola dimensionale, Soglia dimensionale NIS2]
-updated: 2026-10-26
+updated: 2026-10-27
 ---
 
 ## Definizione
@@ -24,7 +24,7 @@ Criterio **dimensionale** che la NIS2 utilizza per stabilire automaticamente qua
 - **Medie**: non piccole (≥50 effettivi, **oppure** fatturato e bilancio entrambi >10 M€), con <250 effettivi **e** almeno uno tra fatturato ≤ 50 M€ e bilancio ≤ 43 M€ → di regola **soggetti importanti**.
 - **Grandi**: ≥250 effettivi, **oppure** fatturato >50 M€ **e** bilancio >43 M€ → di regola **soggetti essenziali** (se in settore "altamente critico" Allegato I).
 
-Le **eccezioni alla soglia** (soggetti che rientrano a prescindere dalla dimensione) sono elencate nella direttiva e nel decreto: PA centrali, prestatori di servizi fiduciari qualificati, fornitori di reti pubbliche di comunicazioni elettroniche e di servizi di comunicazione elettronica accessibili al pubblico, fornitori di DNS, registri TLD, soggetti **unici** in uno Stato, soggetti **critici** identificati a livello nazionale.
+Le **eccezioni alla soglia** (soggetti che rientrano a prescindere dalla dimensione) sono elencate nella direttiva e nel decreto: PA dell'Allegato III lett. a)-d) (art. 3 c. 6 [[sources/D.Lgs. 138-2024 (Decreto NIS)|D.Lgs. 138/2024]]), prestatori di servizi fiduciari qualificati, fornitori di reti pubbliche di comunicazioni elettroniche e di servizi di comunicazione elettronica accessibili al pubblico, fornitori di DNS, registri TLD, soggetti **unici** in uno Stato, soggetti **critici** identificati a livello nazionale.
 
 ## Sviluppo
 

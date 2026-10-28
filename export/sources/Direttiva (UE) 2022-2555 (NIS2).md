@@ -10,6 +10,7 @@ date_published: 2022-12-14
 date_ingested: 2026-04-28
 tags: [nis2, ue, direttiva, cybersicurezza, normativa-primaria]
 aliases: [NIS2, Direttiva NIS2, Direttiva 2022/2555]
+updated: 2026-10-28
 ---
 
 ## TL;DR
@@ -21,6 +22,7 @@ Direttiva UE che fissa misure per un livello comune elevato di cybersicurezza ne
 - **Sostituisce la NIS1**: la Direttiva (UE) 2016/1148 è abrogata con effetto 18 ottobre 2024.
 - **Ambito ampliato**: 11 settori "altamente critici" (Allegato I) + 7 settori "critici" (Allegato II), tra cui PA, spazio, gestione rifiuti, alimentare, manifattura.
 - **Classificazione binaria**: soggetti **essenziali** (soggetti dell'Allegato I che superano i massimali delle medie imprese, più le categorie a prescindere dalla dimensione: PA centrali e qualifiche speciali) vs **importanti** (gli altri rientranti, incluse le medie imprese dell'Allegato I) — cfr. [[sources/FAQ NIS - Ambito]] `AMB.GE.2` e [[concepts/Soggetti essenziali e importanti]]. Distinzione basata sulla **size-cap rule**: per le soglie di media e grande impresa la direttiva rinvia alla Racc. 2003/361/CE (art. 2 par. 1 NIS2), senza fissare valori propri (cfr. [[concepts/Size-cap rule]] e [[sources/FAQ NIS - Ambito]] `AMB.DI.1`).
+- **Pubblica amministrazione (art. 2 par. 2 lett. f) e par. 5 lett. a); art. 3 par. 1 lett. d))**: la direttiva si applica, indipendentemente dalle dimensioni, se "il soggetto è un ente della pubblica amministrazione: i) dell'amministrazione centrale quale definito da uno Stato membro conformemente al diritto nazionale; o ii) a livello regionale quale definito da uno Stato membro conformemente al diritto nazionale che, a seguito di una valutazione basata sul rischio, fornisce servizi la cui perturbazione potrebbe avere un impatto significativo su attività sociali o economiche critiche" (art. 2 par. 2 lett. f)). Per il livello locale: "Gli Stati membri possono prevedere che la presente direttiva si applichi a: a) enti della pubblica amministrazione a livello locale" (art. 2 par. 5). Sono soggetti essenziali "i soggetti della pubblica amministrazione di cui all'articolo 2, paragrafo 2, lettera f), punto i)" (art. 3 par. 1 lett. d)). Confronto con il recepimento italiano in [[concepts/Ambito di applicazione NIS2]] (Sviluppo, riga "Inclusione esplicita della PA").
 - **Identificazione**: largamente automatica per dimensione/settore, con eccezioni per soggetti che lo Stato membro identifica indipendentemente dalla soglia (impatto critico, monopolisti, PA, ecc.).
 - **Approccio multi-rischio**: le misure devono coprire tutti i tipi di rischio (anche fisici e ambientali), non solo cyber.
 - **Articolo 21 — Misure di gestione del rischio**: 10 ambiti minimi obbligatori (policy, gestione incidenti, BCP, supply chain, sviluppo sicuro, valutazione efficacia, igiene cyber e formazione, crittografia, sicurezza HR e access control, MFA).

@@ -184,6 +184,8 @@ Resta sempre la **identificazione governativa** ex art. 9 + notifica art. 3 c. 1
 - PA locali: **Regioni + Province autonome**, **Città metropolitane**, **Comuni** con popolazione **>100.000 abitanti**, **Comuni capoluoghi di regione**, **ASL**.
 - **Fuori ambito** in linea generale: comuni non capoluoghi con ≤100k abitanti, **Unioni di comuni**, **scuole** (salvo svolgimento di attività ex Allegati I/II o notifica art. 3 c. 13).
 
+> *Nota redazionale (2026-10-27):* la FAQ conta le Regioni tra le amministrazioni locali e non elenca la lett. d) ("altri soggetti pubblici"); l'elenco vigente è nell'Allegato III del D.Lgs. 138/2024 (lett. a)-d), 15 categorie), riportato in [[sources/D.Lgs. 138-2024 (Decreto NIS)]]. I punti sopra restano fedeli al testo della FAQ.
+
 #### Altre organizzazioni del settore pubblico (`AMB.PU.2`)
 
 - **Società in-house, partecipate, a controllo pubblico** (D.Lgs. 175/2016) → in ambito se svolgono attività ex Allegati I/II e sono **medie/grandi**.
