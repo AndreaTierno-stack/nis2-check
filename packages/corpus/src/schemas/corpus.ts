@@ -138,6 +138,7 @@ export const CorpusSchema = CorpusInput.superRefine((c, ctx) => {
     });
     const idx = questionIndex(wp);
     (w.multi_regime_intersection ?? []).forEach((m, i) => {
+      checkCatalog(m.notices, [...base, 'multi_regime_intersection', i, 'notices']);
       for (const [, input, , value] of m.trigger.matchAll(RULE_COMPARISON_RE)) {
         const target = idx.get(input!);
         const p = [...base, 'multi_regime_intersection', i, 'trigger'];
@@ -150,6 +151,7 @@ export const CorpusSchema = CorpusInput.superRefine((c, ctx) => {
       (q.options ?? []).forEach((o, i) => {
         checkSignals(o.activates_signals, [...qp, 'options', i, 'activates_signals']);
         checkSignals(o.on_selected?.activates_signals, [...qp, 'options', i, 'on_selected', 'activates_signals']);
+        checkCatalog(o.on_selected?.notices, [...qp, 'options', i, 'on_selected', 'notices']);
       });
       if (!('kind' in q) || !('label_it' in q)) continue;
       const question = q as Question;
@@ -162,6 +164,7 @@ export const CorpusSchema = CorpusInput.superRefine((c, ctx) => {
       const optionIds = new Set((question.options ?? []).map((o) => o.id));
       (question.outcome_mapping ?? []).forEach((m, i) => {
         if (!optionIds.has(m.answer)) issue([...qp, 'outcome_mapping', i, 'answer'], E.REF_QUESTION, `answer "${m.answer}" is not an option of "${question.id}"`);
+        checkCatalog(m.notices, [...qp, 'outcome_mapping', i, 'notices']);
       });
       if (question.visible_if !== undefined) {
         // ADR 0010: input exists in the wizard, value is one of its options, includes only on multi_select

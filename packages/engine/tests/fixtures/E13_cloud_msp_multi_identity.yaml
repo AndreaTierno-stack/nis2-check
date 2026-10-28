@@ -3,7 +3,8 @@ name: cloud_msp_multi_identity
 description_it: >
   Fornitore cloud grande che eroga anche servizi gestiti B2B (SOC/MDR/gestione TIC).
   Verdetto categoriale essenziale per l'identita' cloud (Allegato I p. 8); in aggiunta
-  possibile identita' MSP/MSSP (Allegato I p. 9) con registrazione separata
+  possibile identita' di fornitore di servizi gestiti o di sicurezza gestiti
+  (Allegato I p. 9), con interconnessione diretta tra le reti (FAQ A1.9.2)
   (cross_sector_cloud_msp).
 corpus_version: 0.5.0
 sector: cloud_computing
@@ -25,4 +26,4 @@ expected:
   regime_routing: []
   corpus_ref: "sectors/sectors__cloud_computing.yaml#qualification_rules[dimension==grande AND soggetto_critico==no] + tipologie.cloud_provider.multi_identity_possible"
 
-citations: [dlgs_138_2024_art_6, faq_amb_di_1, racc_ue_2003_361, faq_a1_p9, faq_settori_msp]
+citations: [dlgs_138_2024_art_6, faq_amb_di_1, racc_ue_2003_361, faq_a1_9_2, faq_a1_9_3, faq_a1_9_4, det_piattaforma_127437_2026_art_11_c_2]

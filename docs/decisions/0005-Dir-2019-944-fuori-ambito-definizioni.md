@@ -4,6 +4,16 @@
 - **Data:** 2026-07-02
 - **Ambito:** citazioni settore energia / KB FAQ Settori
 
+> **Nota (2026-10-28, corpus 0.6.0).** Le definizioni della dir. 2019/944 e del reg.
+> 2019/943 richiamate dall'Allegato I sono riportate alla lettera nella FAQ A1.1.a.1
+> (con due refusi propri della FAQ: "articolo 3, punto 57" e "vedi FAQ A1.1.a.2"),
+> e la KB le riporta da DEC-008: la premessa "le definizioni non sono state
+> ingerite/attestate" va letta come "attestate solo tramite la FAQ". La decisione resta:
+> lo scoping si fonda sui codici FAQ. In 0.6.0 l'etichetta della fornitura riprende la
+> FAQ A1.1.a.2 ("vendita, compresa la rivendita, di energia elettrica ai clienti") e la
+> domanda `produttore_cliente_attivo` la FAQ A1.1.a.4; la definizione di "clienti
+> attivi" (art. 2 punto 8) resta non attestata (avviso `prosumer_definizione_cliente_attivo`).
+
 ## Contesto
 
 Il settore elettrico ha come base unionale la Direttiva (UE) 2019/944 (Clean

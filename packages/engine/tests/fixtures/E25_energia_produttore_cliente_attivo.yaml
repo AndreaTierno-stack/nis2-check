@@ -1,0 +1,31 @@
+scenario_id: E25
+name: energia_produttore_cliente_attivo
+description_it: >
+  Impresa di dimensione media che produce energia elettrica con un impianto
+  fotovoltaico per i propri consumi, risponde ai requisiti della definizione di
+  clienti attivi e non svolge altre attivita' degli Allegati I e II. C-E2 (corpus
+  0.6.0): secondo la FAQ A1.1.a.4 queste organizzazioni non rientrano nell'ambito
+  NIS; avviso sulla definizione di cliente attivo, non attestata.
+corpus_version: 0.5.0
+sector: energia_elettrica
+
+inputs:
+  psnc: "no"
+  dora: "no"
+  cloud_pa: "no"
+  tipologia_elettrica: produttore
+  produttore_cliente_attivo: si
+  attivita_elettriche_ulteriori: []
+  pertinenza_pubblica_energia: "no"
+  dimension: media
+  soggetto_critico: "no"
+
+expected:
+  assessment_mode: out_of_scope
+  verdict_outcome: likely_out_of_scope
+  signals: []
+  notices: [prosumer_definizione_cliente_attivo]
+  regime_routing: []
+  corpus_ref: "wizard/wizard__energia_elettrica.yaml#produttore_cliente_attivo.outcome_mapping[answer==si] + exceptions/exceptions__catalog.yaml#exceptions[prosumer_definizione_cliente_attivo]"
+
+citations: [faq_a1_1_a_4]

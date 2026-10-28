@@ -19,6 +19,7 @@ expected:
   assessment_mode: out_of_scope
   verdict_outcome: likely_out_of_scope
   signals: []
+  notices: [individuazione_acn_art_3_c_9, imprese_collegate_art_3_c_10]
   regime_routing: []
   corpus_ref: "sectors/sectors__cloud_computing.yaml#qualification_rules[dimension==micro_or_piccola AND soggetto_critico==no]"
 

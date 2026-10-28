@@ -20,6 +20,7 @@ expected:
   verdict_outcome: likely_in_scope
   qualifica: essenziale
   signals: []
+  notices: [cloud_stabilimento_principale_multi_ue]
   regime_routing: []
   corpus_ref: "sectors/sectors__cloud_computing.yaml#qualification_rules[dimension==grande AND soggetto_critico==no]"
 

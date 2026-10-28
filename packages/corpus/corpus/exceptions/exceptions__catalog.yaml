@@ -118,3 +118,41 @@ exceptions:
     description: "Per le amministrazioni della lettera d) dell'Allegato III lo strumento non segnala il cumulo con il perimetro della Legge 90/2024: l'appartenenza a quel perimetro non è attestata nelle fonti disponibili. La verifica va condotta con un consulente qualificato."
     citations: [l90_2024_art_1_c_1, dlgs_138_2024_allegato_III]
     applies_to: [pubblica_amministrazione]
+
+  # --------------------------------------------------------------------------
+  # Inventario del 2026-10-28 (docs/verifications/2026-10-28-cloud-energia-dora.md, punto 6)
+  # --------------------------------------------------------------------------
+  - id: individuazione_acn_art_3_c_9
+    status: segnalato
+    title: "Soggetti individuati dall'ACN indipendentemente dalla dimensione (art. 3 c. 9)"
+    description: "Il decreto si applica anche, indipendentemente dalla dimensione, ai soggetti dei settori e delle tipologie degli Allegati I-IV individuati dall'ACN secondo le procedure dell'art. 3 c. 13, quando ricorre uno dei criteri dell'art. 3 c. 9 (ad esempio unico fornitore nazionale di un servizio essenziale, o elemento sistemico della catena di approvvigionamento di soggetti essenziali o importanti). L'individuazione è notificata al soggetto. Lo strumento non può conoscerla: un soggetto sotto le soglie dimensionali potrebbe comunque rientrare."
+    citations: [dlgs_138_2024_art_3_c_9, dlgs_138_2024_art_3_c_13, dlgs_138_2024_art_6_c_2]
+    applies_to: [cloud_computing, energia_elettrica]
+
+  - id: imprese_collegate_art_3_c_10
+    status: segnalato
+    title: "Imprese collegate a un soggetto essenziale o importante (art. 3 c. 10)"
+    description: "Il decreto si applica, indipendentemente dalla dimensione, all'impresa collegata a un soggetto essenziale o importante che soddisfa almeno uno dei criteri dell'art. 3 c. 10, ad esempio se detiene o gestisce sistemi informativi e di rete da cui dipende la fornitura dei servizi di quel soggetto, o gli fornisce servizi TIC o di sicurezza. Lo strumento non valuta i rapporti di gruppo: un soggetto sotto le soglie dimensionali potrebbe comunque rientrare."
+    citations: [dlgs_138_2024_art_3_c_10, dlgs_138_2024_art_6_c_2]
+    applies_to: [cloud_computing, energia_elettrica]
+
+  - id: energia_regime_transitorio_ose
+    status: segnalato
+    title: "Regime transitorio degli ex operatori di servizi essenziali (art. 5 Det. ACN 379907/2025)"
+    description: "Secondo l'art. 5 della Det. ACN 379907/2025, i soggetti già operatori di servizi essenziali ai sensi del D.Lgs. 65/2018 mantengono, limitatamente ai sistemi informativi e di rete già individuati in quel quadro, le misure tecniche e organizzative già adottate, salvo contrasti con il decreto NIS. Il regime riguarda le misure, non l'ambito: l'esito indicato non cambia, e lo strumento non chiede se il soggetto era un operatore di servizi essenziali."
+    citations: [det_acn_379907_2025_art_5]
+    applies_to: [energia_elettrica]
+
+  - id: cloud_stabilimento_principale_multi_ue
+    status: segnalato
+    title: "Fornitori cloud con stabilimenti in più Stati membri (art. 5 D.Lgs. 138/2024)"
+    description: "I fornitori di servizi di cloud computing sono soggetti alla giurisdizione dello Stato membro in cui hanno lo stabilimento principale nell'Unione; la giurisdizione nazionale ricorre, tra l'altro, se lo stabilimento principale è in Italia o se il soggetto, senza stabilimenti nell'Unione, ha designato il rappresentante in Italia (art. 5 D.Lgs. 138/2024). Lo strumento non valuta lo stabilimento principale: per un soggetto con stabilimenti in più Stati membri l'esito va riesaminato con un consulente qualificato."
+    citations: [dlgs_138_2024_art_5]
+    applies_to: [cloud_computing]
+
+  - id: prosumer_definizione_cliente_attivo
+    status: segnalato
+    title: "Definizione di cliente attivo non attestata"
+    description: "La FAQ ACN A1.1.a.4 esclude dall'ambito le organizzazioni che rispondono ai requisiti della definizione di «clienti attivi» (direttiva (UE) 2019/944, art. 2, punto 8) e non svolgono altre attività riconducibili agli Allegati I e II. Il testo di quella definizione non è tra le fonti verificate dallo strumento: l'esito dipende dalla risposta fornita e va confermato con un consulente qualificato."
+    citations: [faq_a1_1_a_4]
+    applies_to: [energia_elettrica]

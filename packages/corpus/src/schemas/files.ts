@@ -24,6 +24,8 @@ const SignalList = z.array(Id);
 /** Verdict notices: each one is the id of an entry of the exceptions catalog (ADR 0012). */
 export const Notices = z.array(Id);
 const ActivatesSignals = z.object({ activates_signals: SignalList }).passthrough();
+/** Effect of selecting an option: signals and verdict notices (notices from corpus 0.6.0). */
+const OnSelected = z.object({ activates_signals: SignalList.optional(), notices: Notices.optional() }).passthrough();
 
 // ---------------------------------------------------------------------------
 // Wizard
@@ -34,7 +36,7 @@ export const Option = z
     id: RequiredId,
     label_it: z.string(),
     activates_signals: SignalList.optional(),
-    on_selected: ActivatesSignals.optional(),
+    on_selected: OnSelected.optional(),
     note_it: z.string().optional(),
   })
   .passthrough();
@@ -47,6 +49,8 @@ export const OutcomeMapping = z
     verdict_outcome: VerdictOutcome,
     reasoning_trace: z.string(),
     citations: Citations,
+    /** Verdict notices added with this outcome (corpus 0.6.0). */
+    notices: Notices.optional(),
   })
   .passthrough()
   .superRefine((m, ctx) => checkOutcomePair(m.outcome, m.verdict_outcome, ctx));
@@ -141,6 +145,8 @@ export const MultiRegimeIntersection = z
     verdict_outcome: VerdictOutcome,
     reasoning_trace: z.string(),
     citations: Citations,
+    /** Verdict notices added when the intersection matches (ADR 0014). */
+    notices: Notices.optional(),
   })
   .passthrough()
   .superRefine((m, ctx) => checkOutcomePair(m.outcome, m.verdict_outcome, ctx));

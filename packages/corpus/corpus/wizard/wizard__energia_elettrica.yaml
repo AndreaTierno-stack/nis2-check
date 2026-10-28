@@ -19,8 +19,8 @@ sector_specific_questions:
     kind: single_select
     label_it: "Quale attività svolge principalmente il soggetto nel settore elettrico?"
     help_text_it: |
-      Se il soggetto svolge più attività (es. distribuzione e vendita), il
-      decreto NIS richiede registrazione separata per ciascuna tipologia.
+      Se il soggetto svolge più attività (es. distribuzione e vendita), la
+      registrazione sulla piattaforma ACN indica tutte le tipologie pertinenti.
       Seleziona l'attività principale; ti segnaleremo le eventuali identità multiple.
     options:
       - id: tso
@@ -28,7 +28,7 @@ sector_specific_questions:
       - id: dso
         label_it: "Gestione della rete di distribuzione (DSO)"
       - id: impresa_fornitura
-        label_it: "Vendita/fornitura di energia elettrica a clienti finali"
+        label_it: "Vendita, compresa la rivendita, di energia elettrica ai clienti (fornitura)"
       - id: produttore
         label_it: "Produzione di energia elettrica"
       - id: gestore_mercato
@@ -46,8 +46,8 @@ sector_specific_questions:
     label_it: "Oltre all'attività principale, il soggetto ne svolge altre tra queste nel settore elettrico?"
     help_text_it: |
       Molte società elettriche sono verticalmente integrate (es. distribuzione
-      e vendita insieme). Il decreto NIS richiede una registrazione separata per
-      ciascuna tipologia. Seleziona tutte le attività ulteriori; se non ne svolgi
+      e vendita insieme). La registrazione sulla piattaforma ACN indica tutte le
+      tipologie pertinenti. Seleziona tutte le attività ulteriori; se non ne svolgi
       altre, lascia vuoto e prosegui.
     optional: true
     options:
@@ -56,7 +56,7 @@ sector_specific_questions:
       - id: dso
         label_it: "Gestione della rete di distribuzione (DSO)"
       - id: impresa_fornitura
-        label_it: "Vendita/fornitura a clienti finali"
+        label_it: "Vendita, compresa la rivendita, ai clienti (fornitura)"
       - id: produttore
         label_it: "Produzione"
       - id: gestore_mercato
@@ -108,6 +108,35 @@ sector_specific_questions:
         reasoning_trace: "Obbligo di registrazione su PUN non noto: la qualificazione del gestore di punti di ricarica dipende da tale obbligo (A1.1.a.3, DM MASE 106/2023). Segnalazione con invito a verificare l'obbligo PUN. Verifica con consulente qualificato."
         citations: [faq_a1_1_a_3, dm_mase_106_2023]
 
+  # C-E2 (corpus 0.6.0): esclusione dei clienti attivi, FAQ A1.1.a.4, con le due
+  # condizioni della FAQ nelle sue parole. La definizione di "clienti attivi"
+  # (dir. 2019/944 art. 2 p. 8) non e' attestata: avviso di catalogo.
+  # Solo se il produttore e' l'attivita' principale: se e' un'attivita' ulteriore,
+  # il soggetto svolge per definizione altre attivita' dell'Allegato I.
+  - id: produttore_cliente_attivo
+    kind: single_select
+    visible_if: { input: tipologia_elettrica, op: eq, value: produttore }
+    label_it: "Il soggetto risponde ai requisiti della definizione di «clienti attivi» e non svolge altre attività riconducibili agli Allegati I e II del D.Lgs. 138/2024?"
+    help_text_it: |
+      Secondo la FAQ ACN A1.1.a.4, la tipologia «produttori» dell'Allegato I
+      non richiama la definizione di «clienti attivi» (i cosiddetti prosumer,
+      ad esempio un'impresa con un impianto fotovoltaico per i propri consumi).
+      Le organizzazioni che rispondono a quella definizione e non svolgono altre
+      attività degli Allegati I e II non rientrano nell'ambito NIS.
+    options:
+      - id: si
+        label_it: "Sì, entrambe le condizioni"
+      - id: "no"
+        label_it: "No"
+    outcome_mapping:
+      - answer: si
+        outcome: out_of_scope
+        verdict_outcome: likely_out_of_scope   # vincolo fisso: out_of_scope -> likely_out_of_scope
+        reasoning_trace: "Il soggetto dichiara di rispondere ai requisiti della definizione di clienti attivi e di non svolgere altre attività riconducibili agli Allegati I e II. Secondo la FAQ ACN A1.1.a.4 queste organizzazioni non rientrano nell'ambito di applicazione del decreto NIS: sulla base degli input forniti, l'analisi suggerisce che il soggetto non rientri nel perimetro NIS2 italiano come produttore. La definizione di clienti attivi non è tra le fonti verificate dallo strumento. Verifica obbligatoria con consulente qualificato."
+        citations: [faq_a1_1_a_4]
+        notices: [prosumer_definizione_cliente_attivo]
+    citations: [faq_a1_1_a_4]
+
   # Pertinenza pubblica: identica a Cloud (multiutility comunali sono comuni nell'energia)
   - id: pertinenza_pubblica_energia
     kind: binary_with_conditional_followup
@@ -121,14 +150,17 @@ sector_specific_questions:
       trigger_on: "yes"
       label_it: "Quale tipo di partecipazione pubblica?"
       kind: single_select
+      # C-E5 (corpus 0.6.0): nessuna opzione attiva l90_cumulo. L'art. 1 c. 1 L. 90/2024
+      # comprende le societa' in house dei soggetti elencati solo se forniscono servizi
+      # informatici, di trasporto, di acque reflue o di gestione dei rifiuti: l'energia
+      # non c'e'.
       options:
         - id: ente_pubblico
           label_it: "Ente pubblico"
-          activates_signals: [l90_cumulo, cross_sector_pa]
+          activates_signals: [cross_sector_pa]
         - id: capitale_prevalente
           label_it: "Società con capitale interamente o prevalentemente pubblico (in-house, controllata, partecipata di maggioranza)"
-          activates_signals: [l90_cumulo, cross_sector_inhouse_all_iv]
+          activates_signals: [cross_sector_inhouse_all_iv]
         - id: capitale_minoritario
           label_it: "Società con partecipazione pubblica minoritaria (sotto il 50%)"
           activates_signals: []
-          note_it: "La partecipazione minoritaria non attiva, di norma, signal di cumulo L. 90; verifica con consulente in caso di partecipazione qualificata o controllo congiunto."

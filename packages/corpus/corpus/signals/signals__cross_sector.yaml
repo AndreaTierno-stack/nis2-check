@@ -23,8 +23,10 @@ signals:
   - id: cross_sector_inhouse_all_iv
     kind: cross_sector
     message_template: cross_sector_inhouse_all_iv
-    base_reasoning_trace: "Il soggetto, in quanto societa' a capitale interamente o prevalentemente pubblico (in-house, controllata o partecipata di maggioranza ex D.Lgs. 175/2016), potrebbe rientrare nel perimetro NIS anche tramite il canale di individuazione governativa dell'Allegato IV. Non e' un rientro automatico: dipende da una determinazione ACN su proposta dell'autorita' di settore (art. 3 c. 8 + art. 13 D.Lgs. 138/2024). La registrazione andrebbe valutata separatamente. Verifica con consulente qualificato."
-    citations: [dlgs_138_2024_art_3_c_8, dlgs_138_2024_art_13, dlgs_175_2016]
+    base_reasoning_trace: "Il soggetto, in quanto societa' a capitale interamente o prevalentemente pubblico (in-house, controllata o partecipata di maggioranza ex D.Lgs. 175/2016), potrebbe rientrare nel perimetro NIS anche tramite il canale di individuazione governativa dell'Allegato IV. Non e' un rientro automatico: dipende da un'individuazione dell'ACN su proposta dell'autorita' di settore (art. 3 cc. 8 e 13 D.Lgs. 138/2024). Questo canale va valutato a parte. Verifica con consulente qualificato."
+    # corpus 0.6.0: dlgs_138_2024_art_13 -> art_3_c_13 (l'art. 13 del decreto e' il
+    # quadro nazionale di gestione delle crisi; la procedura di individuazione e' l'art. 3 c. 13)
+    citations: [dlgs_138_2024_art_3_c_8, dlgs_138_2024_art_3_c_13, dlgs_175_2016]
 
   # --------------------------------------------------------------------------
   # Ente pubblico -> possibile rientro anche come PA (Allegato III)
@@ -33,8 +35,8 @@ signals:
   - id: cross_sector_pa
     kind: cross_sector
     message_template: cross_sector_pa
-    base_reasoning_trace: "Il soggetto, in quanto ente pubblico, oltre al rientro per il settore di attivita' potrebbe rientrare nel perimetro NIS anche come Pubblica Amministrazione (Allegato III D.Lgs. 138/2024), con registrazione separata. La valutazione del rientro come PA presuppone l'inclusione nell'elenco ISTAT delle amministrazioni pubbliche (c.d. Lista S13). Verifica con consulente qualificato."
-    citations: [dlgs_138_2024_allegato_III, l_196_2009_art_1_c_3]
+    base_reasoning_trace: "Il soggetto, in quanto ente pubblico, oltre al rientro per il settore di attivita' potrebbe rientrare nel perimetro NIS anche come Pubblica Amministrazione (Allegato III D.Lgs. 138/2024); la registrazione sulla piattaforma ACN indica tutte le tipologie pertinenti. La valutazione del rientro come PA presuppone l'inclusione nell'elenco ISTAT delle amministrazioni pubbliche (c.d. Lista S13). Verifica con consulente qualificato."
+    citations: [dlgs_138_2024_allegato_III, l_196_2009_art_1_c_3, det_piattaforma_127437_2026_art_11_c_2]
 
   # --------------------------------------------------------------------------
   # ASL -> doppia identita' All. III (PA) + All. I p. 5 (Sanitario)
@@ -42,8 +44,8 @@ signals:
   - id: cross_sector_asl_sanitario
     kind: cross_sector
     message_template: asl_doppia_identita
-    base_reasoning_trace: "L'ASL ha una doppia identita' nel perimetro NIS: rientra come amministrazione locale (Allegato III, soggetto importante) e come soggetto sanitario (Allegato I p. 5, soggetto essenziale se di dimensione medio-grande). La registrazione sulla piattaforma ACN va effettuata separatamente per ciascuna identita'. AVVERTENZA: e' noto un comportamento della piattaforma per cui un'ASL registrata solo per l'Allegato I p. 5 con dimensione sotto la soglia viene dichiarata fuori ambito (A3.c.4.5); l'ASL rientra comunque ex Allegato III. NOTA: la valutazione del settore Sanitario non e' coperta dal MVP v0.1.0."
-    citations: [faq_a3_c_4_1, faq_a3_c_4_5]
+    base_reasoning_trace: "L'ASL ha una doppia identita' nel perimetro NIS: rientra come amministrazione locale (Allegato III, soggetto importante) e come prestatore di assistenza sanitaria (Allegato I p. 5: soggetto importante, essenziale se supera i massimali della media impresa, FAQ A3.c.4.1). La registrazione sulla piattaforma ACN indica tutte le tipologie pertinenti, per entrambe le identita'. AVVERTENZA: e' noto un comportamento della piattaforma per cui un'ASL registrata solo per l'Allegato I p. 5 con dimensione sotto la soglia viene dichiarata fuori ambito (A3.c.4.5); l'ASL rientra comunque ex Allegato III. NOTA: la valutazione del settore Sanitario non e' coperta dal MVP v0.1.0."
+    citations: [faq_a3_c_4_1, faq_a3_c_4_5, det_piattaforma_127437_2026_art_11_c_2]
 
   # --------------------------------------------------------------------------
   # Cloud provider -> possibile doppia identita' MSP/MSSP (All. I p. 9)
@@ -51,8 +53,8 @@ signals:
   - id: cross_sector_cloud_msp
     kind: cross_sector
     message_template: cloud_plus_msp_dual_registration
-    base_reasoning_trace: "Il soggetto, oltre a fornire servizi cloud (Allegato I p. 8), sembra fornire anche servizi gestiti di sicurezza o di gestione TIC a terzi (B2B), il che configura una possibile identita' MSP/MSSP (Allegato I p. 9). La registrazione sulla piattaforma ACN va effettuata separatamente per ciascuna tipologia. Verifica con consulente qualificato."
-    citations: [faq_a1_p9, faq_settori_msp]
+    base_reasoning_trace: "Il soggetto, oltre a fornire servizi cloud (Allegato I p. 8), sembra fornire anche servizi gestiti o di sicurezza gestiti ad altre organizzazioni tramite un'interconnessione diretta tra la rete del fornitore e quella del cliente (FAQ A1.9.2), il che configura una possibile identita' di fornitore di servizi gestiti o di servizi di sicurezza gestiti (Allegato I p. 9). La registrazione sulla piattaforma ACN indica tutte le tipologie pertinenti. Verifica con consulente qualificato."
+    citations: [faq_a1_9_2, faq_a1_9_3, faq_a1_9_4, det_piattaforma_127437_2026_art_11_c_2]
 
   # --------------------------------------------------------------------------
   # Soggetto elettrico con piu' tipologie -> registrazioni separate
@@ -60,8 +62,8 @@ signals:
   - id: cross_sector_multi_tipologia_elettrica
     kind: cross_sector
     message_template: multi_tipologia_elettrica_registrazione_separata
-    base_reasoning_trace: "Il soggetto sembra svolgere piu' attivita' nel settore elettrico (es. distribuzione e vendita). Il decreto NIS richiede una registrazione separata sulla piattaforma ACN per ciascuna tipologia. La valutazione di rientro e la qualifica essenziale/importante vanno effettuate per ogni tipologia distinta. Verifica con consulente qualificato."
-    citations: [faq_settori_sottosettori, dlgs_138_2024_art_7]
+    base_reasoning_trace: "Il soggetto sembra svolgere piu' attivita' nel settore elettrico (es. distribuzione e vendita). La registrazione sulla piattaforma ACN indica tutte le tipologie pertinenti. La valutazione di rientro riguarda ciascuna tipologia svolta. Verifica con consulente qualificato."
+    citations: [faq_settori_sottosettori, dlgs_138_2024_art_7, det_piattaforma_127437_2026_art_11_c_2]
 
   # --------------------------------------------------------------------------
   # Canale Allegato IV (individuazione governativa) — qualitative signal
@@ -70,5 +72,5 @@ signals:
   - id: allegato_iv_individuazione
     kind: qualitative_channel
     message_template: allegato_iv_individuazione
-    base_reasoning_trace: "Il soggetto potrebbe rientrare nel perimetro NIS tramite il canale di individuazione governativa dell'Allegato IV (art. 3 c. 8 + art. 13 D.Lgs. 138/2024). Questo NON e' un rientro automatico: il soggetto e' NIS solo dopo notifica da parte dell'autorita' di settore competente, su determinazione ACN sentito il Tavolo NIS. Non esiste criterio dimensionale; la valutazione e' qualitativa (attivita' rilevante, dipendenza critica da ICT, impatto potenziale di un incidente). Lo strumento non puo' determinare questo rientro: verifica obbligatoria con consulente qualificato."
-    citations: [dlgs_138_2024_art_3_c_8, dlgs_138_2024_art_13, faq_a4_3_3, faq_a4_3_4]
+    base_reasoning_trace: "Il soggetto potrebbe rientrare nel perimetro NIS tramite il canale di individuazione governativa dell'Allegato IV (art. 3 cc. 8 e 13 D.Lgs. 138/2024). Questo NON e' un rientro automatico: il soggetto e' NIS solo dopo notifica da parte dell'autorita' di settore competente, su determinazione ACN sentito il Tavolo NIS. Non esiste criterio dimensionale; la valutazione e' qualitativa (attivita' rilevante, dipendenza critica da ICT, impatto potenziale di un incidente). Lo strumento non puo' determinare questo rientro: verifica obbligatoria con consulente qualificato."
+    citations: [dlgs_138_2024_art_3_c_8, dlgs_138_2024_art_3_c_13, faq_a4_3_3, faq_a4_3_4]

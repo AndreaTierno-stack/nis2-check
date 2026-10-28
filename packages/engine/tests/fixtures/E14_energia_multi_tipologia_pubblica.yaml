@@ -3,9 +3,10 @@ name: energia_multi_tipologia_pubblica
 description_it: >
   Multiutility elettrica verticalmente integrata: DSO (principale) + fornitura
   (ulteriore), a capitale prevalentemente pubblico, grande dimensione. Verdetto
-  categoriale essenziale; identita' multiple intra-settore -> registrazione separata
-  per tipologia (cross_sector_multi_tipologia_elettrica); cumulo L. 90 e possibile
-  canale Allegato IV in-house (cross_sector_inhouse_all_iv).
+  categoriale essenziale; identita' multiple intra-settore, la registrazione indica
+  tutte le tipologie (cross_sector_multi_tipologia_elettrica); possibile canale
+  Allegato IV in-house (cross_sector_inhouse_all_iv). Da 0.6.0 (C-E5) nessun signal
+  l90_cumulo: l'art. 1 c. 1 L. 90/2024 non comprende le in-house del settore energia.
 corpus_version: 0.5.0
 sector: energia_elettrica
 
@@ -24,8 +25,9 @@ expected:
   assessment_mode: categorical_assessment
   verdict_outcome: likely_in_scope
   qualifica: essenziale
-  signals: [cross_sector_multi_tipologia_elettrica, l90_cumulo, cross_sector_inhouse_all_iv]
+  signals: [cross_sector_multi_tipologia_elettrica, cross_sector_inhouse_all_iv]
+  notices: [energia_regime_transitorio_ose]
   regime_routing: []
   corpus_ref: "sectors/sectors__energia_elettrica.yaml#qualification_rules[dimension==grande AND soggetto_critico==no] + multi_identity_intra_sector + wizard/wizard__energia_elettrica.yaml#pertinenza_pubblica_energia.tipo_partecipazione_pubblica[capitale_prevalente]"
 
-citations: [dlgs_138_2024_art_6, faq_amb_di_1, racc_ue_2003_361, faq_settori_sottosettori, dlgs_138_2024_art_7]
+citations: [dlgs_138_2024_art_6, faq_amb_di_1, racc_ue_2003_361, faq_a1_1_a_4, faq_settori_sottosettori, dlgs_138_2024_art_7, det_piattaforma_127437_2026_art_11_c_2]
