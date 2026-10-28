@@ -24,7 +24,7 @@ nis2-check/
   apps/web            → Next.js 15.5 App Router (export statico), React 19, TypeScript strict, TailwindCSS 3, shadcn/ui
                         (pin 15.5: la linea 14.x è fuori supporto, con CVE senza fix — S2, 2026-10-28)
   packages/engine     → funzione pura, zero dipendenze runtime, nessun I/O
-    tests/fixtures/   → scenari golden E01–E15 (legati a corpus_version)
+    tests/fixtures/   → scenari golden E01–E25 (legati a corpus_version)
   packages/corpus     → loader YAML + schemi zod + corpus:validate
     corpus/           → il corpus: VERSION, CHANGELOG.md, sectors/, wizard/, signals/, regimes/
   packages/pdf        → generazione PDF client-side
@@ -42,13 +42,13 @@ I `corpus_ref` delle fixture sono relativi alla radice del corpus (`packages/cor
 
 Struttura: `sectors/`, `wizard/`, `signals/`, `regimes/`, più `VERSION` e `CHANGELOG.md`. Convenzione filename con prefisso di cartella (`sectors__`, `wizard__`, `signals__`) per evitare collisioni.
 
-**Flusso**: `disambiguation` (3 gate) → `sector_specific` → `standard_identification` (size-cap; la PA lo salta, size-blind ex art. 3 c. 6).
+**Flusso**: `disambiguation` (3 domande sui regimi) → `sector_specific` → `standard_identification` (`soggetto_critico` per tutti i settori, ADR 0015; `dimension` size-cap, esclusa per la PA, size-blind ex art. 3 c. 6).
 
-**I 3 gate** (`wizard__disambiguation.yaml`, `execution_order: pre_standard_identification`): `psnc` → `category_override` · `dora` → `massive_disapplication` · `cloud_pa` → `model_substitution`. Alterano il flusso, per questo sono gate. La **L. 90/2024 non è un gate**: è il segnale cumulativo `l90_cumulo`, attivato da follow-up/profili PA — si aggiunge al verdetto, non instrada (ADR 0001).
+**Gate e segnali** (`wizard__disambiguation.yaml`, `execution_order: pre_standard_identification`; ADR 0014): in v0.1 instradano solo `psnc` → `category_override` (cloud, energia, PA) e, nella sola PA, `classificazione_cloud_pa` → `model_substitution`. Le domande comuni `dora` e `cloud_pa` sono segnali con avvisi di catalogo (`on_yes.notices`): l'art. 3 c. 14 riguarda solo i settori 3-4 dell'Allegato I, l'art. 4 Det. 155238/2026 le PA che hanno classificato i propri dati. La **L. 90/2024 non è un gate**: è il segnale cumulativo `l90_cumulo`, attivato da follow-up/profili PA — si aggiunge al verdetto, non instrada (ADR 0001).
 
 **Outcome delle regole** (`assessment_mode`): `categorical_assessment` | `qualitative_signal_only` | `escalate_to_advisor` | `out_of_scope`. Ogni regola con esito dichiara anche `verdict_outcome` (vedi vincolo 2). Mapping fisso: categorical in ambito → `likely_in_scope`; `out_of_scope` → `likely_out_of_scope`; `escalate` → `ambiguous`; `qualitative_signal_only` → dichiarato caso per caso con commento giustificativo.
 
-**Regimi**: `regimes/{psnc,dora,cloud_pa}.yaml` hanno `status: routing_only_v0_1` — instradano, non risolvono nel merito. In v0.1 ogni regime dichiara nel `meta` `assessment_mode: escalate_to_advisor` e `verdict_outcome: ambiguous`, copiati dall'engine attraverso il `reference` dell'override, e popola un elemento di `Verdict.regimeRouting` (array, un elemento per override che matcha, nell'ordine del file di settore; ADR 0009 + amendment 2026-10-27). Non implementare la risoluzione senza decisione esplicita di scope (è v0.2+).
+**Regimi**: `regimes/{psnc,dora,cloud_pa}.yaml` hanno `status: routing_only_v0_1` — instradano, non risolvono nel merito; DORA è dichiarato ma nessun settore del corpus lo instrada (ADR 0014). In v0.1 ogni regime dichiara nel `meta` `assessment_mode: escalate_to_advisor` e `verdict_outcome: ambiguous`, copiati dall'engine attraverso il `reference` dell'override, e popola un elemento di `Verdict.regimeRouting` (array, un elemento per override che matcha, nell'ordine del file di settore; ADR 0009 + amendment 2026-10-27). Non implementare la risoluzione senza decisione esplicita di scope (è v0.2+).
 
 **Semver corpus**: MAJOR = cambio di schema incompatibile; MINOR = cambia questionario o regole; PATCH = correzioni di attestazione/copy senza effetto sugli esiti. Ogni bump → voce CHANGELOG. Le fixture dichiarano `corpus_version` e vanno riallineate a ogni MINOR/MAJOR.
 
@@ -90,7 +90,7 @@ interface Verdict {
 
 ## Testing
 
-- **Fixture golden E01–E15** = suite di regressione dell'engine. Verdi obbligatorie prima di ogni merge che tocca engine o corpus. Un cambiamento di esito atteso richiede aggiornamento esplicito della fixture con motivazione nel commit (mai "aggiustare il test perché passi").
+- **Fixture golden E01–E25** = suite di regressione dell'engine. Verdi obbligatorie prima di ogni merge che tocca engine o corpus. Un cambiamento di esito atteso richiede aggiornamento esplicito della fixture con motivazione nel commit (mai "aggiustare il test perché passi").
 - **Validazione corpus in build-time** (zod): schema, `verdict_outcome` obbligatorio, invariante escalate→ambiguous, citation ID ben formati, referenze signals esistenti. CI fallisce su violazione.
 - Unit (engine, schemi) → integration (corpus reale + engine) → E2E Playwright (da v1.0).
 - Commenti estensivi nel codice; JSDoc in inglese.
@@ -105,7 +105,7 @@ Consentito: `reasoningTrace` nel Verdict; console log strutturati gated `?debug=
 
 ## CI/CD e workflow
 
-GitHub Actions su ogni push/PR: install → lint → typecheck → `corpus:validate` → test → build. Conventional commits (`feat:`, `fix:`, `docs:`, `chore:`, `test:`, `corpus:`); i commit `corpus:` citano la versione (es. `corpus: bump 0.2.1 — attestation patch, DIV-P1 closed`). `docs/ARCHITECTURE.md` è documentazione viva: si aggiorna nello stesso commit che cambia l'architettura. Le decisioni con alternative scartate → ADR in `docs/decisions/` (prossimo numero: 0013). `docs/STATUS.md` è la fonte unica dello stato di avanzamento e dei punti aperti; si aggiorna in chiusura di ogni sessione (data, stato sintetico, punti aperti, una riga di log).
+GitHub Actions su ogni push/PR: install → lint → typecheck → `corpus:validate` → test → build. Conventional commits (`feat:`, `fix:`, `docs:`, `chore:`, `test:`, `corpus:`); i commit `corpus:` citano la versione (es. `corpus: bump 0.2.1 — attestation patch, DIV-P1 closed`). `docs/ARCHITECTURE.md` è documentazione viva: si aggiorna nello stesso commit che cambia l'architettura. Le decisioni con alternative scartate → ADR in `docs/decisions/` (prossimo numero: 0016). `docs/STATUS.md` è la fonte unica dello stato di avanzamento e dei punti aperti; si aggiorna in chiusura di ogni sessione (data, stato sintetico, punti aperti, una riga di log).
 
 ## Autonomia di Claude Code
 

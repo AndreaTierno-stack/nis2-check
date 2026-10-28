@@ -11,10 +11,41 @@ Ogni bump ha una voce in questo file; le fixture dichiarano `corpus_version` e s
 
 ## [Unreleased]
 
-Modifiche successive al rilascio di 0.5.0, senza effetto sul contenuto del corpus né sugli esiti.
+## [0.6.0] — 2026-10-28 — Regimi instradati in v0.1 (ADR 0014), soggetti critici (ADR 0015), correzioni cloud ed energia, registro e catalogo completi
+
+Minor: cambiano gli esiti attesi di E05, E06, E08, il questionario (domande `soggetto_critico` e `produttore_cliente_attivo`, opzione `inhouse_soggetto_l90`, etichette di fornitura, DORA e Cloud PA) e lo schema (campi retro-compatibili `excluded_common_questions` e `notices` su risposte, opzioni, `outcome_mapping` e intersezioni; invarianti nuovi). Base: verifica di lettura del 2026-10-28 (`docs/verifications/2026-10-28-cloud-energia-dora.md`), KB DEC-008, audit del registro (`docs/verifications/2026-10-28-registro-citazioni.md`).
+
+### Added
+- **`wizard/wizard__disambiguation.yaml`, `soggetto_critico`** (ADR 0015) — domanda comune della fase `standard_identification`: con "sì" `categorical_assessment` / `likely_in_scope`, qualifica **essenziale** indipendentemente dalla dimensione, in cloud, energia e PA (`dlgs_138_2024_art_3_c_5_lett_a`, `dlgs_138_2024_art_6_c_1_lett_b`, `faq_amb_no_1`); attiva `cer_signal`.
+- **`wizard/wizard__energia_elettrica.yaml`, `produttore_cliente_attivo`** (C-E2) — follow-up del produttore con le due condizioni della FAQ A1.1.a.4 (cliente attivo; nessun'altra attività degli Allegati I e II) → `out_of_scope` / `likely_out_of_scope`, avviso `prosumer_definizione_cliente_attivo`.
+- **`sectors/sectors__pubblica_amministrazione.yaml`** — override PSNC sul regime esistente (trigger `psnc`, ADR 0014); regole b), c), d) con soggetto critico → essenziale.
+- **`wizard/wizard__pubblica_amministrazione.yaml`** — `excluded_common_questions: [dimension, cloud_pa]`; fase `standard_identification` (solo `soggetto_critico`); `multi_regime_intersection` `psnc == yes AND classificazione_cloud_pa == yes` (dal blocco comune), con avviso `psnc_cloud_pa_precedenza_non_attestata`.
+- **Catalogo eccezioni**: 18 voci nuove (totale 26: 3 gestite, 17 segnalate, 6 non gestite). Gestita `soggetti_critici_dlgs_134_2024_art_3_c_5_lett_a`; segnalate `dora_entita_finanziaria_fuori_settori_3_4`, `dora_soggetti_esentati_art_3_c_15`, `cloud_pa_fornitore_qualificato_a1_8_2`, `individuazione_acn_art_3_c_9`, `imprese_collegate_art_3_c_10`, `energia_regime_transitorio_ose`, `cloud_stabilimento_principale_multi_ue`, `prosumer_definizione_cliente_attivo`, `psnc_cloud_pa_precedenza_non_attestata`, `allegato_iv_individuazione_art_3_c_8`, `pa_asl_identita_sanitaria`, `pa_prerequisito_istat_s13`; non gestite `safeguard_dimensional_dpcm_221`, `dimensione_autodichiarata`, `consolidamento_di_gruppo`, `confine_50_43`, `copertura_settoriale_parziale`.
+- **Registro citazioni** completo: 67 voci, tutti gli ID usati da corpus e fixture, con nodo KB e riga (HEAD e9f5913). ID nuovi: `dlgs_138_2024_art_2_c_1_lett_bbb`, `_art_3_c_5_lett_a`, `_art_3_c_9`, `_art_3_c_10`, `_art_3_c_13`, `_art_3_c_15`, `_art_6_c_1_lett_b`, `det_acn_155238_2026_art_2_c_3`, `det_acn_379907_2025_art_5`, `det_piattaforma_127437_2026_art_11_c_2`, `faq_amb_no_1`, `faq_a1_8_2`, `faq_a1_9_2`, `faq_a1_9_3`, `faq_a1_9_4`, `faq_cat_8`.
+- **Invarianti** `E_CITATION_UNREGISTERED` (ID usato senza voce nel registro), `E_CATALOG_UNREFERENCED` (voce `segnalato` senza riferimenti), avviso `W_CITATION_UNUSED` (voce del registro non usata; nuovo canale `warnings` di `corpus:validate`); `E_FIXTURE_INPUT` controlla gli input sul wizard del settore; `E_REF_QUESTION` su `excluded_common_questions`. Test di guasto per ciascuno.
+- **Fixture E21-E25**: PA lett. a) con PSNC (`[psnc]`), PA lett. c) con PSNC e Cloud PA (`[cloud_pa, psnc]`, ordine del file di settore), micro impresa elettrica soggetto critico (essenziale), media impresa cloud soggetto critico (essenziale), produttore cliente attivo (`likely_out_of_scope`).
+- **ADR 0014, ADR 0015.**
+
+### Changed
+- **Override** (ADR 0014): rimossi `cloud_pa` dal settore cloud (art. 4 Det. 155238/2026 e FAQ CAT.8: la classificazione la svolgono le PA; FAQ A1.8.2: il fornitore qualificato rientra come fornitore cloud) e `dora` da cloud ed energia (art. 3 c. 14 riservato ai settori 3 e 4 dell'Allegato I). Le domande comuni `dora` e `cloud_pa` restano come segnali con `on_yes.notices`; esempio della domanda `dora` con tipologie dei settori 3-4; `cloud_pa` chiede di servizi "qualificati".
+- **`regimes/dora.yaml`** — `referenced_by: []`, nota "riservato ai settori 3-4", `residual_nis_obligation: null`, `open_points` compilati, `faq_amb_no_2` tra le citazioni (con nota sull'incoerenza interna della FAQ). Voce di catalogo `dora_massive_disapplication` da gestita a **non gestita**. `regimes/cloud_pa.yaml` riferito solo dalla PA; `regimes/psnc.yaml` riferito anche dalla PA.
+- **Regole dimensionali** di cloud ed energia e regole b)-d) della PA: condizione `AND soggetto_critico == no`.
+- **Energia** — C-E1: fornitura "vendita, compresa la rivendita, di energia elettrica ai clienti" (FAQ A1.1.a.2), stesso id; C-E4: "la registrazione indica tutte le tipologie pertinenti" in 3 domande e nei segnali; C-E5: `l90_cumulo` non più attivato; C-E6: rimosse le frasi PSNC non attestate, `faq_a1_1_a_4` dalla regola micro/piccola alle regole media e grande; regime transitorio OSE da `out_of_scope_mvp` (`ambiguous`, mai attivato) ad avviso sulle regole in ambito.
+- **Cloud** — C-C2: `base_legal_definition: dlgs_138_2024_art_2_c_1_lett_bbb`; `model_2` cita `det_acn_155238_2026_art_2_c_3`; `faq_settori_cloud` → `faq_settori_sottosettori`; domanda e segnale Cloud+MSP con il criterio dell'interconnessione diretta (`faq_a1_9_2`, `faq_a1_9_3`, `faq_a1_9_4`); `l90_cumulo` solo con l'opzione nuova `inhouse_soggetto_l90`; stabilimento principale multi-UE da `out_of_scope_mvp` ad avviso; `nis2_art_26` rimosso (non attestato).
+- **Segnali** — `cer_signal` riscritto (non più segnaposto); `l90_cumulo` "potrebbe rientrare … va verificata"; `cross_sector_asl_sanitario`: essenziale solo sopra i massimali della media impresa (FAQ A3.c.4.1); `dlgs_138_2024_art_13` → `dlgs_138_2024_art_3_c_13` in due segnali e in E11.
+- **Fixture** — `corpus_version` → 0.6.0 su tutte le 25; tutte rispondono a `soggetto_critico`; le PA non rispondono a `cloud_pa`. Esiti cambiati:
+  - E05 (rinominata `cloud_pa_fornitore_qualificato`): da `escalate_to_advisor` / `ambiguous` con routing [cloud_pa] a `categorical_assessment` / `likely_in_scope`, essenziale;
+  - E06 (rinominata `dora_entita_finanziaria_cloud`): da `escalate_to_advisor` / `ambiguous` con routing [dora] a `categorical_assessment` / `likely_in_scope`, essenziale;
+  - E08 (rinominata `cloud_psnc_e_cloud_pa`): routing da [cloud_pa, psnc] a [psnc], esito invariato;
+  - E14 senza `l90_cumulo`; avvisi attesi nuovi su E01-E03, E05, E06, E08-E12, E14, E16-E18.
+- **Registro**: righe delle 8 voci 0.5.0 riallineate al nodo D.Lgs. dopo DEC-008.
+- **Rimossi** `out_of_scope_mvp.cer_dlgs_134_2024` (energia), `out_of_scope_mvp.cloud_provider_multi_eu_jurisdiction` (cloud) e `multi_regime_intersection` dal blocco comune.
 
 ### Notes
-- **Contatore stop-and-ingest riallineato (2026-10-28)** — chiusa la voce aperta "riallineare DEC-007": la nota del 2026-10-28 in DEC-007 parte A (decision_log della KB) qualifica il riscontro del D.Lgs. 138/2024 su Normattiva come no-op, che non consuma il credito (DEC-003). Contatore a 1 residuo fino al pre-rilascio v0.1.0 (`docs/STATUS.md`).
+- ADR 0001 (punti 1 e 3) e ADR 0004 (descrizione dei soggetti critici) superati in parte; nota di allineamento in ADR 0001 sulla lett. d) e la L. 90 (ADR 0011); nota in ADR 0005 sulle definizioni riportate nella FAQ A1.1.a.1.
+- Non attestati e quindi non introdotti: `dlgs_138_2024_art_7_c_1_lett_d`, `det_piattaforma_127437_2026_art_11_c_2_lett_g` (degradato al comma), `faq_gen_6`, `faq_a1_8_1`, `faq_a1_9_1`, `dir_nis2_art_26`, `dlgs_138_2024_art_3_c_1`. Correzioni KB proposte in `docs/verifications/2026-10-28-registro-citazioni.md`.
+- Non modellati: soggetto critico nel canale Allegato IV della PA; precedenza tra `outcome_mapping` (PUN, prosumer) e regole dimensionali, da fissare in S3 con l'engine.
+- Contatore stop-and-ingest invariato (1 residuo): nessuna fonte nuova. Riallineato il 2026-10-28 (voce [Unreleased] precedente): la nota del 2026-10-28 in DEC-007 parte A qualifica il riscontro del D.Lgs. 138/2024 su Normattiva come no-op, che non consuma il credito (DEC-003).
 
 ## [0.5.0] — 2026-10-28 — PA dell'Allegato III (ADR 0011, C1-C6) e catalogo eccezioni (ADR 0012)
 

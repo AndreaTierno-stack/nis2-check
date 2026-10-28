@@ -6,7 +6,7 @@ description_it: >
   PA è raggiungibile tramite la domanda classificazione_cloud_pa (C5, corpus 0.5.0):
   instradamento al regime cloud_pa come escalation copiata dal meta del regime
   (ADR 0009), regime_routing [cloud_pa].
-corpus_version: 0.5.0
+corpus_version: 0.6.0
 sector: pubblica_amministrazione
 
 inputs:

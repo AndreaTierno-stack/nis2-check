@@ -1,5 +1,5 @@
 /**
- * Golden fixtures E01–E20: one test per scenario that loads the fixture, calls
+ * Golden fixtures E01–E25: one test per scenario that loads the fixture, calls
  * evaluate() and compares the Verdict with `expected`.
  *
  * The shape of the fixtures is not re-checked here: corpus:validate already covers

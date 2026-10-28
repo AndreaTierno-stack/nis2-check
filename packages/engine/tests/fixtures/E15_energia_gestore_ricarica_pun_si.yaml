@@ -5,7 +5,7 @@ description_it: >
   106/2023). Il ramo registrato_pun==si conferma la tipologia (categorical_assessment,
   likely_in_scope provvisorio) e prosegue con l'identificazione standard: dimensione
   media -> soggetto importante. Variante speculare di E04 (PUN "no").
-corpus_version: 0.5.0
+corpus_version: 0.6.0
 sector: energia_elettrica
 
 inputs:

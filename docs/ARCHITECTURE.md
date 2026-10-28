@@ -43,24 +43,32 @@ stato del wizard e del click-wrap vive in memoria).
 ## 2. Flusso del wizard
 
 ```
-disambiguation (3 gate)  →  sector_specific  →  standard_identification
-psnc · dora · cloud_pa      domande del          dimension (size-cap)
-wizard__disambiguation      wizard di settore    wizard__disambiguation
+disambiguation           →  sector_specific  →  standard_identification
+psnc (gate) · dora ·        domande del          soggetto_critico, dimension
+cloud_pa (segnali)          wizard di settore    wizard__disambiguation
 ```
 
-1. **Gate di regime** (`wizard__disambiguation.yaml`, comuni a tutti i settori):
-   `psnc` → `category_override`, `dora` → `massive_disapplication`, `cloud_pa` →
-   `model_substitution`. Se un gate è positivo, l'override del settore instrada al
-   regime (`reference: regimes/<id>.yaml`); in v0.1 l'instradamento è
-   un'escalation dichiarata nel `meta` del regime (`escalate_to_advisor` /
-   `ambiguous`) e popola `Verdict.regimeRouting` (ADR 0009). L'intersezione PSNC +
-   Cloud PA ha un esito proprio (`multi_regime_intersection`, E08).
+1. **Regimi instradati in v0.1 (ADR 0014)**: PSNC in cloud, energia e PA (domanda
+   comune `psnc` → `category_override`) e Cloud PA nella sola PA (domanda
+   `classificazione_cloud_pa` del wizard PA → `model_substitution`). Se il trigger è
+   positivo, l'override del settore instrada al regime (`reference:
+   regimes/<id>.yaml`); in v0.1 l'instradamento è un'escalation dichiarata nel `meta`
+   del regime (`escalate_to_advisor` / `ambiguous`) e popola `Verdict.regimeRouting`
+   (ADR 0009). Le domande comuni `dora` e `cloud_pa` sono **segnali**: con "sì"
+   aggiungono avvisi del catalogo (`on_yes.notices`) e l'esito segue le regole del
+   settore (l'art. 3 c. 14 riguarda i soli settori 3 e 4 dell'Allegato I; l'art. 4
+   Det. 155238/2026 le PA che hanno classificato i propri dati). Il regime DORA resta
+   dichiarato senza settori che lo instradano. L'intersezione PSNC + Cloud PA vive nel
+   wizard PA (`multi_regime_intersection`, E22).
 2. **Domande di settore** (`wizard__<settore>.yaml`): tipologia, follow-up
    condizionati (`visible_if`, ADR 0010), pertinenza pubblica, identità multiple.
-3. **Identificazione standard**: la domanda `dimension` alimenta le
-   `qualification_rules` dei settori size-cap. La PA non la incontra per
-   **struttura**: il suo wizard non ha la fase in `flow_order` e il settore è
-   `size_blind` (art. 3 c. 6 D.Lgs. 138/2024).
+3. **Identificazione standard**: `soggetto_critico` (ADR 0015: con "sì" essenziale
+   indipendentemente dalla dimensione, art. 3 c. 5 lett. a) e art. 6 c. 1 lett. b)) e
+   `dimension`, che alimenta le `qualification_rules` dei settori size-cap con
+   `soggetto_critico == no`. La PA incontra solo `soggetto_critico`: `dimension` è
+   esclusa per **struttura** (`excluded_common_questions` del wizard PA) e il settore
+   è `size_blind` (art. 3 c. 6 D.Lgs. 138/2024). Un wizard può escludere domande del
+   blocco comune: la PA esclude `dimension` e `cloud_pa`.
 4. **Verdetto**: l'engine copia `assessment_mode` e `verdict_outcome` dalla regola
    che matcha (mai inferiti), raccoglie i signal (`l90_cumulo`, `cross_sector_*`)
    e compone il reasoning trace con le citazioni a granularità verificata.
@@ -72,11 +80,14 @@ La L. 90/2024 non è un gate: è il signal cumulativo `l90_cumulo` (ADR 0001).
 essenziale, b)-d) importanti); l'opzione `esclusa_art_4_c_2` porta a
 `likely_out_of_scope`; il canale Allegato IV è alternativo alle lettere nella stessa
 domanda. Nel percorso PA l'override Cloud PA scatta sulla domanda
-`classificazione_cloud_pa`, non sulla domanda comune `cloud_pa` (rivolta ai fornitori).
+`classificazione_cloud_pa`; la domanda comune `cloud_pa` (rivolta ai fornitori) non è
+posta alla PA. Le lett. b)-d) individuate come soggetto critico sono essenziali (ADR 0015).
 
-**Avvisi (ADR 0012).** Le regole possono dichiarare `notices`: id del catalogo
-eccezioni, riportati in `Verdict.notices`. Anche `regimeRouting[].exceptionsCatalogEntry`
-è un id del catalogo.
+**Avvisi (ADR 0012, ADR 0014).** Dichiarano `notices` (id del catalogo eccezioni,
+riportati in `Verdict.notices`): le regole che matchano, `allegato_iv_channel`, le
+risposte "sì" (`on_yes.notices`), le opzioni scelte (`on_selected.notices`), gli esiti
+di `outcome_mapping` e le intersezioni. Anche `regimeRouting[].exceptionsCatalogEntry` è
+un id del catalogo.
 
 ## 3. Invarianti dello schema
 
@@ -102,13 +113,17 @@ analizzi il corpus. Ogni violazione porta un codice stabile tra parentesi quadre
 | 15 | Le risposte di `outcome_mapping` sono opzioni della domanda | `E_REF_QUESTION` | ADR 0003 (follow-up PUN) |
 | 16 | Ogni regola che consuma `dimension` cita `faq_amb_di_1` e `racc_ue_2003_361` | `E_DIMENSION_CITATIONS` | STATUS 12.9 |
 | 17 | Settore `size_blind` senza condizioni su `dimension` | `E_SIZE_BLIND` | note di schema del settore PA |
-| 18 | Fixture: `corpus_version` = `VERSION`; input = id di domande; signal definiti; `corpus_ref` risolvibili; `regime_routing` = `meta` dei regimi degli override che matchano, nell'ordine del file di settore; con un solo regime, esito = `meta` del regime | `E_FIXTURE_VERSION`, `E_FIXTURE_INPUT`, `E_FIXTURE_SIGNAL`, `E_CORPUS_REF`, `E_REGIME_ROUTING` | ADR 0009 + amendment, CLAUDE.md Testing |
+| 18 | Fixture: `corpus_version` = `VERSION`; input = domande poste dal wizard del settore (blocco comune meno `excluded_common_questions`, da 0.6.0); signal definiti; `corpus_ref` risolvibili; `regime_routing` = `meta` dei regimi degli override che matchano, nell'ordine del file di settore; con un solo regime, esito = `meta` del regime | `E_FIXTURE_VERSION`, `E_FIXTURE_INPUT`, `E_FIXTURE_SIGNAL`, `E_CORPUS_REF`, `E_REGIME_ROUTING` | ADR 0009 + amendment, CLAUDE.md Testing |
 | 19 | Nessun booleano YAML 1.1 non quotato (`yes`/`no`/`on`/`off`/`y`/`n`) | `E_YAML_BOOL` | S1.1 (lint testuale, non dello schema) |
-| 20 | Catalogo eccezioni con schema stretto; ogni riferimento al catalogo (`notices` delle regole e di `allegato_iv_channel`, `meta.exceptions_catalog_entry` dei regimi, `notices` e `regime_routing` delle fixture) risolve; id unici; `applies_to` solo settori o regimi | `E_CATALOG_REF` | ADR 0012 |
+| 20 | Catalogo eccezioni con schema stretto; ogni riferimento al catalogo (`notices` di regole, `allegato_iv_channel`, `on_yes`, `on_selected`, `outcome_mapping`, `multi_regime_intersection`, `meta.exceptions_catalog_entry` dei regimi, `notices` e `regime_routing` delle fixture) risolve; id unici; `applies_to` solo settori o regimi | `E_CATALOG_REF` | ADR 0012 |
 | 21 | Testi del catalogo (`title`, `description`) senza formule categoriche o prescrittive e con il naming vincolato ("salvaguardia dimensionale", mai "CER" nudo, "esclusioni di sicurezza nazionale") | `E_COPY` | CLAUDE.md vincolo 1, ADR 0004 ("CER"), CHANGELOG 0.2.0 B5 ("salvaguardia"), ADR 0012 |
 | 22 | Registro citazioni con schema stretto (nodo KB, righe, attestazione) e id unici | `E_CITATION_ID` | ADR 0011 (rinvio KB per ogni ID nuovo) |
+| 23 | Ogni citation ID usato (corpus e fixture: `citations`, `cumulative_regulations`, `base_legal_definition`) ha una voce nel registro | `E_CITATION_UNREGISTERED` | CLAUDE.md vincolo 3; corpus 0.6.0 (registro completo) |
+| 24 | Ogni voce del registro è usata (avviso, non blocca) | `W_CITATION_UNUSED` | corpus 0.6.0 |
+| 25 | Ogni voce di catalogo `segnalato` è referenziata da almeno un avviso o dal `meta` di un regime; `gestito` e `non_gestito` possono non esserlo | `E_CATALOG_UNREFERENCED` | ADR 0012 (segnalato = mostrato nel verdetto) |
+| 26 | `excluded_common_questions` nomina solo domande del blocco comune; le domande escluse non sono input del settore (regole, trigger, fixture) | `E_REF_QUESTION`, `E_RULE_INPUT`, `E_FIXTURE_INPUT` | ADR 0014, ADR 0015 |
 
-Gli invarianti incrociati (2, 7–10, 13–18, 20, 22) girano solo se la forma dei file è
+Gli invarianti incrociati (2, 7–10, 13–18, 20, 22–26) girano solo se la forma dei file è
 valida: zod non esegue i `superRefine` su un input di forma errata.
 
 ## 4. Grammatica di `visible_if` (ADR 0010)
@@ -164,13 +179,14 @@ Una limitazione nuova entra prima nel catalogo, poi nei documenti generati.
 
 ## 7. Cosa manca per v0.1.0
 
-- **Engine (S3)**: `evaluate` reale; fixture E01–E20 da `todo` a test verdi;
+- **Engine (S3)**: `evaluate` reale; fixture E01–E25 da `todo` a test verdi;
   semantica delle condizioni senza risposta (ADR 0010); assert dell'invariante
-  escalate → ambiguous anche nell'engine (vincolo 6); `Verdict.notices`.
-- **Corpus**: lettura cloud/energia estesa agli override DORA, art. 3 c. 14
-  (STATUS 16); registrazione nel registro citazioni degli ID precedenti a 0.5.0;
-  riporto nel catalogo delle voci del catalogo di riferimento (STATUS: "4 gestite /
-  8 segnalate / 10 non gestite") e valutazione della migrazione di `out_of_scope_mvp`.
+  escalate → ambiguous anche nell'engine (vincolo 6); `Verdict.notices` da tutte le
+  posizioni degli avvisi; precedenza tra `outcome_mapping` e regole dimensionali (PUN, prosumer).
+- **Corpus**: correzioni KB proposte dall'audit del registro
+  (`docs/verifications/2026-10-28-registro-citazioni.md`), poi gli ID oggi degradati
+  (art. 7 c. 1 lett. d), art. 11 c. 2 lett. g), FAQ GEN.6, A1.8.1, A1.9.1); migrazione dei
+  casi residui di `out_of_scope_mvp` (PA) nel catalogo.
 - **Documenti generati (S4)**: script che genera `docs/known-limitations.md` e le
   sezioni limitazioni del disclaimer dal catalogo.
 - **Web**: wizard, Explainability Mode, testi definitivi di disclaimer e click-wrap

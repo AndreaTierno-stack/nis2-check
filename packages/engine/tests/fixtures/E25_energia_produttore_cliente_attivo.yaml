@@ -6,7 +6,7 @@ description_it: >
   clienti attivi e non svolge altre attivita' degli Allegati I e II. C-E2 (corpus
   0.6.0): secondo la FAQ A1.1.a.4 queste organizzazioni non rientrano nell'ambito
   NIS; avviso sulla definizione di cliente attivo, non attestata.
-corpus_version: 0.5.0
+corpus_version: 0.6.0
 sector: energia_elettrica
 
 inputs:
