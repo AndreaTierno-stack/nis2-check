@@ -2,7 +2,7 @@
 
 > Documentazione viva: si aggiorna nello stesso commit che cambia l'architettura
 > (CLAUDE.md, CI/CD e workflow). Stato di avanzamento e punti aperti: `docs/STATUS.md`.
-> Ultimo aggiornamento: 2026-10-28, sessione S2 (corpus 0.4.0).
+> Ultimo aggiornamento: 2026-10-28, sessione corpus 0.5.0 (pacchetto PA, catalogo eccezioni).
 
 nis2-check è uno strumento **informativo** di pre-screening dell'ambito NIS2 italiano:
 non fa compliance, audit o certificazione. Il valore sta nel **corpus normativo
@@ -21,6 +21,7 @@ nis2-check/
     tests/fixtures/         scenari golden E01–E15 (corpus_version, input, expected)
   packages/corpus/          corpus + loader + schemi zod + corpus:validate
     corpus/                 VERSION · CHANGELOG.md · sectors/ · wizard/ · signals/ · regimes/
+                            exceptions/ (catalogo eccezioni, ADR 0012) · citations/ (registro citazioni)
     src/load.ts             lettura YAML (js-yaml v4, YAML 1.2: yes/no sono stringhe)
     src/schemas/files.ts    forma di ogni file (settore, wizard, regime, signal, fixture)
     src/schemas/corpus.ts   invarianti incrociati (riferimenti, override/regime, fixture)
@@ -67,6 +68,16 @@ wizard__disambiguation      wizard di settore    wizard__disambiguation
 
 La L. 90/2024 non è un gate: è il signal cumulativo `l90_cumulo` (ADR 0001).
 
+**PA (ADR 0011).** Le lettere a)-d) dell'Allegato III hanno verdetto categoriale (a)
+essenziale, b)-d) importanti); l'opzione `esclusa_art_4_c_2` porta a
+`likely_out_of_scope`; il canale Allegato IV è alternativo alle lettere nella stessa
+domanda. Nel percorso PA l'override Cloud PA scatta sulla domanda
+`classificazione_cloud_pa`, non sulla domanda comune `cloud_pa` (rivolta ai fornitori).
+
+**Avvisi (ADR 0012).** Le regole possono dichiarare `notices`: id del catalogo
+eccezioni, riportati in `Verdict.notices`. Anche `regimeRouting[].exceptionsCatalogEntry`
+è un id del catalogo.
+
 ## 3. Invarianti dello schema
 
 Applicati dallo schema zod (`packages/corpus/src/schemas/`), quindi da chiunque
@@ -93,8 +104,11 @@ analizzi il corpus. Ogni violazione porta un codice stabile tra parentesi quadre
 | 17 | Settore `size_blind` senza condizioni su `dimension` | `E_SIZE_BLIND` | note di schema del settore PA |
 | 18 | Fixture: `corpus_version` = `VERSION`; input = id di domande; signal definiti; `corpus_ref` risolvibili; `regime_routing` = `meta` dei regimi degli override che matchano, nell'ordine del file di settore; con un solo regime, esito = `meta` del regime | `E_FIXTURE_VERSION`, `E_FIXTURE_INPUT`, `E_FIXTURE_SIGNAL`, `E_CORPUS_REF`, `E_REGIME_ROUTING` | ADR 0009 + amendment, CLAUDE.md Testing |
 | 19 | Nessun booleano YAML 1.1 non quotato (`yes`/`no`/`on`/`off`/`y`/`n`) | `E_YAML_BOOL` | S1.1 (lint testuale, non dello schema) |
+| 20 | Catalogo eccezioni con schema stretto; ogni riferimento al catalogo (`notices` delle regole e di `allegato_iv_channel`, `meta.exceptions_catalog_entry` dei regimi, `notices` e `regime_routing` delle fixture) risolve; id unici; `applies_to` solo settori o regimi | `E_CATALOG_REF` | ADR 0012 |
+| 21 | Testi del catalogo (`title`, `description`) senza formule categoriche o prescrittive e con il naming vincolato ("salvaguardia dimensionale", mai "CER" nudo, "esclusioni di sicurezza nazionale") | `E_COPY` | CLAUDE.md vincolo 1, ADR 0004, ADR 0005, ADR 0012 |
+| 22 | Registro citazioni con schema stretto (nodo KB, righe, attestazione) e id unici | `E_CITATION_ID` | ADR 0011 (rinvio KB per ogni ID nuovo) |
 
-Gli invarianti incrociati (2, 7–10, 13–18) girano solo se la forma dei file è
+Gli invarianti incrociati (2, 7–10, 13–18, 20, 22) girano solo se la forma dei file è
 valida: zod non esegue i `superRefine` su un input di forma errata.
 
 ## 4. Grammatica di `visible_if` (ADR 0010)
@@ -138,18 +152,32 @@ pnpm build              # export statico di apps/web
 GitHub Actions (`.github/workflows/ci.yml`): stessi passi in quest'ordine su push e
 PR, Node 24, solo action di GitHub, nessun servizio terzo.
 
+**Sviluppo su Windows**: clonare il repository in un percorso corto. I percorsi di
+`node_modules/.pnpm` superano facilmente il limite di 260 caratteri e Node non legge
+il `package.json` dei pacchetti (errore `ERR_PACKAGE_IMPORT_NOT_DEFINED` di vitest).
+
+## 6bis. Documenti generati dal catalogo eccezioni
+
+`docs/known-limitations.md` e le sezioni "limitazioni" del disclaimer si **generano**
+da `exceptions/exceptions__catalog.yaml` (script in S4): non si scrivono mai a mano.
+Una limitazione nuova entra prima nel catalogo, poi nei documenti generati.
+
 ## 7. Cosa manca per v0.1.0
 
-- **Engine (S3)**: `evaluate` reale; fixture E01–E15 da `todo` a test verdi;
+- **Engine (S3)**: `evaluate` reale; fixture E01–E20 da `todo` a test verdi;
   semantica delle condizioni senza risposta (ADR 0010); assert dell'invariante
-  escalate → ambiguous anche nell'engine (vincolo 6).
-- **Corpus**: pacchetto PA C1–C6 (corpus 0.5.0, STATUS 13); lettura DORA, art. 3
-  c. 14 e override cloud/energia (STATUS 16); catalogo eccezioni
-  `exceptions/exceptions__catalog.yaml` (0.5.0, STATUS 14).
+  escalate → ambiguous anche nell'engine (vincolo 6); `Verdict.notices`.
+- **Corpus**: lettura cloud/energia estesa agli override DORA, art. 3 c. 14
+  (STATUS 16); registrazione nel registro citazioni degli ID precedenti a 0.5.0;
+  riporto nel catalogo delle voci del catalogo di riferimento (STATUS: "4 gestite /
+  8 segnalate / 10 non gestite") e valutazione della migrazione di `out_of_scope_mvp`.
+- **Documenti generati (S4)**: script che genera `docs/known-limitations.md` e le
+  sezioni limitazioni del disclaimer dal catalogo.
 - **Web**: wizard, Explainability Mode, testi definitivi di disclaimer e click-wrap
   dopo la review legale, collegamento a engine e corpus.
 - **PDF**: `packages/pdf` secondo CLAUDE.md (watermark, disclaimer su ogni pagina).
 - **Qualità**: ESLint anche su `packages/*` (oggi solo web); migrazione a zod 4
   (advisory di zod 3 sulla memoria con collezioni enormi, non rilevante su un corpus
-  locale fidato); lint dei vincoli di copy (parole vietate) sui testi del corpus.
+  locale fidato); lint dei vincoli di copy esteso dai testi del catalogo ai
+  reasoning trace e ai testi del wizard.
 - **Rilascio**: review GRC terza sui 5 scenari (ADR 0008), deploy Vercel.
