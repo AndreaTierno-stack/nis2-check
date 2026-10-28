@@ -5,7 +5,7 @@ scope: both
 tags: [nis2, soglia, dimensione, ambito, classificazione]
 sources: ["[[sources/Direttiva (UE) 2022-2555 (NIS2)]]", "[[sources/D.Lgs. 138-2024 (Decreto NIS)]]", "[[sources/FAQ NIS - Ambito]]"]
 aliases: [Regola dimensionale, Soglia dimensionale NIS2]
-updated: 2026-10-27
+updated: 2026-10-28
 ---
 
 ## Definizione
@@ -24,7 +24,7 @@ Criterio **dimensionale** che la NIS2 utilizza per stabilire automaticamente qua
 - **Medie**: non piccole (≥50 effettivi, **oppure** fatturato e bilancio entrambi >10 M€), con <250 effettivi **e** almeno uno tra fatturato ≤ 50 M€ e bilancio ≤ 43 M€ → di regola **soggetti importanti**.
 - **Grandi**: ≥250 effettivi, **oppure** fatturato >50 M€ **e** bilancio >43 M€ → di regola **soggetti essenziali** (se in settore "altamente critico" Allegato I).
 
-Le **eccezioni alla soglia** (soggetti che rientrano a prescindere dalla dimensione) sono elencate nella direttiva e nel decreto: PA dell'Allegato III lett. a)-d) (art. 3 c. 6 [[sources/D.Lgs. 138-2024 (Decreto NIS)|D.Lgs. 138/2024]]), prestatori di servizi fiduciari qualificati, fornitori di reti pubbliche di comunicazioni elettroniche e di servizi di comunicazione elettronica accessibili al pubblico, fornitori di DNS, registri TLD, soggetti **unici** in uno Stato, soggetti **critici** identificati a livello nazionale.
+Le **eccezioni alla soglia** (soggetti che rientrano a prescindere dalla dimensione) sono elencate nella direttiva e nel decreto. Nel [[sources/D.Lgs. 138-2024 (Decreto NIS)|D.Lgs. 138/2024]], art. 3: per legge, soggetti critici ex D.Lgs. 134/2024 (c. 5 lett. a)), fornitori di reti pubbliche di comunicazione elettronica e di servizi di comunicazione elettronica accessibili al pubblico (lett. b)), prestatori di servizi fiduciari (lett. c)), registri TLD e fornitori di servizi DNS (lett. d)), fornitori di servizi di registrazione dei nomi di dominio (lett. e)), PA dell'Allegato III lett. a)-d) (c. 6), imprese collegate a un soggetto essenziale o importante (c. 10); per individuazione dell'ACN, tipologie dell'Allegato IV (c. 8) e soggetti che soddisfano i criteri del c. 9, tra cui il fornitore **unico** nazionale di un servizio essenziale (lett. b)) e il soggetto **critico** per la sua importanza a livello nazionale o regionale (lett. e)).
 
 ## Sviluppo
 

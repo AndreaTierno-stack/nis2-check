@@ -8,12 +8,13 @@ url: https://www.acn.gov.it/portale/faq-nis-settori-sottosettori-e-tipologie-di-
 author: Agenzia per la Cybersicurezza Nazionale
 date_published: 2026
 date_ingested: 2026-04-29
+updated: 2026-10-28
 tags: [NIS2, ACN, FAQ, settori, sottosettori, allegato I, allegato II, allegato III, allegato IV, tipologie di soggetto]
 ---
 
 ## TL;DR
 
-FAQ ACN sui **settori e tipologie di soggetto** rientranti nell'ambito NIS. È la FAQ più estesa del corpus (~70 codici, da `A1.1.a.1` a `A4.3.5`) e fornisce, settore per settore, l'**elenco operativo dei provvedimenti unionali** che identificano le tipologie di soggetto: per ciascun sottosettore la struttura è "**direttiva/regolamento UE → tipologia di soggetto → criterio dimensionale (Racc. 2003/361/CE) → essenziale/importante**". Coperti tutti i 10 settori altamente critici (Allegato I) + 7 settori critici (Allegato II) + Allegato III (PA) + Allegato IV (individuazione autoritativa). **Eccezioni di prevalenza**: Acqua potabile (solo distributore), Acque reflue, Gestione rifiuti — non rientrano se l'attività non è prevalente. **Tipologie size-blind** (tutte le dimensioni, anche micro/piccole): fornitori servizi fiduciari qualificati (essenziali a prescindere), DNS/TLD/registrar (essenziali), reti+servizi comunicazione elettronica, fornitori digitali Allegato II (rivenditori nomi dominio), prestatori di servizi TIC infragruppo verso impresa collegata NIS (art. 3 c. 10). **Esclusioni notevoli**: punti vendita di GNL/GNC per autotrazione, prosumer fotovoltaici, mediatori solo marketing/contabili, mangimi, sementi, GPL non REACH, GNL liquido non rigassificato, biogas/biometano in forma liquida, RSA (incluse), istituti di istruzione (inclusi solo via Allegato IV su proposta MUR). **PA**: 4 sottocategorie a c) Amm. locali (Città metropolitane, Comuni >100k abitanti, Comuni capoluogo, ASL); le **Aziende ospedaliere/universitarie** sono **soggetti distinti** dalle ASL e si registrano **autonomamente**. **Allegato IV**: 4 tipologie attivate solo via Det. ACN su proposta autorità di settore, inclusi *trasporto pubblico locale*, *istituti istruzione con ricerca*, *attività interesse culturale*, *società in-house/partecipate/controllo pubblico*. **Servizi gestiti TIC**: definiti dall'**interconnessione diretta** rete fornitore↔cliente (assistenza/amministrazione attiva); i 13 servizi di sicurezza gestiti elencati esplicitamente.
+FAQ ACN sui **settori e tipologie di soggetto** rientranti nell'ambito NIS. È la FAQ più estesa del corpus (~70 codici, da `A1.1.a.1` a `A4.3.5`) e fornisce, settore per settore, l'**elenco operativo dei provvedimenti unionali** che identificano le tipologie di soggetto: per ciascun sottosettore la struttura è "**direttiva/regolamento UE → tipologia di soggetto → criterio dimensionale (Racc. 2003/361/CE) → essenziale/importante**". Coperti tutti i 10 settori altamente critici (Allegato I) + 7 settori critici (Allegato II) + Allegato III (PA) + Allegato IV (individuazione autoritativa). **Eccezioni di prevalenza**: Acqua potabile (solo distributore), Acque reflue, Gestione rifiuti — non rientrano se l'attività non è prevalente. **Tipologie size-blind** (tutte le dimensioni, anche micro/piccole; art. 3 c. 5 D.Lgs. 138/2024): reti + servizi di comunicazione elettronica (lett. b)); prestatori di servizi fiduciari (lett. c)), essenziali a prescindere se qualificati (art. 6 c. 1 lett. d)); gestori di registri TLD e fornitori di servizi DNS (lett. d)), essenziali (art. 6 c. 1 lett. d)); fornitori di servizi di registrazione dei nomi di dominio dell'Allegato II, compresi agenti e rivenditori (lett. e), `A2.6.3`); prestatori di servizi TIC infragruppo verso impresa collegata NIS (art. 3 c. 10). La FAQ non tratta i soggetti critici ex D.Lgs. 134/2024 (art. 3 c. 5 lett. a), essenziali ex art. 6 c. 1 lett. b)) né i soggetti individuati dall'ACN ex art. 3 c. 9: cfr. [[sources/FAQ NIS - Ambito]] `AMB.NO.1` e `AMB.GE.1`. **Esclusioni notevoli**: punti vendita di GNL/GNC per autotrazione, prosumer fotovoltaici, mediatori solo marketing/contabili, mangimi, sementi, GPL non REACH, GNL liquido non rigassificato, biogas/biometano in forma liquida, RSA (incluse), istituti di istruzione (inclusi solo via Allegato IV su proposta MUR). **PA**: 4 sottocategorie a c) Amm. locali (Città metropolitane, Comuni >100k abitanti, Comuni capoluogo, ASL); le **Aziende ospedaliere/universitarie** sono **soggetti distinti** dalle ASL e si registrano **autonomamente**. **Allegato IV**: 4 tipologie attivate solo via Det. ACN su proposta autorità di settore, inclusi *trasporto pubblico locale*, *istituti istruzione con ricerca*, *attività interesse culturale*, *società in-house/partecipate/controllo pubblico*. **Servizi gestiti TIC**: definiti dall'**interconnessione diretta** rete fornitore↔cliente (assistenza/amministrazione attiva); i 13 servizi di sicurezza gestiti elencati esplicitamente.
 
 ## Punti chiave
 
@@ -23,17 +24,17 @@ FAQ ACN sui **settori e tipologie di soggetto** rientranti nell'ambito NIS. È l
 - **Imprese elettriche** che svolgono **fornitura** (= vendita a clienti, anche rivendita).
 - **Gestori sistema di distribuzione** (DSO).
 - **Gestori sistema di trasmissione** (TSO).
-- **Produttori** (esclusi prosumer / clienti attivi — `A1.1.a.4`).
+- **Produttori** (esclusi prosumer / clienti attivi che non svolgono altre attività riconducibili agli Allegati I e II — `A1.1.a.4`).
 - **Gestori del mercato elettrico designati** (coupling unico DA/ID).
 - **Partecipanti al mercato dell'energia elettrica** che forniscono aggregazione, gestione domanda, stoccaggio.
 - **Gestori di punti di ricarica** ex DM MASE n. 106 del 16/03/2023 (registrati su PUN). NB: i punti vendita che offrono ricarica elettrica alla clientela **non** rientrano automaticamente — solo se obbligati a registrarsi su PUN (`A1.1.a.3`).
 - Aziende che vendono energia elettrica a clienti domestici a mercato libero **rientrano** quali "imprese elettriche" — `A1.1.a.2`.
 
-**Mappa tipologia → codice FAQ (sottosettore elettrico `A1.1.a`)** — codici come attestati dalla FAQ (nessuna definizione della Dir. 2019/944 riportata: fuori ambito):
-- `A1.1.a.1` — elencazione generale delle tipologie del sottosettore elettrico: imprese elettriche di fornitura (vendita), gestori del sistema di distribuzione (DSO), gestori del sistema di trasmissione (TSO), produttori, gestori del mercato elettrico designati, partecipanti al mercato (aggregazione, gestione domanda, stoccaggio).
+**Mappa tipologia → codice FAQ (sottosettore elettrico `A1.1.a`)** — codici come attestati dalla FAQ. `A1.1.a.1` riporta tra virgolette le definizioni della Dir. 2019/944 (impresa elettrica, fornitura, DSO, TSO, produttore, aggregazione, gestione della domanda, stoccaggio) e del Reg. 2019/943 (gestore del mercato elettrico designato, partecipante al mercato); qui non sono trascritte:
+- `A1.1.a.1` — elencazione generale delle tipologie del sottosettore elettrico: imprese elettriche di fornitura (vendita), gestori del sistema di distribuzione (DSO), gestori del sistema di trasmissione (TSO), produttori, gestori del mercato elettrico designati, partecipanti al mercato (aggregazione, gestione domanda, stoccaggio), gestori di punti di ricarica (punto 3).
 - `A1.1.a.2` — imprese elettriche che vendono a **clienti domestici** sul mercato libero: rientrano come "imprese elettriche".
 - `A1.1.a.3` — **gestori di punti di ricarica** registrati su PUN (ex DM MASE n. 106 del 16/03/2023); i punti vendita che offrono ricarica ma non obbligati alla registrazione su PUN **non rientrano automaticamente**.
-- `A1.1.a.4` — **esclusione** di prosumer / clienti attivi dalla tipologia "produttori".
+- `A1.1.a.4` — **esclusione** di prosumer / clienti attivi dalla tipologia "produttori", per le organizzazioni che non svolgono altre attività riconducibili agli Allegati I e II.
 
 **Sottosettore Teleriscaldamento e teleraffrescamento (`A1.1.b.1`)** — direttiva 2018/2001/UE (D.Lgs. 199/2021): gestori di teleriscaldamento o teleraffrescamento.
 
@@ -292,15 +293,17 @@ Reg. 178/2002/CE (D.Lgs. 190/2006): imprese alimentari che si occupano di distri
 
 ## Note dell'agente
 
-- **Mappa size-blind** (entità soggette a NIS a prescindere dalla dimensione, anche micro/piccole) — utile per autovalutazione PDA2:
-  1. **Servizi fiduciari qualificati** (Allegato I p. 8) → **essenziali**;
-  2. **DNS + TLD registry** (Allegato I p. 8) → **essenziali**;
-  3. **Reti pubbliche + servizi comunicazione elettronica** (Allegato I p. 8) → importanti (essenziali se >piccole);
-  4. **Servizi fiduciari non qualificati** (Allegato I p. 8) → importanti (essenziali se >medie);
-  5. **Registrar nomi di dominio** (Allegato II p. 6) → importanti — con **obblighi ridotti** ex art. 32 (no art. 24/25);
-  6. **PA Allegato III** → essenziali/importanti per categoria;
-  7. **Allegato IV** (post-individuazione) → tipologia per tipologia;
-  8. **Imprese collegate art. 3 c. 10** prestatori TIC verso NIS → attrazione gruppale.
+- **Mappa size-blind** (entità soggette a NIS a prescindere dalla dimensione, anche micro/piccole; art. 3 D.Lgs. 138/2024) — utile per autovalutazione PDA2:
+  1. **Soggetti critici** ex D.Lgs. 134/2024 (art. 3 c. 5 lett. a)) → **essenziali** (art. 6 c. 1 lett. b)); non trattati da questa FAQ, cfr. [[sources/FAQ NIS - Ambito]] `AMB.NO.1`;
+  2. **Servizi fiduciari qualificati** (Allegato I p. 8; c. 5 lett. c)) → **essenziali** (art. 6 c. 1 lett. d));
+  3. **DNS + TLD registry** (Allegato I p. 8; c. 5 lett. d)) → **essenziali** (art. 6 c. 1 lett. d));
+  4. **Reti pubbliche + servizi comunicazione elettronica** (Allegato I p. 8; c. 5 lett. b)) → importanti (essenziali se >piccole);
+  5. **Servizi fiduciari non qualificati** (Allegato I p. 8; c. 5 lett. c)) → importanti (essenziali se >medie);
+  6. **Registrar nomi di dominio** (Allegato II p. 6; c. 5 lett. e)) → importanti — con **obblighi ridotti** ex art. 32 (no art. 24/25);
+  7. **PA Allegato III** (c. 6) → essenziali/importanti per categoria;
+  8. **Allegato IV** (c. 8, post-individuazione) → tipologia per tipologia;
+  9. **Soggetti individuati dall'ACN** ex c. 9 (criteri lett. a)-f), notifica ex c. 13) → essenziali se individuati ex art. 6 c. 2, altrimenti importanti;
+  10. **Imprese collegate art. 3 c. 10** prestatori TIC verso NIS → attrazione gruppale.
 - **Mappa eccezioni di prevalenza** (criterio fatturato superiore alle altre attività):
   - Acqua potabile (solo distributore) — `A1.6.3`;
   - Acque reflue — `A1.7.3`;
@@ -311,7 +314,7 @@ Reg. 178/2002/CE (D.Lgs. 190/2006): imprese alimentari che si occupano di distri
   - GNL liquido non rigassificato non in rete (`A1.1.d.2`);
   - Biogas/biometano in forma liquida non in rete (`A1.1.d.3`);
   - GPL — non in petrolio, in chimici **solo se REACH** (`A1.1.d.4`–`A1.1.d.5`);
-  - Prosumer fotovoltaici (`A1.1.a.4`);
+  - Prosumer fotovoltaici che non svolgono altre attività riconducibili agli Allegati I e II (`A1.1.a.4`);
   - Mediatori solo marketing/contabili dei servizi digitali e gestiti (`A1.8.4`, `A1.9.5`, `A2.6.4`);
   - Mangimi (`A2.4.2`);
   - Sementi (`A2.4.3`);
@@ -330,3 +333,4 @@ Reg. 178/2002/CE (D.Lgs. 190/2006): imprese alimentari che si occupano di distri
 - **Sintesi dell'agente**: la FAQ è in pratica un **manuale operativo** per l'autovalutazione di settore (PDA3 in `REG.1`/`PDA1-3` di [[sources/FAQ NIS - Registrazione]]). Cita decine di provvedimenti unionali con definizioni operative, e va letta in parallelo con `AMB.GE` di [[sources/FAQ NIS - Ambito]] (principio di non-prevalenza orizzontale) e `AMB.NO` (esclusioni DORA).
 - **Possibile gap normativo**: "**piattaforme di social network**" definite nella FAQ in modo simile alla DSA — manca il riferimento esplicito al Reg. 2022/2065 (DSA), che potrebbe sovrapporsi. Da verificare se ACN ha emesso chiarimenti.
 - Note di traduzione: caratteri "à è ò ù" appaiono come "�" nel testo estratto.
+- *Nota redazionale (2026-10-28):* due refusi in `A1.1.a.1`. Al punto 1. a) la FAQ rinvia due volte all'"articolo 3, punto 57" della Dir. 2019/944: per l'impresa elettrica la definizione è all'art. 2, punto 57) (così l'Allegato I del [[sources/D.Lgs. 138-2024 (Decreto NIS)|D.Lgs. 138/2024]]), per la fornitura all'art. 2, punto 12) (così la stessa FAQ nella frase e in `A1.1.a.2`). Al punto 3 (gestori di punti di ricarica) il rinvio "(vedi FAQ A1.1.a.2)" punta alla FAQ sulla vendita a clienti domestici; i punti di ricarica sono trattati in `A1.1.a.3`.

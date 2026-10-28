@@ -8,12 +8,13 @@ url: https://www.acn.gov.it/portale/faq-nis-ambito
 author: Agenzia per la Cybersicurezza Nazionale
 date_published: 2026
 date_ingested: 2026-04-29
-tags: [NIS2, ACN, FAQ, ambito, dimensione, gruppi imprese, PA, organizzazioni estere, DORA, CER]
+updated: 2026-10-28
+tags: [NIS2, ACN, FAQ, ambito, dimensione, gruppi imprese, PA, organizzazioni estere, DORA, soggetti critici]
 ---
 
 ## TL;DR
 
-FAQ ACN sull'**ambito di applicazione** del decreto NIS in 6 cluster (`AMB.GE` generalità, `AMB.DI` dimensione, `AMB.GI` gruppi di imprese, `AMB.PU` settore pubblico, `AMB.ES` organizzazioni estere, `AMB.NO` relazioni con altre normative). Ricostruisce la **logica binaria essenziale/importante** ex art. 6 D.Lgs. 138/2024; chiarisce che **l'identificazione non si basa su codici ATECO/NACE** salvo eccezioni del settore "Fabbricazione" (NACE C.21/26/27/28/29/30); afferma il **principio di non-prevalenza** con **3 eccezioni** (Acque reflue, Gestione rifiuti, Acqua potabile); chiarisce che **un fornitore di un soggetto NIS non è automaticamente NIS**, ma deve adempiere a obblighi contrattuali; spiega l'**attrazione ex art. 3 c. 10** delle imprese collegate/associate indipendentemente dalle dimensioni; fornisce la **definizione operativa** di micro/piccola/media impresa (ex Racc. 2003/361/CE — Guida UE 2020) e i criteri (n. effettivi + uno tra fatturato/bilancio); spiega la **clausola di salvaguardia DPCM 221/2024** del 9/12/2024 (GU 10/02/2025); indica **15 categorie PA Allegato III** + criterio dei comuni con popolazione >100k o capoluogo + ASL; classifica le organizzazioni **EU/extra-UE** in giurisdizione nazionale e le 2 eccezioni transfrontaliere (telco + servizi inerentemente transfrontalieri); affronta i **soggetti CER → essenziali in automatico** (D.Lgs. 134/2024); chiarisce il rapporto **DORA / NIS** (lex specialis: solo art. 7 c. 1 NIS per banche/IMF). 22 codici.
+FAQ ACN sull'**ambito di applicazione** del decreto NIS in 6 cluster (`AMB.GE` generalità, `AMB.DI` dimensione, `AMB.GI` gruppi di imprese, `AMB.PU` settore pubblico, `AMB.ES` organizzazioni estere, `AMB.NO` relazioni con altre normative). Ricostruisce la **logica binaria essenziale/importante** ex art. 6 D.Lgs. 138/2024; chiarisce che **l'identificazione non si basa su codici ATECO/NACE** salvo eccezioni del settore "Fabbricazione" (NACE C.21/26/27/28/29/30); afferma il **principio di non-prevalenza** con **3 eccezioni** (Acque reflue, Gestione rifiuti, Acqua potabile); chiarisce che **un fornitore di un soggetto NIS non è automaticamente NIS**, ma deve adempiere a obblighi contrattuali; spiega l'**attrazione ex art. 3 c. 10** delle imprese collegate/associate indipendentemente dalle dimensioni; fornisce la **definizione operativa** di micro/piccola/media impresa (ex Racc. 2003/361/CE — Guida UE 2020) e i criteri (n. effettivi + uno tra fatturato/bilancio); spiega la **clausola di salvaguardia DPCM 221/2024** del 9/12/2024 (GU 10/02/2025); indica **15 categorie PA Allegato III** + criterio dei comuni con popolazione >100k o capoluogo + ASL; classifica le organizzazioni **EU/extra-UE** in giurisdizione nazionale e le 2 eccezioni transfrontaliere (telco + servizi inerentemente transfrontalieri); affronta i **soggetti critici (D.Lgs. 134/2024) → essenziali in automatico**; chiarisce il rapporto **DORA / NIS** (lex specialis: per banche/IMF l'art. 3 c. 14 disapplica art. 17 e Capi IV-V; la FAQ parla anche di sola registrazione ex art. 7 c. 1, v. nota in `AMB.NO.2`). 22 codici.
 
 ## Punti chiave
 
@@ -30,7 +31,7 @@ Soggetti che ricadono per criterio standard:
 - tipologie Allegati I/II + **almeno medie imprese** (Racc. 2003/361/CE);
 
 Soggetti **a prescindere dalla dimensione**:
-- soggetti **CER** ex D.Lgs. 134/2024 (recepimento Dir. UE 2022/2557 sulla resilienza dei soggetti critici);
+- **soggetti critici (D.Lgs. 134/2024)**, recepimento della Dir. UE 2022/2557 sulla resilienza dei soggetti critici (nella FAQ "Direttiva CER");
 - fornitori di **reti pubbliche di comunicazione elettronica** o **servizi di comunicazione elettronica** accessibili al pubblico (Allegato I);
 - **prestatori di servizi fiduciari** (Allegato I);
 - **gestori di registri TLD** + **fornitori DNS** (Allegato I);
@@ -50,7 +51,7 @@ Identificazione governativa (art. 3 c. 9, c. 13):
 
 **Essenziali**:
 - Allegato I + **almeno medie imprese** che superano i massimali medi (art. 2 par. 1 Racc. 2003/361/CE);
-- **a prescindere dalla dimensione**: soggetti CER, prestatori di servizi fiduciari **qualificati**, gestori registri TLD, fornitori DNS;
+- **a prescindere dalla dimensione**: soggetti critici (D.Lgs. 134/2024), prestatori di servizi fiduciari **qualificati**, gestori registri TLD, fornitori DNS;
 - fornitori reti/servizi telco accessibili al pubblico **almeno medie imprese**;
 - **PA centrali** Allegato III lett. a);
 - soggetti individuati dall'Autorità competente NIS con notifica.
@@ -217,10 +218,10 @@ Resta sempre la **identificazione governativa** ex art. 9 + notifica art. 3 c. 1
 
 ### Relazioni con altre normative (`AMB.NO.1`..`AMB.NO.2`)
 
-#### CER → essenziali (`AMB.NO.1`)
+#### Soggetti critici (D.Lgs. 134/2024) → essenziali (`AMB.NO.1`)
 
-- **Art. 3 c. 5 lett. a) decreto NIS**: tutti i soggetti CER ex **D.Lgs. 134/2024** (recepimento Dir. UE 2022/2557, **CER — Resilience of Critical Entities**) sono **essenziali** ai sensi del decreto NIS.
-- Acquisizione qualifica CER: con il **DPCM** che reca l'elenco dei soggetti critici (art. 8 D.Lgs. 134/2024); notifica entro 30 giorni dall'adozione, sia all'organizzazione censita sia ad ACN.
+- **Art. 3 c. 5 lett. a) decreto NIS**: tutti i soggetti critici (**D.Lgs. 134/2024**, recepimento della Dir. UE 2022/2557; nella FAQ "soggetti CER", "decreto CER") sono **essenziali** ai sensi del decreto NIS. La FAQ cita il c. 5 lett. a), che ne stabilisce il rientro; la qualifica di essenziale è nell'art. 6 c. 1 lett. b) del [[sources/D.Lgs. 138-2024 (Decreto NIS)|D.Lgs. 138/2024]].
+- Acquisizione della qualifica di soggetto critico: con il **DPCM** che reca l'elenco dei soggetti critici (art. 8 D.Lgs. 134/2024); notifica entro 30 giorni dall'adozione, sia all'organizzazione censita sia ad ACN.
 
 #### DORA come lex specialis (`AMB.NO.2`)
 
@@ -229,13 +230,15 @@ Resta sempre la **identificazione governativa** ex art. 9 + notifica art. 3 c. 1
 - **Art. 3 c. 14 decreto NIS** disapplica per tali soggetti: **art. 17** (accordi di condivisione delle informazioni) + **Capi IV** (obblighi misure + notifica) + **Capo V** (regime di vigilanza).
 - Resta **fermo il ruolo di [[entities/EU-CyCLONe]]** nel contesto della gestione delle crisi cyber transfrontaliere.
 
+> *Nota redazionale (2026-10-28):* `AMB.NO.2` è internamente incoerente. La seconda frase limita gli obblighi alla sola registrazione (art. 7 c. 1); la terza, conforme all'art. 3 c. 14 del [[sources/D.Lgs. 138-2024 (Decreto NIS)|D.Lgs. 138/2024]], disapplica "solo" l'art. 17 e i Capi IV e V, e lascia quindi applicabili le altre disposizioni del decreto (es. l'intero art. 7, compreso l'aggiornamento annuale del c. 4). Fa testo il decreto. Gli esoneri ulteriori (referente CSIRT, organi di amministrazione, categorizzazione) non vengono dalla FAQ ma dalla Det. ACN 127437/2026 e riguardano le entità finanziarie DORA che rientrano nell'ambito NIS: cfr. [[concepts/Coordinamento DORA-NIS]].
+
 ## Citazioni rilevanti
 
 > "Al riguardo, salvo tre eccezioni, la riconducibilità prescinde dalla prevalenza dell'attività svolta dal soggetto. Pertanto, un soggetto rientra nell'ambito di applicazione anche qualora svolga solo in forma residuale attività riconducibili alle tipologie di soggetto di cui agli allegati I, II, III e IV." — `AMB.GE.4`.
 
 > "Le organizzazioni che non soddisfano i criteri di cui all'articolo 3 del decreto NIS non rientrano automaticamente nell'ambito di applicazione del decreto NIS per il solo fatto di fornire servizi a soggetti NIS […]. Tuttavia, i soggetti NIS, al fine di gestire il rischio informatico che deriva dalla propria catena di approvvigionamento, digitale o meno, dovranno imporre obblighi contrattuali ai propri fornitori." — `AMB.GE.6`.
 
-> "DORA (Regolamento (UE) 2022/2554) è considerato lex specialis settoriale per la maggior parte delle previsioni della Direttiva NIS (2022/2555). Pertanto, ai soggetti DORA […] si applicano solamente le disposizioni del decreto NIS relative all'obbligo di registrazione (articolo 7, comma 1, del decreto NIS)." — `AMB.NO.2`.
+> "DORA (Regolamento (UE) 2022/2554) è considerato lex specialis settoriale per la maggior parte delle previsioni della Direttiva NIS (2022/2555). Pertanto, ai soggetti DORA riconducibili alle medie o grandi imprese che svolgono attività o erogano servizi riconducibili alle tipologie di soggetto di cui all'allegato I, punti 3 (settore bancario) e 4 (settore infrastrutture dei mercati finanziari), si applicano solamente le disposizioni del decreto NIS relative all'obbligo di registrazione (articolo 7, comma 1, del decreto NIS). In sostanza, l'articolo 3, comma 14, del decreto NIS disapplica, per tali soggetti, solo le previsioni dell'articolo 17 e dei capi IV e V, fermo restando il ruolo di CyCLONe nel contesto della gestione delle crisi cyber a livello transfrontaliero." — `AMB.NO.2`.
 
 ## Entità menzionate
 
@@ -258,15 +261,15 @@ Resta sempre la **identificazione governativa** ex art. 9 + notifica art. 3 c. 1
 
 - *Sintesi dell'agente:* il cluster `AMB.GE` introduce **tre regole di proporzionalità inverse** alla logica generale:
   1. la **non-prevalenza** (regola: includi anche se residuale) **vs** le 3 eccezioni "core-only" (acque reflue, rifiuti, acqua potabile);
-  2. l'**indipendenza dimensionale** per 4 settori critici per il funzionamento di Internet (telco/fiduciari/DNS/registrar);
+  2. l'**indipendenza dimensionale** (`AMB.GE.1`) per le tipologie dell'art. 3 c. 5 (soggetti critici ex D.Lgs. 134/2024, telco, prestatori di servizi fiduciari, registri TLD e DNS, registrar) e per la PA dell'Allegato III (c. 6), oltre ai soggetti individuati dall'ACN ex cc. 8-9;
   3. l'**attrazione gruppale** ex art. 3 c. 10 (entità anche piccole tirate dentro per legame con un soggetto NIS).
   La FAQ `AMB.DI.1` in particolare costituisce il **glossario operativo** della Racc. 2003/361/CE: i 6 esempi numerici sono lo strumento più utile per i pdc.
 - **Numeri di protocollo confermati**:
   - **DPCM 221/2024 del 9 dicembre 2024** (GU 10 febbraio 2025) = clausola di salvaguardia.
-  - **D.Lgs. 134/2024** = recepimento Direttiva CER (UE 2022/2557).
+  - **D.Lgs. 134/2024** = recepimento della direttiva (UE) 2022/2557 sulla resilienza dei soggetti critici.
   - **Det. ACN 379887/2025** citata come riferimento per le definizioni di "imprese collegate" (art. 1 c. 1 lett. cc) — è la versione *predecessora* della determinazione del 13/04/2026.
-- **DORA → NIS solo art. 7 c. 1** (`AMB.NO.2`) è il punto più sintetico: per banche e infrastrutture mercati finanziari **medie/grandi**, l'unico obbligo NIS è la **registrazione**, tutto il resto (art. 17 + Capi IV-V) disapplicato. Fermo restando il ruolo di EU-CyCLONe.
+- **DORA e NIS** (`AMB.NO.2`): per banche e infrastrutture dei mercati finanziari **medie/grandi** la FAQ indica come unico obbligo NIS la **registrazione** (art. 7 c. 1), ma richiama l'art. 3 c. 14, che disapplica solo l'art. 17 e i Capi IV-V: le altre disposizioni del decreto restano applicabili (v. nota redazionale in `AMB.NO.2`). Fermo restando il ruolo di EU-CyCLONe.
 - **`AMB.GI.3`** è la lista nera della clausola di salvaguardia: **dipendenza residuale** è già sufficiente a precludere — soglia molto stringente.
-- *Sintesi dell'agente:* il combinato `AMB.PU.1` + `AMB.PU.2` mostra che il decreto NIS in Italia **non copre l'intero settore pubblico**: scuole e comuni piccoli sono fuori, salvo identificazione governativa. È un'asimmetria rispetto al regime CER (che non ha questa esclusione di soglia).
+- *Sintesi dell'agente:* il combinato `AMB.PU.1` + `AMB.PU.2` mostra che il decreto NIS in Italia **non copre l'intero settore pubblico**: scuole e comuni piccoli sono fuori, salvo identificazione governativa. È un'asimmetria rispetto al regime dei soggetti critici (D.Lgs. 134/2024), che non ha questa esclusione di soglia.
 - Nota di traduzione: caratteri "à è ò ù" appaiono come "�" nel testo estratto.
-- Nota redazionale: la FAQ `AMB.DI.2` cita "decreto legislativo 134/2024 (cd. decreto NIS)" — è un errore della FAQ, il decreto NIS è il D.Lgs. 138/2024 (134/2024 è il decreto CER). Lo stesso errore si ripete in `AMB.DI.3`.
+- Nota redazionale: la FAQ `AMB.DI.2` cita "decreto legislativo 134/2024 (cd. decreto NIS)" — è un errore della FAQ, il decreto NIS è il D.Lgs. 138/2024 (134/2024 è il decreto sui soggetti critici). Lo stesso errore si ripete in `AMB.DI.3`.

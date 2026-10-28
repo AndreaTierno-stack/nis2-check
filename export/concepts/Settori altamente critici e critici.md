@@ -5,7 +5,7 @@ scope: both
 tags: [nis2, settori, allegati, ambito]
 sources: ["[[sources/Direttiva (UE) 2022-2555 (NIS2)]]", "[[sources/D.Lgs. 138-2024 (Decreto NIS)]]", "[[sources/FAQ NIS - Settori, sottosettori e tipologie di soggetto]]"]
 aliases: [Settori NIS2, Settori Allegato I, Settori Allegato II]
-updated: 2026-10-27
+updated: 2026-10-28
 ---
 
 ## Definizione
@@ -13,7 +13,7 @@ updated: 2026-10-27
 NIS2 distingue gli ambiti settoriali coperti in due gruppi:
 
 - **Settori altamente critici** (Allegato I direttiva / Allegato I D.Lgs. 138): 11 settori nella direttiva, 10 nel D.Lgs. 138, la cui perturbazione produce impatti sistemici sull'economia o sulla società. I soggetti grandi qui dentro sono **soggetti essenziali**.
-- **Settori critici** (Allegato II direttiva / Allegato II D.Lgs. 138): 7 settori comunque rilevanti ma con impatto sistemico minore. I soggetti rientranti qui dentro sono **soggetti importanti**.
+- **Settori critici** (Allegato II direttiva / Allegato II D.Lgs. 138): 7 settori comunque rilevanti ma con impatto sistemico minore. I soggetti rientranti qui dentro sono di regola **soggetti importanti** (art. 6 c. 3 [[sources/D.Lgs. 138-2024 (Decreto NIS)|D.Lgs. 138/2024]]), salvo i soggetti critici ex D.Lgs. 134/2024, essenziali a prescindere dalla dimensione (art. 6 c. 1 lett. b)), e i soggetti individuati come essenziali dall'ACN (art. 6 c. 2).
 
 Plus alcuni allegati aggiuntivi del decreto italiano (Allegato III/IV) per le **PA** e altre categorie particolari: la PA dell'Allegato III lett. a)-d) rientra per legge a prescindere dalla dimensione (art. 3 c. 6 [[sources/D.Lgs. 138-2024 (Decreto NIS)|D.Lgs. 138/2024]]).
 
@@ -52,7 +52,7 @@ Nella direttiva la PA è il settore 10 dell'Allegato I (Spazio è l'11). Il [[so
 [[sources/FAQ NIS - Settori, sottosettori e tipologie di soggetto]] fornisce ~70 chiarimenti settoriali (codici da `A1.1.a.1` a `A4.3.5`) che precisano:
 
 - **Mappa NACE** delle tipologie del settore Fabbricazione (Allegato II p. 5): NACE Sez. C div. 21/26/27/28/29/30 — divisioni che identificano i sottosettori dei dispositivi medici/IVD, computer ed elettronica/ottica, apparecchiature elettriche, macchinari, autoveicoli, altri mezzi di trasporto.
-- **Mappa "size-blind"**: tipologie soggetto incluse a prescindere dalla dimensione (servizi fiduciari qualificati, gestori DNS/TLD/registry, registrar Allegato II, PA, soggetti unici/critici).
+- **Mappa "size-blind"**: tipologie soggetto incluse a prescindere dalla dimensione. Per legge (art. 3 D.Lgs. 138/2024): soggetti critici ex D.Lgs. 134/2024 (c. 5 lett. a)), reti e servizi di comunicazione elettronica (lett. b)), prestatori di servizi fiduciari (lett. c)), registri TLD e fornitori DNS (lett. d)), registrar Allegato II (lett. e)), PA dell'Allegato III (c. 6), imprese collegate (c. 10). Per individuazione dell'ACN: Allegato IV (c. 8) e soggetti che soddisfano i criteri del c. 9, tra cui unico fornitore nazionale (lett. b)) e criticità a livello nazionale o regionale (lett. e)). La FAQ non tratta i soggetti critici (cfr. [[sources/FAQ NIS - Ambito]] `AMB.NO.1`).
 - **Mappa eccezioni di prevalenza**: per Acqua potabile, Acque reflue e Gestione rifiuti l'attività deve costituire la **parte essenziale dell'attività generale**.
 - **Esclusioni puntuali**: criteri esplicitamente fuori ambito.
 - **Allegato III + IV**: identificazione delle PA NIS (art. 3 c. 6), identificazione autoritativa Allegato IV (4 tipologie: trasporto pubblico locale, istruzione con ricerca, attività culturale, in-house/partecipate D.Lgs. 175/2016).

@@ -8,6 +8,7 @@ url: https://www.acn.gov.it/portale/nis/normativa
 author: Direttore generale ACN — Bruno Frattasi
 date_published: 2026-04-13
 date_ingested: 2026-04-29
+updated: 2026-10-28
 protocol_number: Det. ACN 155238/2026
 tags: [NIS2, ACN, categorizzazione, macro-aree, rilevanza, Det. 155238/2026]
 ---
@@ -32,7 +33,7 @@ tags: [NIS2, ACN, categorizzazione, macro-aree, rilevanza, Det. 155238/2026]
 - **Procedimento di categorizzazione** (art. 3): per ogni attività o servizio, il soggetto NIS indica macro-area, denominazione/descrizione e categoria di rilevanza.
 - **Deroga motivata** (art. 3 c. 3): il soggetto può indicare una categoria di rilevanza **diversa da quella pre-assegnata** sulla base di una propria valutazione documentata dell'impatto (la documentazione va conservata).
 - **Macro-aree non applicabili**: il soggetto NIS non è tenuto a indicare attività/servizi per macro-aree che non svolge.
-- **Coordinamento con la classificazione cloud PA** (art. 4): i soggetti che hanno già svolto la classificazione ex Decreto Direttoriale ACN n. 21007/24 del 27/06/2024 (cloud PA) **applicano quel modello in luogo del modello NIS**. Razionale: evitare duplicazione di sforzi per le PA cloud-mature.
+- **Coordinamento con la classificazione cloud PA** (art. 4): i soggetti che hanno già svolto la classificazione ex Decreto Direttoriale ACN n. 21007/24 del 27/06/2024 (cloud PA) **applicano quel modello in luogo del modello NIS**. La condizione è aver svolto la classificazione, non l'essere PA. Razionale: evitare duplicazione di sforzi per chi ha già adempiuto al Regolamento Cloud.
 - **Coordinamento con il perimetro PSNC** (art. 5): alle attività e servizi soggetti agli obblighi del [[D.L. 105-2019 (perimetro)]] è **automaticamente attribuita la categoria "impatto alto"** e tali servizi sono **esclusi dal procedimento ordinario** di categorizzazione (art. 3).
 - **Disposizioni finanziarie**: oneri a carico dell'Autorità nazionale competente NIS (art. 10 decreto NIS).
 - **Applicazione**: dal **1° maggio 2026**.
@@ -63,7 +64,7 @@ tags: [NIS2, ACN, categorizzazione, macro-aree, rilevanza, Det. 155238/2026]
 
 ## Note dell'agente
 
-- La **doppia logica di allegati** (1 vs 2) è un meccanismo di proporzionalità: i settori "core" (energia, trasporti, banche, sanità, infrastrutture digitali...) ricevono un modello differenziato dagli altri (PA, gestione rifiuti, prodotti critici, ricerca...).
+- La **doppia logica di allegati** (1 vs 2) è un meccanismo di proporzionalità. Allocazione (art. 2 cc. 2-3), con i numeri dei settori del [[sources/D.Lgs. 138-2024 (Decreto NIS)|D.Lgs. 138/2024]]: l'**allegato 1** si applica ad Allegato I nn. 1 (energia), 2 (trasporti), 5 (sanità), 6 (acqua potabile), 7 (acque reflue), 10 (spazio), Allegato II nn. 1 (servizi postali), 2 (gestione rifiuti), 3 (sostanze chimiche), 4 (alimenti), 5 (fabbricazione) e Allegato IV n. 1 (trasporto pubblico locale); l'**allegato 2** a tutti gli altri soggetti NIS, cioè Allegato I nn. 3 (bancario), 4 (infrastrutture dei mercati finanziari), 8 (infrastrutture digitali), 9 (gestione dei servizi TIC), Allegato II nn. 6 (fornitori di servizi digitali), 7 (ricerca), la PA dell'Allegato III e l'Allegato IV nn. 2-4. *Inferenza:* l'allegato 1 raggruppa i settori a prevalenza di processi fisici e industriali, l'allegato 2 quelli digitali, finanziari e amministrativi.
 - L'art. 5 sul perimetro PSNC è cruciale: per i soggetti "doppia disciplina" (PSNC + NIS) l'impatto alto è **automatico e non sindacabile**, e non occorre ripetere il processo di categorizzazione — semplificazione operativa significativa.
 - *Lacuna nota:* gli **allegati 1 e 2** (con il dettaglio delle 10 macro-aree) non sono testualmente inclusi in questa pagina; vanno letti separatamente — programmati nella Wave 3 e già ingeriti come [[sources/Allegato 1 modello - Categorizzazione soggetti art. 2 c. 2]] e [[sources/Allegato 2 modello - Categorizzazione soggetti art. 2 c. 3]].
 - **Conferma protocollo numero (Wave 4)**: il numero **155238/2026** è esplicitato in più FAQ di [[sources/FAQ NIS - Categorizzazione]]: `CAT.1` (art. 3 — finestra annuale), `CAT.5` (modello), `CAT.7` (art. 3 c. 3 — deviazione documentata), `CAT.8` (art. 4 — coordinamento Reg. Cloud PA), `CAT.9` (art. 5 — automatismo PSNC → alto).

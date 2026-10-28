@@ -69,5 +69,5 @@ Direttiva UE che fissa misure per un livello comune elevato di cybersicurezza ne
 
 - La direttiva fissa il "minimo armonizzato": gli Stati membri possono adottare misure più stringenti (Art. 5 — armonizzazione minima).
 - Il Considerando 14 chiarisce che NIS2 vuole **eliminare le ampie divergenze** tra Stati membri create da NIS1, in particolare sull'identificazione degli operatori.
-- Il rapporto con altre normative settoriali (DORA per la finanza, regolamento sulla resilienza degli enti critici CER, EECC per le tlc) è regolato dall'**Articolo 4 — lex specialis**: se altri atti UE settoriali impongono obblighi almeno equivalenti, prevalgono.
+- Il rapporto con gli atti giuridici settoriali dell'Unione (es. DORA per la finanza, considerando 28) è regolato dall'**Articolo 4 — lex specialis**: se impongono obblighi di gestione del rischio o di notifica almeno equivalenti, prevalgono. I soggetti critici ai sensi della direttiva (UE) 2022/2557 (in Italia: soggetti critici, D.Lgs. 134/2024) seguono un'altra via: rientrano a prescindere dalla dimensione (art. 2 par. 3) e la direttiva si applica fatta salva la 2022/2557 (art. 2 par. 12). Per le telecomunicazioni l'art. 43 sopprime gli artt. 40 e 41 della direttiva (UE) 2018/1972 (EECC).
 - Da verificare contro la versione consolidata UE eventuali rettifiche pubblicate dopo dicembre 2022.

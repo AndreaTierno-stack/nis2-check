@@ -5,6 +5,7 @@ scope: both
 tags: [nis2, italia, categorizzazione, art-30, vigilanza]
 sources: ["[[sources/D.Lgs. 138-2024 (Decreto NIS)]]", "[[sources/Determinazione ACN categorizzazione - 2026-04-13]]", "[[sources/Determinazione ACN piattaforma e procedure - 2026-04-13]]", "[[sources/FAQ NIS - Categorizzazione]]"]
 aliases: [Categorizzazione interna NIS, Sotto-classificazione NIS]
+updated: 2026-10-28
 ---
 
 ## Definizione
@@ -67,7 +68,7 @@ La FAQ [[sources/FAQ NIS - Categorizzazione]] (`CAT.7`) suggerisce un processo i
 
 ## Coordinamento Cloud PA (FAQ `CAT.8`)
 
-L'**art. 4 Det. 155238/2026** istituisce un mapping bidirezionale: i soggetti PA che hanno già svolto la classificazione **ordinari/critici/strategici** ex DD ACN 21007/24 (Regolamento Cloud) **applicano quel modello** in luogo del modello NIS. La piattaforma NIS presenta loro l'elenco dei dati e servizi classificati pubblicato su **padigitale2026.gov.it**, con facoltà di confermarlo o aggiornarlo (mantenendo la coerenza con PA digitale 2026).
+L'**art. 4 Det. 155238/2026** dispone: "I soggetti NIS che hanno svolto la classificazione dei dati e dei servizi di cui all'articolo 3 del Decreto Direttoriale ACN n. 21007/24" (Regolamento Cloud, classi **ordinari/critici/strategici**) **applicano quel modello** in luogo del modello NIS. La condizione è aver svolto la classificazione, non l'essere PA. Secondo la FAQ `CAT.8`, la piattaforma presenta loro l'elenco dei dati e servizi classificati presente su **padigitale2026.gov.it**, con facoltà di confermarlo o aggiornarlo (assicurando la coerenza con PA digitale 2026). Raccordo distinto, sul piano dell'ambito: i fornitori di servizi cloud qualificati ai sensi del Regolamento Cloud che superano i massimali delle piccole imprese rientrano in NIS come fornitori di servizi cloud (FAQ `A1.8.2`, [[sources/FAQ NIS - Settori, sottosettori e tipologie di soggetto]]).
 
 ## Coordinamento PSNC (FAQ `CAT.9`)
 

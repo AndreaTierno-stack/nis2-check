@@ -5,7 +5,7 @@ scope: both
 tags: [nis2, italia, identificazione, registrazione, acn, art-7]
 sources: ["[[sources/D.Lgs. 138-2024 (Decreto NIS)]]", "[[sources/Direttiva (UE) 2022-2555 (NIS2)]]", "[[sources/Determinazione ACN piattaforma e procedure - 2026-04-13]]", "[[sources/Determinazione ACN termini soggetti 2026 - 2026-04-30]]", "[[sources/FAQ NIS - Profili generali]]", "[[sources/FAQ NIS - Ambito]]", "[[sources/FAQ NIS - Settori, sottosettori e tipologie di soggetto]]", "[[sources/FAQ NIS - Registrazione]]"]
 aliases: [Identificazione governativa, Registrazione NIS, Iscrizione NIS]
-updated: 2026-10-27
+updated: 2026-10-28
 ---
 
 ## Definizione
@@ -21,7 +21,7 @@ Disciplina nel [[sources/D.Lgs. 138-2024 (Decreto NIS)|D.Lgs. 138/2024 Art. 7]] 
 - **Finestra di registrazione annuale**: dal **1° gennaio al 28 febbraio** di ogni anno.
 - **Comunicazione di ACN**: entro il **31 marzo** ACN comunica al soggetto la classificazione (essenziale / importante / non rientrante).
 - **Decorrenza obblighi**: dal **1° gennaio dell'anno successivo** alla classificazione.
-- **Eccezioni alla soglia dimensionale**: alcuni soggetti rientrano **a prescindere dalla dimensione** (PA dell'Allegato III lett. a)-d), art. 3 c. 6 [[sources/D.Lgs. 138-2024 (Decreto NIS)|D.Lgs. 138/2024]]; soggetti unici/critici, fornitori DNS, registri TLD, prestatori di servizi fiduciari qualificati, ecc.).
+- **Eccezioni alla soglia dimensionale**: alcuni soggetti rientrano **a prescindere dalla dimensione**. Per legge: soggetti critici ex D.Lgs. 134/2024, reti e servizi di comunicazione elettronica, prestatori di servizi fiduciari, registri TLD e fornitori DNS, fornitori di servizi di registrazione dei nomi di dominio (art. 3 c. 5 [[sources/D.Lgs. 138-2024 (Decreto NIS)|D.Lgs. 138/2024]]), PA dell'Allegato III lett. a)-d) (c. 6), imprese collegate (c. 10); per individuazione dell'ACN con notifica (c. 13): tipologie dell'Allegato IV (c. 8) e soggetti che soddisfano i criteri del c. 9 (es. unico fornitore nazionale, impatto significativo, rischio sistemico).
 - **Concorso autorità di settore**: le [[entities/Autorità di settore NIS]] cooperano nell'identificazione dei soggetti del proprio settore tramite il [[entities/Tavolo per l'attuazione della disciplina NIS|Tavolo NIS]].
 
 ### Calendario annuale completo (post-registrazione)
@@ -59,8 +59,8 @@ Nella Direttiva NIS2 l'identificazione segue per i più dalla **size-cap rule au
 Le FAQ ACN dedicano a questo ciclo numerosi chiarimenti:
 
 - [[sources/FAQ NIS - Profili generali]]: panoramica generale del regime NIS e del processo di identificazione.
-- [[sources/FAQ NIS - Ambito]]: criteri di rientro nell'ambito (`AMB.SI.*`) e di esclusione (`AMB.NO.*`) — incluso il caso DORA (`AMB.NO.2` — entità finanziarie restano soggetti NIS solo per Allegato I p. 3 e p. 4 e con il solo art. 7 c. 1).
-- [[sources/FAQ NIS - Settori, sottosettori e tipologie di soggetto]]: ~70 chiarimenti su tutti i 17 settori (10 altamente critici + 7 critici) + Allegato III + Allegato IV; mappa size-blind (servizi fiduciari qualificati, DNS/TLD/registry, registrar Allegato II), eccezioni di prevalenza (Acqua potabile, Acque reflue, Gestione rifiuti), esclusioni puntuali, identificazione autoritativa Allegato IV.
+- [[sources/FAQ NIS - Ambito]]: criteri di rientro nell'ambito (cluster `AMB.GE`, `AMB.DI`, `AMB.GI`, `AMB.PU`, `AMB.ES`) e relazioni con altre normative (`AMB.NO.*`) — incluso il caso DORA (`AMB.NO.2`: per i soggetti delle tipologie Allegato I p. 3 e p. 4 l'art. 3 c. 14 disapplica art. 17 e Capi IV-V; la FAQ parla anche di sola registrazione ex art. 7 c. 1, incoerenza segnalata in [[concepts/Coordinamento DORA-NIS]]).
+- [[sources/FAQ NIS - Settori, sottosettori e tipologie di soggetto]]: ~70 chiarimenti su tutti i 17 settori (10 altamente critici + 7 critici) + Allegato III + Allegato IV; mappa size-blind (reti e servizi di comunicazione elettronica, prestatori di servizi fiduciari, DNS/TLD/registry, registrar Allegato II, imprese collegate ex art. 3 c. 10; la FAQ non tratta i soggetti critici ex art. 3 c. 5 lett. a), per i quali v. [[sources/FAQ NIS - Ambito]] `AMB.NO.1`, né i soggetti individuati ex art. 3 c. 9), eccezioni di prevalenza (Acqua potabile, Acque reflue, Gestione rifiuti), esclusioni puntuali, identificazione autoritativa Allegato IV.
 - [[sources/FAQ NIS - Registrazione]]: dettaglio operativo della procedura di auto-registrazione su piattaforma — accesso del pdc, designazione, gruppi di imprese, PA, rappresentante UE.
 
 ## Collegamenti

@@ -14,7 +14,7 @@ Insieme dei **soggetti** che, per **settore di attività** e **dimensione**, ric
 
 1. **Settore di appartenenza** — uno dei [[concepts/Settori altamente critici e critici|18 settori]] degli Allegati I-IV.
 2. **Dimensione del soggetto** — applicando la [[concepts/Size-cap rule|size-cap rule]].
-3. **Categorie speciali** — soggetti che rientrano **a prescindere dalla dimensione** (PA dell'Allegato III lett. a)-d), art. 3 c. 6 [[sources/D.Lgs. 138-2024 (Decreto NIS)|D.Lgs. 138/2024]]; fornitori unici/critici, prestatori di servizi fiduciari qualificati, ecc.).
+3. **Categorie speciali** — soggetti che rientrano **a prescindere dalla dimensione**: per legge, le tipologie dell'art. 3 c. 5 [[sources/D.Lgs. 138-2024 (Decreto NIS)|D.Lgs. 138/2024]] (soggetti critici ex D.Lgs. 134/2024, reti e servizi di comunicazione elettronica, prestatori di servizi fiduciari, registri TLD e fornitori DNS, registrar), la PA dell'Allegato III lett. a)-d) (c. 6) e le imprese collegate (c. 10); per individuazione dell'ACN, l'Allegato IV (c. 8) e i soggetti che soddisfano i criteri del c. 9 (es. unico fornitore nazionale). Elenco completo nella sezione seguente.
 
 In Italia disciplinato dal [[sources/D.Lgs. 138-2024 (Decreto NIS)|D.Lgs. 138/2024 Art. 3]].
 
@@ -29,13 +29,18 @@ In Italia disciplinato dal [[sources/D.Lgs. 138-2024 (Decreto NIS)|D.Lgs. 138/20
 
 ## Soggetti che rientrano a prescindere dalla dimensione
 
-Lista (non esaustiva, dal D.Lgs. 138/2024 Art. 3):
-- PA dell'Allegato III lett. a)-d) (art. 3 c. 6): amministrazioni centrali, regionali, locali e altri soggetti pubblici; elenco delle 15 categorie ed esclusioni dell'art. 4 cc. 2-3 nel [[sources/D.Lgs. 138-2024 (Decreto NIS)|D.Lgs. 138/2024]].
-- Soggetti unici nello Stato membro.
-- Prestatori di servizi fiduciari qualificati e registri di nomi a dominio TLD.
-- Fornitori di reti pubbliche di comunicazione elettronica e fornitori di servizi pubblicamente accessibili.
-- Soggetti la cui interruzione del servizio avrebbe impatto significativo su sicurezza pubblica, ordine pubblico, salute pubblica.
-- Soggetti la cui perturbazione potrebbe indurre rischi sistemici.
+Lista dal D.Lgs. 138/2024, art. 3 (testo dei commi nel [[sources/D.Lgs. 138-2024 (Decreto NIS)|nodo D.Lgs. 138/2024]]):
+- **Per legge**:
+  - soggetti critici ex D.Lgs. 134/2024 (c. 5 lett. a)), essenziali (art. 6 c. 1 lett. b));
+  - fornitori di reti pubbliche di comunicazione elettronica o di servizi di comunicazione elettronica accessibili al pubblico (c. 5 lett. b));
+  - prestatori di servizi fiduciari (c. 5 lett. c)), essenziali se qualificati (art. 6 c. 1 lett. d));
+  - gestori di registri dei nomi di dominio di primo livello e fornitori di servizi DNS (c. 5 lett. d)), essenziali (art. 6 c. 1 lett. d));
+  - fornitori di servizi di registrazione dei nomi di dominio (c. 5 lett. e));
+  - PA dell'Allegato III lett. a)-d) (c. 6): amministrazioni centrali, regionali, locali e altri soggetti pubblici; elenco delle 15 categorie ed esclusioni dell'art. 4 cc. 2-3 nel [[sources/D.Lgs. 138-2024 (Decreto NIS)|D.Lgs. 138/2024]]; ulteriori categorie con DPCM (c. 7);
+  - imprese collegate a un soggetto essenziale o importante che soddisfano almeno uno dei criteri del c. 10 lett. a)-d).
+- **Per individuazione dell'ACN**, su proposta delle autorità di settore (c. 13):
+  - tipologie dell'Allegato IV (c. 8);
+  - soggetti degli Allegati I-IV che soddisfano almeno uno dei criteri del c. 9: già operatori di servizi essenziali ex D.Lgs. 65/2018 (lett. a)); unico fornitore nazionale di un servizio essenziale (lett. b)); perturbazione con impatto significativo sulla sicurezza pubblica, l'incolumità pubblica o la salute pubblica (lett. c)); rischio sistemico significativo (lett. d)); criticità per importanza a livello nazionale o regionale (lett. e)); elemento sistemico della catena di approvvigionamento (lett. f)).
 
 ## Collegamenti
 

@@ -8,6 +8,7 @@ url: https://www.acn.gov.it/portale/faq-nis-registrazione
 author: Agenzia per la Cybersicurezza Nazionale
 date_published: 2026
 date_ingested: 2026-04-29
+updated: 2026-10-28
 tags: [NIS2, ACN, FAQ, registrazione, autovalutazione, punto di contatto, gruppi imprese, rappresentante UE]
 ---
 
@@ -48,6 +49,7 @@ Le organizzazioni (diverse dalle PA) devono svolgere un'**autovalutazione in tre
 
 - Organizzazioni che si riconoscono **solo** nelle tipologie Allegato IV (settore Spazio): registrano **solo dopo aver ricevuto notifica di individuazione governativa** ex art. 3 c. 13.
 - Organizzazioni che fanno parte di **gruppo di imprese** (collegate/associate) e che soddisfano i criteri art. 3 c. 10 D.Lgs. 138/2024: **rientrano indipendentemente dalla dimensione** (cfr. [[sources/FAQ NIS - Ambito]] AMB.GE.7).
+- *Nota dell'agente:* la FAQ non menziona i **soggetti critici** ex D.Lgs. 134/2024, che rientrano indipendentemente dalla dimensione (art. 3 c. 5 lett. a) [[sources/D.Lgs. 138-2024 (Decreto NIS)|D.Lgs. 138/2024]]) e sono essenziali (art. 6 c. 1 lett. b)); cfr. [[sources/FAQ NIS - Ambito]] `AMB.NO.1`. Nemmeno PDA2.2 li elenca tra le eccezioni dimensionali.
 - Resta sempre la **facoltà di identificazione governativa** ex art. 3 c. 9 (su proposta delle [[entities/Autorità di settore NIS]]) per soggetti operanti in settori/sottosettori/tipologie Allegati I-IV: notifica al domicilio digitale ex art. 3 c. 13.
 
 ### Scadenze di registrazione (`REG.2`)

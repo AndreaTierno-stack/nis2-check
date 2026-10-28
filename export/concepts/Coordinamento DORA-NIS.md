@@ -5,11 +5,15 @@ scope: both
 tags: [nis2, dora, italia, esonero, settore-finanziario]
 sources: ["[[sources/Determinazione ACN piattaforma e procedure - 2026-04-13]]", "[[sources/Determinazione ACN funzionamento Tavolo NIS - 2025-07-16]]", "[[sources/D.Lgs. 138-2024 (Decreto NIS)]]", "[[sources/FAQ NIS - Ambito]]"]
 aliases: [Esonero DORA NIS, Reg UE 2022 2554, Entità finanziarie NIS]
+updated: 2026-10-28
 ---
 
 ## Definizione
 
-Disciplina di **coordinamento e di esonero parziale** tra il **Regolamento (UE) 2022/2554 (DORA — Digital Operational Resilience Act)** e il regime NIS italiano. Le **entità finanziarie** ricadenti in DORA, qualora rientrino anche nell'ambito di applicazione del [[sources/D.Lgs. 138-2024 (Decreto NIS)]], sono **esentate da specifici adempimenti NIS** che si sovrappongono con DORA, ferma restando la possibilità di adesione volontaria.
+Disciplina di **coordinamento e di esonero parziale** tra il **Regolamento (UE) 2022/2554 (DORA — Digital Operational Resilience Act)** e il regime NIS italiano, su due livelli distinti:
+
+- **Legge** ([[sources/D.Lgs. 138-2024 (Decreto NIS)|D.Lgs. 138/2024]], art. 3 c. 14): ai soggetti essenziali o importanti dei **settori 3 (bancario) e 4 (infrastrutture dei mercati finanziari) dell'Allegato I** non si applicano l'**art. 17** e i **Capi IV e V**; si applica DORA. Il c. 15 esclude dal decreto i soggetti esentati dall'ambito di DORA.
+- **Determinazione** ([[sources/Determinazione ACN piattaforma e procedure - 2026-04-13|Det. ACN 127437/2026]]): le "entità finanziarie di cui al Regolamento (UE) 2022/2554 che rientrano nell'ambito di applicazione del decreto NIS" sono **esentate da tre adempimenti di piattaforma** (art. 7 c. 6, art. 16 c. 13, art. 20 c. 6), ferma la possibilità di adesione volontaria. La platea è definita dalla qualifica DORA, non dai settori 3 e 4.
 
 ## Esoneri NIS specifici per entità DORA
 
@@ -26,7 +30,7 @@ L'art. 3 c. 3 della [[sources/Determinazione ACN funzionamento Tavolo NIS - 2025
 
 ## Adesione volontaria
 
-In ciascuno degli esoneri sopra elencati la determinazione precisa: *"È fatta salva l'adesione a tali previsioni su base volontaria"*. Un'entità finanziaria con doppia esposizione (es. anche fornitore di servizi cloud per soggetti non finanziari) può comunque designare un referente CSIRT NIS, partecipare alla categorizzazione, ecc.
+In ciascuno degli esoneri sopra elencati la determinazione precisa: *"È fatta salva l'adesione a tali previsioni su base volontaria"*. Un'entità finanziaria può quindi designare comunque un referente CSIRT NIS, partecipare alla categorizzazione, ecc. *Inferenza:* il caso tipico è l'entità finanziaria che rientra in NIS anche per attività di altri settori (es. fornitore di servizi cloud per soggetti non finanziari): l'art. 3 c. 14, riferito ai settori 3 e 4, non dispone esoneri per quelle attività, mentre gli esoneri di piattaforma della determinazione si applicano comunque.
 
 ## Funzione regolatoria
 
@@ -44,9 +48,9 @@ In ciascuno degli esoneri sopra elencati la determinazione precisa: *"È fatta s
 
 ## Chiarimento ambito (FAQ Ambito `AMB.NO.2`)
 
-La FAQ [[sources/FAQ NIS - Ambito]] (`AMB.NO.2`) chiarisce che le entità finanziarie DORA sono soggetti NIS **solo in quanto** rientrano nelle tipologie di **Allegato I p. 3 (Settore bancario)** e **Allegato I p. 4 (Infrastrutture dei mercati finanziari, IMF)** del decreto NIS, e l'unico adempimento NIS che resta a loro carico è quello dell'**art. 7 c. 1** (registrazione + designazione pdc). Tutti gli altri obblighi (referente CSIRT, categorizzazione, organi di amministrazione su piattaforma, notifica incidenti) sono assolti via DORA.
+La FAQ [[sources/FAQ NIS - Ambito]] (`AMB.NO.2`) riguarda i soggetti DORA medi o grandi delle tipologie dell'**Allegato I p. 3 (Settore bancario)** e **p. 4 (Infrastrutture dei mercati finanziari, IMF)**. Afferma che a essi si applicano "solamente" le disposizioni sull'obbligo di registrazione (**art. 7 c. 1**) e, nella frase successiva, che l'art. 3 c. 14 disapplica "solo" l'art. 17 e i Capi IV e V. Le due frasi non coincidono: fa testo il c. 14, che lascia applicabili le altre disposizioni del decreto (es. l'aggiornamento annuale dell'art. 7 c. 4); v. nota redazionale in [[sources/FAQ NIS - Ambito]]. La FAQ non tratta gli esoneri di piattaforma (referente CSIRT, organi di amministrazione, categorizzazione): vengono dalla determinazione.
 
 ## Note dell'agente
 
 - *Sintesi dell'agente:* il pattern degli esoneri DORA in NIS è un esempio chiaro di **regulatory layering** all'interno del diritto UE: il legislatore nazionale **non ricostruisce** il rapporto tra atti UE, ma lo **recepisce** mantenendo la specialità di DORA. La piattaforma ACN tecnicamente "sa" se un soggetto è entità finanziaria DORA e disabilita gli adempimenti pertinenti.
-- L'esonero è **non totale**: l'entità finanziaria deve comunque registrarsi e fare l'aggiornamento annuale ordinario sulla piattaforma, deve avere un [[entities/Punto di contatto NIS|punto di contatto]], deve adottare le [[concepts/Misure di sicurezza di base|misure di sicurezza di base]] (in coordinamento con DORA) e notificare gli incidenti significativi NIS.
+- L'esonero è **non totale**. Per i soggetti dei settori 3 e 4 restano la registrazione e l'aggiornamento annuale dell'art. 7, con un [[entities/Punto di contatto NIS|punto di contatto]]; misure di gestione del rischio e notifica degli incidenti (Capo IV) non si applicano per legge (art. 3 c. 14), quindi nemmeno le [[concepts/Misure di sicurezza di base|misure di sicurezza di base]] della Det. 379907/2025. *Inferenza:* per un'entità finanziaria che rientra in NIS anche per attività di altri settori, il Capo IV resta applicabile a quelle attività.

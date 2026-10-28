@@ -6,7 +6,7 @@ question: "In quale regime di cybersicurezza italiano ricade un soggetto e cosa 
 tags: [stratificazione, psnc, nis2, dora, cloud-pa, legge-90-2024, governance, coordinamento]
 sources: ["[[sources/D.Lgs. 138-2024 (Decreto NIS)]]", "[[sources/Determinazione ACN piattaforma e procedure - 2026-04-13]]", "[[sources/Determinazione ACN categorizzazione - 2026-04-13]]", "[[sources/Determinazione ACN funzionamento Tavolo NIS - 2025-07-16]]", "[[sources/FAQ NIS - Ambito]]", "[[sources/FAQ NIS - Categorizzazione]]", "[[sources/FAQ NIS - Ruoli e procedure]]"]
 created: 2026-04-29
-updated: 2026-04-29
+updated: 2026-10-28
 ---
 
 ## Sintesi
@@ -76,8 +76,8 @@ I rinvii e gli esoneri **espliciti** che ho ricostruito dal corpus:
 - Cfr. [[concepts/Soggetti PSNC-NIS]].
 
 ### DORA ↔ NIS2 — esoneri puntuali
-- **Ambito** ([[sources/FAQ NIS - Ambito|FAQ Ambito `AMB.NO.2`]]): le entità finanziarie DORA sono soggetti NIS **solo se** rientrano nelle tipologie di **Allegato I p. 3 (Settore bancario)** e **Allegato I p. 4 (IMF)**, e l'**unico adempimento NIS** che resta a loro carico è quello dell'**art. 7 c. 1** (registrazione + designazione pdc).
-- **Esoneri operativi** (Det. piattaforma 127437/2026):
+- **Legge** ([[sources/D.Lgs. 138-2024 (Decreto NIS)|D.Lgs. 138/2024]], art. 3 c. 14): ai soggetti essenziali o importanti dei **settori 3 (bancario) e 4 (IMF) dell'Allegato I** non si applicano l'art. 17 e i Capi IV e V; si applica DORA. Restano le altre disposizioni del decreto, tra cui registrazione e aggiornamento ex art. 7. La [[sources/FAQ NIS - Ambito|FAQ Ambito `AMB.NO.2`]] parla di sola registrazione (art. 7 c. 1) ma richiama lo stesso c. 14: incoerenza interna, fa testo il decreto.
+- **Esoneri operativi per determinazione** (Det. piattaforma 127437/2026), riferiti alle entità finanziarie DORA che rientrano nell'ambito NIS, senza limitazione ai settori 3 e 4:
   - **Art. 7 c. 6**: esonero dalla designazione del [[entities/Referente CSIRT|referente CSIRT]] (ICT-related incident reporting già coperto da DORA verso ESAs / Banca d'Italia).
   - **Art. 16 c. 13** + **art. 17**: esonero dall'aggiornamento annuale della componente "organi di amministrazione e direttivi".
   - **Art. 20 c. 6**: esonero dalla [[concepts/Categorizzazione dei soggetti|categorizzazione]] delle attività e dei servizi.
@@ -85,10 +85,11 @@ I rinvii e gli esoneri **espliciti** che ho ricostruito dal corpus:
 - **Adesione volontaria** ammessa per ogni esonero.
 - Cfr. [[concepts/Coordinamento DORA-NIS]].
 
-### Cloud PA ↔ NIS2 — mapping bidirezionale
-- **Art. 4 [[sources/Determinazione ACN categorizzazione - 2026-04-13|Det. 155238/2026]]**: i soggetti NIS che hanno già svolto la classificazione ex Regolamento Cloud (ordinari/critici/strategici) **applicano quel modello in luogo del modello di categorizzazione NIS**.
-- **FAQ `CAT.8`**: alla PA viene presentato l'elenco dei dati e servizi classificati pubblicato su `padigitale2026.gov.it` con facoltà di **confermare** o **aggiornare** (mantenendo coerenza con PA digitale 2026).
-- *Razionale:* evitare duplicazione per le PA che hanno già adempiuto al Regolamento Cloud.
+### Cloud PA ↔ NIS2 — due raccordi distinti
+- **Categorizzazione — art. 4 [[sources/Determinazione ACN categorizzazione - 2026-04-13|Det. 155238/2026]]**: "I soggetti NIS che hanno svolto la classificazione dei dati e dei servizi di cui all'articolo 3 del Decreto Direttoriale ACN n. 21007/24" (Regolamento Cloud: ordinari/critici/strategici) **applicano quel modello in luogo del modello di categorizzazione NIS**. La condizione è aver svolto la classificazione, non l'essere PA.
+- **FAQ `CAT.8`** ([[sources/FAQ NIS - Categorizzazione]]): a tali soggetti viene presentato l'elenco dei dati e servizi classificati presente su `padigitale2026.gov.it` con facoltà di **confermare** o **aggiornare** (assicurando la coerenza con la classificazione su PA digitale 2026).
+- **Ambito — FAQ `A1.8.2`** ([[sources/FAQ NIS - Settori, sottosettori e tipologie di soggetto]]): i fornitori di servizi cloud qualificati ai sensi del Regolamento Cloud che superano i massimali delle piccole imprese rientrano nel decreto NIS come fornitori di servizi cloud (Allegato I, punto 8).
+- *Razionale:* evitare duplicazione per chi ha già adempiuto al Regolamento Cloud.
 
 ### L. 90/2024 ↔ NIS2 — sovrapposizione del referente
 - **Art. 4 c. 8 [[sources/Determinazione ACN piattaforma e procedure - 2026-04-13|Det. piattaforma 127437/2026]]**: la designazione del [[entities/Punto di contatto NIS|punto di contatto NIS]] **può soddisfare anche l'obbligo di nomina** del **referente per la cybersicurezza** ex **art. 8 c. 2 L. 90/2024**, per i soggetti che ricadono nell'art. 1 c. 1 di quella legge.
@@ -104,16 +105,16 @@ Per un soggetto che voglia capire i regimi applicabili:
 2. **Rientri nei settori NIS2?** (Allegati I/II/III/IV D.Lgs. 138/2024 + soglia dimensionale o eccezioni size-blind)
    - Sì → NIS2. Se anche PSNC → categoria "impatto alto" automatica, no categorizzazione ordinaria.
 3. **Sei entità finanziaria DORA?**
-   - Sì → DORA primario. Se anche NIS2 (All. I p. 3 / p. 4) → solo art. 7 c. 1 NIS (registrazione + pdc).
+   - Sì → DORA primario. Se anche NIS2 (All. I p. 3 / p. 4) → art. 17 e Capi IV-V NIS non applicabili (art. 3 c. 14); restano registrazione e aggiornamento ex art. 7, con gli esoneri di piattaforma della Det. 127437/2026.
 4. **Sei una PA?**
-   - Sì → Regolamento Cloud applicabile per dati/servizi cloud. Se anche NIS2 → modello Cloud sostituisce modello NIS per la categorizzazione.
+   - Sì → Regolamento Cloud applicabile per dati/servizi cloud. Se anche NIS2 e ha svolto la classificazione ex art. 3 DD ACN 21007/24 → modello Cloud in luogo del modello NIS per la categorizzazione (art. 4 Det. 155238/2026, FAQ `CAT.8`).
 5. **Sei una PA / soggetto pubblico nell'art. 1 c. 1 L. 90/2024?**
    - Sì → L. 90/2024 + designazione referente cybersicurezza assolvibile col pdc NIS.
 
 ## Tensioni e contraddizioni
 
 - **PSNC vs NIS2 — dove finisce uno e comincia l'altro?** Il DPCM PSNC è coperto da classifica e individua il perimetro; la determinazione di categorizzazione NIS (155238/2026) presuppone che il soggetto **sappia già** quali suoi servizi siano "PSNC". Nei soggetti misti questa conoscenza richiede coordinamento interno tra responsabili PSNC e responsabili NIS.
-- **DORA vs NIS2 — adesione volontaria al referente CSIRT.** L'esonero è strutturale, ma soggetti con doppia esposizione (entità finanziaria che fornisce servizi anche fuori del perimetro DORA) possono trovare utile aderire volontariamente per coprire gli incidenti su servizi non DORA.
+- **DORA vs NIS2 — due platee diverse.** L'esonero di legge (art. 3 c. 14) riguarda i soggetti dei settori 3 e 4 e copre art. 17 e Capi IV-V; gli esoneri della Det. 127437/2026 riguardano tutte le entità finanziarie DORA in ambito NIS e coprono tre adempimenti di piattaforma (referente CSIRT, organi di amministrazione, categorizzazione), con adesione volontaria. *Inferenza:* un'entità finanziaria che rientra in NIS anche per attività di altri settori resta soggetta al Capo IV per quelle attività, notifica degli incidenti compresa, pur essendo esentata dalla designazione del referente CSIRT: per questi soggetti l'adesione volontaria al referente è la scelta coerente.
 - **Cloud PA vs NIS2 — mapping di categorie.** Il Regolamento Cloud usa **3 categorie** (ordinari/critici/strategici), il modello NIS usa **4 categorie** (minimo/basso/medio/alto). Il mapping non è 1:1; la determinazione 155238/2026 dice "applicano quel modello", non chiarisce come si traducono le categorie in fase di categorizzazione → vigilanza ACN. *Lacuna nota* da monitorare.
 - **L. 90/2024 vs NIS2 — perimetro non coincidente.** L. 90 ha platea propria (art. 1 c. 1), che si sovrappone solo parzialmente con PA NIS (Allegato III). Soggetti L. 90 ma non NIS esistono e devono comunque designare il referente cybersicurezza ex art. 8 c. 2 — per loro il "merging" con il pdc NIS non è applicabile.
 
