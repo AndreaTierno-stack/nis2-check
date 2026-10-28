@@ -21,6 +21,8 @@ import {
 } from './common.ts';
 
 const SignalList = z.array(Id);
+/** Verdict notices: each one is the id of an entry of the exceptions catalog (ADR 0012). */
+export const Notices = z.array(Id);
 const ActivatesSignals = z.object({ activates_signals: SignalList }).passthrough();
 
 // ---------------------------------------------------------------------------
@@ -106,8 +108,6 @@ export const Question = z
     help_text_it: z.string().optional(),
     /** Structured visibility condition (ADR 0010); identifiers checked cross-file. */
     visible_if: VisibleIf.optional(),
-    /** Citations that ground a visibility condition (none used today). */
-    visibility_citations: Citations.optional(),
     // retired by ADR 0010: objects are passthrough, so reject them explicitly
     conditional_on: z
       .undefined({ invalid_type_error: msg(E.VISIBLE_IF, 'conditional_on is retired: use visible_if (ADR 0010)') })
@@ -187,6 +187,7 @@ export const QualificationRule = z
     qualitative_signal_template: z.string().optional(),
     reasoning_trace: z.string(),
     citations: Citations,
+    notices: Notices.optional(),
   })
   .passthrough()
   .superRefine((r, ctx) => {
@@ -267,6 +268,7 @@ export const SectorFile = z
         signal: Id,
         verdict_strategy: AssessmentMode,
         verdict_outcome: VerdictOutcome,
+        notices: Notices.optional(),
         profili: z.array(z.object({ id: Id, unifies_with: Id.optional() }).passthrough()),
       })
       .passthrough()
@@ -328,6 +330,45 @@ export const SignalsFile = z
   .passthrough();
 
 // ---------------------------------------------------------------------------
+// Exceptions catalog (ADR 0012) — strict: no undeclared keys
+// ---------------------------------------------------------------------------
+
+export const ExceptionStatus = z.enum(['gestito', 'segnalato', 'non_gestito']);
+
+export const ExceptionEntry = z
+  .object({
+    id: Id,
+    status: ExceptionStatus,
+    title: z.string().min(1),
+    /** Text shown to the tool's user: informational, never prescriptive (copy lint in lint.ts). */
+    description: z.string().min(1),
+    citations: Citations,
+    /** Sector ids or regime ids the entry concerns (checked cross-file). */
+    applies_to: z.array(Id).min(1),
+  })
+  .strict();
+
+export const ExceptionsCatalogFile = z.object({ exceptions: z.array(ExceptionEntry).min(1) }).strict();
+
+// ---------------------------------------------------------------------------
+// Citation registry — KB attestation of citation IDs (strict)
+// ---------------------------------------------------------------------------
+
+export const CitationRegistryEntry = z
+  .object({
+    id: CitationId,
+    /** KB node (vault-relative path) that attests the citation. */
+    kb_node: z.string().min(1),
+    /** Line or line range of the node, e.g. "36" or "29-33". */
+    kb_lines: z.string().regex(/^\d+(?:-\d+)?(?:,\s*\d+(?:-\d+)?)*$/),
+    /** What exactly is attested, and how (verbatim, riscontro, provenance note). */
+    attestation: z.string().min(1),
+  })
+  .strict();
+
+export const CitationRegistryFile = z.object({ citations: z.array(CitationRegistryEntry).min(1) }).strict();
+
+// ---------------------------------------------------------------------------
 // Fixtures
 // ---------------------------------------------------------------------------
 
@@ -356,6 +397,8 @@ export const Fixture = z
         qualifica: z.enum(['essenziale', 'importante']).optional(),
         qualifica_inferita: z.enum(['essenziale', 'importante']).optional(),
         signals: SignalList.optional(),
+        /** Expected verdict notices (exceptions catalog ids, ADR 0012). */
+        notices: Notices.optional(),
         /** Always present: [] when no override matches (ADR 0009 amendment). */
         regime_routing: z.array(RegimeRoutingEntry),
         corpus_ref: z.string(),
@@ -376,4 +419,6 @@ export type WizardFile = z.infer<typeof WizardFile>;
 export type RegimeFile = z.infer<typeof RegimeFile>;
 export type SignalsFile = z.infer<typeof SignalsFile>;
 export type Fixture = z.infer<typeof Fixture>;
+export type ExceptionsCatalogFile = z.infer<typeof ExceptionsCatalogFile>;
+export type CitationRegistryFile = z.infer<typeof CitationRegistryFile>;
 export type Question = z.infer<typeof Question>;

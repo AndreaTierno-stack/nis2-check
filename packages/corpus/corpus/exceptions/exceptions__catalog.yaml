@@ -1,0 +1,83 @@
+# ============================================================================
+# Catalogo eccezioni — fonte unica dei limiti dichiarati dello strumento (ADR 0012)
+# ============================================================================
+# Ogni avviso del verdetto (campo `notices` delle regole) e ogni
+# Verdict.regimeRouting[].exceptionsCatalogEntry punta a un id di questo file;
+# corpus:validate verifica che ogni riferimento risolva.
+#
+# status:
+#   gestito      — lo strumento lo tratta (oggi: instradamento a regime come escalation)
+#   segnalato    — lo strumento non lo valuta, ma lo mostra nel verdetto
+#   non_gestito  — fuori dal perimetro dello strumento, dichiarato
+#
+# `description` è testo per l'utente del tool: informativo, mai categorico né
+# prescrittivo (lint di copy in corpus:validate). docs/known-limitations.md e le
+# sezioni "limitazioni" del disclaimer si generano da questo file (script in S4).
+# ============================================================================
+
+exceptions:
+  # --------------------------------------------------------------------------
+  # Regimi correlati: gestiti come escalation (ADR 0009)
+  # --------------------------------------------------------------------------
+  - id: psnc_category_override
+    status: gestito
+    title: "Perimetro di Sicurezza Nazionale Cibernetica (PSNC)"
+    description: "Per un soggetto inserito nel PSNC i servizi PSNC sono categorizzati d'ufficio e il procedimento ordinario non si applica a quei servizi. Lo strumento riconosce l'inserimento nel PSNC e indirizza la valutazione a un consulente qualificato, senza valutare il regime nel merito."
+    citations: [det_acn_155238_2026_art_5, dl_105_2019_art_1_c_2_bis]
+    applies_to: [psnc]
+
+  - id: dora_massive_disapplication
+    status: gestito
+    title: "Entità finanziarie DORA (Reg. UE 2022/2554)"
+    description: "Per le entità finanziarie regolate da DORA il regime NIS è in larga parte disapplicato, salvo la registrazione sulla piattaforma ACN. Lo strumento riconosce il caso e indirizza la valutazione a un consulente qualificato, senza valutare il regime nel merito."
+    citations:
+      - dlgs_138_2024_art_3_c_14
+      - det_piattaforma_127437_2026_art_7_c_6
+      - det_piattaforma_127437_2026_art_16_c_13
+      - det_piattaforma_127437_2026_art_20_c_6
+    applies_to: [dora]
+
+  - id: cloud_pa_model_substitution
+    status: gestito
+    title: "Servizi cloud classificati per la PA (Regolamento Cloud)"
+    description: "Per i servizi cloud classificati ai sensi del Regolamento Cloud per la PA si applica il modello Cloud PA (ordinari, critici, strategici) in luogo del modello di categorizzazione NIS. Lo strumento riconosce il caso e indirizza la valutazione a un consulente qualificato, senza valutare il regime nel merito."
+    citations: [dd_acn_21007_24_art_3, det_acn_155238_2026_art_4]
+    applies_to: [cloud_pa]
+
+  # --------------------------------------------------------------------------
+  # Pubblica amministrazione (ADR 0011)
+  # --------------------------------------------------------------------------
+  - id: pa_esclusioni_sicurezza_nazionale_art_4_c_3
+    status: segnalato
+    title: "Esclusioni di sicurezza nazionale (art. 4 D.Lgs. 138/2024) per attività"
+    description: "Il decreto non si applica agli enti, organi e articolazioni della pubblica amministrazione che operano nei settori della pubblica sicurezza, della difesa nazionale o dell'attività di contrasto, agli organismi di informazione per la sicurezza e all'ACN (art. 4 c. 3). Lo strumento non valuta l'ambito di attività del soggetto: se il caso è pertinente, l'esito va riesaminato con un consulente qualificato."
+    citations: [dlgs_138_2024_art_4_c_3]
+    applies_to: [pubblica_amministrazione]
+
+  - id: pa_organi_costituzionali_capo_v_art_4_c_2
+    status: segnalato
+    title: "Organi costituzionali e di rilievo costituzionale: Capo V non applicabile"
+    description: "Agli organi costituzionali e di rilievo costituzionale non si applicano le previsioni del Capo V del decreto, dedicato a vigilanza ed esecuzione (art. 4 c. 2, seconda parte). Lo strumento non modella questa differenza: l'esito sull'ambito resta quello indicato, mentre le conseguenze in termini di vigilanza vanno approfondite con un consulente qualificato."
+    citations: [dlgs_138_2024_art_4_c_2]
+    applies_to: [pubblica_amministrazione]
+
+  - id: pa_qualifica_elevabile_art_6_c_2
+    status: segnalato
+    title: "Qualifica di soggetto importante elevabile a essenziale"
+    description: "Per le amministrazioni delle lettere b), c) e d) dell'Allegato III la qualifica di soggetto importante deriva dall'art. 6 c. 3; la qualifica può essere elevata a essenziale con individuazione dell'ACN (art. 6 c. 2). Lo strumento non può conoscere un'individuazione di questo tipo."
+    citations: [dlgs_138_2024_art_6_c_2, dlgs_138_2024_art_6_c_3]
+    applies_to: [pubblica_amministrazione]
+
+  - id: pa_categorie_aggiunte_dpcm_art_3_c_7
+    status: segnalato
+    title: "Ulteriori categorie di PA individuate con DPCM"
+    description: "Uno o più decreti del Presidente del Consiglio dei ministri possono individuare ulteriori categorie di pubbliche amministrazioni a cui si applica il decreto, adeguando l'elenco dell'Allegato III (art. 3 c. 7 e art. 40 c. 2 lett. b). Lo strumento considera solo le categorie dell'Allegato III: un soggetto pubblico che non vi rientra potrebbe essere compreso in una categoria aggiunta successivamente."
+    citations: [dlgs_138_2024_art_3_c_7, dlgs_138_2024_art_40_c_2_lett_b]
+    applies_to: [pubblica_amministrazione]
+
+  - id: pa_lett_d_cumulo_l90_non_attestato
+    status: segnalato
+    title: "Cumulo con la Legge 90/2024 per gli altri soggetti pubblici (lett. d)"
+    description: "Per le amministrazioni della lettera d) dell'Allegato III lo strumento non segnala il cumulo con il perimetro della Legge 90/2024: l'appartenenza a quel perimetro non è attestata nelle fonti disponibili. La verifica va condotta con un consulente qualificato."
+    citations: [l90_2024_art_1_c_1, dlgs_138_2024_allegato_III]
+    applies_to: [pubblica_amministrazione]

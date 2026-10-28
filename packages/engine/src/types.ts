@@ -22,6 +22,9 @@ export type RoutingEffect = 'category_override' | 'massive_disapplication' | 'mo
 /** Corpus citation ID at verified granularity (e.g. `dlgs_138_2024_art_3_c_6`). */
 export type CitationId = string;
 
+/** Id of an entry of exceptions/exceptions__catalog.yaml (ADR 0012). */
+export type CatalogEntryId = string;
+
 /**
  * Reference to a signal defined in `signals/*.yaml` (e.g. `l90_cumulo`).
  * Shape to be finalized with the engine (S3).
@@ -50,7 +53,7 @@ export interface RegimeRouting {
    * `null` = not attested in the corpus, which is distinct from "no residual obligation".
    */
   residualNisObligation: string | null;
-  /** `meta.exceptions_catalog_entry` of the regime. */
+  /** `meta.exceptions_catalog_entry` of the regime: an exceptions catalog id (ADR 0012). */
   exceptionsCatalogEntry: string;
 }
 
@@ -60,7 +63,7 @@ export interface Verdict {
   outcome: VerdictOutcome;
   /** Feeds the Explainability Mode. */
   assessmentMode: AssessmentMode;
-  /** Qualification; `inferita: true` when only signalled (PA, "strada 3"). */
+  /** Qualification; `inferita: true` when only signalled (no corpus rule uses it since ADR 0011). */
   qualifica?: { value: 'essenziale' | 'importante'; inferita: boolean };
   /**
    * Regime routings: empty when no override matches; otherwise one element per
@@ -70,6 +73,8 @@ export interface Verdict {
   regimeRouting: RegimeRouting[];
   /** Signals such as `l90_cumulo`, `cross_sector_*`. */
   signals: SignalRef[];
+  /** Verdict notices: ids of entries of the exceptions catalog (ADR 0012). */
+  notices: CatalogEntryId[];
   /** Client-side observability. */
   reasoningTrace: ReasoningStep[];
   /** Verified-granularity citations only. */

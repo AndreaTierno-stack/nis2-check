@@ -3,7 +3,7 @@
  */
 import { CorpusSchema, type Corpus } from './schemas/corpus.ts';
 import { E, msg } from './schemas/common.ts';
-import { lintYamlBooleans } from './lint.ts';
+import { lintCatalogCopy, lintYamlBooleans } from './lint.ts';
 import type { RawCorpus, SourceTexts } from './load.ts';
 
 export interface ValidationResult {
@@ -33,7 +33,7 @@ export function validateCorpus(raw: RawCorpus, sources: SourceTexts = {}, parseE
       errors.push(`${String(file ?? issue.path[0])}${rest.length ? ` > ${formatPath(rest)}` : ''}: ${issue.message}`);
     }
   }
-  errors.push(...lintYamlBooleans(sources));
+  errors.push(...lintYamlBooleans(sources), ...lintCatalogCopy(raw.exceptions ?? {}));
   const result: ValidationResult = { ok: errors.length === 0, errors };
   if (parsed.success) result.corpus = parsed.data;
   return result;

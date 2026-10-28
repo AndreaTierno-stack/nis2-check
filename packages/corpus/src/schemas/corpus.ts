@@ -7,7 +7,17 @@
 import { z } from 'zod';
 import { resolveCorpusRef } from '../corpusRef.ts';
 import { E, msg } from './common.ts';
-import { Fixture, RegimeFile, SectorFile, SignalsFile, WizardFile, conditionsOf, type Question } from './files.ts';
+import {
+  CitationRegistryFile,
+  ExceptionsCatalogFile,
+  Fixture,
+  RegimeFile,
+  SectorFile,
+  SignalsFile,
+  WizardFile,
+  conditionsOf,
+  type Question,
+} from './files.ts';
 
 /**
  * Comparison inside a rule expression (`condition`, `trigger`): `<input> == <value>`
@@ -29,6 +39,10 @@ export const CorpusInput = z.object({
   wizard: z.record(z.string(), WizardFile),
   regimes: z.record(z.string(), RegimeFile),
   signals: z.record(z.string(), SignalsFile),
+  /** Exceptions catalog (ADR 0012): every verdict notice and regime catalog entry points here. */
+  exceptions: z.record(z.string(), ExceptionsCatalogFile),
+  /** Citation registry: KB node and line attesting each registered citation ID. */
+  citations: z.record(z.string(), CitationRegistryFile),
   /** Golden fixtures keyed by file name. */
   fixtures: z.record(z.string(), Fixture),
 });
@@ -55,7 +69,7 @@ export const CorpusSchema = CorpusInput.superRefine((c, ctx) => {
   const issue = (path: Path, code: Parameters<typeof msg>[0], text: string) =>
     ctx.addIssue({ code: z.ZodIssueCode.custom, path, message: msg(code, text) });
 
-  const allFiles: Record<string, unknown> = { ...c.sectors, ...c.wizard, ...c.regimes, ...c.signals };
+  const allFiles: Record<string, unknown> = { ...c.sectors, ...c.wizard, ...c.regimes, ...c.signals, ...c.exceptions, ...c.citations };
   const fileExists = (rel: string) => rel.split('#')[0]! in allFiles;
   const signalIds = new Set(Object.values(c.signals).flatMap((f) => f.signals.map((s) => s.id)));
   const sectorIds = new Set(Object.values(c.sectors).map((s) => s.meta.sector_id));
@@ -132,8 +146,34 @@ export const CorpusSchema = CorpusInput.superRefine((c, ctx) => {
     }
   }
 
+  // ----- exceptions catalog (ADR 0012) and citation registry -----
+  const catalogIds = new Set<string>();
+  const regimeIds = new Set(Object.values(c.regimes).map((r) => r.meta.regime_id));
+  for (const [ep, f] of Object.entries(c.exceptions)) {
+    f.exceptions.forEach((e, i) => {
+      const p: Path = ['exceptions', ep, 'exceptions', i];
+      if (catalogIds.has(e.id)) issue([...p, 'id'], E.CATALOG_REF, `duplicate catalog id "${e.id}"`);
+      catalogIds.add(e.id);
+      e.applies_to.forEach((a, j) => {
+        if (!sectorIds.has(a) && !regimeIds.has(a)) issue([...p, 'applies_to', j], E.CATALOG_REF, `"${a}" is neither a sector nor a regime id`);
+      });
+    });
+  }
+  const checkCatalog = (ids: readonly string[] | undefined, path: Path) =>
+    (ids ?? []).forEach((id, i) => {
+      if (!catalogIds.has(id)) issue([...path, i], E.CATALOG_REF, `"${id}" is not an entry of the exceptions catalog`);
+    });
+  const registered = new Set<string>();
+  for (const [cp, f] of Object.entries(c.citations)) {
+    f.citations.forEach((r, i) => {
+      if (registered.has(r.id)) issue(['citations', cp, 'citations', i, 'id'], E.CITATION_ID, `duplicate registry entry "${r.id}"`);
+      registered.add(r.id);
+    });
+  }
+
   // ----- regimes -----
   for (const [rp, r] of Object.entries(c.regimes)) {
+    checkCatalog([r.meta.exceptions_catalog_entry], ['regimes', rp, 'meta', 'exceptions_catalog_entry']);
     if (`regimes/${r.meta.regime_id}.yaml` !== rp) issue(['regimes', rp, 'meta', 'regime_id'], E.REF_FILE, `regime_id "${r.meta.regime_id}" does not match file name`);
     r.meta.referenced_by.forEach((ref, i) => {
       if (!fileExists(ref)) issue(['regimes', rp, 'meta', 'referenced_by', i], E.REF_FILE, `file ${ref.split('#')[0]} not found`);
@@ -185,6 +225,8 @@ export const CorpusSchema = CorpusInput.superRefine((c, ctx) => {
       );
     }
 
+    s.qualification_rules.forEach((r, i) => checkCatalog(r.notices, [...base, 'qualification_rules', i, 'notices']));
+    checkCatalog(s.allegato_iv_channel?.notices, [...base, 'allegato_iv_channel', 'notices']);
     s.qualification_rules.forEach((r, i) => {
       if (/\bdimension\b/.test(r.condition)) {
         if (s.meta.size_blind) issue([...base, 'qualification_rules', i, 'condition'], E.SIZE_BLIND, 'size_blind sector with a dimension condition');
@@ -234,6 +276,8 @@ export const CorpusSchema = CorpusInput.superRefine((c, ctx) => {
       if (!allQuestionIds.has(k)) issue([...base, 'inputs', k], E.FIXTURE_INPUT, `"${k}" is not a wizard question id`);
     }
     checkSignals(x.expected.signals, [...base, 'expected', 'signals']);
+    checkCatalog(x.expected.notices, [...base, 'expected', 'notices']);
+    x.expected.regime_routing.forEach((r, i) => checkCatalog([r.exceptions_catalog_entry], [...base, 'expected', 'regime_routing', i, 'exceptions_catalog_entry']));
     for (const [refPath, ref] of [
       [['expected', 'corpus_ref'], x.expected.corpus_ref],
       [['expected', 'sanitario_secondary', 'corpus_ref'], x.expected.sanitario_secondary?.corpus_ref],

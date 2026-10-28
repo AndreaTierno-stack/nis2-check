@@ -82,6 +82,8 @@ concetto obbligano l'engine a due interpreti.
   risposta (domanda saltata o non ancora posta).
 - La chiave `visibility_citations` resta nello schema (citazioni che motivano una
   condizione di visibilità) ma oggi non è usata.
+  > **Nota 2026-10-28:** rimossa dallo schema in corpus 0.5.0 (dichiarata e mai
+  > usata); rientra quando una condizione di visibilità avrà bisogno di citazioni.
 
 ## Fonti
 

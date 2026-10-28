@@ -13,7 +13,7 @@ export const DEFAULT_CORPUS_DIR = path.join(PKG_ROOT, 'corpus');
 /** Default fixtures dir: packages/engine/tests/fixtures. */
 export const DEFAULT_FIXTURES_DIR = path.resolve(PKG_ROOT, '..', 'engine', 'tests', 'fixtures');
 
-export const CORPUS_FOLDERS = ['sectors', 'wizard', 'regimes', 'signals'] as const;
+export const CORPUS_FOLDERS = ['sectors', 'wizard', 'regimes', 'signals', 'exceptions', 'citations'] as const;
 export type CorpusFolder = (typeof CORPUS_FOLDERS)[number];
 
 /** Raw (unvalidated) corpus as read from disk; file maps are keyed by corpus-relative path. */
@@ -23,6 +23,10 @@ export interface RawCorpus {
   wizard: Record<string, unknown>;
   regimes: Record<string, unknown>;
   signals: Record<string, unknown>;
+  /** Exceptions catalog (ADR 0012). */
+  exceptions: Record<string, unknown>;
+  /** Citation registry: KB attestation of citation IDs. */
+  citations: Record<string, unknown>;
   fixtures: Record<string, unknown>;
 }
 
@@ -40,10 +44,13 @@ const yamlFiles = (dir: string) => fs.readdirSync(dir).filter((f) => f.endsWith(
 /** Parses YAML text with js-yaml v4 (YAML 1.2 core schema). */
 export const parseYaml = (text: string): unknown => yaml.load(text);
 
+/** Folders that may be absent in older corpus versions are read only if present. */
+const exists = (p: string) => fs.existsSync(p);
+
 /**
  * Loads corpus and fixtures from disk.
  *
- * @param corpusDir - corpus root (contains VERSION, sectors/, wizard/, regimes/, signals/)
+ * @param corpusDir - corpus root (contains VERSION, sectors/, wizard/, regimes/, signals/, exceptions/, citations/)
  * @param fixturesDir - directory of the E*.yaml fixtures
  */
 export function loadFromDisk(corpusDir = DEFAULT_CORPUS_DIR, fixturesDir = DEFAULT_FIXTURES_DIR): LoadResult {
@@ -65,9 +72,12 @@ export function loadFromDisk(corpusDir = DEFAULT_CORPUS_DIR, fixturesDir = DEFAU
     wizard: {},
     regimes: {},
     signals: {},
+    exceptions: {},
+    citations: {},
     fixtures: {},
   };
   for (const folder of CORPUS_FOLDERS) {
+    if (!exists(path.join(corpusDir, folder))) continue;
     for (const f of yamlFiles(path.join(corpusDir, folder))) {
       const rel = `${folder}/${f}`;
       corpus[folder][rel] = read(path.join(corpusDir, folder, f), rel);

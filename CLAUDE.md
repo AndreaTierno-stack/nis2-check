@@ -68,15 +68,16 @@ interface RegimeRouting {             // popolato dal meta del regime (ADR 0009 
   regimeId: string;
   routingEffect: 'category_override' | 'massive_disapplication' | 'model_substitution';
   residualNisObligation: string | null; // null = non attestato nel corpus, NON "nessuno"
-  exceptionsCatalogEntry: string;
+  exceptionsCatalogEntry: string;     // id del catalogo eccezioni (ADR 0012)
 }
 
 interface Verdict {
   outcome: VerdictOutcome;          // copiato da corpus.verdict_outcome — MAI inferito
   assessmentMode: AssessmentMode;   // alimenta l'Explainability Mode
-  qualifica?: { value: 'essenziale' | 'importante'; inferita: boolean }; // strada 3 PA
+  qualifica?: { value: 'essenziale' | 'importante'; inferita: boolean }; // inferita: nessun uso dopo ADR 0011
   regimeRouting: RegimeRouting[];   // vuoto se nessun routing; ordine = ordine degli override nel file di settore (non precedenza)
   signals: SignalRef[];             // l90_cumulo, cross_sector_*, ecc.
+  notices: CatalogEntryId[];        // avvisi: id del catalogo eccezioni (ADR 0012)
   reasoningTrace: ReasoningStep[];  // observability client-side
   citations: CitationId[];          // solo granularità verificata
   disclaimerRequired: true;         // literal, incondizionato
@@ -102,7 +103,7 @@ Consentito: `reasoningTrace` nel Verdict; console log strutturati gated `?debug=
 
 ## CI/CD e workflow
 
-GitHub Actions su ogni push/PR: install → lint → typecheck → `corpus:validate` → test → build. Conventional commits (`feat:`, `fix:`, `docs:`, `chore:`, `test:`, `corpus:`); i commit `corpus:` citano la versione (es. `corpus: bump 0.2.1 — attestation patch, DIV-P1 closed`). `docs/ARCHITECTURE.md` è documentazione viva: si aggiorna nello stesso commit che cambia l'architettura. Le decisioni con alternative scartate → ADR in `docs/decisions/` (prossimo numero: 0010). `docs/STATUS.md` è la fonte unica dello stato di avanzamento e dei punti aperti; si aggiorna in chiusura di ogni sessione (data, stato sintetico, punti aperti, una riga di log).
+GitHub Actions su ogni push/PR: install → lint → typecheck → `corpus:validate` → test → build. Conventional commits (`feat:`, `fix:`, `docs:`, `chore:`, `test:`, `corpus:`); i commit `corpus:` citano la versione (es. `corpus: bump 0.2.1 — attestation patch, DIV-P1 closed`). `docs/ARCHITECTURE.md` è documentazione viva: si aggiorna nello stesso commit che cambia l'architettura. Le decisioni con alternative scartate → ADR in `docs/decisions/` (prossimo numero: 0013). `docs/STATUS.md` è la fonte unica dello stato di avanzamento e dei punti aperti; si aggiorna in chiusura di ogni sessione (data, stato sintetico, punti aperti, una riga di log).
 
 ## Autonomia di Claude Code
 

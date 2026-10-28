@@ -21,3 +21,39 @@ export function lintYamlBooleans(sources: SourceTexts): string[] {
   }
   return out;
 }
+
+/**
+ * Copy lint for texts shown to the tool's user from the exceptions catalog
+ * (ADR 0012): forbidden categorical/prescriptive wording (CLAUDE.md, constraint 1)
+ * and constrained naming (ADR 0004/0005; "esclusioni" only with "di sicurezza nazionale").
+ */
+const FORBIDDEN: { re: RegExp; why: string }[] = [
+  { re: /\brientri\b/i, why: '"Rientri" (categorical)' },
+  { re: /\bsei (dentro|conforme|tenuto)\b/i, why: 'second-person verdict' },
+  { re: /\bdevi\b/i, why: '"Devi" (prescriptive)' },
+  { re: /\badempi\b/i, why: '"Adempi" (prescriptive)' },
+  { re: /\bimplementa\b/i, why: '"Implementa" (prescriptive)' },
+  { re: /\breport di compliance\b/i, why: '"report di compliance"' },
+  { re: /\baudit\b/i, why: '"audit"' },
+  { re: /\bdiagnosi\b/i, why: '"diagnosi"' },
+  { re: /\bcertificazione\b/i, why: '"certificazione"' },
+  { re: /\bsalvaguardia\b(?! dimensionale)/i, why: 'bare "salvaguardia" (ADR 0004)' },
+  { re: /\bCER\b/, why: 'bare "CER" (ADR 0005)' },
+  { re: /\besclusioni\b(?! di sicurezza nazionale)/i, why: 'bare "esclusioni": use "esclusioni di sicurezza nazionale (art. 4 D.Lgs. 138/2024)"' },
+];
+
+export function lintCatalogCopy(exceptions: Record<string, unknown>): string[] {
+  const out: string[] = [];
+  for (const [file, doc] of Object.entries(exceptions)) {
+    const entries = (doc as { exceptions?: { id?: string; title?: string; description?: string }[] })?.exceptions ?? [];
+    for (const e of entries) {
+      for (const field of ['title', 'description'] as const) {
+        const text = e[field] ?? '';
+        for (const { re, why } of FORBIDDEN) {
+          if (re.test(text)) out.push(msg(E.COPY, `${file} > ${e.id} > ${field}: ${why}`));
+        }
+      }
+    }
+  }
+  return out;
+}
