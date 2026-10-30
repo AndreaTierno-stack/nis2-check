@@ -50,6 +50,10 @@ citations:
     kb_node: wiki/sources/Determinazione ACN piattaforma e procedure - 2026-04-13.md
     kb_lines: "50"
     attestation: "Contenuto della dichiarazione di registrazione (art. 11 c. 2): tra l'altro le tipologie di soggetto degli allegati I, II, III e IV del decreto. Granularita' di comma: la lett. g) (\"elenca le tipologie di soggetto ... a cui il soggetto e' riconducibile\") e' nel PDF firmato in raw/, non nella KB."
+  - id: det_piattaforma_127437_2026_art_12_c_2
+    kb_node: wiki/sources/FAQ NIS - Ambito.md
+    kb_lines: "172"
+    attestation: "Nota redazionale del 2026-10-30 in AMB.GI.2, verbatim: in piattaforma l'ACN riceve gli elementi di valutazione e 'li condivide con le Autorità di settore interessate ai fini delle valutazioni di cui all'articolo 11, comma 4, lettera c)' (art. 12 c. 2 Det. ACN 127437/2026). Stesso rinvio nel concept 'Clausola di salvaguardia' (riga 28); l'art. 12 a livello di articolo è nel nodo della Det. (riga 54). Conforme al PDF firmato in raw/ (p. 12), lint del 2026-10-30."
   - id: det_piattaforma_127437_2026_art_16_c_13
     kb_node: wiki/sources/Determinazione ACN piattaforma e procedure - 2026-04-13.md
     kb_lines: 37, 40
@@ -90,6 +94,10 @@ citations:
     kb_node: wiki/sources/D.Lgs. 138-2024 (Decreto NIS).md
     kb_lines: 34-38
     attestation: Allegato III, 15 categorie ('Amministrazioni centrali, regionali, locali e di altro tipo'), lett. a)-d) trascritte. Riscontro Normattiva 2026-10-27 (riga 8).
+  - id: dlgs_138_2024_art_11_c_4_lett_c
+    kb_node: wiki/sources/FAQ NIS - Ambito.md
+    kb_lines: "172"
+    attestation: "Verbatim nella nota redazionale del 2026-10-30 in AMB.GI.2: le Autorità di settore procedono 'all'individuazione dei soggetti a cui si applicano le deroghe di cui all'articolo 3, comma 4' (art. 11 c. 4 lett. c)). Attestazione nel nodo FAQ Ambito, non nel nodo D.Lgs. 138/2024, che non riporta l'art. 11 c. 4; stesso rinvio nel concept 'Clausola di salvaguardia' (riga 28). Conforme al PDF in raw/ (p. 28), lint del 2026-10-30."
   - id: dlgs_138_2024_art_2_c_1_lett_bbb
     kb_node: wiki/sources/D.Lgs. 138-2024 (Decreto NIS).md
     kb_lines: "63"
@@ -194,10 +202,10 @@ citations:
     kb_node: wiki/sources/FAQ NIS - Settori, sottosettori e tipologie di soggetto.md
     kb_lines: 30, 36
     attestation: "A1.1.a.3: gestori di punti di ricarica registrati su PUN 'ex DM MASE n. 106 del 16/03/2023'; i punti vendita che offrono ricarica ma non sono obbligati alla registrazione su PUN non rientrano automaticamente. Fedele alla FAQ (art. 5 del DM). Fonte non in raw/."
-  - id: dpcm_221_2024
+  - id: dpcm_221_2024_art_3_c_1
     kb_node: wiki/sources/FAQ NIS - Ambito.md
-    kb_lines: 162-169
-    attestation: "AMB.GI.2: art. 3 c. 4 del decreto NIS e 'DPCM n. 221 del 9 dicembre 2024' (GU 10/02/2025), salvaguardia dimensionale: disapplicazione dell'art. 6 par. 2 Racc. 2003/361/CE (consolidamento di gruppo), concessa dall'Autorità di settore competente; criteri all'art. 3 c. 1 lett. a)-b) DPCM. Fonte non in raw/."
+    kb_lines: 162-169, 172
+    attestation: "AMB.GI.2: 'DPCM n. 221 del 9 dicembre 2024' (GU 10/02/2025), criteri della salvaguardia dimensionale all'art. 3 c. 1 DPCM (riga 166): lett. a) totale indipendenza dei sistemi informativi e di rete NIS, lett. b) totale indipendenza delle attività e servizi NIS dalle imprese del gruppo (righe 167-168). La nota redazionale del 2026-10-30 (riga 172) lo riconduce all'art. 40 c. 1 richiamato dall'art. 3 c. 12 del decreto. Fonte non in raw/. Corpus 0.6.1: sostituisce l'ID di atto dpcm_221_2024."
   - id: faq_a1_1_a_1
     kb_node: wiki/sources/FAQ NIS - Settori, sottosettori e tipologie di soggetto.md
     kb_lines: "34"

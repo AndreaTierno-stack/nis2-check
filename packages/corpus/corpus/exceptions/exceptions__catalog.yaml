@@ -201,8 +201,9 @@ exceptions:
   - id: safeguard_dimensional_dpcm_221
     status: non_gestito
     title: "Salvaguardia dimensionale (DPCM 221/2024)"
-    description: "L'art. 3 c. 4 D.Lgs. 138/2024 consente di non applicare il consolidamento dimensionale con le imprese collegate quando non è proporzionato, tenuto conto dell'indipendenza del soggetto in termini di sistemi informativi e di rete e di servizi forniti; l'ACN applica questa salvaguardia dimensionale secondo i criteri stabiliti con DPCM (art. 3 c. 12; DPCM 221/2024). Lo strumento non la valuta."
-    citations: [dlgs_138_2024_art_3_c_4, dlgs_138_2024_art_3_c_12, dpcm_221_2024]
+    # Corpus 0.6.1 (lint KB 2026-10-30, V8): richiesta, individuazione e applicazione distinte.
+    description: "L'art. 3 c. 4 D.Lgs. 138/2024 consente di non applicare il consolidamento dimensionale con le imprese collegate quando non è proporzionato, tenuto conto dell'indipendenza del soggetto in termini di sistemi informativi e di rete e di servizi forniti. La richiesta di questa salvaguardia dimensionale si presenta in fase di registrazione tramite la piattaforma ACN; l'ACN ne condivide gli elementi con le Autorità di settore interessate (art. 12 c. 2 Det. ACN 127437/2026). Le Autorità di settore procedono all'individuazione dei soggetti a cui si applica la deroga (art. 11 c. 4 lett. c) D.Lgs. 138/2024) e l'ACN la applica secondo i criteri del DPCM 221/2024, art. 3 c. 1 (art. 3 c. 12). Lo strumento non la valuta."
+    citations: [dlgs_138_2024_art_3_c_4, dlgs_138_2024_art_3_c_12, dlgs_138_2024_art_11_c_4_lett_c, dpcm_221_2024_art_3_c_1, det_piattaforma_127437_2026_art_12_c_2]
     applies_to: [cloud_computing, energia_elettrica]
 
   - id: dimensione_autodichiarata

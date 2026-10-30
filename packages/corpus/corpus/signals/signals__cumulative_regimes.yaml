@@ -47,11 +47,14 @@ signals:
     target_regime: dpcm_221_2024
     status: placeholder_v0_2
     message_template: safeguard_dimensional_dpcm_221
-    base_reasoning_trace: "Se il soggetto appartiene a un gruppo con imprese collegate o associate, potrebbe accedere alla clausola di salvaguardia dimensionale (DPCM 221/2024) che disapplica il consolidamento dimensionale di gruppo e, in casi di totale indipendenza dei sistemi e delle attivita', puo' farlo uscire dall'ambito NIS. La concessione e' discrezionale dell'Autorita' di settore: lo strumento puo' solo segnalare la possibilita'. Verifica con consulente qualificato."
+    base_reasoning_trace: "Se il soggetto appartiene a un gruppo con imprese collegate o associate, potrebbe chiedere la salvaguardia dimensionale (DPCM 221/2024), che disapplica il consolidamento dimensionale di gruppo (art. 3 c. 4 D.Lgs. 138/2024) e, in casi di totale indipendenza dei sistemi e delle attivita', puo' farlo uscire dall'ambito NIS. La richiesta si presenta in fase di registrazione tramite la piattaforma ACN; l'ACN ne condivide gli elementi con le Autorita' di settore interessate (art. 12 c. 2 Det. ACN 127437/2026). Le Autorita' di settore procedono all'individuazione dei soggetti a cui si applica la deroga (art. 11 c. 4 lett. c) D.Lgs. 138/2024) e l'ACN la applica secondo i criteri del DPCM 221/2024, art. 3 c. 1 (art. 3 c. 12). Lo strumento puo' solo segnalare la possibilita'. Verifica con consulente qualificato."
     # art. 3 c. 4 = deroga sostanziale (proporzionalita' / indipendenza dalle imprese
     # collegate); art. 3 c. 12 = l'ACN applica la deroga di cui al c. 4 secondo i criteri
     # ex art. 40 c. 1 (base del DPCM 221/2024). Funzioni distinte, entrambe citate.
-    citations: [dpcm_221_2024, dlgs_138_2024_art_3_c_4, dlgs_138_2024_art_3_c_12]
+    # Corpus 0.6.1 (lint KB 2026-10-30, V8): la valutazione non e' della sola Autorita' di
+    # settore: individuazione art. 11 c. 4 lett. c), applicazione ACN art. 3 c. 12,
+    # condivisione in piattaforma art. 12 c. 2 Det. 127437/2026.
+    citations: [dlgs_138_2024_art_3_c_4, dlgs_138_2024_art_3_c_12, dlgs_138_2024_art_11_c_4_lett_c, dpcm_221_2024_art_3_c_1, det_piattaforma_127437_2026_art_12_c_2]
 
   # ADR 0015 (corpus 0.6.0): attivato dalla risposta "si'" a soggetto_critico
   # (wizard__disambiguation.yaml). Supera il testo "regime parallelo e distinto dal
