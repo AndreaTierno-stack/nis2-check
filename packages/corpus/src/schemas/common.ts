@@ -39,6 +39,7 @@ export const E = {
   YAML_BOOL: 'E_YAML_BOOL',
   OUTCOME_MAPPING_INCLUSIVE: 'E_OUTCOME_MAPPING_INCLUSIVE',
   OUTCOME_WITHOUT_TRIGGER: 'E_OUTCOME_WITHOUT_TRIGGER',
+  ACTIVITY_REF: 'E_ACTIVITY_REF',
 } as const;
 export type ErrorCode = (typeof E)[keyof typeof E];
 

@@ -157,6 +157,14 @@ exceptions:
     citations: [faq_a1_1_a_4]
     applies_to: [energia_elettrica]
 
+  # ADR 0016 amendment (corpus 0.10.0): esclusione per attivita' non decisiva
+  - id: punti_ricarica_non_pun_attivita_ulteriore
+    status: segnalato
+    title: "Punti di ricarica senza obbligo di registrazione sul PUN, accanto ad altre attività"
+    description: "Il soggetto indica, tra le attività dichiarate, la gestione di punti di ricarica senza obbligo di registrazione sul PUN, o con obbligo non noto. Secondo la FAQ ACN A1.1.a.3 questi punti di ricarica non rientrano automaticamente per questo solo titolo. Poiché il soggetto dichiara anche altre attività del settore elettrico, l'esito indicato segue le regole del settore per quelle attività; l'attività di ricarica va approfondita con un consulente qualificato."
+    citations: [faq_a1_1_a_3]
+    applies_to: [energia_elettrica]
+
   - id: psnc_cloud_pa_precedenza_non_attestata
     status: segnalato
     title: "PSNC e Cloud PA insieme: precedenza non indicata dalle fonti"

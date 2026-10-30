@@ -14,7 +14,7 @@ import { parseYaml, type Fixture } from '@nis2-check/corpus';
 import { evaluate } from '../src/index.ts';
 import { realCorpus } from './helpers.ts';
 
-const ENABLED = new Set(['E01', 'E02', 'E03', 'E04', 'E13', 'E14', 'E15', 'E25']);
+const ENABLED = new Set(['E01', 'E02', 'E03', 'E04', 'E13', 'E14', 'E15', 'E25', 'E27']);
 
 const FIXTURES_DIR = path.join(path.dirname(fileURLToPath(import.meta.url)), 'fixtures');
 const files = fs.readdirSync(FIXTURES_DIR).filter((f) => /^E\d{2}_.*\.yaml$/.test(f)).sort();

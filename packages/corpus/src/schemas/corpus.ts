@@ -137,6 +137,11 @@ export const CorpusSchema = CorpusInput.superRefine((c, ctx) => {
       if (!commonQuestionIds.has(id)) issue([...base, 'excluded_common_questions', i], E.REF_QUESTION, `"${id}" is not a question of the common block`);
     });
     const idx = questionIndex(wp);
+    (w.activity_inputs ?? []).forEach((a, i) => {
+      const target = idx.get(a);
+      if (!target) issue([...base, 'activity_inputs', i], E.ACTIVITY_REF, `"${a}" is not a question of the wizard`);
+      else if (target.kind !== 'single_select' && target.kind !== 'multi_select') issue([...base, 'activity_inputs', i], E.ACTIVITY_REF, `"${a}" is not a select question`);
+    });
     (w.multi_regime_intersection ?? []).forEach((m, i) => {
       checkCatalog(m.notices, [...base, 'multi_regime_intersection', i, 'notices']);
       for (const [, input, , value] of m.trigger.matchAll(RULE_COMPARISON_RE)) {
@@ -165,7 +170,17 @@ export const CorpusSchema = CorpusInput.superRefine((c, ctx) => {
       (question.outcome_mapping ?? []).forEach((m, i) => {
         if (!optionIds.has(m.answer)) issue([...qp, 'outcome_mapping', i, 'answer'], E.REF_QUESTION, `answer "${m.answer}" is not an option of "${question.id}"`);
         checkCatalog(m.notices, [...qp, 'outcome_mapping', i, 'notices']);
+        checkCatalog(m.notices_if_demoted, [...qp, 'outcome_mapping', i, 'notices_if_demoted']);
+        // a type exclusion is per activity: it carries the notice shown when it does not decide
+        if (!m.notices_if_demoted?.length) issue([...qp, 'outcome_mapping', i, 'notices_if_demoted'], E.ACTIVITY_REF, 'an outcome_mapping needs notices_if_demoted (ADR 0016 amendment)');
       });
+      // ADR 0016 amendment: an outcome_mapping excludes one declared activity of the subject
+      if (question.outcome_mapping?.length) {
+        const activityValues = new Set((w.activity_inputs ?? []).flatMap((a) => [...(idx.get(a)?.values ?? [])]));
+        if (!w.activity_inputs) issue([...qp, 'activity'], E.ACTIVITY_REF, 'a question with outcome_mapping needs activity_inputs in its wizard');
+        else if (!question.activity) issue([...qp, 'activity'], E.ACTIVITY_REF, 'a question with outcome_mapping must declare the activity it excludes');
+        else if (!activityValues.has(question.activity)) issue([...qp, 'activity'], E.ACTIVITY_REF, `"${question.activity}" is not an option of the activity inputs`);
+      }
       if (question.visible_if !== undefined) {
         // ADR 0010: input exists in the wizard, value is one of its options, includes only on multi_select
         for (const cond of conditionsOf(question.visible_if)) {
@@ -209,7 +224,7 @@ export const CorpusSchema = CorpusInput.superRefine((c, ctx) => {
     if (Array.isArray(node)) return node.forEach(collectNotices);
     if (node === null || typeof node !== 'object') return;
     for (const [k, v] of Object.entries(node)) {
-      if (k === 'notices' && Array.isArray(v)) v.forEach((x) => typeof x === 'string' && referencedCatalog.add(x));
+      if ((k === 'notices' || k === 'notices_if_demoted') && Array.isArray(v)) v.forEach((x) => typeof x === 'string' && referencedCatalog.add(x));
       else if (k === 'exceptions_catalog_entry' && typeof v === 'string') referencedCatalog.add(v);
       else collectNotices(v);
     }

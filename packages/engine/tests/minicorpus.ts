@@ -1,7 +1,8 @@
 /**
  * Synthetic mini-corpus for the stage tests of evaluate (ADR 0016): one sector
- * "test" with two regime overrides and an intersection, two type exclusions, a
- * size-blind rule and two dimensional rules. It passes corpus:validate, so every
+ * "test" with two regime overrides and an intersection, an activity model (principal
+ * plus further activities a1-a3) with type exclusions for a2 and a3, a size-blind rule
+ * and two dimensional rules. It passes corpus:validate, so every
  * test starts from a valid corpus and injects one fault or one answer set.
  */
 import { validateCorpus, type Corpus, type RawCorpus } from '@nis2-check/corpus';
@@ -47,7 +48,7 @@ export function rawMiniCorpus(): RawCorpus {
         exceptions: [
           entry('reg_a_entry', 'gestito', ['reg_a']),
           entry('reg_b_entry', 'gestito', ['reg_b']),
-          ...['n_inter', 'n_escluso', 'n_critico', 'n_grande', 'n_piccola', 'n_answer'].map((id) => entry(id, 'segnalato')),
+          ...['n_inter', 'n_escluso', 'n_critico', 'n_grande', 'n_piccola', 'n_answer', 'n_demoted'].map((id) => entry(id, 'segnalato')),
           entry(CONFLICT_NOTICE, 'non_gestito'),
         ],
       },
@@ -85,24 +86,32 @@ export function rawMiniCorpus(): RawCorpus {
       'wizard/wizard__test.yaml': {
         meta: { wizard_id: 'test', references_common_block: 'disambiguation', sector_data: 'sectors/sectors__test.yaml' },
         flow_order: ['disambiguation', 'sector_specific', 'standard_identification'],
+        activity_inputs: ['attivita', 'attivita_ulteriori'],
         sector_specific_questions: [
+          { id: 'attivita', kind: 'single_select', label_it: 'Attivita principale?', options: [{ id: 'a1', label_it: 'A1' }, { id: 'a2', label_it: 'A2' }, { id: 'a3', label_it: 'A3' }] },
+          { id: 'attivita_ulteriori', kind: 'multi_select', optional: true, label_it: 'Attivita ulteriori?', options: [{ id: 'a1', label_it: 'A1' }, { id: 'a2', label_it: 'A2' }, { id: 'a3', label_it: 'A3' }] },
           {
-            id: 'tipo',
+            id: 'q_a2',
             kind: 'single_select',
-            label_it: 'Tipo?',
-            options: [{ id: 'normale', label_it: 'Normale' }, { id: 'escluso', label_it: 'Escluso' }, { id: 'ignoto', label_it: 'Ignoto' }],
+            label_it: 'Esclusione per a2?',
+            activity: 'a2',
+            visible_if: { any_of: [{ input: 'attivita', op: 'eq', value: 'a2' }, { input: 'attivita_ulteriori', op: 'includes', value: 'a2' }] },
+            options: [{ id: 'si', label_it: 'Si' }, { id: 'no', label_it: 'No' }, { id: 'non_so', label_it: 'Non so' }],
             outcome_mapping: [
-              { answer: 'escluso', outcome: 'out_of_scope', verdict_outcome: 'likely_out_of_scope', reasoning_trace: trace('escluso'), citations: ['c_map'], notices: ['n_escluso'] },
-              { answer: 'ignoto', outcome: 'qualitative_signal_only', verdict_outcome: 'ambiguous', reasoning_trace: trace('ignoto'), citations: ['c_map'] },
+              { answer: 'si', outcome: 'out_of_scope', verdict_outcome: 'likely_out_of_scope', reasoning_trace: trace('a2 si'), citations: ['c_map'], notices: ['n_escluso'], notices_if_demoted: ['n_demoted'] },
+              { answer: 'non_so', outcome: 'qualitative_signal_only', verdict_outcome: 'ambiguous', reasoning_trace: trace('a2 non_so'), citations: ['c_map'], notices_if_demoted: ['n_demoted'] },
             ],
           },
           {
-            id: 'tipo2',
+            id: 'q_a3',
             kind: 'single_select',
-            label_it: 'Tipo secondario?',
-            visible_if: { input: 'tipo', op: 'neq', value: 'normale' },
+            label_it: 'Esclusione per a3?',
+            activity: 'a3',
+            visible_if: { any_of: [{ input: 'attivita', op: 'eq', value: 'a3' }, { input: 'attivita_ulteriori', op: 'includes', value: 'a3' }] },
             options: [{ id: 'x', label_it: 'X' }, { id: 'y', label_it: 'Y' }],
-            outcome_mapping: [{ answer: 'y', outcome: 'qualitative_signal_only', verdict_outcome: 'ambiguous', reasoning_trace: trace('y'), citations: ['c_map'] }],
+            outcome_mapping: [
+              { answer: 'y', outcome: 'qualitative_signal_only', verdict_outcome: 'likely_out_of_scope', reasoning_trace: trace('a3 y'), citations: ['c_map'], notices_if_demoted: ['n_demoted'] },
+            ],
           },
           { id: 'extra', kind: 'binary', label_it: 'Extra?', on_yes: { activates_signals: ['sig_a'], notices: ['n_answer', 'n_grande'] } },
         ],
@@ -130,7 +139,7 @@ export function rawMiniCorpus(): RawCorpus {
           { trigger: 'gate_a == yes', override_kind: 'category_override', reference: 'regimes/reg_a.yaml', reasoning_trace: trace('reg_a'), citations: ['c_gate_a'] },
           { trigger: 'gate_b == yes', override_kind: 'model_substitution', reference: 'regimes/reg_b.yaml', reasoning_trace: trace('reg_b'), citations: ['c_gate_b'] },
         ],
-        cumulative_signals: [{ signal: 'sig_b', trigger: 'tipo == normale' }],
+        cumulative_signals: [{ signal: 'sig_b', trigger: 'attivita == a1' }],
       },
     },
     fixtures: {},

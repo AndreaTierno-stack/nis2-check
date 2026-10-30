@@ -35,7 +35,7 @@ export interface SignalRef {
 /** Evaluation stage of ADR 0016, plus answer validation and the final resolution. */
 export type Stage = 'validation' | 'regime_routing' | 'type_exclusion' | 'size_blind' | 'dimensional' | 'resolution';
 
-export type StepResult = 'matched' | 'not_matched' | 'not_evaluated' | 'decided' | 'suspended' | 'conflict';
+export type StepResult = 'matched' | 'not_matched' | 'not_evaluated' | 'decided' | 'suspended' | 'conflict' | 'demoted';
 
 /** Outcome a construct would give on its own. */
 export interface PartialOutcome {

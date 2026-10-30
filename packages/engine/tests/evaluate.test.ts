@@ -1,7 +1,8 @@
 /**
- * Stage tests of evaluate on the synthetic mini-corpus (ADR 0016): one case per stage,
- * the 2×3 conflict, disagreeing exclusions, no_rule_matched, multiple matches, notices
- * from different positions with dedup, invalid answers, purity and inputHash.
+ * Stage tests of evaluate on the synthetic mini-corpus (ADR 0016 and its amendment):
+ * one case per stage, type exclusion per activity (decisive, demoted, ambiguous), the
+ * 2×3 conflict, no_rule_matched, multiple matches, notices from different positions
+ * with dedup, invalid answers, purity and inputHash.
  */
 import { describe, expect, it } from 'vitest';
 import type { Corpus } from '@nis2-check/corpus';
@@ -10,8 +11,8 @@ import { serializeInput } from '../src/evaluate.ts';
 import { sha256Hex } from '../src/sha256.ts';
 import { miniCorpus } from './minicorpus.ts';
 
-const base: Answers = { gate_a: 'no', gate_b: 'no', tipo: 'normale', extra: 'no', critico: 'no', dimension: 'grande' };
-const run = (answers: Partial<Record<string, string>>, corpus: Corpus = miniCorpus()) =>
+const base: Answers = { gate_a: 'no', gate_b: 'no', attivita: 'a1', extra: 'no', critico: 'no', dimension: 'grande' };
+const run = (answers: Partial<Record<string, string | string[]>>, corpus: Corpus = miniCorpus()) =>
   evaluate({ sectorId: 'test', answers: { ...base, ...answers } as Answers }, corpus);
 const steps = (v: ReturnType<typeof run>, stage: string) => v.reasoningTrace.filter((s) => s.stage === stage);
 const finalStep = (v: ReturnType<typeof run>) => v.reasoningTrace.at(-1)!;
@@ -50,9 +51,9 @@ describe('stage 3: size-blind rules', () => {
   });
 });
 
-describe('stage 2: declared type exclusion', () => {
-  it('escluso -> out_of_scope; dimension not evaluated, no dimensional notice', () => {
-    const v = run({ tipo: 'escluso', tipo2: 'x' });
+describe('stage 2: declared type exclusion, per activity (ADR 0016 amendment)', () => {
+  it('the only declared activity excluded -> out_of_scope; dimension not evaluated, no dimensional notice', () => {
+    const v = run({ attivita: 'a2', q_a2: 'si' });
     expect([v.assessmentMode, v.outcome]).toEqual(['out_of_scope', 'likely_out_of_scope']);
     expect(v.notices).toEqual(['n_escluso']);
     expect(v.signals).toEqual([]);
@@ -61,33 +62,50 @@ describe('stage 2: declared type exclusion', () => {
     ]);
   });
 
-  it('two exclusions that agree -> copied, both constructs decide', () => {
-    const v = run({ tipo: 'ignoto', tipo2: 'y' });
-    expect([v.assessmentMode, v.outcome]).toEqual(['qualitative_signal_only', 'ambiguous']);
-    expect(finalStep(v).construct).toContain(' + ');
+  it('a further activity without exclusion -> stage 4 decides, the exclusion becomes its demoted notice', () => {
+    const v = run({ attivita: 'a1', attivita_ulteriori: ['a2'], q_a2: 'si' });
+    expect([v.assessmentMode, v.outcome, v.qualifica?.value]).toEqual(['categorical_assessment', 'likely_in_scope', 'importante']);
+    expect(v.notices).toEqual(['n_grande', 'n_demoted']);
+    expect(steps(v, 'type_exclusion')).toEqual([expect.objectContaining({ result: 'demoted', code: 'type_exclusion_demoted' })]);
+    expect(steps(v, 'type_exclusion')[0]!.detail).toContain('a1');
   });
 
-  it('two exclusions that disagree -> escalate, type_exclusions_disagree', () => {
-    const v = run({ tipo: 'escluso', tipo2: 'y' });
-    expect([v.assessmentMode, v.outcome]).toEqual(['escalate_to_advisor', 'ambiguous']);
-    expect(finalStep(v).code).toBe('type_exclusions_disagree');
+  it('every activity excluded, exclusive outcomes differing in mode -> the non-categorical one', () => {
+    const v = run({ attivita: 'a2', attivita_ulteriori: ['a3'], q_a2: 'si', q_a3: 'y' });
+    expect([v.assessmentMode, v.outcome]).toEqual(['qualitative_signal_only', 'likely_out_of_scope']);
     expect(v.notices).toEqual(['n_escluso']);
+  });
+
+  it('every activity excluded, one ambiguous -> ambiguous', () => {
+    const v = run({ attivita: 'a2', attivita_ulteriori: ['a3'], q_a2: 'non_so', q_a3: 'y' });
+    expect([v.assessmentMode, v.outcome]).toEqual(['qualitative_signal_only', 'ambiguous']);
+  });
+
+  it('the same activity as principal and further counts once', () => {
+    const v = run({ attivita: 'a2', attivita_ulteriori: ['a2'], q_a2: 'si' });
+    expect(v.outcome).toBe('likely_out_of_scope');
   });
 });
 
 describe('conflict (2)x(3)', () => {
-  it('exclusion and size-blind inclusion -> escalate with the conflict notice and both constructs notices', () => {
-    const v = run({ tipo: 'escluso', tipo2: 'x', critico: 'yes' });
+  it('exclusion of every activity and size-blind inclusion -> escalate with the conflict notice and both constructs notices', () => {
+    const v = run({ attivita: 'a2', q_a2: 'si', critico: 'yes' });
     expect([v.assessmentMode, v.outcome, v.qualifica]).toEqual(['escalate_to_advisor', 'ambiguous', undefined]);
     expect(v.notices).toEqual([CONFLICT_NOTICE, 'n_escluso', 'n_critico']);
     expect(finalStep(v)).toEqual(expect.objectContaining({ result: 'conflict', code: 'conflict_type_exclusion_size_blind' }));
+  });
+
+  it('a demoted exclusion is no conflict: stage 3 decides', () => {
+    const v = run({ attivita: 'a1', attivita_ulteriori: ['a2'], q_a2: 'si', critico: 'yes' });
+    expect(v.qualifica?.value).toBe('essenziale');
+    expect(v.notices).toEqual(['n_critico', 'n_demoted']);
   });
 
   it('without the catalog entry the conflict still escalates, with no conflict notice', () => {
     const corpus = structuredClone(miniCorpus());
     const cat = corpus.exceptions['exceptions/exceptions__catalog.yaml']!;
     cat.exceptions = cat.exceptions.filter((e) => e.id !== CONFLICT_NOTICE);
-    const v = run({ tipo: 'escluso', tipo2: 'x', critico: 'yes' }, corpus);
+    const v = run({ attivita: 'a2', q_a2: 'si', critico: 'yes' }, corpus);
     expect(v.outcome).toBe('ambiguous');
     expect(v.notices).toEqual(['n_escluso', 'n_critico']);
   });
@@ -162,7 +180,7 @@ describe('notices from different positions', () => {
 
 describe('answers and purity', () => {
   it('invalid answers -> InvalidAnswersError', () => {
-    expect(() => run({ tipo2: 'x' })).toThrow(InvalidAnswersError);
+    expect(() => run({ q_a2: 'si' })).toThrow(InvalidAnswersError);
     expect(() => evaluate({ sectorId: 'nessuno', answers: base }, miniCorpus())).toThrow(InvalidAnswersError);
   });
 

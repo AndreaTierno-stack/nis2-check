@@ -13,6 +13,12 @@ flow_order:
   - sector_specific
   - standard_identification
 
+# ADR 0016 amendment (corpus 0.10.0): le attivita' dichiarate del soggetto sono la
+# principale e le ulteriori. Un'esclusione tipologica (outcome_mapping) riguarda una
+# sola attivita' (campo activity della domanda) e decide solo se ogni attivita'
+# dichiarata ha un'esclusione scattata; altrimenti resta un avviso (notices_if_demoted).
+activity_inputs: [tipologia_elettrica, attivita_elettriche_ulteriori]
+
 sector_specific_questions:
   # Prima la tipologia: il settore ha 7 tipologie con scoping diverso
   - id: tipologia_elettrica
@@ -75,6 +81,7 @@ sector_specific_questions:
   # qualitative_signal_only (verso "fuori"), non out_of_scope.
   - id: registrato_pun
     kind: single_select
+    activity: gestore_punti_ricarica   # esclude solo l'attivita' di ricarica (A1.1.a.3)
     visible_if:   # ADR 0010: principale OPPURE tra le ulteriori
       any_of:
         - { input: tipologia_elettrica, op: eq, value: gestore_punti_ricarica }
@@ -100,11 +107,13 @@ sector_specific_questions:
       - answer: "no"
         outcome: qualitative_signal_only   # "non rientrano automaticamente" NON e' esclusione categoriale
         verdict_outcome: likely_out_of_scope
+        notices_if_demoted: [punti_ricarica_non_pun_attivita_ulteriore]
         reasoning_trace: "Punti di ricarica non obbligati alla registrazione su PUN: secondo A1.1.a.3 non rientrano automaticamente per questo solo titolo. Non e' un'esclusione categoriale: il soggetto potrebbe rientrare per altra tipologia o per obbligo PUN sopravvenuto. Segnalazione, non verdetto di esclusione. Verifica con consulente qualificato."
         citations: [faq_a1_1_a_3]
       - answer: non_so
         outcome: qualitative_signal_only
         verdict_outcome: ambiguous
+        notices_if_demoted: [punti_ricarica_non_pun_attivita_ulteriore]
         reasoning_trace: "Obbligo di registrazione su PUN non noto: la qualificazione del gestore di punti di ricarica dipende da tale obbligo (A1.1.a.3, DM MASE 106/2023). Segnalazione con invito a verificare l'obbligo PUN. Verifica con consulente qualificato."
         citations: [faq_a1_1_a_3, dm_mase_106_2023]
 
@@ -115,6 +124,7 @@ sector_specific_questions:
   # il soggetto svolge per definizione altre attivita' dell'Allegato I.
   - id: produttore_cliente_attivo
     kind: single_select
+    activity: produttore   # esclude solo l'attivita' di produzione (A1.1.a.4)
     visible_if: { input: tipologia_elettrica, op: eq, value: produttore }
     label_it: "Il soggetto risponde ai requisiti della definizione di «clienti attivi» e non svolge altre attività riconducibili agli Allegati I e II del D.Lgs. 138/2024?"
     help_text_it: |
@@ -135,6 +145,7 @@ sector_specific_questions:
         reasoning_trace: "Il soggetto dichiara di rispondere ai requisiti della definizione di clienti attivi e di non svolgere altre attività riconducibili agli Allegati I e II. Secondo la FAQ ACN A1.1.a.4 queste organizzazioni non rientrano nell'ambito di applicazione del decreto NIS: sulla base degli input forniti, l'analisi suggerisce che il soggetto non rientri nel perimetro NIS2 italiano come produttore. La definizione di clienti attivi non è tra le fonti verificate dallo strumento. Verifica obbligatoria con consulente qualificato."
         citations: [faq_a1_1_a_4]
         notices: [prosumer_definizione_cliente_attivo]
+        notices_if_demoted: [prosumer_definizione_cliente_attivo]
     citations: [faq_a1_1_a_4]
 
   # Pertinenza pubblica: identica a Cloud (multiutility comunali sono comuni nell'energia)

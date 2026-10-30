@@ -1,0 +1,36 @@
+scenario_id: E27
+name: energia_produttore_ricarica_non_pun
+description_it: >
+  Media impresa che produce energia elettrica (attivita' principale, non cliente
+  attivo) e gestisce anche punti di ricarica non obbligati alla registrazione su PUN
+  (attivita' ulteriore). ADR 0016, amendment del 2026-10-30: l'esclusione tipologica
+  e' per attivita'. La voce "no" di registrato_pun esclude solo la ricarica; la
+  produzione non ha esclusione, quindi lo stadio 2 non decide, l'esclusione diventa
+  l'avviso punti_ricarica_non_pun_attivita_ulteriore e decide la regola media
+  (importante). A1.1.a.3: i punti di ricarica non PUN "non rientrano automaticamente".
+corpus_version: 0.9.0
+sector: energia_elettrica
+
+inputs:
+  psnc: "no"
+  dora: "no"
+  cloud_pa: "no"
+  tipologia_elettrica: produttore
+  produttore_cliente_attivo: "no"
+  attivita_elettriche_ulteriori: [gestore_punti_ricarica]
+  registrato_pun: "no"
+  pertinenza_pubblica_energia: "no"
+  dimension: media
+  soggetto_critico: "no"
+
+expected:
+  assessment_mode: categorical_assessment
+  verdict_outcome: likely_in_scope
+  qualifica: importante
+  signals: [cross_sector_multi_tipologia_elettrica]
+  notices: [energia_regime_transitorio_ose, punti_ricarica_non_pun_attivita_ulteriore]
+  regime_routing: []
+  corpus_ref: "wizard/wizard__energia_elettrica.yaml#registrato_pun.outcome_mapping[answer==no] -> sectors/sectors__energia_elettrica.yaml#qualification_rules[dimension==media AND soggetto_critico==no] + exceptions/exceptions__catalog.yaml#exceptions[energia_regime_transitorio_ose, punti_ricarica_non_pun_attivita_ulteriore]"
+
+# Citazioni come le produce l'engine: regola media, segnale multi-tipologia, voci di catalogo degli avvisi.
+citations: [dlgs_138_2024_art_6, faq_amb_di_1, racc_ue_2003_361, faq_a1_2, faq_a1_1_a_4, faq_settori_sottosettori, dlgs_138_2024_art_7_c_1_lett_d, det_piattaforma_127437_2026_art_11_c_2_lett_g, det_acn_379907_2025_art_5, faq_a1_1_a_3]

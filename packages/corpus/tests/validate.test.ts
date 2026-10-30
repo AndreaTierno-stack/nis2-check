@@ -270,6 +270,27 @@ describe('corpus:validate', () => {
       expectCode(errors, 'E_REF_FILE', 'sectors__pubblica_amministrazione.yaml');
     });
 
+    it('outcome_mapping on a question without activity -> E_ACTIVITY_REF', () => {
+      const errors = errorsAfter((c) => {
+        delete produttore(c).activity;
+      });
+      expectCode(errors, 'E_ACTIVITY_REF', 'wizard__energia_elettrica.yaml');
+    });
+
+    it('activity that is not an option of the activity inputs -> E_ACTIVITY_REF', () => {
+      const errors = errorsAfter((c) => {
+        produttore(c).activity = 'eolico';
+      });
+      expectCode(errors, 'E_ACTIVITY_REF', 'wizard__energia_elettrica.yaml');
+    });
+
+    it('outcome_mapping without notices_if_demoted -> E_ACTIVITY_REF', () => {
+      const errors = errorsAfter((c) => {
+        delete produttore(c).outcome_mapping[0].notices_if_demoted;
+      });
+      expectCode(errors, 'E_ACTIVITY_REF', 'wizard__energia_elettrica.yaml');
+    });
+
     it('applies_to_categories reintroduced -> E_TRIGGER', () => {
       const errors = errorsAfter((c) => {
         pa(c).cumulative_signals[0].applies_to_categories = ['a'];

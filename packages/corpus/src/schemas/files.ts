@@ -67,6 +67,8 @@ export const OutcomeMapping = z
     citations: Citations,
     /** Verdict notices added with this outcome (corpus 0.6.0). */
     notices: Notices.optional(),
+    /** Notices emitted when the exclusion does not decide: another declared activity has no exclusion (ADR 0016 amendment). */
+    notices_if_demoted: Notices.optional(),
   })
   .passthrough()
   .superRefine((m, ctx) => {
@@ -153,6 +155,8 @@ export const Question = z
       .optional(),
     on_any_selected: ActivatesSignals.optional(),
     outcome_mapping: z.array(OutcomeMapping).optional(),
+    /** Activity (an option of the wizard's activity_inputs) the outcome_mapping excludes (ADR 0016 amendment). */
+    activity: Id.optional(),
     citations: Citations.optional(),
   })
   .passthrough();
@@ -187,6 +191,8 @@ export const WizardFile = z
      * no rule, trigger or fixture of the sector may read them.
      */
     excluded_common_questions: z.array(Id).optional(),
+    /** Inputs whose answers are the declared activities of the subject (ADR 0016 amendment). */
+    activity_inputs: z.array(Id).min(1).optional(),
     questions: z.array(Question).optional(),
     sector_specific_questions: z.array(Question).optional(),
     standard_identification_questions: z.array(Question).optional(),

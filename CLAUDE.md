@@ -92,7 +92,7 @@ interface SignalRef { id: string }
 interface ReasoningStep {           // ADR 0016, §5
   stage: 'validation' | 'regime_routing' | 'type_exclusion' | 'size_blind' | 'dimensional' | 'resolution';
   construct: string;                // localizzatore nel corpus: <file>#<chiave>[<indice>]
-  result: 'matched' | 'not_matched' | 'not_evaluated' | 'decided' | 'suspended' | 'conflict';
+  result: 'matched' | 'not_matched' | 'not_evaluated' | 'decided' | 'suspended' | 'conflict' | 'demoted';
   partial?: { assessmentMode: AssessmentMode; outcome: VerdictOutcome; qualifica?: 'essenziale' | 'importante' };
   citations: CitationId[];
   code?: string;                    // codice tecnico (nis_assessment_suspended, no_rule_matched, ...)

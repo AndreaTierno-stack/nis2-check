@@ -184,3 +184,43 @@ campionamento con seed fisso dichiarato nel test.
   normativa esterna. Esempi: fixture E04, E07, E08, E12, E15, E20-E22, E25.
 - `[[sources/Direttiva (UE) 2022-2555 (NIS2)]]`, riga 25 (art. 2 par. 2 lett. f): pubblica
   amministrazione); `dlgs_138_2024_art_3_c_5_lett_a`.
+
+## Amendment 2026-10-30 — Stadio 2: l'esclusione tipologica è per attività
+
+Corpus 0.10.0. Il corpo dell'ADR resta invariato; le regole seguenti lo modificano dove
+contrastano. Base: FAQ ACN A1.1.a.4 (l'esclusione dei clienti attivi vale per chi "non svolge
+altre attività riconducibili agli Allegati I e II") e A1.1.a.3 (i punti di ricarica non PUN
+"non rientrano automaticamente"): entrambe escludono un'attività, non il soggetto.
+
+1. **Attività dichiarate.** Il wizard dichiara `activity_inputs`: le risposte di quelle domande
+   sono le attività del soggetto (in energia: `tipologia_elettrica` e
+   `attivita_elettriche_ulteriori`; un'attività presente in entrambe conta una volta). Ogni
+   domanda con `outcome_mapping` dichiara `activity`, l'attività che esclude
+   (`produttore_cliente_attivo` → `produttore`, `registrato_pun` → `gestore_punti_ricarica`).
+   Invariante `E_ACTIVITY_REF`: `activity_inputs` sono domande a scelta del wizard; `activity`
+   è un'opzione di quelle domande; ogni `outcome_mapping` dichiara `notices_if_demoted`.
+2. **Lo stadio 2 decide solo se ogni attività dichiarata ha una `outcome_mapping` scattata.** Se
+   almeno un'attività dichiarata è una tipologia senza esclusione scattata, lo stadio 2 non
+   decide: le esclusioni scattate sono **retrocesse ad avviso** (le voci di catalogo in
+   `notices_if_demoted`, segnalate) e si prosegue agli stadi 3-4. La trace registra il passo
+   con `result: demoted`, codice `type_exclusion_demoted` e le attività senza esclusione.
+3. **Esito quando ogni attività è esclusa.** Basta un'esclusione `ambiguous` per dare
+   `ambiguous` (si copia quella). Altrimenti si copia l'esito esclusivo dichiarato; se due
+   esclusioni esclusive differiscono solo per `assessment_mode` (entrambe
+   `likely_out_of_scope`: `out_of_scope` del prosumer, `qualitative_signal_only` del PUN), si
+   copia quella non categoriale (`qualitative_signal_only`). Quest'ultima regola non viene dal
+   brief: è la lettura più prudente di "non rientrano automaticamente" (punto da riesaminare).
+4. **Ritirata** la regola "due `outcome_mapping` discordanti → `escalate_to_advisor` senza voce"
+   (§1, stadio 2): esclusioni di attività diverse non sono discordanti, coprono attività
+   diverse.
+5. **Avvisi.** Ordine: avvisi dei costrutti che decidono, poi avvisi delle esclusioni retrocesse,
+   poi avvisi di risposta; deduplica per id. Con lo stadio 1 le esclusioni sono sospese come gli
+   altri stadi e non emettono.
+6. **Conflitto (2)×(3)** solo se lo stadio 2 decide (ogni attività esclusa) e lo stadio 3
+   scatta con un esito diverso. Un'esclusione retrocessa non è un conflitto: decide lo stadio 3.
+
+Voci di catalogo: `prosumer_definizione_cliente_attivo` (il testo riporta le due condizioni della
+FAQ A1.1.a.4, quindi regge anche il caso in cui il soggetto dichiara altre attività) e la voce
+nuova `punti_ricarica_non_pun_attivita_ulteriore` (segnalata, `faq_a1_1_a_3`). Fixture E27
+(produttore principale, ricarica non PUN tra le ulteriori, media impresa → importante con
+l'avviso della voce nuova); E04 ed E25 invariate (una sola attività dichiarata, esclusa).

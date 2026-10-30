@@ -126,25 +126,64 @@ export function routeRegimes(ctx: SectorContext, answers: ResolvedAnswers, corpu
 // Stage 2 — declared type exclusion (outcome_mapping of the visible questions)
 // ---------------------------------------------------------------------------
 
-export function applyTypeExclusions(ctx: SectorContext, answers: ResolvedAnswers): Construct[] {
-  const out: Construct[] = [];
+/** A matched outcome_mapping: the activity it excludes and the notices it emits if demoted. */
+export interface Exclusion extends Construct {
+  activity: string;
+  noticesIfDemoted: readonly CatalogEntryId[];
+}
+
+export interface TypeExclusionResult {
+  /** Matched outcome_mappings, in question order. */
+  matched: Exclusion[];
+  /** Declared activities of the subject (answers of the wizard's activity_inputs). */
+  declared: string[];
+  /** Declared activities with no matched exclusion. */
+  uncovered: string[];
+  /** Stage 2 decides only when every declared activity is excluded (ADR 0016 amendment). */
+  decides: boolean;
+  /** The exclusion whose outcome stage 2 copies when it decides. */
+  decision?: Exclusion;
+}
+
+export function applyTypeExclusions(ctx: SectorContext, answers: ResolvedAnswers): TypeExclusionResult {
+  const matched: Exclusion[] = [];
   for (const q of ctx.questions) {
     const mappings = fields(q).outcome_mapping;
     const answer = answers.get(q.id);
     if (!mappings || typeof answer !== 'string') continue;
+    const activity = fields(q).activity;
+    if (!activity) throw new CorpusContractError(`${q.locator}: outcome_mapping without activity`);
     mappings.forEach((m, i) => {
       if (m.answer !== answer) return;
-      out.push({
+      matched.push({
         locator: `${q.locator}.outcome_mapping[${i}]`,
         assessmentMode: m.outcome,
         outcome: m.verdict_outcome,
         citations: m.citations,
         notices: m.notices ?? [],
         corpusText: m.reasoning_trace,
+        activity,
+        noticesIfDemoted: m.notices_if_demoted ?? [],
       });
     });
   }
-  return out;
+  const declared = uniq(
+    (ctx.wizard.activity_inputs ?? []).flatMap((id) => {
+      const a = answers.get(id);
+      return a === undefined ? [] : typeof a === 'string' ? [a] : [...a];
+    }),
+  );
+  const covered = new Set(matched.map((m) => m.activity));
+  const uncovered = declared.filter((a) => !covered.has(a));
+  const decides = matched.length > 0 && uncovered.length === 0;
+  if (!decides) return { matched, declared, uncovered, decides };
+  // every activity excluded: one ambiguous exclusion is enough for ambiguous; otherwise the
+  // declared exclusive outcome, and between two exclusive outcomes the non-categorical one
+  const decision =
+    matched.find((m) => m.outcome === 'ambiguous') ??
+    (matched.every((m) => sameOutcome(m, matched[0]!)) ? matched[0] : matched.find((m) => m.assessmentMode === 'qualitative_signal_only')) ??
+    matched[0]!;
+  return { matched, declared, uncovered, decides, decision };
 }
 
 // ---------------------------------------------------------------------------
@@ -212,45 +251,52 @@ export interface Resolution {
   /** Set when the engine escalates instead of copying an outcome. */
   code?: string;
   conflict: boolean;
+  /** Exclusions that matched but did not decide: they emit their notices_if_demoted (ADR 0016 amendment). */
+  demoted: Exclusion[];
 }
 
-const escalation = (stage: Stage, deciding: Construct[], code: string, conflict = false): Resolution => ({
+const escalation = (stage: Stage, deciding: Construct[], code: string, conflict = false, demoted: Exclusion[] = []): Resolution => ({
   stage,
   deciding,
   assessmentMode: 'escalate_to_advisor',
   outcome: 'ambiguous',
   code,
   conflict,
+  demoted,
 });
 
-const copied = (stage: Stage, deciding: Construct[]): Resolution => {
-  const head = deciding[0]!;
-  return {
-    stage,
-    deciding,
-    assessmentMode: head.assessmentMode,
-    outcome: head.outcome,
-    ...(deciding.length === 1 && head.qualifica ? { qualifica: head.qualifica } : {}),
-    conflict: false,
-  };
-};
+const copied = (stage: Stage, deciding: Construct[], head: Construct = deciding[0]!, demoted: Exclusion[] = []): Resolution => ({
+  stage,
+  deciding,
+  assessmentMode: head.assessmentMode,
+  outcome: head.outcome,
+  ...(deciding.length === 1 && head.qualifica ? { qualifica: head.qualifica } : {}),
+  conflict: false,
+  demoted,
+});
 
-export function resolve(routing: RoutingResult, exclusions: Construct[], sizeBlind: Construct[], dimensional: Construct[]): Resolution {
+export function resolve(routing: RoutingResult, exclusions: TypeExclusionResult, sizeBlind: Construct[], dimensional: Construct[]): Resolution {
   if (routing.overrides.length > 0) {
     if (routing.escalationCode || !routing.decision) return escalation('regime_routing', [], routing.escalationCode ?? 'multiple_rules_matched');
     return copied('regime_routing', [routing.decision]);
   }
-  const exclusionsAgree = exclusions.every((c) => sameOutcome(c, exclusions[0]!));
-  if (exclusions.length > 0 && sizeBlind.length > 0) {
-    const allSame = exclusionsAgree && sizeBlind.every((c) => sameOutcome(c, exclusions[0]!));
-    if (!allSame) return escalation('resolution', [...exclusions, ...sizeBlind], 'conflict_type_exclusion_size_blind', true);
+  if (exclusions.decides) {
+    const decision = exclusions.decision!;
+    if (sizeBlind.some((c) => !sameOutcome(c, decision))) {
+      return escalation('resolution', [...exclusions.matched, ...sizeBlind], 'conflict_type_exclusion_size_blind', true);
+    }
+    return copied('type_exclusion', exclusions.matched, decision);
   }
-  if (exclusions.length > 0) {
-    return exclusionsAgree ? copied('type_exclusion', exclusions) : escalation('type_exclusion', exclusions, 'type_exclusions_disagree');
+  const demoted = exclusions.matched;
+  if (sizeBlind.length > 0) {
+    return sizeBlind.length === 1 ? copied('size_blind', sizeBlind, sizeBlind[0], demoted) : escalation('size_blind', sizeBlind, 'multiple_rules_matched', false, demoted);
   }
-  if (sizeBlind.length > 0) return sizeBlind.length === 1 ? copied('size_blind', sizeBlind) : escalation('size_blind', sizeBlind, 'multiple_rules_matched');
-  if (dimensional.length > 0) return dimensional.length === 1 ? copied('dimensional', dimensional) : escalation('dimensional', dimensional, 'multiple_rules_matched');
-  return escalation('resolution', [], 'no_rule_matched');
+  if (dimensional.length > 0) {
+    return dimensional.length === 1
+      ? copied('dimensional', dimensional, dimensional[0], demoted)
+      : escalation('dimensional', dimensional, 'multiple_rules_matched', false, demoted);
+  }
+  return escalation('resolution', [], 'no_rule_matched', false, demoted);
 }
 
 // ---------------------------------------------------------------------------
@@ -383,21 +429,32 @@ export function evaluate(input: EvaluationInput, corpus: Corpus): Verdict {
   } else {
     trace.push({ stage: 'regime_routing', construct: `${ctx.sectorPath}#overrides`, result: 'not_matched', citations: [] });
   }
+  const excluded = !routed && exclusions.decides;
   const byStage: [Stage, Construct[]][] = [
-    ['type_exclusion', exclusions],
+    ['type_exclusion', exclusions.matched],
     ['size_blind', sizeBlind],
     ['dimensional', dimensional],
   ];
   for (const [stage, constructs] of byStage) {
-    if (stage === 'dimensional' && !routed && exclusions.length > 0) {
+    if (stage === 'dimensional' && excluded) {
+      const cited = uniq(exclusions.matched.flatMap((c) => c.citations));
       trace.push({
         stage,
         construct: sectionLocator(ctx, stage),
         result: 'not_evaluated',
-        citations: uniq(exclusions.flatMap((c) => c.citations)),
+        citations: cited,
         code: 'dimension_not_evaluated',
-        detail: `dimensione non valutata: tipologia esclusa (${uniq(exclusions.flatMap((c) => c.citations)).join(', ')})`,
+        detail: `dimensione non valutata: tipologia esclusa (${cited.join(', ')})`,
       });
+      continue;
+    }
+    if (stage === 'type_exclusion' && !routed && constructs.length > 0 && !exclusions.decides) {
+      trace.push(
+        ...constructSteps(stage, constructs, 'demoted', {
+          code: 'type_exclusion_demoted',
+          detail: `esclusione non decisiva: attività dichiarate senza esclusione (${exclusions.uncovered.join(', ')})`,
+        }),
+      );
       continue;
     }
     if (constructs.length === 0) {
@@ -429,7 +486,8 @@ export function evaluate(input: EvaluationInput, corpus: Corpus): Verdict {
 
   const catalog = new Map(Object.values(corpus.exceptions).flatMap((f) => f.exceptions.map((e) => [e.id, e] as const)));
   const constructNotices = [...(r.conflict && catalog.has(CONFLICT_NOTICE) ? [CONFLICT_NOTICE] : []), ...r.deciding.flatMap((c) => c.notices)];
-  const notices = uniq([...constructNotices, ...answerNotices(ctx, answers)]);
+  // order: deciding constructs, demoted exclusions, answer-level notices (ADR 0016 §4 and amendment)
+  const notices = uniq([...constructNotices, ...r.demoted.flatMap((d) => d.noticesIfDemoted), ...answerNotices(ctx, answers)]);
 
   const signalIds = uniq([...answerSignals(ctx, answers), ...(routed ? [] : sectorSignals(ctx, answers))]);
   const signalDefs = new Map(Object.values(corpus.signals).flatMap((f) => f.signals.map((s) => [s.id, s] as const)));
