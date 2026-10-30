@@ -1,5 +1,5 @@
 # ============================================================================
-# Registro delle citazioni — attestazione KB dei citation ID (corpus 0.10.0)
+# Registro delle citazioni — attestazione KB dei citation ID (corpus 0.11.0)
 # ============================================================================
 # Ogni voce collega un citation ID al nodo KB che lo attesta, con riga e modo
 # dell'attestazione. Da corpus 0.6.0 il registro copre tutti gli ID usati nel
@@ -28,303 +28,455 @@ citations:
     kb_node: wiki/sources/FAQ NIS - Categorizzazione.md
     kb_lines: "72"
     attestation: "CAT.8: 'DD ACN n. 21007/24 del 27 giugno 2024 (Regolamento Cloud), art. 3': le PA predispongono e aggiornano un elenco di dati e servizi digitali classificati in ordinari, critici e strategici (modalità nell'Allegato 1 del Regolamento). Riga fedele a CAT.8 nel PDF della FAQ. Fonte non in raw/."
+    label: "Le pubbliche amministrazioni classificano i propri dati e servizi digitali in ordinari, critici e strategici (Regolamento Cloud)."
+    source_group: altro
   - id: det_acn_155238_2026_art_2_c_3
     kb_node: wiki/sources/Determinazione ACN categorizzazione - 2026-04-13.md
     kb_lines: 26, 67
     attestation: "Allocazione dei modelli 'art. 2 cc. 2-3' (riga 67): l'allegato 2 si applica 'a tutti gli altri soggetti NIS' non riconducibili al perimetro dell'allegato 1 (riga 26). Il comma è nominato insieme al c. 2; riscontro sul PDF firmato (raw/): art. 2 c. 3 'Le macro-aree di cui all'allegato 2 si applicano a tutti i soggetti NIS che non sono riconducibili alle tipologie di soggetto di cui al comma 2'. Il nodo 'Allegato 2 modello' (riga 16) nomina l'art. 2 c. 3 da solo."
+    label: "Il modello di categorizzazione dell'allegato 2 si applica ai soggetti NIS non riconducibili alle tipologie dell'allegato 1."
+    source_group: determinazioni_acn
   - id: det_acn_155238_2026_art_4
     kb_node: wiki/sources/Determinazione ACN categorizzazione - 2026-04-13.md
     kb_lines: "36"
     attestation: "Art. 4: i soggetti che hanno già svolto la classificazione ex DD ACN 21007/24 (cloud PA) 'applicano quel modello in luogo del modello NIS'; 'La condizione è aver svolto la classificazione, non l'essere PA'. Conforme al PDF firmato in raw/."
+    label: "I soggetti che hanno svolto la classificazione del Regolamento Cloud applicano quel modello in luogo del modello di categorizzazione NIS."
+    source_group: determinazioni_acn
   - id: det_acn_155238_2026_art_5
     kb_node: wiki/sources/Determinazione ACN categorizzazione - 2026-04-13.md
     kb_lines: 37, 49
     attestation: "Art. 5 c. 1, verbatim (riga 49): alle attività e ai servizi soggetti agli obblighi del D.L. 105/2019 'è attribuita la categoria di rilevanza impatto alto e non sono oggetto di quanto previsto dall'articolo 3'. Conforme al PDF firmato in raw/."
+    label: "Alle attività e ai servizi soggetti agli obblighi del perimetro di sicurezza nazionale cibernetica è attribuita la categoria di impatto alto."
+    source_group: determinazioni_acn
   - id: det_acn_379907_2025
     kb_node: wiki/sources/Determinazione ACN specifiche di base - 379907-2025-12-19.md
     kb_lines: "16"
     attestation: "Det. del Direttore generale ACN n. 379907 del 19/12/2025 (specifiche di base): quattro allegati (misure di sicurezza di base per importanti ed essenziali, incidenti significativi di base per importanti ed essenziali); applicazione dal 15/01/2026. Fonte: raw/articles/detacn_obblighi_2511-v3_signed.pdf."
+    label: "Specifiche di base: misure di sicurezza e incidenti significativi di base per soggetti importanti ed essenziali."
+    source_group: determinazioni_acn
   - id: det_acn_379907_2025_art_5
     kb_node: wiki/sources/Determinazione ACN specifiche di base - 379907-2025-12-19.md
     kb_lines: "44"
     attestation: "Regime transitorio OSE (art. 5): gli OSE NIS1, 'limitatamente ai sistemi informativi e di rete OSE', mantengono le misure tecniche e organizzative già adottate ex D.Lgs. 65/2018, salvo contrasti con il decreto NIS. Conforme all'art. 5 c. 1 del PDF firmato in raw/. Stesso contenuto nel concept 'Regime transitorio OSE' (righe 12, 16; scope both)."
+    label: "Gli ex operatori di servizi essenziali mantengono, per i sistemi già individuati, le misure tecniche e organizzative già adottate."
+    source_group: determinazioni_acn
   - id: det_piattaforma_127437_2026_art_11_c_2_lett_g
     kb_node: wiki/sources/Determinazione ACN piattaforma e procedure - 2026-04-13.md
     kb_lines: "51"
     attestation: "Contenuto della dichiarazione di registrazione, art. 11 c. 2 lett. a)-g); lett. g) verbatim: 'elenca le tipologie di soggetto di cui agli allegati I, II, III e IV del decreto NIS a cui il soggetto è riconducibile'. Conforme al PDF firmato in raw/ (p. 11), lint KB del 2026-10-30 (V4). Corpus 0.7.0: sostituisce l'ID al comma det_piattaforma_127437_2026_art_11_c_2, non più usato."
+    label: "Nella dichiarazione di registrazione si elencano le tipologie di soggetto degli Allegati I-IV a cui il soggetto è riconducibile."
+    source_group: determinazioni_acn
   - id: det_piattaforma_127437_2026_art_12_c_2
     kb_node: wiki/sources/FAQ NIS - Ambito.md
     kb_lines: "172"
     attestation: "Nota redazionale del 2026-10-30 in AMB.GI.2, verbatim: in piattaforma l'ACN riceve gli elementi di valutazione e 'li condivide con le Autorità di settore interessate ai fini delle valutazioni di cui all'articolo 11, comma 4, lettera c)' (art. 12 c. 2 Det. ACN 127437/2026). Stesso rinvio nel concept 'Clausola di salvaguardia' (riga 28); l'art. 12 a livello di articolo è nel nodo della Det. (riga 54). Conforme al PDF firmato in raw/ (p. 12), lint del 2026-10-30."
+    label: "Per la salvaguardia dimensionale l'ACN riceve gli elementi di valutazione e li condivide con le Autorità di settore interessate."
+    source_group: determinazioni_acn
   - id: det_piattaforma_127437_2026_art_16_c_13
     kb_node: wiki/sources/Determinazione ACN piattaforma e procedure - 2026-04-13.md
     kb_lines: 38, 41
     attestation: "Esonero DORA in sede di aggiornamento annuale, verbatim (riga 41): esonero 'dall'attuazione di quanto previsto dal comma 3, lettera b), del presente articolo e dall'articolo 17', con adesione volontaria fatta salva. Riconciliato sul PDF firmato (DIV-P1 chiusa)."
+    label: "Le entità finanziarie DORA in ambito NIS sono esonerate da parte dell'aggiornamento annuale delle informazioni, salva l'adesione volontaria."
+    source_group: determinazioni_acn
   - id: det_piattaforma_127437_2026_art_20_c_6
     kb_node: wiki/sources/Determinazione ACN piattaforma e procedure - 2026-04-13.md
     kb_lines: 38, 41
     attestation: Esonero delle entità finanziarie DORA dal processo di elencazione e categorizzazione delle attività e dei servizi (art. 20 c. 6), con identica clausola di adesione volontaria. Riconciliato sul PDF firmato (DIV-P1 chiusa).
+    label: "Le entità finanziarie DORA in ambito NIS sono esonerate dall'elencazione e categorizzazione delle attività, salva l'adesione volontaria."
+    source_group: determinazioni_acn
   - id: det_piattaforma_127437_2026_art_4_c_8
     kb_node: wiki/sources/Determinazione ACN piattaforma e procedure - 2026-04-13.md
     kb_lines: 34, 99
     attestation: "Verbatim (riga 99): la designazione del punto di contatto da parte dei soggetti dell'art. 1 c. 1 L. 90/2024 'può soddisfare l'obbligo di nomina e comunicazione del referente per la cybersicurezza di cui all'articolo 8, comma 2' della medesima legge. Fonte: raw/articles/detacn_piattaformanis_251218-v9_signed.pdf."
+    label: "Per i soggetti della L. 90/2024 la designazione del punto di contatto NIS può soddisfare l'obbligo di nomina del referente per la cybersicurezza."
+    source_group: determinazioni_acn
   - id: det_piattaforma_127437_2026_art_7_c_6
     kb_node: wiki/sources/Determinazione ACN piattaforma e procedure - 2026-04-13.md
     kb_lines: 38, 41
     attestation: "Verbatim (riga 41): 'Le entità finanziarie di cui al Regolamento (UE) 2022/2554 che rientrano nell'ambito di applicazione del decreto NIS sono esentate dall'attuazione di quanto previsto dal presente articolo [referente CSIRT]. È fatta salva l'adesione a tali previsioni su base volontaria'. Riconciliato sul PDF firmato (DIV-P1 chiusa)."
+    label: "Le entità finanziarie DORA in ambito NIS sono esentate dalla designazione del referente CSIRT, salva l'adesione volontaria."
+    source_group: determinazioni_acn
   - id: dir_nis2_art_6_30
     kb_node: wiki/sources/D.Lgs. 138-2024 (Decreto NIS).md
     kb_lines: "64"
     attestation: "La definizione di 'servizio di cloud computing' dell'art. 2 c. 1 lett. bbb) del decreto 'Coincide con l'art. 6 punto 30) della direttiva'. Riscontro su raw/articles/Publications Office.pdf (GU UE L 333): art. 6 punto 30) identico. Il nodo Direttiva (riga 34) riporta solo 'Articolo 6 — 41 definizioni', senza il punto 30."
+    label: "Definizione di servizio di cloud computing della direttiva NIS2, identica a quella del decreto."
+    source_group: altro
   - id: dir_ue_2019_944
     kb_node: wiki/sources/FAQ NIS - Settori, sottosettori e tipologie di soggetto.md
     kb_lines: 23, 33
     attestation: "Sottosettore Energia elettrica (A1.1.a): direttiva 2019/944/UE (Clean Energy Package, recepita dal D.Lgs. 201/2021) come atto che definisce le tipologie (impresa elettrica, fornitura, DSO, TSO, produttore, aggregazione, gestione della domanda, stoccaggio), citato in A1.1.a.1. Fonte non in raw/."
+    label: "Direttiva sul mercato interno dell'energia elettrica, atto che definisce le tipologie del sottosettore elettrico."
+    source_group: altro
   - id: dl_105_2019_art_1_c_2_bis
     kb_node: wiki/concepts/Soggetti PSNC-NIS.md
     kb_lines: "14"
     attestation: Soggetti nel perimetro di sicurezza nazionale cibernetica (PSNC) 'ai sensi dell'art. 1 c. 2-bis del D.L. 21 settembre 2019, n. 105' (convertito dalla L. 133/2019). Stesso riferimento nella Det. 379907/2025 (definizione di soggetti PSNC-NIS, riga 33 del nodo). Fonte non in raw/.
+    label: "Soggetti inclusi nel perimetro di sicurezza nazionale cibernetica (PSNC)."
+    source_group: altro
   - id: dlgs_134_2024
     kb_node: wiki/sources/FAQ NIS - Ambito.md
     kb_lines: 225-226
     attestation: "AMB.NO.1: soggetti critici del D.Lgs. 134/2024 (recepimento della Dir. UE 2022/2557; nella FAQ 'soggetti CER', 'decreto CER'), essenziali ai sensi del decreto NIS; la qualifica di soggetto critico si acquisisce con il DPCM recante l'elenco ex art. 8 D.Lgs. 134/2024. Fonte non in raw/."
+    label: "Decreto sui soggetti critici: la qualifica si acquisisce con l'inserimento nell'elenco adottato con DPCM."
+    source_group: altro
   - id: dlgs_138_2024_allegato_I
     kb_node: wiki/sources/D.Lgs. 138-2024 (Decreto NIS).md
     kb_lines: "27"
     attestation: "Allegato I: 10 settori altamente critici, tra le tipologie che definiscono l'ambito (art. 3). Attestazione a livello di allegato; i punti 1 (energia) e 8 (infrastrutture digitali) sono nominati nella FAQ Settori (es. riga 104, 'allegato I, punto 8, terzo allinea')."
+    label: "Allegato I: i dieci settori altamente critici."
+    source_group: decreto_nis
   - id: dlgs_138_2024_allegato_III
     kb_node: wiki/sources/D.Lgs. 138-2024 (Decreto NIS).md
     kb_lines: 35-39
     attestation: Allegato III, 15 categorie ('Amministrazioni centrali, regionali, locali e di altro tipo'), lett. a)-d) trascritte. Riscontro Normattiva 2026-10-27 (riga 8).
+    label: "Allegato III: le categorie di amministrazioni centrali, regionali, locali e di altro tipo."
+    source_group: decreto_nis
   - id: dlgs_138_2024_art_11_c_4_lett_c
     kb_node: wiki/sources/FAQ NIS - Ambito.md
     kb_lines: "172"
     attestation: "Verbatim nella nota redazionale del 2026-10-30 in AMB.GI.2: le Autorità di settore procedono 'all'individuazione dei soggetti a cui si applicano le deroghe di cui all'articolo 3, comma 4' (art. 11 c. 4 lett. c)). Attestazione nel nodo FAQ Ambito, non nel nodo D.Lgs. 138/2024, che non riporta l'art. 11 c. 4; stesso rinvio nel concept 'Clausola di salvaguardia' (riga 28). Conforme al PDF in raw/ (p. 28), lint del 2026-10-30."
+    label: "Le Autorità di settore individuano i soggetti a cui si applicano le deroghe dell'art. 3 c. 4."
+    source_group: decreto_nis
   - id: dlgs_138_2024_art_2_c_1_lett_bbb
     kb_node: wiki/sources/D.Lgs. 138-2024 (Decreto NIS).md
     kb_lines: "64"
     attestation: "Verbatim: '«servizio di cloud computing»: un servizio digitale che consente l'amministrazione su richiesta di un pool scalabile ed elastico di risorse di calcolo condivisibili e l'ampio accesso remoto a quest'ultimo, anche ove tali risorse sono distribuite in varie ubicazioni'. Identico al PDF in raw/ e alla citazione in FAQ A1.8.1."
+    label: "Definizione di servizio di cloud computing."
+    source_group: decreto_nis
   - id: dlgs_138_2024_art_3_c_1
     kb_node: wiki/sources/D.Lgs. 138-2024 (Decreto NIS).md
     kb_lines: "27"
     attestation: "Ambito (art. 3 c. 1): soggetti pubblici e privati delle tipologie degli Allegati I-IV (Allegato I: 10 settori altamente critici; Allegato II: 7 settori critici; Allegato III: pubbliche amministrazioni; Allegato IV: ulteriori tipologie). Comma esplicito nella riga dal lint KB del 2026-10-30 (V6). Conforme al PDF in raw/ (p. 13)."
+    label: "Ambito: soggetti pubblici e privati delle tipologie degli Allegati I-IV."
+    source_group: decreto_nis
   - id: dlgs_138_2024_art_3_c_10
     kb_node: wiki/sources/D.Lgs. 138-2024 (Decreto NIS).md
     kb_lines: "32"
     attestation: "Testo del c. 10: il decreto si applica, indipendentemente dalle dimensioni, 'all'impresa collegata ad un soggetto essenziale o importante' che soddisfa almeno uno dei criteri delle lett. a)-d). Conforme al PDF in raw/."
+    label: "Il decreto si applica, indipendentemente dalle dimensioni, all'impresa collegata a un soggetto essenziale o importante che soddisfa uno dei criteri."
+    source_group: decreto_nis
   - id: dlgs_138_2024_art_3_c_12
     kb_node: wiki/concepts/Clausola di salvaguardia.md
     kb_lines: 27-28, 33
     attestation: "Verbatim (riga 33): 'l'Autorità nazionale competente NIS applica la clausola di salvaguardia di cui al comma 4, secondo i criteri per la determinazione individuati con le modalità di cui all'articolo 40, comma 1' (criteri nel DPCM 221/2024). Conforme al PDF in raw/. Il nodo D.Lgs. 138/2024 non riporta il c. 12."
+    label: "L'ACN applica la salvaguardia dimensionale del c. 4 secondo i criteri stabiliti ai sensi dell'art. 40 c. 1."
+    source_group: decreto_nis
   - id: dlgs_138_2024_art_3_c_13
     kb_node: wiki/sources/D.Lgs. 138-2024 (Decreto NIS).md
     kb_lines: "29"
     attestation: "Individuazione da parte dell'ACN, 'su proposta delle autorità di settore e con notifica al soggetto (c. 13)', dei soggetti del c. 8 (Allegato IV) e del c. 9. Conforme al PDF in raw/ (c. 13: individuazione secondo le modalità dell'art. 40 c. 4, notifica ai fini della registrazione ex art. 7 c. 1)."
+    label: "I soggetti dei cc. 8 e 9 sono individuati dall'ACN su proposta delle Autorità di settore, con notifica al soggetto."
+    source_group: decreto_nis
   - id: dlgs_138_2024_art_3_c_14
     kb_node: wiki/sources/D.Lgs. 138-2024 (Decreto NIS).md
     kb_lines: "33"
     attestation: "Verbatim: 'Le disposizioni di cui all'articolo 17 e ai Capi IV e V del presente decreto non si applicano ai soggetti identificati come essenziali o importanti dei settori 3 e 4 di cui all'allegato I, ai quali si applica la disciplina di cui al regolamento (UE) 2022/2554'. Conforme al PDF in raw/."
+    label: "Art. 17 e Capi IV e V non si applicano ai soggetti dei settori 3 e 4 dell'Allegato I, ai quali si applica il Regolamento DORA."
+    source_group: decreto_nis
   - id: dlgs_138_2024_art_3_c_15
     kb_node: wiki/sources/D.Lgs. 138-2024 (Decreto NIS).md
     kb_lines: "33"
     attestation: "Verbatim: 'Il presente decreto non si applica, ai sensi dell'articolo 2, comma 10, della direttiva, ai soggetti esentati dall'ambito di applicazione del regolamento (UE) 2022/2554'. Conforme al PDF in raw/."
+    label: "Il decreto non si applica ai soggetti esentati dall'ambito del Regolamento DORA."
+    source_group: decreto_nis
   - id: dlgs_138_2024_art_3_c_2
     kb_node: wiki/sources/D.Lgs. 138-2024 (Decreto NIS).md
     kb_lines: "27"
     attestation: "Ambito, art. 3 c. 2: il decreto si applica ai soggetti delle tipologie degli Allegati I e II 'sopra i massimali delle piccole imprese' (riga 27, '(c. 2)'). Conforme al PDF in raw/ (p. 13): 'Il presente decreto si applica ai soggetti delle tipologie di cui all'allegato I e II, che superano i massimali per le piccole imprese ai sensi dell'articolo 2, paragrafo 2, dell'allegato alla raccomandazione 2003/361/CE'. Corpus 0.8.0: sostituisce l'ID di articolo dlgs_138_2024_art_3 nelle regole micro/piccola di cloud ed energia (ID di articolo rimosso, senza usi)."
+    label: "Il decreto si applica ai soggetti degli Allegati I e II che superano i massimali delle piccole imprese."
+    source_group: decreto_nis
   - id: dlgs_138_2024_art_3_c_4
     kb_node: wiki/concepts/Clausola di salvaguardia.md
     kb_lines: 27, 33
     attestation: L'art. 3 c. 4 definisce la deroga al consolidamento dimensionale di gruppo (art. 6 par. 2 Racc. 2003/361/CE), applicabile 'salvo che ciò non sia proporzionato, tenuto anche conto dell'indipendenza del soggetto dalle sue imprese collegate in termini di sistemi informativi e di rete'. Conforme al PDF in raw/. Il nodo D.Lgs. 138/2024 non riporta il c. 4; lo nomina anche FAQ Ambito AMB.GI.2 (righe 132, 162).
+    label: "Il consolidamento dimensionale con le imprese collegate non si applica se non proporzionato, tenuto conto dell'indipendenza del soggetto."
+    source_group: decreto_nis
   - id: dlgs_138_2024_art_3_c_5_lett_a
     kb_node: wiki/sources/D.Lgs. 138-2024 (Decreto NIS).md
     kb_lines: "30"
     attestation: "Testo del c. 5: il decreto si applica, 'indipendentemente dalle loro dimensioni', 'a) ai soggetti che sono identificati come soggetti critici ai sensi del decreto legislativo, che recepisce la direttiva (UE) 2022/2557'; il decreto di recepimento è il D.Lgs. 134/2024 (FAQ AMB.NO.1). Conforme al PDF in raw/."
+    label: "Il decreto si applica, indipendentemente dalle dimensioni, ai soggetti identificati come soggetti critici."
+    source_group: decreto_nis
   - id: dlgs_138_2024_art_3_c_6
     kb_node: wiki/sources/D.Lgs. 138-2024 (Decreto NIS).md
     kb_lines: "34"
     attestation: "Verbatim: 'Il presente decreto si applica, altresì, anche indipendentemente dalle loro dimensioni, alle pubbliche amministrazioni di cui all'articolo 1, comma 3, della legge 31 dicembre 2009, n. 196, ricomprese nelle categorie elencate nell'allegato III'. Riscontro Normattiva 2026-10-27 (riga 8)."
+    label: "Il decreto si applica, indipendentemente dalle dimensioni, alle PA dell'elenco ISTAT ricomprese nelle categorie dell'Allegato III."
+    source_group: decreto_nis
   - id: dlgs_138_2024_art_3_c_7
     kb_node: wiki/sources/D.Lgs. 138-2024 (Decreto NIS).md
     kb_lines: "40"
     attestation: Categorie di PA aggiunte con DPCM ('ulteriori categorie di pubbliche amministrazioni'), con l'art. 40 c. 2 lett. b). Riscontro Normattiva 2026-10-27 (riga 8).
+    label: "Ulteriori categorie di pubbliche amministrazioni possono essere individuate con DPCM."
+    source_group: decreto_nis
   - id: dlgs_138_2024_art_3_c_8
     kb_node: wiki/sources/D.Lgs. 138-2024 (Decreto NIS).md
     kb_lines: "29"
     attestation: "Rientro per individuazione dell'ACN (procedura del c. 13): c. 8, tipologie dell'Allegato IV, indipendentemente dalla dimensione. Conforme al PDF in raw/ ('individuati secondo le procedure di cui al comma 13')."
+    label: "Il decreto si applica, indipendentemente dalle dimensioni, ai soggetti delle tipologie dell'Allegato IV individuati secondo il c. 13."
+    source_group: decreto_nis
   - id: dlgs_138_2024_art_3_c_9
     kb_node: wiki/sources/D.Lgs. 138-2024 (Decreto NIS).md
     kb_lines: "31"
     attestation: "Testo del c. 9: il decreto si applica ai soggetti degli allegati I-IV, indipendentemente dalle dimensioni, individuati secondo le procedure del c. 13, qualora ricorra uno dei criteri delle lett. a)-f) (ex OSE D.Lgs. 65/2018, unico fornitore nazionale, impatto significativo, rischio sistemico, criticità nazionale o regionale, elemento sistemico della catena di approvvigionamento). Conforme al PDF in raw/."
+    label: "Il decreto si applica ai soggetti degli Allegati I-IV individuati dall'ACN quando ricorre uno dei criteri del comma."
+    source_group: decreto_nis
   - id: dlgs_138_2024_art_40_c_2_lett_b
     kb_node: wiki/sources/D.Lgs. 138-2024 (Decreto NIS).md
     kb_lines: "40"
     attestation: DPCM che possono individuare ulteriori categorie di PA di cui all'art. 3 cc. 6-7. Riscontro Normattiva 2026-10-27 (riga 8).
+    label: "Uno o più DPCM possono individuare ulteriori categorie di pubbliche amministrazioni."
+    source_group: decreto_nis
   - id: dlgs_138_2024_art_40_c_5_lett_a
     kb_node: wiki/sources/D.Lgs. 138-2024 (Decreto NIS).md
     kb_lines: 8, 42, 63
     attestation: "Riscontro parola per parola su Normattiva del 2026-10-27 (provenance_note, riga 8); la riga 42 rinvia all'art. 40 c. 5; dal 2026-10-28 (DEC-008) la riga 63 ne riporta il testo: con determinazione ACN, ai sensi degli artt. 3 e 6, è stabilito l'elenco dei soggetti essenziali e dei soggetti importanti di cui all'art. 7 c. 2."
+    label: "L'elenco dei soggetti essenziali e importanti è stabilito con determinazione dell'ACN."
+    source_group: decreto_nis
   - id: dlgs_138_2024_art_4_c_2
     kb_node: wiki/sources/D.Lgs. 138-2024 (Decreto NIS).md
     kb_lines: "41"
     attestation: "Verbatim: i soggetti dei cc. 6-7 'non ricomprendono il Parlamento italiano, l'Autorità giudiziaria, la Banca d'Italia e l'Unità di informazione finanziaria per l'Italia'; agli organi costituzionali e di rilievo costituzionale non si applica il Capo V. Riscontro Normattiva 2026-10-27 (riga 8)."
+    label: "Le PA dell'art. 3 non comprendono Parlamento, Autorità giudiziaria, Banca d'Italia e UIF; agli organi costituzionali non si applica il Capo V."
+    source_group: decreto_nis
   - id: dlgs_138_2024_art_4_c_3
     kb_node: wiki/sources/D.Lgs. 138-2024 (Decreto NIS).md
     kb_lines: "41"
     attestation: Decreto non applicabile a enti, organi e articolazioni della PA che operano nei settori della pubblica sicurezza, della difesa nazionale o dell'attività di contrasto, agli organismi di informazione per la sicurezza (L. 124/2007) e all'ACN. Riscontro Normattiva 2026-10-27 (riga 8).
+    label: "Il decreto non si applica alle articolazioni della PA di pubblica sicurezza, difesa e contrasto, agli organismi di informazione e all'ACN."
+    source_group: decreto_nis
   - id: dlgs_138_2024_art_5
     kb_node: wiki/sources/FAQ NIS - Ambito.md
     kb_lines: 204-206
     attestation: "Art. 5, attestazione a livello di articolo: giurisdizione dei soggetti stabiliti in Italia; eccezioni transfrontaliere: telco (art. 5 c. 1 lett. a)) e servizi inerentemente transfrontalieri, tra cui cloud, soggetti alla giurisdizione dello Stato dello stabilimento principale UE (art. 5 c. 2). Il nodo D.Lgs. 138/2024 non riporta l'art. 5. Nel PDF in raw/ la regola è al c. 1 lett. b), mentre il c. 2 definisce lo stabilimento principale."
+    label: "Giurisdizione nazionale: soggetti stabiliti in Italia, con regole proprie per i servizi transfrontalieri."
+    source_group: decreto_nis
   - id: dlgs_138_2024_art_6
     kb_node: wiki/sources/D.Lgs. 138-2024 (Decreto NIS).md
     kb_lines: 30, 42
     attestation: "Qualifiche (art. 6), attestazione a livello di articolo: essenziali i soggetti dell'Allegato I che superano i massimali per le medie imprese (c. 1 lett. a), riga 30), i soggetti critici (c. 1 lett. b)), la PA centrale (c. 1 lett. e)); individuazione ACN (c. 2); importanti gli altri soggetti dell'art. 3 (c. 3, riga 42)."
+    label: "Qualifiche di soggetto essenziale e importante."
+    source_group: decreto_nis
   - id: dlgs_138_2024_art_6_c_1_lett_b
     kb_node: wiki/sources/D.Lgs. 138-2024 (Decreto NIS).md
     kb_lines: "30"
     attestation: "'Qualifiche: essenziali i soggetti critici (art. 6 c. 1 lett. b))'. Conforme al PDF in raw/ (lett. b): 'indipendentemente dalle loro dimensioni, i soggetti identificati come soggetti critici ai sensi del decreto legislativo che recepisce la direttiva (UE) 2022/2557')."
+    label: "Sono essenziali, indipendentemente dalle dimensioni, i soggetti identificati come soggetti critici."
+    source_group: decreto_nis
   - id: dlgs_138_2024_art_6_c_1_lett_e
     kb_node: wiki/sources/D.Lgs. 138-2024 (Decreto NIS).md
     kb_lines: "42"
     attestation: "Verbatim: essenziali 'indipendentemente dalle loro dimensioni, le pubbliche amministrazioni centrali di cui all'allegato III, comma 1, lettera a)'. Riscontro Normattiva 2026-10-27 (riga 8)."
+    label: "Sono essenziali, indipendentemente dalle dimensioni, le pubbliche amministrazioni centrali dell'Allegato III lett. a)."
+    source_group: decreto_nis
   - id: dlgs_138_2024_art_6_c_2
     kb_node: wiki/sources/D.Lgs. 138-2024 (Decreto NIS).md
     kb_lines: "42"
     attestation: L'ACN individua, con le modalità dell'art. 40 c. 5, i soggetti dell'art. 3 cc. 6, 8, 9 e 10 considerati essenziali. Riscontro Normattiva 2026-10-27 (riga 8).
+    label: "L'ACN individua i soggetti dell'art. 3 cc. 6, 8, 9 e 10 considerati essenziali."
+    source_group: decreto_nis
   - id: dlgs_138_2024_art_6_c_3
     kb_node: wiki/sources/D.Lgs. 138-2024 (Decreto NIS).md
     kb_lines: "42"
     attestation: Sono importanti i soggetti dell'art. 3 non considerati essenziali ai sensi dei cc. 1 e 2; ne segue che la PA delle lett. b)-d) è importante salvo individuazione ex c. 2. Riscontro Normattiva 2026-10-27 (riga 8).
+    label: "Sono importanti i soggetti dell'art. 3 non considerati essenziali ai sensi dei cc. 1 e 2."
+    source_group: decreto_nis
   - id: dlgs_138_2024_art_7_c_1_lett_d
     kb_node: wiki/sources/D.Lgs. 138-2024 (Decreto NIS).md
     kb_lines: "26"
     attestation: "Art. 7 c. 1 lett. d), verbatim: tra le informazioni che i soggetti forniscono o aggiornano in registrazione, 'ove applicabile, i pertinenti settori, sottosettori e tipologie di soggetto di cui agli allegati I, II, III e IV'. Conforme al PDF in raw/ (p. 20), lint KB del 2026-10-30 (V3). Corpus 0.7.0: sostituisce l'ID di articolo dlgs_138_2024_art_7, non più usato."
+    label: "In registrazione si indicano, ove applicabile, i settori, i sottosettori e le tipologie di soggetto pertinenti."
+    source_group: decreto_nis
   - id: dlgs_175_2016
     kb_node: wiki/sources/FAQ NIS - Settori, sottosettori e tipologie di soggetto.md
     kb_lines: "251"
     attestation: "A4.2: tra le 4 tipologie dell'Allegato IV, 'Società in-house, partecipate, controllate (D.Lgs. 175/2016)'. Stesso rinvio in FAQ Ambito, righe 47 e 194. Fonte non in raw/."
+    label: "Testo unico sulle società a partecipazione pubblica: società in house, partecipate e a controllo pubblico."
+    source_group: altro
   - id: dm_mase_106_2023
     kb_node: wiki/sources/FAQ NIS - Settori, sottosettori e tipologie di soggetto.md
     kb_lines: 30, 36
     attestation: "A1.1.a.3: gestori di punti di ricarica registrati su PUN 'ex DM MASE n. 106 del 16/03/2023'; i punti vendita che offrono ricarica ma non sono obbligati alla registrazione su PUN non rientrano automaticamente. Fedele alla FAQ (art. 5 del DM). Fonte non in raw/."
+    label: "Decreto ministeriale che prevede la registrazione dei punti di ricarica sulla Piattaforma Unica Nazionale (PUN)."
+    source_group: altro
   - id: dpcm_221_2024_art_3_c_1
     kb_node: wiki/sources/FAQ NIS - Ambito.md
     kb_lines: 162-169, 172
     attestation: "AMB.GI.2: 'DPCM n. 221 del 9 dicembre 2024' (GU 10/02/2025), criteri della salvaguardia dimensionale all'art. 3 c. 1 DPCM (riga 166): lett. a) totale indipendenza dei sistemi informativi e di rete NIS, lett. b) totale indipendenza delle attività e servizi NIS dalle imprese del gruppo (righe 167-168). La nota redazionale del 2026-10-30 (riga 172) lo riconduce all'art. 40 c. 1 richiamato dall'art. 3 c. 12 del decreto. Fonte non in raw/. Corpus 0.7.0: sostituisce l'ID di atto dpcm_221_2024."
+    label: "Criteri della salvaguardia dimensionale: totale indipendenza dei sistemi informativi e di rete e delle attività dalle imprese del gruppo."
+    source_group: altro
   - id: faq_a1_1_a_1
     kb_node: wiki/sources/FAQ NIS - Settori, sottosettori e tipologie di soggetto.md
     kb_lines: "34"
     attestation: "A1.1.a.1: elencazione generale delle tipologie del sottosettore elettrico (fornitura, DSO, TSO, produttori, gestori del mercato elettrico designati, partecipanti al mercato per aggregazione, gestione della domanda e stoccaggio, gestori di punti di ricarica). Refusi della FAQ annotati alla riga 336."
+    label: "Tipologie del sottosettore energia elettrica."
+    source_group: faq_acn
   - id: faq_a1_1_a_2
     kb_node: wiki/sources/FAQ NIS - Settori, sottosettori e tipologie di soggetto.md
     kb_lines: "35"
     attestation: "A1.1.a.2: le imprese elettriche che vendono a clienti domestici sul mercato libero rientrano come 'imprese elettriche'."
+    label: "Le imprese che vendono energia a clienti domestici sul mercato libero rientrano come imprese elettriche."
+    source_group: faq_acn
   - id: faq_a1_1_a_3
     kb_node: wiki/sources/FAQ NIS - Settori, sottosettori e tipologie di soggetto.md
     kb_lines: "36"
     attestation: "A1.1.a.3: rientrano i gestori di punti di ricarica registrati su PUN (ex DM MASE n. 106 del 16/03/2023); i punti vendita che offrono ricarica ma non sono obbligati alla registrazione su PUN 'non rientrano automaticamente'."
+    label: "Rientrano i gestori di punti di ricarica registrati su PUN; i punti non obbligati alla registrazione non rientrano automaticamente."
+    source_group: faq_acn
   - id: faq_a1_1_a_4
     kb_node: wiki/sources/FAQ NIS - Settori, sottosettori e tipologie di soggetto.md
     kb_lines: "37"
     attestation: "A1.1.a.4: esclusione di prosumer e clienti attivi dalla tipologia 'produttori', per le organizzazioni che non svolgono altre attività riconducibili agli Allegati I e II."
+    label: "I clienti attivi che non svolgono altre attività degli Allegati I e II non rientrano tra i produttori."
+    source_group: faq_acn
   - id: faq_a1_2
     kb_node: wiki/sources/FAQ NIS - Settori, sottosettori e tipologie di soggetto.md
     kb_lines: "51"
     attestation: "A1.2 (Fatturato e ambito): il fatturato considerato è 'quello complessivo', non solo quello delle attività NIS, salvo casi previsti dal decreto. Fedele alla FAQ ('No, salvo il caso in cui il decreto NIS preveda tale possibilità')."
+    label: "Il fatturato considerato è quello complessivo, non solo quello delle attività NIS."
+    source_group: faq_acn
   - id: faq_a1_8_1
     kb_node: wiki/sources/FAQ NIS - Settori, sottosettori e tipologie di soggetto.md
     kb_lines: 88-101
     attestation: "A1.8.1 (etichetta dal lint KB del 2026-10-30, V2): 5 cluster di tipologie delle infrastrutture digitali con regimi dimensionali differenziati (riga 88); cluster 5, cloud, data center e CDN, sopra i massimali della piccola impresa importante, essenziale sopra le medie (riga 96); giurisdizione nazionale ex art. 5 per i cluster 4 e 5 (righe 98-101). Fedele ad A1.8.1 nel PDF (pp. 13-15)."
+    label: "Tipologie delle infrastrutture digitali e regimi dimensionali, tra cui cloud, data center e CDN."
+    source_group: faq_acn
   - id: faq_a1_8_2
     kb_node: wiki/sources/FAQ NIS - Categorizzazione.md
     kb_lines: "113"
     attestation: "'i fornitori cloud qualificati ai sensi del Regolamento Cloud che superano i massimali delle piccole imprese rientrano in NIS come fornitori di servizi cloud (FAQ A1.8.2)'. Fedele ad A1.8.2 nel PDF (Allegato I, punto 8, terzo allinea). Nel nodo FAQ Settori il contenuto è alla riga 104, ma sotto l'intervallo 'A1.8.2–A1.8.3' (riga 103), senza codice puntuale."
+    label: "I fornitori cloud qualificati per la PA rientrano come fornitori di servizi cloud se superano i massimali delle piccole imprese."
+    source_group: faq_acn
   - id: faq_a1_9_1
     kb_node: wiki/sources/FAQ NIS - Settori, sottosettori e tipologie di soggetto.md
     kb_lines: "116"
     attestation: "A1.9.1 (etichetta dal lint KB del 2026-10-30, V2): tipologie del settore Gestione dei servizi TIC (Allegato I p. 9), fornitori di servizi gestiti e di servizi di sicurezza gestiti, con superamento dei massimali della piccola impresa e giurisdizione nazionale. Fedele ad A1.9.1 nel PDF (p. 16)."
+    label: "Tipologie della gestione dei servizi TIC: fornitori di servizi gestiti e di servizi di sicurezza gestiti."
+    source_group: faq_acn
   - id: faq_a1_9_2
     kb_node: wiki/sources/FAQ NIS - Settori, sottosettori e tipologie di soggetto.md
     kb_lines: 118-123, 265
     attestation: "A1.9.2: 'assistenza o amministrazione attiva' svolta tramite interconnessione diretta tra la rete del fornitore e quella del cliente; verbatim (riga 265): 'Sussiste una interconnessione diretta tra la rete del fornitore e quella del cliente quando, ad esempio (elenco non esaustivo): i domini sono federati; ...'. Non rientra l'assistenza su dispositivi del cliente o tramite istruzioni al personale."
+    label: "Assistenza o amministrazione attiva svolta tramite interconnessione diretta tra la rete del fornitore e quella del cliente."
+    source_group: faq_acn
   - id: faq_a1_9_3
     kb_node: wiki/sources/FAQ NIS - Settori, sottosettori e tipologie di soggetto.md
     kb_lines: "125"
     attestation: "A1.9.3: fornitori di servizi gestiti, assistenza o amministrazione attiva 'tramite una interconnessione diretta tra la rete del fornitore e quella del cliente' con rinvio ad A1.9.2 per criterio ed esempi (reso esplicito dal lint KB del 2026-10-30, V1); definizione per esempi (elenco non esaustivo). Criterio ed esempi restano attestati sotto A1.9.2 (righe 118-123)."
+    label: "Fornitori di servizi gestiti: assistenza o amministrazione attiva tramite interconnessione diretta, con esempi."
+    source_group: faq_acn
   - id: faq_a1_9_4
     kb_node: wiki/sources/FAQ NIS - Settori, sottosettori e tipologie di soggetto.md
     kb_lines: 132-145
     attestation: "A1.9.4: fornitori di servizi di sicurezza gestiti, 13 servizi tipici, elenco non esaustivo (NOC, MDR, IDS, IPS, IDR, EDR, XDR, SIEM, SOC, CSOC, CERT, VA/PT, Red Teaming)."
+    label: "Fornitori di servizi di sicurezza gestiti: servizi tipici, elenco non esaustivo."
+    source_group: faq_acn
   - id: faq_a3_c_4_1
     kb_node: wiki/sources/FAQ NIS - Settori, sottosettori e tipologie di soggetto.md
     kb_lines: "234"
     attestation: "A3.c.4.1: ASL soggetti importanti ex art. 3 c. 6 e art. 6 c. 3; come prestatori di assistenza sanitaria essenziali se superano i massimali per le medie imprese; registrazione/aggiornamento ex art. 7 'per entrambi i settori e le tipologie di soggetto cui appaiono riconducibili' (Allegato III e Allegato I p. 5). Dal lint KB del 2026-10-30 (V7) la riga riporta la formula della FAQ, non più 'Doppia registrazione'."
+    label: "Le ASL sono soggetti importanti come PA e, come prestatori di assistenza sanitaria, si registrano per entrambi i settori."
+    source_group: faq_acn
   - id: faq_a3_c_4_5
     kb_node: wiki/sources/FAQ NIS - Settori, sottosettori e tipologie di soggetto.md
     kb_lines: "235"
     attestation: "A3.c.4.5: un'ASL risulta 'fuori ambito' sulla piattaforma se si registra solo per l'Allegato I p. 5 dichiarando dimensioni inferiori alla piccola impresa; la classificazione non è corretta perché l'ASL rientra per l'Allegato III."
+    label: "Un'ASL registrata solo come prestatore sanitario sotto soglia risulta fuori ambito in piattaforma, ma rientra per l'Allegato III."
+    source_group: faq_acn
   - id: faq_a4_1
     kb_node: wiki/sources/FAQ NIS - Settori, sottosettori e tipologie di soggetto.md
     kb_lines: 242-245
     attestation: "A4.1, meccanismo generale dell'Allegato IV (art. 3 cc. 8 e 13 D.Lgs. 138/2024): soggetti individuati con determinazioni ACN su proposta delle Autorità di settore NIS, sentito il Tavolo per l'attuazione; l'Autorità nazionale competente NIS notifica l'individuazione; solo i soggetti notificati sono tenuti alla registrazione. Fedele ad A4.1 nel PDF (p. 31; rinvio 'articolo 3, commi 8 e 13' dal lint del 2026-10-30)."
+    label: "Allegato IV: individuazione con determinazione ACN su proposta delle Autorità di settore e notifica al soggetto."
+    source_group: faq_acn
   - id: faq_a4_2
     kb_node: wiki/sources/FAQ NIS - Settori, sottosettori e tipologie di soggetto.md
     kb_lines: 247-251
     attestation: "A4.2, le quattro tipologie dell'Allegato IV: trasporto pubblico locale; istituti di istruzione che svolgono ricerca; soggetti che svolgono attività di interesse culturale; società in-house, partecipate, controllate (D.Lgs. 175/2016). Fedele alla FAQ."
+    label: "Le quattro tipologie dell'Allegato IV."
+    source_group: faq_acn
   - id: faq_a4_3_3
     kb_node: wiki/sources/FAQ NIS - Settori, sottosettori e tipologie di soggetto.md
     kb_lines: "257"
     attestation: "A4.3.3, solo per la tipologia 'soggetti che svolgono attività di interesse culturale': criterio di proposta del MiC (attività culturale rilevante, dipendenza critica da ICT, impatto potenziale di un incidente cyber). Fedele alla FAQ."
+    label: "Per i soggetti di interesse culturale: criteri della proposta del Ministero della Cultura."
+    source_group: faq_acn
   - id: faq_a4_3_4
     kb_node: wiki/sources/FAQ NIS - Settori, sottosettori e tipologie di soggetto.md
     kb_lines: "258"
     attestation: "A4.3.4: nessun criterio dimensionale; valutazione qualitativa e funzionale. Nel PDF: 'L'Allegato IV del d.lgs. 138/2024 non prevede criteri dimensionali'."
+    label: "L'Allegato IV non prevede criteri dimensionali: la valutazione è qualitativa e funzionale."
+    source_group: faq_acn
   - id: faq_amb_di_1
     kb_node: wiki/sources/FAQ NIS - Ambito.md
     kb_lines: 106-120
     attestation: "AMB.DI.1: definizione di micro, piccola e media impresa secondo la Racc. 2003/361/CE e la Guida PMI della Commissione (2020): tabella effettivi/fatturato/bilancio; servono sempre il criterio degli effettivi e almeno uno tra fatturato e bilancio. Esempi alle righe 122-128."
+    label: "Definizione di micro, piccola e media impresa secondo la Raccomandazione 2003/361/CE."
+    source_group: faq_acn
   - id: faq_amb_no_1
     kb_node: wiki/sources/FAQ NIS - Ambito.md
     kb_lines: 223-226
     attestation: "AMB.NO.1: tutti i soggetti critici del D.Lgs. 134/2024 sono essenziali ai sensi del decreto NIS (art. 3 c. 5 lett. a); qualifica all'art. 6 c. 1 lett. b)); la qualifica di soggetto critico si acquisisce con il DPCM recante l'elenco ex art. 8 D.Lgs. 134/2024, con notizia entro 30 giorni all'organizzazione e ad ACN. Fedele alla FAQ."
+    label: "I soggetti critici del D.Lgs. 134/2024 sono soggetti essenziali ai sensi del decreto NIS."
+    source_group: faq_acn
   - id: faq_amb_no_2
     kb_node: wiki/sources/FAQ NIS - Ambito.md
     kb_lines: 228-235
     attestation: "AMB.NO.2: DORA lex specialis; per i soggetti DORA medi o grandi dell'Allegato I punti 3 e 4 la FAQ indica la sola registrazione (art. 7 c. 1) e richiama l'art. 3 c. 14 (disapplicati art. 17 e Capi IV-V). La nota redazionale (riga 235) segnala che la FAQ è incoerente al suo interno e che fa testo il decreto."
+    label: "DORA come disciplina speciale per i soggetti dei settori bancario e delle infrastrutture dei mercati finanziari."
+    source_group: faq_acn
   - id: faq_cat_8
     kb_node: wiki/sources/FAQ NIS - Categorizzazione.md
     kb_lines: 70-76
     attestation: "CAT.8: l'art. 3 del DD ACN 21007/24 prevede che le PA classifichino dati e servizi in ordinari, critici e strategici; l'art. 4 Det. 155238/2026 fa applicare quel modello ai soggetti NIS che hanno svolto tale classificazione, con l'elenco precaricato da padigitale2026.gov.it (conferma o aggiornamento). Fedele alla FAQ."
+    label: "I soggetti che hanno classificato dati e servizi secondo il Regolamento Cloud applicano quel modello di categorizzazione."
+    source_group: faq_acn
   - id: faq_settori_sottosettori
     kb_node: wiki/sources/FAQ NIS - Settori, sottosettori e tipologie di soggetto.md
     kb_lines: "17"
     attestation: "Pagina FAQ ACN 'Settori, sottosettori e tipologie di soggetto' nel suo insieme (circa 70 codici, da A1.1.a.1 ad A4.3.5): per ogni sottosettore, atto UE, tipologia di soggetto, criterio dimensionale ed essenziale/importante. Attestazione a livello di nodo. Fonte: raw/articles/Domande frequenti NIS - Settori, sottosettori e tipologie di soggetto - ACN.pdf."
+    label: "Settori, sottosettori e tipologie di soggetto: atti UE, criteri dimensionali e qualifiche per sottosettore."
+    source_group: faq_acn
   - id: l90_2024_art_15_bis
     kb_node: wiki/sources/Legge 90-2024 (cybersicurezza nazionale).md
     kb_lines: 174-180
     attestation: "Art. 15-bis, verbatim (riga 176): 'Ogni riferimento al decreto legislativo 18 maggio 2018, n. 65, è da intendersi alle corrispondenti disposizioni di cui al decreto legislativo 4 settembre 2024, n. 138, a decorrere dalla data in cui le stesse acquistano efficacia'. Stesso testo nella synthesis 'Coordinamento L. 90-2024 e NIS2' (riga 58). Conforme al PDF in raw/ (90_2024.pdf, verifica del 2026-10-30)."
+    label: "Ogni riferimento al D.Lgs. 65/2018 si intende alle corrispondenti disposizioni del D.Lgs. 138/2024."
+    source_group: altro
   - id: l90_2024_art_1_c_1
     kb_node: wiki/sources/Legge 90-2024 (cybersicurezza nazionale).md
     kb_lines: 28-36
     attestation: "Art. 1 c. 1, ambito soggettivo tassativo: PA centrali (elenco ISTAT ex L. 196/2009), Regioni e Province autonome, Città metropolitane, Comuni con più di 100.000 abitanti e capoluoghi di regione, trasporto pubblico urbano ed extraurbano, ASL; società in house di tali soggetti solo se forniscono servizi informatici, di trasporto, di acque reflue o di gestione rifiuti. Fonte: raw/articles/90_2024.pdf."
+    label: "Soggetti della L. 90/2024: PA centrali, Regioni, Città metropolitane, grandi Comuni, trasporto pubblico indicato, ASL e loro società in house qualificate."
+    source_group: altro
   - id: l90_2024_art_1_c_7_lett_a
     kb_node: wiki/synthesis/Coordinamento L. 90-2024 e NIS2.md
     kb_lines: "46"
     attestation: "Art. 1 c. 7, verbatim: 'le disposizioni del presente articolo non si applicano: a) ai soggetti di cui all'articolo 3, comma 1, lettere g) e i), del decreto legislativo 18 maggio 2018, n. 65, e a quelli di cui all'articolo 1, comma 2-bis, del decreto-legge 21 settembre 2019, n. 105'. Sintesi anche nel nodo L. 90/2024 (righe 58-59). Il rinvio al D.Lgs. 65/2018 si legge con l'art. 15-bis (l90_2024_art_15_bis). Conforme al PDF in raw/ (90_2024.pdf, verifica del 2026-10-30)."
+    label: "Le disposizioni dell'art. 1 non si applicano ai soggetti richiamati dalla lettera, tra cui i soggetti del perimetro di sicurezza nazionale cibernetica."
+    source_group: altro
   - id: l_196_2009_art_1_c_3
     kb_node: wiki/sources/D.Lgs. 138-2024 (Decreto NIS).md
     kb_lines: "34"
     attestation: "Rinvio del c. 6 art. 3 D.Lgs. 138/2024, verbatim: 'pubbliche amministrazioni di cui all'articolo 1, comma 3, della legge 31 dicembre 2009, n. 196'. Il legame con l'elenco ISTAT è nella FAQ Settori (riga 221) e nella FAQ A3.c.4.1; 'Lista S13' compare solo nel nodo L. 90/2024 (riga 29). L. 196/2009 non in raw/: il rinvio è nel testo del decreto in raw/."
+    label: "Elenco ISTAT delle amministrazioni pubbliche richiamato dall'art. 3 c. 6 del decreto NIS."
+    source_group: altro
   - id: racc_ue_2003_361
     kb_node: wiki/sources/FAQ NIS - Ambito.md
     kb_lines: 108-114
     attestation: "AMB.DI.1: riferimento alla Racc. 2003/361/CE e alla Guida PMI della Commissione (2020), con le soglie di micro, piccola e media impresa (effettivi < 10/50/250; fatturato ≤ 2/10/50 M€; bilancio ≤ 2/10/43 M€). Fonte non in raw/."
+    label: "Raccomandazione della Commissione sulla definizione di micro, piccola e media impresa."
+    source_group: altro
   - id: reg_ue_2022_2554
     kb_node: wiki/sources/FAQ NIS - Ambito.md
     kb_lines: 230, 243
     attestation: "AMB.NO.2: 'DORA (Regolamento (UE) 2022/2554) è considerato lex specialis settoriale per la maggior parte delle previsioni della Direttiva NIS (2022/2555)'. Fonte non in raw/."
+    label: "Regolamento DORA sulla resilienza operativa digitale del settore finanziario."
+    source_group: altro
   - id: reg_ue_2024_2690
     kb_node: wiki/sources/Regolamento di esecuzione UE 2024-2690.md
     kb_lines: 18, 22
     attestation: "Regolamento di esecuzione (UE) 2024/2690 della Commissione del 17/10/2024 (artt. 21 par. 5 e 23 par. 11 NIS2): requisiti tecnici e metodologici delle misure e soglie degli incidenti significativi per 11 categorie di soggetti pertinenti, tra cui i fornitori cloud (art. 7); l'energia non è inclusa (riga 38). Fonte: raw/articles/OJ_L_202402690_IT_TXT.pdf."
+    label: "Regolamento di esecuzione sui requisiti tecnici delle misure e sugli incidenti significativi per alcune categorie di soggetti."
+    source_group: altro

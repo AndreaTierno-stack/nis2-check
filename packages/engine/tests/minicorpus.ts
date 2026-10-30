@@ -72,7 +72,7 @@ export function rawMiniCorpus(): RawCorpus {
           { id: 'gate_b', kind: 'binary', label_it: 'Gate B?' },
         ],
         standard_identification_questions: [
-          { id: 'critico', phase: 'standard_identification', kind: 'binary', label_it: 'Critico?' },
+          { id: 'soggetto_critico', phase: 'standard_identification', kind: 'binary', label_it: 'Critico?' },
           {
             id: 'dimension',
             phase: 'standard_identification',
@@ -130,9 +130,9 @@ export function rawMiniCorpus(): RawCorpus {
       'sectors/sectors__test.yaml': {
         meta: { sector_id: 'test', allegato: 'I', critical_tier: 'prova', size_cap_applicable: true, size_blind: false, pilot_mvp_v0_1_0: false, citations: ['c_rule'] },
         qualification_rules: [
-          { condition: 'critico == yes', outcome: 'categorical_assessment', verdict_outcome: 'likely_in_scope', qualifica: 'essenziale', reasoning_trace: trace('critico'), citations: ['c_rule'], notices: ['n_critico'] },
-          { condition: 'dimension == piccola AND critico == no', outcome: 'out_of_scope', verdict_outcome: 'likely_out_of_scope', reasoning_trace: trace('piccola'), citations: DIM, notices: ['n_piccola'] },
-          { condition: 'dimension == grande AND critico == no', outcome: 'categorical_assessment', verdict_outcome: 'likely_in_scope', qualifica: 'importante', reasoning_trace: trace('grande'), citations: DIM, notices: ['n_grande'] },
+          { condition: 'soggetto_critico == yes', stage: 'size_blind', outcome: 'categorical_assessment', verdict_outcome: 'likely_in_scope', qualifica: 'essenziale', reasoning_trace: trace('soggetto_critico'), citations: ['c_rule'], notices: ['n_critico'] },
+          { condition: 'dimension == piccola AND soggetto_critico == no', stage: 'dimensional', outcome: 'out_of_scope', verdict_outcome: 'likely_out_of_scope', reasoning_trace: trace('piccola'), citations: DIM, notices: ['n_piccola'] },
+          { condition: 'dimension == grande AND soggetto_critico == no', stage: 'dimensional', outcome: 'categorical_assessment', verdict_outcome: 'likely_in_scope', qualifica: 'importante', reasoning_trace: trace('grande'), citations: DIM, notices: ['n_grande'] },
         ],
         overrides: [
           { trigger: 'gate_a == yes', override_kind: 'category_override', reference: 'regimes/reg_a.yaml', reasoning_trace: trace('reg_a'), citations: ['c_gate_a'] },

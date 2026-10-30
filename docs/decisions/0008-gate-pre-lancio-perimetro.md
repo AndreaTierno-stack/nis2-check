@@ -1,6 +1,6 @@
 # ADR 0008: Perimetro del gate pre-lancio, solo tool, KB esente
 
-- **Stato:** accettato
+- **Stato:** superato dall'ADR 0017 (2026-10-30)
 - **Data:** 2026-10-26
 - **Ambito:** processo di rilascio pubblico (KB `nis2-knowledge-it` e tool `nis2-check`)
 

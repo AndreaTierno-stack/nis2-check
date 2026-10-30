@@ -339,6 +339,26 @@ export const CorpusSchema = CorpusInput.superRefine((c, ctx) => {
         issue([...op, 'override_kind'], E.OVERRIDE_KIND, `${o.override_kind} != routing_effect of ${o.reference} (${regime.meta.routing_effect})`);
       }
     });
+    // ADR 0016 amendment 3: two regimes that can be routed together with different outcomes need
+    // a declared intersection; the engine never picks a "common" regime outcome
+    const overrides = s.overrides ?? [];
+    const sectorWizard = Object.values(c.wizard).find((w) => w.meta.sector_data === sp);
+    const norm = (x: string) => x.replace(/\s+/g, ' ').trim();
+    overrides.forEach((a, i) => overrides.slice(i + 1).forEach((b, k) => {
+      const ma = OVERRIDE_TRIGGER_RE.exec(a.trigger);
+      const mb = OVERRIDE_TRIGGER_RE.exec(b.trigger);
+      if (!ma || !mb || (ma[1] === mb[1] && ma[2] !== mb[2])) return; // cannot match together
+      const ra = c.regimes[a.reference]?.meta;
+      const rb = c.regimes[b.reference]?.meta;
+      if (!ra || !rb || (ra.assessment_mode === rb.assessment_mode && ra.verdict_outcome === rb.verdict_outcome)) return;
+      const covered = (sectorWizard?.multi_regime_intersection ?? []).some((m) => {
+        const terms = m.trigger.split(/\s+AND\s+/).map(norm);
+        return terms.includes(norm(a.trigger)) && terms.includes(norm(b.trigger));
+      });
+      if (!covered) {
+        issue([...base, 'overrides', i + 1 + k], E.REGIME_META_MISMATCH, `overrides "${a.trigger}" and "${b.trigger}" can match together with different regime outcomes and no multi_regime_intersection covers them`);
+      }
+    }));
     const signalTriggers = [
       ...(s.cumulative_signals ?? []).map((t, i) => ({ t, p: ['cumulative_signals', i] })),
       ...(s.cross_sector_signals ?? []).map((t, i) => ({ t, p: ['cross_sector_signals', i] })),

@@ -1,6 +1,6 @@
 # Fixtures — scenari golden del NIS2 Tool
 
-27 scenari golden congelati che esercitano il corpus **v0.10.0** (wizard + sectors + signals + regimes + catalogo eccezioni).
+27 scenari golden congelati che esercitano il corpus **v0.11.0** (wizard + sectors + signals + regimes + catalogo eccezioni).
 
 ## Posizione
 Da S2 i file vivono in `packages/engine/tests/fixtures/` (test del decision engine). I `corpus_ref` restano relativi alla radice del corpus (`packages/corpus/corpus/`), non al monorepo.

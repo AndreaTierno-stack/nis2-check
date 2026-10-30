@@ -9,7 +9,7 @@
  */
 import type { Corpus, Question, SectorFile } from '@nis2-check/corpus';
 import { resolveAnswers, resolveSector, type SectorContext, type WizardQuestion } from './answers.ts';
-import { evalExpression, expressionInputs, type ResolvedAnswers } from './conditions.ts';
+import { evalExpression, type ResolvedAnswers } from './conditions.ts';
 import { CorpusContractError } from './errors.ts';
 import { sha256Hex } from './sha256.ts';
 import type {
@@ -28,8 +28,6 @@ import type {
   VerdictOutcome,
 } from './types.ts';
 
-/** Input of the dimensional rules (common block, standard identification). */
-const DIMENSION_INPUT = 'dimension';
 
 type Rule = SectorFile['qualification_rules'][number];
 
@@ -112,12 +110,9 @@ export function routeRegimes(ctx: SectorContext, answers: ResolvedAnswers, corpu
       },
     };
   }
-  // no intersection: the regimes must declare the same outcome, which is copied
-  const first = overrides[0]!;
-  if (!overrides.every((o) => sameOutcome(o, first))) {
-    throw new CorpusContractError(`routed regimes declare different outcomes and no multi_regime_intersection matches (${ctx.sectorPath})`);
-  }
-  return { routings, overrides, decision: first };
+  // no intersection: the engine never picks a "common" regime outcome (ADR 0016, amendment 3);
+  // E_REGIME_META_MISMATCH makes this unreachable when the outcomes differ
+  return { routings, overrides, escalationCode: 'regimes_without_intersection' };
 }
 
 // ---------------------------------------------------------------------------
@@ -188,8 +183,8 @@ export function applyTypeExclusions(ctx: SectorContext, answers: ResolvedAnswers
 // Stages 3 and 4 — qualification rules
 // ---------------------------------------------------------------------------
 
-/** A rule belongs to stage 4 when its condition reads `dimension`, to stage 3 otherwise. */
-export const isDimensional = (rule: Rule): boolean => expressionInputs(rule.condition).includes(DIMENSION_INPUT);
+/** The stage of a rule is declared in the corpus (ADR 0016, amendment 3), never derived from its condition. */
+export const isDimensional = (rule: Rule): boolean => rule.stage === 'dimensional';
 
 function ruleConstruct(ctx: SectorContext, rule: Rule, index: number): Construct {
   const locator = `${ctx.sectorPath}#qualification_rules[${index}]`;

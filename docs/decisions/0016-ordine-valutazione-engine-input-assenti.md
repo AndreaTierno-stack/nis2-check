@@ -237,3 +237,32 @@ quel blocco: `E_CATALOG_UNREFERENCED` e `E_OUTCOME_WITHOUT_TRIGGER` passano senz
 il codice dell'engine non contiene id di catalogo. File proprio, non nel blocco comune che ospita
 `soggetto_critico`: il conflitto è tra stadi, vale per ogni settore. Senza voce per il trigger il
 conflitto resta un'escalation senza avviso (difetto di corpus). Fixture E26.
+
+## Amendment 2026-10-30 (3) — Stadio dichiarato, nessun meta comune, composizione delle citazioni
+
+Corpus 0.11.0. Le regole seguenti modificano il corpo dove contrastano.
+
+1. **Stadio dichiarato.** Ogni `qualification_rule` dichiara `stage: size_blind | dimensional`;
+   l'engine legge il campo e non deduce più lo stadio dalla `condition` (§1, stadi 3-4).
+   Invariante `E_RULE_STAGE_MISMATCH`: una regola `dimensional` legge `dimension` e al più
+   `soggetto_critico`; una regola `size_blind` non legge `dimension`.
+2. **Nessun meta comune.** Con più regimi instradati e nessuna `multi_regime_intersection` che
+   scatta, l'engine non copia un "meta comune" dei regimi (§1, stadio 1): esito
+   `escalate_to_advisor` / `ambiguous` con codice `regimes_without_intersection`, difetto di
+   corpus. Invariante statico `E_REGIME_META_MISMATCH`: se due override dello stesso settore
+   possono scattare insieme e i regimi referenziati dichiarano esiti diversi
+   (`assessment_mode` o `verdict_outcome`), il wizard del settore dichiara un'intersezione che
+   copre entrambi i trigger.
+3. **Composizione di `Verdict.citations`** (§5): citazioni dei costrutti che decidono, poi dei
+   segnali emessi, poi delle voci di catalogo degli avvisi emessi; deduplicate, nell'ordine di
+   prima occorrenza. Le citazioni di risposta (`on_selected.citations`) non entrano nel
+   Verdict. Il test delle fixture confronta `citations` come insieme; le fixture sono
+   riallineate a questa regola (commit dedicato, engine invariato).
+4. **Etichette delle fonti.** Ogni voce del registro dichiara `label` (una riga in italiano: cosa
+   sostiene la fonte, dalla riga dell'export che la attesta) e `source_group` (`decreto_nis` |
+   `faq_acn` | `determinazioni_acn` | `altro`): sono i testi della sezione "Fonti" della UI e
+   del PDF. Obbligatori per le citazioni che l'enumerazione dimostra emesse dall'engine (test di
+   enumerazione), avviso `W_CITATION_UNLABELED` per le altre.
+5. **Enumerazione completa.** Il test campiona l'energia (25.000 su 417.792, seed 20261030);
+   `pnpm engine:enumerate --full` valuta l'intero spazio (418.576 combinazioni) e va eseguito a
+   mano prima di ogni pre-rilascio, con esito registrato in STATUS.

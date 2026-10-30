@@ -118,7 +118,7 @@ Consentito: `reasoningTrace` nel Verdict; console log strutturati gated `?debug=
 
 ## CI/CD e workflow
 
-GitHub Actions su ogni push/PR: install → lint → typecheck → `corpus:validate` → test → build. Conventional commits (`feat:`, `fix:`, `docs:`, `chore:`, `test:`, `corpus:`); i commit `corpus:` citano la versione (es. `corpus: bump 0.2.1 — attestation patch, DIV-P1 closed`). `docs/ARCHITECTURE.md` è documentazione viva: si aggiorna nello stesso commit che cambia l'architettura. Le decisioni con alternative scartate → ADR in `docs/decisions/` (indice in `docs/decisions/README.md`; 0013 non assegnato; prossimo numero: 0017). `docs/STATUS.md` è la fonte unica dello stato di avanzamento e dei punti aperti; si aggiorna in chiusura di ogni sessione (data, stato sintetico, punti aperti, una riga di log).
+GitHub Actions su ogni push/PR: install → lint → typecheck → `corpus:validate` → test → build. Conventional commits (`feat:`, `fix:`, `docs:`, `chore:`, `test:`, `corpus:`); i commit `corpus:` citano la versione (es. `corpus: bump 0.2.1 — attestation patch, DIV-P1 closed`). `docs/ARCHITECTURE.md` è documentazione viva: si aggiorna nello stesso commit che cambia l'architettura. Le decisioni con alternative scartate → ADR in `docs/decisions/` (indice in `docs/decisions/README.md`; 0013 non assegnato; prossimo numero: 0018). `docs/STATUS.md` è la fonte unica dello stato di avanzamento e dei punti aperti; si aggiorna in chiusura di ogni sessione (data, stato sintetico, punti aperti, una riga di log).
 
 ## Autonomia di Claude Code
 
@@ -130,7 +130,7 @@ GitHub Actions su ogni push/PR: install → lint → typecheck → `corpus:valid
 
 ## Scope v0.1.0 (promemoria)
 
-3 settori pilota (Cloud computing, Energia elettrica, PA) · wizard doppio binario (3 gate + identificazione standard) · verdetto motivato + Explainability Mode · PDF client-side · click-wrap bloccante · deploy Vercel. **Fuori scope**: risoluzione nel merito dei regimi (routing/segnalazione soltanto), suggerimenti controlli (v0.2/v0.3, pianificati), altri 14 settori, autenticazione, persistenza, analytics, scraping ACN, iframe.
+3 settori pilota (Cloud computing, Energia elettrica, PA) · wizard doppio binario (3 gate + identificazione standard) · verdetto motivato + Explainability Mode · PDF client-side · click-wrap bloccante · deploy Vercel. **Rilascio** (ADR 0017, supera ADR 0008): anteprima di studio, senza gate pre-lancio né review legale; disclaimer AS-IS dichiarato non rivisto; review GRC come azione di posizionamento post-rilascio; checklist pre-rilascio con `pnpm engine:enumerate --full`. **Fuori scope**: risoluzione nel merito dei regimi (routing/segnalazione soltanto), suggerimenti controlli (v0.2/v0.3, pianificati), altri 14 settori, autenticazione, persistenza, analytics, scraping ACN, iframe.
 
 ## Lingua
 

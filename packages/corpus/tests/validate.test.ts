@@ -321,6 +321,50 @@ describe('corpus:validate', () => {
       expectCode(errors, 'E_CATALOG_UNREFERENCED', 'exceptions__catalog.yaml');
     });
 
+    it('rule without stage -> E_RULE_STAGE_MISMATCH', () => {
+      const errors = errorsAfter((c) => {
+        delete sector(c, 'cloud_computing').qualification_rules[0].stage;
+      });
+      expectCode(errors, 'E_RULE_STAGE_MISMATCH', 'sectors__cloud_computing.yaml');
+    });
+
+    it('size_blind rule reading dimension -> E_RULE_STAGE_MISMATCH', () => {
+      const errors = errorsAfter((c) => {
+        sector(c, 'cloud_computing').qualification_rules[1].stage = 'size_blind';
+      });
+      expectCode(errors, 'E_RULE_STAGE_MISMATCH', 'sectors__cloud_computing.yaml');
+    });
+
+    it('dimensional rule reading another input -> E_RULE_STAGE_MISMATCH', () => {
+      const errors = errorsAfter((c) => {
+        sector(c, 'cloud_computing').qualification_rules[1].condition = 'dimension == micro_or_piccola AND pertinenza_pubblica_cloud == no';
+      });
+      expectCode(errors, 'E_RULE_STAGE_MISMATCH', 'sectors__cloud_computing.yaml');
+    });
+
+    it('two regimes with different outcomes and no intersection -> E_REGIME_META_MISMATCH', () => {
+      const errors = errorsAfter((c) => {
+        Object.assign((c.regimes['regimes/cloud_pa.yaml'] as Doc).meta, { assessment_mode: 'qualitative_signal_only', verdict_outcome: 'ambiguous' });
+        delete wizard(c, 'pubblica_amministrazione').multi_regime_intersection;
+      });
+      expectCode(errors, 'E_REGIME_META_MISMATCH', 'sectors__pubblica_amministrazione.yaml');
+    });
+
+    it('two regimes with different outcomes covered by an intersection are valid', () => {
+      const { corpus, sources } = fresh();
+      Object.assign((corpus.regimes['regimes/cloud_pa.yaml'] as Doc).meta, { assessment_mode: 'qualitative_signal_only', verdict_outcome: 'ambiguous' });
+      expect(validateCorpus(corpus, sources).errors.filter((e) => e.includes('E_REGIME_META_MISMATCH'))).toEqual([]);
+    });
+
+    it('registry entry without label -> W_CITATION_UNLABELED (warning, still valid)', () => {
+      const { corpus, sources } = fresh();
+      const reg = (corpus.citations['citations/citations__registry.yaml'] as Doc).citations;
+      delete reg[0].label;
+      const result = validateCorpus(corpus, sources);
+      expect(result.errors).toEqual([]);
+      expect(result.warnings.filter((w) => w.includes('[W_CITATION_UNLABELED]') && w.includes(reg[0].id))).toHaveLength(1);
+    });
+
     it('applies_to_categories reintroduced -> E_TRIGGER', () => {
       const errors = errorsAfter((c) => {
         pa(c).cumulative_signals[0].applies_to_categories = ['a'];

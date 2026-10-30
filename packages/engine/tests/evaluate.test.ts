@@ -11,7 +11,7 @@ import { serializeInput } from '../src/evaluate.ts';
 import { sha256Hex } from '../src/sha256.ts';
 import { miniCorpus } from './minicorpus.ts';
 
-const base: Answers = { gate_a: 'no', gate_b: 'no', attivita: 'a1', extra: 'no', critico: 'no', dimension: 'grande' };
+const base: Answers = { gate_a: 'no', gate_b: 'no', attivita: 'a1', extra: 'no', soggetto_critico: 'no', dimension: 'grande' };
 const run = (answers: Partial<Record<string, string | string[]>>, corpus: Corpus = miniCorpus()) =>
   evaluate({ sectorId: 'test', answers: { ...base, ...answers } as Answers }, corpus);
 const steps = (v: ReturnType<typeof run>, stage: string) => v.reasoningTrace.filter((s) => s.stage === stage);
@@ -43,8 +43,8 @@ describe('stage 4: dimensional rules', () => {
 });
 
 describe('stage 3: size-blind rules', () => {
-  it('critico -> essenziale; the dimensional rules do not match', () => {
-    const v = run({ critico: 'yes', dimension: 'piccola' });
+  it('soggetto_critico -> essenziale; the dimensional rules do not match', () => {
+    const v = run({ soggetto_critico: 'yes', dimension: 'piccola' });
     expect(v.qualifica).toEqual({ value: 'essenziale', inferita: false });
     expect(v.notices).toEqual(['n_critico']);
     expect(steps(v, 'dimensional')).toEqual([expect.objectContaining({ result: 'not_matched' })]);
@@ -89,7 +89,7 @@ describe('stage 2: declared type exclusion, per activity (ADR 0016 amendment)', 
 
 describe('conflict (2)x(3)', () => {
   it('exclusion of every activity and size-blind inclusion -> the conflicts entry: outcome, notice and citations copied', () => {
-    const v = run({ attivita: 'a2', q_a2: 'si', critico: 'yes' });
+    const v = run({ attivita: 'a2', q_a2: 'si', soggetto_critico: 'yes' });
     expect([v.assessmentMode, v.outcome, v.qualifica]).toEqual(['escalate_to_advisor', 'ambiguous', undefined]);
     expect(v.notices).toEqual(['n_conflitto', 'n_escluso', 'n_critico']);
     expect(v.citations.slice(0, 2)).toEqual(['c_rule', 'c_map']);
@@ -99,7 +99,7 @@ describe('conflict (2)x(3)', () => {
   });
 
   it('a demoted exclusion is no conflict: stage 3 decides', () => {
-    const v = run({ attivita: 'a1', attivita_ulteriori: ['a2'], q_a2: 'si', critico: 'yes' });
+    const v = run({ attivita: 'a1', attivita_ulteriori: ['a2'], q_a2: 'si', soggetto_critico: 'yes' });
     expect(v.qualifica?.value).toBe('essenziale');
     expect(v.notices).toEqual(['n_critico', 'n_demoted']);
   });
@@ -107,7 +107,7 @@ describe('conflict (2)x(3)', () => {
   it('without a conflicts entry the conflict still escalates (corpus defect), with no conflict notice', () => {
     const corpus = structuredClone(miniCorpus());
     corpus.conflicts = {};
-    const v = run({ attivita: 'a2', q_a2: 'si', critico: 'yes' }, corpus);
+    const v = run({ attivita: 'a2', q_a2: 'si', soggetto_critico: 'yes' }, corpus);
     expect(v.outcome).toBe('ambiguous');
     expect(v.notices).toEqual(['n_escluso', 'n_critico']);
   });
@@ -134,12 +134,20 @@ describe('stage 1: regime routing', () => {
     expect(finalStep(v).construct).toBe('wizard/wizard__test.yaml#multi_regime_intersection[0]');
   });
 
-  it('two overrides without an intersection -> the common regime meta', () => {
+  it('two overrides without an intersection -> no common meta is picked: corpus-defect escalation', () => {
     const corpus = structuredClone(miniCorpus());
     delete corpus.wizard['wizard/wizard__test.yaml']!.multi_regime_intersection;
     const v = run({ gate_a: 'yes', gate_b: 'yes' }, corpus);
     expect([v.assessmentMode, v.outcome]).toEqual(['escalate_to_advisor', 'ambiguous']);
+    expect(finalStep(v).code).toBe('regimes_without_intersection');
     expect(v.notices).toEqual([]);
+  });
+
+  it('the stage of a rule is the declared one, not derived from the condition', () => {
+    const corpus = structuredClone(miniCorpus());
+    // the grande rule declared size_blind: it now decides at stage 3
+    corpus.sectors['sectors/sectors__test.yaml']!.qualification_rules[2]!.stage = 'size_blind';
+    expect(finalStep(run({}, corpus)).detail).toBe('decide lo stadio size_blind');
   });
 
   it('answer-level notices and signals survive routing', () => {

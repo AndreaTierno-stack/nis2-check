@@ -100,6 +100,7 @@ qualification_rules:
   # ADR 0015: soggetto critico (D.Lgs. 134/2024) -> essenziale a prescindere dalla
   # dimensione; le regole dimensionali valgono solo con soggetto_critico == no.
   - condition: soggetto_critico == yes
+    stage: size_blind
     outcome: categorical_assessment
     qualifica: essenziale
     verdict_outcome: likely_in_scope   # vincolo fisso: categorical_assessment in-scope -> likely_in_scope
@@ -107,12 +108,14 @@ qualification_rules:
     citations: [dlgs_138_2024_art_3_c_5_lett_a, dlgs_138_2024_art_6_c_1_lett_b, faq_amb_no_1]
     notices: [energia_regime_transitorio_ose]
   - condition: dimension == micro_or_piccola AND soggetto_critico == no
+    stage: dimensional
     outcome: out_of_scope
     verdict_outcome: likely_out_of_scope   # vincolo fisso: out_of_scope -> likely_out_of_scope
     reasoning_trace: "Dimensione dichiarata: Micro o piccola impresa. Classificazione secondo FAQ ACN AMB.DI.1 e Racc. UE 2003/361. Esclusione dall'ambito NIS2 in via generale (art. 3 c. 2 D.Lgs. 138/2024)."
     citations: [dlgs_138_2024_art_3_c_2, racc_ue_2003_361, faq_amb_di_1]
     notices: [individuazione_acn_art_3_c_9, imprese_collegate_art_3_c_10]
   - condition: dimension == media AND soggetto_critico == no
+    stage: dimensional
     outcome: categorical_assessment
     qualifica: importante
     verdict_outcome: likely_in_scope   # vincolo fisso: categorical_assessment in-scope -> likely_in_scope
@@ -120,6 +123,7 @@ qualification_rules:
     citations: [dlgs_138_2024_art_6, faq_amb_di_1, racc_ue_2003_361, faq_a1_2, faq_a1_1_a_4]
     notices: [energia_regime_transitorio_ose]
   - condition: dimension == grande AND soggetto_critico == no
+    stage: dimensional
     outcome: categorical_assessment
     qualifica: essenziale
     verdict_outcome: likely_in_scope   # vincolo fisso: categorical_assessment in-scope -> likely_in_scope

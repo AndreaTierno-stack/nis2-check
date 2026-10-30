@@ -5,7 +5,7 @@ description_it: >
   cc. 6-7 (Parlamento italiano, Autorità giudiziaria, Banca d'Italia, Unità di
   informazione finanziaria per l'Italia). Esito out_of_scope / likely_out_of_scope
   come PA dell'Allegato III (ADR 0011).
-corpus_version: 0.10.0
+corpus_version: 0.11.0
 sector: pubblica_amministrazione
 
 inputs:

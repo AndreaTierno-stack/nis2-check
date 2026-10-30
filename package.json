@@ -12,6 +12,7 @@
     "typecheck": "pnpm -r --if-present typecheck",
     "corpus:validate": "pnpm --filter @nis2-check/corpus corpus:validate",
     "test": "pnpm -r --if-present test",
-    "build": "pnpm -r --if-present build"
+    "build": "pnpm -r --if-present build",
+    "engine:enumerate": "pnpm --filter @nis2-check/engine enumerate"
   }
 }

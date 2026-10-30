@@ -13,6 +13,25 @@ Ogni bump ha una voce in questo file; le fixture dichiarano `corpus_version` e s
 
 ## [Unreleased]
 
+## [0.11.0] — 2026-10-30 — Consolidamento post-S3: stadio dichiarato, regimi senza meta comune, etichette delle fonti
+
+Minor: cambiano schema e invarianti. Esiti attesi invariati. Nessun ingest; nessun ID di citazione nuovo.
+
+### Regole e regimi (ADR 0016, amendment 3)
+- **`stage`** dichiarato su ogni regola (`size_blind` | `dimensional`: 4 regole di cloud ed energia, 9 della PA); l'engine legge il campo. Invariante **`E_RULE_STAGE_MISMATCH`** (3 test di guasto).
+- **Nessun meta comune dei regimi**: con più regimi e nessuna intersezione l'engine dà un'escalation di difetto (`regimes_without_intersection`). Invariante statico **`E_REGIME_META_MISMATCH`** (2 test).
+
+### Registro citazioni
+- Campi **`label`** (una riga in italiano, dalla riga dell'export che attesta la voce) e **`source_group`** (`decreto_nis` | `faq_acn` | `determinazioni_acn` | `altro`) su tutte le 76 voci: testi della sezione "Fonti" della UI e del PDF. Avviso **`W_CITATION_UNLABELED`**; il test di enumerazione richiede l'etichetta per le 59 citazioni emesse dall'engine. Le etichette passano il lint di copy (`E_COPY`).
+- Lint di copy delle stringhe della UI (`lintUiCopy`, per `apps/web/src/copy.it.ts`).
+
+### Engine e processo
+- `pnpm engine:enumerate --full`: enumerazione completa (418.576 combinazioni, 0 violazioni il 2026-10-30), da eseguire prima di ogni pre-rilascio.
+- ADR 0017: gate pre-lancio e review legale del disclaimer ritirati (supera ADR 0008).
+
+### Fixture
+- `corpus_version` → 0.11.0 su tutte le 27.
+
 ## [0.10.0] — 2026-10-30 — Engine v0.1 (ADR 0016): esclusione per attività, conflitti tra stadi, fixture complete
 
 Minor: cambiano schema, invarianti e regole (esclusione tipologica per attività; nuovo blocco `conflicts`). Il Blocco 0-bis (0.9.0) resta la base dell'engine. Nessun ingest; nessun ID di citazione nuovo (registro a 76 voci).

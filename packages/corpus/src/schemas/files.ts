@@ -222,9 +222,17 @@ export const RuleReference = z.enum(['allegato_iv_channel']);
  * A qualification rule declares its outcome inline, or takes it from a data block of
  * the same sector file through `reference` (pattern of ADR 0009): never both.
  */
+/** Evaluation stage of a rule (ADR 0016, amendment 3): declared, never derived from the condition. */
+export const RuleStage = z.enum(['size_blind', 'dimensional'], {
+  errorMap: () => ({ message: msg(E.RULE_STAGE_MISMATCH, 'stage must be size_blind or dimensional (ADR 0016)') }),
+});
+
+const RULE_INPUT_RE = /([a-z][a-z0-9_]*)\s*(?:==|!=)/g;
+
 export const QualificationRule = z
   .object({
     condition: TriggerExpr('qualification_rules.condition'),
+    stage: RuleStage,
     reference: RuleReference.optional(),
     outcome: AssessmentMode.optional(),
     verdict_outcome: VerdictOutcome.optional(),
@@ -237,6 +245,13 @@ export const QualificationRule = z
   })
   .passthrough()
   .superRefine((r, ctx) => {
+    // ADR 0016 amendment 3: a dimensional rule reads dimension (and soggetto_critico at most), a size-blind one never
+    const inputs = [...(r.condition ?? '').matchAll(RULE_INPUT_RE)].map((m) => m[1]!);
+    const stageIssue = (text: string) => ctx.addIssue({ code: z.ZodIssueCode.custom, path: ['stage'], message: msg(E.RULE_STAGE_MISMATCH, text) });
+    if (r.stage === 'dimensional' && (!inputs.includes('dimension') || inputs.some((i) => i !== 'dimension' && i !== 'soggetto_critico'))) {
+      stageIssue(`a dimensional rule reads dimension and at most soggetto_critico (reads: ${inputs.join(', ')})`);
+    }
+    if (r.stage === 'size_blind' && inputs.includes('dimension')) stageIssue('a size_blind rule cannot read dimension');
     const inline = ['outcome', 'verdict_outcome', 'qualifica', 'qualifica_inferita', 'reasoning_trace', 'citations', 'notices'] as const;
     if (r.reference) {
       for (const k of inline) {
@@ -435,6 +450,10 @@ export const CitationRegistryEntry = z
     kb_lines: z.string().regex(/^\d+(?:-\d+)?(?:,\s*\d+(?:-\d+)?)*$/),
     /** What exactly is attested, and how (verbatim, riscontro, provenance note). */
     attestation: z.string().min(1),
+    /** One line in Italian: what the source says, from the attesting KB line (corpus 0.11.0; UI and PDF "Fonti"). */
+    label: z.string().min(1).regex(/^[^\n]+$/, { message: 'label is one line' }).optional(),
+    /** Group of the "Fonti" section (corpus 0.11.0). */
+    source_group: z.enum(['decreto_nis', 'faq_acn', 'determinazioni_acn', 'altro']).optional(),
   })
   .strict();
 

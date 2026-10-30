@@ -130,7 +130,11 @@ test di enumerazione).
   mini-corpus sintetico valido (un caso per stadio, esclusione per attività, conflitto, difetti,
   avvisi da posizioni diverse, purezza, sha256); fixture golden E01–E27; enumerazione dei
   percorsi (cloud 480 e PA 304 combinazioni tutte, energia 417.792 campionate con seed fisso:
-  25.000), con le proprietà dell'ADR 0016 §6 e la raggiungibilità di ogni voce segnalata.
+  25.000), con le proprietà dell'ADR 0016 §6, la raggiungibilità di ogni voce segnalata e
+  l'etichetta di ogni citazione emessa. L'enumerazione dell'energia nel test è un
+  **campionamento** (25.000 su 417.792, seed 20261030): `pnpm engine:enumerate --full` valuta
+  l'intero spazio (418.576 combinazioni, circa 15 s) e va eseguito a mano prima di ogni
+  pre-rilascio, con esito registrato in STATUS.
 
 ## 3. Invarianti dello schema
 
@@ -170,6 +174,9 @@ analizzi il corpus. Ogni violazione porta un codice stabile tra parentesi quadre
 | 29 | `applies_to_categories` ritirato: i segnali di settore dichiarano un `trigger` esplicito | `E_TRIGGER` | corpus 0.9.0 |
 | 30 | Esclusione tipologica per attività: `activity_inputs` sono domande a scelta del wizard; ogni domanda con `outcome_mapping` dichiara `activity` (opzione degli input di attività); ogni `outcome_mapping` dichiara `notices_if_demoted`, che contano come riferimenti al catalogo | `E_ACTIVITY_REF` | ADR 0016, amendment (corpus 0.10.0) |
 | 31 | Blocco `conflicts` con schema stretto: `trigger` tra i tipi ammessi (`stage_2_and_stage_3`), una voce per tipo, `exceptions_catalog_entry` che risolve e conta come riferimento | `E_TRIGGER`, `E_CATALOG_REF`, `E_OUTCOME_WITHOUT_TRIGGER` | ADR 0016, amendment (2) (corpus 0.10.0) |
+| 32 | Ogni regola dichiara `stage` (`size_blind` o `dimensional`): una regola `dimensional` legge `dimension` e al più `soggetto_critico`, una `size_blind` non legge `dimension`; l'engine legge il campo | `E_RULE_STAGE_MISMATCH` | ADR 0016, amendment 3 (corpus 0.11.0) |
+| 33 | Due override dello stesso settore che possono scattare insieme, con regimi dagli esiti diversi, sono coperti da una `multi_regime_intersection` del wizard; l'engine non copia mai un "meta comune" | `E_REGIME_META_MISMATCH` | ADR 0016, amendment 3 (corpus 0.11.0) |
+| 34 | Voci del registro con `label` (una riga, dalla riga dell'export) e `source_group`; le etichette passano il lint di copy. Obbligatori per le citazioni emesse dall'engine (test di enumerazione), avviso per le altre | `W_CITATION_UNLABELED`, `E_COPY` | ADR 0016, amendment 3 (corpus 0.11.0) |
 
 Gli invarianti incrociati (2, 7–10, 13–18, 20, 22–26, 28 per il blocco referenziato) girano
 solo se la forma dei file è valida: zod non esegue i `superRefine` su un input di forma errata.
@@ -249,4 +256,6 @@ Una limitazione nuova entra prima nel catalogo, poi nei documenti generati.
   (advisory di zod 3 sulla memoria con collezioni enormi, non rilevante su un corpus
   locale fidato); lint dei vincoli di copy esteso dai testi del catalogo ai
   reasoning trace e ai testi del wizard.
-- **Rilascio**: review GRC terza sui 5 scenari (ADR 0008), deploy Vercel.
+- **Rilascio** (ADR 0017): anteprima di studio con disclaimer AS-IS, checklist pre-rilascio
+  (CI verde, `pnpm engine:enumerate --full` senza violazioni, review avversaria interna),
+  deploy Vercel. Nessun gate con reviewer terzo.

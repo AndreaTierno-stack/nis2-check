@@ -120,6 +120,7 @@ categorie:
 qualification_rules:
   # Categoria a) — essenziale per art. 6 c. 1 lett. e)
   - condition: categoria_pa == a
+    stage: size_blind
     outcome: categorical_assessment
     verdict_outcome: likely_in_scope   # vincolo fisso: categorical_assessment in-scope -> likely_in_scope
     qualifica: essenziale
@@ -129,6 +130,7 @@ qualification_rules:
 
   # Soggetti che l'art. 4 c. 2 non ricomprende tra le PA dell'art. 3 cc. 6-7
   - condition: categoria_pa == esclusa_art_4_c_2
+    stage: size_blind
     outcome: out_of_scope
     verdict_outcome: likely_out_of_scope   # vincolo fisso: out_of_scope -> likely_out_of_scope
     reasoning_trace: "Il soggetto indicato (Parlamento italiano, Autorita' giudiziaria, Banca d'Italia o Unita' di informazione finanziaria per l'Italia) e' tra quelli che l'art. 4 c. 2 D.Lgs. 138/2024 non ricomprende tra le pubbliche amministrazioni dell'art. 3 cc. 6-7. Sulla base degli input forniti, l'analisi suggerisce che il soggetto non rientri nel perimetro NIS2 italiano come pubblica amministrazione dell'Allegato III. Verifica obbligatoria con consulente qualificato."
@@ -136,6 +138,7 @@ qualification_rules:
 
   # Categoria b) — importante per art. 6 c. 3, elevabile ex art. 6 c. 2
   - condition: categoria_pa == b AND soggetto_critico == no
+    stage: size_blind
     outcome: categorical_assessment
     verdict_outcome: likely_in_scope   # vincolo fisso: categorical_assessment in-scope -> likely_in_scope
     qualifica: importante
@@ -145,6 +148,7 @@ qualification_rules:
 
   # Categoria c) — importante per art. 6 c. 3, elevabile ex art. 6 c. 2
   - condition: categoria_pa == c AND soggetto_critico == no
+    stage: size_blind
     outcome: categorical_assessment
     verdict_outcome: likely_in_scope   # vincolo fisso: categorical_assessment in-scope -> likely_in_scope
     qualifica: importante
@@ -154,6 +158,7 @@ qualification_rules:
 
   # Categoria d) — importante per art. 6 c. 3, elevabile ex art. 6 c. 2
   - condition: categoria_pa == d AND soggetto_critico == no
+    stage: size_blind
     outcome: categorical_assessment
     verdict_outcome: likely_in_scope   # vincolo fisso: categorical_assessment in-scope -> likely_in_scope
     qualifica: importante
@@ -165,6 +170,7 @@ qualification_rules:
   # che prevale sull'importante delle lett. b)-d) (art. 6 c. 3 riguarda i soggetti non
   # essenziali ai sensi dei cc. 1-2). La lett. a) e' gia' essenziale (art. 6 c. 1 lett. e)).
   - condition: categoria_pa == b AND soggetto_critico == yes
+    stage: size_blind
     outcome: categorical_assessment
     verdict_outcome: likely_in_scope   # vincolo fisso: categorical_assessment in-scope -> likely_in_scope
     qualifica: essenziale
@@ -173,6 +179,7 @@ qualification_rules:
     notices: [pa_esclusioni_sicurezza_nazionale_art_4_c_3, pa_prerequisito_istat_s13]
 
   - condition: categoria_pa == c AND soggetto_critico == yes
+    stage: size_blind
     outcome: categorical_assessment
     verdict_outcome: likely_in_scope   # vincolo fisso: categorical_assessment in-scope -> likely_in_scope
     qualifica: essenziale
@@ -181,6 +188,7 @@ qualification_rules:
     notices: [pa_esclusioni_sicurezza_nazionale_art_4_c_3, pa_prerequisito_istat_s13]
 
   - condition: categoria_pa == d AND soggetto_critico == yes
+    stage: size_blind
     outcome: categorical_assessment
     verdict_outcome: likely_in_scope   # vincolo fisso: categorical_assessment in-scope -> likely_in_scope
     qualifica: essenziale
@@ -193,6 +201,7 @@ qualification_rules:
   # reference (pattern ADR 0009): il blocco e' un dato, non un trigger. Con
   # soggetto_critico == yes resta ambiguous (ADR 0015, non modellato).
   - condition: categoria_pa == canale_allegato_iv
+    stage: size_blind
     reference: allegato_iv_channel
 
 # ============================================================================

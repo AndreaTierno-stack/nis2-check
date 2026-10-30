@@ -3,7 +3,7 @@
  */
 import { CorpusSchema, unusedRegistryEntries, type Corpus } from './schemas/corpus.ts';
 import { E, W, msg } from './schemas/common.ts';
-import { lintCatalogCopy, lintYamlBooleans } from './lint.ts';
+import { lintCatalogCopy, lintRegistryLabels, lintYamlBooleans } from './lint.ts';
 import type { RawCorpus, SourceTexts } from './load.ts';
 
 export interface ValidationResult {
@@ -35,9 +35,16 @@ export function validateCorpus(raw: RawCorpus, sources: SourceTexts = {}, parseE
       errors.push(`${String(file ?? issue.path[0])}${rest.length ? ` > ${formatPath(rest)}` : ''}: ${issue.message}`);
     }
   }
-  errors.push(...lintYamlBooleans(sources), ...lintCatalogCopy(raw.exceptions ?? {}));
+  errors.push(...lintYamlBooleans(sources), ...lintCatalogCopy(raw.exceptions ?? {}), ...lintRegistryLabels(raw.citations ?? {}));
   const warnings = parsed.success
-    ? unusedRegistryEntries(parsed.data).map((e) => `[${W.CITATION_UNUSED}] ${e}: registry entry not used by the corpus or the fixtures`)
+    ? [
+        ...unusedRegistryEntries(parsed.data).map((e) => `[${W.CITATION_UNUSED}] ${e}: registry entry not used by the corpus or the fixtures`),
+        ...Object.entries(parsed.data.citations).flatMap(([cp, f]) =>
+          f.citations
+            .filter((r) => r.label === undefined || r.source_group === undefined)
+            .map((r) => `[${W.CITATION_UNLABELED}] ${cp} > ${r.id}: registry entry without label or source_group`),
+        ),
+      ]
     : [];
   const result: ValidationResult = { ok: errors.length === 0, errors, warnings };
   if (parsed.success) result.corpus = parsed.data;

@@ -40,12 +40,15 @@ export const E = {
   OUTCOME_MAPPING_INCLUSIVE: 'E_OUTCOME_MAPPING_INCLUSIVE',
   OUTCOME_WITHOUT_TRIGGER: 'E_OUTCOME_WITHOUT_TRIGGER',
   ACTIVITY_REF: 'E_ACTIVITY_REF',
+  RULE_STAGE_MISMATCH: 'E_RULE_STAGE_MISMATCH',
+  REGIME_META_MISMATCH: 'E_REGIME_META_MISMATCH',
 } as const;
 export type ErrorCode = (typeof E)[keyof typeof E];
 
 /** Stable warning codes: reported by corpus:validate, they do not fail it. */
 export const W = {
   CITATION_UNUSED: 'W_CITATION_UNUSED',
+  CITATION_UNLABELED: 'W_CITATION_UNLABELED',
 } as const;
 export type WarningCode = (typeof W)[keyof typeof W];
 

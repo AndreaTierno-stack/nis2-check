@@ -12,7 +12,7 @@ non si riassegnano e non si rinumerano.
 | 0005 | Direttiva (UE) 2019/944: base UE del settore, non fonte di definizioni nel corpus |
 | 0006 | Cross-walk v2: retag doppio KB↔corpus per il coordinamento DORA-NIS |
 | 0007 | Identità documentale dal testo: l'incidente Det. 127434/127437 e la checklist di ingest estesa |
-| 0008 | Perimetro del gate pre-lancio, solo tool, KB esente |
+| 0008 | Perimetro del gate pre-lancio, solo tool, KB esente (superato da ADR 0017) |
 | 0009 | Override di regime: escalation dichiarata nel regime + `regimeRouting` |
 | 0010 | `visible_if` come condizione strutturata |
 | 0011 | PA dell'Allegato III: verdetto categoriale per le lettere a)-d) |
@@ -21,5 +21,6 @@ non si riassegnano e non si rinumerano.
 | 0014 | Regimi instradati in v0.1: PSNC (cloud, energia, PA) e Cloud PA (solo PA) |
 | 0015 | Soggetti critici (D.Lgs. 134/2024): essenziali a prescindere dalla dimensione |
 | 0016 | Ordine di valutazione dell'engine v0.1 e semantica degli input assenti |
+| 0017 | Ritiro del gate pre-lancio e della review legale del disclaimer (supera ADR 0008) |
 
-Prossimo numero: 0017.
+Prossimo numero: 0018.
