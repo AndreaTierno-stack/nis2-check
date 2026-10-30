@@ -1,0 +1,1113 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`question screen > renders the visible question with its corpus label, help and options 1`] = `
+"<div data-testid="question" data-question="registrato_pun">
+<p>Domanda 6 di 9</p>
+<fieldset>
+<legend>Il soggetto è obbligato a registrarsi sul PUN (Piattaforma Unica Nazionale) come gestore di punti di ricarica, ai sensi del DM MASE n. 106 del 16/03/2023?</legend>
+<p>Rientrano nel settore elettrico i gestori di punti di ricarica registrati
+su PUN. I punti vendita che offrono ricarica ma non sono obbligati alla
+registrazione su PUN non rientrano automaticamente per questo solo titolo.</p>
+<div role="radiogroup">
+<label data-option="si">
+<input type="radio" name="registrato_pun" value="si"/>
+<span>Sì, registrato o obbligato alla registrazione su PUN</span>
+</label>
+<label data-option="no">
+<input type="radio" name="registrato_pun" value="no"/>
+<span>No, non obbligato alla registrazione su PUN</span>
+</label>
+<label data-option="non_so">
+<input type="radio" name="registrato_pun" value="non_so"/>
+<span>Non so</span>
+</label>
+</div>
+</fieldset>
+<div>
+<button>Indietro</button>
+<button disabled="" data-testid="next">Avanti</button>
+</div>
+</div>"
+`;
+
+exports[`verdict page of E05 > matches the DOM snapshot 1`] = `
+"<p>Anteprima di studio: non è un parere legale e non sostituisce la registrazione sulla piattaforma ACN.</p>
+<div data-testid="outcome" data-outcome="likely_in_scope" data-mode="categorical_assessment">
+<div>
+<h1>Esito del pre-screening</h1>
+<ol aria-label="Esito del pre-screening">
+<li>Probabile esclusione</li>
+<li>Esito incerto</li>
+<li aria-current="true">Probabile rientro</li>
+</ol>
+</div>
+<div>
+<p>Dimensione dichiarata: Grande impresa. Classificazione secondo FAQ ACN AMB.DI.1 e Racc. UE 2003/361. In settore Allegato I (altamente critico) qualificato come soggetto <strong>essenziale</strong>. <span>
+<a href="#fonte-1">1</a>
+<a href="#fonte-3">3</a>
+<a href="#fonte-7">7</a>
+</span>
+</p>
+<p>Verifica obbligatoria con consulente qualificato prima di assumere conclusioni operative.</p>
+<hr/>
+<dl>
+<div>
+<dt>Tipologia</dt>
+<dd>Fornitore di servizi di cloud computing</dd>
+</div>
+<div>
+<dt>Qualifica suggerita</dt>
+<dd data-testid="qualifica">essenziale</dd>
+</div>
+<div>
+<dt>Regimi speciali</dt>
+<dd data-testid="regimi">Nessuno</dd>
+</div>
+</dl>
+<button aria-expanded="false" aria-controls="come-calcolato">Mostra come è stato calcolato</button>
+</div>
+</div>
+<section aria-labelledby="punti-title">
+<h2 id="punti-title">2 punti da valutare con un consulente</h2>
+<div>
+<div data-testid="notice" data-notice="cloud_stabilimento_principale_multi_ue">
+<div>
+<span aria-hidden="true">
+</span>
+<h3>Fornitori cloud con stabilimenti in più Stati membri (art. 5 D.Lgs. 138/2024)</h3>
+<span>Segnalato, non valutato dal tool</span>
+</div>
+<p>I fornitori di servizi di cloud computing sono soggetti alla giurisdizione dello Stato membro in cui hanno lo stabilimento principale nell&#x27;Unione; la giurisdizione nazionale ricorre, tra l&#x27;altro, se lo stabilimento principale è in Italia o se il soggetto, senza stabilimenti nell&#x27;Unione, ha designato il rappresentante in Italia (art. 5 D.Lgs. 138/2024). Lo strumento non valuta lo stabilimento principale: per un soggetto con stabilimenti in più Stati membri l&#x27;esito va riesaminato con un consulente qualificato. <span>
+<a href="#fonte-2">2</a>
+</span>
+</p>
+</div>
+<div data-testid="notice" data-notice="cloud_pa_fornitore_qualificato_a1_8_2">
+<div>
+<span aria-hidden="true">
+</span>
+<h3>Fornitori cloud qualificati per la PA (Regolamento Cloud)</h3>
+<span>Segnalato, non valutato dal tool</span>
+</div>
+<p>Secondo la FAQ ACN A1.8.2, i fornitori di servizi cloud qualificati ai sensi del Regolamento Cloud (Decreto Direttoriale ACN n. 21007/24) che superano i massimali delle piccole imprese rientrano nell&#x27;ambito NIS come fornitori di servizi di cloud computing (Allegato I, punto 8). La sostituzione del modello di categorizzazione prevista dall&#x27;art. 4 della Det. ACN 155238/2026 riguarda i soggetti che hanno svolto la classificazione dei propri dati e servizi, cioè le pubbliche amministrazioni (FAQ CAT.8): per il fornitore l&#x27;esito segue le regole ordinarie del settore. <span>
+<a href="#fonte-4">4</a>
+<a href="#fonte-5">5</a>
+<a href="#fonte-6">6</a>
+</span>
+</p>
+</div>
+</div>
+</section>
+<section aria-labelledby="fonti-title">
+<div>
+<h2 id="fonti-title">Fonti citate in questo esito</h2>
+<p>Citate al livello verificato: articolo e comma, o codice FAQ. Ogni voce apre la scheda nella knowledge base.</p>
+</div>
+<div>
+<div>
+<h3>Decreto NIS (D.Lgs. 138/2024)</h3>
+<ol>
+<li id="fonte-1" data-testid="source" data-source="dlgs_138_2024_art_6">
+<span>1</span>
+<span>
+<span>D.Lgs. 138/2024, art. 6</span>
+<span>Qualifiche di soggetto essenziale e importante.</span>
+<a href="https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/D.Lgs.%20138-2024%20(Decreto%20NIS).md?plain=1#L30">Apri la scheda</a>
+</span>
+</li>
+<li id="fonte-2" data-testid="source" data-source="dlgs_138_2024_art_5">
+<span>2</span>
+<span>
+<span>D.Lgs. 138/2024, art. 5</span>
+<span>Giurisdizione nazionale: soggetti stabiliti in Italia, con regole proprie per i servizi transfrontalieri.</span>
+<a href="https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/FAQ%20NIS%20-%20Ambito.md?plain=1#L204">Apri la scheda</a>
+</span>
+</li>
+</ol>
+</div>
+<div>
+<h3>FAQ ACN</h3>
+<ol>
+<li id="fonte-3" data-testid="source" data-source="faq_amb_di_1">
+<span>3</span>
+<span>
+<span>FAQ ACN AMB.DI.1</span>
+<span>Definizione di micro, piccola e media impresa secondo la Raccomandazione 2003/361/CE.</span>
+<a href="https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/FAQ%20NIS%20-%20Ambito.md?plain=1#L106">Apri la scheda</a>
+</span>
+</li>
+<li id="fonte-4" data-testid="source" data-source="faq_a1_8_2">
+<span>4</span>
+<span>
+<span>FAQ ACN A1.8.2</span>
+<span>I fornitori cloud qualificati per la PA rientrano come fornitori di servizi cloud se superano i massimali delle piccole imprese.</span>
+<a href="https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/FAQ%20NIS%20-%20Categorizzazione.md?plain=1#L113">Apri la scheda</a>
+</span>
+</li>
+<li id="fonte-5" data-testid="source" data-source="faq_cat_8">
+<span>5</span>
+<span>
+<span>FAQ ACN CAT.8</span>
+<span>I soggetti che hanno classificato dati e servizi secondo il Regolamento Cloud applicano quel modello di categorizzazione.</span>
+<a href="https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/FAQ%20NIS%20-%20Categorizzazione.md?plain=1#L70">Apri la scheda</a>
+</span>
+</li>
+</ol>
+</div>
+<div>
+<h3>Determinazioni ACN</h3>
+<ol>
+<li id="fonte-6" data-testid="source" data-source="det_acn_155238_2026_art_4">
+<span>6</span>
+<span>
+<span>Det. ACN 155238/2026, art. 4</span>
+<span>I soggetti che hanno svolto la classificazione del Regolamento Cloud applicano quel modello in luogo del modello di categorizzazione NIS.</span>
+<a href="https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/Determinazione%20ACN%20categorizzazione%20-%202026-04-13.md?plain=1#L36">Apri la scheda</a>
+</span>
+</li>
+</ol>
+</div>
+<div>
+<h3>Altre fonti</h3>
+<ol>
+<li id="fonte-7" data-testid="source" data-source="racc_ue_2003_361">
+<span>7</span>
+<span>
+<span>Racc. 2003/361/CE</span>
+<span>Raccomandazione della Commissione sulla definizione di micro, piccola e media impresa.</span>
+<a href="https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/FAQ%20NIS%20-%20Ambito.md?plain=1#L108">Apri la scheda</a>
+</span>
+</li>
+</ol>
+</div>
+</div>
+</section>
+<section id="come-calcolato" aria-labelledby="trace-title">
+<h2 id="trace-title">Come è stato calcolato</h2>
+<div>
+<p data-stage="regime_routing">
+<span>Regimi speciali:</span> <span>Non applicabile alle risposte date.</span>
+</p>
+<p data-stage="type_exclusion">
+<span>Esclusioni per tipologia:</span> <span>Non applicabile alle risposte date.</span>
+</p>
+<p data-stage="size_blind">
+<span>Regole indipendenti dalla dimensione:</span> <span>Non applicabile alle risposte date.</span>
+</p>
+<div data-testid="trace-decided" data-stage="dimensional">
+<h3>Regole dimensionali</h3>
+<p>Dimensione dichiarata: Grande impresa. Classificazione secondo FAQ ACN AMB.DI.1 e Racc. UE 2003/361. In settore Allegato I (altamente critico) qualificato come soggetto essenziale. <span>
+<a href="#fonte-1">1</a>
+<a href="#fonte-3">3</a>
+<a href="#fonte-7">7</a>
+</span>
+</p>
+</div>
+</div>
+</section>
+<div>
+<h2>Le risposte date</h2>
+<dl>
+<div data-testid="answer" data-question="psnc">
+<dt>Il soggetto è stato formalmente inserito nel Perimetro di Sicurezza Nazionale Cibernetica (PSNC) ai sensi del DL 105/2019, con notifica ricevuta da ACN o dal CISR?</dt>
+<dd>
+<span>No</span>
+<button type="button">Modifica</button>
+</dd>
+</div>
+<div data-testid="answer" data-question="dora">
+<dt>Il soggetto è un&#x27;entità finanziaria regolata dal Regolamento (UE) 2022/2554 (DORA), ad esempio un ente creditizio (banca) o un gestore di una sede di negoziazione?</dt>
+<dd>
+<span>No</span>
+<button type="button">Modifica</button>
+</dd>
+</div>
+<div data-testid="answer" data-question="cloud_pa">
+<dt>Il soggetto eroga servizi cloud destinati a una Pubblica Amministrazione, qualificati ai sensi del Regolamento Cloud per la PA (Decreto Direttoriale ACN n. 21007/24)?</dt>
+<dd>
+<span>Sì</span>
+<button type="button">Modifica</button>
+</dd>
+</div>
+<div data-testid="answer" data-question="pertinenza_pubblica_cloud">
+<dt>Il soggetto è un ente pubblico o ha capitale, quote o partecipazioni pubbliche?</dt>
+<dd>
+<span>No</span>
+<button type="button">Modifica</button>
+</dd>
+</div>
+<div data-testid="answer" data-question="fornisce_servizi_gestiti_b2b">
+<dt>Il soggetto fornisce anche servizi gestiti o servizi di sicurezza gestiti ad altre organizzazioni (B2B), tramite un&#x27;interconnessione diretta tra la rete del fornitore e quella del cliente?</dt>
+<dd>
+<span>No</span>
+<button type="button">Modifica</button>
+</dd>
+</div>
+<div data-testid="answer" data-question="soggetto_critico">
+<dt>Il soggetto è stato individuato come soggetto critico ai sensi del D.Lgs. 134/2024?</dt>
+<dd>
+<span>No</span>
+<button type="button">Modifica</button>
+</dd>
+</div>
+<div data-testid="answer" data-question="dimension">
+<dt>A quale categoria dimensionale appartiene il soggetto, secondo la Raccomandazione UE 2003/361/CE?</dt>
+<dd>
+<span>Grande impresa (250 effettivi o più, oppure fatturato oltre 50 M€ e bilancio oltre 43 M€)</span>
+<button type="button">Modifica</button>
+</dd>
+</div>
+</dl>
+<button>Modifica le risposte</button>
+</div>
+<div>
+<span title="in arrivo">
+<button disabled="">Scarica il riepilogo (PDF)</button>
+</span>
+<span title="in arrivo">
+<button disabled="">Cosa non gestisce il tool</button>
+</span>
+</div>
+<p data-testid="tech">Corpus 0.12.0, catalogo eccezioni 30 voci. Valutazione 6b077a1f. Nessun dato lascia il browser.</p>"
+`;
+
+exports[`verdict page of E11 > matches the DOM snapshot 1`] = `
+"<p>Anteprima di studio: non è un parere legale e non sostituisce la registrazione sulla piattaforma ACN.</p>
+<div data-testid="outcome" data-outcome="ambiguous" data-mode="qualitative_signal_only">
+<div>
+<h1>Esito del pre-screening</h1>
+<ol aria-label="Esito del pre-screening">
+<li>Probabile esclusione</li>
+<li aria-current="true">Esito incerto</li>
+<li>Probabile rientro</li>
+</ol>
+</div>
+<div>
+<p>Il soggetto si indica come soggetto pubblico o a partecipazione pubblica fuori dalle categorie dell&#x27;Allegato III. Potrebbe rientrare nel perimetro NIS2 italiano tramite l&#x27;Allegato IV, indipendentemente dalla dimensione, solo se individuato dall&#x27;ACN su proposta delle Autorita&#x27; di settore, con notifica al soggetto (art. 3 cc. 8 e 13 D.Lgs. 138/2024; FAQ ACN A4.1). Lo strumento non puo&#x27; determinare questa individuazione. Verifica obbligatoria con consulente qualificato. <span>
+<a href="#fonte-1">1</a>
+<a href="#fonte-2">2</a>
+<a href="#fonte-5">5</a>
+</span>
+</p>
+<p>Verifica obbligatoria con consulente qualificato prima di assumere conclusioni operative.</p>
+<hr/>
+<dl>
+<div>
+<dt>Tipologia</dt>
+<dd>Nessuna delle precedenti: soggetto pubblico o a partecipazione pubblica fuori dall&#x27;Allegato III (es. trasporto pubblico locale, istituto di istruzione che svolge ricerca, soggetto di interesse culturale, società in-house)</dd>
+</div>
+<div>
+<dt>Qualifica suggerita</dt>
+<dd data-testid="qualifica">Non determinata</dd>
+</div>
+<div>
+<dt>Regimi speciali</dt>
+<dd data-testid="regimi">Nessuno</dd>
+</div>
+</dl>
+<button aria-expanded="false" aria-controls="come-calcolato">Mostra come è stato calcolato</button>
+</div>
+</div>
+<section aria-labelledby="punti-title">
+<h2 id="punti-title">2 punti da valutare con un consulente</h2>
+<div>
+<div data-testid="notice" data-notice="pa_categorie_aggiunte_dpcm_art_3_c_7">
+<div>
+<span aria-hidden="true">
+</span>
+<h3>Ulteriori categorie di PA individuate con DPCM</h3>
+<span>Segnalato, non valutato dal tool</span>
+</div>
+<p>Uno o più decreti del Presidente del Consiglio dei ministri possono individuare ulteriori categorie di pubbliche amministrazioni a cui si applica il decreto, adeguando l&#x27;elenco dell&#x27;Allegato III (art. 3 c. 7 e art. 40 c. 2 lett. b). Lo strumento considera solo le categorie dell&#x27;Allegato III: un soggetto pubblico che non vi rientra potrebbe essere compreso in una categoria aggiunta successivamente. <span>
+<a href="#fonte-3">3</a>
+<a href="#fonte-4">4</a>
+</span>
+</p>
+</div>
+<div data-testid="notice" data-notice="allegato_iv_individuazione_art_3_c_8">
+<div>
+<span aria-hidden="true">
+</span>
+<h3>Tipologie dell&#x27;Allegato IV: rientro solo su individuazione dell&#x27;ACN</h3>
+<span>Segnalato, non valutato dal tool</span>
+</div>
+<p>I soggetti delle tipologie dell&#x27;Allegato IV (trasporto pubblico locale, istituti di istruzione che svolgono attività di ricerca, soggetti che svolgono attività di interesse culturale, società in house, partecipate o a controllo pubblico) rientrano nel decreto, indipendentemente dalla dimensione, solo se individuati dall&#x27;ACN su proposta delle autorità di settore, con notifica al soggetto (art. 3 cc. 8 e 13 D.Lgs. 138/2024). Lo strumento non può determinare questa individuazione. <span>
+<a href="#fonte-1">1</a>
+<a href="#fonte-2">2</a>
+<a href="#fonte-5">5</a>
+<a href="#fonte-6">6</a>
+</span>
+</p>
+</div>
+</div>
+</section>
+<section aria-labelledby="fonti-title">
+<div>
+<h2 id="fonti-title">Fonti citate in questo esito</h2>
+<p>Citate al livello verificato: articolo e comma, o codice FAQ. Ogni voce apre la scheda nella knowledge base.</p>
+</div>
+<div>
+<div>
+<h3>Decreto NIS (D.Lgs. 138/2024)</h3>
+<ol>
+<li id="fonte-1" data-testid="source" data-source="dlgs_138_2024_art_3_c_8">
+<span>1</span>
+<span>
+<span>D.Lgs. 138/2024, art. 3 c. 8</span>
+<span>Il decreto si applica, indipendentemente dalle dimensioni, ai soggetti delle tipologie dell&#x27;Allegato IV individuati secondo il c. 13.</span>
+<a href="https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/D.Lgs.%20138-2024%20(Decreto%20NIS).md?plain=1#L29">Apri la scheda</a>
+</span>
+</li>
+<li id="fonte-2" data-testid="source" data-source="dlgs_138_2024_art_3_c_13">
+<span>2</span>
+<span>
+<span>D.Lgs. 138/2024, art. 3 c. 13</span>
+<span>I soggetti dei cc. 8 e 9 sono individuati dall&#x27;ACN su proposta delle Autorità di settore, con notifica al soggetto.</span>
+<a href="https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/D.Lgs.%20138-2024%20(Decreto%20NIS).md?plain=1#L29">Apri la scheda</a>
+</span>
+</li>
+<li id="fonte-3" data-testid="source" data-source="dlgs_138_2024_art_3_c_7">
+<span>3</span>
+<span>
+<span>D.Lgs. 138/2024, art. 3 c. 7</span>
+<span>Ulteriori categorie di pubbliche amministrazioni possono essere individuate con DPCM.</span>
+<a href="https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/D.Lgs.%20138-2024%20(Decreto%20NIS).md?plain=1#L40">Apri la scheda</a>
+</span>
+</li>
+<li id="fonte-4" data-testid="source" data-source="dlgs_138_2024_art_40_c_2_lett_b">
+<span>4</span>
+<span>
+<span>D.Lgs. 138/2024, art. 40 c. 2 lett. b)</span>
+<span>Uno o più DPCM possono individuare ulteriori categorie di pubbliche amministrazioni.</span>
+<a href="https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/D.Lgs.%20138-2024%20(Decreto%20NIS).md?plain=1#L40">Apri la scheda</a>
+</span>
+</li>
+</ol>
+</div>
+<div>
+<h3>FAQ ACN</h3>
+<ol>
+<li id="fonte-5" data-testid="source" data-source="faq_a4_1">
+<span>5</span>
+<span>
+<span>FAQ ACN A4.1</span>
+<span>Allegato IV: individuazione con determinazione ACN su proposta delle Autorità di settore e notifica al soggetto.</span>
+<a href="https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/FAQ%20NIS%20-%20Settori%2C%20sottosettori%20e%20tipologie%20di%20soggetto.md?plain=1#L242">Apri la scheda</a>
+</span>
+</li>
+<li id="fonte-6" data-testid="source" data-source="faq_a4_2">
+<span>6</span>
+<span>
+<span>FAQ ACN A4.2</span>
+<span>Le quattro tipologie dell&#x27;Allegato IV.</span>
+<a href="https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/FAQ%20NIS%20-%20Settori%2C%20sottosettori%20e%20tipologie%20di%20soggetto.md?plain=1#L247">Apri la scheda</a>
+</span>
+</li>
+</ol>
+</div>
+<div>
+<h3>Altre fonti</h3>
+<ol>
+<li id="fonte-7" data-testid="source" data-source="dlgs_175_2016">
+<span>7</span>
+<span>
+<span>D.Lgs. 175/2016</span>
+<span>Testo unico sulle società a partecipazione pubblica: società in house, partecipate e a controllo pubblico.</span>
+<a href="https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/FAQ%20NIS%20-%20Settori%2C%20sottosettori%20e%20tipologie%20di%20soggetto.md?plain=1#L251">Apri la scheda</a>
+</span>
+</li>
+</ol>
+</div>
+</div>
+</section>
+<section id="come-calcolato" aria-labelledby="trace-title">
+<h2 id="trace-title">Come è stato calcolato</h2>
+<div>
+<p data-stage="regime_routing">
+<span>Regimi speciali:</span> <span>Non applicabile alle risposte date.</span>
+</p>
+<p data-stage="type_exclusion">
+<span>Esclusioni per tipologia:</span> <span>Non applicabile alle risposte date.</span>
+</p>
+<div data-testid="trace-decided" data-stage="size_blind">
+<h3>Regole indipendenti dalla dimensione</h3>
+<p>Il soggetto si indica come soggetto pubblico o a partecipazione pubblica fuori dalle categorie dell&#x27;Allegato III. Potrebbe rientrare nel perimetro NIS2 italiano tramite l&#x27;Allegato IV, indipendentemente dalla dimensione, solo se individuato dall&#x27;ACN su proposta delle Autorita&#x27; di settore, con notifica al soggetto (art. 3 cc. 8 e 13 D.Lgs. 138/2024; FAQ ACN A4.1). Lo strumento non puo&#x27; determinare questa individuazione. Verifica obbligatoria con consulente qualificato. <span>
+<a href="#fonte-1">1</a>
+<a href="#fonte-2">2</a>
+<a href="#fonte-5">5</a>
+</span>
+</p>
+</div>
+<p data-stage="dimensional">
+<span>Regole dimensionali:</span> <span>Non applicabile alle risposte date.</span>
+</p>
+</div>
+</section>
+<div>
+<h2>Le risposte date</h2>
+<dl>
+<div data-testid="answer" data-question="psnc">
+<dt>Il soggetto è stato formalmente inserito nel Perimetro di Sicurezza Nazionale Cibernetica (PSNC) ai sensi del DL 105/2019, con notifica ricevuta da ACN o dal CISR?</dt>
+<dd>
+<span>No</span>
+<button type="button">Modifica</button>
+</dd>
+</div>
+<div data-testid="answer" data-question="dora">
+<dt>Il soggetto è un&#x27;entità finanziaria regolata dal Regolamento (UE) 2022/2554 (DORA), ad esempio un ente creditizio (banca) o un gestore di una sede di negoziazione?</dt>
+<dd>
+<span>No</span>
+<button type="button">Modifica</button>
+</dd>
+</div>
+<div data-testid="answer" data-question="categoria_pa">
+<dt>A quale categoria dell&#x27;Allegato III appartiene il soggetto?</dt>
+<dd>
+<span>Nessuna delle precedenti: soggetto pubblico o a partecipazione pubblica fuori dall&#x27;Allegato III (es. trasporto pubblico locale, istituto di istruzione che svolge ricerca, soggetto di interesse culturale, società in-house)</span>
+<button type="button">Modifica</button>
+</dd>
+</div>
+<div data-testid="answer" data-question="profilo_allegato_iv">
+<dt>Quale tipo di soggetto pubblico?</dt>
+<dd>
+<span>Altra società in-house, partecipata o controllata da ente pubblico</span>
+<button type="button">Modifica</button>
+</dd>
+</div>
+<div data-testid="answer" data-question="classificazione_cloud_pa">
+<dt>L&#x27;amministrazione ha classificato i propri dati e servizi digitali ai sensi del Regolamento Cloud per la PA (Decreto Direttoriale ACN n. 21007/24, art. 3)?</dt>
+<dd>
+<span>No</span>
+<button type="button">Modifica</button>
+</dd>
+</div>
+<div data-testid="answer" data-question="soggetto_critico">
+<dt>Il soggetto è stato individuato come soggetto critico ai sensi del D.Lgs. 134/2024?</dt>
+<dd>
+<span>No</span>
+<button type="button">Modifica</button>
+</dd>
+</div>
+</dl>
+<button>Modifica le risposte</button>
+</div>
+<div>
+<span title="in arrivo">
+<button disabled="">Scarica il riepilogo (PDF)</button>
+</span>
+<span title="in arrivo">
+<button disabled="">Cosa non gestisce il tool</button>
+</span>
+</div>
+<p data-testid="tech">Corpus 0.12.0, catalogo eccezioni 30 voci. Valutazione 8bc08ffe. Nessun dato lascia il browser.</p>"
+`;
+
+exports[`verdict page of E22 > matches the DOM snapshot 1`] = `
+"<p>Anteprima di studio: non è un parere legale e non sostituisce la registrazione sulla piattaforma ACN.</p>
+<div data-testid="outcome" data-outcome="ambiguous" data-mode="escalate_to_advisor">
+<div>
+<h1>Esito del pre-screening</h1>
+<ol aria-label="Esito del pre-screening">
+<li>Probabile esclusione</li>
+<li aria-current="true">Esito incerto</li>
+<li>Probabile rientro</li>
+</ol>
+</div>
+<div>
+<p>L&#x27;amministrazione appare contemporaneamente in perimetro PSNC e tra i soggetti che hanno classificato dati e servizi ai sensi del Regolamento Cloud. L&#x27;ordine di precedenza tra l&#x27;automatismo &#x27;alto&#x27; PSNC (art. 5 Det. ACN 155238/2026) e la sostituzione di modello Cloud PA (art. 4) non è esplicitato nelle fonti normative disponibili. Consulenza qualificata necessaria, con eventuale interlocuzione diretta ACN. <span>
+<a href="#fonte-1">1</a>
+<a href="#fonte-2">2</a>
+</span>
+</p>
+<p>Verifica obbligatoria con consulente qualificato prima di assumere conclusioni operative.</p>
+<hr/>
+<dl>
+<div>
+<dt>Tipologia</dt>
+<dd>Amministrazione locale (lett. c): Città metropolitane; Comuni con popolazione superiore a 100.000 abitanti; Comuni capoluoghi di regione; Aziende sanitarie locali</dd>
+</div>
+<div>
+<dt>Qualifica suggerita</dt>
+<dd data-testid="qualifica">Non determinata</dd>
+</div>
+<div>
+<dt>Regimi speciali</dt>
+<dd data-testid="regimi">Dati e servizi classificati dalla PA (Regolamento Cloud); Perimetro di Sicurezza Nazionale Cibernetica (PSNC)</dd>
+</div>
+</dl>
+<button aria-expanded="false" aria-controls="come-calcolato">Mostra come è stato calcolato</button>
+</div>
+</div>
+<section aria-labelledby="punti-title">
+<h2 id="punti-title">1 punto da valutare con un consulente</h2>
+<div>
+<div data-testid="notice" data-notice="psnc_cloud_pa_precedenza_non_attestata">
+<div>
+<span aria-hidden="true">
+</span>
+<h3>PSNC e Cloud PA insieme: precedenza non indicata dalle fonti</h3>
+<span>Segnalato, non valutato dal tool</span>
+</div>
+<p>Per un&#x27;amministrazione inserita nel PSNC che ha anche classificato i propri dati e servizi ai sensi del Regolamento Cloud, le fonti disponibili non indicano quale disciplina prevalga tra l&#x27;attribuzione d&#x27;ufficio della categoria «alto» ai servizi PSNC (art. 5 Det. ACN 155238/2026) e la sostituzione del modello di categorizzazione (art. 4). Lo strumento indirizza il caso a un consulente qualificato; l&#x27;ordine con cui i due regimi sono elencati non indica una precedenza. <span>
+<a href="#fonte-1">1</a>
+<a href="#fonte-2">2</a>
+</span>
+</p>
+</div>
+</div>
+</section>
+<section aria-labelledby="fonti-title">
+<div>
+<h2 id="fonti-title">Fonti citate in questo esito</h2>
+<p>Citate al livello verificato: articolo e comma, o codice FAQ. Ogni voce apre la scheda nella knowledge base.</p>
+</div>
+<div>
+<div>
+<h3>Determinazioni ACN</h3>
+<ol>
+<li id="fonte-1" data-testid="source" data-source="det_acn_155238_2026_art_4">
+<span>1</span>
+<span>
+<span>Det. ACN 155238/2026, art. 4</span>
+<span>I soggetti che hanno svolto la classificazione del Regolamento Cloud applicano quel modello in luogo del modello di categorizzazione NIS.</span>
+<a href="https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/Determinazione%20ACN%20categorizzazione%20-%202026-04-13.md?plain=1#L36">Apri la scheda</a>
+</span>
+</li>
+<li id="fonte-2" data-testid="source" data-source="det_acn_155238_2026_art_5">
+<span>2</span>
+<span>
+<span>Det. ACN 155238/2026, art. 5</span>
+<span>Alle attività e ai servizi soggetti agli obblighi del perimetro di sicurezza nazionale cibernetica è attribuita la categoria di impatto alto.</span>
+<a href="https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/Determinazione%20ACN%20categorizzazione%20-%202026-04-13.md?plain=1#L37">Apri la scheda</a>
+</span>
+</li>
+</ol>
+</div>
+</div>
+</section>
+<section id="come-calcolato" aria-labelledby="trace-title">
+<h2 id="trace-title">Come è stato calcolato</h2>
+<div>
+<div data-testid="trace-decided" data-stage="regime_routing">
+<h3>Regimi speciali</h3>
+<p>L&#x27;amministrazione appare contemporaneamente in perimetro PSNC e tra i soggetti che hanno classificato dati e servizi ai sensi del Regolamento Cloud. L&#x27;ordine di precedenza tra l&#x27;automatismo &#x27;alto&#x27; PSNC (art. 5 Det. ACN 155238/2026) e la sostituzione di modello Cloud PA (art. 4) non è esplicitato nelle fonti normative disponibili. Consulenza qualificata necessaria, con eventuale interlocuzione diretta ACN. <span>
+<a href="#fonte-1">1</a>
+<a href="#fonte-2">2</a>
+</span>
+</p>
+</div>
+<p data-stage="type_exclusion">
+<span>Esclusioni per tipologia:</span> <span>Non applicabile alle risposte date.</span>
+</p>
+<p data-stage="size_blind">
+<span>Regole indipendenti dalla dimensione:</span> <span>Non valutato: decide un regime speciale.</span>
+</p>
+<p data-stage="dimensional">
+<span>Regole dimensionali:</span> <span>Non applicabile alle risposte date.</span>
+</p>
+</div>
+</section>
+<div>
+<h2>Le risposte date</h2>
+<dl>
+<div data-testid="answer" data-question="psnc">
+<dt>Il soggetto è stato formalmente inserito nel Perimetro di Sicurezza Nazionale Cibernetica (PSNC) ai sensi del DL 105/2019, con notifica ricevuta da ACN o dal CISR?</dt>
+<dd>
+<span>Sì</span>
+<button type="button">Modifica</button>
+</dd>
+</div>
+<div data-testid="answer" data-question="dora">
+<dt>Il soggetto è un&#x27;entità finanziaria regolata dal Regolamento (UE) 2022/2554 (DORA), ad esempio un ente creditizio (banca) o un gestore di una sede di negoziazione?</dt>
+<dd>
+<span>No</span>
+<button type="button">Modifica</button>
+</dd>
+</div>
+<div data-testid="answer" data-question="categoria_pa">
+<dt>A quale categoria dell&#x27;Allegato III appartiene il soggetto?</dt>
+<dd>
+<span>Amministrazione locale (lett. c): Città metropolitane; Comuni con popolazione superiore a 100.000 abitanti; Comuni capoluoghi di regione; Aziende sanitarie locali</span>
+<button type="button">Modifica</button>
+</dd>
+</div>
+<div data-testid="answer" data-question="sottotipo_c">
+<dt>Quale tipo di amministrazione locale?</dt>
+<dd>
+<span>Comune capoluogo di Regione</span>
+<button type="button">Modifica</button>
+</dd>
+</div>
+<div data-testid="answer" data-question="classificazione_cloud_pa">
+<dt>L&#x27;amministrazione ha classificato i propri dati e servizi digitali ai sensi del Regolamento Cloud per la PA (Decreto Direttoriale ACN n. 21007/24, art. 3)?</dt>
+<dd>
+<span>Sì</span>
+<button type="button">Modifica</button>
+</dd>
+</div>
+<div data-testid="answer" data-question="soggetto_critico">
+<dt>Il soggetto è stato individuato come soggetto critico ai sensi del D.Lgs. 134/2024?</dt>
+<dd>
+<span>No</span>
+<button type="button">Modifica</button>
+</dd>
+</div>
+</dl>
+<button>Modifica le risposte</button>
+</div>
+<div>
+<span title="in arrivo">
+<button disabled="">Scarica il riepilogo (PDF)</button>
+</span>
+<span title="in arrivo">
+<button disabled="">Cosa non gestisce il tool</button>
+</span>
+</div>
+<p data-testid="tech">Corpus 0.12.0, catalogo eccezioni 30 voci. Valutazione ed5e0377. Nessun dato lascia il browser.</p>"
+`;
+
+exports[`verdict page of E25 > matches the DOM snapshot 1`] = `
+"<p>Anteprima di studio: non è un parere legale e non sostituisce la registrazione sulla piattaforma ACN.</p>
+<div data-testid="outcome" data-outcome="likely_out_of_scope" data-mode="out_of_scope">
+<div>
+<h1>Esito del pre-screening</h1>
+<ol aria-label="Esito del pre-screening">
+<li aria-current="true">Probabile esclusione</li>
+<li>Esito incerto</li>
+<li>Probabile rientro</li>
+</ol>
+</div>
+<div>
+<p>Il soggetto dichiara di rispondere ai requisiti della definizione di clienti attivi e di non svolgere altre attività riconducibili agli Allegati I e II. Secondo la FAQ ACN A1.1.a.4 queste organizzazioni non rientrano nell&#x27;ambito di applicazione del decreto NIS: sulla base degli input forniti, l&#x27;analisi suggerisce che il soggetto non rientri nel perimetro NIS2 italiano come produttore. La definizione di clienti attivi non è tra le fonti verificate dallo strumento. Verifica obbligatoria con consulente qualificato. <span>
+<a href="#fonte-1">1</a>
+</span>
+</p>
+<p>Verifica obbligatoria con consulente qualificato prima di assumere conclusioni operative.</p>
+<hr/>
+<dl>
+<div>
+<dt>Tipologia</dt>
+<dd>Produzione di energia elettrica</dd>
+</div>
+<div>
+<dt>Qualifica suggerita</dt>
+<dd data-testid="qualifica">Non determinata</dd>
+</div>
+<div>
+<dt>Regimi speciali</dt>
+<dd data-testid="regimi">Nessuno</dd>
+</div>
+</dl>
+<button aria-expanded="false" aria-controls="come-calcolato">Mostra come è stato calcolato</button>
+</div>
+</div>
+<section aria-labelledby="punti-title">
+<h2 id="punti-title">1 punto da valutare con un consulente</h2>
+<div>
+<div data-testid="notice" data-notice="prosumer_definizione_cliente_attivo">
+<div>
+<span aria-hidden="true">
+</span>
+<h3>Definizione di cliente attivo non attestata</h3>
+<span>Segnalato, non valutato dal tool</span>
+</div>
+<p>La FAQ ACN A1.1.a.4 esclude dall&#x27;ambito le organizzazioni che rispondono ai requisiti della definizione di «clienti attivi» (direttiva (UE) 2019/944, art. 2, punto 8) e non svolgono altre attività riconducibili agli Allegati I e II. Il testo di quella definizione non è tra le fonti verificate dallo strumento: l&#x27;esito dipende dalla risposta fornita e va confermato con un consulente qualificato. <span>
+<a href="#fonte-1">1</a>
+</span>
+</p>
+</div>
+</div>
+</section>
+<section aria-labelledby="fonti-title">
+<div>
+<h2 id="fonti-title">Fonti citate in questo esito</h2>
+<p>Citate al livello verificato: articolo e comma, o codice FAQ. Ogni voce apre la scheda nella knowledge base.</p>
+</div>
+<div>
+<div>
+<h3>FAQ ACN</h3>
+<ol>
+<li id="fonte-1" data-testid="source" data-source="faq_a1_1_a_4">
+<span>1</span>
+<span>
+<span>FAQ ACN A1.1.a.4</span>
+<span>I clienti attivi che non svolgono altre attività degli Allegati I e II non rientrano tra i produttori.</span>
+<a href="https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/FAQ%20NIS%20-%20Settori%2C%20sottosettori%20e%20tipologie%20di%20soggetto.md?plain=1#L37">Apri la scheda</a>
+</span>
+</li>
+</ol>
+</div>
+</div>
+</section>
+<section id="come-calcolato" aria-labelledby="trace-title">
+<h2 id="trace-title">Come è stato calcolato</h2>
+<div>
+<p data-stage="regime_routing">
+<span>Regimi speciali:</span> <span>Non applicabile alle risposte date.</span>
+</p>
+<div data-testid="trace-decided" data-stage="type_exclusion">
+<h3>Esclusioni per tipologia</h3>
+<p>Il soggetto dichiara di rispondere ai requisiti della definizione di clienti attivi e di non svolgere altre attività riconducibili agli Allegati I e II. Secondo la FAQ ACN A1.1.a.4 queste organizzazioni non rientrano nell&#x27;ambito di applicazione del decreto NIS: sulla base degli input forniti, l&#x27;analisi suggerisce che il soggetto non rientri nel perimetro NIS2 italiano come produttore. La definizione di clienti attivi non è tra le fonti verificate dallo strumento. Verifica obbligatoria con consulente qualificato. <span>
+<a href="#fonte-1">1</a>
+</span>
+</p>
+</div>
+<p data-stage="size_blind">
+<span>Regole indipendenti dalla dimensione:</span> <span>Non applicabile alle risposte date.</span>
+</p>
+<p data-stage="dimensional">
+<span>Regole dimensionali:</span> <span>Non valutato: le attività dichiarate risultano escluse per tipologia.</span>
+</p>
+</div>
+</section>
+<div>
+<h2>Le risposte date</h2>
+<dl>
+<div data-testid="answer" data-question="psnc">
+<dt>Il soggetto è stato formalmente inserito nel Perimetro di Sicurezza Nazionale Cibernetica (PSNC) ai sensi del DL 105/2019, con notifica ricevuta da ACN o dal CISR?</dt>
+<dd>
+<span>No</span>
+<button type="button">Modifica</button>
+</dd>
+</div>
+<div data-testid="answer" data-question="dora">
+<dt>Il soggetto è un&#x27;entità finanziaria regolata dal Regolamento (UE) 2022/2554 (DORA), ad esempio un ente creditizio (banca) o un gestore di una sede di negoziazione?</dt>
+<dd>
+<span>No</span>
+<button type="button">Modifica</button>
+</dd>
+</div>
+<div data-testid="answer" data-question="cloud_pa">
+<dt>Il soggetto eroga servizi cloud destinati a una Pubblica Amministrazione, qualificati ai sensi del Regolamento Cloud per la PA (Decreto Direttoriale ACN n. 21007/24)?</dt>
+<dd>
+<span>No</span>
+<button type="button">Modifica</button>
+</dd>
+</div>
+<div data-testid="answer" data-question="tipologia_elettrica">
+<dt>Quale attività svolge principalmente il soggetto nel settore elettrico?</dt>
+<dd>
+<span>Produzione di energia elettrica</span>
+<button type="button">Modifica</button>
+</dd>
+</div>
+<div data-testid="answer" data-question="attivita_elettriche_ulteriori">
+<dt>Oltre all&#x27;attività principale, il soggetto ne svolge altre tra queste nel settore elettrico?</dt>
+<dd>
+<span>Nessuna selezione</span>
+<button type="button">Modifica</button>
+</dd>
+</div>
+<div data-testid="answer" data-question="produttore_cliente_attivo">
+<dt>Il soggetto risponde ai requisiti della definizione di «clienti attivi» e non svolge altre attività riconducibili agli Allegati I e II del D.Lgs. 138/2024?</dt>
+<dd>
+<span>Sì, entrambe le condizioni</span>
+<button type="button">Modifica</button>
+</dd>
+</div>
+<div data-testid="answer" data-question="pertinenza_pubblica_energia">
+<dt>Il soggetto è un ente pubblico o ha capitale, quote o partecipazioni pubbliche?</dt>
+<dd>
+<span>No</span>
+<button type="button">Modifica</button>
+</dd>
+</div>
+<div data-testid="answer" data-question="soggetto_critico">
+<dt>Il soggetto è stato individuato come soggetto critico ai sensi del D.Lgs. 134/2024?</dt>
+<dd>
+<span>No</span>
+<button type="button">Modifica</button>
+</dd>
+</div>
+<div data-testid="answer" data-question="dimension">
+<dt>A quale categoria dimensionale appartiene il soggetto, secondo la Raccomandazione UE 2003/361/CE?</dt>
+<dd>
+<span>Media impresa (non piccola; meno di 250 effettivi e fatturato fino a 50 M€ o bilancio fino a 43 M€)</span>
+<button type="button">Modifica</button>
+</dd>
+</div>
+</dl>
+<button>Modifica le risposte</button>
+</div>
+<div>
+<span title="in arrivo">
+<button disabled="">Scarica il riepilogo (PDF)</button>
+</span>
+<span title="in arrivo">
+<button disabled="">Cosa non gestisce il tool</button>
+</span>
+</div>
+<p data-testid="tech">Corpus 0.12.0, catalogo eccezioni 30 voci. Valutazione 4b72d542. Nessun dato lascia il browser.</p>"
+`;
+
+exports[`verdict page of E26 > matches the DOM snapshot 1`] = `
+"<p>Anteprima di studio: non è un parere legale e non sostituisce la registrazione sulla piattaforma ACN.</p>
+<div data-testid="outcome" data-outcome="ambiguous" data-mode="escalate_to_advisor">
+<div>
+<h1>Esito del pre-screening</h1>
+<ol aria-label="Esito del pre-screening">
+<li>Probabile esclusione</li>
+<li aria-current="true">Esito incerto</li>
+<li>Probabile rientro</li>
+</ol>
+</div>
+<div>
+<p>Ogni attivita&#x27; dichiarata dal soggetto risulta esclusa per tipologia, ma il soggetto risulta anche incluso indipendentemente dalla dimensione, ad esempio come soggetto critico ai sensi del D.Lgs. 134/2024 (art. 3 c. 5 lett. a) D.Lgs. 138/2024). Le fonti verificate non indicano quale dei due criteri prevalga. Consulenza qualificata necessaria. <span>
+<a href="#fonte-1">1</a>
+<a href="#fonte-2">2</a>
+<a href="#fonte-3">3</a>
+<a href="#fonte-4">4</a>
+</span>
+</p>
+<p>Verifica obbligatoria con consulente qualificato prima di assumere conclusioni operative.</p>
+<hr/>
+<dl>
+<div>
+<dt>Tipologia</dt>
+<dd>Produzione di energia elettrica</dd>
+</div>
+<div>
+<dt>Qualifica suggerita</dt>
+<dd data-testid="qualifica">Non determinata</dd>
+</div>
+<div>
+<dt>Regimi speciali</dt>
+<dd data-testid="regimi">Nessuno</dd>
+</div>
+</dl>
+<button aria-expanded="false" aria-controls="come-calcolato">Mostra come è stato calcolato</button>
+</div>
+</div>
+<section aria-labelledby="punti-title">
+<h2 id="punti-title">3 punti da valutare con un consulente</h2>
+<div>
+<div data-testid="notice" data-notice="esclusione_tipologica_vs_inclusione_size_blind">
+<div>
+<span aria-hidden="true">
+</span>
+<h3>Esclusione per tipologia e inclusione indipendente dalla dimensione: prevalenza non attestata</h3>
+<span>Segnalato, non valutato dal tool</span>
+</div>
+<p>Il soggetto dichiara attività tutte escluse per tipologia secondo le FAQ ACN, ma risulta anche individuato come soggetto critico ai sensi del D.Lgs. 134/2024, che il decreto pone in ambito indipendentemente dalla dimensione (art. 3 c. 5 lett. a) D.Lgs. 138/2024). Le fonti verificate dallo strumento non indicano quale dei due criteri prevalga: la prevalenza non è attestata. Lo strumento indirizza il caso a un consulente qualificato. <span>
+<a href="#fonte-1">1</a>
+</span>
+</p>
+</div>
+<div data-testid="notice" data-notice="prosumer_definizione_cliente_attivo">
+<div>
+<span aria-hidden="true">
+</span>
+<h3>Definizione di cliente attivo non attestata</h3>
+<span>Segnalato, non valutato dal tool</span>
+</div>
+<p>La FAQ ACN A1.1.a.4 esclude dall&#x27;ambito le organizzazioni che rispondono ai requisiti della definizione di «clienti attivi» (direttiva (UE) 2019/944, art. 2, punto 8) e non svolgono altre attività riconducibili agli Allegati I e II. Il testo di quella definizione non è tra le fonti verificate dallo strumento: l&#x27;esito dipende dalla risposta fornita e va confermato con un consulente qualificato. <span>
+<a href="#fonte-3">3</a>
+</span>
+</p>
+</div>
+<div data-testid="notice" data-notice="energia_regime_transitorio_ose">
+<div>
+<span aria-hidden="true">
+</span>
+<h3>Regime transitorio degli ex operatori di servizi essenziali (art. 5 Det. ACN 379907/2025)</h3>
+<span>Segnalato, non valutato dal tool</span>
+</div>
+<p>Secondo l&#x27;art. 5 della Det. ACN 379907/2025, i soggetti già operatori di servizi essenziali ai sensi del D.Lgs. 65/2018 mantengono, limitatamente ai sistemi informativi e di rete già individuati in quel quadro, le misure tecniche e organizzative già adottate, salvo contrasti con il decreto NIS. Il regime riguarda le misure, non l&#x27;ambito: l&#x27;esito indicato non cambia, e lo strumento non chiede se il soggetto era un operatore di servizi essenziali. <span>
+<a href="#fonte-5">5</a>
+</span>
+</p>
+</div>
+</div>
+</section>
+<section aria-labelledby="fonti-title">
+<div>
+<h2 id="fonti-title">Fonti citate in questo esito</h2>
+<p>Citate al livello verificato: articolo e comma, o codice FAQ. Ogni voce apre la scheda nella knowledge base.</p>
+</div>
+<div>
+<div>
+<h3>Decreto NIS (D.Lgs. 138/2024)</h3>
+<ol>
+<li id="fonte-1" data-testid="source" data-source="dlgs_138_2024_art_3_c_5_lett_a">
+<span>1</span>
+<span>
+<span>D.Lgs. 138/2024, art. 3 c. 5 lett. a)</span>
+<span>Il decreto si applica, indipendentemente dalle dimensioni, ai soggetti identificati come soggetti critici.</span>
+<a href="https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/D.Lgs.%20138-2024%20(Decreto%20NIS).md?plain=1#L30">Apri la scheda</a>
+</span>
+</li>
+<li id="fonte-2" data-testid="source" data-source="dlgs_138_2024_art_6_c_1_lett_b">
+<span>2</span>
+<span>
+<span>D.Lgs. 138/2024, art. 6 c. 1 lett. b)</span>
+<span>Sono essenziali, indipendentemente dalle dimensioni, i soggetti identificati come soggetti critici.</span>
+<a href="https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/D.Lgs.%20138-2024%20(Decreto%20NIS).md?plain=1#L30">Apri la scheda</a>
+</span>
+</li>
+</ol>
+</div>
+<div>
+<h3>FAQ ACN</h3>
+<ol>
+<li id="fonte-3" data-testid="source" data-source="faq_a1_1_a_4">
+<span>3</span>
+<span>
+<span>FAQ ACN A1.1.a.4</span>
+<span>I clienti attivi che non svolgono altre attività degli Allegati I e II non rientrano tra i produttori.</span>
+<a href="https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/FAQ%20NIS%20-%20Settori%2C%20sottosettori%20e%20tipologie%20di%20soggetto.md?plain=1#L37">Apri la scheda</a>
+</span>
+</li>
+<li id="fonte-4" data-testid="source" data-source="faq_amb_no_1">
+<span>4</span>
+<span>
+<span>FAQ ACN AMB.NO.1</span>
+<span>I soggetti critici del D.Lgs. 134/2024 sono soggetti essenziali ai sensi del decreto NIS.</span>
+<a href="https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/FAQ%20NIS%20-%20Ambito.md?plain=1#L223">Apri la scheda</a>
+</span>
+</li>
+</ol>
+</div>
+<div>
+<h3>Determinazioni ACN</h3>
+<ol>
+<li id="fonte-5" data-testid="source" data-source="det_acn_379907_2025_art_5">
+<span>5</span>
+<span>
+<span>Det. ACN 379907/2025, art. 5</span>
+<span>Gli ex operatori di servizi essenziali mantengono, per i sistemi già individuati, le misure tecniche e organizzative già adottate.</span>
+<a href="https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/Determinazione%20ACN%20specifiche%20di%20base%20-%20379907-2025-12-19.md?plain=1#L44">Apri la scheda</a>
+</span>
+</li>
+</ol>
+</div>
+<div>
+<h3>Altre fonti</h3>
+<ol>
+<li id="fonte-6" data-testid="source" data-source="dlgs_134_2024">
+<span>6</span>
+<span>
+<span>D.Lgs. 134/2024</span>
+<span>Decreto sui soggetti critici: la qualifica si acquisisce con l&#x27;inserimento nell&#x27;elenco adottato con DPCM.</span>
+<a href="https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/FAQ%20NIS%20-%20Ambito.md?plain=1#L225">Apri la scheda</a>
+</span>
+</li>
+</ol>
+</div>
+</div>
+</section>
+<section id="come-calcolato" aria-labelledby="trace-title">
+<h2 id="trace-title">Come è stato calcolato</h2>
+<div>
+<p data-stage="regime_routing">
+<span>Regimi speciali:</span> <span>Non applicabile alle risposte date.</span>
+</p>
+<div data-testid="trace-decided" data-stage="type_exclusion">
+<h3>Esclusioni per tipologia</h3>
+<p>Il soggetto dichiara di rispondere ai requisiti della definizione di clienti attivi e di non svolgere altre attività riconducibili agli Allegati I e II. Secondo la FAQ ACN A1.1.a.4 queste organizzazioni non rientrano nell&#x27;ambito di applicazione del decreto NIS: sulla base degli input forniti, l&#x27;analisi suggerisce che il soggetto non rientri nel perimetro NIS2 italiano come produttore. La definizione di clienti attivi non è tra le fonti verificate dallo strumento. Verifica obbligatoria con consulente qualificato. <span>
+<a href="#fonte-3">3</a>
+</span>
+</p>
+</div>
+<div data-testid="trace-decided" data-stage="size_blind">
+<h3>Regole indipendenti dalla dimensione</h3>
+<p>Il soggetto risulta individuato come soggetto critico ai sensi del D.Lgs. 134/2024. Sulla base degli input forniti, l&#x27;analisi suggerisce il rientro nel perimetro NIS2 italiano come soggetto essenziale, indipendentemente dalla dimensione (art. 3 c. 5 lett. a) e art. 6 c. 1 lett. b) D.Lgs. 138/2024; FAQ ACN AMB.NO.1). Verifica obbligatoria con consulente qualificato. <span>
+<a href="#fonte-1">1</a>
+<a href="#fonte-2">2</a>
+<a href="#fonte-4">4</a>
+</span>
+</p>
+</div>
+<p data-stage="dimensional">
+<span>Regole dimensionali:</span> <span>Non valutato: le attività dichiarate risultano escluse per tipologia.</span>
+</p>
+<div data-testid="trace-conflict">
+<p>Due passaggi danno esiti diversi: decide la regola sui conflitti.</p>
+<p>Ogni attivita&#x27; dichiarata dal soggetto risulta esclusa per tipologia, ma il soggetto risulta anche incluso indipendentemente dalla dimensione, ad esempio come soggetto critico ai sensi del D.Lgs. 134/2024 (art. 3 c. 5 lett. a) D.Lgs. 138/2024). Le fonti verificate non indicano quale dei due criteri prevalga. Consulenza qualificata necessaria. <span>
+<a href="#fonte-1">1</a>
+<a href="#fonte-2">2</a>
+<a href="#fonte-3">3</a>
+<a href="#fonte-4">4</a>
+</span>
+</p>
+</div>
+</div>
+</section>
+<div>
+<h2>Le risposte date</h2>
+<dl>
+<div data-testid="answer" data-question="psnc">
+<dt>Il soggetto è stato formalmente inserito nel Perimetro di Sicurezza Nazionale Cibernetica (PSNC) ai sensi del DL 105/2019, con notifica ricevuta da ACN o dal CISR?</dt>
+<dd>
+<span>No</span>
+<button type="button">Modifica</button>
+</dd>
+</div>
+<div data-testid="answer" data-question="dora">
+<dt>Il soggetto è un&#x27;entità finanziaria regolata dal Regolamento (UE) 2022/2554 (DORA), ad esempio un ente creditizio (banca) o un gestore di una sede di negoziazione?</dt>
+<dd>
+<span>No</span>
+<button type="button">Modifica</button>
+</dd>
+</div>
+<div data-testid="answer" data-question="cloud_pa">
+<dt>Il soggetto eroga servizi cloud destinati a una Pubblica Amministrazione, qualificati ai sensi del Regolamento Cloud per la PA (Decreto Direttoriale ACN n. 21007/24)?</dt>
+<dd>
+<span>No</span>
+<button type="button">Modifica</button>
+</dd>
+</div>
+<div data-testid="answer" data-question="tipologia_elettrica">
+<dt>Quale attività svolge principalmente il soggetto nel settore elettrico?</dt>
+<dd>
+<span>Produzione di energia elettrica</span>
+<button type="button">Modifica</button>
+</dd>
+</div>
+<div data-testid="answer" data-question="attivita_elettriche_ulteriori">
+<dt>Oltre all&#x27;attività principale, il soggetto ne svolge altre tra queste nel settore elettrico?</dt>
+<dd>
+<span>Nessuna selezione</span>
+<button type="button">Modifica</button>
+</dd>
+</div>
+<div data-testid="answer" data-question="produttore_cliente_attivo">
+<dt>Il soggetto risponde ai requisiti della definizione di «clienti attivi» e non svolge altre attività riconducibili agli Allegati I e II del D.Lgs. 138/2024?</dt>
+<dd>
+<span>Sì, entrambe le condizioni</span>
+<button type="button">Modifica</button>
+</dd>
+</div>
+<div data-testid="answer" data-question="pertinenza_pubblica_energia">
+<dt>Il soggetto è un ente pubblico o ha capitale, quote o partecipazioni pubbliche?</dt>
+<dd>
+<span>No</span>
+<button type="button">Modifica</button>
+</dd>
+</div>
+<div data-testid="answer" data-question="soggetto_critico">
+<dt>Il soggetto è stato individuato come soggetto critico ai sensi del D.Lgs. 134/2024?</dt>
+<dd>
+<span>Sì</span>
+<button type="button">Modifica</button>
+</dd>
+</div>
+<div data-testid="answer" data-question="dimension">
+<dt>A quale categoria dimensionale appartiene il soggetto, secondo la Raccomandazione UE 2003/361/CE?</dt>
+<dd>
+<span>Media impresa (non piccola; meno di 250 effettivi e fatturato fino a 50 M€ o bilancio fino a 43 M€)</span>
+<button type="button">Modifica</button>
+</dd>
+</div>
+</dl>
+<button>Modifica le risposte</button>
+</div>
+<div>
+<span title="in arrivo">
+<button disabled="">Scarica il riepilogo (PDF)</button>
+</span>
+<span title="in arrivo">
+<button disabled="">Cosa non gestisce il tool</button>
+</span>
+</div>
+<p data-testid="tech">Corpus 0.12.0, catalogo eccezioni 30 voci. Valutazione 2f542c8d. Nessun dato lascia il browser.</p>"
+`;

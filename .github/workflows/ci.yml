@@ -1,4 +1,4 @@
-# CI: install -> lint -> typecheck -> corpus:validate -> test -> build.
+# CI: install -> lint -> typecheck -> corpus:validate -> test -> build -> e2e.
 # Only GitHub-owned actions; pnpm comes from corepack (bundled with Node 24).
 # No third-party services, no telemetry (Next.js telemetry disabled).
 name: CI
@@ -42,3 +42,7 @@ jobs:
         run: pnpm test
       - name: Build
         run: pnpm build
+      - name: Install Chromium for e2e
+        run: pnpm --filter @nis2-check/web exec playwright install --with-deps --only-shell chromium
+      - name: e2e (five fixtures on the static export)
+        run: pnpm --filter @nis2-check/web test:e2e
