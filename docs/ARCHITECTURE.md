@@ -16,7 +16,7 @@ Monorepo pnpm (workspaces `apps/*`, `packages/*`), Node ≥ 24, TypeScript stric
 nis2-check/
   apps/web/                 Next.js 15.5 App Router, React 19, Tailwind 3, shadcn/ui
                             export statico (output: export): nessun server in produzione
-  packages/engine/          evaluate(answers, corpus) => Verdict — pura, deterministica, nessun I/O
+  packages/engine/          evaluate({ sectorId, answers }, corpus) => Verdict — pura, deterministica, nessun I/O (ADR 0016)
     src/types.ts            contratto Verdict (CLAUDE.md, ADR 0009 + amendment)
     tests/fixtures/         scenari golden E01–E15 (corpus_version, input, expected)
   packages/corpus/          corpus + loader + schemi zod + corpus:validate
@@ -189,10 +189,9 @@ Una limitazione nuova entra prima nel catalogo, poi nei documenti generati.
 
 ## 7. Cosa manca per v0.1.0
 
-- **Engine (S3)**: `evaluate` reale; fixture E01–E25 da `todo` a test verdi;
-  semantica delle condizioni senza risposta (ADR 0010); assert dell'invariante
-  escalate → ambiguous anche nell'engine (vincolo 6); `Verdict.notices` da tutte le
-  posizioni degli avvisi; precedenza tra `outcome_mapping` e regole dimensionali (PUN, prosumer).
+- **Engine (S3)**: `evaluate` reale secondo l'ADR 0016 (ordine in quattro stadi, input
+  assenti, avvisi e segnali, contratto del Verdict); fixture E01–E25 da `todo` a test verdi;
+  assert dell'invariante escalate → ambiguous anche nell'engine (vincolo 6).
 - **Corpus**: correzioni KB proposte dall'audit del registro
   (`docs/verifications/2026-10-28-registro-citazioni.md`), poi gli ID oggi degradati
   (art. 7 c. 1 lett. d), art. 11 c. 2 lett. g), FAQ GEN.6, A1.8.1, A1.9.1); migrazione dei

@@ -6,7 +6,7 @@
  * `verdict_outcome` from the corpus without inference (CLAUDE.md, constraint 2).
  */
 import type { Corpus } from '@nis2-check/corpus';
-import type { Answers, Verdict } from './types.ts';
+import type { EvaluationInput, Verdict } from './types.ts';
 
 export type * from './types.ts';
 
@@ -21,13 +21,13 @@ export class NotImplementedError extends Error {
 /**
  * Evaluates the answers against the corpus.
  *
- * @param answers - serialized wizard answers, keyed by question id
+ * @param input - sector id and serialized wizard answers, keyed by question id (ADR 0016)
  * @param corpus - corpus validated by the zod schema of @nis2-check/corpus
  * @returns the Verdict (S3)
  * @throws {NotImplementedError} always, until S3
  */
-export function evaluate(answers: Answers, corpus: Corpus): Verdict {
-  void answers;
+export function evaluate(input: EvaluationInput, corpus: Corpus): Verdict {
+  void input;
   void corpus;
   throw new NotImplementedError('evaluate');
 }

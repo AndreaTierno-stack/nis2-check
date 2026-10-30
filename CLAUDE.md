@@ -36,7 +36,7 @@ I `corpus_ref` delle fixture sono relativi alla radice del corpus (`packages/cor
 
 `apps/web`: il wizard gira interamente client-side; nessuna API route trasporta risposte dell'utente; server components solo per shell statica. Stato di sessione in memoria — nessuna persistenza (no localStorage per i dati dell'utente: la promessa è zero raccolta, l'export è solo manuale ed esplicito).
 
-`packages/engine`: `evaluate(answers, corpus) => Verdict`. Pura, deterministica, testabile senza DOM. Non contiene conoscenza normativa: solo meccanica di esecuzione (routing dei gate, applicazione qualification_rules, raccolta signals, composizione reasoning trace).
+`packages/engine`: `evaluate({ sectorId, answers }, corpus) => Verdict` (ADR 0016). Pura, deterministica, testabile senza DOM. Non contiene conoscenza normativa: solo meccanica di esecuzione in quattro stadi (instradamento a regime, esclusione tipologica, regole size-blind, regole dimensionali), raccolta di avvisi e signals, composizione della reasoning trace. Risposte non valide → `InvalidAnswersError`; per risposte valide non lancia mai.
 
 ## Corpus — fonte di verità (v0.3.0+)
 
@@ -80,11 +80,24 @@ interface Verdict {
   regimeRouting: RegimeRouting[];   // vuoto se nessun routing; ordine = ordine degli override nel file di settore (non precedenza)
   signals: SignalRef[];             // l90_cumulo, cross_sector_*, ecc.
   notices: CatalogEntryId[];        // avvisi: id del catalogo eccezioni (ADR 0012)
-  reasoningTrace: ReasoningStep[];  // observability client-side
+  reasoningTrace: ReasoningStep[];  // observability client-side, struttura sotto (ADR 0016)
   citations: CitationId[];          // solo granularità verificata
   disclaimerRequired: true;         // literal, incondizionato
   inputHash: string;                // sha256 delle risposte serializzate
   corpusVersion: string;            // da packages/corpus/corpus/VERSION
+}
+
+interface SignalRef { id: string }
+
+interface ReasoningStep {           // ADR 0016, §5
+  stage: 'validation' | 'regime_routing' | 'type_exclusion' | 'size_blind' | 'dimensional' | 'resolution';
+  construct: string;                // localizzatore nel corpus: <file>#<chiave>[<indice>]
+  result: 'matched' | 'not_matched' | 'not_evaluated' | 'decided' | 'suspended' | 'conflict';
+  partial?: { assessmentMode: AssessmentMode; outcome: VerdictOutcome; qualifica?: 'essenziale' | 'importante' };
+  citations: CitationId[];
+  code?: string;                    // codice tecnico (nis_assessment_suspended, no_rule_matched, ...)
+  detail?: string;                  // nota tecnica in italiano
+  corpusText?: string;              // reasoning_trace del corpus: unico testo di contenuto
 }
 ```
 
@@ -105,7 +118,7 @@ Consentito: `reasoningTrace` nel Verdict; console log strutturati gated `?debug=
 
 ## CI/CD e workflow
 
-GitHub Actions su ogni push/PR: install → lint → typecheck → `corpus:validate` → test → build. Conventional commits (`feat:`, `fix:`, `docs:`, `chore:`, `test:`, `corpus:`); i commit `corpus:` citano la versione (es. `corpus: bump 0.2.1 — attestation patch, DIV-P1 closed`). `docs/ARCHITECTURE.md` è documentazione viva: si aggiorna nello stesso commit che cambia l'architettura. Le decisioni con alternative scartate → ADR in `docs/decisions/` (prossimo numero: 0016). `docs/STATUS.md` è la fonte unica dello stato di avanzamento e dei punti aperti; si aggiorna in chiusura di ogni sessione (data, stato sintetico, punti aperti, una riga di log).
+GitHub Actions su ogni push/PR: install → lint → typecheck → `corpus:validate` → test → build. Conventional commits (`feat:`, `fix:`, `docs:`, `chore:`, `test:`, `corpus:`); i commit `corpus:` citano la versione (es. `corpus: bump 0.2.1 — attestation patch, DIV-P1 closed`). `docs/ARCHITECTURE.md` è documentazione viva: si aggiorna nello stesso commit che cambia l'architettura. Le decisioni con alternative scartate → ADR in `docs/decisions/` (indice in `docs/decisions/README.md`; 0013 non assegnato; prossimo numero: 0017). `docs/STATUS.md` è la fonte unica dello stato di avanzamento e dei punti aperti; si aggiorna in chiusura di ogni sessione (data, stato sintetico, punti aperti, una riga di log).
 
 ## Autonomia di Claude Code
 

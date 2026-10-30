@@ -1,9 +1,9 @@
 /**
  * Verdict contract of the decision engine.
  *
- * Mirrors the "Tipo Verdict" section of CLAUDE.md (post S1.1, ADR 0009 with the
- * 2026-10-27 amendment). Any change here is a contract change: update CLAUDE.md,
- * the ADRs and the corpus schema in the same commit.
+ * Mirrors the "Tipo Verdict" section of CLAUDE.md (ADR 0009 with the 2026-10-27
+ * amendment, ADR 0012, ADR 0016). Any change here is a contract change: update
+ * CLAUDE.md, the ADRs and the corpus schema in the same commit.
  */
 
 /** Direction of the verdict. Copied from the corpus `verdict_outcome`, never inferred (constraint 2). */
@@ -25,21 +25,39 @@ export type CitationId = string;
 /** Id of an entry of exceptions/exceptions__catalog.yaml (ADR 0012). */
 export type CatalogEntryId = string;
 
-/**
- * Reference to a signal defined in `signals/*.yaml` (e.g. `l90_cumulo`).
- * Shape to be finalized with the engine (S3).
- */
+export type Qualifica = 'essenziale' | 'importante';
+
+/** Reference to a signal defined in `signals/*.yaml` (e.g. `l90_cumulo`). */
 export interface SignalRef {
   id: string;
 }
 
-/**
- * One step of the client-side reasoning trace (Explainability Mode).
- * Shape to be finalized with the engine (S3).
- */
+/** Evaluation stage of ADR 0016, plus answer validation and the final resolution. */
+export type Stage = 'validation' | 'regime_routing' | 'type_exclusion' | 'size_blind' | 'dimensional' | 'resolution';
+
+export type StepResult = 'matched' | 'not_matched' | 'not_evaluated' | 'decided' | 'suspended' | 'conflict';
+
+/** Outcome a construct would give on its own. */
+export interface PartialOutcome {
+  assessmentMode: AssessmentMode;
+  outcome: VerdictOutcome;
+  qualifica?: Qualifica;
+}
+
+/** One step of the client-side reasoning trace (Explainability Mode), ADR 0016 §5. */
 export interface ReasoningStep {
-  text: string;
+  stage: Stage;
+  /** Locator in the corpus: `<file>#<key>[<index>]`. */
+  construct: string;
+  result: StepResult;
+  partial?: PartialOutcome;
   citations: CitationId[];
+  /** Technical code (e.g. `nis_assessment_suspended`, `no_rule_matched`). */
+  code?: string;
+  /** Technical note, in Italian. */
+  detail?: string;
+  /** The corpus `reasoning_trace` of the construct: the only content text. */
+  corpusText?: string;
 }
 
 /** One regime routing, populated from the `meta` of the referenced regime file (ADR 0009). */
@@ -59,12 +77,12 @@ export interface RegimeRouting {
 
 /** Output of `evaluate`. Informational pre-screening only: never a compliance statement. */
 export interface Verdict {
-  /** Copied from the corpus `verdict_outcome`: NEVER inferred. */
+  /** Copied from the deciding corpus construct: NEVER inferred (escalations of ADR 0016 aside). */
   outcome: VerdictOutcome;
   /** Feeds the Explainability Mode. */
   assessmentMode: AssessmentMode;
   /** Qualification; `inferita: true` when only signalled (no corpus rule uses it since ADR 0011). */
-  qualifica?: { value: 'essenziale' | 'importante'; inferita: boolean };
+  qualifica?: { value: Qualifica; inferita: boolean };
   /**
    * Regime routings: empty when no override matches; otherwise one element per
    * matching override, in the order the overrides appear in the sector file.
@@ -75,13 +93,13 @@ export interface Verdict {
   signals: SignalRef[];
   /** Verdict notices: ids of entries of the exceptions catalog (ADR 0012). */
   notices: CatalogEntryId[];
-  /** Client-side observability. */
+  /** Client-side observability (ADR 0016 §5). */
   reasoningTrace: ReasoningStep[];
   /** Verified-granularity citations only. */
   citations: CitationId[];
   /** Literal, unconditional. */
   disclaimerRequired: true;
-  /** sha256 of the serialized answers. */
+  /** sha256 of the serialized input (sector id and answers, ADR 0016 §5). */
   inputHash: string;
   /** From corpus/VERSION. */
   corpusVersion: string;
@@ -89,3 +107,17 @@ export interface Verdict {
 
 /** Serialized wizard answers, keyed by question id (`"yes"`/`"no"` are strings). */
 export type Answers = Readonly<Record<string, string | readonly string[]>>;
+
+/** Input of `evaluate` (ADR 0016 §5). */
+export interface EvaluationInput {
+  sectorId: string;
+  answers: Answers;
+}
+
+export type AnswerIssueKind = 'unknown_sector' | 'unknown_question' | 'not_visible' | 'missing' | 'invalid_value';
+
+export interface AnswerIssue {
+  questionId: string;
+  kind: AnswerIssueKind;
+  detail: string;
+}

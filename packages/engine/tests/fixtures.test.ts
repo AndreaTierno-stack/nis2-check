@@ -29,7 +29,7 @@ describe('golden fixtures', () => {
     it(name, () => {
       const { corpus: raw } = loadFromDisk();
       const { corpus } = validateCorpus(raw);
-      const verdict = evaluate(fx.inputs, corpus!);
+      const verdict = evaluate({ sectorId: fx.sector, answers: fx.inputs }, corpus!);
       expect(verdict.outcome).toBe(fx.expected.verdict_outcome);
       expect(verdict.assessmentMode).toBe(fx.expected.assessment_mode);
       expect(verdict.regimeRouting).toEqual(
