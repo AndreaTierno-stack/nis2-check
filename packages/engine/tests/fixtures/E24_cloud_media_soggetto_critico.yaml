@@ -25,4 +25,4 @@ expected:
   regime_routing: []
   corpus_ref: "wizard/wizard__disambiguation.yaml#soggetto_critico -> sectors/sectors__cloud_computing.yaml#qualification_rules[soggetto_critico==yes] + signals/signals__cumulative_regimes.yaml#signals[cer_signal]"
 
-citations: [dlgs_138_2024_art_3_c_5_lett_a, dlgs_138_2024_art_6_c_1_lett_b, faq_amb_no_1]
+citations: [dlgs_138_2024_art_3_c_5_lett_a, dlgs_138_2024_art_6_c_1_lett_b, faq_amb_no_1, dlgs_134_2024, dlgs_138_2024_art_5]

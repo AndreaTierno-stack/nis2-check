@@ -26,4 +26,4 @@ expected:
   regime_routing: []
   corpus_ref: "wizard/wizard__pubblica_amministrazione.yaml#sottotipo_d[enti_istituzioni_ricerca] -> sectors/sectors__pubblica_amministrazione.yaml#qualification_rules[categoria_pa==d AND soggetto_critico==no] + exceptions/exceptions__catalog.yaml#exceptions[pa_qualifica_elevabile_art_6_c_2, pa_esclusioni_sicurezza_nazionale_art_4_c_3, pa_lett_d_cumulo_l90_non_attestato, pa_prerequisito_istat_s13]"
 
-citations: [dlgs_138_2024_allegato_III, dlgs_138_2024_art_3_c_6, dlgs_138_2024_art_6_c_3, dlgs_138_2024_art_6_c_2, l_196_2009_art_1_c_3]
+citations: [dlgs_138_2024_allegato_III, dlgs_138_2024_art_3_c_6, dlgs_138_2024_art_6_c_3, dlgs_138_2024_art_6_c_2, l_196_2009_art_1_c_3, dlgs_138_2024_art_4_c_3, l90_2024_art_1_c_1]

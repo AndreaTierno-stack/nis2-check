@@ -27,4 +27,4 @@ expected:
   regime_routing: []
   corpus_ref: "sectors/sectors__pubblica_amministrazione.yaml#allegato_iv_channel[profilo==societa_inhouse] + exceptions/exceptions__catalog.yaml#exceptions[pa_categorie_aggiunte_dpcm_art_3_c_7, allegato_iv_individuazione_art_3_c_8]"
 
-citations: [dlgs_138_2024_art_3_c_8, dlgs_138_2024_art_3_c_13, faq_a4_1]
+citations: [dlgs_138_2024_art_3_c_8, dlgs_138_2024_art_3_c_13, faq_a4_1, dlgs_175_2016, dlgs_138_2024_art_3_c_7, dlgs_138_2024_art_40_c_2_lett_b, faq_a4_2]

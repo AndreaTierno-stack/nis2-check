@@ -32,4 +32,4 @@ expected:
       exceptions_catalog_entry: psnc_category_override
   corpus_ref: "sectors/sectors__cloud_computing.yaml#overrides[psnc==yes] -> regimes/psnc.yaml + exceptions/exceptions__catalog.yaml#exceptions[psnc_category_override, cloud_pa_fornitore_qualificato_a1_8_2]"
 
-citations: [det_acn_155238_2026_art_5, dl_105_2019_art_1_c_2_bis]
+citations: [det_acn_155238_2026_art_5, dl_105_2019_art_1_c_2_bis, faq_a1_8_2, det_acn_155238_2026_art_4, faq_cat_8]

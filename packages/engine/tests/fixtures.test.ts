@@ -40,6 +40,8 @@ describe('golden fixtures', () => {
       // fixtures README: an absent key means "not verified by this fixture"
       if (x.notices !== undefined) expect(verdict.notices).toEqual(x.notices);
       if (x.signals !== undefined) expect(verdict.signals.map((s) => s.id)).toEqual(x.signals);
+      // ADR 0016 amendment 3: deciding constructs, then signals, then catalog entries; compared as a set
+      expect([...new Set(verdict.citations)].sort()).toEqual([...new Set(fx.citations)].sort());
       expect(verdict.disclaimerRequired).toBe(true);
       expect(verdict.corpusVersion).toBe(corpus.version);
     });

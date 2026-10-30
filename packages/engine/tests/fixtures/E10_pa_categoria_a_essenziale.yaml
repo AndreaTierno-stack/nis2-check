@@ -25,4 +25,4 @@ expected:
   regime_routing: []
   corpus_ref: "wizard/wizard__pubblica_amministrazione.yaml#categoria_pa[a] -> sectors/sectors__pubblica_amministrazione.yaml#qualification_rules[categoria_pa==a] + exceptions/exceptions__catalog.yaml#exceptions[pa_organi_costituzionali_capo_v_art_4_c_2, pa_esclusioni_sicurezza_nazionale_art_4_c_3, pa_prerequisito_istat_s13]"
 
-citations: [dlgs_138_2024_allegato_III, dlgs_138_2024_art_3_c_6, dlgs_138_2024_art_6_c_1_lett_e, dlgs_138_2024_art_40_c_5_lett_a, l_196_2009_art_1_c_3]
+citations: [dlgs_138_2024_allegato_III, dlgs_138_2024_art_3_c_6, dlgs_138_2024_art_6_c_1_lett_e, dlgs_138_2024_art_40_c_5_lett_a, l_196_2009_art_1_c_3, l90_2024_art_1_c_1, l90_2024_art_1_c_7_lett_a, l90_2024_art_15_bis, det_piattaforma_127437_2026_art_4_c_8, dlgs_138_2024_art_4_c_2, dlgs_138_2024_art_4_c_3]

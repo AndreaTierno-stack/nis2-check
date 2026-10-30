@@ -23,4 +23,4 @@ expected:
   regime_routing: []
   corpus_ref: "sectors/sectors__cloud_computing.yaml#qualification_rules[dimension==micro_or_piccola AND soggetto_critico==no]"
 
-citations: [dlgs_138_2024_art_3_c_2, racc_ue_2003_361, faq_amb_di_1]
+citations: [dlgs_138_2024_art_3_c_2, racc_ue_2003_361, faq_amb_di_1, dlgs_138_2024_art_3_c_9, dlgs_138_2024_art_3_c_13, dlgs_138_2024_art_6_c_2, dlgs_138_2024_art_3_c_10]
