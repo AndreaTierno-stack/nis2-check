@@ -8,6 +8,7 @@ url: https://www.acn.gov.it/portale/nis/normativa
 author: Direttore generale ACN — Bruno Frattasi
 date_published: 2026-04-13
 date_ingested: 2026-04-29
+updated: 2026-10-30
 protocol_number: Det. ACN 127437/2026
 tags: [NIS2, ACN, piattaforma, registrazione, censimento, ruoli NIS, Det. 127437/2026]
 ---
@@ -47,7 +48,7 @@ tags: [NIS2, ACN, piattaforma, registrazione, censimento, ruoli NIS, Det. 127437
 ### Registrazione (Capo III, artt. 11-15)
 
 - **Finestra annuale**: dal **1° gennaio al 28 febbraio** ogni anno (art. 11 c. 1).
-- **Contenuto della dichiarazione** (art. 11 c. 2): impresa autonoma vs gruppo di imprese (con indicazione capo gruppo, imprese collegate ex art. 3 c. 10 decreto NIS), codici ATECO, normative settoriali UE, fatturato/bilancio/dipendenti (per dimensione ex Racc. 2003/361/CE — facoltativo per PA), tipologie di soggetto degli allegati I, II, III, IV del decreto.
+- **Contenuto della dichiarazione** (art. 11 c. 2): impresa autonoma vs gruppo di imprese (lett. a): capo gruppo; lett. b)-c): imprese collegate ex art. 3 c. 10 decreto NIS), codici ATECO (lett. d)), normative settoriali UE degli allegati I e II (lett. e)), fatturato/bilancio/dipendenti (lett. f): per dimensione ex Racc. 2003/361/CE — fatturato e bilancio facoltativi per PA), lett. g) (testo): "elenca le tipologie di soggetto di cui agli allegati I, II, III e IV del decreto NIS a cui il soggetto è riconducibile".
 - **Bozza precompilata 2026** (art. 11 c. 10): ai soggetti già inseriti nell'elenco 2025 viene presentata una **bozza precompilata** sulla base delle informazioni 2025.
 - **Acquisizione definitiva** (art. 11 c. 9): decorsi **10 giorni solari** dalla sottomissione, la dichiarazione è acquisita e non più modificabile (salvo tardiva).
 - **Clausola di salvaguardia** (art. 12): l'utente può chiedere l'applicazione della clausola di salvaguardia ex art. 3 c. 12 decreto NIS quando ritenga il calcolo dimensionale non proporzionato; ACN condivide gli elementi con le Autorità di settore.

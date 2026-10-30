@@ -8,7 +8,7 @@ url: https://www.acn.gov.it/portale/faq-nis-ambito
 author: Agenzia per la Cybersicurezza Nazionale
 date_published: 2026
 date_ingested: 2026-04-29
-updated: 2026-10-28
+updated: 2026-10-30
 tags: [NIS2, ACN, FAQ, ambito, dimensione, gruppi imprese, PA, organizzazioni estere, DORA, soggetti critici]
 ---
 
@@ -168,6 +168,8 @@ Resta sempre la **identificazione governativa** ex art. 9 + notifica art. 3 c. 1
   - lett. b) **totale indipendenza delle attività e servizi NIS** dalle imprese collegate;
   - art. 3 c. 2 DPCM: non si applica l'art. 3 c. 10 decreto NIS al richiedente.
 - **Procedura**: il pdc dichiara in registrazione + fornisce dimensioni **disapplicando** art. 6 par. 2; le Autorità di settore valutano in fase di analisi; **comunicazione di esito** con la notifica di inizio aprile (art. 7 c. 3 decreto NIS).
+
+> *Nota redazionale (2026-10-30):* "concessa dall'Autorità di settore competente" è formula della FAQ, che la riconduce all'art. 3 cc. 4 e 12 e all'art. 11 c. 4 lett. c) del decreto. Il [[sources/D.Lgs. 138-2024 (Decreto NIS)|D.Lgs. 138/2024]] distingue due funzioni: le Autorità di settore procedono "all'individuazione dei soggetti a cui si applicano le deroghe di cui all'articolo 3, comma 4" (art. 11 c. 4 lett. c)); "l'Autorità nazionale competente NIS applica la clausola di salvaguardia di cui al comma 4" secondo i criteri ex art. 40 c. 1, cioè il DPCM 221/2024 (art. 3 c. 12). In piattaforma l'ACN riceve gli elementi di valutazione e "li condivide con le Autorità di settore interessate ai fini delle valutazioni di cui all'articolo 11, comma 4, lettera c)" (art. 12 c. 2 [[sources/Determinazione ACN piattaforma e procedure - 2026-04-13|Det. ACN 127437/2026]]). *Sintesi dell'agente:* la formula della FAQ corrisponde alla funzione delle Autorità di settore, mentre l'applicazione è attribuita all'ACN. Fa testo il decreto. Cfr. [[concepts/Clausola di salvaguardia]].
 
 #### Chi NON può richiedere la salvaguardia (`AMB.GI.3`)
 

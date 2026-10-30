@@ -8,7 +8,7 @@ url: https://www.acn.gov.it/portale/faq-nis-settori-sottosettori-e-tipologie-di-
 author: Agenzia per la Cybersicurezza Nazionale
 date_published: 2026
 date_ingested: 2026-04-29
-updated: 2026-10-28
+updated: 2026-10-30
 tags: [NIS2, ACN, FAQ, settori, sottosettori, allegato I, allegato II, allegato III, allegato IV, tipologie di soggetto]
 ---
 
@@ -85,7 +85,7 @@ Dir. 1991/271/CEE (D.Lgs. 152/1999): imprese con attività **prevalente** di rac
 
 ### Settore 8 — Infrastrutture digitali (`A1.8.1`–`A1.8.6`)
 
-**5 cluster di tipologie** con regimi dimensionali differenziati:
+**5 cluster di tipologie** (`A1.8.1`) con regimi dimensionali differenziati:
 
 1. **IXP** (internet exchange point) — superamento massimali piccola impresa → importante (essenziale se >medie).
 2. **Servizi fiduciari** (Reg. eIDAS 910/2014 sostituito da eIDAS-2 Reg. 2024/1183):
@@ -95,7 +95,7 @@ Dir. 1991/271/CEE (D.Lgs. 152/1999): imprese con attività **prevalente** di rac
 4. **DNS + TLD registry**: **essenziali a prescindere dalla dimensione** (anche piccole/micro).
 5. **Cloud + data center + CDN**: superamento massimali piccola impresa → importante (essenziale se >medie).
 
-**Giurisdizione nazionale per i cluster 4 e 5** (DNS/TLD/registry, cloud/DC/CDN) — art. 5 D.Lgs. 138/2024:
+**Giurisdizione nazionale per i cluster 4 e 5** (`A1.8.1`; DNS/TLD/registry, cloud/DC/CDN) — art. 5 D.Lgs. 138/2024:
 - stabilimento solo IT (anche se ha stabilimenti extra-UE);
 - stabilimento principale in IT (multi-Stato membro);
 - nessuno stabilimento UE + offerta in IT + designazione rappresentante UE in IT.
@@ -113,7 +113,7 @@ Dir. 1991/271/CEE (D.Lgs. 152/1999): imprese con attività **prevalente** di rac
 
 ### Settore 9 — Gestione dei servizi TIC b2b (`A1.9.1`–`A1.9.9`)
 
-**Tipologie**: fornitori di servizi gestiti + fornitori di servizi di sicurezza gestiti — superamento massimali piccola impresa + giurisdizione IT (stesso schema cloud).
+**Tipologie** (`A1.9.1`): fornitori di servizi gestiti + fornitori di servizi di sicurezza gestiti — superamento massimali piccola impresa + giurisdizione IT (stesso schema cloud).
 
 **"Assistenza o amministrazione attiva" (`A1.9.2`)** = svolta tramite **interconnessione diretta** tra rete fornitore e rete cliente. Esempi:
 - domini federati;
@@ -122,14 +122,14 @@ Dir. 1991/271/CEE (D.Lgs. 152/1999): imprese con attività **prevalente** di rac
 
 **NON rientra**: assistenza su dispositivi del cliente o tramite istruzioni verbali/scritte al personale cliente.
 
-**Fornitori di servizi gestiti (`A1.9.3`)** — esempi (non esaustivo):
+**Fornitori di servizi gestiti (`A1.9.3`)** — assistenza o amministrazione attiva erogata "tramite una interconnessione diretta tra la rete del fornitore e quella del cliente" (rinvio a `A1.9.2` per il criterio e gli esempi); esempi di servizi (non esaustivo):
 - installazione hardware/software;
 - aggiornamento configurazione/software/firmware (anche di sicurezza);
 - gestione software o servizi di piattaforma;
 - monitoraggio;
 - amministrazione.
 
-**Fornitori di servizi di sicurezza gestiti (`A1.9.4`)** — **13 servizi tipici** (elenco non esaustivo):
+**Fornitori di servizi di sicurezza gestiti (`A1.9.4`)** — stesso requisito dell'interconnessione diretta tra rete del fornitore e rete del cliente; **13 servizi tipici** (elenco non esaustivo):
 - **NOC** (Network Operation Centre);
 - **MDR** (Managed Detection and Response);
 - **IDS** (Intrusion Detection Systems);
@@ -214,7 +214,7 @@ Reg. 178/2002/CE (D.Lgs. 190/2006): imprese alimentari che si occupano di distri
 ### Settore 7 (Allegato II) — Ricerca (`A2.7.1`–`A2.7.2`)
 
 **Organizzazioni di ricerca** = obiettivo principale ricerca applicata o sviluppo sperimentale per sfruttamento commerciale (art. 2 c. 1 lett. mmm D.Lgs. 138/2024) — **esclusi gli istituti di istruzione**.
-- **Istituti di istruzione che svolgono ricerca**: in linea generale **NON** rientrano nel settore Ricerca; possono essere individuati come essenziali/importanti **via Allegato IV** su proposta MUR (artt. 3 c. 8 e 13, art. 11 c. 4 lett. b).
+- **Istituti di istruzione che svolgono ricerca**: in linea generale **NON** rientrano nel settore Ricerca; possono essere individuati come essenziali/importanti **via Allegato IV** su proposta MUR (art. 3 cc. 8 e 13, art. 11 c. 4 lett. b)).
 
 ### Settore PA (Allegato III) — `A3.1`–`A3.d.3.2`
 
@@ -231,7 +231,7 @@ Reg. 178/2002/CE (D.Lgs. 190/2006): imprese alimentari che si occupano di distri
 - **Aziende ospedaliere/ospedaliero-universitarie (`A3.c.4.3`–`A3.c.4.4`)**: 
   - Rientrano nel settore **Sanitario** (Allegato I p. 5), **NON** ASL.
   - Sono **soggetti distinti dalle ASL** di appartenenza → **registrazione autonoma**.
-- **ASL (`A3.c.4.1`)**: soggetti **importanti** ex art. 3 c. 6 + 6 c. 3; se **>medie imprese** anche prestatore sanitario → essenziali. **Doppia registrazione**: per Allegato III (PA) + Allegato I p. 5 (Sanitario).
+- **ASL (`A3.c.4.1`)**: soggetti **importanti** ex art. 3 c. 6 + 6 c. 3; come prestatori di assistenza sanitaria (Allegato I p. 5) importanti, **essenziali** solo se superano i massimali della media impresa. **Registrazione/aggiornamento ex art. 7 "per entrambi i settori e le tipologie di soggetto cui appaiono riconducibili"**: Allegato III (PA) + Allegato I p. 5 (Sanitario).
 - **ASL "fuori ambito" sulla piattaforma (`A3.c.4.5`)**: bug/falsa risposta della piattaforma se la ASL si registra solo per Allegato I p. 5 dichiarando dimensioni inferiori a piccola impresa — la classificazione "fuori ambito" **non è corretta** (ASL rientra comunque per Allegato III).
 - **Aziende Pubbliche di Servizi alla Persona (`A3.c.4.2`)**: NON in Allegato III; possono rientrare in Sanitario via Allegato I se prestano assistenza sanitaria (anche residuale) e superano massimali piccola impresa.
 - **Enti a struttura associativa (`A3.d.3.1`–`A3.d.3.2`)**: solo i soggetti dell'omonima categoria nell'elenco ISTAT.
@@ -239,7 +239,7 @@ Reg. 178/2002/CE (D.Lgs. 190/2006): imprese alimentari che si occupano di distri
 
 ### Allegato IV — Individuazione autoritativa (`A4.1`–`A4.3.5`)
 
-**Meccanismo (`A4.1`)** — art. 3 c. 8 + 13 D.Lgs. 138/2024:
+**Meccanismo (`A4.1`)** — art. 3 cc. 8 e 13 D.Lgs. 138/2024:
 - Soggetti individuati con **Determinazioni ACN** su proposta delle **Autorità di settore NIS**, sentito il **Tavolo per l'attuazione**.
 - L'**Autorità nazionale competente NIS notifica** ai soggetti l'individuazione.
 - Solo i soggetti notificati sono tenuti alla registrazione ex Allegato IV.
@@ -325,7 +325,7 @@ Reg. 178/2002/CE (D.Lgs. 190/2006): imprese alimentari che si occupano di distri
   - Aziende Pubbliche di Servizi alla Persona (Allegato III no, possibile via Allegato I p. 5) (`A3.c.4.2`);
   - Ordini/collegi professionali (Allegato III no, possibile via Allegato II) (`A3.d.3.2`).
 - **Doppia/tripla registrazione obbligatoria** in alcuni casi tipici:
-  - **ASL** = Allegato III + Allegato I p. 5 (Sanitario);
+  - **ASL** = Allegato III + Allegato I p. 5 (Sanitario), registrazione per entrambi i settori e le tipologie (`A3.c.4.1`);
   - **Consigli regionali/provinciali** = registrazione **separata** dall'Ente (`A3.b.1.1`);
   - **Aziende ospedaliere/universitarie** = registrazione **autonoma** dall'ASL territoriale, in Allegato I p. 5 (`A3.c.4.4`);
   - **Imprese >piccola con servizi TIC infragruppo** = doppia inclusione settore TIC + art. 3 c. 10.

@@ -8,6 +8,7 @@ url: https://www.acn.gov.it/portale/faq-nis-profili-generali
 author: Agenzia per la Cybersicurezza Nazionale
 date_published: 2026
 date_ingested: 2026-04-29
+updated: 2026-10-30
 tags: [NIS2, ACN, FAQ, profili generali, panoramica]
 ---
 
@@ -53,7 +54,7 @@ Le 9 Autorità di settore NIS supportano ACN, **convalidano l'elenco dei soggett
 
 | Articolo D.Lgs. 138/2024 | Obbligo |
 |---|---|
-| art. 7 | **Registrazione** e aggiornamento delle informazioni sulla [[concepts/Piattaforma digitale ACN]] |
+| art. 7 | **Registrazione** e aggiornamento delle informazioni sulla [[concepts/Piattaforma digitale ACN]]. In registrazione (testo): "Ove possibile, i soggetti devono anche selezionare uno o più settori/sottosettori in cui operano, tra quelli previsti dagli allegati I, II e III, e la relativa tipologia di soggetto in cui si identificano tra quelle previste dagli allegati I, II, III e IV." |
 | art. 23 | **Organi di amministrazione e direttivi**: approvazione/supervisione/formazione/responsabilità |
 | art. 24 | **Misure di sicurezza** in 10 ambiti minimi obbligatori |
 | art. 25 | **Notifica incidente significativo** (24h pre-notifica + 72h notifica + 1 mese relazione finale) |

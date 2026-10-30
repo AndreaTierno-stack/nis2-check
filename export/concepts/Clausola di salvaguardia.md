@@ -3,6 +3,7 @@ title: Clausola di salvaguardia
 type: concept
 scope: both
 tags: [nis2, italia, sicurezza-nazionale, eccezioni]
+updated: 2026-10-30
 sources: ["[[sources/D.Lgs. 138-2024 (Decreto NIS)]]", "[[sources/Direttiva (UE) 2022-2555 (NIS2)]]", "[[sources/Determinazione ACN piattaforma e procedure - 2026-04-13]]", "[[sources/Determinazione ACN funzionamento Tavolo NIS - 2025-07-16]]", "[[sources/FAQ NIS - Ambito]]"]
 aliases: [Eccezione sicurezza nazionale, Clausola di esclusione]
 ---
@@ -24,7 +25,7 @@ Base giuridica:
 |---|---|---|
 | Funzione | Derogare al **consolidamento dimensionale di gruppo** (imprese collegate/associate) quando il calcolo è ritenuto sproporzionato | Sottrarre in tutto/in parte il soggetto al regime NIS per **sicurezza nazionale / difesa / ordine pubblico / attività giudiziaria / organi costituzionali** |
 | Base giuridica | art. 3 c. 4 [[sources/D.Lgs. 138-2024 (Decreto NIS)]] (**definisce** la deroga: proporzionalità e indipendenza dalle imprese collegate) + art. 3 c. 12 (l'**ACN applica** la deroga del c. 4 secondo i criteri ex art. 40 c. 1) + **DPCM 221/2024** (i criteri, art. 3 c. 1 DPCM) | **NIS2 art. 2(7)-(8)** + esclusioni di recepimento del D.Lgs. 138/2024 |
-| Chi decide | ACN d'intesa con le Autorità di settore (concessione discrezionale) | Previsione di legge / atto dell'Autorità competente |
+| Chi decide | l'ACN applica la deroga (art. 3 c. 12); le Autorità di settore individuano i soggetti cui si applica (art. 11 c. 4 lett. c)); in piattaforma l'ACN condivide gli elementi di valutazione con le Autorità di settore interessate (art. 12 c. 2 Det. 127437/2026) | Previsione di legge / atto dell'Autorità competente |
 | Codice FAQ | `AMB.GI.2` (richiesta), `AMB.GI.3` (chi non può richiederla) — [[sources/FAQ NIS - Ambito]] | — |
 | Procedura piattaforma | art. 12 [[sources/Determinazione ACN piattaforma e procedure - 2026-04-13]] | art. 12 (modalità riservate, cfr. sezione sotto) |
 | Effetto sull'ambito | Può far **uscire** dall'ambito un soggetto altrimenti "grande" per effetto del consolidamento | Esclusione totale o parziale dagli obblighi |
