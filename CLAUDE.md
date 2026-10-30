@@ -50,7 +50,7 @@ Struttura: `sectors/`, `wizard/`, `signals/`, `regimes/`, più `VERSION` e `CHAN
 
 **Regimi**: `regimes/{psnc,dora,cloud_pa}.yaml` hanno `status: routing_only_v0_1` — instradano, non risolvono nel merito; DORA è dichiarato ma nessun settore del corpus lo instrada (ADR 0014). In v0.1 ogni regime dichiara nel `meta` `assessment_mode: escalate_to_advisor` e `verdict_outcome: ambiguous`, copiati dall'engine attraverso il `reference` dell'override, e popola un elemento di `Verdict.regimeRouting` (array, un elemento per override che matcha, nell'ordine del file di settore; ADR 0009 + amendment 2026-10-27). Non implementare la risoluzione senza decisione esplicita di scope (è v0.2+).
 
-**Semver corpus**: MAJOR = cambio di schema incompatibile; MINOR = cambia questionario o regole; PATCH = correzioni di attestazione/copy senza effetto sugli esiti. Ogni bump → voce CHANGELOG. Le fixture dichiarano `corpus_version` e vanno riallineate a ogni MINOR/MAJOR.
+**Semver corpus**: PATCH = testi, citazioni, registro, catalogo; MINOR = questionario, regole, schema, invarianti; MAJOR = formato del corpus o del Verdict incompatibile. Ogni bump → voce CHANGELOG. Le fixture dichiarano `corpus_version` e si riallineano a ogni bump.
 
 **Lacuna strutturale e stop-and-ingest** (regola stabile): una lacuna è strutturale quando soddisfa 2 criteri su 3: fonte primaria mancante, impatto sul tool, centralità. Una lacuna strutturale impone stop-and-ingest. Un riscontro con esito no-op non consuma il credito (DEC-003).
 

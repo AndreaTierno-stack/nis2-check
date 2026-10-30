@@ -117,9 +117,15 @@ sector_specific_questions:
       determinazione dell'autorità competente. Lo strumento può solo segnalarti
       questa possibilità.
     options:
-      - id: tpl
-        label_it: "Trasporto pubblico locale"
+      # Corpus 0.8.0: l90_cumulo solo per le societa' di trasporto pubblico indicate
+      # dall'art. 1 c. 1 L. 90/2024 (stesso schema di inhouse_soggetto_l90); le altre
+      # societa' di trasporto pubblico locale non lo attivano.
+      - id: tpl_soggetto_l90
+        label_it: "Società di trasporto pubblico urbano con bacino di utenza non inferiore a 100.000 abitanti, o di trasporto pubblico extraurbano operante nell'ambito delle città metropolitane"
         activates_signals: [allegato_iv_individuazione, l90_cumulo]
+      - id: tpl
+        label_it: "Altro trasporto pubblico locale"
+        activates_signals: [allegato_iv_individuazione]
       - id: istituto_ricerca
         label_it: "Istituto di istruzione che svolge ricerca"
         activates_signals: [allegato_iv_individuazione]

@@ -54,8 +54,8 @@ qualification_rules:
   - condition: dimension == micro_or_piccola AND soggetto_critico == no
     outcome: out_of_scope
     verdict_outcome: likely_out_of_scope   # vincolo fisso: out_of_scope -> likely_out_of_scope
-    reasoning_trace: "Dimensione dichiarata: Micro o piccola impresa. Classificazione secondo FAQ ACN AMB.DI.1 e Racc. UE 2003/361. Esclusione dall'ambito NIS2 in via generale (D.Lgs. 138/2024 art. 3)."
-    citations: [dlgs_138_2024_art_3, racc_ue_2003_361, faq_amb_di_1]
+    reasoning_trace: "Dimensione dichiarata: Micro o piccola impresa. Classificazione secondo FAQ ACN AMB.DI.1 e Racc. UE 2003/361. Esclusione dall'ambito NIS2 in via generale (art. 3 c. 2 D.Lgs. 138/2024)."
+    citations: [dlgs_138_2024_art_3_c_2, racc_ue_2003_361, faq_amb_di_1]
     notices: [individuazione_acn_art_3_c_9, imprese_collegate_art_3_c_10]
   - condition: dimension == media AND soggetto_critico == no
     outcome: categorical_assessment

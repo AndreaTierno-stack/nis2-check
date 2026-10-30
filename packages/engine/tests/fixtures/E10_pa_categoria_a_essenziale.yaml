@@ -6,7 +6,7 @@ description_it: >
   per art. 6 c. 1 lett. e) (ADR 0011, supera la "strada 3"). Avvisi dal catalogo:
   Capo V non applicabile agli organi costituzionali (art. 4 c. 2) ed esclusioni di
   sicurezza nazionale (art. 4 D.Lgs. 138/2024) per attività. Signal di cumulo L. 90 attivo.
-corpus_version: 0.7.0
+corpus_version: 0.8.0
 sector: pubblica_amministrazione
 
 inputs:

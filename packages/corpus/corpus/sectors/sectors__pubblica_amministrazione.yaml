@@ -231,11 +231,19 @@ allegato_iv_channel:
   # soggetti pubblici fuori dalle categorie dell'Allegato III: possibili categorie aggiunte con DPCM
   notices: [pa_categorie_aggiunte_dpcm_art_3_c_7, allegato_iv_individuazione_art_3_c_8]
   profili:
-    - id: tpl
-      label_it: "Trasporto pubblico locale"
+    # Corpus 0.8.0: l'art. 1 c. 1 L. 90/2024 comprende solo le societa' di trasporto
+    # pubblico urbano con bacino di utenza non inferiore a 100.000 abitanti e quelle di
+    # trasporto pubblico extraurbano operanti nell'ambito delle citta' metropolitane.
+    - id: tpl_soggetto_l90
+      label_it: "Trasporto pubblico locale indicato dall'art. 1 c. 1 L. 90/2024"
       autorita_proponente: MIT
       categorization_model: model_1   # All. IV tipo 1 -> modello 1
-      l90_overlap: "yes"                  # TPL e' nell'elenco L. 90 art. 1 c. 1
+      l90_overlap: "yes"                  # art. 1 c. 1 L. 90
+    - id: tpl
+      label_it: "Altro trasporto pubblico locale"
+      autorita_proponente: MIT
+      categorization_model: model_1   # All. IV tipo 1 -> modello 1
+      l90_overlap: "no"                   # fuori dall'art. 1 c. 1 L. 90 (corpus 0.8.0)
     - id: istituto_ricerca
       label_it: "Istituto di istruzione che svolge ricerca"
       autorita_proponente: MUR

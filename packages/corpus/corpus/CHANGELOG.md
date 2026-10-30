@@ -3,13 +3,24 @@
 Tutte le modifiche rilevanti al corpus normativo (wizard, sectors, signals, regimes, fixtures) sono registrate in questo file.
 
 Formato ispirato a [Keep a Changelog](https://keepachangelog.com/it/1.1.0/); versioning [SemVer](https://semver.org/lang/it/) applicato al **contenuto del corpus** (non al codice dell'engine):
-- **major**: cambio di schema incompatibile (il contratto dati letto dall'engine cambia in modo non retro-compatibile).
-- **minor**: cambia il questionario o cambiano le regole (incluse le modifiche che alterano un esito atteso delle fixture).
-- **patch**: correzioni di attestazione o di copy senza effetto sugli esiti.
+- **major**: formato del corpus o del Verdict incompatibile (il contratto dati letto dall'engine o prodotto dall'engine cambia in modo non retro-compatibile).
+- **minor**: cambia il questionario, cambiano le regole, lo schema o gli invarianti.
+- **patch**: cambiano testi, citazioni, registro o catalogo.
 
-Ogni bump ha una voce in questo file; le fixture dichiarano `corpus_version` e si riallineano a ogni minor/major.
+Convenzione di CLAUDE.md (sezione corpus), nella formulazione del 2026-10-30. Le versioni precedenti non si rinumerano.
+
+Ogni bump ha una voce in questo file; le fixture dichiarano `corpus_version` e si riallineano a ogni bump.
 
 ## [Unreleased]
+
+## [0.8.0] — 2026-10-30 — Residui di 0.7.0: art. 3 c. 2 nelle regole micro/piccola, trasporto pubblico nella L. 90
+
+Minor (convenzione sopra): cambia il questionario (opzione `tpl_soggetto_l90`). Schema e invarianti invariati. Nessun ingest. Preparata come 0.7.1 e rinumerata prima del push.
+
+### Changed
+- **Regole micro/piccola di cloud ed energia** — `dlgs_138_2024_art_3` → `dlgs_138_2024_art_3_c_2` (il contenuto della regola è il superamento dei massimali delle piccole imprese, art. 3 c. 2; nodo D.Lgs. 138/2024, riga 27); reasoning trace "art. 3 c. 2". Registro: voce nuova `dlgs_138_2024_art_3_c_2`; `dlgs_138_2024_art_3` rimosso (senza usi). 76 voci.
+- **`wizard/wizard__pubblica_amministrazione.yaml`, `profilo_allegato_iv`** — opzione nuova `tpl_soggetto_l90` (trasporto pubblico urbano con bacino di utenza non inferiore a 100.000 abitanti o extraurbano nell'ambito delle città metropolitane, art. 1 c. 1 L. 90/2024): è l'unica opzione di trasporto che attiva `l90_cumulo`. `tpl` ("altro trasporto pubblico locale") non lo attiva più. Profili di settore allineati (`l90_overlap`). Nessuna opzione esistente distingueva i due casi; citazioni invariate (`l90_2024_art_1_c_1` già nel segnale).
+- **Fixture** — E03: citazioni `dlgs_138_2024_art_3` → `dlgs_138_2024_art_3_c_2`, esito invariato. Nessuna fixture copre `tpl`. `corpus_version` → 0.8.0 su tutte le 25.
 
 ## [0.7.0] — 2026-10-30 — L. 90 nel percorso PA, Allegato IV, salvaguardia dimensionale e citazioni dal lint KB del 2026-10-30
 

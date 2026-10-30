@@ -1,5 +1,5 @@
 # ============================================================================
-# Registro delle citazioni — attestazione KB dei citation ID (corpus 0.7.0)
+# Registro delle citazioni — attestazione KB dei citation ID (corpus 0.8.0)
 # ============================================================================
 # Ogni voce collega un citation ID al nodo KB che lo attesta, con riga e modo
 # dell'attestazione. Da corpus 0.6.0 il registro copre tutti gli ID usati nel
@@ -104,10 +104,6 @@ citations:
     kb_node: wiki/sources/D.Lgs. 138-2024 (Decreto NIS).md
     kb_lines: "64"
     attestation: "Verbatim: '«servizio di cloud computing»: un servizio digitale che consente l'amministrazione su richiesta di un pool scalabile ed elastico di risorse di calcolo condivisibili e l'ampio accesso remoto a quest'ultimo, anche ove tali risorse sono distribuite in varie ubicazioni'. Identico al PDF in raw/ e alla citazione in FAQ A1.8.1."
-  - id: dlgs_138_2024_art_3
-    kb_node: wiki/sources/D.Lgs. 138-2024 (Decreto NIS).md
-    kb_lines: "27"
-    attestation: "Ambito (art. 3), attestazione a livello di articolo: soggetti pubblici e privati delle tipologie degli Allegati I-IV, sopra i massimali delle piccole imprese per gli Allegati I-II (c. 2), con i canali di rientro indipendenti dalla dimensione (righe 28-34)."
   - id: dlgs_138_2024_art_3_c_1
     kb_node: wiki/sources/D.Lgs. 138-2024 (Decreto NIS).md
     kb_lines: "27"
@@ -132,6 +128,10 @@ citations:
     kb_node: wiki/sources/D.Lgs. 138-2024 (Decreto NIS).md
     kb_lines: "33"
     attestation: "Verbatim: 'Il presente decreto non si applica, ai sensi dell'articolo 2, comma 10, della direttiva, ai soggetti esentati dall'ambito di applicazione del regolamento (UE) 2022/2554'. Conforme al PDF in raw/."
+  - id: dlgs_138_2024_art_3_c_2
+    kb_node: wiki/sources/D.Lgs. 138-2024 (Decreto NIS).md
+    kb_lines: "27"
+    attestation: "Ambito, art. 3 c. 2: il decreto si applica ai soggetti delle tipologie degli Allegati I e II 'sopra i massimali delle piccole imprese' (riga 27, '(c. 2)'). Conforme al PDF in raw/ (p. 13): 'Il presente decreto si applica ai soggetti delle tipologie di cui all'allegato I e II, che superano i massimali per le piccole imprese ai sensi dell'articolo 2, paragrafo 2, dell'allegato alla raccomandazione 2003/361/CE'. Corpus 0.8.0: sostituisce l'ID di articolo dlgs_138_2024_art_3 nelle regole micro/piccola di cloud ed energia (ID di articolo rimosso, senza usi)."
   - id: dlgs_138_2024_art_3_c_4
     kb_node: wiki/concepts/Clausola di salvaguardia.md
     kb_lines: 27, 33
