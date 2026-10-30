@@ -34,7 +34,7 @@ export function QuestionPage({ question, index, total, answers, onAnswer, onBack
   };
 
   return (
-    <Card className="space-y-6 p-6">
+    <Card className="space-y-6 p-6" data-testid="question" data-question={question.id}>
       <p className="text-sm text-text-muted">{copy.questions.progress(index + 1, total)}</p>
       <fieldset className="space-y-4">
         <legend className="text-xl font-semibold">{node.label_it}</legend>
@@ -48,6 +48,7 @@ export function QuestionPage({ question, index, total, answers, onAnswer, onBack
                 type="button"
                 role={multi ? "checkbox" : "radio"}
                 aria-checked={selected(o.id)}
+                data-option={o.id}
                 onClick={() => toggle(o.id)}
                 className={cn(
                   "rounded-full border px-4 py-2 text-left text-sm transition-colors",
@@ -63,6 +64,7 @@ export function QuestionPage({ question, index, total, answers, onAnswer, onBack
             {options.map((o) => (
               <label
                 key={o.id}
+                data-option={o.id}
                 className={cn(
                   "flex cursor-pointer items-start gap-3 rounded-row border px-4 py-3 text-sm transition-colors",
                   selected(o.id) ? "border-accent bg-accent-soft" : "border-border hover:bg-accent-soft",
@@ -86,7 +88,7 @@ export function QuestionPage({ question, index, total, answers, onAnswer, onBack
         <Button variant="outline" onClick={onBack}>
           {copy.questions.back}
         </Button>
-        <Button onClick={onNext} disabled={!isAnswered(question, answers)}>
+        <Button onClick={onNext} disabled={!isAnswered(question, answers)} data-testid="next">
           {isLast ? copy.questions.finish : copy.questions.next}
         </Button>
       </div>

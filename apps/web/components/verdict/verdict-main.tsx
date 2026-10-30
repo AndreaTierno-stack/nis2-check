@@ -1,13 +1,217 @@
+"use client";
+
+import { Fragment, useState } from "react";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { Separator } from "@/components/ui/separator";
+import { buildSources, type Sources } from "@/lib/sources";
+import { cn } from "@/lib/utils";
+import { SCALE, facts, notices, resolutionStep, scalePosition, tone, traceRows } from "@/lib/verdict";
 import { copy } from "@/src/copy.it";
+import { Cite } from "./cite";
 import type { VerdictProps } from "./types";
 
-/** Placeholder of the verdict page (S4.1 block 2); the full page comes with block 3. */
-export function VerdictMain({ verdict }: VerdictProps) {
+const TONE = {
+  accent: "bg-accent text-surface",
+  warn: "bg-warn text-text",
+  muted: "bg-text-muted text-surface",
+} as const;
+
+const STATUS_BADGE = { segnalato: "warn", gestito: "default", non_gestito: "muted" } as const;
+
+/** Outcome phrase from the corpus, with the qualification in bold green. */
+function Phrase({ text, qualifica }: { text: string; qualifica?: string }) {
+  if (!qualifica) return <>{text}</>;
+  const parts = text.split(new RegExp(`(\\b${qualifica}\\b)`, "i"));
   return (
-    <Card className="space-y-2 p-6">
-      <h1 className="text-xl font-semibold">{copy.verdict.title}</h1>
-      <p>{copy.verdict.scale[verdict.outcome]}</p>
+    <>
+      {parts.map((p, i) =>
+        p.toLowerCase() === qualifica.toLowerCase() ? (
+          <strong key={i} className="font-semibold text-accent">
+            {p}
+          </strong>
+        ) : (
+          <Fragment key={i}>{p}</Fragment>
+        ),
+      )}
+    </>
+  );
+}
+
+function OutcomePanel({ props, sources, open, onToggle }: { props: VerdictProps; sources: Sources; open: boolean; onToggle: () => void }) {
+  const { verdict, ctx, answers, corpus } = props;
+  const resolution = resolutionStep(verdict);
+  const f = facts(verdict, ctx, answers, corpus);
+  const position = scalePosition(verdict);
+  return (
+    <Card className="overflow-hidden" data-testid="outcome" data-outcome={verdict.outcome} data-mode={verdict.assessmentMode}>
+      <div className={cn("space-y-4 p-6", TONE[tone(verdict)])}>
+        <h1 className="text-xl font-semibold">{copy.verdict.title}</h1>
+        <ol className="flex flex-wrap gap-2" aria-label={copy.verdict.title}>
+          {SCALE.map((s, i) => (
+            <li
+              key={s}
+              aria-current={i === position ? "true" : undefined}
+              className={cn("rounded-full px-4 py-1 text-sm", i === position ? "bg-surface font-semibold text-text" : "opacity-80")}
+            >
+              {copy.verdict.scale[s]}
+            </li>
+          ))}
+        </ol>
+      </div>
+      <div className="space-y-4 p-6">
+        {resolution.corpusText && (
+          <p className="text-lg leading-relaxed">
+            <Phrase text={resolution.corpusText} {...(verdict.qualifica ? { qualifica: verdict.qualifica.value } : {})} />{" "}
+            <Cite ids={resolution.citations} sources={sources} />
+          </p>
+        )}
+        <p className="font-semibold">{copy.verdict.advisor}</p>
+        <Separator />
+        <dl className="flex flex-wrap gap-x-10 gap-y-3">
+          <div>
+            <dt className="text-sm text-text-muted">{copy.verdict.facts.tipologia}</dt>
+            <dd className="font-semibold">{f.tipologia}</dd>
+          </div>
+          <div>
+            <dt className="text-sm text-text-muted">{copy.verdict.facts.qualifica}</dt>
+            <dd className="font-semibold" data-testid="qualifica">
+              {f.qualifica}
+            </dd>
+          </div>
+          <div>
+            <dt className="text-sm text-text-muted">{copy.verdict.facts.regimi}</dt>
+            <dd className="font-semibold" data-testid="regimi">
+              {f.regimi.join("; ")}
+            </dd>
+          </div>
+        </dl>
+        <Button variant="link" className="h-auto px-0" onClick={onToggle} aria-expanded={open} aria-controls="come-calcolato">
+          {open ? copy.verdict.hideTrace : copy.verdict.showTrace}
+        </Button>
+      </div>
     </Card>
   );
 }
+
+function NoticesPanel({ props, sources }: { props: VerdictProps; sources: Sources }) {
+  const list = notices(props.verdict, props.corpus);
+  if (!list.length) return null;
+  return (
+    <section className="space-y-3" aria-labelledby="punti-title">
+      <h2 id="punti-title" className="text-lg font-semibold">
+        {copy.verdict.noticesTitle(list.length)}
+      </h2>
+      <Card className="divide-y divide-border">
+        {list.map((n) => (
+          <div key={n.id} className="space-y-2 p-5" data-testid="notice" data-notice={n.id}>
+            <div className="flex flex-wrap items-center gap-3">
+              <span aria-hidden className="h-2.5 w-2.5 rounded-full bg-warn" />
+              <h3 className="font-semibold">{n.title}</h3>
+              <Badge variant={STATUS_BADGE[n.status]}>{copy.verdict.status[n.status]}</Badge>
+            </div>
+            <p className="text-sm text-text-soft">
+              {n.description} <Cite ids={n.citations} sources={sources} />
+            </p>
+          </div>
+        ))}
+      </Card>
+    </section>
+  );
+}
+
+function TracePanel({ props, sources }: { props: VerdictProps; sources: Sources }) {
+  const rows = traceRows(props.verdict);
+  const resolution = resolutionStep(props.verdict);
+  const conflict = resolution.result === "conflict";
+  return (
+    <section id="come-calcolato" className="space-y-3" aria-labelledby="trace-title">
+      <h2 id="trace-title" className="text-lg font-semibold">
+        {copy.verdict.traceTitle}
+      </h2>
+      <Card className="space-y-2 p-3">
+        {rows.map((r) =>
+          r.decided ? (
+            <div key={r.stage} className="space-y-2 rounded-row bg-accent-soft p-4" data-testid="trace-decided" data-stage={r.stage}>
+              <h3 className="font-semibold">{copy.verdict.stages[r.stage]}</h3>
+              {r.texts.map((t, i) => (
+                <p key={i} className="text-sm">
+                  {t.text} <Cite ids={t.citations} sources={sources} onSoft />
+                </p>
+              ))}
+            </div>
+          ) : (
+            <p key={r.stage} className="rounded-row px-4 py-3 text-sm" data-stage={r.stage}>
+              <span className="font-semibold">{copy.verdict.stages[r.stage]}:</span> <span className="text-text-soft">{r.reason}</span>
+            </p>
+          ),
+        )}
+        {conflict && resolution.corpusText && (
+          <div className="space-y-2 rounded-row bg-accent-soft p-4" data-testid="trace-conflict">
+            <p className="text-sm font-semibold">{copy.verdict.reasons.conflict}</p>
+            <p className="text-sm">
+              {resolution.corpusText} <Cite ids={resolution.citations} sources={sources} onSoft />
+            </p>
+          </div>
+        )}
+      </Card>
+    </section>
+  );
+}
+
+function SourcesPanel({ sources }: { sources: Sources }) {
+  if (!sources.groups.length) return null;
+  return (
+    <section className="space-y-3" aria-labelledby="fonti-title">
+      <div className="space-y-1">
+        <h2 id="fonti-title" className="text-lg font-semibold">
+          {copy.verdict.sourcesTitle}
+        </h2>
+        <p className="text-sm text-text-soft">{copy.verdict.sourcesSubtitle}</p>
+      </div>
+      <Card className="space-y-6 p-6">
+        {sources.groups.map((g) => (
+          <div key={g.group} className="space-y-3">
+            <h3 className="font-semibold">{copy.verdict.groups[g.group]}</h3>
+            <ol className="space-y-3">
+              {g.items.map((s) => (
+                <li key={s.id} id={`fonte-${s.n}`} className="flex gap-3" data-testid="source" data-source={s.id}>
+                  <span className="flex h-6 min-w-6 items-center justify-center rounded-full bg-accent-soft px-1.5 text-xs font-semibold text-accent">
+                    {s.n}
+                  </span>
+                  <span className="space-y-0.5 text-sm">
+                    <span className="block font-semibold">{s.reference}</span>
+                    <span className="block text-text-soft">{s.label}</span>
+                    {s.url && (
+                      <a className="text-accent underline-offset-4 hover:underline" href={s.url}>
+                        {copy.verdict.sourceLink}
+                      </a>
+                    )}
+                  </span>
+                </li>
+              ))}
+            </ol>
+          </div>
+        ))}
+      </Card>
+    </section>
+  );
+}
+
+/** Main column of the verdict page: banner, outcome, notices, trace (folded), sources. */
+export function VerdictMain(props: VerdictProps) {
+  const [open, setOpen] = useState(false);
+  const sources = buildSources(props.verdict.citations, props.corpus);
+  return (
+    <>
+      <p className="rounded-full bg-warn-soft px-5 py-3 text-sm font-medium text-warn-text">{copy.verdict.banner}</p>
+      <OutcomePanel props={props} sources={sources} open={open} onToggle={() => setOpen((o) => !o)} />
+      <NoticesPanel props={props} sources={sources} />
+      {open && <TracePanel props={props} sources={sources} />}
+      <SourcesPanel sources={sources} />
+    </>
+  );
+}
+
+export { TracePanel };

@@ -246,6 +246,8 @@ export interface Resolution {
   conflict: boolean;
   /** Exclusions that matched but did not decide: they emit their notices_if_demoted (ADR 0016 amendment). */
   demoted: Exclusion[];
+  /** The corpus text of the construct whose outcome is copied: the phrase of the outcome. */
+  corpusText?: string;
 }
 
 const escalation = (stage: Stage, deciding: Construct[], code: string, conflict = false, demoted: Exclusion[] = []): Resolution => ({
@@ -266,6 +268,7 @@ const copied = (stage: Stage, deciding: Construct[], head: Construct = deciding[
   ...(deciding.length === 1 && head.qualifica ? { qualifica: head.qualifica } : {}),
   conflict: false,
   demoted,
+  ...(head.corpusText !== undefined ? { corpusText: head.corpusText } : {}),
 });
 
 /** The conflicts entry of a trigger type, as a construct (corpus 0.10.0). */
@@ -498,6 +501,7 @@ export function evaluate(input: EvaluationInput, corpus: Corpus): Verdict {
     citations: uniq(r.deciding.flatMap((c) => c.citations)),
     ...(r.code ? { code: r.code } : {}),
     detail: `decide lo stadio ${r.stage}`,
+    ...(r.corpusText !== undefined ? { corpusText: r.corpusText } : {}),
   });
 
   if (r.assessmentMode === 'escalate_to_advisor' && r.outcome !== 'ambiguous') {
