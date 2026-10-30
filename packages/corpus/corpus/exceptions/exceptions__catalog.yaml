@@ -231,5 +231,5 @@ exceptions:
     status: non_gestito
     title: "Settori e tipologie valutati dallo strumento"
     description: "Lo strumento valuta tre ambiti: il sottosettore energia elettrica (Allegato I, punto 1, lettera a), i fornitori di servizi di cloud computing (Allegato I, punto 8) e le pubbliche amministrazioni dell'Allegato III. Gli altri settori, sottosettori e tipologie degli Allegati I, II e IV non sono valutati."
-    citations: [dlgs_138_2024_art_3, dlgs_138_2024_allegato_I, dlgs_138_2024_allegato_III]
+    citations: [dlgs_138_2024_art_3_c_1, dlgs_138_2024_allegato_I, dlgs_138_2024_allegato_III]
     applies_to: [cloud_computing, energia_elettrica, pubblica_amministrazione]

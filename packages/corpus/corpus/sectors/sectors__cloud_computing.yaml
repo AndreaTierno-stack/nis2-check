@@ -27,10 +27,10 @@ tipologie:
   - id: cloud_provider
     label_it: "Fornitore di servizi di cloud computing"
     # C-C2 (corpus 0.6.0): definizione dal decreto (art. 2 c. 1 lett. bbb), identica
-    # all'art. 6 p. 30 della direttiva; FAQ a livello di pagina: la KB riporta il
-    # cluster cloud sotto l'intervallo A1.8.1-A1.8.6, non sotto il codice A1.8.1.
+    # all'art. 6 p. 30 della direttiva. Corpus 0.6.1: faq_settori_sottosettori ->
+    # faq_a1_8_1 (cluster cloud etichettato A1.8.1 nella KB, lint del 2026-10-30, V2).
     base_legal_definition: dlgs_138_2024_art_2_c_1_lett_bbb
-    citations: [dlgs_138_2024_art_2_c_1_lett_bbb, dir_nis2_art_6_30, faq_settori_sottosettori, det_acn_155238_2026_art_2_c_3]
+    citations: [dlgs_138_2024_art_2_c_1_lett_bbb, dir_nis2_art_6_30, faq_a1_8_1, det_acn_155238_2026_art_2_c_3]
     verdict_strategy: categorical_assessment
     categorization_model: model_2   # allegato 2 del modello: art. 2 c. 3 Det. 155238/2026
     typical_psnc_overlap: medium

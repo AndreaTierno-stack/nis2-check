@@ -36,7 +36,7 @@ signals:
     kind: cross_sector
     message_template: cross_sector_pa
     base_reasoning_trace: "Il soggetto, in quanto ente pubblico, oltre al rientro per il settore di attivita' potrebbe rientrare nel perimetro NIS anche come Pubblica Amministrazione (Allegato III D.Lgs. 138/2024); la registrazione sulla piattaforma ACN indica tutte le tipologie pertinenti. La valutazione del rientro come PA presuppone l'inclusione nell'elenco ISTAT delle amministrazioni pubbliche (c.d. Lista S13). Verifica con consulente qualificato."
-    citations: [dlgs_138_2024_allegato_III, l_196_2009_art_1_c_3, det_piattaforma_127437_2026_art_11_c_2]
+    citations: [dlgs_138_2024_allegato_III, l_196_2009_art_1_c_3, dlgs_138_2024_art_7_c_1_lett_d, det_piattaforma_127437_2026_art_11_c_2_lett_g]
 
   # --------------------------------------------------------------------------
   # ASL -> doppia identita' All. III (PA) + All. I p. 5 (Sanitario)
@@ -45,7 +45,7 @@ signals:
     kind: cross_sector
     message_template: asl_doppia_identita
     base_reasoning_trace: "L'ASL ha una doppia identita' nel perimetro NIS: rientra come amministrazione locale (Allegato III, soggetto importante) e come prestatore di assistenza sanitaria (Allegato I p. 5: soggetto importante, essenziale se supera i massimali della media impresa, FAQ A3.c.4.1). La registrazione sulla piattaforma ACN indica tutte le tipologie pertinenti, per entrambe le identita'. AVVERTENZA: e' noto un comportamento della piattaforma per cui un'ASL registrata solo per l'Allegato I p. 5 con dimensione sotto la soglia viene dichiarata fuori ambito (A3.c.4.5); l'ASL rientra comunque ex Allegato III. NOTA: la valutazione del settore Sanitario non e' coperta dal MVP v0.1.0."
-    citations: [faq_a3_c_4_1, faq_a3_c_4_5, det_piattaforma_127437_2026_art_11_c_2]
+    citations: [faq_a3_c_4_1, faq_a3_c_4_5, dlgs_138_2024_art_7_c_1_lett_d, det_piattaforma_127437_2026_art_11_c_2_lett_g]
 
   # --------------------------------------------------------------------------
   # Cloud provider -> possibile doppia identita' MSP/MSSP (All. I p. 9)
@@ -54,7 +54,7 @@ signals:
     kind: cross_sector
     message_template: cloud_plus_msp_dual_registration
     base_reasoning_trace: "Il soggetto, oltre a fornire servizi cloud (Allegato I p. 8), sembra fornire anche servizi gestiti o di sicurezza gestiti ad altre organizzazioni tramite un'interconnessione diretta tra la rete del fornitore e quella del cliente (FAQ A1.9.2), il che configura una possibile identita' di fornitore di servizi gestiti o di servizi di sicurezza gestiti (Allegato I p. 9). La registrazione sulla piattaforma ACN indica tutte le tipologie pertinenti. Verifica con consulente qualificato."
-    citations: [faq_a1_9_2, faq_a1_9_3, faq_a1_9_4, det_piattaforma_127437_2026_art_11_c_2]
+    citations: [faq_a1_9_1, faq_a1_9_2, faq_a1_9_3, faq_a1_9_4, dlgs_138_2024_art_7_c_1_lett_d, det_piattaforma_127437_2026_art_11_c_2_lett_g]
 
   # --------------------------------------------------------------------------
   # Soggetto elettrico con piu' tipologie -> registrazioni separate
@@ -63,7 +63,7 @@ signals:
     kind: cross_sector
     message_template: multi_tipologia_elettrica_registrazione_separata
     base_reasoning_trace: "Il soggetto sembra svolgere piu' attivita' nel settore elettrico (es. distribuzione e vendita). La registrazione sulla piattaforma ACN indica tutte le tipologie pertinenti. La valutazione di rientro riguarda ciascuna tipologia svolta. Verifica con consulente qualificato."
-    citations: [faq_settori_sottosettori, dlgs_138_2024_art_7, det_piattaforma_127437_2026_art_11_c_2]
+    citations: [faq_settori_sottosettori, dlgs_138_2024_art_7_c_1_lett_d, det_piattaforma_127437_2026_art_11_c_2_lett_g]
 
   # --------------------------------------------------------------------------
   # Canale Allegato IV (individuazione governativa) — qualitative signal

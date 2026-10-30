@@ -30,4 +30,4 @@ expected:
   regime_routing: []
   corpus_ref: "sectors/sectors__energia_elettrica.yaml#qualification_rules[dimension==grande AND soggetto_critico==no] + multi_identity_intra_sector + wizard/wizard__energia_elettrica.yaml#pertinenza_pubblica_energia.tipo_partecipazione_pubblica[capitale_prevalente]"
 
-citations: [dlgs_138_2024_art_6, faq_amb_di_1, racc_ue_2003_361, faq_a1_1_a_4, faq_settori_sottosettori, dlgs_138_2024_art_7, det_piattaforma_127437_2026_art_11_c_2]
+citations: [dlgs_138_2024_art_6, faq_amb_di_1, racc_ue_2003_361, faq_a1_1_a_4, faq_settori_sottosettori, dlgs_138_2024_art_7_c_1_lett_d, det_piattaforma_127437_2026_art_11_c_2_lett_g]
