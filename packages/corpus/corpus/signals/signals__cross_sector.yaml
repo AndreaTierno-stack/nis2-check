@@ -72,7 +72,7 @@ signals:
   - id: allegato_iv_individuazione
     kind: qualitative_channel
     message_template: allegato_iv_individuazione
-    # Corpus 0.6.1: testo e citazioni generali su A4.1 e art. 3 cc. 8 e 13 per tutti i
+    # Corpus 0.7.0: testo e citazioni generali su A4.1 e art. 3 cc. 8 e 13 per tutti i
     # profili. Notifica dell'Autorita' nazionale competente NIS (era "autorita' di settore").
     # I criteri di A4.3.3-A4.3.4 riguardano i soli soggetti culturali: avviso di catalogo
     # allegato_iv_attivita_culturale_criteri_mic sull'opzione attivita_culturale.

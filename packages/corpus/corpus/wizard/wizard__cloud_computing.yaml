@@ -49,7 +49,7 @@ sector_specific_questions:
   - id: fornisce_servizi_gestiti_b2b
     kind: binary
     # C-C2 (corpus 0.6.0): criterio dell'interconnessione diretta (FAQ A1.9.2, ripreso
-    # in A1.9.3) e copy sulla registrazione (det. piattaforma art. 11 c. 2). Corpus 0.6.1:
+    # in A1.9.3) e copy sulla registrazione (det. piattaforma art. 11 c. 2). Corpus 0.7.0:
     # registrazione su art. 7 c. 1 lett. d) del decreto e art. 11 c. 2 lett. g) della Det.;
     # tipologie dell'Allegato I p. 9 su A1.9.1 (lint KB del 2026-10-30, V2-V4).
     label_it: "Il soggetto fornisce anche servizi gestiti o servizi di sicurezza gestiti ad altre organizzazioni (B2B), tramite un'interconnessione diretta tra la rete del fornitore e quella del cliente?"

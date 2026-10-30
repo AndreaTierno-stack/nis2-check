@@ -5,10 +5,10 @@ description_it: >
   Non e' un rientro automatico: dipende da una determinazione ACN su proposta
   dell'autorita' di settore (art. 3 cc. 8 e 13). Non self-assessable ->
   qualitative_signal_only / ambiguous. Per gli in-house il canale All. IV coincide
-  con il signal in-house (l'engine deduplica in rendering). Corpus 0.6.1: l'opzione
+  con il signal in-house (l'engine deduplica in rendering). Corpus 0.7.0: l'opzione
   societa_inhouse non attiva piu' l90_cumulo, riservato a inhouse_soggetto_l90
   (art. 1 c. 1 L. 90/2024).
-corpus_version: 0.6.0
+corpus_version: 0.7.0
 sector: pubblica_amministrazione
 
 inputs:

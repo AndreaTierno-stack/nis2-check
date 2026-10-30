@@ -1,5 +1,5 @@
 # ============================================================================
-# Registro delle citazioni — attestazione KB dei citation ID (corpus 0.6.0)
+# Registro delle citazioni — attestazione KB dei citation ID (corpus 0.7.0)
 # ============================================================================
 # Ogni voce collega un citation ID al nodo KB che lo attesta, con riga e modo
 # dell'attestazione. Da corpus 0.6.0 il registro copre tutti gli ID usati nel
@@ -16,7 +16,7 @@
 # sui nodi; fedelta' riscontrata sui PDF in raw/ (verifiche del 2026-10-28 e del
 # 2026-10-30, docs/verifications/2026-10-28-registro-citazioni.md e
 # 2026-10-30-lint-kb.md). "Fonte non in raw/" = atto citato dalla KB ma non presente
-# tra le fonti del vault. Corpus 0.6.1: righe riallineate a f373942 (il lint ha spostato
+# tra le fonti del vault. Corpus 0.7.0: righe riallineate a f373942 (il lint ha spostato
 # i nodi D.Lgs. 138/2024, Det. 127437/2026, FAQ Ambito e Clausola di salvaguardia).
 # Nodo D.Lgs. 138/2024: riscontro su Normattiva del 2026-10-27 e del 2026-10-28
 # (DEC-007 parte A, provenance_note riga 8). Le righe delle voci 0.5.0 sono state
@@ -51,7 +51,7 @@ citations:
   - id: det_piattaforma_127437_2026_art_11_c_2_lett_g
     kb_node: wiki/sources/Determinazione ACN piattaforma e procedure - 2026-04-13.md
     kb_lines: "51"
-    attestation: "Contenuto della dichiarazione di registrazione, art. 11 c. 2 lett. a)-g); lett. g) verbatim: 'elenca le tipologie di soggetto di cui agli allegati I, II, III e IV del decreto NIS a cui il soggetto è riconducibile'. Conforme al PDF firmato in raw/ (p. 11), lint KB del 2026-10-30 (V4). Corpus 0.6.1: sostituisce l'ID al comma det_piattaforma_127437_2026_art_11_c_2, non più usato."
+    attestation: "Contenuto della dichiarazione di registrazione, art. 11 c. 2 lett. a)-g); lett. g) verbatim: 'elenca le tipologie di soggetto di cui agli allegati I, II, III e IV del decreto NIS a cui il soggetto è riconducibile'. Conforme al PDF firmato in raw/ (p. 11), lint KB del 2026-10-30 (V4). Corpus 0.7.0: sostituisce l'ID al comma det_piattaforma_127437_2026_art_11_c_2, non più usato."
   - id: det_piattaforma_127437_2026_art_12_c_2
     kb_node: wiki/sources/FAQ NIS - Ambito.md
     kb_lines: "172"
@@ -199,7 +199,7 @@ citations:
   - id: dlgs_138_2024_art_7_c_1_lett_d
     kb_node: wiki/sources/D.Lgs. 138-2024 (Decreto NIS).md
     kb_lines: "26"
-    attestation: "Art. 7 c. 1 lett. d), verbatim: tra le informazioni che i soggetti forniscono o aggiornano in registrazione, 'ove applicabile, i pertinenti settori, sottosettori e tipologie di soggetto di cui agli allegati I, II, III e IV'. Conforme al PDF in raw/ (p. 20), lint KB del 2026-10-30 (V3). Corpus 0.6.1: sostituisce l'ID di articolo dlgs_138_2024_art_7, non più usato."
+    attestation: "Art. 7 c. 1 lett. d), verbatim: tra le informazioni che i soggetti forniscono o aggiornano in registrazione, 'ove applicabile, i pertinenti settori, sottosettori e tipologie di soggetto di cui agli allegati I, II, III e IV'. Conforme al PDF in raw/ (p. 20), lint KB del 2026-10-30 (V3). Corpus 0.7.0: sostituisce l'ID di articolo dlgs_138_2024_art_7, non più usato."
   - id: dlgs_175_2016
     kb_node: wiki/sources/FAQ NIS - Settori, sottosettori e tipologie di soggetto.md
     kb_lines: "251"
@@ -211,7 +211,7 @@ citations:
   - id: dpcm_221_2024_art_3_c_1
     kb_node: wiki/sources/FAQ NIS - Ambito.md
     kb_lines: 162-169, 172
-    attestation: "AMB.GI.2: 'DPCM n. 221 del 9 dicembre 2024' (GU 10/02/2025), criteri della salvaguardia dimensionale all'art. 3 c. 1 DPCM (riga 166): lett. a) totale indipendenza dei sistemi informativi e di rete NIS, lett. b) totale indipendenza delle attività e servizi NIS dalle imprese del gruppo (righe 167-168). La nota redazionale del 2026-10-30 (riga 172) lo riconduce all'art. 40 c. 1 richiamato dall'art. 3 c. 12 del decreto. Fonte non in raw/. Corpus 0.6.1: sostituisce l'ID di atto dpcm_221_2024."
+    attestation: "AMB.GI.2: 'DPCM n. 221 del 9 dicembre 2024' (GU 10/02/2025), criteri della salvaguardia dimensionale all'art. 3 c. 1 DPCM (riga 166): lett. a) totale indipendenza dei sistemi informativi e di rete NIS, lett. b) totale indipendenza delle attività e servizi NIS dalle imprese del gruppo (righe 167-168). La nota redazionale del 2026-10-30 (riga 172) lo riconduce all'art. 40 c. 1 richiamato dall'art. 3 c. 12 del decreto. Fonte non in raw/. Corpus 0.7.0: sostituisce l'ID di atto dpcm_221_2024."
   - id: faq_a1_1_a_1
     kb_node: wiki/sources/FAQ NIS - Settori, sottosettori e tipologie di soggetto.md
     kb_lines: "34"

@@ -11,6 +11,39 @@ Ogni bump ha una voce in questo file; le fixture dichiarano `corpus_version` e s
 
 ## [Unreleased]
 
+## [0.7.0] — 2026-10-30 — L. 90 nel percorso PA, Allegato IV, salvaguardia dimensionale e citazioni dal lint KB del 2026-10-30
+
+Minor: cambia il questionario (opzione `inhouse_soggetto_l90` nel percorso PA; avviso sull'opzione `attivita_culturale`) e cambiano i segnali attesi di E11. Nessuna modifica a engine e schema. Base: lint della KB del 2026-10-30 (DEC-009, KB f373942; `docs/verifications/2026-10-30-lint-kb.md`). Nessun ingest. I commit dei blocchi portano il prefisso "0.6.1 block N" (versione del brief); il bump è minor per la regola sopra.
+
+### Blocco 1 — `l90_cumulo` nel percorso PA
+- **`wizard/wizard__pubblica_amministrazione.yaml`, `profilo_allegato_iv`** — opzione nuova `inhouse_soggetto_l90` (stesso ID del cloud): società in house dei soggetti dell'art. 1 c. 1 L. 90/2024 che forniscono servizi informatici, di trasporto tra quelli indicati, di acque reflue o di gestione dei rifiuti; è l'unica opzione in-house che attiva `l90_cumulo`. `societa_inhouse` ("altra società in-house …") non lo attiva più. Profili di settore allineati (`l90_overlap`).
+- **`l90_cumulo`** — tolto "si cumula con il regime NIS senza sostituirlo": l'art. 1 c. 7 lett. a) L. 90/2024 esclude dall'art. 1 i soggetti lì richiamati (rinvio al D.Lgs. 65/2018 riferito al D.Lgs. 138/2024 dall'art. 15-bis) e i soggetti PSNC. Contesto PA sull'art. 4 c. 8 Det. 127437/2026 ("può soddisfare", era "prassi attesa"). Registro: `l90_2024_art_1_c_7_lett_a`, `l90_2024_art_15_bis`.
+- **E11** — `l90_cumulo` non più atteso (opzione `societa_inhouse`).
+
+### Blocco 2 — `allegato_iv_individuazione`
+- Segnale con testo e citazioni generali per tutti i profili: A4.1 e art. 3 cc. 8 e 13 (`faq_a4_1`); notifica dell'Autorità nazionale competente NIS (era "autorità di settore"). I criteri di A4.3.3 non valgono più per ogni profilo.
+- **Catalogo** — voce nuova `allegato_iv_attivita_culturale_criteri_mic` (segnalata; A4.3.3, A4.3.4), sull'opzione `attivita_culturale` (`on_selected`). `allegato_iv_individuazione_art_3_c_8`: `faq_a4_3_4`, `faq_settori_sottosettori` → `faq_a4_1`, `faq_a4_2`. Catalogo a 27 voci: 3 gestite, 18 segnalate, 6 non gestite.
+- **E11** — citazioni `faq_a4_3_3`, `faq_a4_3_4` → `faq_a4_1`.
+
+### Blocco 3 — Salvaguardia dimensionale (DPCM 221/2024)
+- `safeguard_dimensional_dpcm_221` (segnale segnaposto e voce di catalogo non gestita): non più "concessione discrezionale dell'Autorità di settore". Richiesta in registrazione tramite la piattaforma ACN, con condivisione degli elementi con le Autorità di settore (art. 12 c. 2 Det. 127437/2026); individuazione delle Autorità di settore (art. 11 c. 4 lett. c) D.Lgs. 138/2024); applicazione dell'ACN secondo i criteri del DPCM 221/2024, art. 3 c. 1 (art. 3 c. 12).
+- Registro: `dlgs_138_2024_art_11_c_4_lett_c` e `det_piattaforma_127437_2026_art_12_c_2` (attestati nella nota del 2026-10-30 del nodo FAQ Ambito, non nel nodo D.Lgs.); `dpcm_221_2024` → `dpcm_221_2024_art_3_c_1`.
+
+### Blocco 4 — Citazioni dal lint KB
+- V2: `cloud_provider` `faq_settori_sottosettori` → `faq_a1_8_1`; `faq_a1_9_1` nel segnale e nella domanda Cloud+MSP.
+- V3+V4: la copy sulla registrazione (C-E4) cita `dlgs_138_2024_art_7_c_1_lett_d` e `det_piattaforma_127437_2026_art_11_c_2_lett_g` (quattro segnali cross-sector, domanda Cloud+MSP); rimossi dal registro `dlgs_138_2024_art_7` e `det_piattaforma_127437_2026_art_11_c_2`, non più usati.
+- V6: `copertura_settoriale_parziale` `dlgs_138_2024_art_3` → `dlgs_138_2024_art_3_c_1`.
+- Registro: righe riallineate alla KB f373942; 76 voci.
+- E13, E14: citazioni aggiornate, esiti invariati.
+
+### Fixture
+- `corpus_version` → 0.7.0 su tutte le 25.
+
+### Notes
+- Invariati per mancanza di testo nel corpus o di attestazione: `faq_a1_9_2` (V1, corretto); `faq_gen_6` non usato (nessun testo del corpus sulla selezione di settori/sottosettori); nessun testo del corpus su dati dimensionali facoltativi per la PA (rettifica V4).
+- Non toccati: opzione `tpl` di `profilo_allegato_iv`, che attiva `l90_cumulo` per ogni trasporto pubblico locale mentre l'art. 1 c. 1 L. 90/2024 indica solo alcune società di trasporto; `dlgs_138_2024_art_3` nelle regole micro/piccola di cloud ed energia, dove il contenuto è l'art. 3 c. 2 (attestato alla riga 27 del nodo D.Lgs., ID non introdotto).
+- Contatore stop-and-ingest invariato (1 residuo).
+
 ## [0.6.0] — 2026-10-28 — Regimi instradati in v0.1 (ADR 0014), soggetti critici (ADR 0015), correzioni cloud ed energia, registro e catalogo completi
 
 Minor: cambiano gli esiti attesi di E05, E06, E08, il questionario (domande `soggetto_critico` e `produttore_cliente_attivo`, opzione `inhouse_soggetto_l90`, etichette di fornitura, DORA e Cloud PA) e lo schema (campi retro-compatibili `excluded_common_questions` e `notices` su risposte, opzioni, `outcome_mapping` e intersezioni; invarianti nuovi). Base: verifica di lettura del 2026-10-28 (`docs/verifications/2026-10-28-cloud-energia-dora.md`), KB DEC-008, audit del registro (`docs/verifications/2026-10-28-registro-citazioni.md`).
