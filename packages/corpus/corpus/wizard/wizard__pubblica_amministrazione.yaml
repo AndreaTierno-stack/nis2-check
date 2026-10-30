@@ -126,12 +126,18 @@ sector_specific_questions:
       - id: attivita_culturale
         label_it: "Soggetto che svolge attività di interesse culturale"
         activates_signals: [allegato_iv_individuazione]
+      # Corpus 0.6.1: l90_cumulo solo per le societa' in house dei soggetti elencati
+      # dall'art. 1 c. 1 L. 90/2024 che forniscono i servizi li' indicati (stesso ID di
+      # opzione di wizard__cloud_computing.yaml); le altre in-house non lo attivano.
+      - id: inhouse_soggetto_l90
+        label_it: "Società in house di uno dei soggetti elencati dall'art. 1 c. 1 L. 90/2024 (PA centrali, Regioni e Province autonome, Città metropolitane, Comuni con più di 100.000 abitanti o capoluoghi di regione, società di trasporto pubblico indicate dalla norma, Aziende sanitarie locali) che fornisce servizi informatici, servizi di trasporto tra quelli indicati dalla norma, servizi di raccolta, smaltimento o trattamento di acque reflue o di gestione dei rifiuti"
+        activates_signals: [allegato_iv_individuazione, cross_sector_inhouse_all_iv, l90_cumulo]
       - id: societa_inhouse
-        label_it: "Società in-house, partecipata o controllata da ente pubblico"
+        label_it: "Altra società in-house, partecipata o controllata da ente pubblico"
         # Per gli in-house il canale All. IV coincide con il signal in-house;
         # attiviamo entrambi gli id che puntano allo stesso fenomeno (l'engine
         # deduplica in fase di rendering del verdetto).
-        activates_signals: [allegato_iv_individuazione, cross_sector_inhouse_all_iv, l90_cumulo]
+        activates_signals: [allegato_iv_individuazione, cross_sector_inhouse_all_iv]
 
   # Cloud PA nel percorso PA (C5, corpus 0.5.0): trigger dell'override del settore.
   # La domanda comune cloud_pa di wizard__disambiguation.yaml resta per i fornitori.

@@ -244,10 +244,18 @@ allegato_iv_channel:
       label_it: "Soggetto che svolge attivita' di interesse culturale"
       autorita_proponente: MiC
       l90_overlap: possible
-    - id: societa_inhouse
-      label_it: "Societa' in-house, partecipata, controllata (D.Lgs. 175/2016)"
+    # Corpus 0.6.1: l'art. 1 c. 1 L. 90/2024 comprende le societa' in house dei soggetti
+    # elencati solo se forniscono servizi informatici, di trasporto, di acque reflue o di
+    # gestione dei rifiuti: profilo distinto (stesso ID dell'opzione cloud).
+    - id: inhouse_soggetto_l90
+      label_it: "Societa' in house di un soggetto dell'art. 1 c. 1 L. 90/2024, con servizi qualificati"
       autorita_proponente: autorita_di_settore
-      l90_overlap: "yes"                  # in-house e' nell'elenco L. 90 art. 1 c. 1
+      l90_overlap: "yes"                  # in house qualificata: art. 1 c. 1 L. 90
+      unifies_with: cross_sector_inhouse_all_iv
+    - id: societa_inhouse
+      label_it: "Altra societa' in-house, partecipata, controllata (D.Lgs. 175/2016)"
+      autorita_proponente: autorita_di_settore
+      l90_overlap: "no"                   # fuori dall'art. 1 c. 1 L. 90 (corpus 0.6.1)
       # Per gli in-house questo signal coincide con cross_sector_inhouse_all_iv
       # gia' attivato dalla pertinenza pubblica negli altri settori.
       unifies_with: cross_sector_inhouse_all_iv

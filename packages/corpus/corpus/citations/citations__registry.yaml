@@ -270,10 +270,18 @@ citations:
     kb_node: wiki/sources/FAQ NIS - Settori, sottosettori e tipologie di soggetto.md
     kb_lines: "17"
     attestation: "Pagina FAQ ACN 'Settori, sottosettori e tipologie di soggetto' nel suo insieme (circa 70 codici, da A1.1.a.1 ad A4.3.5): per ogni sottosettore, atto UE, tipologia di soggetto, criterio dimensionale ed essenziale/importante. Attestazione a livello di nodo. Fonte: raw/articles/Domande frequenti NIS - Settori, sottosettori e tipologie di soggetto - ACN.pdf."
+  - id: l90_2024_art_15_bis
+    kb_node: wiki/sources/Legge 90-2024 (cybersicurezza nazionale).md
+    kb_lines: 174-180
+    attestation: "Art. 15-bis, verbatim (riga 176): 'Ogni riferimento al decreto legislativo 18 maggio 2018, n. 65, è da intendersi alle corrispondenti disposizioni di cui al decreto legislativo 4 settembre 2024, n. 138, a decorrere dalla data in cui le stesse acquistano efficacia'. Stesso testo nella synthesis 'Coordinamento L. 90-2024 e NIS2' (riga 58). Conforme al PDF in raw/ (90_2024.pdf, verifica del 2026-10-30)."
   - id: l90_2024_art_1_c_1
     kb_node: wiki/sources/Legge 90-2024 (cybersicurezza nazionale).md
     kb_lines: 28-36
     attestation: "Art. 1 c. 1, ambito soggettivo tassativo: PA centrali (elenco ISTAT ex L. 196/2009), Regioni e Province autonome, Città metropolitane, Comuni con più di 100.000 abitanti e capoluoghi di regione, trasporto pubblico urbano ed extraurbano, ASL; società in house di tali soggetti solo se forniscono servizi informatici, di trasporto, di acque reflue o di gestione rifiuti. Fonte: raw/articles/90_2024.pdf."
+  - id: l90_2024_art_1_c_7_lett_a
+    kb_node: wiki/synthesis/Coordinamento L. 90-2024 e NIS2.md
+    kb_lines: "46"
+    attestation: "Art. 1 c. 7, verbatim: 'le disposizioni del presente articolo non si applicano: a) ai soggetti di cui all'articolo 3, comma 1, lettere g) e i), del decreto legislativo 18 maggio 2018, n. 65, e a quelli di cui all'articolo 1, comma 2-bis, del decreto-legge 21 settembre 2019, n. 105'. Sintesi anche nel nodo L. 90/2024 (righe 58-59). Il rinvio al D.Lgs. 65/2018 si legge con l'art. 15-bis (l90_2024_art_15_bis). Conforme al PDF in raw/ (90_2024.pdf, verifica del 2026-10-30)."
   - id: l_196_2009_art_1_c_3
     kb_node: wiki/sources/D.Lgs. 138-2024 (Decreto NIS).md
     kb_lines: "33"

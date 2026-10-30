@@ -24,11 +24,15 @@ signals:
     message_template: l90_cumulo
     # C-E5 (corpus 0.6.0): formulazione "potrebbe rientrare, da verificare" (era "rientra
     # molto probabilmente"); non attivato nel settore energia.
-    base_reasoning_trace: "Il soggetto potrebbe rientrare anche nel perimetro della Legge 90/2024 art. 1 c. 1 (cybersicurezza nazionale), che si cumula con il regime NIS senza sostituirlo: l'appartenenza va verificata. Verifica con consulente qualificato."
+    # Corpus 0.6.1: tolto "si cumula con il regime NIS senza sostituirlo". L'art. 1 c. 7
+    # lett. a) L. 90/2024 esclude dall'art. 1 i soggetti li' richiamati (rinvio al D.Lgs.
+    # 65/2018 riferito al D.Lgs. 138/2024 dall'art. 15-bis) e i soggetti PSNC; contesto PA
+    # riscritto sull'art. 4 c. 8 Det. 127437/2026 ("puo' soddisfare", non "prassi attesa").
+    base_reasoning_trace: "Il soggetto potrebbe rientrare anche nel perimetro della Legge 90/2024 (art. 1 c. 1, cybersicurezza nazionale): l'appartenenza va verificata. Il rapporto con il regime NIS va valutato caso per caso: le disposizioni dell'art. 1 della legge non si applicano ai soggetti richiamati dall'art. 1 c. 7 lett. a), tra cui i soggetti del Perimetro di Sicurezza Nazionale Cibernetica; il rinvio di quella lettera al D.Lgs. 65/2018 e' da intendersi alle corrispondenti disposizioni del D.Lgs. 138/2024 (art. 15-bis). Verifica con consulente qualificato."
     sector_context:
-      pubblica_amministrazione: " La concessione di unificare il ruolo di Punto di contatto NIS con il Referente per la cybersicurezza (art. 4 c. 8 Det. piattaforma 127437/2026) e' la prassi attesa per i soggetti pubblici in entrambi i perimetri."
+      pubblica_amministrazione: " Per i soggetti dell'art. 1 c. 1 L. 90/2024 che sono anche soggetti NIS, la designazione del Punto di contatto NIS puo' soddisfare l'obbligo di nomina e comunicazione del referente per la cybersicurezza (art. 8 c. 2 L. 90/2024; art. 4 c. 8 Det. piattaforma 127437/2026)."
       cloud_computing: " L'art. 1 c. 1 L. 90/2024 comprende le societa' in house dei soggetti elencati che forniscono servizi informatici."
-    citations: [l90_2024_art_1_c_1, det_piattaforma_127437_2026_art_4_c_8]
+    citations: [l90_2024_art_1_c_1, l90_2024_art_1_c_7_lett_a, l90_2024_art_15_bis, det_piattaforma_127437_2026_art_4_c_8]
 
 # ----------------------------------------------------------------------------
 # PLACEHOLDER per regimi paralleli non modellati nel MVP v0.1.0
