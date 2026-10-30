@@ -25,8 +25,8 @@ expected:
   verdict_outcome: likely_in_scope
   qualifica: essenziale
   signals: []
-  notices: [cloud_pa_fornitore_qualificato_a1_8_2]
+  notices: [cloud_stabilimento_principale_multi_ue, cloud_pa_fornitore_qualificato_a1_8_2]
   regime_routing: []
-  corpus_ref: "wizard/wizard__disambiguation.yaml#questions.cloud_pa -> sectors/sectors__cloud_computing.yaml#qualification_rules[dimension==grande AND soggetto_critico==no] + exceptions/exceptions__catalog.yaml#exceptions[cloud_pa_fornitore_qualificato_a1_8_2]"
+  corpus_ref: "wizard/wizard__disambiguation.yaml#questions.cloud_pa -> sectors/sectors__cloud_computing.yaml#qualification_rules[dimension==grande AND soggetto_critico==no] + exceptions/exceptions__catalog.yaml#exceptions[cloud_stabilimento_principale_multi_ue, cloud_pa_fornitore_qualificato_a1_8_2]"
 
 citations: [dlgs_138_2024_art_6, faq_amb_di_1, racc_ue_2003_361]
