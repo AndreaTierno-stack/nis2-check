@@ -3,8 +3,9 @@
  *
  * Four stages, all evaluated, one decides: (1) regime routing, (2) declared type
  * exclusion, (3) size-blind rules, (4) dimensional rules. Outcomes are copied from
- * the deciding construct; the only outcomes the engine sets itself are the
- * escalations of ADR 0016 (conflict 2×3, disagreeing exclusions, no or multiple rules).
+ * the deciding construct, including the conflict between stages 2 and 3 (conflicts
+ * block of the corpus); the only outcomes the engine sets itself are the escalations
+ * for corpus defects (no or multiple rules, a conflict with no conflicts entry).
  */
 import type { Corpus, Question, SectorFile } from '@nis2-check/corpus';
 import { resolveAnswers, resolveSector, type SectorContext, type WizardQuestion } from './answers.ts';
@@ -26,9 +27,6 @@ import type {
   Verdict,
   VerdictOutcome,
 } from './types.ts';
-
-/** Catalog entry of the conflict between a type exclusion and a size-blind inclusion (ADR 0016 §1). */
-export const CONFLICT_NOTICE = 'esclusione_tipologica_vs_inclusione_size_blind';
 
 /** Input of the dimensional rules (common block, standard identification). */
 const DIMENSION_INPUT = 'dimension';
@@ -275,7 +273,32 @@ const copied = (stage: Stage, deciding: Construct[], head: Construct = deciding[
   demoted,
 });
 
-export function resolve(routing: RoutingResult, exclusions: TypeExclusionResult, sizeBlind: Construct[], dimensional: Construct[]): Resolution {
+/** The conflicts entry of a trigger type, as a construct (corpus 0.10.0). */
+export function conflictConstruct(corpus: Corpus, trigger: string): Construct | undefined {
+  for (const [path, file] of Object.entries(corpus.conflicts)) {
+    const i = file.conflicts.findIndex((c) => c.trigger === trigger);
+    const c = file.conflicts[i];
+    if (c) {
+      return {
+        locator: `${path}#conflicts[${i}]`,
+        assessmentMode: c.assessment_mode,
+        outcome: c.verdict_outcome,
+        citations: c.citations,
+        notices: [c.exceptions_catalog_entry],
+        corpusText: c.reasoning_trace,
+      };
+    }
+  }
+  return undefined;
+}
+
+export function resolve(
+  routing: RoutingResult,
+  exclusions: TypeExclusionResult,
+  sizeBlind: Construct[],
+  dimensional: Construct[],
+  conflict?: Construct,
+): Resolution {
   if (routing.overrides.length > 0) {
     if (routing.escalationCode || !routing.decision) return escalation('regime_routing', [], routing.escalationCode ?? 'multiple_rules_matched');
     return copied('regime_routing', [routing.decision]);
@@ -283,7 +306,9 @@ export function resolve(routing: RoutingResult, exclusions: TypeExclusionResult,
   if (exclusions.decides) {
     const decision = exclusions.decision!;
     if (sizeBlind.some((c) => !sameOutcome(c, decision))) {
-      return escalation('resolution', [...exclusions.matched, ...sizeBlind], 'conflict_type_exclusion_size_blind', true);
+      const involved = [...exclusions.matched, ...sizeBlind];
+      if (!conflict) return escalation('resolution', involved, 'conflict_type_exclusion_size_blind', true);
+      return { ...copied('resolution', [conflict, ...involved], conflict), code: 'conflict_type_exclusion_size_blind', conflict: true };
     }
     return copied('type_exclusion', exclusions.matched, decision);
   }
@@ -419,7 +444,7 @@ export function evaluate(input: EvaluationInput, corpus: Corpus): Verdict {
   const exclusions = applyTypeExclusions(ctx, answers);
   const sizeBlind = applySizeBlind(ctx, answers);
   const dimensional = applyDimensionalRules(ctx, answers);
-  const r = resolve(routing, exclusions, sizeBlind, dimensional);
+  const r = resolve(routing, exclusions, sizeBlind, dimensional, conflictConstruct(corpus, 'stage_2_and_stage_3'));
 
   // trace: stage 1, then stages 2-4 with what they gave (suspended, not evaluated, decided)
   const routed = routing.overrides.length > 0;
@@ -485,7 +510,7 @@ export function evaluate(input: EvaluationInput, corpus: Corpus): Verdict {
   }
 
   const catalog = new Map(Object.values(corpus.exceptions).flatMap((f) => f.exceptions.map((e) => [e.id, e] as const)));
-  const constructNotices = [...(r.conflict && catalog.has(CONFLICT_NOTICE) ? [CONFLICT_NOTICE] : []), ...r.deciding.flatMap((c) => c.notices)];
+  const constructNotices = r.deciding.flatMap((c) => c.notices);
   // order: deciding constructs, demoted exclusions, answer-level notices (ADR 0016 §4 and amendment)
   const notices = uniq([...constructNotices, ...r.demoted.flatMap((d) => d.noticesIfDemoted), ...answerNotices(ctx, answers)]);
 

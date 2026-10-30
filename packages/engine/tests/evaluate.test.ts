@@ -6,7 +6,7 @@
  */
 import { describe, expect, it } from 'vitest';
 import type { Corpus } from '@nis2-check/corpus';
-import { CONFLICT_NOTICE, InvalidAnswersError, evaluate, type Answers } from '../src/index.ts';
+import { InvalidAnswersError, evaluate, type Answers } from '../src/index.ts';
 import { serializeInput } from '../src/evaluate.ts';
 import { sha256Hex } from '../src/sha256.ts';
 import { miniCorpus } from './minicorpus.ts';
@@ -88,11 +88,14 @@ describe('stage 2: declared type exclusion, per activity (ADR 0016 amendment)', 
 });
 
 describe('conflict (2)x(3)', () => {
-  it('exclusion of every activity and size-blind inclusion -> escalate with the conflict notice and both constructs notices', () => {
+  it('exclusion of every activity and size-blind inclusion -> the conflicts entry: outcome, notice and citations copied', () => {
     const v = run({ attivita: 'a2', q_a2: 'si', critico: 'yes' });
     expect([v.assessmentMode, v.outcome, v.qualifica]).toEqual(['escalate_to_advisor', 'ambiguous', undefined]);
-    expect(v.notices).toEqual([CONFLICT_NOTICE, 'n_escluso', 'n_critico']);
-    expect(finalStep(v)).toEqual(expect.objectContaining({ result: 'conflict', code: 'conflict_type_exclusion_size_blind' }));
+    expect(v.notices).toEqual(['n_conflitto', 'n_escluso', 'n_critico']);
+    expect(v.citations.slice(0, 2)).toEqual(['c_rule', 'c_map']);
+    expect(finalStep(v)).toEqual(
+      expect.objectContaining({ result: 'conflict', code: 'conflict_type_exclusion_size_blind', construct: expect.stringContaining('conflicts/conflicts__stages.yaml#conflicts[0]') }),
+    );
   });
 
   it('a demoted exclusion is no conflict: stage 3 decides', () => {
@@ -101,10 +104,9 @@ describe('conflict (2)x(3)', () => {
     expect(v.notices).toEqual(['n_critico', 'n_demoted']);
   });
 
-  it('without the catalog entry the conflict still escalates, with no conflict notice', () => {
+  it('without a conflicts entry the conflict still escalates (corpus defect), with no conflict notice', () => {
     const corpus = structuredClone(miniCorpus());
-    const cat = corpus.exceptions['exceptions/exceptions__catalog.yaml']!;
-    cat.exceptions = cat.exceptions.filter((e) => e.id !== CONFLICT_NOTICE);
+    corpus.conflicts = {};
     const v = run({ attivita: 'a2', q_a2: 'si', critico: 'yes' }, corpus);
     expect(v.outcome).toBe('ambiguous');
     expect(v.notices).toEqual(['n_escluso', 'n_critico']);

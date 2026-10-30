@@ -1,0 +1,34 @@
+scenario_id: E26
+name: energia_prosumer_soggetto_critico
+description_it: >
+  Media impresa che produce energia elettrica come unica attivita' dichiarata, risponde
+  ai requisiti della definizione di clienti attivi (FAQ A1.1.a.4) ed e' individuata come
+  soggetto critico ai sensi del D.Lgs. 134/2024. ADR 0016: ogni attivita' dichiarata e'
+  esclusa per tipologia (stadio 2) e la regola del soggetto critico include
+  indipendentemente dalla dimensione (stadio 3, art. 3 c. 5 lett. a) D.Lgs. 138/2024).
+  Conflitto (2)x(3): esito, avviso e citazioni dal blocco conflicts del corpus
+  (corpus 0.10.0). La prevalenza tra i due criteri non e' attestata.
+corpus_version: 0.9.0
+sector: energia_elettrica
+
+inputs:
+  psnc: "no"
+  dora: "no"
+  cloud_pa: "no"
+  tipologia_elettrica: produttore
+  produttore_cliente_attivo: si
+  attivita_elettriche_ulteriori: []
+  pertinenza_pubblica_energia: "no"
+  dimension: media
+  soggetto_critico: "yes"
+
+expected:
+  assessment_mode: escalate_to_advisor
+  verdict_outcome: ambiguous
+  signals: [cer_signal]
+  notices: [esclusione_tipologica_vs_inclusione_size_blind, prosumer_definizione_cliente_attivo, energia_regime_transitorio_ose]
+  regime_routing: []
+  corpus_ref: "conflicts/conflicts__stages.yaml#conflicts[esclusione_tipologica_vs_inclusione_size_blind] + wizard/wizard__energia_elettrica.yaml#produttore_cliente_attivo.outcome_mapping[answer==si] + sectors/sectors__energia_elettrica.yaml#qualification_rules[soggetto_critico==yes] + exceptions/exceptions__catalog.yaml#exceptions[esclusione_tipologica_vs_inclusione_size_blind, prosumer_definizione_cliente_attivo, energia_regime_transitorio_ose]"
+
+# Citazioni come le produce l'engine: conflitto, esclusione, regola del soggetto critico, segnale, voci di catalogo.
+citations: [dlgs_138_2024_art_3_c_5_lett_a, faq_a1_1_a_4, dlgs_138_2024_art_6_c_1_lett_b, faq_amb_no_1, dlgs_134_2024, det_acn_379907_2025_art_5]

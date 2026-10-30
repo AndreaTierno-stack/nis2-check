@@ -9,6 +9,7 @@ import { resolveCorpusRef } from '../corpusRef.ts';
 import { E, collectCitationIds, msg } from './common.ts';
 import {
   CitationRegistryFile,
+  ConflictsFile,
   ExceptionsCatalogFile,
   Fixture,
   RegimeFile,
@@ -43,6 +44,8 @@ export const CorpusInput = z.object({
   exceptions: z.record(z.string(), ExceptionsCatalogFile),
   /** Citation registry: KB node and line attesting each registered citation ID. */
   citations: z.record(z.string(), CitationRegistryFile),
+  /** Conflicts between evaluation stages (ADR 0016, corpus 0.10.0). */
+  conflicts: z.record(z.string(), ConflictsFile),
   /** Golden fixtures keyed by file name. */
   fixtures: z.record(z.string(), Fixture),
 });
@@ -69,7 +72,7 @@ export const CorpusSchema = CorpusInput.superRefine((c, ctx) => {
   const issue = (path: Path, code: Parameters<typeof msg>[0], text: string) =>
     ctx.addIssue({ code: z.ZodIssueCode.custom, path, message: msg(code, text) });
 
-  const allFiles: Record<string, unknown> = { ...c.sectors, ...c.wizard, ...c.regimes, ...c.signals, ...c.exceptions, ...c.citations };
+  const allFiles: Record<string, unknown> = { ...c.sectors, ...c.wizard, ...c.regimes, ...c.signals, ...c.exceptions, ...c.citations, ...c.conflicts };
   const fileExists = (rel: string) => rel.split('#')[0]! in allFiles;
   const signalIds = new Set(Object.values(c.signals).flatMap((f) => f.signals.map((s) => s.id)));
   const sectorIds = new Set(Object.values(c.sectors).map((s) => s.meta.sector_id));
@@ -205,7 +208,7 @@ export const CorpusSchema = CorpusInput.superRefine((c, ctx) => {
   // warning, reported by validate.ts (unusedRegistryEntries).
   for (const [group, files] of [
     ['sectors', c.sectors], ['wizard', c.wizard], ['regimes', c.regimes], ['signals', c.signals],
-    ['exceptions', c.exceptions], ['fixtures', c.fixtures],
+    ['exceptions', c.exceptions], ['conflicts', c.conflicts], ['fixtures', c.fixtures],
   ] as const) {
     for (const [fp, doc] of Object.entries(files)) {
       for (const { id, path } of collectCitationIds(doc, [group, fp])) {
@@ -229,7 +232,7 @@ export const CorpusSchema = CorpusInput.superRefine((c, ctx) => {
       else collectNotices(v);
     }
   };
-  [c.sectors, c.wizard, c.regimes].forEach((files) => Object.values(files).forEach(collectNotices));
+  [c.sectors, c.wizard, c.regimes, c.conflicts].forEach((files) => Object.values(files).forEach(collectNotices));
   for (const [ep, f] of Object.entries(c.exceptions)) {
     f.exceptions.forEach((e, i) => {
       if (e.status === 'segnalato' && !referencedCatalog.has(e.id)) {
@@ -244,6 +247,16 @@ export const CorpusSchema = CorpusInput.superRefine((c, ctx) => {
     if (`regimes/${r.meta.regime_id}.yaml` !== rp) issue(['regimes', rp, 'meta', 'regime_id'], E.REF_FILE, `regime_id "${r.meta.regime_id}" does not match file name`);
     r.meta.referenced_by.forEach((ref, i) => {
       if (!fileExists(ref)) issue(['regimes', rp, 'meta', 'referenced_by', i], E.REF_FILE, `file ${ref.split('#')[0]} not found`);
+    });
+  }
+
+  // ----- conflicts (ADR 0016, corpus 0.10.0): catalog entry resolves, one entry per trigger -----
+  const conflictTriggers = new Set<string>();
+  for (const [fp, f] of Object.entries(c.conflicts)) {
+    f.conflicts.forEach((x, i) => {
+      checkCatalog([x.exceptions_catalog_entry], ['conflicts', fp, 'conflicts', i, 'exceptions_catalog_entry']);
+      if (conflictTriggers.has(x.trigger)) issue(['conflicts', fp, 'conflicts', i, 'trigger'], E.TRIGGER, `more than one conflict for trigger "${x.trigger}"`);
+      conflictTriggers.add(x.trigger);
     });
   }
 
@@ -413,7 +426,7 @@ export type Corpus = z.infer<typeof CorpusSchema>;
  */
 export function unusedRegistryEntries(c: Corpus): string[] {
   const used = new Set<string>();
-  for (const files of [c.sectors, c.wizard, c.regimes, c.signals, c.exceptions, c.fixtures]) {
+  for (const files of [c.sectors, c.wizard, c.regimes, c.signals, c.exceptions, c.conflicts, c.fixtures]) {
     for (const [fp, doc] of Object.entries(files)) collectCitationIds(doc, [fp]).forEach(({ id }) => used.add(id));
   }
   return Object.entries(c.citations).flatMap(([cp, f]) => f.citations.filter((r) => !used.has(r.id)).map((r) => `${cp} > ${r.id}`));

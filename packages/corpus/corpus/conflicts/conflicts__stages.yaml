@@ -1,0 +1,24 @@
+# ============================================================================
+# Conflitti tra stadi di valutazione (ADR 0016, corpus 0.10.0)
+# ============================================================================
+# Un conflitto dichiara l'esito quando due stadi dell'engine scattano con esiti
+# diversi per le stesse risposte. Il trigger e' un tipo esplicito (oggi solo
+# stage_2_and_stage_3: ogni attivita' dichiarata esclusa per tipologia e una regola
+# size-blind che include). L'engine copia esito, avviso e citazioni da qui: nessun
+# id di catalogo nel codice.
+#
+# File proprio, non nel blocco comune che ospita soggetto_critico: il conflitto e'
+# tra stadi, non tra domande, e vale per ogni settore; soggetto_critico e' solo il
+# costrutto di stadio 3 che oggi lo fa scattare (in energia).
+# ============================================================================
+
+conflicts:
+  - id: esclusione_tipologica_vs_inclusione_size_blind
+    trigger: stage_2_and_stage_3
+    assessment_mode: escalate_to_advisor
+    verdict_outcome: ambiguous   # vincolo fisso: escalate_to_advisor -> sempre ambiguous
+    exceptions_catalog_entry: esclusione_tipologica_vs_inclusione_size_blind
+    reasoning_trace: "Ogni attivita' dichiarata dal soggetto risulta esclusa per tipologia, ma il soggetto risulta anche incluso indipendentemente dalla dimensione, ad esempio come soggetto critico ai sensi del D.Lgs. 134/2024 (art. 3 c. 5 lett. a) D.Lgs. 138/2024). Le fonti verificate non indicano quale dei due criteri prevalga. Consulenza qualificata necessaria."
+    # Premessa non attestata: nel nodo KB della direttiva l'art. 2 par. 2 lett. f) riguarda la
+    # pubblica amministrazione, non i soggetti critici (ADR 0016, §1).
+    citations: [dlgs_138_2024_art_3_c_5_lett_a]

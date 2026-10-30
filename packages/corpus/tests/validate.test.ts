@@ -291,6 +291,36 @@ describe('corpus:validate', () => {
       expectCode(errors, 'E_ACTIVITY_REF', 'wizard__energia_elettrica.yaml');
     });
 
+    const conflict = (c: RawCorpus) => (c.conflicts['conflicts/conflicts__stages.yaml'] as Doc).conflicts[0];
+
+    it('conflict with an unknown trigger type -> E_TRIGGER', () => {
+      const errors = errorsAfter((c) => {
+        conflict(c).trigger = 'stage_1_and_stage_4';
+      });
+      expectCode(errors, 'E_TRIGGER', 'conflicts__stages.yaml');
+    });
+
+    it('conflict pointing to a catalog entry that does not exist -> E_CATALOG_REF', () => {
+      const errors = errorsAfter((c) => {
+        conflict(c).exceptions_catalog_entry = 'voce_inesistente';
+      });
+      expectCode(errors, 'E_CATALOG_REF', 'conflicts__stages.yaml');
+    });
+
+    it('conflict without trigger -> E_OUTCOME_WITHOUT_TRIGGER', () => {
+      const errors = errorsAfter((c) => {
+        delete conflict(c).trigger;
+      });
+      expectCode(errors, 'E_OUTCOME_WITHOUT_TRIGGER', 'conflicts__stages.yaml');
+    });
+
+    it('conflict catalog entry no longer referenced -> E_CATALOG_UNREFERENCED', () => {
+      const errors = errorsAfter((c) => {
+        c.conflicts = {};
+      });
+      expectCode(errors, 'E_CATALOG_UNREFERENCED', 'exceptions__catalog.yaml');
+    });
+
     it('applies_to_categories reintroduced -> E_TRIGGER', () => {
       const errors = errorsAfter((c) => {
         pa(c).cumulative_signals[0].applies_to_categories = ['a'];

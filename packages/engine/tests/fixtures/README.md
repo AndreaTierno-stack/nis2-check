@@ -47,6 +47,7 @@ Da S2 i file vivono in `packages/engine/tests/fixtures/` (test del decision engi
 - E23 energia_micro_soggetto_critico (ADR 0015, essenziale)
 - E24 cloud_media_soggetto_critico (ADR 0015, essenziale)
 - E25 energia_produttore_cliente_attivo (C-E2, FAQ A1.1.a.4)
+- E26 energia_prosumer_soggetto_critico (ADR 0016: conflitto (2)×(3) dal blocco conflicts)
 - E27 energia_produttore_ricarica_non_pun (ADR 0016 amendment: esclusione per attività non decisiva)
 
 ## Controllo

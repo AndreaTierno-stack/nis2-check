@@ -224,3 +224,16 @@ FAQ A1.1.a.4, quindi regge anche il caso in cui il soggetto dichiara altre attiv
 nuova `punti_ricarica_non_pun_attivita_ulteriore` (segnalata, `faq_a1_1_a_3`). Fixture E27
 (produttore principale, ricarica non PUN tra le ulteriori, media impresa → importante con
 l'avviso della voce nuova); E04 ed E25 invariate (una sola attività dichiarata, esclusa).
+
+## Amendment 2026-10-30 (2) — Conflitti dichiarati nel corpus
+
+Corpus 0.10.0. Il conflitto (2)×(3) non è più un'escalation decisa dall'engine: l'esito, l'avviso
+e le citazioni si copiano dal blocco `conflicts` del corpus (`conflicts/conflicts__stages.yaml`),
+voce con `trigger: stage_2_and_stage_3` (tipo esplicito, oggi l'unico ammesso dallo schema),
+`assessment_mode`, `verdict_outcome`, `exceptions_catalog_entry`, `reasoning_trace`, `citations`
+(`dlgs_138_2024_art_3_c_5_lett_a`). La voce di catalogo
+`esclusione_tipologica_vs_inclusione_size_blind` (segnalata, "non attestato") è referenziata da
+quel blocco: `E_CATALOG_UNREFERENCED` e `E_OUTCOME_WITHOUT_TRIGGER` passano senza eccezioni, e
+il codice dell'engine non contiene id di catalogo. File proprio, non nel blocco comune che ospita
+`soggetto_critico`: il conflitto è tra stadi, vale per ogni settore. Senza voce per il trigger il
+conflitto resta un'escalation senza avviso (difetto di corpus). Fixture E26.

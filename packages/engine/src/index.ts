@@ -7,6 +7,6 @@
  * from the deciding corpus construct (CLAUDE.md, constraint 2).
  */
 export type * from './types.ts';
-export { evaluate, CONFLICT_NOTICE } from './evaluate.ts';
+export { evaluate } from './evaluate.ts';
 export { InvalidAnswersError, CorpusContractError } from './errors.ts';
 export { checkAnswers, resolveSector, type SectorContext, type WizardQuestion } from './answers.ts';

@@ -6,7 +6,6 @@
  * test starts from a valid corpus and injects one fault or one answer set.
  */
 import { validateCorpus, type Corpus, type RawCorpus } from '@nis2-check/corpus';
-import { CONFLICT_NOTICE } from '../src/index.ts';
 
 const DIM = ['c_dim', 'faq_amb_di_1', 'racc_ue_2003_361'];
 const trace = (what: string) => `Testo del corpus per ${what}.`;
@@ -49,7 +48,7 @@ export function rawMiniCorpus(): RawCorpus {
           entry('reg_a_entry', 'gestito', ['reg_a']),
           entry('reg_b_entry', 'gestito', ['reg_b']),
           ...['n_inter', 'n_escluso', 'n_critico', 'n_grande', 'n_piccola', 'n_answer', 'n_demoted'].map((id) => entry(id, 'segnalato')),
-          entry(CONFLICT_NOTICE, 'non_gestito'),
+          entry('n_conflitto', 'segnalato'),
         ],
       },
     },
@@ -140,6 +139,21 @@ export function rawMiniCorpus(): RawCorpus {
           { trigger: 'gate_b == yes', override_kind: 'model_substitution', reference: 'regimes/reg_b.yaml', reasoning_trace: trace('reg_b'), citations: ['c_gate_b'] },
         ],
         cumulative_signals: [{ signal: 'sig_b', trigger: 'attivita == a1' }],
+      },
+    },
+    conflicts: {
+      'conflicts/conflicts__stages.yaml': {
+        conflicts: [
+          {
+            id: 'conflitto_prova',
+            trigger: 'stage_2_and_stage_3',
+            assessment_mode: 'escalate_to_advisor',
+            verdict_outcome: 'ambiguous',
+            exceptions_catalog_entry: 'n_conflitto',
+            reasoning_trace: trace('conflitto'),
+            citations: ['c_rule'],
+          },
+        ],
       },
     },
     fixtures: {},

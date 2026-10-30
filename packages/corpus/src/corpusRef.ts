@@ -6,7 +6,7 @@
  *
  *   corpus_ref := part ( SEP part )*          SEP := " -> " | " + " | ", "  (outside brackets)
  *   part       := file [ "#" path ] | path    (a bare path reuses the previous part's file)
- *   file       := ("sectors" | "wizard" | "regimes" | "signals" | "exceptions" | "citations") "/" name ".yaml"
+ *   file       := ("sectors" | "wizard" | "regimes" | "signals" | "exceptions" | "citations" | "conflicts") "/" name ".yaml"
  *   path       := step ( "." step )*
  *   step       := name [ "[" selector ( "," selector )* "]" ]
  *
@@ -116,7 +116,7 @@ export function resolveCorpusRef(ref: string, files: Readonly<Record<string, Nod
   const problems: string[] = [];
   let currentFile: string | undefined;
   for (const part of splitTopLevel(ref)) {
-    const m = /^((?:sectors|wizard|regimes|signals|exceptions|citations)\/[A-Za-z0-9_]+\.yaml)?(?:#?(.*))$/.exec(part);
+    const m = /^((?:sectors|wizard|regimes|signals|exceptions|citations|conflicts)\/[A-Za-z0-9_]+\.yaml)?(?:#?(.*))$/.exec(part);
     const file = m?.[1];
     const path = m?.[2] ?? '';
     if (file) currentFile = file;

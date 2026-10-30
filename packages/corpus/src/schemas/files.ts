@@ -441,6 +441,32 @@ export const CitationRegistryEntry = z
 export const CitationRegistryFile = z.object({ citations: z.array(CitationRegistryEntry).min(1) }).strict();
 
 // ---------------------------------------------------------------------------
+// Conflicts between evaluation stages (ADR 0016, corpus 0.10.0) — strict
+// ---------------------------------------------------------------------------
+
+/** Explicit trigger types of a conflict: the stages whose outcomes collide. */
+export const CONFLICT_TRIGGERS = ['stage_2_and_stage_3'] as const;
+
+export const ConflictEntry = z
+  .object({
+    id: Id,
+    trigger: z
+      .string({ required_error: msg(E.OUTCOME_WITHOUT_TRIGGER, 'a conflict needs a declared trigger (ADR 0016)') })
+      .refine((t) => (CONFLICT_TRIGGERS as readonly string[]).includes(t), {
+        message: msg(E.TRIGGER, `conflict trigger must be one of: ${CONFLICT_TRIGGERS.join(', ')}`),
+      }),
+    assessment_mode: AssessmentMode,
+    verdict_outcome: VerdictOutcome,
+    exceptions_catalog_entry: Id,
+    reasoning_trace: z.string(),
+    citations: Citations,
+  })
+  .strict()
+  .superRefine((c, ctx) => checkOutcomePair(c.assessment_mode, c.verdict_outcome, ctx));
+
+export const ConflictsFile = z.object({ conflicts: z.array(ConflictEntry).min(1) }).strict();
+
+// ---------------------------------------------------------------------------
 // Fixtures
 // ---------------------------------------------------------------------------
 
@@ -493,4 +519,5 @@ export type SignalsFile = z.infer<typeof SignalsFile>;
 export type Fixture = z.infer<typeof Fixture>;
 export type ExceptionsCatalogFile = z.infer<typeof ExceptionsCatalogFile>;
 export type CitationRegistryFile = z.infer<typeof CitationRegistryFile>;
+export type ConflictsFile = z.infer<typeof ConflictsFile>;
 export type Question = z.infer<typeof Question>;

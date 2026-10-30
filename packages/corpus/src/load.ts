@@ -13,7 +13,7 @@ export const DEFAULT_CORPUS_DIR = path.join(PKG_ROOT, 'corpus');
 /** Default fixtures dir: packages/engine/tests/fixtures. */
 export const DEFAULT_FIXTURES_DIR = path.resolve(PKG_ROOT, '..', 'engine', 'tests', 'fixtures');
 
-export const CORPUS_FOLDERS = ['sectors', 'wizard', 'regimes', 'signals', 'exceptions', 'citations'] as const;
+export const CORPUS_FOLDERS = ['sectors', 'wizard', 'regimes', 'signals', 'exceptions', 'citations', 'conflicts'] as const;
 export type CorpusFolder = (typeof CORPUS_FOLDERS)[number];
 
 /** Raw (unvalidated) corpus as read from disk; file maps are keyed by corpus-relative path. */
@@ -27,6 +27,8 @@ export interface RawCorpus {
   exceptions: Record<string, unknown>;
   /** Citation registry: KB attestation of citation IDs. */
   citations: Record<string, unknown>;
+  /** Conflicts between evaluation stages (ADR 0016, corpus 0.10.0). */
+  conflicts: Record<string, unknown>;
   fixtures: Record<string, unknown>;
 }
 
@@ -74,6 +76,7 @@ export function loadFromDisk(corpusDir = DEFAULT_CORPUS_DIR, fixturesDir = DEFAU
     signals: {},
     exceptions: {},
     citations: {},
+    conflicts: {},
     fixtures: {},
   };
   for (const folder of CORPUS_FOLDERS) {
