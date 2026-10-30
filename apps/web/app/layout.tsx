@@ -1,34 +1,21 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
+import { Public_Sans } from "next/font/google";
+import { copy } from "@/src/copy.it";
 import "./globals.css";
 
-// Self-hosted font files (app/fonts): no third-party font requests at runtime.
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
+// next/font/google downloads the font at build time and serves it from the build:
+// no request to Google at runtime.
+const publicSans = Public_Sans({ subsets: ["latin"], variable: "--font-public-sans", display: "swap" });
 
 export const metadata: Metadata = {
-  title: "Pre-screening ambito NIS2 (in sviluppo)",
-  description: "Strumento informativo open source di pre-screening dell'ambito NIS2 italiano. Non è consulenza.",
+  title: copy.meta.title,
+  description: copy.meta.description,
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="it">
-      <body className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased`}>
-        {children}
-      </body>
+    <html lang="it" className={publicSans.variable}>
+      <body className="font-sans antialiased">{children}</body>
     </html>
   );
 }

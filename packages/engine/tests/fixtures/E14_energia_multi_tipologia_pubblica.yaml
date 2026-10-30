@@ -7,7 +7,7 @@ description_it: >
   tutte le tipologie (cross_sector_multi_tipologia_elettrica); possibile canale
   Allegato IV in-house (cross_sector_inhouse_all_iv). Da 0.6.0 (C-E5) nessun signal
   l90_cumulo: l'art. 1 c. 1 L. 90/2024 non comprende le in-house del settore energia.
-corpus_version: 0.11.0
+corpus_version: 0.11.1
 sector: energia_elettrica
 
 inputs:

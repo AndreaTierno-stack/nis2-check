@@ -13,6 +13,11 @@ Ogni bump ha una voce in questo file; le fixture dichiarano `corpus_version` e s
 
 ## [Unreleased]
 
+## [0.11.1] — 2026-10-30 — Avviso di non-consulenza nel catalogo (S4.1)
+
+Patch (catalogo).
+- Voce `anteprima_di_studio_non_consulenza` (`non_gestito`): avviso di anteprima di studio, AS-IS e dichiarato non rivisto da un legale (ADR 0017). È il testo del click-wrap e del footer dell'app web, che non scrive testi propri. Catalogo a 30 voci: 3 gestite, 20 segnalate, 7 non gestite.
+
 ## [0.11.0] — 2026-10-30 — Consolidamento post-S3: stadio dichiarato, regimi senza meta comune, etichette delle fonti
 
 Minor: cambiano schema e invarianti. Esiti attesi invariati. Nessun ingest; nessun ID di citazione nuovo.

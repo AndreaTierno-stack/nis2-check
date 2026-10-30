@@ -10,6 +10,12 @@ importers:
 
   apps/web:
     dependencies:
+      '@nis2-check/corpus':
+        specifier: workspace:*
+        version: link:../../packages/corpus
+      '@nis2-check/engine':
+        specifier: workspace:*
+        version: link:../../packages/engine
       '@radix-ui/react-slot':
         specifier: ^1.5.0
         version: 1.5.0(@types/react@19.3.0)(react@19.3.1)

@@ -249,3 +249,12 @@ exceptions:
     description: "Lo strumento valuta tre ambiti: il sottosettore energia elettrica (Allegato I, punto 1, lettera a), i fornitori di servizi di cloud computing (Allegato I, punto 8) e le pubbliche amministrazioni dell'Allegato III. Gli altri settori, sottosettori e tipologie degli Allegati I, II e IV non sono valutati."
     citations: [dlgs_138_2024_art_3_c_1, dlgs_138_2024_allegato_I, dlgs_138_2024_allegato_III]
     applies_to: [cloud_computing, energia_elettrica, pubblica_amministrazione]
+
+  # Corpus 0.11.1 (S4.1, ADR 0017): avviso di non-consulenza mostrato dal click-wrap e dal
+  # footer dell'app. Testo AS-IS, dichiarato non rivisto da un legale.
+  - id: anteprima_di_studio_non_consulenza
+    status: non_gestito
+    title: "Anteprima di studio: strumento informativo, non consulenza"
+    description: "nis2-check è un'anteprima di studio: offre un esito preliminare e probabilistico sulla possibile applicabilità della disciplina NIS2 italiana (D.Lgs. 138/2024), sulla base delle risposte fornite. Non è un parere legale né una consulenza e non sostituisce la registrazione sulla piattaforma ACN: la verifica con un consulente qualificato è necessaria prima di assumere conclusioni operative. Le risposte restano nel browser e nessun dato viene inviato a un server. Questo avviso è fornito così com'è e non è stato rivisto da un legale."
+    citations: []
+    applies_to: [cloud_computing, energia_elettrica, pubblica_amministrazione]

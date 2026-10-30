@@ -8,7 +8,7 @@ description_it: >
   regole dimensionali (essenziale), con gli avvisi sugli esoneri di piattaforma della
   Det. 127437/2026 e sull'art. 3 c. 15.
   Esito cambiato in 0.6.0: era escalate_to_advisor / ambiguous con regime_routing [dora].
-corpus_version: 0.11.0
+corpus_version: 0.11.1
 sector: cloud_computing
 
 inputs:

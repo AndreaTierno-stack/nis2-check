@@ -4,11 +4,14 @@
  * surface of Next.js (Server Actions, Image Optimization API, RSC endpoints)
  * out of the deployed artifact.
  *
+ * The workspace packages ship TypeScript sources: Next transpiles them.
+ *
  * @type {import('next').NextConfig}
  */
 const nextConfig = {
   output: "export",
   images: { unoptimized: true },
+  transpilePackages: ["@nis2-check/engine", "@nis2-check/corpus"],
 };
 
 export default nextConfig;
