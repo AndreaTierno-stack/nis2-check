@@ -3,8 +3,7 @@
  * evaluate() and compares the Verdict with `expected`.
  *
  * The shape of the fixtures is not re-checked here: corpus:validate already covers
- * it. Scenarios not yet enabled stay test.todo (S3: Part 1 enables the dimensional
- * scenarios and E25; Part 2 the rest).
+ * it. Every scenario runs (S3).
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -14,8 +13,6 @@ import { parseYaml, type Fixture } from '@nis2-check/corpus';
 import { evaluate } from '../src/index.ts';
 import { realCorpus } from './helpers.ts';
 
-const ENABLED = new Set(['E01', 'E02', 'E03', 'E04', 'E13', 'E14', 'E15', 'E25', 'E26', 'E27']);
-
 const FIXTURES_DIR = path.join(path.dirname(fileURLToPath(import.meta.url)), 'fixtures');
 const files = fs.readdirSync(FIXTURES_DIR).filter((f) => /^E\d{2}_.*\.yaml$/.test(f)).sort();
 
@@ -23,10 +20,6 @@ describe('golden fixtures', () => {
   for (const file of files) {
     const fx = parseYaml(fs.readFileSync(path.join(FIXTURES_DIR, file), 'utf8')) as Fixture;
     const name = `${fx.scenario_id} ${fx.name}`;
-    if (!ENABLED.has(fx.scenario_id)) {
-      it.todo(name);
-      continue;
-    }
     it(name, () => {
       const corpus = realCorpus();
       const verdict = evaluate({ sectorId: fx.sector, answers: fx.inputs }, corpus);
