@@ -168,7 +168,17 @@ exceptions:
     status: segnalato
     title: "Tipologie dell'Allegato IV: rientro solo su individuazione dell'ACN"
     description: "I soggetti delle tipologie dell'Allegato IV (trasporto pubblico locale, istituti di istruzione che svolgono attività di ricerca, soggetti che svolgono attività di interesse culturale, società in house, partecipate o a controllo pubblico) rientrano nel decreto, indipendentemente dalla dimensione, solo se individuati dall'ACN su proposta delle autorità di settore, con notifica al soggetto (art. 3 cc. 8 e 13 D.Lgs. 138/2024). Lo strumento non può determinare questa individuazione."
-    citations: [dlgs_138_2024_art_3_c_8, dlgs_138_2024_art_3_c_13, faq_a4_3_4, faq_settori_sottosettori]
+    # Corpus 0.6.1: A4.1 (meccanismo) e A4.2 (tipologie) al posto di A4.3.4 (solo soggetti
+    # culturali) e della pagina FAQ nel suo insieme.
+    citations: [dlgs_138_2024_art_3_c_8, dlgs_138_2024_art_3_c_13, faq_a4_1, faq_a4_2]
+    applies_to: [pubblica_amministrazione]
+
+  # Corpus 0.6.1: chiarimenti A4.3.x solo per il profilo "attivita' di interesse culturale"
+  - id: allegato_iv_attivita_culturale_criteri_mic
+    status: segnalato
+    title: "Soggetti che svolgono attività di interesse culturale: criteri della proposta del Ministero della Cultura"
+    description: "Per i soggetti che svolgono attività di interesse culturale, la FAQ ACN A4.3.3 indica gli elementi su cui si basa la proposta di individuazione del Ministero della Cultura: rilevanza dell'attività culturale, dipendenza critica dalle tecnologie dell'informazione e della comunicazione, impatto potenziale di un incidente informatico. La FAQ A4.3.4 precisa che per questa tipologia non valgono criteri dimensionali e che la valutazione è qualitativa e funzionale. Questi chiarimenti riguardano solo i soggetti culturali; lo strumento non valuta questi elementi."
+    citations: [faq_a4_3_3, faq_a4_3_4]
     applies_to: [pubblica_amministrazione]
 
   - id: pa_asl_identita_sanitaria

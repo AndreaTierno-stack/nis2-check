@@ -125,7 +125,10 @@ sector_specific_questions:
         activates_signals: [allegato_iv_individuazione]
       - id: attivita_culturale
         label_it: "Soggetto che svolge attività di interesse culturale"
-        activates_signals: [allegato_iv_individuazione]
+        # Corpus 0.6.1: i chiarimenti A4.3.3-A4.3.4 valgono solo per questo profilo
+        on_selected:
+          activates_signals: [allegato_iv_individuazione]
+          notices: [allegato_iv_attivita_culturale_criteri_mic]
       # Corpus 0.6.1: l90_cumulo solo per le societa' in house dei soggetti elencati
       # dall'art. 1 c. 1 L. 90/2024 che forniscono i servizi li' indicati (stesso ID di
       # opzione di wizard__cloud_computing.yaml); le altre in-house non lo attivano.

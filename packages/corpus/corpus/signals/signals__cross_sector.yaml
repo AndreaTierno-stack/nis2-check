@@ -72,5 +72,9 @@ signals:
   - id: allegato_iv_individuazione
     kind: qualitative_channel
     message_template: allegato_iv_individuazione
-    base_reasoning_trace: "Il soggetto potrebbe rientrare nel perimetro NIS tramite il canale di individuazione governativa dell'Allegato IV (art. 3 cc. 8 e 13 D.Lgs. 138/2024). Questo NON e' un rientro automatico: il soggetto e' NIS solo dopo notifica da parte dell'autorita' di settore competente, su determinazione ACN sentito il Tavolo NIS. Non esiste criterio dimensionale; la valutazione e' qualitativa (attivita' rilevante, dipendenza critica da ICT, impatto potenziale di un incidente). Lo strumento non puo' determinare questo rientro: verifica obbligatoria con consulente qualificato."
-    citations: [dlgs_138_2024_art_3_c_8, dlgs_138_2024_art_3_c_13, faq_a4_3_3, faq_a4_3_4]
+    # Corpus 0.6.1: testo e citazioni generali su A4.1 e art. 3 cc. 8 e 13 per tutti i
+    # profili. Notifica dell'Autorita' nazionale competente NIS (era "autorita' di settore").
+    # I criteri di A4.3.3-A4.3.4 riguardano i soli soggetti culturali: avviso di catalogo
+    # allegato_iv_attivita_culturale_criteri_mic sull'opzione attivita_culturale.
+    base_reasoning_trace: "Il soggetto potrebbe rientrare nel perimetro NIS tramite l'Allegato IV, indipendentemente dalla dimensione (art. 3 c. 8 D.Lgs. 138/2024). Questo NON e' un rientro automatico: i soggetti delle tipologie dell'Allegato IV sono individuati con determinazione dell'ACN, su proposta delle Autorita' di settore interessate, sentito il Tavolo per l'attuazione della disciplina NIS; l'Autorita' nazionale competente NIS notifica l'individuazione al soggetto, e sono tenuti alla registrazione solo i soggetti a cui e' stata notificata (art. 3 c. 13; FAQ ACN A4.1). Lo strumento non puo' determinare questo rientro: verifica obbligatoria con consulente qualificato."
+    citations: [dlgs_138_2024_art_3_c_8, dlgs_138_2024_art_3_c_13, faq_a4_1]

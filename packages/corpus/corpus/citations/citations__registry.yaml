@@ -242,6 +242,14 @@ citations:
     kb_node: wiki/sources/FAQ NIS - Settori, sottosettori e tipologie di soggetto.md
     kb_lines: "235"
     attestation: "A3.c.4.5: un'ASL risulta 'fuori ambito' sulla piattaforma se si registra solo per l'Allegato I p. 5 dichiarando dimensioni inferiori alla piccola impresa; la classificazione non è corretta perché l'ASL rientra per l'Allegato III."
+  - id: faq_a4_1
+    kb_node: wiki/sources/FAQ NIS - Settori, sottosettori e tipologie di soggetto.md
+    kb_lines: 242-245
+    attestation: "A4.1, meccanismo generale dell'Allegato IV (art. 3 cc. 8 e 13 D.Lgs. 138/2024): soggetti individuati con determinazioni ACN su proposta delle Autorità di settore NIS, sentito il Tavolo per l'attuazione; l'Autorità nazionale competente NIS notifica l'individuazione; solo i soggetti notificati sono tenuti alla registrazione. Fedele ad A4.1 nel PDF (p. 31; rinvio 'articolo 3, commi 8 e 13' dal lint del 2026-10-30)."
+  - id: faq_a4_2
+    kb_node: wiki/sources/FAQ NIS - Settori, sottosettori e tipologie di soggetto.md
+    kb_lines: 247-251
+    attestation: "A4.2, le quattro tipologie dell'Allegato IV: trasporto pubblico locale; istituti di istruzione che svolgono ricerca; soggetti che svolgono attività di interesse culturale; società in-house, partecipate, controllate (D.Lgs. 175/2016). Fedele alla FAQ."
   - id: faq_a4_3_3
     kb_node: wiki/sources/FAQ NIS - Settori, sottosettori e tipologie di soggetto.md
     kb_lines: "257"
