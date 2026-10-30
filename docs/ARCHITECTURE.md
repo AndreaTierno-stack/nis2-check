@@ -96,7 +96,7 @@ analizzi il corpus. Ogni violazione porta un codice stabile tra parentesi quadre
 
 | # | Invariante | Codice | Motivazione |
 |---|---|---|---|
-| 1 | Ogni voce con esito (`qualification_rules`, `out_of_scope_mvp`, `multi_regime_intersection`, `outcome_mapping`, `allegato_iv_channel`) dichiara `verdict_outcome` | `E_VERDICT_OUTCOME` | ADR 0002, CLAUDE.md vincolo 2 |
+| 1 | Ogni voce con esito (`qualification_rules`, `out_of_scope_mvp`, `multi_regime_intersection`, `outcome_mapping`, `allegato_iv_channel`) dichiara `verdict_outcome`; una regola con `reference` lo prende dal blocco referenziato e non dichiara esito, trace, citazioni o avvisi propri (corpus 0.9.0) | `E_VERDICT_OUTCOME`, `E_REF_FILE` | ADR 0002, CLAUDE.md vincolo 2, ADR 0009 (pattern del `reference`) |
 | 2 | Un override non ha esito proprio: il suo `reference` punta a un regime esistente il cui `meta` dichiara `assessment_mode` e `verdict_outcome` | `E_REF_FILE`, `E_REGIME_META` | ADR 0009 |
 | 3 | `escalate_to_advisor` ⇒ `verdict_outcome: ambiguous`, ovunque (regole, regimi, fixture) | `E_ESCALATE_AMBIGUOUS` | CLAUDE.md vincolo 6, ADR 0002 |
 | 4 | Mapping fisso: `out_of_scope` ⇒ `likely_out_of_scope`; `categorical_assessment` ⇒ `likely_in_scope` | `E_FIXED_MAPPING` | ADR 0002 |
@@ -122,9 +122,19 @@ analizzi il corpus. Ogni violazione porta un codice stabile tra parentesi quadre
 | 24 | Ogni voce del registro è usata (avviso, non blocca) | `W_CITATION_UNUSED` | corpus 0.6.0 |
 | 25 | Ogni voce di catalogo `segnalato` è referenziata da almeno un avviso o dal `meta` di un regime; `gestito` e `non_gestito` possono non esserlo | `E_CATALOG_UNREFERENCED` | ADR 0012 (segnalato = mostrato nel verdetto) |
 | 26 | `excluded_common_questions` nomina solo domande del blocco comune; le domande escluse non sono input del settore (regole, trigger, fixture) | `E_REF_QUESTION`, `E_RULE_INPUT`, `E_FIXTURE_INPUT` | ADR 0014, ADR 0015 |
+| 27 | Nessuna `outcome_mapping` e nessuna opzione con esito dichiara `likely_in_scope`: una risposta può escludere o lasciare indeterminato, l'inclusione viene dalle regole del settore | `E_OUTCOME_MAPPING_INCLUSIVE` | ADR 0016; corpus 0.9.0 (voce `si` di `registrato_pun` rimossa) |
+| 28 | Ogni costrutto con esito valutato dall'engine ha un trigger dichiarato e non vuoto (`condition` delle regole, `trigger` di override e intersezioni, `answer` di `outcome_mapping`); un blocco di dati con esito (`allegato_iv_channel`) è applicato solo da una regola che lo referenzia. Regimi e `out_of_scope_mvp` sono dati o documentazione, non trigger | `E_OUTCOME_WITHOUT_TRIGGER` | ADR 0016 (l'engine non deduce un trigger dalla posizione) |
+| 29 | `applies_to_categories` ritirato: i segnali di settore dichiarano un `trigger` esplicito | `E_TRIGGER` | corpus 0.9.0 |
 
-Gli invarianti incrociati (2, 7–10, 13–18, 20, 22–26) girano solo se la forma dei file è
-valida: zod non esegue i `superRefine` su un input di forma errata.
+Gli invarianti incrociati (2, 7–10, 13–18, 20, 22–26, 28 per il blocco referenziato) girano
+solo se la forma dei file è valida: zod non esegue i `superRefine` su un input di forma errata.
+
+**Costrutti dichiarativi senza effetto in v0.1** (validati, non valutati dall'engine; corpus
+0.9.0): `on_yes.effect` / `on_yes.reference` della domanda `psnc` (l'instradamento lo decide
+l'override del settore, ADR 0009); `out_of_scope_mvp` dei settori (casi non modellati nel MVP,
+con `verdict_outcome` documentale e senza trigger; oggi solo nel settore PA: sanitario e
+Allegato IV); `rientro_prerequisite` della PA (assunzione ISTAT S13, resa nelle trace e
+nell'avviso `pa_prerequisito_istat_s13`).
 
 ## 4. Grammatica di `visible_if` (ADR 0010)
 

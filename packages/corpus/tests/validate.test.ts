@@ -222,4 +222,59 @@ describe('corpus:validate', () => {
       expectCode(errors, 'E_RULE_INPUT', 'sectors__pubblica_amministrazione.yaml');
     });
   });
+
+  describe('corpus 0.9.0 faults (ADR 0016)', () => {
+    const pa = (c: RawCorpus) => sector(c, 'pubblica_amministrazione');
+    const produttore = (c: RawCorpus) =>
+      wizard(c, 'energia_elettrica').sector_specific_questions.find((q: Doc) => q.id === 'produttore_cliente_attivo');
+
+    it('outcome_mapping declaring likely_in_scope -> E_OUTCOME_MAPPING_INCLUSIVE', () => {
+      const errors = errorsAfter((c) => {
+        Object.assign(produttore(c).outcome_mapping[0], { outcome: 'categorical_assessment', verdict_outcome: 'likely_in_scope' });
+      });
+      expectCode(errors, 'E_OUTCOME_MAPPING_INCLUSIVE', 'wizard__energia_elettrica.yaml');
+    });
+
+    it('option declaring likely_in_scope -> E_OUTCOME_MAPPING_INCLUSIVE', () => {
+      const errors = errorsAfter((c) => {
+        produttore(c).options[1].verdict_outcome = 'likely_in_scope';
+      });
+      expectCode(errors, 'E_OUTCOME_MAPPING_INCLUSIVE', 'wizard__energia_elettrica.yaml');
+    });
+
+    it('rule without condition -> E_OUTCOME_WITHOUT_TRIGGER', () => {
+      const errors = errorsAfter((c) => {
+        delete pa(c).qualification_rules[0].condition;
+      });
+      expectCode(errors, 'E_OUTCOME_WITHOUT_TRIGGER', 'sectors__pubblica_amministrazione.yaml');
+    });
+
+    it('empty override trigger -> E_OUTCOME_WITHOUT_TRIGGER', () => {
+      const errors = errorsAfter((c) => {
+        sector(c, 'cloud_computing').overrides[0].trigger = '';
+      });
+      expectCode(errors, 'E_OUTCOME_WITHOUT_TRIGGER', 'sectors__cloud_computing.yaml');
+    });
+
+    it('allegato_iv_channel referenced by no rule -> E_OUTCOME_WITHOUT_TRIGGER', () => {
+      const errors = errorsAfter((c) => {
+        pa(c).qualification_rules = pa(c).qualification_rules.filter((r: Doc) => r.reference !== 'allegato_iv_channel');
+      });
+      expectCode(errors, 'E_OUTCOME_WITHOUT_TRIGGER', 'allegato_iv_channel');
+    });
+
+    it('rule with reference and an inline outcome -> E_REF_FILE', () => {
+      const errors = errorsAfter((c) => {
+        pa(c).qualification_rules.find((r: Doc) => r.reference).verdict_outcome = 'ambiguous';
+      });
+      expectCode(errors, 'E_REF_FILE', 'sectors__pubblica_amministrazione.yaml');
+    });
+
+    it('applies_to_categories reintroduced -> E_TRIGGER', () => {
+      const errors = errorsAfter((c) => {
+        pa(c).cumulative_signals[0].applies_to_categories = ['a'];
+      });
+      expectCode(errors, 'E_TRIGGER', 'sectors__pubblica_amministrazione.yaml');
+    });
+  });
 });

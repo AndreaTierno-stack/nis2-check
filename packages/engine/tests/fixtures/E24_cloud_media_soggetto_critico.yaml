@@ -5,7 +5,7 @@ description_it: >
   D.Lgs. 134/2024. ADR 0015: essenziale indipendentemente dalla dimensione (art. 3
   c. 5 lett. a), art. 6 c. 1 lett. b) D.Lgs. 138/2024; FAQ AMB.NO.1), al posto
   dell'importante della regola dimensionale media. Signal sui soggetti critici.
-corpus_version: 0.8.0
+corpus_version: 0.9.0
 sector: cloud_computing
 
 inputs:

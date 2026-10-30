@@ -278,11 +278,21 @@ export const CorpusSchema = CorpusInput.superRefine((c, ctx) => {
     }
 
     s.qualification_rules.forEach((r, i) => checkCatalog(r.notices, [...base, 'qualification_rules', i, 'notices']));
+    // A rule may take its outcome from a data block of the same file (corpus 0.9.0); a
+    // data block that declares an outcome is applied only through such a rule (ADR 0016).
+    s.qualification_rules.forEach((r, i) => {
+      if (r.reference && s[r.reference] === undefined) {
+        issue([...base, 'qualification_rules', i, 'reference'], E.REF_FILE, `block "${r.reference}" not found in the sector file`);
+      }
+    });
+    if (s.allegato_iv_channel && !s.qualification_rules.some((r) => r.reference === 'allegato_iv_channel')) {
+      issue([...base, 'allegato_iv_channel'], E.OUTCOME_WITHOUT_TRIGGER, 'allegato_iv_channel declares an outcome but no rule references it');
+    }
     checkCatalog(s.allegato_iv_channel?.notices, [...base, 'allegato_iv_channel', 'notices']);
     s.qualification_rules.forEach((r, i) => {
       if (/\bdimension\b/.test(r.condition)) {
         if (s.meta.size_blind) issue([...base, 'qualification_rules', i, 'condition'], E.SIZE_BLIND, 'size_blind sector with a dimension condition');
-        const missing = DIMENSION_CITATIONS.filter((id) => !r.citations.includes(id));
+        const missing = DIMENSION_CITATIONS.filter((id) => !(r.citations ?? []).includes(id));
         if (missing.length) issue([...base, 'qualification_rules', i, 'citations'], E.DIMENSION_CITATIONS, `rule on dimension must cite ${missing.join(', ')}`);
       }
     });

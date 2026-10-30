@@ -15,6 +15,7 @@ import {
   RegimeRef,
   RequiredId,
   RoutingEffect,
+  TriggerExpr,
   VerdictOutcome,
   checkOutcomePair,
   msg,
@@ -24,8 +25,21 @@ const SignalList = z.array(Id);
 /** Verdict notices: each one is the id of an entry of the exceptions catalog (ADR 0012). */
 export const Notices = z.array(Id);
 const ActivatesSignals = z.object({ activates_signals: SignalList }).passthrough();
-/** Effect of selecting an option: signals and verdict notices (notices from corpus 0.6.0). */
-const OnSelected = z.object({ activates_signals: SignalList.optional(), notices: Notices.optional() }).passthrough();
+/** Effect of selecting an option: signals, verdict notices (corpus 0.6.0) and the citations of the answer (0.9.0). */
+const OnSelected = z
+  .object({ activates_signals: SignalList.optional(), notices: Notices.optional(), citations: Citations.optional() })
+  .passthrough();
+
+/** An answer may restrict or exclude, never include on its own (ADR 0016): no likely_in_scope. */
+function checkNotInclusive(outcome: unknown, ctx: z.RefinementCtx) {
+  if (outcome === 'likely_in_scope') {
+    ctx.addIssue({
+      code: z.ZodIssueCode.custom,
+      path: ['verdict_outcome'],
+      message: msg(E.OUTCOME_MAPPING_INCLUSIVE, 'an answer-level outcome cannot be likely_in_scope: inclusion comes from the sector rules (ADR 0016)'),
+    });
+  }
+}
 
 // ---------------------------------------------------------------------------
 // Wizard
@@ -39,12 +53,14 @@ export const Option = z
     on_selected: OnSelected.optional(),
     note_it: z.string().optional(),
   })
-  .passthrough();
+  .passthrough()
+  // options carry no outcome today; if one ever does, the same rule as outcome_mapping applies
+  .superRefine((o, ctx) => checkNotInclusive((o as Record<string, unknown>).verdict_outcome, ctx));
 
-/** Outcome declared directly by an answer (e.g. registrato_pun). */
+/** Outcome declared directly by an answer (e.g. produttore_cliente_attivo). */
 export const OutcomeMapping = z
   .object({
-    answer: Id,
+    answer: TriggerExpr('outcome_mapping.answer').pipe(Id),
     outcome: AssessmentMode,
     verdict_outcome: VerdictOutcome,
     reasoning_trace: z.string(),
@@ -53,7 +69,10 @@ export const OutcomeMapping = z
     notices: Notices.optional(),
   })
   .passthrough()
-  .superRefine((m, ctx) => checkOutcomePair(m.outcome, m.verdict_outcome, ctx));
+  .superRefine((m, ctx) => {
+    checkOutcomePair(m.outcome, m.verdict_outcome, ctx);
+    checkNotInclusive(m.verdict_outcome, ctx);
+  });
 
 export const ConditionalFollowup = z
   .object({
@@ -140,7 +159,7 @@ export const Question = z
 
 export const MultiRegimeIntersection = z
   .object({
-    trigger: z.string(),
+    trigger: TriggerExpr('multi_regime_intersection.trigger'),
     outcome: AssessmentMode,
     verdict_outcome: VerdictOutcome,
     reasoning_trace: z.string(),
@@ -190,20 +209,43 @@ export const WizardFile = z
 // Sectors
 // ---------------------------------------------------------------------------
 
+/** Data blocks of a sector file that a rule may take its outcome from (corpus 0.9.0). */
+export const RuleReference = z.enum(['allegato_iv_channel']);
+
+/**
+ * A qualification rule declares its outcome inline, or takes it from a data block of
+ * the same sector file through `reference` (pattern of ADR 0009): never both.
+ */
 export const QualificationRule = z
   .object({
-    condition: z.string(),
-    outcome: AssessmentMode,
-    verdict_outcome: VerdictOutcome,
+    condition: TriggerExpr('qualification_rules.condition'),
+    reference: RuleReference.optional(),
+    outcome: AssessmentMode.optional(),
+    verdict_outcome: VerdictOutcome.optional(),
     qualifica: z.enum(['essenziale', 'importante']).optional(),
     qualifica_inferita: z.enum(['essenziale', 'importante']).optional(),
     qualitative_signal_template: z.string().optional(),
-    reasoning_trace: z.string(),
-    citations: Citations,
+    reasoning_trace: z.string().optional(),
+    citations: Citations.optional(),
     notices: Notices.optional(),
   })
   .passthrough()
   .superRefine((r, ctx) => {
+    const inline = ['outcome', 'verdict_outcome', 'qualifica', 'qualifica_inferita', 'reasoning_trace', 'citations', 'notices'] as const;
+    if (r.reference) {
+      for (const k of inline) {
+        if (r[k] !== undefined) {
+          ctx.addIssue({ code: z.ZodIssueCode.custom, path: [k], message: msg(E.REF_FILE, `${k} comes from reference "${r.reference}": not allowed inline`) });
+        }
+      }
+      return;
+    }
+    if (r.verdict_outcome === undefined) {
+      ctx.addIssue({ code: z.ZodIssueCode.custom, path: ['verdict_outcome'], message: msg(E.VERDICT_OUTCOME, 'verdict_outcome is required (constraint 2, ADR 0002)') });
+    }
+    for (const k of ['outcome', 'reasoning_trace', 'citations'] as const) {
+      if (r[k] === undefined) ctx.addIssue({ code: z.ZodIssueCode.custom, path: [k], message: msg(E.REF_FILE, `${k} is required without reference`) });
+    }
     checkOutcomePair(r.outcome, r.verdict_outcome, ctx);
     if (r.qualifica && r.qualifica_inferita) {
       ctx.addIssue({
@@ -216,7 +258,7 @@ export const QualificationRule = z
 /** Override of a regime gate: no verdict_outcome of its own, it inherits the regime's (ADR 0009). */
 export const Override = z
   .object({
-    trigger: z.string(),
+    trigger: TriggerExpr('overrides.trigger'),
     override_kind: RoutingEffect,
     reference: RegimeRef,
     reasoning_trace: z.string(),
@@ -235,7 +277,16 @@ export const OutOfScopeMvp = z
   })
   .passthrough();
 
-const SignalTrigger = z.object({ signal: Id }).passthrough();
+const SignalTrigger = z
+  .object({
+    signal: Id,
+    trigger: z.string().optional(),
+    // retired in corpus 0.9.0: implicit binding of sector categories to an input
+    applies_to_categories: z
+      .undefined({ invalid_type_error: msg(E.TRIGGER, 'applies_to_categories is retired: use an explicit trigger (corpus 0.9.0)') })
+      .optional(),
+  })
+  .passthrough();
 
 export const SectorFile = z
   .object({
@@ -281,6 +332,8 @@ export const SectorFile = z
         signal: Id,
         verdict_strategy: AssessmentMode,
         verdict_outcome: VerdictOutcome,
+        reasoning_trace: z.string(),
+        citations: Citations,
         notices: Notices.optional(),
         profili: z.array(z.object({ id: Id, unifies_with: Id.optional() }).passthrough()),
       })

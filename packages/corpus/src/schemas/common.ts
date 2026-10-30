@@ -37,6 +37,8 @@ export const E = {
   REGIME_ROUTING: 'E_REGIME_ROUTING',
   CORPUS_REF: 'E_CORPUS_REF',
   YAML_BOOL: 'E_YAML_BOOL',
+  OUTCOME_MAPPING_INCLUSIVE: 'E_OUTCOME_MAPPING_INCLUSIVE',
+  OUTCOME_WITHOUT_TRIGGER: 'E_OUTCOME_WITHOUT_TRIGGER',
 } as const;
 export type ErrorCode = (typeof E)[keyof typeof E];
 
@@ -138,6 +140,16 @@ export function checkOutcomePair(
     });
   }
 }
+
+/**
+ * Trigger of a construct that declares an outcome (rule condition, override or
+ * intersection trigger, mapping answer): required and non-empty, because the engine
+ * never derives a trigger from where a construct sits (ADR 0016).
+ */
+export const TriggerExpr = (what: string) =>
+  z
+    .string({ required_error: msg(E.OUTCOME_WITHOUT_TRIGGER, `${what} is required: an outcome needs a declared trigger (ADR 0016)`) })
+    .min(1, { message: msg(E.OUTCOME_WITHOUT_TRIGGER, `${what} is empty: an outcome needs a declared trigger (ADR 0016)`) });
 
 /** Required id with a coded message, for questions and options. */
 export const RequiredId = z.string({ required_error: msg(E.ID_MISSING, 'id is required') }).pipe(Id);

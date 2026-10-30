@@ -87,16 +87,16 @@ sector_specific_questions:
     options:
       - id: si
         label_it: "Sì, registrato o obbligato alla registrazione su PUN"
+        # Corpus 0.9.0: niente outcome_mapping per "si" (era categorical_assessment /
+        # likely_in_scope "provvisorio", vietato da E_OUTCOME_MAPPING_INCLUSIVE): la
+        # tipologia e' confermata e l'esito viene dalle regole del settore.
+        on_selected:
+          citations: [faq_a1_1_a_3, dm_mase_106_2023]
       - id: "no"
         label_it: "No, non obbligato alla registrazione su PUN"
       - id: non_so
         label_it: "Non so"
     outcome_mapping:
-      - answer: si
-        outcome: categorical_assessment   # tipologia confermata: prosegue con l'identificazione standard (esito per dimensione)
-        verdict_outcome: likely_in_scope   # provvisorio: la regola dimensionale del settore puo' rifinirlo (micro/piccola -> likely_out_of_scope)
-        reasoning_trace: "Gestore di punti di ricarica registrato o obbligato alla registrazione su PUN (DM MASE 106/2023): rientra nella tipologia elettrica; la qualifica segue le regole dimensionali del settore (importante/essenziale)."
-        citations: [faq_a1_1_a_3, dm_mase_106_2023]
       - answer: "no"
         outcome: qualitative_signal_only   # "non rientrano automaticamente" NON e' esclusione categoriale
         verdict_outcome: likely_out_of_scope

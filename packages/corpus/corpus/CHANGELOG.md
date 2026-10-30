@@ -13,6 +13,27 @@ Ogni bump ha una voce in questo file; le fixture dichiarano `corpus_version` e s
 
 ## [Unreleased]
 
+## [0.9.0] — 2026-10-30 — Trigger espliciti per ogni esito, nessuna risposta inclusiva (preparazione dell'engine, ADR 0016)
+
+Minor: cambiano regole, questionario, schema e invarianti. Esiti attesi delle fixture invariati. Base: mappa dei costrutti `docs/verifications/2026-10-30-s3-mappa-costrutti.md`. Nessun ingest.
+
+### Regole e questionario
+- **`registrato_pun`** — rimossa la voce `si` dell'`outcome_mapping` (`categorical_assessment` / `likely_in_scope` "provvisorio"): l'esito di "sì" viene dalle regole del settore (dimensione, soggetto critico). Le citazioni della voce (`faq_a1_1_a_3`, `dm_mase_106_2023`) passano all'opzione (`on_selected.citations`). Voci `no` e `non_so` invariate. E15 invariata.
+- **PA, canale Allegato IV** — regola esplicita `categoria_pa == canale_allegato_iv` con `reference: allegato_iv_channel` (pattern ADR 0009): esito (`qualitative_signal_only` / `ambiguous`), trace, citazioni (`dlgs_138_2024_art_3_c_8`, `dlgs_138_2024_art_3_c_13`, `faq_a4_1`) e avvisi dal blocco del canale, che diventa un dato. Con la regola, per la PA scatta esattamente una regola per ogni valore di `categoria_pa` e di `soggetto_critico` (12 combinazioni). E11 invariata.
+- **PA, `l90_cumulo`** — `applies_to_categories: [a, b, c]` sostituito da tre trigger espliciti `categoria_pa == a|b|c` (la grammatica delle condizioni non ha `OR`). Segnali attesi invariati.
+
+### Schema e invarianti
+- Regole di qualificazione con `reference` a un blocco di dati del settore (`allegato_iv_channel`), senza esito proprio; il blocco del canale dichiara `reasoning_trace` e `citations`. `on_selected.citations` tipizzato.
+- **`E_OUTCOME_MAPPING_INCLUSIVE`** — nessuna `outcome_mapping` e nessuna opzione con esito dichiara `likely_in_scope`.
+- **`E_OUTCOME_WITHOUT_TRIGGER`** — `condition`, `trigger` di override e intersezioni e `answer` di `outcome_mapping` obbligatori e non vuoti; `allegato_iv_channel` deve essere referenziato da una regola. Regimi e `out_of_scope_mvp` restano dati e documentazione.
+- `applies_to_categories` ritirato (`E_TRIGGER`). `E_APPLIES_TO_MISMATCH` non introdotto: il campo non sopravvive.
+- Test di guasto: 7 nuovi (30 test del validator).
+- `docs/ARCHITECTURE.md` §3: invarianti 27-29, invariante 1 esteso al `reference`, elenco dei costrutti dichiarativi senza effetto in v0.1 (`on_yes.reference` di `psnc`, `out_of_scope_mvp`, `rientro_prerequisite`); `out_of_scope_mvp` resta (non vuoto nella PA).
+
+### Fixture
+- `corpus_version` → 0.9.0 su tutte le 25; esiti attesi invariati.
+- Test delle fixture (engine): `notices` assente = non verificato, come da README (tolto il confronto con `?? []`).
+
 ## [0.8.0] — 2026-10-30 — Residui di 0.7.0: art. 3 c. 2 nelle regole micro/piccola, trasporto pubblico nella L. 90
 
 Minor (convenzione sopra): cambia il questionario (opzione `tpl_soggetto_l90`). Schema e invarianti invariati. Nessun ingest. Preparata come 0.7.1 e rinumerata prima del push.

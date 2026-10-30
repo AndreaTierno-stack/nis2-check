@@ -10,7 +10,7 @@
 # DEFINIZIONE vs TRIGGER:
 # - qui vive la DEFINIZIONE (reasoning_trace, template, citazioni)
 # - il TRIGGER (quando il signal si attiva) resta nei file di settore/wizard
-#   (es. applies_to_categories, oppure activates_signals in una domanda)
+#   (es. trigger su un input, oppure activates_signals in una domanda)
 #
 # Il campo sector_context arricchisce il base_reasoning_trace quando il signal
 # e' attivato da un settore specifico. Il decision engine concatena:

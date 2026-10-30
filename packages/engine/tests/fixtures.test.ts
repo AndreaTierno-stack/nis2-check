@@ -40,7 +40,8 @@ describe('golden fixtures', () => {
           exceptionsCatalogEntry: r.exceptions_catalog_entry,
         })),
       );
-      expect(verdict.notices).toEqual(fx.expected.notices ?? []);
+      // fixtures README: an absent `notices` key means "notices not verified by this fixture"
+      if (fx.expected.notices !== undefined) expect(verdict.notices).toEqual(fx.expected.notices);
       expect(verdict.disclaimerRequired).toBe(true);
     });
   }

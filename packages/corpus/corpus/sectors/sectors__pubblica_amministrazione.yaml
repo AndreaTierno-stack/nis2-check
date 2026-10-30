@@ -105,7 +105,7 @@ categorie:
       - id: istituti_zooprofilattici_sperimentali
         label_it: "Istituti zooprofilattici sperimentali"
     # NOTA: il cumulo con la L. 90/2024 per la lett. d) non e' attestato: il signal
-    # l90_cumulo non si attiva (applies_to_categories [a, b, c]); avviso dal catalogo
+    # l90_cumulo non si attiva (trigger solo su categoria_pa a, b, c); avviso dal catalogo
     # eccezioni (pa_lett_d_cumulo_l90_non_attestato, STATUS 14).
 
 # ============================================================================
@@ -188,6 +188,13 @@ qualification_rules:
     citations: [dlgs_138_2024_allegato_III, dlgs_138_2024_art_3_c_6, dlgs_138_2024_art_3_c_5_lett_a, dlgs_138_2024_art_6_c_1_lett_b, faq_amb_no_1, l_196_2009_art_1_c_3]
     notices: [pa_esclusioni_sicurezza_nazionale_art_4_c_3, pa_lett_d_cumulo_l90_non_attestato, pa_prerequisito_istat_s13]
 
+  # Corpus 0.9.0: il canale Allegato IV e' deciso da questa regola (E_OUTCOME_WITHOUT_TRIGGER).
+  # Esito, trace, citazioni e avvisi vengono dal blocco allegato_iv_channel tramite
+  # reference (pattern ADR 0009): il blocco e' un dato, non un trigger. Con
+  # soggetto_critico == yes resta ambiguous (ADR 0015, non modellato).
+  - condition: categoria_pa == canale_allegato_iv
+    reference: allegato_iv_channel
+
 # ============================================================================
 # Override di regime (ADR 0014): Cloud PA (trigger classificazione_cloud_pa, domanda
 # del wizard PA) e PSNC (trigger psnc, domanda del blocco comune). Nessun override
@@ -212,9 +219,16 @@ overrides:
     citations: [det_acn_155238_2026_art_5, dl_105_2019_art_1_c_2_bis]
 
 # Signal di cumulo regimi (trigger; definizione in signals/signals__cumulative_regimes.yaml)
+# Corpus 0.9.0: trigger espliciti su categoria_pa al posto di applies_to_categories
+# [a, b, c] (binding implicito). La grammatica delle condizioni non ha OR: un trigger
+# per categoria.
 cumulative_signals:
   - signal: l90_cumulo
-    applies_to_categories: [a, b, c]
+    trigger: categoria_pa == a
+  - signal: l90_cumulo
+    trigger: categoria_pa == b
+  - signal: l90_cumulo
+    trigger: categoria_pa == c
 
 # Cross-sector signal (trigger; definizione in signals/signals__cross_sector.yaml)
 cross_sector_signals:
@@ -223,11 +237,14 @@ cross_sector_signals:
 
 # Canale Allegato IV — individuazione governativa (NON determinabile dal tool)
 # Definizione del signal in signals/signals__cross_sector.yaml (allegato_iv_individuazione).
-# Qui restano solo i dati di settore (profili + autorita' proponenti).
+# Blocco di dati (corpus 0.9.0): non scatta da solo, lo applica la regola
+# categoria_pa == canale_allegato_iv tramite reference.
 allegato_iv_channel:
   signal: allegato_iv_individuazione
   verdict_strategy: qualitative_signal_only
   verdict_outcome: ambiguous   # canale All. IV (incl. in-house): dipende da atto dell'autorita', non determinabile in self-assessment
+  reasoning_trace: "Il soggetto si indica come soggetto pubblico o a partecipazione pubblica fuori dalle categorie dell'Allegato III. Potrebbe rientrare nel perimetro NIS2 italiano tramite l'Allegato IV, indipendentemente dalla dimensione, solo se individuato dall'ACN su proposta delle Autorita' di settore, con notifica al soggetto (art. 3 cc. 8 e 13 D.Lgs. 138/2024; FAQ ACN A4.1). Lo strumento non puo' determinare questa individuazione. Verifica obbligatoria con consulente qualificato."
+  citations: [dlgs_138_2024_art_3_c_8, dlgs_138_2024_art_3_c_13, faq_a4_1]
   # soggetti pubblici fuori dalle categorie dell'Allegato III: possibili categorie aggiunte con DPCM
   notices: [pa_categorie_aggiunte_dpcm_art_3_c_7, allegato_iv_individuazione_art_3_c_8]
   profili:
