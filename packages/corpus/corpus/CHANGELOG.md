@@ -13,6 +13,28 @@ Ogni bump ha una voce in questo file; le fixture dichiarano `corpus_version` e s
 
 ## [Unreleased]
 
+## [0.10.0] — 2026-10-30 — Engine v0.1 (ADR 0016): esclusione per attività, conflitti tra stadi, fixture complete
+
+Minor: cambiano schema, invarianti e regole (esclusione tipologica per attività; nuovo blocco `conflicts`). Il Blocco 0-bis (0.9.0) resta la base dell'engine. Nessun ingest; nessun ID di citazione nuovo (registro a 76 voci).
+
+### Amendment dello stadio 2 e voce PUN (ADR 0016, amendment)
+- **Esclusione tipologica per attività** — il wizard energia dichiara `activity_inputs: [tipologia_elettrica, attivita_elettriche_ulteriori]`; `produttore_cliente_attivo` esclude l'attività `produttore`, `registrato_pun` l'attività `gestore_punti_ricarica` (campo `activity`). Lo stadio 2 decide solo se ogni attività dichiarata è esclusa; altrimenti le esclusioni scattate diventano avvisi (`notices_if_demoted`) e decidono gli stadi 3-4. Base: FAQ A1.1.a.4 e A1.1.a.3.
+- **Catalogo** — voce nuova `punti_ricarica_non_pun_attivita_ulteriore` (segnalata, `faq_a1_1_a_3`); `prosumer_definizione_cliente_attivo` riusata come avviso della produzione retrocessa.
+- **Schema** — `activity_inputs`, `activity`, `notices_if_demoted`; invariante `E_ACTIVITY_REF` (3 test di guasto).
+- **Fixture E27** — produttore principale, ricarica non PUN tra le ulteriori, media impresa: `likely_in_scope`, importante, avviso della voce nuova. E04, E25 invariate.
+
+### Blocco `conflicts` e voce di E26 (ADR 0016, amendment 2)
+- **File nuovo** `conflicts/conflicts__stages.yaml` (cartella nuova del loader): voce `esclusione_tipologica_vs_inclusione_size_blind`, trigger `stage_2_and_stage_3`, `escalate_to_advisor` / `ambiguous`, citazione `dlgs_138_2024_art_3_c_5_lett_a`. L'engine copia esito, avviso e citazioni: nessun id di catalogo nel codice.
+- **Catalogo** — voce nuova `esclusione_tipologica_vs_inclusione_size_blind` (segnalata, premessa "non attestata"), referenziata dal blocco: `E_CATALOG_UNREFERENCED` senza eccezioni.
+- **Schema** — `ConflictsFile` stretto, trigger tra i tipi ammessi, una voce per tipo; copertura del registro, riferimenti al catalogo e `corpus_ref` estesi a `conflicts/` (4 test di guasto).
+- **Fixture E26** — prosumer come unica attività, soggetto critico sì: conflitto (2)×(3), `escalate_to_advisor` / `ambiguous`.
+
+### Correzione E05/E06
+- Avviso `cloud_stabilimento_principale_multi_ue` aggiunto agli attesi di E05 ed E06 (regola cloud grande, come in E01): atteso incompleto dalla riscrittura 0.6.0, l'engine è corretto.
+
+### Fixture e catalogo
+- 27 fixture, tutte verdi; `corpus_version` → 0.10.0. Catalogo a 29 voci: 3 gestite, 20 segnalate, 6 non gestite. Test di enumerazione dei percorsi: ogni voce segnalata è emessa da almeno una combinazione.
+
 ## [0.9.0] — 2026-10-30 — Trigger espliciti per ogni esito, nessuna risposta inclusiva (preparazione dell'engine, ADR 0016)
 
 Minor: cambiano regole, questionario, schema e invarianti. Esiti attesi delle fixture invariati. Base: mappa dei costrutti `docs/verifications/2026-10-30-s3-mappa-costrutti.md`. Nessun ingest.

@@ -6,7 +6,7 @@ description_it: >
   art. 6 c. 1 lett. b) D.Lgs. 138/2024 (FAQ AMB.NO.1) -> essenziale indipendentemente
   dalla dimensione; la regola micro/piccola non si applica. Signal sui soggetti
   critici (cer_signal).
-corpus_version: 0.9.0
+corpus_version: 0.10.0
 sector: energia_elettrica
 
 inputs:

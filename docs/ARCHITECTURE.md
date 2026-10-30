@@ -17,11 +17,16 @@ nis2-check/
   apps/web/                 Next.js 15.5 App Router, React 19, Tailwind 3, shadcn/ui
                             export statico (output: export): nessun server in produzione
   packages/engine/          evaluate({ sectorId, answers }, corpus) => Verdict — pura, deterministica, nessun I/O (ADR 0016)
-    src/types.ts            contratto Verdict (CLAUDE.md, ADR 0009 + amendment)
-    tests/fixtures/         scenari golden E01–E15 (corpus_version, input, expected)
+    src/types.ts            contratto Verdict (CLAUDE.md, ADR 0009 + amendment, ADR 0016)
+    src/evaluate.ts         stadi, risoluzione, avvisi, segnali, Verdict (ADR 0016)
+    src/answers.ts          domande del settore, visibilità, validazione delle risposte
+    src/conditions.ts       visible_if (ADR 0010) e condizioni stringa, input assente = falso
+    src/sha256.ts           inputHash, sincrono e senza dipendenze
+    tests/fixtures/         scenari golden E01–E27 (corpus_version, input, expected)
   packages/corpus/          corpus + loader + schemi zod + corpus:validate
     corpus/                 VERSION · CHANGELOG.md · sectors/ · wizard/ · signals/ · regimes/
                             exceptions/ (catalogo eccezioni, ADR 0012) · citations/ (registro citazioni)
+                            conflicts/ (conflitti tra stadi, ADR 0016)
     src/load.ts             lettura YAML (js-yaml v4, YAML 1.2: yes/no sono stringhe)
     src/schemas/files.ts    forma di ogni file (settore, wizard, regime, signal, fixture)
     src/schemas/corpus.ts   invarianti incrociati (riferimenti, override/regime, fixture)
@@ -34,7 +39,7 @@ nis2-check/
 ```
 
 Dipendenze tra pacchetti: `engine` importa da `corpus` solo tipi (`Corpus`); in
-test usa anche il loader. `web` non importa ancora engine e corpus (S3+).
+test usa anche il loader. `web` non importa ancora engine e corpus (S4).
 
 Vincoli trasversali (CLAUDE.md): nessuna telemetria, nessuna chiamata di rete a
 runtime oltre agli asset statici, nessuna persistenza dei dati dell'utente (lo
@@ -89,6 +94,44 @@ risposte "sì" (`on_yes.notices`), le opzioni scelte (`on_selected.notices`), gl
 di `outcome_mapping` e le intersezioni. Anche `regimeRouting[].exceptionsCatalogEntry` è
 un id del catalogo.
 
+## 2bis. Engine (S3, ADR 0016)
+
+`evaluate({ sectorId, answers }, corpus) => Verdict`: pura, deterministica, senza I/O, data o
+random. Non contiene conoscenza normativa: esegue i costrutti del corpus in quattro stadi,
+tutti valutati, uno solo decide.
+
+| Stadio | Costrutti | Decide |
+|---|---|---|
+| 1, instradamento a regime | `overrides` del settore → `meta` del regime; `multi_regime_intersection` con più regimi | se almeno un override scatta; gli stadi 2-4 restano nella trace come sospesi |
+| 2, esclusione tipologica | `outcome_mapping` delle domande visibili, per attività (`activity_inputs`, `activity`) | se ogni attività dichiarata ha un'esclusione scattata; altrimenti le esclusioni diventano avvisi (`notices_if_demoted`) |
+| 3, size-blind | `qualification_rules` che non leggono `dimension` (PA, soggetto critico, canale Allegato IV via `reference`) | se una regola scatta |
+| 4, dimensionale | `qualification_rules` che leggono `dimension` | esattamente una regola raggiungibile |
+
+Conflitto (2)×(3): esito, avviso e citazioni dal blocco `conflicts` (`stage_2_and_stage_3`).
+Nessuna regola o più regole dello stesso stadio: `escalate_to_advisor` / `ambiguous` con
+codice `no_rule_matched` / `multiple_rules_matched` (difetti di corpus, irraggiungibili:
+test di enumerazione).
+
+- **Input**: domande del blocco comune meno `excluded_common_questions`, più quelle del
+  wizard, in `flow_order`; input non visibile = assente, ogni condizione su un assente è falsa.
+  Le risposte si validano contro la visibilità: `InvalidAnswersError` con tutti gli errori
+  (`unknown_sector`, `unknown_question`, `not_visible`, `missing`, `invalid_value`). Per
+  risposte valide `evaluate` non lancia; `CorpusContractError` solo per un corpus fuori
+  contratto.
+- **Verdict** (CLAUDE.md): esito e modo copiati dal costrutto che decide; `regimeRouting`
+  nell'ordine degli override; avvisi di costrutto solo dallo stadio che decide, poi avvisi delle
+  esclusioni retrocesse, poi avvisi di risposta (`on_yes`, `on_selected`), deduplicati;
+  segnali di risposta sempre, segnali dei trigger di settore se non decide lo stadio 1;
+  citazioni dei costrutti che decidono, dei segnali e delle voci di catalogo; `reasoningTrace`
+  strutturata (stadio, costrutto, risultato, esito parziale, citazioni, codice, nota tecnica,
+  testo del corpus); `inputHash` sha256 dell'input canonico; `disclaimerRequired: true`.
+- **Test** (`packages/engine/tests/`): valutatore di condizioni (tabella di verità con assenti
+  e operatori non usati dal corpus); visibilità e validazione sul corpus reale; stadi su un
+  mini-corpus sintetico valido (un caso per stadio, esclusione per attività, conflitto, difetti,
+  avvisi da posizioni diverse, purezza, sha256); fixture golden E01–E27; enumerazione dei
+  percorsi (cloud 480 e PA 304 combinazioni tutte, energia 417.792 campionate con seed fisso:
+  25.000), con le proprietà dell'ADR 0016 §6 e la raggiungibilità di ogni voce segnalata.
+
 ## 3. Invarianti dello schema
 
 Applicati dallo schema zod (`packages/corpus/src/schemas/`), quindi da chiunque
@@ -125,6 +168,8 @@ analizzi il corpus. Ogni violazione porta un codice stabile tra parentesi quadre
 | 27 | Nessuna `outcome_mapping` e nessuna opzione con esito dichiara `likely_in_scope`: una risposta può escludere o lasciare indeterminato, l'inclusione viene dalle regole del settore | `E_OUTCOME_MAPPING_INCLUSIVE` | ADR 0016; corpus 0.9.0 (voce `si` di `registrato_pun` rimossa) |
 | 28 | Ogni costrutto con esito valutato dall'engine ha un trigger dichiarato e non vuoto (`condition` delle regole, `trigger` di override e intersezioni, `answer` di `outcome_mapping`); un blocco di dati con esito (`allegato_iv_channel`) è applicato solo da una regola che lo referenzia. Regimi e `out_of_scope_mvp` sono dati o documentazione, non trigger | `E_OUTCOME_WITHOUT_TRIGGER` | ADR 0016 (l'engine non deduce un trigger dalla posizione) |
 | 29 | `applies_to_categories` ritirato: i segnali di settore dichiarano un `trigger` esplicito | `E_TRIGGER` | corpus 0.9.0 |
+| 30 | Esclusione tipologica per attività: `activity_inputs` sono domande a scelta del wizard; ogni domanda con `outcome_mapping` dichiara `activity` (opzione degli input di attività); ogni `outcome_mapping` dichiara `notices_if_demoted`, che contano come riferimenti al catalogo | `E_ACTIVITY_REF` | ADR 0016, amendment (corpus 0.10.0) |
+| 31 | Blocco `conflicts` con schema stretto: `trigger` tra i tipi ammessi (`stage_2_and_stage_3`), una voce per tipo, `exceptions_catalog_entry` che risolve e conta come riferimento | `E_TRIGGER`, `E_CATALOG_REF`, `E_OUTCOME_WITHOUT_TRIGGER` | ADR 0016, amendment (2) (corpus 0.10.0) |
 
 Gli invarianti incrociati (2, 7–10, 13–18, 20, 22–26, 28 per il blocco referenziato) girano
 solo se la forma dei file è valida: zod non esegue i `superRefine` su un input di forma errata.
@@ -189,9 +234,8 @@ Una limitazione nuova entra prima nel catalogo, poi nei documenti generati.
 
 ## 7. Cosa manca per v0.1.0
 
-- **Engine (S3)**: `evaluate` reale secondo l'ADR 0016 (ordine in quattro stadi, input
-  assenti, avvisi e segnali, contratto del Verdict); fixture E01–E25 da `todo` a test verdi;
-  assert dell'invariante escalate → ambiguous anche nell'engine (vincolo 6).
+- **Engine (S3)**: fatto (§2bis, ADR 0016). Resta non modellato il soggetto critico nel canale
+  Allegato IV della PA (STATUS 23).
 - **Corpus**: correzioni KB proposte dall'audit del registro
   (`docs/verifications/2026-10-28-registro-citazioni.md`), poi gli ID oggi degradati
   (art. 7 c. 1 lett. d), art. 11 c. 2 lett. g), FAQ GEN.6, A1.8.1, A1.9.1); migrazione dei

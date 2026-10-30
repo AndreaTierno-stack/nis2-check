@@ -24,9 +24,9 @@ nis2-check/
   apps/web            → Next.js 15.5 App Router (export statico), React 19, TypeScript strict, TailwindCSS 3, shadcn/ui
                         (pin 15.5: la linea 14.x è fuori supporto, con CVE senza fix — S2, 2026-10-28)
   packages/engine     → funzione pura, zero dipendenze runtime, nessun I/O
-    tests/fixtures/   → scenari golden E01–E25 (legati a corpus_version)
+    tests/fixtures/   → scenari golden E01–E27 (legati a corpus_version)
   packages/corpus     → loader YAML + schemi zod + corpus:validate
-    corpus/           → il corpus: VERSION, CHANGELOG.md, sectors/, wizard/, signals/, regimes/
+    corpus/           → il corpus: VERSION, CHANGELOG.md, sectors/, wizard/, signals/, regimes/, exceptions/, citations/, conflicts/
   packages/pdf        → generazione PDF client-side
   docs/               → ARCHITECTURE.md (viva), decisions/ (ADR), STATUS.md, CORPUS_SCHEMA.md
   export/             → export della KB per il Project Knowledge (scripts/export_kb.py)
@@ -40,7 +40,7 @@ I `corpus_ref` delle fixture sono relativi alla radice del corpus (`packages/cor
 
 ## Corpus — fonte di verità (v0.3.0+)
 
-Struttura: `sectors/`, `wizard/`, `signals/`, `regimes/`, più `VERSION` e `CHANGELOG.md`. Convenzione filename con prefisso di cartella (`sectors__`, `wizard__`, `signals__`) per evitare collisioni.
+Struttura: `sectors/`, `wizard/`, `signals/`, `regimes/`, `exceptions/` (catalogo, ADR 0012), `citations/` (registro), `conflicts/` (conflitti tra stadi, ADR 0016), più `VERSION` e `CHANGELOG.md`. Convenzione filename con prefisso di cartella (`sectors__`, `wizard__`, `signals__`) per evitare collisioni.
 
 **Flusso**: `disambiguation` (3 domande sui regimi) → `sector_specific` → `standard_identification` (`soggetto_critico` per tutti i settori, ADR 0015; `dimension` size-cap, esclusa per la PA, size-blind ex art. 3 c. 6).
 
@@ -103,7 +103,7 @@ interface ReasoningStep {           // ADR 0016, §5
 
 ## Testing
 
-- **Fixture golden E01–E25** = suite di regressione dell'engine. Verdi obbligatorie prima di ogni merge che tocca engine o corpus. Un cambiamento di esito atteso richiede aggiornamento esplicito della fixture con motivazione nel commit (mai "aggiustare il test perché passi").
+- **Fixture golden E01–E27** = suite di regressione dell'engine; più il test di enumerazione dei percorsi (ADR 0016 §6). Verdi obbligatorie prima di ogni merge che tocca engine o corpus. Un cambiamento di esito atteso richiede aggiornamento esplicito della fixture con motivazione nel commit (mai "aggiustare il test perché passi").
 - **Validazione corpus in build-time** (zod): schema, `verdict_outcome` obbligatorio, invariante escalate→ambiguous, citation ID ben formati, referenze signals esistenti. CI fallisce su violazione.
 - Unit (engine, schemi) → integration (corpus reale + engine) → E2E Playwright (da v1.0).
 - Commenti estensivi nel codice; JSDoc in inglese.

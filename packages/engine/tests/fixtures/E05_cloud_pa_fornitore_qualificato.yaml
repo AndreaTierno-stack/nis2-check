@@ -8,7 +8,7 @@ description_it: >
   fornitore qualificato rientra come fornitore cloud (FAQ A1.8.2). Esito dalle regole
   dimensionali del settore (essenziale), con avviso di catalogo.
   Esito cambiato in 0.6.0: era escalate_to_advisor / ambiguous con regime_routing [cloud_pa].
-corpus_version: 0.9.0
+corpus_version: 0.10.0
 sector: cloud_computing
 
 inputs:

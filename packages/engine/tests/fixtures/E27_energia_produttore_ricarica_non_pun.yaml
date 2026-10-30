@@ -8,7 +8,7 @@ description_it: >
   produzione non ha esclusione, quindi lo stadio 2 non decide, l'esclusione diventa
   l'avviso punti_ricarica_non_pun_attivita_ulteriore e decide la regola media
   (importante). A1.1.a.3: i punti di ricarica non PUN "non rientrano automaticamente".
-corpus_version: 0.9.0
+corpus_version: 0.10.0
 sector: energia_elettrica
 
 inputs:
