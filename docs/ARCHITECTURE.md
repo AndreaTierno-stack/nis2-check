@@ -39,7 +39,8 @@ nis2-check/
 ```
 
 Dipendenze tra pacchetti: `engine` importa da `corpus` solo tipi (`Corpus`); in
-test usa anche il loader. `web` non importa ancora engine e corpus (S4).
+test usa anche il loader. `web` usa il loader del corpus solo al build (server
+component) e l'engine nel browser (§2ter).
 
 Vincoli trasversali (CLAUDE.md): nessuna telemetria, nessuna chiamata di rete a
 runtime oltre agli asset statici, nessuna persistenza dei dati dell'utente (lo
@@ -135,6 +136,44 @@ test di enumerazione).
   **campionamento** (25.000 su 417.792, seed 20261030): `pnpm engine:enumerate --full` valuta
   l'intero spazio (418.576 combinazioni, circa 15 s) e va eseguito a mano prima di ogni
   pre-rilascio, con esito registrato in STATUS.
+
+## 2ter. Web (S4.1)
+
+`apps/web`: Next.js 15.5 in export statico, tutto client-side dopo il build.
+
+- **Dati.** La pagina (server component) carica e valida il corpus al build
+  (`lib/corpus.server.ts`, `loadFromDisk` + `validateCorpus`) e lo passa al client senza
+  fixture. Nel browser: visibilità e validazione con `checkAnswers`/`resolveSector`
+  dell'engine (mai una seconda implementazione della grammatica di ADR 0010), esito con
+  `evaluate`. Nessuna chiamata di rete a runtime: il font (Public Sans, `next/font/google`)
+  si scarica al build e si serve dall'export; gli unici link esterni sono di navigazione (KB
+  e codice su GitHub).
+- **Stato.** Click-wrap accettato in memoria (al ricaricamento si chiede di nuovo); risposte,
+  settore, domanda corrente e passo in `sessionStorage` (`lib/session.ts`), mai
+  `localStorage`; le risposte di domande non più visibili si potano a ogni modifica.
+- **Pagine** (un'unica route, passo nello stepper): Settore (nome e descrizione dai file di
+  settore); Domande (una per schermata, help dal YAML; binarie e multiple a pillole, singole
+  a righe radio; `InvalidAnswersError` mostrato come elenco di domande da completare); Esito
+  (banner di anteprima; pannello dell'esito con scala a tre posizioni, frase del corpus,
+  riga di verifica, tipologia, qualifica, regimi; avvisi dal catalogo; "Come è stato
+  calcolato" ripiegato, quattro righe per gli stadi dell'ADR 0016; fonti numerate e
+  raggruppate per `source_group` del registro, con etichetta e link alla riga della KB;
+  colonna laterale con le risposte, azioni di S4.2 disabilitate, riga tecnica).
+- **Token** (`tailwind.config.ts`, unici colori: la palette di Tailwind è sostituita):
+  ground #eef1ee, surface #ffffff, text #1b1f1d, text-muted #6b716d, text-soft #505753,
+  border #dfe4df e #e3e8e3, accent #1d6b47 (hover #155237), accent-soft #e3efe8, warn #d98b1a,
+  warn-soft #fff4e0, warn-text #7a4a0c. Raggi: pannelli 20px, righe 16px, il resto a pillola.
+  Nessuna ombra, nessun gradiente; mai contenitori dentro contenitori.
+- **Copy.** Ogni testo normativo viene dal corpus (domande, help, frasi dell'esito, avvisi,
+  trace) o dal registro (etichette delle fonti); anche l'avviso del click-wrap e del footer è
+  una voce del catalogo (`anteprima_di_studio_non_consulenza`). Le stringhe di navigazione e
+  struttura vivono solo in `apps/web/src/copy.it.ts`, sottoposto al lint di copy
+  (`lintUiCopy`: parole vietate di ADR 0012 e CLAUDE.md, nessun trattino lungo). I riferimenti
+  delle fonti si formattano dall'id della citazione con i nomi degli atti di `copy.it.ts`.
+- **Test.** Vitest in node (render con `react-dom/server`, nessuna libreria DOM): logica del
+  wizard, scala e colori, fonti, snapshot del DOM senza stili per E05, E22, E25, E26, E11, lint
+  di copy. Playwright sull'export (`scripts/serve-out.mjs`): E01, E05, E11, E22, E25 cliccate
+  dall'inizio; in CI dopo la build (circa 40 s su 1:48 totali).
 
 ## 3. Invarianti dello schema
 
@@ -249,8 +288,9 @@ Una limitazione nuova entra prima nel catalogo, poi nei documenti generati.
   casi residui di `out_of_scope_mvp` (PA) nel catalogo.
 - **Documenti generati (S4)**: script che genera `docs/known-limitations.md` e le
   sezioni limitazioni del disclaimer dal catalogo.
-- **Web**: wizard, Explainability Mode, testi definitivi di disclaimer e click-wrap
-  dopo la review legale, collegamento a engine e corpus.
+- **Web (S4.2)**: PDF con foglio di stile di stampa, pagina "Cosa non gestisce il tool" dal
+  catalogo, click-wrap finale, deploy Vercel, README per il lettore di dieci minuti. Wizard,
+  esito ed Explainability Mode: fatti in S4.1 (§2ter).
 - **PDF**: `packages/pdf` secondo CLAUDE.md (watermark, disclaimer su ogni pagina).
 - **Qualità**: ESLint anche su `packages/*` (oggi solo web); migrazione a zod 4
   (advisory di zod 3 sulla memoria con collezioni enormi, non rilevante su un corpus
