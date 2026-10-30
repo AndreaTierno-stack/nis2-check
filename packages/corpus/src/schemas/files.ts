@@ -314,6 +314,9 @@ export const SectorFile = z
     meta: z
       .object({
         sector_id: Id,
+        /** Name and one-line description of the sector, shown by the web app (corpus 0.12.0). */
+        label_it: z.string().min(1),
+        description_it: z.string().min(1),
         allegato: z.string(),
         critical_tier: z.string(),
         size_cap_applicable: z.boolean(),

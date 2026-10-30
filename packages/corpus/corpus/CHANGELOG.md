@@ -13,6 +13,11 @@ Ogni bump ha una voce in questo file; le fixture dichiarano `corpus_version` e s
 
 ## [Unreleased]
 
+## [0.12.0] — 2026-10-30 — Nome e descrizione dei settori (S4.1)
+
+Minor (schema).
+- `meta.label_it` e `meta.description_it` obbligatori nei file di settore: nome e descrizione di una riga mostrati dalla pagina Settore dell'app web, ricavati dalla voce di catalogo `copertura_settoriale_parziale` e dagli allegati del D.Lgs. 138/2024.
+
 ## [0.11.1] — 2026-10-30 — Avviso di non-consulenza nel catalogo (S4.1)
 
 Patch (catalogo).

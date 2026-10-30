@@ -6,6 +6,8 @@
 
 meta:
   sector_id: cloud_computing
+  label_it: "Cloud computing"
+  description_it: "Fornitori di servizi di cloud computing (Allegato I, punto 8, D.Lgs. 138/2024)."
   allegato: I
   punto: 8
   critical_tier: altamente_critico

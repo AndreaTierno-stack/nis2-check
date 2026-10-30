@@ -22,6 +22,8 @@
 
 meta:
   sector_id: pubblica_amministrazione
+  label_it: "Pubblica amministrazione"
+  description_it: "Pubbliche amministrazioni dell'Allegato III del D.Lgs. 138/2024 e soggetti pubblici o a partecipazione pubblica fuori dall'Allegato III."
   allegato: III                  # piu' canale Allegato IV (vedi sezione dedicata)
   critical_tier: non_applicabile # le PA non sono "altamente critico/critico": rientro autonomo
   size_cap_applicable: false

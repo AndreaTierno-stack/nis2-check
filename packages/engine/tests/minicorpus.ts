@@ -128,7 +128,7 @@ export function rawMiniCorpus(): RawCorpus {
     },
     sectors: {
       'sectors/sectors__test.yaml': {
-        meta: { sector_id: 'test', allegato: 'I', critical_tier: 'prova', size_cap_applicable: true, size_blind: false, pilot_mvp_v0_1_0: false, citations: ['c_rule'] },
+        meta: { sector_id: 'test', label_it: 'Settore di prova', description_it: 'Descrizione del settore di prova.', allegato: 'I', critical_tier: 'prova', size_cap_applicable: true, size_blind: false, pilot_mvp_v0_1_0: false, citations: ['c_rule'] },
         qualification_rules: [
           { condition: 'soggetto_critico == yes', stage: 'size_blind', outcome: 'categorical_assessment', verdict_outcome: 'likely_in_scope', qualifica: 'essenziale', reasoning_trace: trace('soggetto_critico'), citations: ['c_rule'], notices: ['n_critico'] },
           { condition: 'dimension == piccola AND soggetto_critico == no', stage: 'dimensional', outcome: 'out_of_scope', verdict_outcome: 'likely_out_of_scope', reasoning_trace: trace('piccola'), citations: DIM, notices: ['n_piccola'] },

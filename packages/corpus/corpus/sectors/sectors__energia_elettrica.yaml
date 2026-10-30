@@ -7,6 +7,8 @@
 
 meta:
   sector_id: energia_elettrica
+  label_it: "Energia elettrica"
+  description_it: "Sottosettore energia elettrica (Allegato I, punto 1, lettera a), D.Lgs. 138/2024): trasmissione, distribuzione, fornitura, produzione e altre attività del sottosettore."
   allegato: I
   punto: 1
   sottosettore_id: A1_1_a
