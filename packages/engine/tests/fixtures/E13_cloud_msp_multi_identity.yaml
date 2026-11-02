@@ -26,4 +26,4 @@ expected:
   regime_routing: []
   corpus_ref: "sectors/sectors__cloud_computing.yaml#qualification_rules[dimension==grande AND soggetto_critico==no] + tipologie.cloud_provider.multi_identity_possible"
 
-citations: [dlgs_138_2024_art_6, faq_amb_di_1, racc_ue_2003_361, faq_a1_9_1, faq_a1_9_2, faq_a1_9_3, faq_a1_9_4, dlgs_138_2024_art_7_c_1_lett_d, det_piattaforma_127437_2026_art_11_c_2_lett_g, dlgs_138_2024_art_5]
+citations: [dlgs_138_2024_art_6_c_1_lett_a, faq_amb_di_1, racc_ue_2003_361, faq_a1_9_1, faq_a1_9_2, faq_a1_9_3, faq_a1_9_4, dlgs_138_2024_art_7_c_1_lett_d, det_piattaforma_127437_2026_art_11_c_2_lett_g, dlgs_138_2024_art_5]

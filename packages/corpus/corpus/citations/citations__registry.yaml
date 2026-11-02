@@ -252,11 +252,11 @@ citations:
     attestation: "Art. 5, attestazione a livello di articolo: giurisdizione dei soggetti stabiliti in Italia; eccezioni transfrontaliere: telco (art. 5 c. 1 lett. a)) e servizi inerentemente transfrontalieri, tra cui cloud, soggetti alla giurisdizione dello Stato dello stabilimento principale UE (art. 5 c. 2). Il nodo D.Lgs. 138/2024 non riporta l'art. 5. Nel PDF in raw/ la regola è al c. 1 lett. b), mentre il c. 2 definisce lo stabilimento principale."
     label: "Giurisdizione nazionale: soggetti stabiliti in Italia, con regole proprie per i servizi transfrontalieri."
     source_group: decreto_nis
-  - id: dlgs_138_2024_art_6
+  - id: dlgs_138_2024_art_6_c_1_lett_a
     kb_node: wiki/sources/D.Lgs. 138-2024 (Decreto NIS).md
-    kb_lines: 30, 42
-    attestation: "Qualifiche (art. 6), attestazione a livello di articolo: essenziali i soggetti dell'Allegato I che superano i massimali per le medie imprese (c. 1 lett. a), riga 30), i soggetti critici (c. 1 lett. b)), la PA centrale (c. 1 lett. e)); individuazione ACN (c. 2); importanti gli altri soggetti dell'art. 3 (c. 3, riga 42)."
-    label: "Qualifiche di soggetto essenziale e importante."
+    kb_lines: "42"
+    attestation: "Verbatim (KB DEC-010, PDF in raw/): sono essenziali 'i soggetti di cui all'allegato I che superano i massimali per le medie imprese di cui all'articolo 2, paragrafo 1, dell'allegato della raccomandazione 2003/361/CE'."
+    label: "Sono essenziali i soggetti dell'Allegato I che superano i massimali per le medie imprese."
     source_group: decreto_nis
   - id: dlgs_138_2024_art_6_c_1_lett_b
     kb_node: wiki/sources/D.Lgs. 138-2024 (Decreto NIS).md

@@ -212,13 +212,13 @@ exports[`verdict page of E05 > matches the DOM snapshot 1`] = `
 <div>
 <h3>Decreto NIS (D.Lgs. 138/2024)</h3>
 <ol>
-<li id="fonte-1" data-testid="source" data-source="dlgs_138_2024_art_6">
+<li id="fonte-1" data-testid="source" data-source="dlgs_138_2024_art_6_c_1_lett_a">
 <span>1</span>
 <span>
-<span>D.Lgs. 138/2024, art. 6</span>
-<span>Qualifiche di soggetto essenziale e importante.</span>
-<a href="https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/D.Lgs.%20138-2024%20(Decreto%20NIS).md?plain=1#L30">Apri la scheda</a>
-<span data-testid="source-url">https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/D.Lgs.%20138-2024%20(Decreto%20NIS).md?plain=1#L30</span>
+<span>D.Lgs. 138/2024, art. 6 c. 1 lett. a)</span>
+<span>Sono essenziali i soggetti dell&#x27;Allegato I che superano i massimali per le medie imprese.</span>
+<a href="https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/D.Lgs.%20138-2024%20(Decreto%20NIS).md?plain=1#L42">Apri la scheda</a>
+<span data-testid="source-url">https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/D.Lgs.%20138-2024%20(Decreto%20NIS).md?plain=1#L42</span>
 </span>
 </li>
 <li id="fonte-2" data-testid="source" data-source="dlgs_138_2024_art_5">

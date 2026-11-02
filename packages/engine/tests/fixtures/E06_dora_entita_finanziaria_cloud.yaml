@@ -30,4 +30,4 @@ expected:
   open_points: []
   corpus_ref: "wizard/wizard__disambiguation.yaml#questions.dora -> sectors/sectors__cloud_computing.yaml#qualification_rules[dimension==grande AND soggetto_critico==no] + exceptions/exceptions__catalog.yaml#exceptions[cloud_stabilimento_principale_multi_ue, dora_entita_finanziaria_fuori_settori_3_4, dora_soggetti_esentati_art_3_c_15]"
 
-citations: [dlgs_138_2024_art_6, faq_amb_di_1, racc_ue_2003_361, dlgs_138_2024_art_5, dlgs_138_2024_art_3_c_14, det_piattaforma_127437_2026_art_7_c_6, det_piattaforma_127437_2026_art_16_c_13, det_piattaforma_127437_2026_art_20_c_6, faq_amb_no_2, dlgs_138_2024_art_3_c_15]
+citations: [dlgs_138_2024_art_6_c_1_lett_a, faq_amb_di_1, racc_ue_2003_361, dlgs_138_2024_art_5, dlgs_138_2024_art_3_c_14, det_piattaforma_127437_2026_art_7_c_6, det_piattaforma_127437_2026_art_16_c_13, det_piattaforma_127437_2026_art_20_c_6, faq_amb_no_2, dlgs_138_2024_art_3_c_15]

@@ -122,7 +122,7 @@ qualification_rules:
     qualifica: importante
     verdict_outcome: likely_in_scope   # vincolo fisso: categorical_assessment in-scope -> likely_in_scope
     reasoning_trace: "Dimensione dichiarata: Media impresa. Classificazione secondo FAQ ACN AMB.DI.1 e Racc. UE 2003/361. In settore Allegato I p. 1 (Energia) qualificato come soggetto importante. Per 'fatturato' si intende quello complessivo del soggetto, non solo dell'attività NIS (FAQ A1.2). Per i produttori, non rientrano i clienti attivi che non svolgono altre attività degli Allegati I e II (FAQ A1.1.a.4)."
-    citations: [dlgs_138_2024_art_6, faq_amb_di_1, racc_ue_2003_361, faq_a1_2, faq_a1_1_a_4]
+    citations: [dlgs_138_2024_art_6_c_3, faq_amb_di_1, racc_ue_2003_361, faq_a1_2, faq_a1_1_a_4]
     notices: [energia_regime_transitorio_ose]
   - condition: dimension == grande AND soggetto_critico == no
     stage: dimensional
@@ -130,7 +130,7 @@ qualification_rules:
     qualifica: essenziale
     verdict_outcome: likely_in_scope   # vincolo fisso: categorical_assessment in-scope -> likely_in_scope
     reasoning_trace: "Dimensione dichiarata: Grande impresa. Classificazione secondo FAQ ACN AMB.DI.1 e Racc. UE 2003/361. In settore Allegato I (altamente critico) qualificato come soggetto essenziale. Per i produttori, non rientrano i clienti attivi che non svolgono altre attività degli Allegati I e II (FAQ A1.1.a.4)."
-    citations: [dlgs_138_2024_art_6, faq_amb_di_1, racc_ue_2003_361, faq_a1_1_a_4]
+    citations: [dlgs_138_2024_art_6_c_1_lett_a, faq_amb_di_1, racc_ue_2003_361, faq_a1_1_a_4]
     notices: [energia_regime_transitorio_ose]
 
 overrides:

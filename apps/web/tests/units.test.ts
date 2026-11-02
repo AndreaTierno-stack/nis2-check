@@ -59,10 +59,10 @@ describe("outcome -> scale and color", () => {
 
 describe("sources", () => {
   it("deduplicates, groups in the fixed order and numbers in that order", () => {
-    const s = buildSources(["faq_amb_di_1", "dlgs_138_2024_art_6", "racc_ue_2003_361", "faq_amb_di_1", "det_acn_155238_2026_art_4", "dlgs_138_2024_art_5"], realCorpus());
+    const s = buildSources(["faq_amb_di_1", "dlgs_138_2024_art_6_c_3", "racc_ue_2003_361", "faq_amb_di_1", "det_acn_155238_2026_art_4", "dlgs_138_2024_art_5"], realCorpus());
     expect(s.groups.map((g) => g.group)).toEqual(["decreto_nis", "faq_acn", "determinazioni_acn", "altro"]);
     expect(s.groups.flatMap((g) => g.items.map((i) => [i.n, i.id]))).toEqual([
-      [1, "dlgs_138_2024_art_6"],
+      [1, "dlgs_138_2024_art_6_c_3"],
       [2, "dlgs_138_2024_art_5"],
       [3, "faq_amb_di_1"],
       [4, "det_acn_155238_2026_art_4"],
