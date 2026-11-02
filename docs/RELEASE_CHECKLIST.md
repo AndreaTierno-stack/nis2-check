@@ -39,3 +39,12 @@ Da eseguire solo su decisione nel Project, non in S4.2. In quest'ordine:
 7. Verifica e2e contro l'URL definitivo:
    `E2E_BASE_URL=<URL definitivo> pnpm --filter @nis2-check/web exec playwright test`, più controllo
    a mano di `robots.txt`, meta `robots` e header.
+
+## Enumerazione completa dei percorsi
+
+`pnpm engine:enumerate --full`, da eseguire prima di ogni rilascio; esito registrato qui e in `docs/STATUS.md`.
+
+| Data | Corpus | Combinazioni | Violazioni | Note |
+|---|---|---|---|---|
+| 2026-10-30 | 0.11.0 | 418.576 (cloud 480, energia 417.792, PA 304) | 0 | S4.1, Blocco 0 |
+| 2026-11-02 | 0.13.0 | 418.564 (cloud 480, energia 417.792, PA 292) | 0 | S4.2, correzioni della review avversaria; PA: all'organo escluso dall'art. 4 c. 2 non si pongono più PSNC e classificazione Cloud PA (A1). Citazioni emesse: 60 |

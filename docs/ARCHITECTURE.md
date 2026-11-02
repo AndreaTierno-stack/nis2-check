@@ -130,11 +130,11 @@ test di enumerazione).
   e operatori non usati dal corpus); visibilità e validazione sul corpus reale; stadi su un
   mini-corpus sintetico valido (un caso per stadio, esclusione per attività, conflitto, difetti,
   avvisi da posizioni diverse, purezza, sha256); fixture golden E01–E28; enumerazione dei
-  percorsi (cloud 480 e PA 304 combinazioni tutte, energia 417.792 campionate con seed fisso:
+  percorsi (cloud 480 e PA 292 combinazioni tutte, energia 417.792 campionate con seed fisso:
   25.000), con le proprietà dell'ADR 0016 §6, la raggiungibilità di ogni voce segnalata e
   l'etichetta di ogni citazione emessa. L'enumerazione dell'energia nel test è un
   **campionamento** (25.000 su 417.792, seed 20261030): `pnpm engine:enumerate --full` valuta
-  l'intero spazio (418.576 combinazioni, circa 15 s) e va eseguito a mano prima di ogni
+  l'intero spazio (418.564 combinazioni al corpus 0.13.0, circa 15 s) e va eseguito a mano prima di ogni
   pre-rilascio, con esito registrato in STATUS.
 
 ## 2ter. Web (S4.1)

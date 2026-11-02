@@ -86,7 +86,7 @@ pnpm --filter @nis2-check/web test:e2e   # dopo il build: wizard, PDF, pagina de
 ```
 
 - **Fixture golden** (`packages/engine/tests/fixtures/`): 28 scenari con l'esito atteso e il riferimento al costrutto del corpus che lo produce.
-- **Enumerazione completa**: 418.576 combinazioni valutate, 0 violazioni delle proprietà dell'engine (esecuzione del 2026-10-30, corpus 0.11.0; si ripete a ogni rilascio, esito in `docs/STATUS.md`).
+- **Enumerazione completa**: 418.564 combinazioni valutate, 0 violazioni delle proprietà dell'engine (esecuzione del 2026-11-02, corpus 0.13.0; si ripete a ogni rilascio, esito in `docs/STATUS.md`).
 - **Registro citazioni** (`packages/corpus/corpus/citations/citations__registry.yaml`): 76 voci; ogni ID usato dal corpus ha il nodo della knowledge base e le righe che lo attestano. Nell'app ogni fonte apre quella riga.
 - **CI** (GitHub Actions): lint, typecheck, validazione del corpus, test, build ed e2e a ogni push.
 
