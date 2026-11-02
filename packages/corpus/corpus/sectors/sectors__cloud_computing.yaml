@@ -58,7 +58,7 @@ qualification_rules:
     stage: dimensional
     outcome: out_of_scope
     verdict_outcome: likely_out_of_scope   # vincolo fisso: out_of_scope -> likely_out_of_scope
-    reasoning_trace: "Dimensione dichiarata: Micro o piccola impresa. Classificazione secondo FAQ ACN AMB.DI.1 e Racc. UE 2003/361. Esclusione dall'ambito NIS2 in via generale (art. 3 c. 2 D.Lgs. 138/2024)."
+    reasoning_trace: "Dimensione dichiarata: Micro o piccola impresa. Classificazione secondo FAQ ACN AMB.DI.1 e Racc. UE 2003/361. Sulla base degli input forniti, l'analisi suggerisce l'esclusione dall'ambito NIS2 in via generale (art. 3 c. 2 D.Lgs. 138/2024)."
     citations: [dlgs_138_2024_art_3_c_2, racc_ue_2003_361, faq_amb_di_1]
     notices: [individuazione_acn_art_3_c_9, imprese_collegate_art_3_c_10]
   - condition: dimension == media AND soggetto_critico == no
@@ -66,7 +66,7 @@ qualification_rules:
     outcome: categorical_assessment
     qualifica: importante
     verdict_outcome: likely_in_scope   # vincolo fisso: categorical_assessment in-scope -> likely_in_scope
-    reasoning_trace: "Dimensione dichiarata: Media impresa. Classificazione secondo FAQ ACN AMB.DI.1 e Racc. UE 2003/361. In settore Allegato I p. 8 (Infrastrutture digitali) qualificato come soggetto importante."
+    reasoning_trace: "Dimensione dichiarata: Media impresa. Classificazione secondo FAQ ACN AMB.DI.1 e Racc. UE 2003/361. Sulla base degli input forniti, l'analisi suggerisce il rientro nel perimetro NIS2 italiano come soggetto importante (Allegato I p. 8, infrastrutture digitali; art. 6 c. 3 D.Lgs. 138/2024)."
     citations: [dlgs_138_2024_art_6_c_3, faq_amb_di_1, racc_ue_2003_361]
     notices: [cloud_stabilimento_principale_multi_ue]
   - condition: dimension == grande AND soggetto_critico == no
@@ -74,7 +74,7 @@ qualification_rules:
     outcome: categorical_assessment
     qualifica: essenziale
     verdict_outcome: likely_in_scope   # vincolo fisso: categorical_assessment in-scope -> likely_in_scope
-    reasoning_trace: "Dimensione dichiarata: Grande impresa. Classificazione secondo FAQ ACN AMB.DI.1 e Racc. UE 2003/361. In settore Allegato I (altamente critico) qualificato come soggetto essenziale."
+    reasoning_trace: "Dimensione dichiarata: Grande impresa. Classificazione secondo FAQ ACN AMB.DI.1 e Racc. UE 2003/361. Sulla base degli input forniti, l'analisi suggerisce il rientro nel perimetro NIS2 italiano come soggetto essenziale (Allegato I p. 8, infrastrutture digitali; art. 6 c. 1 lett. a) D.Lgs. 138/2024)."
     citations: [dlgs_138_2024_art_6_c_1_lett_a, faq_amb_di_1, racc_ue_2003_361]
     notices: [cloud_stabilimento_principale_multi_ue]
 

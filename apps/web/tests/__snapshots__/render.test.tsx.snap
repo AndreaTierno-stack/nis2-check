@@ -87,7 +87,7 @@ exports[`verdict page of E05 > matches the DOM snapshot 1`] = `
 </ol>
 </div>
 <div>
-<p>Dimensione dichiarata: Grande impresa. Classificazione secondo FAQ ACN AMB.DI.1 e Racc. UE 2003/361. In settore Allegato I (altamente critico) qualificato come soggetto <strong>essenziale</strong>. <span>
+<p>Dimensione dichiarata: Grande impresa. Classificazione secondo FAQ ACN AMB.DI.1 e Racc. UE 2003/361. Sulla base degli input forniti, l&#x27;analisi suggerisce il rientro nel perimetro NIS2 italiano come soggetto <strong>essenziale</strong> (Allegato I p. 8, infrastrutture digitali; art. 6 c. 1 lett. a) D.Lgs. 138/2024). <span>
 <a href="#fonte-1">1</a>
 <a href="#fonte-3">3</a>
 <a href="#fonte-7">7</a>
@@ -194,7 +194,7 @@ exports[`verdict page of E05 > matches the DOM snapshot 1`] = `
 </p>
 <div data-testid="trace-decided" data-stage="dimensional">
 <h3>Regole dimensionali</h3>
-<p>Dimensione dichiarata: Grande impresa. Classificazione secondo FAQ ACN AMB.DI.1 e Racc. UE 2003/361. In settore Allegato I (altamente critico) qualificato come soggetto essenziale. <span>
+<p>Dimensione dichiarata: Grande impresa. Classificazione secondo FAQ ACN AMB.DI.1 e Racc. UE 2003/361. Sulla base degli input forniti, l&#x27;analisi suggerisce il rientro nel perimetro NIS2 italiano come soggetto essenziale (Allegato I p. 8, infrastrutture digitali; art. 6 c. 1 lett. a) D.Lgs. 138/2024). <span>
 <a href="#fonte-1">1</a>
 <a href="#fonte-3">3</a>
 <a href="#fonte-7">7</a>
@@ -412,7 +412,7 @@ exports[`verdict page of E05 > matches the DOM snapshot 1`] = `
 </p>
 <div data-testid="trace-decided" data-stage="dimensional">
 <h3>Regole dimensionali</h3>
-<p>Dimensione dichiarata: Grande impresa. Classificazione secondo FAQ ACN AMB.DI.1 e Racc. UE 2003/361. In settore Allegato I (altamente critico) qualificato come soggetto essenziale. <span>
+<p>Dimensione dichiarata: Grande impresa. Classificazione secondo FAQ ACN AMB.DI.1 e Racc. UE 2003/361. Sulla base degli input forniti, l&#x27;analisi suggerisce il rientro nel perimetro NIS2 italiano come soggetto essenziale (Allegato I p. 8, infrastrutture digitali; art. 6 c. 1 lett. a) D.Lgs. 138/2024). <span>
 <a href="#fonte-1">1</a>
 <a href="#fonte-3">3</a>
 <a href="#fonte-7">7</a>
