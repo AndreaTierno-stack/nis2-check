@@ -4,6 +4,7 @@
  * limits page lists the whole catalog and is reachable from the click-wrap and the verdict.
  */
 import { expect, test } from "@playwright/test";
+import { DRAFT_NOTICE } from "../content/disclaimer";
 import { answerFixture, loadFixture } from "./wizard";
 
 const CATALOG_SIZE = 30;
@@ -13,7 +14,7 @@ test("no wizard without acceptance; a reload asks again", async ({ page }) => {
   await expect(page.getByTestId("click-wrap")).toBeVisible();
   await expect(page.getByRole("button", { name: "Prosegui" })).toBeDisabled();
   await expect(page.getByRole("button", { name: "Scegli" })).toHaveCount(0);
-  await expect(page.getByTestId("click-wrap").getByTestId("disclaimer")).toContainText("non è stato rivisto da un legale");
+  await expect(page.getByTestId("click-wrap").getByTestId("disclaimer")).toContainText(DRAFT_NOTICE);
   await page.getByRole("checkbox").check();
   await page.getByRole("button", { name: "Prosegui" }).click();
   await expect(page.getByRole("button", { name: "Scegli" }).first()).toBeVisible();
