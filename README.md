@@ -24,7 +24,7 @@ Questo avviso è una bozza e non è stato sottoposto a review legale.
 
 Ambito NIS2 pone una serie di domande su un soggetto (settore, attività, regimi speciali, dimensione) e restituisce un esito preliminare: se, sulla base degli input forniti, l'analisi suggerisce il rientro del soggetto nel perimetro NIS2 italiano, con quale qualifica suggerita (essenziale o importante) e con quali punti da approfondire. Ogni esito porta le fonti normative da cui deriva, citate al livello verificato (articolo e comma, o codice FAQ ACN), e la spiegazione del percorso seguito.
 
-Non è un parere legale, non è una consulenza e non sostituisce né la registrazione sulla piattaforma ACN né una verifica certificata di terza parte. Copre tre ambiti pilota, non l'intero decreto. Non valuta nel merito i regimi speciali (Perimetro di Sicurezza Nazionale Cibernetica, Regolamento Cloud per la PA, DORA): li riconosce e indirizza al consulente.
+Non è un parere legale, non è una consulenza e non sostituisce né la registrazione sulla piattaforma ACN né una verifica certificata di terza parte. Copre tre ambiti pilota, non l'intero decreto. Non valuta nel merito i regimi speciali: il Perimetro di Sicurezza Nazionale Cibernetica e il Regolamento Cloud per la PA sono riconosciuti e indirizzati al consulente; per DORA lo strumento mostra avvisi senza modificare l'esito.
 
 ## 2. Per chi
 
