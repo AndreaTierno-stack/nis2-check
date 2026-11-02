@@ -13,7 +13,7 @@ import { renderToStaticMarkup } from "react-dom/server";
 import { describe, expect, it } from "vitest";
 import { evaluate } from "@nis2-check/engine";
 import { PRINT_NOTICE } from "@/content/disclaimer";
-import { PrintAnswers } from "@/components/verdict/print";
+import { PrintConsultantBox, PrintCover } from "@/components/verdict/print";
 import { VerdictMain } from "@/components/verdict/verdict-main";
 import { releaseDate } from "@/lib/print";
 import { buildSources } from "@/lib/sources";
@@ -43,17 +43,31 @@ describe.each(["E05", "E10", "E27"])("printed verdict of %s", (id) => {
     expect(html).toContain("2 novembre 2026, 14:35");
   });
 
-  it("prints the trace, the answers, the source URLs and the limits of the path", () => {
+  it("prints the cover with the full notice, the box for the consultant with the answers, the trace, the source URLs and the compact limits", () => {
     expect(html).toContain('id="come-calcolato"');
-    const answers = renderToStaticMarkup(<PrintAnswers props={props} />);
+    // C1: the full composed notice on the cover
+    const cover = renderToStaticMarkup(<PrintCover props={props} />);
+    expect(cover).toContain('data-testid="disclaimer"');
+    expect(html).toContain(cover);
+    // C2: the box carries outcome, qualification, regimes, code and every answer given
+    const box = renderToStaticMarkup(<PrintConsultantBox props={props} />);
+    expect(html).toContain(box);
+    expect(box).toContain(copy.verdict.scale[verdict.outcome]);
+    expect(box).toContain(verdict.inputHash.slice(0, 8));
+    const answers = box.slice(box.indexOf('data-testid="print-answers"'));
     expect(answers.match(/<dt/g)?.length).toBe(answerRows(props.ctx, props.answers).length);
-    expect(html).toContain(answers);
+    // C4: the technical part comes after the summary, the box and the limits
+    expect(html.indexOf('data-testid="print-limits"')).toBeLessThan(html.indexOf('id="come-calcolato"'));
+    expect(html.indexOf('data-testid="print-consultant"')).toBeLessThan(html.indexOf('data-testid="print-limits"'));
     const urls = buildSources(verdict.citations, corpus).groups.flatMap((g) => g.items.map((s) => s.url));
     expect(urls.length).toBeGreaterThan(0);
     for (const url of urls) expect(html).toContain(url.replace(/&/g, "&amp;"));
     expect(html).toContain(`>${copy.print.limitsTitle}<`);
     expect(html).toContain('data-limit="anteprima_di_studio_non_consulenza"');
     for (const n of fx.expected.notices ?? []) expect(html).toContain(`data-limit="${n}"`);
+    // C3: the notice of the tool is a one-line title in the limits, not the full text again
+    const limits = html.slice(html.indexOf('data-testid="print-limits"'), html.indexOf('id="come-calcolato"'));
+    expect(limits).not.toContain('data-testid="disclaimer"');
   });
 
   it("shows the company name only when given", () => {

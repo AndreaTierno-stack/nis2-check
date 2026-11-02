@@ -170,13 +170,18 @@ test di enumerazione).
   `<table>` che a schermo è un blocco e in stampa ripete `thead` (marchio, codice, data e ora) e
   `tfoot` (avviso di una riga da `content/disclaimer.ts` e watermark `corpus vX.Y.Z (data del
   CHANGELOG) · inputHash[0:8]`) su ogni pagina. Parti solo di stampa (`hidden print:block`,
-  `components/verdict/print.tsx`): copertina (titolo di CLAUDE.md, nome azienda facoltativo mai
-  persistito, settore, data e ora in ora italiana, versione e data del corpus, codice), risposte
-  date, "Parte tecnica" con la trace sempre stampata e l'URL esplicito di ogni fonte, blocco
-  "Cosa non gestisce il tool" (`lib/limits.ts`: tutte le voci `non_gestito` e le `segnalato`
-  del settore, divise tra emerse dalle risposte e altre voci del settore). Colori stampati anche senza grafica di sfondo
-  (`print-color-adjust: exact`). La data di rilascio del corpus si legge dal CHANGELOG al build
-  (`lib/corpus.server.ts`).
+  `components/verdict/print.tsx`), in quest'ordine (obiettivo circa quattro pagine, review del
+  2026-11-02): copertina (titolo di CLAUDE.md, nome azienda facoltativo mai persistito, settore,
+  data e ora in ora italiana, versione e data del corpus, codice) con l'avviso composto integrale;
+  pannelli di sintesi della pagina (esito, altre segnalazioni; il pannello degli avvisi non si
+  stampa); riquadro "Cosa portare al consulente" (esito e qualifica suggerita, regimi, titoli degli
+  avvisi, numero delle segnalazioni, codice e versione, risposte date, solo dati del Verdict);
+  "Cosa non gestisce il tool" compatto (`lib/limits.ts`: avvisi emersi per esteso, voci
+  `non_gestito` in una riga, una riga di rinvio alla pagina dei limiti per le altre voci del
+  settore); in coda la "Parte tecnica" con la trace e l'URL esplicito di ogni fonte. Stampa
+  compatta (corpo 9,5 pt, spaziature ridotte). Misure: E05 in 4 pagine, E27 in 5. Colori stampati
+  anche senza grafica di sfondo (`print-color-adjust: exact`). La data di rilascio del corpus si
+  legge dal CHANGELOG al build (`lib/corpus.server.ts`).
 - **Token** (`tailwind.config.ts`, unici colori: la palette di Tailwind è sostituita):
   ground #eef1ee, surface #ffffff, text #1b1f1d, text-muted #6b716d, text-soft #505753,
   border #dfe4df e #e3e8e3, accent #1d6b47 (hover #155237), accent-soft #e3efe8, warn #d98b1a,

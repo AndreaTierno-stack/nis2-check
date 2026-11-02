@@ -129,9 +129,23 @@ export const copy = {
       `Input della valutazione ${hash}: con le stesse risposte e la stessa versione del corpus lo strumento restituisce lo stesso esito.`,
     limitsTitle: "Cosa non gestisce il tool",
     limitsIntro:
-      "Limiti dichiarati dello strumento, dal catalogo eccezioni: le voci segnalate per il settore valutato e tutte le voci non gestite. Ogni voce resta da valutare con un consulente qualificato.",
-    limitsRaised: "Segnalato ed emerso dalle risposte date",
-    limitsOther: "Altri casi segnalati per questo settore, non emersi dalle risposte date (descrivono situazioni che le risposte non indicano)",
+      "Limiti dichiarati dello strumento, dal catalogo eccezioni: per esteso le voci emerse dalle risposte date, in una riga le voci non gestite. Ogni voce resta da valutare con un consulente qualificato.",
+    limitsRaised: "Avvisi emersi dalle risposte date",
+    limitsOthers: (n: number) =>
+      `Altre ${n} voci segnalate per questo settore, non emerse dalle risposte date, sono nella pagina "Cosa non gestisce il tool" dello strumento.`,
+    /** "Cosa portare al consulente" (C2): labels only, the data come from the Verdict. */
+    box: {
+      title: "Cosa portare al consulente",
+      intro: "Punti da valutare con un consulente qualificato, dai dati di questa valutazione.",
+      outcome: "Esito",
+      code: "Codice e versione",
+      codeValue: (hash: string, version: string) => `valutazione ${hash}, corpus ${version}`,
+      notices: "Avvisi emersi",
+      signals: (n: number) =>
+        n === 1
+          ? "1 altra segnalazione dalle risposte date (testo nella sezione omonima)."
+          : `${n} altre segnalazioni dalle risposte date (testo nella sezione omonima).`,
+    },
     fileTitle: (hash: string) => `Esito preliminare ambito NIS2 ${hash}`,
   },
   /** Names of the acts, for the references of the "Fonti" section (formatted from the citation id). */

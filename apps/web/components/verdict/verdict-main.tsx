@@ -11,7 +11,7 @@ import { SCALE, facts, notices, resolutionStep, scalePosition, signalItems, tone
 import { copy } from "@/src/copy.it";
 import { Cite } from "./cite";
 import { SourcesPanel } from "./sources-panel";
-import { PrintAnswers, PrintCover, PrintFrame, PrintLimits, PrintTechnicalHeading } from "./print";
+import { PrintConsultantBox, PrintCover, PrintFrame, PrintLimits, PrintTechnicalHeading } from "./print";
 import type { VerdictProps } from "./types";
 
 const TONE = {
@@ -101,7 +101,8 @@ function NoticesPanel({ props, sources }: { props: VerdictProps; sources: Source
   const list = notices(props.verdict, props.corpus);
   if (!list.length) return null;
   return (
-    <section className="space-y-3" aria-labelledby="punti-title">
+    // in print the full texts are in the limits block and the titles in the box for the consultant (PDF in four pages)
+    <section className="space-y-3 print:hidden" aria-labelledby="punti-title">
       <h2 id="punti-title" className="text-lg font-semibold">
         {copy.verdict.noticesTitle(list.length)}
       </h2>
@@ -200,11 +201,11 @@ export function VerdictMain(props: VerdictProps) {
       <OutcomePanel props={props} sources={sources} open={open} onToggle={() => setOpen((o) => !o)} />
       <NoticesPanel props={props} sources={sources} />
       <SignalsPanel props={props} sources={sources} />
-      <PrintAnswers props={props} />
+      <PrintConsultantBox props={props} />
+      <PrintLimits props={props} sources={sources} />
       <PrintTechnicalHeading />
       <TracePanel props={props} sources={sources} className={open ? undefined : "hidden print:block"} />
       <SourcesPanel sources={sources} title={copy.verdict.sourcesTitle} />
-      <PrintLimits props={props} sources={sources} />
     </PrintFrame>
   );
 }

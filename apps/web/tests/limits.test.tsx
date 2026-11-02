@@ -13,7 +13,7 @@ import { evaluate } from "@nis2-check/engine";
 import { ClickWrap } from "@/components/click-wrap";
 import { LimitsPage } from "@/components/limits/limits-page";
 import { Footer } from "@/components/shell/footer";
-import { PrintLimits } from "@/components/verdict/print";
+import { PrintCover } from "@/components/verdict/print";
 import { segmentText } from "@/content/disclaimer";
 import { appliesToLabel, catalogItems, toolNotice } from "@/lib/limits";
 import { DISCLAIMER_ENTRY } from "@/lib/links";
@@ -102,7 +102,7 @@ describe("notice of the tool", () => {
     const surfaces = {
       clickWrap: renderToStaticMarkup(<ClickWrap notice={notice} onAccept={noop} />),
       footer: renderToStaticMarkup(<Footer notice={notice} />),
-      pdf: renderToStaticMarkup(<PrintLimits props={props} sources={buildSources(verdict.citations, corpus)} />),
+      pdf: renderToStaticMarkup(<PrintCover props={props} />),
       limitsPage: renderToStaticMarkup(<LimitsPage corpus={corpus} />),
     };
     for (const [name, html] of Object.entries(surfaces)) {
