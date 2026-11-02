@@ -86,7 +86,7 @@ pnpm --filter @nis2-check/web test:e2e   # dopo il build: wizard, PDF, pagina de
 ```
 
 - **Fixture golden** (`packages/engine/tests/fixtures/`): 27 scenari con l'esito atteso e il riferimento al costrutto del corpus che lo produce.
-- **Enumerazione completa**: 418.576 combinazioni valutate, 0 violazioni delle proprietà dell'engine (ultima esecuzione registrata in `docs/STATUS.md`).
+- **Enumerazione completa**: 418.576 combinazioni valutate, 0 violazioni delle proprietà dell'engine (esecuzione del 2026-10-30, corpus 0.11.0; si ripete a ogni rilascio, esito in `docs/STATUS.md`).
 - **Registro citazioni** (`packages/corpus/corpus/citations/citations__registry.yaml`): 76 voci; ogni ID usato dal corpus ha il nodo della knowledge base e le righe che lo attestano. Nell'app ogni fonte apre quella riga.
 - **CI** (GitHub Actions): lint, typecheck, validazione del corpus, test, build ed e2e a ogni push.
 
@@ -102,7 +102,7 @@ Si apre una issue su questo repository indicando:
 
 - il riferimento normativo preciso: articolo e comma del decreto, o codice della FAQ ACN, o protocollo della determinazione;
 - il passaggio del testo ufficiale che si ritiene in contrasto con l'esito o con la fonte citata;
-- il settore e le risposte date, oppure il codice della valutazione e la versione del corpus riportati nel piè di pagina del PDF.
+- il settore e le risposte date, che il PDF riporta insieme al codice della valutazione e alla versione del corpus.
 
 Una segnalazione senza riferimento puntuale al testo ufficiale non può essere verificata.
 
