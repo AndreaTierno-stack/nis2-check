@@ -92,6 +92,13 @@ Da eseguire solo su decisione nel Project, non in S4.2. In quest'ordine:
   `docs/releases/v0.1.0.md`.
 - README della KB `nis2-knowledge-it` con il rimando al tool (e2d6cc5).
 
+## Dopo il post di rilascio
+
+- [ ] Rimuovere l'alias `nis2-check-three.vercel.app` dal progetto Vercel quando
+  `ambito-nis2.vercel.app` è l'unico in circolazione (nessun link pubblicato verso il vecchio alias:
+  post, README, KB, release). Poi richiesta anonima: `ambito-nis2.vercel.app` 200, vecchio alias
+  non più servito dal progetto.
+
 ## Enumerazione completa dei percorsi
 
 `pnpm engine:enumerate --full`, da eseguire prima di ogni rilascio; esito registrato qui e in `docs/STATUS.md`.

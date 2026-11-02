@@ -320,19 +320,20 @@ il `package.json` dei pacchetti (errore `ERR_PACKAGE_IMPORT_NOT_DEFINED` di vite
 **Deploy (S4.2, Vercel).** Progetto collegato al repository GitHub, radice del monorepo:
 `vercel.json` dichiara `framework: null`, install `pnpm install --frozen-lockfile`, build
 `pnpm --filter @nis2-check/web build`, output `apps/web/out`. Solo file statici: nessuna
-funzione serverless, nessuna variabile d'ambiente, Web Analytics e Speed Insights spenti. Il
+funzione serverless, una sola variabile d'ambiente (`NIS2_RELEASE_STAGE=public` in produzione, dal
+rilascio v0.1.0), Web Analytics e Speed Insights spenti. Il
 deploy non sostituisce la CI GitHub Actions e la CI non ha step di deploy.
 
 - **Progetto** (2026-11-02): `nis2-check` (`prj_eEKbLen6DVeWqvGuH7MVar13mBsa`) sul team personale, piano
   Hobby, Node 24.x come la CI, collegato a GitHub: ogni push su `main` è un deploy di produzione.
-  URL di produzione: `https://nis2-check-three.vercel.app` (provvisorio). Deployment Protection
-  effettiva: Vercel Authentication con `deploymentType: all` (dal 2026-11-02, disponibile sul piano
-  Hobby): ogni URL del progetto, produzione compresa, risponde 302 verso il login Vercel a chi non
-  è membro del team (verificato con richieste anonime); nessuna password, nessun IP fidato, nessun
-  link di condivisione. Fino al rilascio la review e i test lavorano sull'export locale
-  `apps/web/out`. Web Analytics non abilitato (API: `web_analytics_not_enabled`); Speed Insights:
-  nessuno script nella pagina. La protezione si toglie solo con l'atto di rilascio
-  (`docs/RELEASE_CHECKLIST.md`).
+  URL pubblico dal rilascio v0.1.0 (2026-11-02): `https://ambito-nis2.vercel.app`; il primo alias
+  `nis2-check-three.vercel.app` resta attivo fino alla rimozione prevista dopo il post di rilascio
+  (`docs/RELEASE_CHECKLIST.md`). Deployment Protection: fino al rilascio Vercel Authentication con
+  `deploymentType: all` (302 verso il login Vercel per chi non è membro del team); dal rilascio
+  `deploymentType: preview`, cioè protette solo le anteprime, produzione aperta (200 a richiesta
+  anonima). Nessuna password, nessun IP fidato, nessun link di condivisione permanente. Web
+  Analytics non abilitato (API: `web_analytics_not_enabled`); Speed Insights: nessuno script nella
+  pagina.
 - **Versione di Node**: `engines: "24.x"` nel `package.json` di root (2026-11-02), come la CI e
   l'impostazione del progetto Vercel; con `>=24` Vercel riportava il progetto all'ultima major a
   ogni deploy.
