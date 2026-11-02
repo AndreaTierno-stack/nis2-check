@@ -8,7 +8,7 @@ url: https://www.acn.gov.it/portale/faq-nis-settori-sottosettori-e-tipologie-di-
 author: Agenzia per la Cybersicurezza Nazionale
 date_published: 2026
 date_ingested: 2026-04-29
-updated: 2026-10-30
+updated: 2026-11-02
 tags: [NIS2, ACN, FAQ, settori, sottosettori, allegato I, allegato II, allegato III, allegato IV, tipologie di soggetto]
 ---
 
@@ -27,13 +27,13 @@ FAQ ACN sui **settori e tipologie di soggetto** rientranti nell'ambito NIS. È l
 - **Produttori** (esclusi prosumer / clienti attivi che non svolgono altre attività riconducibili agli Allegati I e II — `A1.1.a.4`).
 - **Gestori del mercato elettrico designati** (coupling unico DA/ID).
 - **Partecipanti al mercato dell'energia elettrica** che forniscono aggregazione, gestione domanda, stoccaggio.
-- **Gestori di punti di ricarica** ex DM MASE n. 106 del 16/03/2023 (registrati su PUN). NB: i punti vendita che offrono ricarica elettrica alla clientela **non** rientrano automaticamente — solo se obbligati a registrarsi su PUN (`A1.1.a.3`).
+- **Gestori di punti di ricarica** ex DM MASE n. 106 del 16/03/2023 (registrati su PUN). NB: i punti vendita che offrono ricarica elettrica alla clientela "non rientrano nella definizione della tipologia di soggetto di 'gestore di un punto di ricarica'"; rientrano in tale definizione solo i soggetti obbligati a registrarsi sulla PUN ai sensi dell'art. 5 del dm MASE n. 106 del 16/03/2023 (`A1.1.a.3`).
 - Aziende che vendono energia elettrica a clienti domestici a mercato libero **rientrano** quali "imprese elettriche" — `A1.1.a.2`.
 
 **Mappa tipologia → codice FAQ (sottosettore elettrico `A1.1.a`)** — codici come attestati dalla FAQ. `A1.1.a.1` riporta tra virgolette le definizioni della Dir. 2019/944 (impresa elettrica, fornitura, DSO, TSO, produttore, aggregazione, gestione della domanda, stoccaggio) e del Reg. 2019/943 (gestore del mercato elettrico designato, partecipante al mercato); qui non sono trascritte:
 - `A1.1.a.1` — elencazione generale delle tipologie del sottosettore elettrico: imprese elettriche di fornitura (vendita), gestori del sistema di distribuzione (DSO), gestori del sistema di trasmissione (TSO), produttori, gestori del mercato elettrico designati, partecipanti al mercato (aggregazione, gestione domanda, stoccaggio), gestori di punti di ricarica (punto 3).
 - `A1.1.a.2` — imprese elettriche che vendono a **clienti domestici** sul mercato libero: rientrano come "imprese elettriche".
-- `A1.1.a.3` — **gestori di punti di ricarica** registrati su PUN (ex DM MASE n. 106 del 16/03/2023); i punti vendita che offrono ricarica ma non obbligati alla registrazione su PUN **non rientrano automaticamente**.
+- `A1.1.a.3` — **gestori di punti di ricarica**: i punti vendita che offrono alla clientela punti di ricarica elettrica "non rientrano nella definizione della tipologia di soggetto di 'gestore di un punto di ricarica'"; "rientrano in tale definizione solo i soggetti di cui all'articolo 5 del dm MASE n. 106 del 16 marzo 2023, ovvero tutti quei soggetti obbligati a registrarsi sulla Piattaforma nazionale unica dei punti di ricarica" (PUN). Testo verificato sul PDF in `raw/` (DEC-010).
 - `A1.1.a.4` — **esclusione** di prosumer / clienti attivi dalla tipologia "produttori", per le organizzazioni che non svolgono altre attività riconducibili agli Allegati I e II.
 
 **Sottosettore Teleriscaldamento e teleraffrescamento (`A1.1.b.1`)** — direttiva 2018/2001/UE (D.Lgs. 199/2021): gestori di teleriscaldamento o teleraffrescamento.

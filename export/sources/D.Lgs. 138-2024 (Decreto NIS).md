@@ -9,7 +9,7 @@ provenance_note: "Riscontro del 2026-10-27 su Normattiva, testo vigente (urn:nir
 author: Repubblica Italiana — Governo
 date_published: 2024-09-04
 date_ingested: 2026-04-29
-updated: 2026-10-30
+updated: 2026-11-02
 tags: [nis2, italia, decreto-legislativo, cybersicurezza, normativa-primaria, attuazione]
 aliases: [Decreto 138, Decreto NIS, D.Lgs. 138 del 2024, Decreto legislativo 138/2024]
 ---
@@ -39,7 +39,7 @@ Decreto legislativo 4 settembre 2024, n. 138, pubblicato in Gazzetta Ufficiale i
     - d) altri soggetti pubblici: "1. gli Enti di regolazione dell'attività economica; 2. gli Enti produttori di servizi economici; 3. gli Enti a struttura associativa; 4. gli Enti produttori di servizi assistenziali, ricreativi e culturali; 5. gli Enti e le Istituzioni di ricerca; 6. gli Istituti zooprofilattici sperimentali".
   - **Categorie aggiunte con DPCM** (art. 3 c. 7 e art. 40 c. 2 lett. b): con criterio di gradualità e in base all'esposizione al rischio, uno o più DPCM possono individuare "ulteriori categorie di pubbliche amministrazioni" per adeguare l'elenco dell'Allegato III.
   - **Esclusioni** (art. 4 cc. 2-3): i soggetti dei cc. 6-7 "non ricomprendono il Parlamento italiano, l'Autorità giudiziaria, la Banca d'Italia e l'Unità di informazione finanziaria per l'Italia"; agli organi costituzionali e di rilievo costituzionale non si applica il Capo V. Il decreto non si applica agli enti, organi e articolazioni della PA che operano nei settori della pubblica sicurezza, della difesa nazionale o dell'attività di contrasto, agli organismi di informazione per la sicurezza (L. 124/2007) e all'ACN.
-  - **Qualifiche** (art. 6): sono essenziali "indipendentemente dalle loro dimensioni, le pubbliche amministrazioni centrali di cui all'allegato III, comma 1, lettera a)" (c. 1 lett. e); l'ACN individua, con le modalità dell'art. 40 c. 5, i soggetti dell'art. 3 cc. 6, 8, 9 e 10 considerati essenziali (c. 2); gli altri sono importanti (c. 3). Ne segue che la PA delle lett. b)-d) è importante salvo individuazione ex c. 2.
+  - **Qualifiche** (art. 6): sono essenziali "i soggetti di cui all'allegato I che superano i massimali per le medie imprese di cui all'articolo 2, paragrafo 1, dell'allegato della raccomandazione 2003/361/CE" (c. 1 lett. a)) e "indipendentemente dalle loro dimensioni, le pubbliche amministrazioni centrali di cui all'allegato III, comma 1, lettera a)" (c. 1 lett. e); l'ACN individua, con le modalità dell'art. 40 c. 5, i soggetti dell'art. 3 cc. 6, 8, 9 e 10 considerati essenziali (c. 2); gli altri sono importanti (c. 3). Ne segue che la PA delle lett. b)-d) è importante salvo individuazione ex c. 2.
 - **Capo IV — Obblighi**:
   - **Art 23 — Governance**: gli **organi di amministrazione e direttivi** approvano le misure ex Art 24, vigilano sull'attuazione, sono **responsabili per le violazioni**, devono seguire **formazione periodica** e devono assicurare formazione equivalente al personale.
   - **Art 24 — Misure di gestione del rischio**: 10 ambiti minimi (politiche di analisi rischio e SI, gestione incidenti, continuità operativa e crisi, supply chain, sviluppo/manutenzione sicuri, valutazione efficacia, igiene di base e formazione, crittografia, sicurezza HR e access control, MFA/SSO). Approccio **multi-rischio**: include rischi fisici, ambientali, errore umano, atti dolosi.
