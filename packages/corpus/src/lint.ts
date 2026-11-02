@@ -115,6 +115,25 @@ export function apostropheAccents(text: string): string[] {
 }
 
 /**
+ * Visits every string value of the corpus files with its file and path (YAML comments are not
+ * parsed). Keys in `skip` are not visited.
+ */
+function walkStrings(
+  groups: Record<string, Record<string, unknown>>,
+  visit: (file: string, path: string, text: string) => void,
+  skip: ReadonlySet<string> = new Set(),
+) {
+  const walk = (file: string, node: unknown, path: string) => {
+    if (typeof node === 'string') visit(file, path, node);
+    else if (Array.isArray(node)) node.forEach((v, i) => walk(file, v, `${path}[${i}]`));
+    else if (node && typeof node === 'object') {
+      for (const [k, v] of Object.entries(node)) if (!skip.has(k)) walk(file, v, path ? `${path} > ${k}` : k);
+    }
+  };
+  for (const files of Object.values(groups)) for (const [file, doc] of Object.entries(files)) walk(file, doc, '');
+}
+
+/**
  * Applies {@link apostropheAccents} to every string value of the corpus files (YAML comments are
  * not parsed and are not checked). The check covers every value, not a list of user-facing
  * fields: texts reach the UI and the PDF from many keys (questions, help, options, rule and
@@ -122,17 +141,31 @@ export function apostropheAccents(text: string): string[] {
  */
 export function lintApostropheAccents(groups: Record<string, Record<string, unknown>>): string[] {
   const out: string[] = [];
-  const walk = (file: string, node: unknown, path: string) => {
-    if (typeof node === 'string') {
-      const words = apostropheAccents(node);
-      if (words.length) out.push(msg(E.COPY, `${file} > ${path}: apostrophe instead of accent (${words.join(', ')})`));
-    } else if (Array.isArray(node)) {
-      node.forEach((v, i) => walk(file, v, `${path}[${i}]`));
-    } else if (node && typeof node === 'object') {
-      for (const [k, v] of Object.entries(node)) walk(file, v, path ? `${path} > ${k}` : k);
-    }
-  };
-  for (const files of Object.values(groups)) for (const [file, doc] of Object.entries(files)) walk(file, doc, '');
+  walkStrings(groups, (file, path, text) => {
+    const words = apostropheAccents(text);
+    if (words.length) out.push(msg(E.COPY, `${file} > ${path}: apostrophe instead of accent (${words.join(', ')})`));
+  });
+  return out;
+}
+
+/** Keys whose values are locators in the corpus (`<file>#<key>`), not texts for the user. */
+const LOCATOR_KEYS: ReadonlySet<string> = new Set(['applies_to', 'referenced_by', 'reference', 'corpus_ref', 'kb_node']);
+
+/**
+ * Markdown syntax in the corpus texts (corpus 0.13.2, review F13): the app shows the texts as
+ * plain text, so a table ("|" at the start of a line) or a heading or anchor ("#") reaches the user
+ * raw. Checked on every string value except the locators ({@link LOCATOR_KEYS}).
+ */
+export function lintMarkdownSyntax(groups: Record<string, Record<string, unknown>>): string[] {
+  const out: string[] = [];
+  walkStrings(
+    groups,
+    (file, path, text) => {
+      if (/^\s*\|/m.test(text)) out.push(msg(E.COPY, `${file} > ${path}: "|" at the start of a line (markdown table)`));
+      if (text.includes('#')) out.push(msg(E.COPY, `${file} > ${path}: "#" in a text for the user`));
+    },
+    LOCATOR_KEYS,
+  );
   return out;
 }
 

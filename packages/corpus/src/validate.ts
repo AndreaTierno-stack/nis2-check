@@ -3,7 +3,7 @@
  */
 import { CorpusSchema, unusedRegistryEntries, type Corpus } from './schemas/corpus.ts';
 import { E, W, msg } from './schemas/common.ts';
-import { lintApostropheAccents, lintCatalogCopy, lintRegistryLabels, lintYamlBooleans } from './lint.ts';
+import { lintApostropheAccents, lintCatalogCopy, lintMarkdownSyntax, lintRegistryLabels, lintYamlBooleans } from './lint.ts';
 import type { RawCorpus, SourceTexts } from './load.ts';
 
 export interface ValidationResult {
@@ -37,7 +37,8 @@ export function validateCorpus(raw: RawCorpus, sources: SourceTexts = {}, parseE
   }
   errors.push(...lintYamlBooleans(sources), ...lintCatalogCopy(raw.exceptions ?? {}), ...lintRegistryLabels(raw.citations ?? {}));
   const { sectors, wizard, regimes, signals, exceptions, citations, conflicts } = raw;
-  errors.push(...lintApostropheAccents({ sectors, wizard, regimes, signals, exceptions, citations, conflicts: conflicts ?? {} }));
+  const corpusFiles = { sectors, wizard, regimes, signals, exceptions, citations, conflicts: conflicts ?? {} };
+  errors.push(...lintApostropheAccents(corpusFiles), ...lintMarkdownSyntax(corpusFiles));
   const warnings = parsed.success
     ? [
         ...unusedRegistryEntries(parsed.data).map((e) => `[${W.CITATION_UNUSED}] ${e}: registry entry not used by the corpus or the fixtures`),

@@ -7,5 +7,5 @@ export * from './schemas/files.ts';
 export { E, W, CITATION_ID_RE, collectCitationIds, type ErrorCode, type WarningCode } from './schemas/common.ts';
 export { loadFromDisk, parseYaml, DEFAULT_CORPUS_DIR, DEFAULT_FIXTURES_DIR, type RawCorpus, type SourceTexts } from './load.ts';
 export { validateCorpus, type ValidationResult } from './validate.ts';
-export { apostropheAccents, lintApostropheAccents, lintCatalogCopy, lintRegistryLabels, lintUiCopy, lintYamlBooleans } from './lint.ts';
+export { apostropheAccents, lintApostropheAccents, lintCatalogCopy, lintMarkdownSyntax, lintRegistryLabels, lintUiCopy, lintYamlBooleans } from './lint.ts';
 export { resolveCorpusRef } from './corpusRef.ts';

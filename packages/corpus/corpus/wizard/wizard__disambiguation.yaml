@@ -106,16 +106,13 @@ standard_identification_questions:
       La categoria si ricava da tre dati: gli effettivi (le persone occupate),
       il fatturato annuo e il totale di bilancio annuo.
       Le soglie, come riportate dalla FAQ ACN AMB.DI.1:
-
-      | Categoria | Effettivi   | Fatturato annuo | Bilancio annuo |
-      |-----------|-------------|-----------------|----------------|
-      | Micro     | meno di 10  | fino a 2 M€     | fino a 2 M€    |
-      | Piccola   | meno di 50  | fino a 10 M€    | fino a 10 M€   |
-      | Media     | meno di 250 | fino a 50 M€    | fino a 43 M€   |
+      - Micro: meno di 10 effettivi; fatturato annuo fino a 2 M€ o bilancio annuo fino a 2 M€.
+      - Piccola: meno di 50 effettivi; fatturato annuo fino a 10 M€ o bilancio annuo fino a 10 M€.
+      - Media: meno di 250 effettivi; fatturato annuo fino a 50 M€ o bilancio annuo fino a 43 M€.
 
       Oltre le soglie della media impresa si parla di grande impresa.
 
-      Come si legge la tabella: per stare in una categoria contano sempre gli
+      Come si leggono le soglie: per stare in una categoria contano sempre gli
       effettivi, più almeno uno tra fatturato e bilancio (i due dati contabili
       sono alternativi). Se gli effettivi superano la soglia, oppure se la
       superano entrambi i dati contabili, il soggetto passa alla categoria

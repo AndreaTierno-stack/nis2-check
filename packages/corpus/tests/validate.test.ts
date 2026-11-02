@@ -398,7 +398,7 @@ describe('corpus:validate', () => {
     });
   });
 
-  describe('corpus 0.13.1 faults (review F18, apostrophe instead of accent)', () => {
+  describe('corpus 0.13.1-0.13.2 copy faults (review F18 apostrophes, F13 markdown syntax)', () => {
     it('apostrophized vowel in a rule trace -> E_COPY', () => {
       const errors = errorsAfter((c) => {
         const r = sector(c, 'energia_elettrica').qualification_rules[1];
@@ -423,6 +423,23 @@ describe('corpus:validate', () => {
       });
       expectCode(errors, 'E_COPY', 'citations__registry.yaml');
       expectCode(errors, 'E_COPY', 'signals__cumulative_regimes.yaml');
+    });
+
+    it('markdown table row in a help text -> E_COPY', () => {
+      const errors = errorsAfter((c) => {
+        const q = (c.wizard['wizard/wizard__disambiguation.yaml'] as Doc).standard_identification_questions.find((x: Doc) => x.id === 'dimension');
+        q.help_text_it += '\n| Categoria | Effettivi |\n';
+      });
+      expectCode(errors, 'E_COPY', 'wizard__disambiguation.yaml > standard_identification_questions[1] > help_text_it: "|"');
+    });
+
+    it('"#" in a rule trace -> E_COPY; locators with "#" pass', () => {
+      const errors = errorsAfter((c) => {
+        const r = sector(c, 'cloud_computing').qualification_rules[0];
+        r.reasoning_trace = `## Esito\n${r.reasoning_trace}`;
+      });
+      expectCode(errors, 'E_COPY', 'sectors__cloud_computing.yaml > qualification_rules[0] > reasoning_trace: "#"');
+      expect(errors.filter((e) => e.includes('referenced_by') || e.includes('applies_to'))).toEqual([]);
     });
 
     it('elisions, single-quoted spans and "po\'" are not flagged', () => {

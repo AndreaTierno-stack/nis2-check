@@ -13,9 +13,10 @@ Ogni bump ha una voce in questo file; le fixture dichiarano `corpus_version` e s
 
 ## [Unreleased]
 
-## [0.13.2] — 2026-11-02 — Segnalazione del soggetto critico senza la disambiguazione CACER (S4.2)
+## [0.13.2] — 2026-11-02 — Testi: soggetto critico, aiuto della dimensione senza tabella (S4.2)
 
-Patch (solo testi). Decisione dell'autore del 2026-11-02. Esiti, citazioni e avvisi invariati.
+Patch (testi e lint di copy). Decisioni dell'autore del 2026-11-02. Esiti, citazioni e avvisi invariati.
+- **F13 (testi, validator)**: l'aiuto della domanda `dimension` (`wizard/wizard__disambiguation.yaml`) non usa più la tabella markdown, che l'app mostrava come testo grezzo: le soglie della FAQ ACN AMB.DI.1 sono un elenco di tre righe (micro, piccola, media), con gli stessi valori; "Come si legge la tabella" diventa "Come si leggono le soglie". `corpus:validate` blocca (`E_COPY`) "|" a inizio riga e "#" in ogni testo del corpus, esclusi i localizzatori (`applies_to`, `referenced_by`, `reference`, `corpus_ref`, `kb_node`); test di guasto su aiuto e regola.
 - **`signals/signals__cumulative_regimes.yaml`**, segnale `cer_signal`: tolta dal testo comune a tutti i settori la frase "Da non confondere con le comunità energetiche rinnovabili (configurazioni CACER).". Nessuna voce di catalogo e nessun testo del settore energia mostrato all'utente riporta la disambiguazione; restano il vincolo `copy_constraints` del settore energia (regola di redazione, non mostrata) e l'aiuto della domanda comune `soggetto_critico` ("Non riguarda le comunità energetiche rinnovabili (configurazioni CACER).").
 - Fixture E01-E28: `corpus_version` 0.13.1 → 0.13.2.
 
