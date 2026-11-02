@@ -127,7 +127,7 @@ exports[`printed verdict of E05 > matches the print-mode DOM snapshot 1`] = `
 </div>
 <dl>
 <div>
-<dt>Il soggetto è stato formalmente inserito nel Perimetro di Sicurezza Nazionale Cibernetica (PSNC) ai sensi del DL 105/2019, con notifica ricevuta da ACN o dal CISR?</dt>
+<dt>Il soggetto è stato inserito nel Perimetro di Sicurezza Nazionale Cibernetica (PSNC) ai sensi dell&#x27;art. 1 c. 2-bis del D.L. 105/2019?</dt>
 <dd>No</dd>
 </div>
 <div>
@@ -536,7 +536,7 @@ exports[`printed verdict of E10 > matches the print-mode DOM snapshot 1`] = `
 <dd>No</dd>
 </div>
 <div>
-<dt>Il soggetto è stato formalmente inserito nel Perimetro di Sicurezza Nazionale Cibernetica (PSNC) ai sensi del DL 105/2019, con notifica ricevuta da ACN o dal CISR?</dt>
+<dt>Il soggetto è stato inserito nel Perimetro di Sicurezza Nazionale Cibernetica (PSNC) ai sensi dell&#x27;art. 1 c. 2-bis del D.L. 105/2019?</dt>
 <dd>No</dd>
 </div>
 <div>
@@ -959,7 +959,7 @@ exports[`printed verdict of E27 > matches the print-mode DOM snapshot 1`] = `
 </div>
 <dl>
 <div>
-<dt>Il soggetto è stato formalmente inserito nel Perimetro di Sicurezza Nazionale Cibernetica (PSNC) ai sensi del DL 105/2019, con notifica ricevuta da ACN o dal CISR?</dt>
+<dt>Il soggetto è stato inserito nel Perimetro di Sicurezza Nazionale Cibernetica (PSNC) ai sensi dell&#x27;art. 1 c. 2-bis del D.L. 105/2019?</dt>
 <dd>No</dd>
 </div>
 <div>

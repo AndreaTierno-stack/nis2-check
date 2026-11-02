@@ -28,3 +28,5 @@ meta:
     - "sectors/sectors__energia_elettrica.yaml#overrides"
     - "sectors/sectors__pubblica_amministrazione.yaml#overrides"   # ADR 0014
   citations: [det_acn_155238_2026_art_5, dl_105_2019_art_1_c_2_bis, dlgs_138_2024_art_33]
+  open_points:
+    - "D.L. 105/2019 non tra le fonti primarie della KB (nessun nodo sorgente, testo non in raw/): procedura di inserimento nel perimetro e organi competenti non attestati; ingest a v0.2 (review avversaria del 2026-11-02, F10). Nessun credito stop-and-ingest usato."

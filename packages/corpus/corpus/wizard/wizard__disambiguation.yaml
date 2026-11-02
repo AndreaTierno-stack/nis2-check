@@ -23,11 +23,13 @@ meta:
 questions:
   - id: psnc
     kind: binary
-    label_it: "Il soggetto è stato formalmente inserito nel Perimetro di Sicurezza Nazionale Cibernetica (PSNC) ai sensi del DL 105/2019, con notifica ricevuta da ACN o dal CISR?"
+    # Corpus 0.13.0 (review F10): testo limitato a cio' che il registro attesta
+    # (dl_105_2019_art_1_c_2_bis); tolte la stima del numero di soggetti e i riferimenti
+    # agli organi che comunicano l'inserimento, non attestati nella KB.
+    label_it: "Il soggetto è stato inserito nel Perimetro di Sicurezza Nazionale Cibernetica (PSNC) ai sensi dell'art. 1 c. 2-bis del D.L. 105/2019?"
     help_text_it: |
-      Il PSNC riguarda un numero ristretto di soggetti (stimati 150-250) che
-      gestiscono funzioni essenziali dello Stato. L'inclusione avviene con
-      atto formale: se non hai ricevuto una notifica esplicita, rispondi "no".
+      L'inserimento nel PSNC avviene con un atto formale. Se il soggetto non
+      risulta inserito nel PSNC con un atto formale, rispondi "no".
     on_yes:
       effect: category_override
       reference: regimes/psnc.yaml
