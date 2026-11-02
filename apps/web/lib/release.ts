@@ -13,6 +13,7 @@ export const isIndexable = (stage: ReleaseStage = RELEASE_STAGE): boolean => sta
 
 /**
  * Definitive public URL of the tool, for the README and the links of its notice block.
- * Undefined until the release act (docs/RELEASE_CHECKLIST.md): the README carries a marked placeholder.
+ * Set at the release act of v0.1.0 (2026-11-02, docs/RELEASE_CHECKLIST.md): Vercel alias of the
+ * production deployment.
  */
-export const PUBLIC_URL: string | undefined = undefined;
+export const PUBLIC_URL: string | undefined = "https://ambito-nis2.vercel.app";

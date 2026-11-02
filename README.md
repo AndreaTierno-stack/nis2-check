@@ -13,7 +13,7 @@ Gli esiti sono espressi su tre posizioni (probabile esclusione, esito incerto, p
 
 Il codice è distribuito con licenza MIT, così com'è (AS-IS), senza garanzie di alcun tipo.
 
-I limiti dichiarati dello strumento sono elencati nella pagina Cosa non gestisce il tool.
+I limiti dichiarati dello strumento sono elencati nella pagina [Cosa non gestisce il tool](https://ambito-nis2.vercel.app/limiti/).
 
 Fanno fede i testi ufficiali: le pubblicazioni dell'Agenzia per la Cybersicurezza Nazionale ([acn.gov.it](https://www.acn.gov.it)) e la normativa vigente su [Normattiva](https://www.normattiva.it).
 
@@ -36,7 +36,7 @@ Il linguaggio è pensato per chi non è esperto della materia; la parte tecnica 
 
 ## 3. Come si usa
 
-Indirizzo pubblico: **[URL DA DEFINIRE ALL'ATTO DI RILASCIO]**. Fino al rilascio il deploy è privato.
+Indirizzo pubblico: **<https://ambito-nis2.vercel.app>**.
 
 1. Si legge e si accetta l'avviso iniziale (richiesto a ogni apertura della pagina).
 2. Si sceglie il settore: cloud computing, energia elettrica, pubblica amministrazione.

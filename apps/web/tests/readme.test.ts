@@ -2,14 +2,15 @@
  * README of the repository (S4.2 block 4):
  * - the notice between the markers is exactly the composed notice (disclaimerMarkdown), the
  *   same text shown by click-wrap, footer, PDF and limits page;
- * - the public URL is a marked placeholder until PUBLIC_URL is set at the release act;
+ * - the public URL (PUBLIC_URL, set at the release act of v0.1.0) is in the README, the placeholder
+ *   is gone and the notice links the limits page on that URL;
  * - the prose passes the copy lint (forbidden categorical and compliance wording, no long dash).
  */
 import fs from "node:fs";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
 import { lintUiCopy } from "@nis2-check/corpus";
-import { disclaimerMarkdown } from "@/content/disclaimer";
+import { LIMITS_HREF, disclaimerMarkdown } from "@/content/disclaimer";
 import { toolNotice } from "@/lib/limits";
 import { PUBLIC_URL } from "@/lib/release";
 import { realCorpus } from "./helpers";
@@ -31,10 +32,12 @@ describe("README", () => {
     expect(README.slice(0, from).split("\n").length).toBeLessThanOrEqual(10);
   });
 
-  it("has a marked placeholder for the public URL until the release act", () => {
+  it("carries the public URL, or a marked placeholder before the release act", () => {
     if (PUBLIC_URL) {
       expect(README).toContain(PUBLIC_URL);
       expect(README).not.toContain(PLACEHOLDER);
+      // the limits page is a real link in the notice block
+      expect(README).toContain(`[Cosa non gestisce il tool](${PUBLIC_URL}${LIMITS_HREF})`);
     } else {
       expect(README).toContain(PLACEHOLDER);
       expect(README).not.toMatch(/https:\/\/[a-z0-9-]+\.vercel\.app/);
