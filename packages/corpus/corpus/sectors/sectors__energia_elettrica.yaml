@@ -163,7 +163,7 @@ multi_identity_intra_sector:
 # ============================================================================
 copy_constraints:
   - id: cer_cacer_disambiguation
-    rule_it: "Mai usare l'acronimo nudo 'CER' nel copy del verdetto o dei signal. La disciplina D.Lgs. 134/2024 va resa come 'soggetti critici (D.Lgs. 134/2024)' oppure 'Critical Entities Resilience'; le comunità energetiche vanno rese come 'comunità energetiche rinnovabili (CACER)'. Nel settore energia 'CER' è ambiguo tra i due istituti."
+    rule_it: "Mai usare l'acronimo nudo 'CER' nel copy del verdetto o dei signal. La disciplina D.Lgs. 134/2024 va resa come 'soggetti critici (D.Lgs. 134/2024)' oppure 'Critical Entities Resilience'; le comunità energetiche vanno rese come 'comunità energetiche rinnovabili (configurazioni CACER)'. Nel settore energia 'CER' è ambiguo tra i due istituti."
     # ADR 0015: il caso out_of_scope_mvp.cer_dlgs_134_2024 e' rimosso (soggetti critici
     # trattati dalla domanda comune soggetto_critico e dalla prima qualification_rule).
     applies_to: [cer_signal, "wizard/wizard__disambiguation.yaml#soggetto_critico"]

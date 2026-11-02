@@ -1853,7 +1853,7 @@ exports[`verdict page of E26 > matches the DOM snapshot 1`] = `
 <p>Si aggiungono all&#x27;esito e non lo modificano: indicano altri ambiti o regimi da verificare con un consulente.</p>
 </div>
 <div>
-<p data-testid="signal" data-signal="cer_signal">Il soggetto risulta individuato come soggetto critico ai sensi del D.Lgs. 134/2024, che recepisce la direttiva (UE) 2022/2557 sulla resilienza dei soggetti critici. Questa individuazione porta il soggetto nel perimetro NIS2 italiano come soggetto essenziale, indipendentemente dalla dimensione (art. 3 c. 5 lett. a) e art. 6 c. 1 lett. b) D.Lgs. 138/2024; FAQ ACN AMB.NO.1); la disciplina dei soggetti critici resta distinta e si aggiunge a quella NIS2. Da non confondere con le comunita&#x27; energetiche rinnovabili (CACER). Lo strumento non valuta gli obblighi della disciplina dei soggetti critici. Verifica con consulente qualificato. <span>
+<p data-testid="signal" data-signal="cer_signal">Il soggetto risulta individuato come soggetto critico ai sensi del D.Lgs. 134/2024, che recepisce la direttiva (UE) 2022/2557 sulla resilienza dei soggetti critici. Questa individuazione porta il soggetto nel perimetro NIS2 italiano come soggetto essenziale, indipendentemente dalla dimensione (art. 3 c. 5 lett. a) e art. 6 c. 1 lett. b) D.Lgs. 138/2024; FAQ ACN AMB.NO.1); la disciplina dei soggetti critici resta distinta e si aggiunge a quella NIS2. Da non confondere con le comunita&#x27; energetiche rinnovabili (configurazioni CACER). Lo strumento non valuta gli obblighi della disciplina dei soggetti critici. Verifica con consulente qualificato. <span>
 <a href="#fonte-1">1</a>
 <a href="#fonte-2">2</a>
 <a href="#fonte-5">5</a>

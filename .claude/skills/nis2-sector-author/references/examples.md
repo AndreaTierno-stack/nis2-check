@@ -129,11 +129,11 @@ out_of_scope_mvp:
   - case: cer_dlgs_134_2024
     handling: cross_sector_signal
     verdict_outcome: ambiguous
-    scope_evolution_note: "L'energia è settore soggetto alla disciplina sui soggetti critici (D.Lgs. 134/2024, resilienza fisica; CER = Critical Entities Resilience). Il MVP non valuta il rientro tra i soggetti critici; segnalato come regime parallelo da non confondere né con il NIS2 né con le comunità energetiche rinnovabili (CACER)."
+    scope_evolution_note: "L'energia è settore soggetto alla disciplina sui soggetti critici (D.Lgs. 134/2024, resilienza fisica; CER = Critical Entities Resilience). Il MVP non valuta il rientro tra i soggetti critici; segnalato come regime parallelo da non confondere né con il NIS2 né con le comunità energetiche rinnovabili (configurazioni CACER)."
 
 copy_constraints:
   - id: cer_cacer_disambiguation
-    rule_it: "Mai usare l'acronimo nudo 'CER' nel copy del verdetto o dei signal. La disciplina D.Lgs. 134/2024 va resa come 'soggetti critici (D.Lgs. 134/2024)' oppure 'Critical Entities Resilience'; le comunità energetiche vanno rese come 'comunità energetiche rinnovabili (CACER)'. Nel settore energia 'CER' è ambiguo tra i due istituti."
+    rule_it: "Mai usare l'acronimo nudo 'CER' nel copy del verdetto o dei signal. La disciplina D.Lgs. 134/2024 va resa come 'soggetti critici (D.Lgs. 134/2024)' oppure 'Critical Entities Resilience'; le comunità energetiche vanno rese come 'comunità energetiche rinnovabili (configurazioni CACER)'. Nel settore energia 'CER' è ambiguo tra i due istituti."
     applies_to: [cer_signal, "out_of_scope_mvp.cer_dlgs_134_2024"]
 ```
 

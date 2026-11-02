@@ -51,3 +51,7 @@ Implementazione:
 ## Fonti
 
 - `dlgs_134_2024` (soggetti critici / Critical Entities Resilience)
+
+## Nota 2026-11-02 (corpus 0.13.0, review avversaria F16)
+
+La resa delle comunità energetiche diventa "comunità energetiche rinnovabili (configurazioni CACER)": la sigla CACER indica le configurazioni per l'autoconsumo, di cui la comunità energetica rinnovabile è una tipologia. Decisione dell'autore; aggiornati CLAUDE.md (vincolo 4), il corpus e la convenzione di naming della KB.

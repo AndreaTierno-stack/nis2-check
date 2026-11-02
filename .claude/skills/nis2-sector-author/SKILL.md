@@ -65,7 +65,7 @@ Ogni testo che finisce nel verdetto o nell'Explainability (`reasoning_trace`, `s
 
 ### 4. Naming vincolato (ADR 0004, 0005)
 - Mai la sola parola **"salvaguardia"**: sempre "salvaguardia dimensionale (DPCM 221/2024)" — ID `safeguard_dimensional_dpcm_221` — distinta dall'esclusione di sicurezza nazionale (NIS2 art. 2 par. 7-8).
-- Mai **"CER" nudo** nel settore energia: usa "soggetti critici (D.Lgs. 134/2024)" / "Critical Entities Resilience" per il regime di resilienza fisica, e "comunità energetiche rinnovabili (CACER)" per le comunità energetiche. Vincolo formalizzato nel blocco `copy_constraints` di `sectors__energia_elettrica.yaml`.
+- Mai **"CER" nudo** nel settore energia: usa "soggetti critici (D.Lgs. 134/2024)" / "Critical Entities Resilience" per il regime di resilienza fisica, e "comunità energetiche rinnovabili (configurazioni CACER)" per le comunità energetiche. Vincolo formalizzato nel blocco `copy_constraints` di `sectors__energia_elettrica.yaml`.
 
 ## Anatomia di un file settore (schema reale)
 

@@ -142,7 +142,7 @@ Errori di sintassi, anglicismi inutili e italiano "da LinkedIn motivazionale" ab
 - "consulente qualificato" (non "esperto", "specialista")
 - "determinazione" (il termine giusto per gli atti ACN; non "delibera", "regolamento")
 - "salvaguardia dimensionale (DPCM 221/2024)" — **mai** "salvaguardia" nuda
-- "soggetti critici (D.Lgs. 134/2024)" / "comunità energetiche rinnovabili (CACER)" — **mai** "CER" nudo
+- "soggetti critici (D.Lgs. 134/2024)" / "comunità energetiche rinnovabili (configurazioni CACER)" — **mai** "CER" nudo
 
 ### Anglicismi da evitare quando esiste l'equivalente
 

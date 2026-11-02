@@ -42,7 +42,7 @@ Ogni contenuto che descrive un esito del tool usa formulazione **probabilistica*
 Valgono anche nei contenuti pubblici:
 
 - **Mai la sola parola "salvaguardia".** Due istituti distinti da non confondere: la **salvaguardia dimensionale (DPCM 221/2024)** (id corpus `safeguard_dimensional_dpcm_221`) e le **esclusioni di sicurezza nazionale (NIS2 art. 2 par. 7-8)**. Se un post parla di soglie dimensionali, è la prima; non usarle come sinonimi.
-- **Mai "CER" nudo** parlando di energia: "**soggetti critici (D.Lgs. 134/2024)**" / "Critical Entities Resilience" per la resilienza fisica, "**comunità energetiche rinnovabili (CACER)**" per le comunità energetiche. Nel settore energia "CER" è ambiguo tra i due.
+- **Mai "CER" nudo** parlando di energia: "**soggetti critici (D.Lgs. 134/2024)**" / "Critical Entities Resilience" per la resilienza fisica, "**comunità energetiche rinnovabili (configurazioni CACER)**" per le comunità energetiche. Nel settore energia "CER" è ambiguo tra i due.
 
 ## Fatti del prodotto da citare correttamente (v0.1.0)
 

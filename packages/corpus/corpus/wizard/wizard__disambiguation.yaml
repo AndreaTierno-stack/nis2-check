@@ -92,7 +92,7 @@ standard_identification_questions:
       critico si acquisisce con l'inserimento nell'elenco dei soggetti critici
       adottato con decreto del Presidente del Consiglio dei ministri, e
       dell'inclusione è data notizia al soggetto. Non riguarda le comunità
-      energetiche rinnovabili (CACER). Se il soggetto non ha ricevuto questa
+      energetiche rinnovabili (configurazioni CACER). Se il soggetto non ha ricevuto questa
       notizia, rispondi "no".
     on_yes:
       activates_signals: [cer_signal]
