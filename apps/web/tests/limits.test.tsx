@@ -86,7 +86,13 @@ describe("notice of the tool", () => {
     expect(notice.title).toBe(entry.title);
     expect(segmentText(notice.paragraphs[0]!)).toBe(entry.description);
     expect(entry.description).not.toMatch(/nis2-check/i);
-    expect(notice.paragraphs.map(segmentText).join(" ")).toMatch(/non è stato rivisto da un legale/);
+    // the four points of the notice (S4.2): (a) not legal advice or consultancy, (b) no third-party
+    // certified verification, (c) no substitute for the ACN registration, (d) not reviewed by a lawyer
+    const all = notice.paragraphs.map(segmentText).join(" ");
+    expect(all).toMatch(/Non è un parere legale né una consulenza/);
+    expect(all).toMatch(/Non sostituisce una verifica certificata di terza parte/);
+    expect(all).toMatch(/non sostituisce la registrazione sulla piattaforma ACN/);
+    expect(segmentText(notice.paragraphs.at(-1)!)).toBe("Questo avviso è una bozza e non è stato sottoposto a review legale.");
   });
 
   it("is rendered identically by click-wrap, footer, PDF and limits page", () => {

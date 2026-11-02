@@ -384,6 +384,7 @@ exports[`verdict page of E05 > matches the DOM snapshot 1`] = `
 <p data-text="Il codice è distribuito con licenza MIT, così com&#x27;è (AS-IS), senza garanzie di alcun tipo.">Il codice è distribuito con licenza MIT, così com&#x27;è (AS-IS), senza garanzie di alcun tipo.</p>
 <p data-text="I limiti dichiarati dello strumento sono elencati nella pagina Cosa non gestisce il tool.">I limiti dichiarati dello strumento sono elencati nella pagina <a href="/limiti/">Cosa non gestisce il tool</a>.</p>
 <p data-text="Fanno fede i testi ufficiali: le pubblicazioni dell&#x27;Agenzia per la Cybersicurezza Nazionale (acn.gov.it) e la normativa vigente su Normattiva.">Fanno fede i testi ufficiali: le pubblicazioni dell&#x27;Agenzia per la Cybersicurezza Nazionale (<a href="https://www.acn.gov.it">acn.gov.it</a>) e la normativa vigente su <a href="https://www.normattiva.it">Normattiva</a>.</p>
+<p data-text="Questo avviso è una bozza e non è stato sottoposto a review legale.">Questo avviso è una bozza e non è stato sottoposto a review legale.</p>
 </div>
 </li>
 </ul>
@@ -838,6 +839,7 @@ exports[`verdict page of E11 > matches the DOM snapshot 1`] = `
 <p data-text="Il codice è distribuito con licenza MIT, così com&#x27;è (AS-IS), senza garanzie di alcun tipo.">Il codice è distribuito con licenza MIT, così com&#x27;è (AS-IS), senza garanzie di alcun tipo.</p>
 <p data-text="I limiti dichiarati dello strumento sono elencati nella pagina Cosa non gestisce il tool.">I limiti dichiarati dello strumento sono elencati nella pagina <a href="/limiti/">Cosa non gestisce il tool</a>.</p>
 <p data-text="Fanno fede i testi ufficiali: le pubblicazioni dell&#x27;Agenzia per la Cybersicurezza Nazionale (acn.gov.it) e la normativa vigente su Normattiva.">Fanno fede i testi ufficiali: le pubblicazioni dell&#x27;Agenzia per la Cybersicurezza Nazionale (<a href="https://www.acn.gov.it">acn.gov.it</a>) e la normativa vigente su <a href="https://www.normattiva.it">Normattiva</a>.</p>
+<p data-text="Questo avviso è una bozza e non è stato sottoposto a review legale.">Questo avviso è una bozza e non è stato sottoposto a review legale.</p>
 </div>
 </li>
 </ul>
@@ -1206,6 +1208,7 @@ exports[`verdict page of E22 > matches the DOM snapshot 1`] = `
 <p data-text="Il codice è distribuito con licenza MIT, così com&#x27;è (AS-IS), senza garanzie di alcun tipo.">Il codice è distribuito con licenza MIT, così com&#x27;è (AS-IS), senza garanzie di alcun tipo.</p>
 <p data-text="I limiti dichiarati dello strumento sono elencati nella pagina Cosa non gestisce il tool.">I limiti dichiarati dello strumento sono elencati nella pagina <a href="/limiti/">Cosa non gestisce il tool</a>.</p>
 <p data-text="Fanno fede i testi ufficiali: le pubblicazioni dell&#x27;Agenzia per la Cybersicurezza Nazionale (acn.gov.it) e la normativa vigente su Normattiva.">Fanno fede i testi ufficiali: le pubblicazioni dell&#x27;Agenzia per la Cybersicurezza Nazionale (<a href="https://www.acn.gov.it">acn.gov.it</a>) e la normativa vigente su <a href="https://www.normattiva.it">Normattiva</a>.</p>
+<p data-text="Questo avviso è una bozza e non è stato sottoposto a review legale.">Questo avviso è una bozza e non è stato sottoposto a review legale.</p>
 </div>
 </li>
 </ul>
@@ -1564,6 +1567,7 @@ exports[`verdict page of E25 > matches the DOM snapshot 1`] = `
 <p data-text="Il codice è distribuito con licenza MIT, così com&#x27;è (AS-IS), senza garanzie di alcun tipo.">Il codice è distribuito con licenza MIT, così com&#x27;è (AS-IS), senza garanzie di alcun tipo.</p>
 <p data-text="I limiti dichiarati dello strumento sono elencati nella pagina Cosa non gestisce il tool.">I limiti dichiarati dello strumento sono elencati nella pagina <a href="/limiti/">Cosa non gestisce il tool</a>.</p>
 <p data-text="Fanno fede i testi ufficiali: le pubblicazioni dell&#x27;Agenzia per la Cybersicurezza Nazionale (acn.gov.it) e la normativa vigente su Normattiva.">Fanno fede i testi ufficiali: le pubblicazioni dell&#x27;Agenzia per la Cybersicurezza Nazionale (<a href="https://www.acn.gov.it">acn.gov.it</a>) e la normativa vigente su <a href="https://www.normattiva.it">Normattiva</a>.</p>
+<p data-text="Questo avviso è una bozza e non è stato sottoposto a review legale.">Questo avviso è una bozza e non è stato sottoposto a review legale.</p>
 </div>
 </li>
 </ul>
@@ -2053,6 +2057,7 @@ exports[`verdict page of E26 > matches the DOM snapshot 1`] = `
 <p data-text="Il codice è distribuito con licenza MIT, così com&#x27;è (AS-IS), senza garanzie di alcun tipo.">Il codice è distribuito con licenza MIT, così com&#x27;è (AS-IS), senza garanzie di alcun tipo.</p>
 <p data-text="I limiti dichiarati dello strumento sono elencati nella pagina Cosa non gestisce il tool.">I limiti dichiarati dello strumento sono elencati nella pagina <a href="/limiti/">Cosa non gestisce il tool</a>.</p>
 <p data-text="Fanno fede i testi ufficiali: le pubblicazioni dell&#x27;Agenzia per la Cybersicurezza Nazionale (acn.gov.it) e la normativa vigente su Normattiva.">Fanno fede i testi ufficiali: le pubblicazioni dell&#x27;Agenzia per la Cybersicurezza Nazionale (<a href="https://www.acn.gov.it">acn.gov.it</a>) e la normativa vigente su <a href="https://www.normattiva.it">Normattiva</a>.</p>
+<p data-text="Questo avviso è una bozza e non è stato sottoposto a review legale.">Questo avviso è una bozza e non è stato sottoposto a review legale.</p>
 </div>
 </li>
 </ul>

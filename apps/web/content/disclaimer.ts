@@ -32,7 +32,15 @@ export type Segment = string | { label: string; href: string };
 export const PRINT_NOTICE =
   "Anteprima di studio: strumento informativo gratuito, non sostituisce una consulenza legale, una verifica certificata di terza parte o la registrazione sulla piattaforma ACN. Disclaimer non sottoposto a review legale.";
 
-/** Product and legal paragraphs, after the catalog entry. */
+/** Visible statement of ADR 0017, last paragraph of the composed notice. */
+export const DRAFT_NOTICE = "Questo avviso è una bozza e non è stato sottoposto a review legale.";
+
+/**
+ * Product and legal paragraphs, after the catalog entry. With the entry they cover (checked by
+ * tests/limits.test.tsx): not legal advice or consultancy (entry), no substitute for a
+ * third-party certified verification (paragraph 1), no substitute for the ACN registration
+ * (entry), notice not reviewed by a lawyer (entry and DRAFT_NOTICE).
+ */
 export const PRODUCT_PARAGRAPHS: readonly (readonly Segment[])[] = [
   [
     "È uno strumento informativo gratuito e open source, pubblicato come anteprima di studio. Non sostituisce una verifica certificata di terza parte.",
@@ -49,6 +57,8 @@ export const PRODUCT_PARAGRAPHS: readonly (readonly Segment[])[] = [
     { label: "Normattiva", href: NORMATTIVA_HREF },
     ".",
   ],
+  // ADR 0017: the notice is declared not reviewed to whoever uses the tool, not only in the code
+  [DRAFT_NOTICE],
 ];
 
 export interface CatalogNotice {
