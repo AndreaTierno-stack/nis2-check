@@ -203,7 +203,17 @@ test di enumerazione).
   `emulateMedia({ media: 'print' })` (disclaimer, versione del corpus, URL delle fonti, parti a
   schermo nascoste); click-wrap bloccante e richiesto al ricaricamento, pagina dei limiti con le
   30 voci in tre sezioni, link dall'esito; in CI dopo la build. `E2E_BROWSER=firefox` esegue gli stessi e2e su Firefox
-  in locale; `PDF_OUT=<dir>` scrive i PDF di esempio di E05 ed E27 (Chromium).
+  in locale; `PDF_OUT=<dir>` scrive i PDF di esempio di E05, E27 e del caso con segnalazioni lunghe
+  (Chromium). Impaginazione su un caso con quattro segnalazioni lunghe
+  (`apps/web/tests/cases/long-signals.ts`): snapshot in modalità stampa e stili calcolati in e2e.
+- **Impaginazione della stampa** (verifica Firefox dell'autore del 2026-11-02: cornici aperte a fondo
+  pagina con il contenuto nella pagina dopo). Le liste a schede (segnalazioni, percorso di calcolo,
+  avvisi emersi nei limiti) passano da `PrintStack` (`components/verdict/print-stack.tsx`): la
+  cornice la disegnano le schede, mai il contenitore (a schermo ogni scheda ne disegna una parte, su
+  carta ogni scheda è una cornice propria o una riga senza cornice), ogni scheda ha
+  `break-inside: avoid` e il titolo sta con la prima scheda in un gruppo indivisibile, perché
+  Firefox non applica `break-after: avoid`. Il pannello delle fonti perde la cornice in stampa; nel
+  riquadro per il consulente titolo e sintesi stanno insieme.
 
 ## 3. Invarianti dello schema
 

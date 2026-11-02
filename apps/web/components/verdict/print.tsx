@@ -15,6 +15,7 @@ import type { Sources } from "@/lib/sources";
 import { answerRows, facts, notices } from "@/lib/verdict";
 import { copy } from "@/src/copy.it";
 import { Cite } from "./cite";
+import { PrintStack } from "./print-stack";
 import type { VerdictProps } from "./types";
 
 /**
@@ -116,18 +117,21 @@ export function PrintConsultantBox({ props }: { props: VerdictProps }) {
   ];
   return (
     <section className="hidden space-y-3 rounded-panel border border-border p-5 print:block" data-testid="print-consultant">
-      <div className="print-keep-with-next space-y-1">
-        <h2 className="text-lg font-semibold">{copy.print.box.title}</h2>
-        <p className="text-sm text-text-soft">{copy.print.box.intro}</p>
+      {/* the frame opens with heading and summary together, never with the heading alone */}
+      <div className="print-avoid-break space-y-3">
+        <div className="space-y-1">
+          <h2 className="text-lg font-semibold">{copy.print.box.title}</h2>
+          <p className="text-sm text-text-soft">{copy.print.box.intro}</p>
+        </div>
+        <dl className="grid grid-cols-[max-content_1fr] gap-x-6 gap-y-1 text-sm">
+          {summary.map(([k, v]) => (
+            <div key={k} className="contents">
+              <dt className="text-text-muted">{k}</dt>
+              <dd className="font-semibold">{v}</dd>
+            </div>
+          ))}
+        </dl>
       </div>
-      <dl className="grid grid-cols-[max-content_1fr] gap-x-6 gap-y-1 text-sm">
-        {summary.map(([k, v]) => (
-          <div key={k} className="contents">
-            <dt className="text-text-muted">{k}</dt>
-            <dd className="font-semibold">{v}</dd>
-          </div>
-        ))}
-      </dl>
       {raised.length > 0 && (
         <div className="print-avoid-break space-y-1 text-sm">
           <h3 className="font-semibold">{copy.print.box.notices}</h3>
@@ -171,43 +175,65 @@ export function PrintLimits({ props, sources }: { props: VerdictProps; sources: 
   const { notHandled } = limitsForPath(props.corpus, props.ctx.sectorId, []);
   const raised = notices(props.verdict, props.corpus);
   const others = flagged.filter((e) => !e.raised).length;
-  return (
-    <section className="hidden space-y-3 print:block" data-testid="print-limits">
-      <div className="print-keep-with-next space-y-1">
-        <h2 className="text-lg font-semibold">{copy.print.limitsTitle}</h2>
-        <p className="text-sm text-text-soft">{copy.print.limitsIntro}</p>
-      </div>
-      {raised.length > 0 && (
-        <div className="space-y-2 rounded-panel border border-border p-5">
-          <h3 className="font-semibold">{copy.print.limitsRaised}</h3>
-          <ul className="space-y-2">
-            {raised.map((e) => (
-              <li key={e.id} className="print-avoid-break text-sm" data-limit={e.id}>
-                <span className="font-semibold">{e.title}</span>
-                <span className="text-text-muted"> ({copy.verdict.status[e.status]})</span>
-                <span className="block text-text-soft">
-                  {e.description} <Cite ids={e.citations} sources={sources} />
-                </span>
-              </li>
-            ))}
-          </ul>
+  const head = (
+    <div className="space-y-1">
+      <h2 className="text-lg font-semibold">{copy.print.limitsTitle}</h2>
+      <p className="text-sm text-text-soft">{copy.print.limitsIntro}</p>
+    </div>
+  );
+  const notHandledBox = (
+    <div className="print-avoid-break mt-3 space-y-1 rounded-panel border border-border p-5 text-sm">
+      <h3 className="font-semibold">{copy.verdict.status.non_gestito}</h3>
+      <ul className="list-disc space-y-0.5 pl-5">
+        {notHandled.map((e) => (
+          <li key={e.id} data-limit={e.id}>
+            {e.title}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+  const othersLine = others > 0 && (
+    <p className="mt-3 text-sm text-text-soft" data-testid="print-limits-others">
+      {copy.print.limitsOthers(others)}
+    </p>
+  );
+  // every raised entry is a card of its own; the section heading travels with the first one
+  // (PrintStack); without raised entries it travels with the box of the entries not handled
+  if (!raised.length) {
+    return (
+      <section className="hidden print:block" data-testid="print-limits">
+        <div className="print-avoid-break">
+          {head}
+          {notHandledBox}
         </div>
-      )}
-      <div className="print-avoid-break space-y-1 rounded-panel border border-border p-5 text-sm">
-        <h3 className="font-semibold">{copy.verdict.status.non_gestito}</h3>
-        <ul className="list-disc space-y-0.5 pl-5">
-          {notHandled.map((e) => (
-            <li key={e.id} data-limit={e.id}>
-              {e.title}
-            </li>
-          ))}
-        </ul>
-      </div>
-      {others > 0 && (
-        <p className="text-sm text-text-soft" data-testid="print-limits-others">
-          {copy.print.limitsOthers(others)}
-        </p>
-      )}
+        {othersLine}
+      </section>
+    );
+  }
+  return (
+    <section className="hidden print:block" data-testid="print-limits">
+      <PrintStack
+        as="div"
+        variant="divided"
+        head={
+          <div className="space-y-3">
+            {head}
+            <h3 className="font-semibold">{copy.print.limitsRaised}</h3>
+          </div>
+        }
+        items={raised.map((e) => (
+          <div key={e.id} className="p-4 text-sm" data-limit={e.id}>
+            <span className="font-semibold">{e.title}</span>
+            <span className="text-text-muted"> ({copy.verdict.status[e.status]})</span>
+            <span className="block text-text-soft">
+              {e.description} <Cite ids={e.citations} sources={sources} />
+            </span>
+          </div>
+        ))}
+      />
+      {notHandledBox}
+      {othersLine}
     </section>
   );
 }

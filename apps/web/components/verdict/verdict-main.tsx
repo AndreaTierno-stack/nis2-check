@@ -12,6 +12,7 @@ import { copy } from "@/src/copy.it";
 import { Cite } from "./cite";
 import { SourcesPanel } from "./sources-panel";
 import { PrintConsultantBox, PrintCover, PrintFrame, PrintLimits, PrintTechnicalHeading } from "./print";
+import { PrintStack } from "./print-stack";
 import type { VerdictProps } from "./types";
 
 const TONE = {
@@ -129,21 +130,24 @@ function SignalsPanel({ props, sources }: { props: VerdictProps; sources: Source
   const list = signalItems(props.verdict, props.corpus, props.ctx.sectorId);
   if (!list.length) return null;
   return (
-    <section className="space-y-3" aria-labelledby="segnalazioni-title">
-      <div className="print-keep-with-next space-y-1">
-        <h2 id="segnalazioni-title" className="text-lg font-semibold">
-          {copy.verdict.signalsTitle}
-        </h2>
-        <p className="text-sm text-text-soft">{copy.verdict.signalsSubtitle}</p>
-      </div>
-      <Card className="divide-y divide-border">
-        {list.map((s) => (
-          <p key={s.id} className="print-avoid-break p-5 text-sm text-text-soft" data-testid="signal" data-signal={s.id}>
-            {s.text} <Cite ids={s.citations} sources={sources} />
-          </p>
-        ))}
-      </Card>
-    </section>
+    <PrintStack
+      aria-labelledby="segnalazioni-title"
+      data-testid="signals"
+      variant="divided"
+      head={
+        <div className="space-y-1">
+          <h2 id="segnalazioni-title" className="text-lg font-semibold">
+            {copy.verdict.signalsTitle}
+          </h2>
+          <p className="text-sm text-text-soft">{copy.verdict.signalsSubtitle}</p>
+        </div>
+      }
+      items={list.map((s) => (
+        <p key={s.id} className="p-5 text-sm text-text-soft" data-testid="signal" data-signal={s.id}>
+          {s.text} <Cite ids={s.citations} sources={sources} />
+        </p>
+      ))}
+    />
   );
 }
 
@@ -151,38 +155,45 @@ function TracePanel({ props, sources, className }: { props: VerdictProps; source
   const rows = traceRows(props.verdict);
   const resolution = resolutionStep(props.verdict);
   const conflict = resolution.result === "conflict";
+  const items = rows.map((r) =>
+    r.decided ? (
+      <div key={r.stage} className="space-y-2 rounded-row bg-accent-soft p-4" data-testid="trace-decided" data-stage={r.stage}>
+        <h3 className="font-semibold">{copy.verdict.stages[r.stage]}</h3>
+        {r.texts.map((t, i) => (
+          <p key={i} className="text-sm">
+            {t.text} <Cite ids={t.citations} sources={sources} onSoft />
+          </p>
+        ))}
+      </div>
+    ) : (
+      <p key={r.stage} className="rounded-row px-4 py-3 text-sm" data-stage={r.stage}>
+        <span className="font-semibold">{copy.verdict.stages[r.stage]}:</span> <span className="text-text-soft">{r.reason}</span>
+      </p>
+    ),
+  );
+  if (conflict && resolution.corpusText) {
+    items.push(
+      <div key="conflict" className="space-y-2 rounded-row bg-accent-soft p-4" data-testid="trace-conflict">
+        <p className="text-sm font-semibold">{copy.verdict.reasons.conflict}</p>
+        <p className="text-sm">
+          {resolution.corpusText} <Cite ids={resolution.citations} sources={sources} onSoft />
+        </p>
+      </div>,
+    );
+  }
   return (
-    <section id="come-calcolato" className={cn("space-y-3", className)} aria-labelledby="trace-title">
-      <h2 id="trace-title" className="text-lg font-semibold">
-        {copy.verdict.traceTitle}
-      </h2>
-      <Card className="space-y-2 p-3">
-        {rows.map((r) =>
-          r.decided ? (
-            <div key={r.stage} className="print-avoid-break space-y-2 rounded-row bg-accent-soft p-4" data-testid="trace-decided" data-stage={r.stage}>
-              <h3 className="font-semibold">{copy.verdict.stages[r.stage]}</h3>
-              {r.texts.map((t, i) => (
-                <p key={i} className="text-sm">
-                  {t.text} <Cite ids={t.citations} sources={sources} onSoft />
-                </p>
-              ))}
-            </div>
-          ) : (
-            <p key={r.stage} className="rounded-row px-4 py-3 text-sm" data-stage={r.stage}>
-              <span className="font-semibold">{copy.verdict.stages[r.stage]}:</span> <span className="text-text-soft">{r.reason}</span>
-            </p>
-          ),
-        )}
-        {conflict && resolution.corpusText && (
-          <div className="space-y-2 rounded-row bg-accent-soft p-4" data-testid="trace-conflict">
-            <p className="text-sm font-semibold">{copy.verdict.reasons.conflict}</p>
-            <p className="text-sm">
-              {resolution.corpusText} <Cite ids={resolution.citations} sources={sources} onSoft />
-            </p>
-          </div>
-        )}
-      </Card>
-    </section>
+    <PrintStack
+      id="come-calcolato"
+      className={className}
+      aria-labelledby="trace-title"
+      variant="padded"
+      head={
+        <h2 id="trace-title" className="text-lg font-semibold">
+          {copy.verdict.traceTitle}
+        </h2>
+      }
+      items={items}
+    />
   );
 }
 

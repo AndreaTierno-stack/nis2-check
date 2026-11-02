@@ -16,7 +16,9 @@ export function SourcesPanel({ sources, title }: { sources: Sources; title: stri
         </h2>
         <p className="text-sm text-text-soft">{copy.verdict.sourcesSubtitle}</p>
       </div>
-      <Card className="space-y-6 p-6">
+      {/* on paper no frame around the list (it could open at the foot of a page without content):
+          every source is an unbreakable item (S4.2, Firefox check of 2026-11-02) */}
+      <Card className="space-y-6 p-6 print:border-0 print:bg-transparent print:p-0">
         {sources.groups.map((g) => (
           <div key={g.group} className="space-y-3">
             <h3 className="font-semibold">{copy.verdict.groups[g.group]}</h3>

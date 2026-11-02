@@ -155,6 +155,7 @@ exports[`verdict page of E05 > matches the DOM snapshot 1`] = `
 </section>
 <section data-testid="print-consultant">
 <div>
+<div>
 <h2>Cosa portare al consulente</h2>
 <p>Punti da valutare con un consulente qualificato, dai dati di questa valutazione.</p>
 </div>
@@ -176,6 +177,7 @@ exports[`verdict page of E05 > matches the DOM snapshot 1`] = `
 <dd>valutazione 6b077a1f, corpus 0.13.1</dd>
 </div>
 </dl>
+</div>
 <div>
 <h3>Avvisi emersi</h3>
 <ul>
@@ -213,21 +215,29 @@ exports[`verdict page of E05 > matches the DOM snapshot 1`] = `
 </section>
 <section data-testid="print-limits">
 <div>
+<div data-print-group="head">
+<div>
+<div>
+<div>
 <h2>Cosa non gestisce il tool</h2>
 <p>Limiti dichiarati dello strumento, dal catalogo eccezioni: per esteso le voci emerse dalle risposte date, in una riga le voci non gestite. Ogni voce resta da valutare con un consulente qualificato.</p>
 </div>
-<div>
 <h3>Avvisi emersi dalle risposte date</h3>
-<ul>
-<li data-limit="cloud_stabilimento_principale_multi_ue">
+</div>
+</div>
+<div>
+<div data-limit="cloud_stabilimento_principale_multi_ue">
 <span>Fornitori cloud con stabilimenti in più Stati membri (art. 5 D.Lgs. 138/2024)</span>
 <span> (Segnalato, non valutato dal tool)</span>
 <span>I fornitori di servizi di cloud computing sono soggetti alla giurisdizione dello Stato membro in cui hanno lo stabilimento principale nell&#x27;Unione; la giurisdizione nazionale ricorre, tra l&#x27;altro, se lo stabilimento principale è in Italia o se il soggetto, senza stabilimenti nell&#x27;Unione, ha designato il rappresentante in Italia (art. 5 D.Lgs. 138/2024). Lo strumento non valuta lo stabilimento principale: per un soggetto con stabilimenti in più Stati membri l&#x27;esito va riesaminato con un consulente qualificato. <span>
 <a href="#fonte-2">2</a>
 </span>
 </span>
-</li>
-<li data-limit="cloud_pa_fornitore_qualificato_a1_8_2">
+</div>
+</div>
+</div>
+<div>
+<div data-limit="cloud_pa_fornitore_qualificato_a1_8_2">
 <span>Fornitori cloud qualificati per la PA (Regolamento Cloud)</span>
 <span> (Segnalato, non valutato dal tool)</span>
 <span>Secondo la FAQ ACN A1.8.2, i fornitori di servizi cloud qualificati ai sensi del Regolamento Cloud (Decreto Direttoriale ACN n. 21007/24) che superano i massimali delle piccole imprese rientrano nell&#x27;ambito NIS come fornitori di servizi di cloud computing (Allegato I, punto 8). La sostituzione del modello di categorizzazione prevista dall&#x27;art. 4 della Det. ACN 155238/2026 riguarda i soggetti che hanno svolto la classificazione dei propri dati e servizi, cioè le pubbliche amministrazioni (FAQ CAT.8): per il fornitore l&#x27;esito segue le regole ordinarie del settore. <span>
@@ -236,8 +246,8 @@ exports[`verdict page of E05 > matches the DOM snapshot 1`] = `
 <a href="#fonte-6">6</a>
 </span>
 </span>
-</li>
-</ul>
+</div>
+</div>
 </div>
 <div>
 <h3>Non gestito dal tool</h3>
@@ -255,17 +265,27 @@ exports[`verdict page of E05 > matches the DOM snapshot 1`] = `
 </section>
 <p>Parte tecnica, per il consulente</p>
 <section id="come-calcolato" aria-labelledby="trace-title">
+<div data-print-group="head">
+<div>
 <h2 id="trace-title">Come è stato calcolato</h2>
+</div>
 <div>
 <p data-stage="regime_routing">
 <span>Regimi speciali:</span> <span>Non applicabile alle risposte date.</span>
 </p>
+</div>
+</div>
+<div>
 <p data-stage="type_exclusion">
 <span>Esclusioni per tipologia:</span> <span>Non applicabile alle risposte date.</span>
 </p>
+</div>
+<div>
 <p data-stage="size_blind">
 <span>Regole indipendenti dalla dimensione:</span> <span>Non applicabile alle risposte date.</span>
 </p>
+</div>
+<div>
 <div data-testid="trace-decided" data-stage="dimensional">
 <h3>Regole dimensionali</h3>
 <p>Dimensione dichiarata: Grande impresa. Classificazione secondo FAQ ACN AMB.DI.1 e Racc. UE 2003/361. Sulla base degli input forniti, l&#x27;analisi suggerisce il rientro nel perimetro NIS2 italiano come soggetto essenziale (Allegato I p. 8, infrastrutture digitali; art. 6 c. 1 lett. a) D.Lgs. 138/2024). <span>
@@ -373,17 +393,27 @@ exports[`verdict page of E05 > matches the DOM snapshot 1`] = `
 </tbody>
 </table>
 <section id="come-calcolato" aria-labelledby="trace-title">
+<div data-print-group="head">
+<div>
 <h2 id="trace-title">Come è stato calcolato</h2>
+</div>
 <div>
 <p data-stage="regime_routing">
 <span>Regimi speciali:</span> <span>Non applicabile alle risposte date.</span>
 </p>
+</div>
+</div>
+<div>
 <p data-stage="type_exclusion">
 <span>Esclusioni per tipologia:</span> <span>Non applicabile alle risposte date.</span>
 </p>
+</div>
+<div>
 <p data-stage="size_blind">
 <span>Regole indipendenti dalla dimensione:</span> <span>Non applicabile alle risposte date.</span>
 </p>
+</div>
+<div>
 <div data-testid="trace-decided" data-stage="dimensional">
 <h3>Regole dimensionali</h3>
 <p>Dimensione dichiarata: Grande impresa. Classificazione secondo FAQ ACN AMB.DI.1 e Racc. UE 2003/361. Sulla base degli input forniti, l&#x27;analisi suggerisce il rientro nel perimetro NIS2 italiano come soggetto essenziale (Allegato I p. 8, infrastrutture digitali; art. 6 c. 1 lett. a) D.Lgs. 138/2024). <span>
@@ -587,10 +617,13 @@ exports[`verdict page of E11 > matches the DOM snapshot 1`] = `
 </div>
 </div>
 </section>
-<section aria-labelledby="segnalazioni-title">
+<section aria-labelledby="segnalazioni-title" data-testid="signals">
+<div data-print-group="head">
+<div>
 <div>
 <h2 id="segnalazioni-title">Altre segnalazioni dalle risposte date</h2>
 <p>Si aggiungono all&#x27;esito e non lo modificano: indicano altri ambiti o regimi da verificare con un consulente.</p>
+</div>
 </div>
 <div>
 <p data-testid="signal" data-signal="allegato_iv_individuazione">Il soggetto potrebbe rientrare nel perimetro NIS tramite l&#x27;Allegato IV, indipendentemente dalla dimensione (art. 3 c. 8 D.Lgs. 138/2024). Questo NON è un rientro automatico: i soggetti delle tipologie dell&#x27;Allegato IV sono individuati con determinazione dell&#x27;ACN, su proposta delle Autorità di settore interessate, sentito il Tavolo per l&#x27;attuazione della disciplina NIS; l&#x27;Autorità nazionale competente NIS notifica l&#x27;individuazione al soggetto, e sono tenuti alla registrazione solo i soggetti a cui è stata notificata (art. 3 c. 13; FAQ ACN A4.1). Lo strumento non può determinare questo rientro: verifica obbligatoria con consulente qualificato. <span>
@@ -599,6 +632,9 @@ exports[`verdict page of E11 > matches the DOM snapshot 1`] = `
 <a href="#fonte-5">5</a>
 </span>
 </p>
+</div>
+</div>
+<div>
 <p data-testid="signal" data-signal="cross_sector_inhouse_all_iv">Il soggetto, in quanto società a capitale interamente o prevalentemente pubblico (in-house, controllata o partecipata di maggioranza ex D.Lgs. 175/2016), potrebbe rientrare nel perimetro NIS anche tramite il canale di individuazione governativa dell&#x27;Allegato IV. Non è un rientro automatico: dipende da un&#x27;individuazione dell&#x27;ACN su proposta dell&#x27;autorità di settore (art. 3 cc. 8 e 13 D.Lgs. 138/2024). Questo canale va valutato a parte. Verifica con consulente qualificato. <span>
 <a href="#fonte-1">1</a>
 <a href="#fonte-2">2</a>
@@ -608,6 +644,7 @@ exports[`verdict page of E11 > matches the DOM snapshot 1`] = `
 </div>
 </section>
 <section data-testid="print-consultant">
+<div>
 <div>
 <h2>Cosa portare al consulente</h2>
 <p>Punti da valutare con un consulente qualificato, dai dati di questa valutazione.</p>
@@ -630,6 +667,7 @@ exports[`verdict page of E11 > matches the DOM snapshot 1`] = `
 <dd>valutazione 8bc08ffe, corpus 0.13.1</dd>
 </div>
 </dl>
+</div>
 <div>
 <h3>Avvisi emersi</h3>
 <ul>
@@ -665,13 +703,18 @@ exports[`verdict page of E11 > matches the DOM snapshot 1`] = `
 </section>
 <section data-testid="print-limits">
 <div>
+<div data-print-group="head">
+<div>
+<div>
+<div>
 <h2>Cosa non gestisce il tool</h2>
 <p>Limiti dichiarati dello strumento, dal catalogo eccezioni: per esteso le voci emerse dalle risposte date, in una riga le voci non gestite. Ogni voce resta da valutare con un consulente qualificato.</p>
 </div>
-<div>
 <h3>Avvisi emersi dalle risposte date</h3>
-<ul>
-<li data-limit="pa_categorie_aggiunte_dpcm_art_3_c_7">
+</div>
+</div>
+<div>
+<div data-limit="pa_categorie_aggiunte_dpcm_art_3_c_7">
 <span>Ulteriori categorie di PA individuate con DPCM</span>
 <span> (Segnalato, non valutato dal tool)</span>
 <span>Uno o più decreti del Presidente del Consiglio dei ministri possono individuare ulteriori categorie di pubbliche amministrazioni a cui si applica il decreto, adeguando l&#x27;elenco dell&#x27;Allegato III (art. 3 c. 7 e art. 40 c. 2 lett. b). Lo strumento considera solo le categorie dell&#x27;Allegato III: un soggetto pubblico che non vi rientra potrebbe essere compreso in una categoria aggiunta successivamente. <span>
@@ -679,8 +722,11 @@ exports[`verdict page of E11 > matches the DOM snapshot 1`] = `
 <a href="#fonte-4">4</a>
 </span>
 </span>
-</li>
-<li data-limit="allegato_iv_individuazione_art_3_c_8">
+</div>
+</div>
+</div>
+<div>
+<div data-limit="allegato_iv_individuazione_art_3_c_8">
 <span>Tipologie dell&#x27;Allegato IV: rientro solo su individuazione dell&#x27;ACN</span>
 <span> (Segnalato, non valutato dal tool)</span>
 <span>I soggetti delle tipologie dell&#x27;Allegato IV (trasporto pubblico locale, istituti di istruzione che svolgono attività di ricerca, soggetti che svolgono attività di interesse culturale, società in house, partecipate o a controllo pubblico) rientrano nel decreto, indipendentemente dalla dimensione, solo se individuati dall&#x27;ACN su proposta delle autorità di settore, con notifica al soggetto (art. 3 cc. 8 e 13 D.Lgs. 138/2024). Lo strumento non può determinare questa individuazione. <span>
@@ -690,8 +736,8 @@ exports[`verdict page of E11 > matches the DOM snapshot 1`] = `
 <a href="#fonte-6">6</a>
 </span>
 </span>
-</li>
-</ul>
+</div>
+</div>
 </div>
 <div>
 <h3>Non gestito dal tool</h3>
@@ -709,14 +755,22 @@ exports[`verdict page of E11 > matches the DOM snapshot 1`] = `
 </section>
 <p>Parte tecnica, per il consulente</p>
 <section id="come-calcolato" aria-labelledby="trace-title">
+<div data-print-group="head">
+<div>
 <h2 id="trace-title">Come è stato calcolato</h2>
+</div>
 <div>
 <p data-stage="regime_routing">
 <span>Regimi speciali:</span> <span>Non applicabile alle risposte date.</span>
 </p>
+</div>
+</div>
+<div>
 <p data-stage="type_exclusion">
 <span>Esclusioni per tipologia:</span> <span>Non applicabile alle risposte date.</span>
 </p>
+</div>
+<div>
 <div data-testid="trace-decided" data-stage="size_blind">
 <h3>Regole indipendenti dalla dimensione</h3>
 <p>Il soggetto si indica come soggetto pubblico o a partecipazione pubblica fuori dalle categorie dell&#x27;Allegato III. Potrebbe rientrare nel perimetro NIS2 italiano tramite l&#x27;Allegato IV, indipendentemente dalla dimensione, solo se individuato dall&#x27;ACN su proposta delle Autorità di settore, con notifica al soggetto (art. 3 cc. 8 e 13 D.Lgs. 138/2024; FAQ ACN A4.1). Lo strumento non può determinare questa individuazione. Verifica obbligatoria con consulente qualificato. <span>
@@ -726,6 +780,8 @@ exports[`verdict page of E11 > matches the DOM snapshot 1`] = `
 </span>
 </p>
 </div>
+</div>
+<div>
 <p data-stage="dimensional">
 <span>Regole dimensionali:</span> <span>Non applicabile alle risposte date.</span>
 </p>
@@ -822,14 +878,22 @@ exports[`verdict page of E11 > matches the DOM snapshot 1`] = `
 </tbody>
 </table>
 <section id="come-calcolato" aria-labelledby="trace-title">
+<div data-print-group="head">
+<div>
 <h2 id="trace-title">Come è stato calcolato</h2>
+</div>
 <div>
 <p data-stage="regime_routing">
 <span>Regimi speciali:</span> <span>Non applicabile alle risposte date.</span>
 </p>
+</div>
+</div>
+<div>
 <p data-stage="type_exclusion">
 <span>Esclusioni per tipologia:</span> <span>Non applicabile alle risposte date.</span>
 </p>
+</div>
+<div>
 <div data-testid="trace-decided" data-stage="size_blind">
 <h3>Regole indipendenti dalla dimensione</h3>
 <p>Il soggetto si indica come soggetto pubblico o a partecipazione pubblica fuori dalle categorie dell&#x27;Allegato III. Potrebbe rientrare nel perimetro NIS2 italiano tramite l&#x27;Allegato IV, indipendentemente dalla dimensione, solo se individuato dall&#x27;ACN su proposta delle Autorità di settore, con notifica al soggetto (art. 3 cc. 8 e 13 D.Lgs. 138/2024; FAQ ACN A4.1). Lo strumento non può determinare questa individuazione. Verifica obbligatoria con consulente qualificato. <span>
@@ -839,6 +903,8 @@ exports[`verdict page of E11 > matches the DOM snapshot 1`] = `
 </span>
 </p>
 </div>
+</div>
+<div>
 <p data-stage="dimensional">
 <span>Regole dimensionali:</span> <span>Non applicabile alle risposte date.</span>
 </p>
@@ -1015,6 +1081,7 @@ exports[`verdict page of E22 > matches the DOM snapshot 1`] = `
 </section>
 <section data-testid="print-consultant">
 <div>
+<div>
 <h2>Cosa portare al consulente</h2>
 <p>Punti da valutare con un consulente qualificato, dai dati di questa valutazione.</p>
 </div>
@@ -1036,6 +1103,7 @@ exports[`verdict page of E22 > matches the DOM snapshot 1`] = `
 <dd>valutazione ed5e0377, corpus 0.13.1</dd>
 </div>
 </dl>
+</div>
 <div>
 <h3>Avvisi emersi</h3>
 <ul>
@@ -1069,13 +1137,18 @@ exports[`verdict page of E22 > matches the DOM snapshot 1`] = `
 </section>
 <section data-testid="print-limits">
 <div>
+<div data-print-group="head">
+<div>
+<div>
+<div>
 <h2>Cosa non gestisce il tool</h2>
 <p>Limiti dichiarati dello strumento, dal catalogo eccezioni: per esteso le voci emerse dalle risposte date, in una riga le voci non gestite. Ogni voce resta da valutare con un consulente qualificato.</p>
 </div>
-<div>
 <h3>Avvisi emersi dalle risposte date</h3>
-<ul>
-<li data-limit="psnc_cloud_pa_precedenza_non_attestata">
+</div>
+</div>
+<div>
+<div data-limit="psnc_cloud_pa_precedenza_non_attestata">
 <span>PSNC e Cloud PA insieme: precedenza non indicata dalle fonti</span>
 <span> (Segnalato, non valutato dal tool)</span>
 <span>Per un&#x27;amministrazione inserita nel PSNC che ha anche classificato i propri dati e servizi ai sensi del Regolamento Cloud, le fonti disponibili non indicano quale disciplina prevalga tra l&#x27;attribuzione d&#x27;ufficio della categoria «alto» ai servizi PSNC (art. 5 Det. ACN 155238/2026) e la sostituzione del modello di categorizzazione (art. 4). Lo strumento indirizza il caso a un consulente qualificato; l&#x27;ordine con cui i due regimi sono elencati non indica una precedenza. <span>
@@ -1083,8 +1156,9 @@ exports[`verdict page of E22 > matches the DOM snapshot 1`] = `
 <a href="#fonte-2">2</a>
 </span>
 </span>
-</li>
-</ul>
+</div>
+</div>
+</div>
 </div>
 <div>
 <h3>Non gestito dal tool</h3>
@@ -1102,7 +1176,10 @@ exports[`verdict page of E22 > matches the DOM snapshot 1`] = `
 </section>
 <p>Parte tecnica, per il consulente</p>
 <section id="come-calcolato" aria-labelledby="trace-title">
+<div data-print-group="head">
+<div>
 <h2 id="trace-title">Come è stato calcolato</h2>
+</div>
 <div>
 <div data-testid="trace-decided" data-stage="regime_routing">
 <h3>Regimi speciali</h3>
@@ -1112,12 +1189,19 @@ exports[`verdict page of E22 > matches the DOM snapshot 1`] = `
 </span>
 </p>
 </div>
+</div>
+</div>
+<div>
 <p data-stage="type_exclusion">
 <span>Esclusioni per tipologia:</span> <span>Non applicabile alle risposte date.</span>
 </p>
+</div>
+<div>
 <p data-stage="size_blind">
 <span>Regole indipendenti dalla dimensione:</span> <span>Non valutato: decide un regime speciale.</span>
 </p>
+</div>
+<div>
 <p data-stage="dimensional">
 <span>Regole dimensionali:</span> <span>Non applicabile alle risposte date.</span>
 </p>
@@ -1159,7 +1243,10 @@ exports[`verdict page of E22 > matches the DOM snapshot 1`] = `
 </tbody>
 </table>
 <section id="come-calcolato" aria-labelledby="trace-title">
+<div data-print-group="head">
+<div>
 <h2 id="trace-title">Come è stato calcolato</h2>
+</div>
 <div>
 <div data-testid="trace-decided" data-stage="regime_routing">
 <h3>Regimi speciali</h3>
@@ -1169,12 +1256,19 @@ exports[`verdict page of E22 > matches the DOM snapshot 1`] = `
 </span>
 </p>
 </div>
+</div>
+</div>
+<div>
 <p data-stage="type_exclusion">
 <span>Esclusioni per tipologia:</span> <span>Non applicabile alle risposte date.</span>
 </p>
+</div>
+<div>
 <p data-stage="size_blind">
 <span>Regole indipendenti dalla dimensione:</span> <span>Non valutato: decide un regime speciale.</span>
 </p>
+</div>
+<div>
 <p data-stage="dimensional">
 <span>Regole dimensionali:</span> <span>Non applicabile alle risposte date.</span>
 </p>
@@ -1349,6 +1443,7 @@ exports[`verdict page of E25 > matches the DOM snapshot 1`] = `
 </section>
 <section data-testid="print-consultant">
 <div>
+<div>
 <h2>Cosa portare al consulente</h2>
 <p>Punti da valutare con un consulente qualificato, dai dati di questa valutazione.</p>
 </div>
@@ -1370,6 +1465,7 @@ exports[`verdict page of E25 > matches the DOM snapshot 1`] = `
 <dd>valutazione 4b72d542, corpus 0.13.1</dd>
 </div>
 </dl>
+</div>
 <div>
 <h3>Avvisi emersi</h3>
 <ul>
@@ -1412,21 +1508,27 @@ exports[`verdict page of E25 > matches the DOM snapshot 1`] = `
 </section>
 <section data-testid="print-limits">
 <div>
+<div data-print-group="head">
+<div>
+<div>
+<div>
 <h2>Cosa non gestisce il tool</h2>
 <p>Limiti dichiarati dello strumento, dal catalogo eccezioni: per esteso le voci emerse dalle risposte date, in una riga le voci non gestite. Ogni voce resta da valutare con un consulente qualificato.</p>
 </div>
-<div>
 <h3>Avvisi emersi dalle risposte date</h3>
-<ul>
-<li data-limit="prosumer_definizione_cliente_attivo">
+</div>
+</div>
+<div>
+<div data-limit="prosumer_definizione_cliente_attivo">
 <span>Definizione di cliente attivo non attestata</span>
 <span> (Segnalato, non valutato dal tool)</span>
 <span>La FAQ ACN A1.1.a.4 esclude dall&#x27;ambito le organizzazioni che rispondono ai requisiti della definizione di «clienti attivi» (direttiva (UE) 2019/944, art. 2, punto 8) e non svolgono altre attività riconducibili agli Allegati I e II. Il testo di quella definizione non è tra le fonti verificate dallo strumento: l&#x27;esito dipende dalla risposta fornita e va confermato con un consulente qualificato. <span>
 <a href="#fonte-1">1</a>
 </span>
 </span>
-</li>
-</ul>
+</div>
+</div>
+</div>
 </div>
 <div>
 <h3>Non gestito dal tool</h3>
@@ -1444,11 +1546,17 @@ exports[`verdict page of E25 > matches the DOM snapshot 1`] = `
 </section>
 <p>Parte tecnica, per il consulente</p>
 <section id="come-calcolato" aria-labelledby="trace-title">
+<div data-print-group="head">
+<div>
 <h2 id="trace-title">Come è stato calcolato</h2>
+</div>
 <div>
 <p data-stage="regime_routing">
 <span>Regimi speciali:</span> <span>Non applicabile alle risposte date.</span>
 </p>
+</div>
+</div>
+<div>
 <div data-testid="trace-decided" data-stage="type_exclusion">
 <h3>Esclusioni per tipologia</h3>
 <p>Il soggetto dichiara di rispondere ai requisiti della definizione di clienti attivi e di non svolgere altre attività riconducibili agli Allegati I e II. Secondo la FAQ ACN A1.1.a.4 queste organizzazioni non rientrano nell&#x27;ambito di applicazione del decreto NIS: sulla base degli input forniti, l&#x27;analisi suggerisce che il soggetto non rientri nel perimetro NIS2 italiano come produttore. La definizione di clienti attivi non è tra le fonti verificate dallo strumento. Verifica obbligatoria con consulente qualificato. <span>
@@ -1456,9 +1564,13 @@ exports[`verdict page of E25 > matches the DOM snapshot 1`] = `
 </span>
 </p>
 </div>
+</div>
+<div>
 <p data-stage="size_blind">
 <span>Regole indipendenti dalla dimensione:</span> <span>Non applicabile alle risposte date.</span>
 </p>
+</div>
+<div>
 <p data-stage="dimensional">
 <span>Regole dimensionali:</span> <span>Non valutato: le attività dichiarate risultano escluse per tipologia.</span>
 </p>
@@ -1491,11 +1603,17 @@ exports[`verdict page of E25 > matches the DOM snapshot 1`] = `
 </tbody>
 </table>
 <section id="come-calcolato" aria-labelledby="trace-title">
+<div data-print-group="head">
+<div>
 <h2 id="trace-title">Come è stato calcolato</h2>
+</div>
 <div>
 <p data-stage="regime_routing">
 <span>Regimi speciali:</span> <span>Non applicabile alle risposte date.</span>
 </p>
+</div>
+</div>
+<div>
 <div data-testid="trace-decided" data-stage="type_exclusion">
 <h3>Esclusioni per tipologia</h3>
 <p>Il soggetto dichiara di rispondere ai requisiti della definizione di clienti attivi e di non svolgere altre attività riconducibili agli Allegati I e II. Secondo la FAQ ACN A1.1.a.4 queste organizzazioni non rientrano nell&#x27;ambito di applicazione del decreto NIS: sulla base degli input forniti, l&#x27;analisi suggerisce che il soggetto non rientri nel perimetro NIS2 italiano come produttore. La definizione di clienti attivi non è tra le fonti verificate dallo strumento. Verifica obbligatoria con consulente qualificato. <span>
@@ -1503,9 +1621,13 @@ exports[`verdict page of E25 > matches the DOM snapshot 1`] = `
 </span>
 </p>
 </div>
+</div>
+<div>
 <p data-stage="size_blind">
 <span>Regole indipendenti dalla dimensione:</span> <span>Non applicabile alle risposte date.</span>
 </p>
+</div>
+<div>
 <p data-stage="dimensional">
 <span>Regole dimensionali:</span> <span>Non valutato: le attività dichiarate risultano escluse per tipologia.</span>
 </p>
@@ -1727,10 +1849,13 @@ exports[`verdict page of E26 > matches the DOM snapshot 1`] = `
 </div>
 </div>
 </section>
-<section aria-labelledby="segnalazioni-title">
+<section aria-labelledby="segnalazioni-title" data-testid="signals">
+<div data-print-group="head">
+<div>
 <div>
 <h2 id="segnalazioni-title">Altre segnalazioni dalle risposte date</h2>
 <p>Si aggiungono all&#x27;esito e non lo modificano: indicano altri ambiti o regimi da verificare con un consulente.</p>
+</div>
 </div>
 <div>
 <p data-testid="signal" data-signal="cer_signal">Il soggetto risulta individuato come soggetto critico ai sensi del D.Lgs. 134/2024, che recepisce la direttiva (UE) 2022/2557 sulla resilienza dei soggetti critici. Questa individuazione porta il soggetto nel perimetro NIS2 italiano come soggetto essenziale, indipendentemente dalla dimensione (art. 3 c. 5 lett. a) e art. 6 c. 1 lett. b) D.Lgs. 138/2024; FAQ ACN AMB.NO.1); la disciplina dei soggetti critici resta distinta e si aggiunge a quella NIS2. Da non confondere con le comunità energetiche rinnovabili (configurazioni CACER). Lo strumento non valuta gli obblighi della disciplina dei soggetti critici. Verifica con consulente qualificato. <span>
@@ -1741,8 +1866,10 @@ exports[`verdict page of E26 > matches the DOM snapshot 1`] = `
 </span>
 </p>
 </div>
+</div>
 </section>
 <section data-testid="print-consultant">
+<div>
 <div>
 <h2>Cosa portare al consulente</h2>
 <p>Punti da valutare con un consulente qualificato, dai dati di questa valutazione.</p>
@@ -1765,6 +1892,7 @@ exports[`verdict page of E26 > matches the DOM snapshot 1`] = `
 <dd>valutazione 2f542c8d, corpus 0.13.1</dd>
 </div>
 </dl>
+</div>
 <div>
 <h3>Avvisi emersi</h3>
 <ul>
@@ -1810,29 +1938,39 @@ exports[`verdict page of E26 > matches the DOM snapshot 1`] = `
 </section>
 <section data-testid="print-limits">
 <div>
+<div data-print-group="head">
+<div>
+<div>
+<div>
 <h2>Cosa non gestisce il tool</h2>
 <p>Limiti dichiarati dello strumento, dal catalogo eccezioni: per esteso le voci emerse dalle risposte date, in una riga le voci non gestite. Ogni voce resta da valutare con un consulente qualificato.</p>
 </div>
-<div>
 <h3>Avvisi emersi dalle risposte date</h3>
-<ul>
-<li data-limit="esclusione_tipologica_vs_inclusione_size_blind">
+</div>
+</div>
+<div>
+<div data-limit="esclusione_tipologica_vs_inclusione_size_blind">
 <span>Esclusione per tipologia o per categoria e inclusione indipendente dalla dimensione: prevalenza non attestata</span>
 <span> (Segnalato, non valutato dal tool)</span>
 <span>Il soggetto risulta escluso per tipologia (FAQ ACN) o per categoria (art. 4 c. 2 D.Lgs. 138/2024), ma risulta anche individuato come soggetto critico ai sensi del D.Lgs. 134/2024, che il decreto pone in ambito indipendentemente dalla dimensione (art. 3 c. 5 lett. a) D.Lgs. 138/2024). Le fonti verificate dallo strumento non indicano quale dei due criteri prevalga: la prevalenza non è attestata. Lo strumento indirizza il caso a un consulente qualificato. <span>
 <a href="#fonte-1">1</a>
 </span>
 </span>
-</li>
-<li data-limit="prosumer_definizione_cliente_attivo">
+</div>
+</div>
+</div>
+<div>
+<div data-limit="prosumer_definizione_cliente_attivo">
 <span>Definizione di cliente attivo non attestata</span>
 <span> (Segnalato, non valutato dal tool)</span>
 <span>La FAQ ACN A1.1.a.4 esclude dall&#x27;ambito le organizzazioni che rispondono ai requisiti della definizione di «clienti attivi» (direttiva (UE) 2019/944, art. 2, punto 8) e non svolgono altre attività riconducibili agli Allegati I e II. Il testo di quella definizione non è tra le fonti verificate dallo strumento: l&#x27;esito dipende dalla risposta fornita e va confermato con un consulente qualificato. <span>
 <a href="#fonte-4">4</a>
 </span>
 </span>
-</li>
-<li data-limit="energia_regime_transitorio_ose">
+</div>
+</div>
+<div>
+<div data-limit="energia_regime_transitorio_ose">
 <span>Regime transitorio degli ex operatori di servizi essenziali (art. 5 Det. ACN 379907/2025)</span>
 <span> (Segnalato, non valutato dal tool)</span>
 <span>Secondo l&#x27;art. 5 della Det. ACN 379907/2025, i soggetti già operatori di servizi essenziali ai sensi del D.Lgs. 65/2018 mantengono, limitatamente ai sistemi informativi e di rete già individuati in quel quadro, le misure tecniche e organizzative già adottate, salvo contrasti con il decreto NIS. Il regime transitorio riguarda le misure, non l&#x27;ambito. Per l&#x27;ambito, un soggetto già identificato come operatore di servizi essenziali può essere individuato dall&#x27;ACN indipendentemente dalla dimensione (art. 3 c. 9 lett. a) D.Lgs. 138/2024, con le procedure del c. 13). Lo strumento non chiede se il soggetto era un operatore di servizi essenziali: il caso va approfondito con un consulente qualificato. <span>
@@ -1840,8 +1978,8 @@ exports[`verdict page of E26 > matches the DOM snapshot 1`] = `
 <a href="#fonte-6">6</a>
 </span>
 </span>
-</li>
-</ul>
+</div>
+</div>
 </div>
 <div>
 <h3>Non gestito dal tool</h3>
@@ -1859,11 +1997,17 @@ exports[`verdict page of E26 > matches the DOM snapshot 1`] = `
 </section>
 <p>Parte tecnica, per il consulente</p>
 <section id="come-calcolato" aria-labelledby="trace-title">
+<div data-print-group="head">
+<div>
 <h2 id="trace-title">Come è stato calcolato</h2>
+</div>
 <div>
 <p data-stage="regime_routing">
 <span>Regimi speciali:</span> <span>Non applicabile alle risposte date.</span>
 </p>
+</div>
+</div>
+<div>
 <div data-testid="trace-decided" data-stage="type_exclusion">
 <h3>Esclusioni per tipologia</h3>
 <p>Il soggetto dichiara di rispondere ai requisiti della definizione di clienti attivi e di non svolgere altre attività riconducibili agli Allegati I e II. Secondo la FAQ ACN A1.1.a.4 queste organizzazioni non rientrano nell&#x27;ambito di applicazione del decreto NIS: sulla base degli input forniti, l&#x27;analisi suggerisce che il soggetto non rientri nel perimetro NIS2 italiano come produttore. La definizione di clienti attivi non è tra le fonti verificate dallo strumento. Verifica obbligatoria con consulente qualificato. <span>
@@ -1871,6 +2015,8 @@ exports[`verdict page of E26 > matches the DOM snapshot 1`] = `
 </span>
 </p>
 </div>
+</div>
+<div>
 <div data-testid="trace-decided" data-stage="size_blind">
 <h3>Regole indipendenti dalla dimensione</h3>
 <p>Il soggetto risulta individuato come soggetto critico ai sensi del D.Lgs. 134/2024. Sulla base degli input forniti, l&#x27;analisi suggerisce il rientro nel perimetro NIS2 italiano come soggetto essenziale, indipendentemente dalla dimensione (art. 3 c. 5 lett. a) e art. 6 c. 1 lett. b) D.Lgs. 138/2024; FAQ ACN AMB.NO.1). Verifica obbligatoria con consulente qualificato. <span>
@@ -1880,9 +2026,13 @@ exports[`verdict page of E26 > matches the DOM snapshot 1`] = `
 </span>
 </p>
 </div>
+</div>
+<div>
 <p data-stage="dimensional">
 <span>Regole dimensionali:</span> <span>Non valutato: le attività dichiarate risultano escluse per tipologia.</span>
 </p>
+</div>
+<div>
 <div data-testid="trace-conflict">
 <p>Due passaggi danno esiti diversi: decide la regola sui conflitti.</p>
 <p>Ogni attività dichiarata dal soggetto risulta esclusa per tipologia (FAQ ACN) o per categoria (art. 4 c. 2 D.Lgs. 138/2024), ma il soggetto risulta anche incluso indipendentemente dalla dimensione, come soggetto critico ai sensi del D.Lgs. 134/2024 (art. 3 c. 5 lett. a) D.Lgs. 138/2024). Le fonti verificate non indicano quale dei due criteri prevalga: il caso va valutato con un consulente qualificato. <span>
@@ -1991,11 +2141,17 @@ exports[`verdict page of E26 > matches the DOM snapshot 1`] = `
 </tbody>
 </table>
 <section id="come-calcolato" aria-labelledby="trace-title">
+<div data-print-group="head">
+<div>
 <h2 id="trace-title">Come è stato calcolato</h2>
+</div>
 <div>
 <p data-stage="regime_routing">
 <span>Regimi speciali:</span> <span>Non applicabile alle risposte date.</span>
 </p>
+</div>
+</div>
+<div>
 <div data-testid="trace-decided" data-stage="type_exclusion">
 <h3>Esclusioni per tipologia</h3>
 <p>Il soggetto dichiara di rispondere ai requisiti della definizione di clienti attivi e di non svolgere altre attività riconducibili agli Allegati I e II. Secondo la FAQ ACN A1.1.a.4 queste organizzazioni non rientrano nell&#x27;ambito di applicazione del decreto NIS: sulla base degli input forniti, l&#x27;analisi suggerisce che il soggetto non rientri nel perimetro NIS2 italiano come produttore. La definizione di clienti attivi non è tra le fonti verificate dallo strumento. Verifica obbligatoria con consulente qualificato. <span>
@@ -2003,6 +2159,8 @@ exports[`verdict page of E26 > matches the DOM snapshot 1`] = `
 </span>
 </p>
 </div>
+</div>
+<div>
 <div data-testid="trace-decided" data-stage="size_blind">
 <h3>Regole indipendenti dalla dimensione</h3>
 <p>Il soggetto risulta individuato come soggetto critico ai sensi del D.Lgs. 134/2024. Sulla base degli input forniti, l&#x27;analisi suggerisce il rientro nel perimetro NIS2 italiano come soggetto essenziale, indipendentemente dalla dimensione (art. 3 c. 5 lett. a) e art. 6 c. 1 lett. b) D.Lgs. 138/2024; FAQ ACN AMB.NO.1). Verifica obbligatoria con consulente qualificato. <span>
@@ -2012,9 +2170,13 @@ exports[`verdict page of E26 > matches the DOM snapshot 1`] = `
 </span>
 </p>
 </div>
+</div>
+<div>
 <p data-stage="dimensional">
 <span>Regole dimensionali:</span> <span>Non valutato: le attività dichiarate risultano escluse per tipologia.</span>
 </p>
+</div>
+<div>
 <div data-testid="trace-conflict">
 <p>Due passaggi danno esiti diversi: decide la regola sui conflitti.</p>
 <p>Ogni attività dichiarata dal soggetto risulta esclusa per tipologia (FAQ ACN) o per categoria (art. 4 c. 2 D.Lgs. 138/2024), ma il soggetto risulta anche incluso indipendentemente dalla dimensione, come soggetto critico ai sensi del D.Lgs. 134/2024 (art. 3 c. 5 lett. a) D.Lgs. 138/2024). Le fonti verificate non indicano quale dei due criteri prevalga: il caso va valutato con un consulente qualificato. <span>

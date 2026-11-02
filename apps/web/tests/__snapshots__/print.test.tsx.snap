@@ -1,5 +1,603 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
+exports[`pagination of the printed verdict, case with long signals > matches the print-mode DOM snapshot 1`] = `
+"<table class="print-frame">
+<thead data-testid="print-header">
+<tr>
+<td>
+<div>
+<span>
+<span>Ambito NIS2</span> · Esito preliminare di verifica dell&#x27;ambito NIS2</span>
+<span>Valutazione 1291948b · 2 novembre 2026, 14:35</span>
+</div>
+</td>
+</tr>
+</thead>
+<tfoot data-testid="print-footer">
+<tr>
+<td>
+<div>
+<p>Anteprima di studio: strumento informativo gratuito, non sostituisce una consulenza legale, una verifica certificata di terza parte o la registrazione sulla piattaforma ACN. Disclaimer non sottoposto a review legale.</p>
+<p data-testid="watermark">corpus v0.13.1 (2026-11-02) · 1291948b</p>
+</div>
+</td>
+</tr>
+</tfoot>
+<tbody>
+<tr>
+<td>
+<section class="hidden print:block" data-testid="print-cover">
+<p>Ambito NIS2</p>
+<p>Esito preliminare di verifica dell&#x27;ambito NIS2</p>
+<dl>
+<div>
+<dt>Settore</dt>
+<dd>Cloud computing</dd>
+</div>
+<div>
+<dt>Data e ora della valutazione</dt>
+<dd>2 novembre 2026, 14:35 (ora italiana)</dd>
+</div>
+<div>
+<dt>Versione del corpus</dt>
+<dd>0.13.1, rilasciata il 2026-11-02</dd>
+</div>
+<div>
+<dt>Codice della valutazione</dt>
+<dd>1291948b</dd>
+</div>
+</dl>
+<div data-testid="disclaimer">
+<h2>Anteprima di studio: strumento informativo, non consulenza</h2>
+<p data-text="Questo strumento è un&#x27;anteprima di studio: offre un esito preliminare e orientativo sulla possibile applicabilità della disciplina NIS2 italiana (D.Lgs. 138/2024), sulla base delle risposte fornite. Non è un parere legale né una consulenza e non sostituisce la registrazione sulla piattaforma ACN: la verifica con un consulente qualificato è necessaria prima di assumere conclusioni operative. Le risposte restano nel browser e nessun dato viene inviato a un server.">Questo strumento è un&#x27;anteprima di studio: offre un esito preliminare e orientativo sulla possibile applicabilità della disciplina NIS2 italiana (D.Lgs. 138/2024), sulla base delle risposte fornite. Non è un parere legale né una consulenza e non sostituisce la registrazione sulla piattaforma ACN: la verifica con un consulente qualificato è necessaria prima di assumere conclusioni operative. Le risposte restano nel browser e nessun dato viene inviato a un server.</p>
+<p data-text="È uno strumento informativo gratuito e open source. Non sostituisce una verifica certificata di terza parte.">È uno strumento informativo gratuito e open source. Non sostituisce una verifica certificata di terza parte.</p>
+<p data-text="Gli esiti sono espressi su tre posizioni (probabile esclusione, esito incerto, probabile rientro) e non sono mai categorici: dipendono dalle risposte fornite e dalla versione del corpus normativo.">Gli esiti sono espressi su tre posizioni (probabile esclusione, esito incerto, probabile rientro) e non sono mai categorici: dipendono dalle risposte fornite e dalla versione del corpus normativo.</p>
+<p data-text="Il codice è distribuito con licenza MIT, così com&#x27;è (AS-IS), senza garanzie di alcun tipo.">Il codice è distribuito con licenza MIT, così com&#x27;è (AS-IS), senza garanzie di alcun tipo.</p>
+<p data-text="I limiti dichiarati dello strumento sono elencati nella pagina Cosa non gestisce il tool.">I limiti dichiarati dello strumento sono elencati nella pagina <a href="/limiti/">Cosa non gestisce il tool</a>.</p>
+<p data-text="Fanno fede i testi ufficiali: le pubblicazioni dell&#x27;Agenzia per la Cybersicurezza Nazionale (acn.gov.it) e la normativa vigente su Normattiva.">Fanno fede i testi ufficiali: le pubblicazioni dell&#x27;Agenzia per la Cybersicurezza Nazionale (<a href="https://www.acn.gov.it">acn.gov.it</a>) e la normativa vigente su <a href="https://www.normattiva.it">Normattiva</a>.</p>
+<p data-text="Questo avviso è una bozza e non è stato sottoposto a review legale.">Questo avviso è una bozza e non è stato sottoposto a review legale.</p>
+</div>
+<p>Parte sintetica</p>
+</section>
+<p class="print:hidden">Anteprima di studio: non è un parere legale e non sostituisce la registrazione sulla piattaforma ACN.</p>
+<div data-testid="outcome" data-outcome="likely_in_scope" data-mode="categorical_assessment">
+<div>
+<h1>Esito del pre-screening</h1>
+<ol aria-label="Esito del pre-screening">
+<li>Probabile esclusione</li>
+<li>Esito incerto</li>
+<li aria-current="true">Probabile rientro</li>
+</ol>
+</div>
+<div>
+<p>Il soggetto risulta individuato come soggetto critico ai sensi del D.Lgs. 134/2024. Sulla base degli input forniti, l&#x27;analisi suggerisce il rientro nel perimetro NIS2 italiano come soggetto <strong>essenziale</strong>, indipendentemente dalla dimensione (art. 3 c. 5 lett. a) e art. 6 c. 1 lett. b) D.Lgs. 138/2024; FAQ ACN AMB.NO.1). Verifica obbligatoria con consulente qualificato. <span>
+<a href="#fonte-1">1</a>
+<a href="#fonte-2">2</a>
+<a href="#fonte-9">9</a>
+</span>
+</p>
+<p>Verifica obbligatoria con consulente qualificato prima di assumere conclusioni operative.</p>
+<hr/>
+<dl>
+<div>
+<dt>Tipologia</dt>
+<dd>Fornitore di servizi di cloud computing</dd>
+</div>
+<div>
+<dt>Qualifica suggerita</dt>
+<dd data-testid="qualifica">essenziale</dd>
+</div>
+<div>
+<dt>Regimi speciali</dt>
+<dd data-testid="regimi">Nessuno</dd>
+</div>
+</dl>
+<button class="print:hidden" aria-expanded="false" aria-controls="come-calcolato">Mostra come è stato calcolato</button>
+</div>
+</div>
+<section class="print:hidden" aria-labelledby="punti-title">
+<h2 id="punti-title">3 punti da valutare con un consulente</h2>
+<div>
+<div class="print-avoid-break" data-testid="notice" data-notice="cloud_stabilimento_principale_multi_ue">
+<div>
+<span aria-hidden="true">
+</span>
+<h3>Fornitori cloud con stabilimenti in più Stati membri (art. 5 D.Lgs. 138/2024)</h3>
+<span>Segnalato, non valutato dal tool</span>
+</div>
+<p>I fornitori di servizi di cloud computing sono soggetti alla giurisdizione dello Stato membro in cui hanno lo stabilimento principale nell&#x27;Unione; la giurisdizione nazionale ricorre, tra l&#x27;altro, se lo stabilimento principale è in Italia o se il soggetto, senza stabilimenti nell&#x27;Unione, ha designato il rappresentante in Italia (art. 5 D.Lgs. 138/2024). Lo strumento non valuta lo stabilimento principale: per un soggetto con stabilimenti in più Stati membri l&#x27;esito va riesaminato con un consulente qualificato. <span>
+<a href="#fonte-6">6</a>
+</span>
+</p>
+</div>
+<div class="print-avoid-break" data-testid="notice" data-notice="dora_entita_finanziaria_fuori_settori_3_4">
+<div>
+<span aria-hidden="true">
+</span>
+<h3>Entità finanziarie DORA fuori dai settori 3 e 4 dell&#x27;Allegato I</h3>
+<span>Segnalato, non valutato dal tool</span>
+</div>
+<p>L&#x27;art. 3 c. 14 D.Lgs. 138/2024 esclude l&#x27;art. 17 e i Capi IV e V del decreto solo per i soggetti dei settori 3 (settore bancario) e 4 (infrastrutture dei mercati finanziari) dell&#x27;Allegato I. Per un&#x27;entità finanziaria regolata dal Regolamento (UE) 2022/2554 che rientra nell&#x27;ambito NIS per un altro settore, la Det. ACN 127437/2026 prevede esoneri limitati agli adempimenti sulla piattaforma ACN (referente CSIRT, art. 7 c. 6; parte dell&#x27;aggiornamento annuale, art. 16 c. 13; elencazione e categorizzazione delle attività, art. 20 c. 6), mentre i Capi IV e V restano applicabili secondo il testo dell&#x27;art. 3 c. 14. L&#x27;esito indicato segue le regole del settore; il caso va approfondito con un consulente qualificato. <span>
+<a href="#fonte-7">7</a>
+<a href="#fonte-14">14</a>
+<a href="#fonte-17">17</a>
+<a href="#fonte-18">18</a>
+<a href="#fonte-19">19</a>
+</span>
+</p>
+</div>
+<div class="print-avoid-break" data-testid="notice" data-notice="dora_soggetti_esentati_art_3_c_15">
+<div>
+<span aria-hidden="true">
+</span>
+<h3>Soggetti esentati dall&#x27;ambito del Regolamento DORA (art. 3 c. 15)</h3>
+<span>Segnalato, non valutato dal tool</span>
+</div>
+<p>Il decreto non si applica ai soggetti esentati dall&#x27;ambito di applicazione del Regolamento (UE) 2022/2554 (art. 3 c. 15 D.Lgs. 138/2024). Lo strumento non valuta questa esenzione: se il caso è pertinente, l&#x27;esito va riesaminato con un consulente qualificato. <span>
+<a href="#fonte-8">8</a>
+</span>
+</p>
+</div>
+</div>
+</section>
+<section aria-labelledby="segnalazioni-title" data-testid="signals">
+<div class="print-avoid-break" data-print-group="head">
+<div>
+<div>
+<h2 id="segnalazioni-title">Altre segnalazioni dalle risposte date</h2>
+<p>Si aggiungono all&#x27;esito e non lo modificano: indicano altri ambiti o regimi da verificare con un consulente.</p>
+</div>
+</div>
+<div class="print-avoid-break print:rounded-panel print:border">
+<p data-testid="signal" data-signal="l90_cumulo">Il soggetto potrebbe rientrare anche nel perimetro della Legge 90/2024 (art. 1 c. 1, cybersicurezza nazionale): l&#x27;appartenenza va verificata. Il rapporto con il regime NIS va valutato caso per caso: le disposizioni dell&#x27;art. 1 della legge non si applicano ai soggetti richiamati dall&#x27;art. 1 c. 7 lett. a), tra cui i soggetti del Perimetro di Sicurezza Nazionale Cibernetica; il rinvio di quella lettera al D.Lgs. 65/2018 è da intendersi alle corrispondenti disposizioni del D.Lgs. 138/2024 (art. 15-bis). Verifica con consulente qualificato. L&#x27;art. 1 c. 1 L. 90/2024 comprende le società in house dei soggetti elencati che forniscono servizi informatici. <span>
+<a href="#fonte-15">15</a>
+<a href="#fonte-20">20</a>
+<a href="#fonte-21">21</a>
+<a href="#fonte-22">22</a>
+</span>
+</p>
+</div>
+</div>
+<div class="print-avoid-break print:rounded-panel print:border print:mt-2">
+<p data-testid="signal" data-signal="cross_sector_inhouse_all_iv">Il soggetto, in quanto società a capitale interamente o prevalentemente pubblico (in-house, controllata o partecipata di maggioranza ex D.Lgs. 175/2016), potrebbe rientrare nel perimetro NIS anche tramite il canale di individuazione governativa dell&#x27;Allegato IV. Non è un rientro automatico: dipende da un&#x27;individuazione dell&#x27;ACN su proposta dell&#x27;autorità di settore (art. 3 cc. 8 e 13 D.Lgs. 138/2024). Questo canale va valutato a parte. Verifica con consulente qualificato. <span>
+<a href="#fonte-3">3</a>
+<a href="#fonte-4">4</a>
+<a href="#fonte-23">23</a>
+</span>
+</p>
+</div>
+<div class="print-avoid-break print:rounded-panel print:border print:mt-2">
+<p data-testid="signal" data-signal="cross_sector_cloud_msp">Il soggetto, oltre a fornire servizi cloud (Allegato I p. 8), sembra fornire anche servizi gestiti o di sicurezza gestiti ad altre organizzazioni tramite un&#x27;interconnessione diretta tra la rete del fornitore e quella del cliente (FAQ A1.9.2), il che configura una possibile identità di fornitore di servizi gestiti o di servizi di sicurezza gestiti (Allegato I p. 9). La registrazione sulla piattaforma ACN indica tutte le tipologie pertinenti. Verifica con consulente qualificato. <span>
+<a href="#fonte-5">5</a>
+<a href="#fonte-10">10</a>
+<a href="#fonte-11">11</a>
+<a href="#fonte-12">12</a>
+<a href="#fonte-13">13</a>
+<a href="#fonte-16">16</a>
+</span>
+</p>
+</div>
+<div class="print-avoid-break print:rounded-panel print:border print:mt-2">
+<p data-testid="signal" data-signal="cer_signal">Il soggetto risulta individuato come soggetto critico ai sensi del D.Lgs. 134/2024, che recepisce la direttiva (UE) 2022/2557 sulla resilienza dei soggetti critici. Questa individuazione porta il soggetto nel perimetro NIS2 italiano come soggetto essenziale, indipendentemente dalla dimensione (art. 3 c. 5 lett. a) e art. 6 c. 1 lett. b) D.Lgs. 138/2024; FAQ ACN AMB.NO.1); la disciplina dei soggetti critici resta distinta e si aggiunge a quella NIS2. Da non confondere con le comunità energetiche rinnovabili (configurazioni CACER). Lo strumento non valuta gli obblighi della disciplina dei soggetti critici. Verifica con consulente qualificato. <span>
+<a href="#fonte-1">1</a>
+<a href="#fonte-2">2</a>
+<a href="#fonte-9">9</a>
+<a href="#fonte-24">24</a>
+</span>
+</p>
+</div>
+</section>
+<section class="hidden print:block" data-testid="print-consultant">
+<div class="print-avoid-break">
+<div>
+<h2>Cosa portare al consulente</h2>
+<p>Punti da valutare con un consulente qualificato, dai dati di questa valutazione.</p>
+</div>
+<dl>
+<div>
+<dt>Esito</dt>
+<dd>Probabile rientro</dd>
+</div>
+<div>
+<dt>Qualifica suggerita</dt>
+<dd>essenziale</dd>
+</div>
+<div>
+<dt>Regimi speciali</dt>
+<dd>Nessuno</dd>
+</div>
+<div>
+<dt>Codice e versione</dt>
+<dd>valutazione 1291948b, corpus 0.13.1</dd>
+</div>
+</dl>
+</div>
+<div class="print-avoid-break">
+<h3>Avvisi emersi</h3>
+<ul>
+<li>Fornitori cloud con stabilimenti in più Stati membri (art. 5 D.Lgs. 138/2024)</li>
+<li>Entità finanziarie DORA fuori dai settori 3 e 4 dell&#x27;Allegato I</li>
+<li>Soggetti esentati dall&#x27;ambito del Regolamento DORA (art. 3 c. 15)</li>
+</ul>
+</div>
+<p>4 altre segnalazioni dalle risposte date (testo nella sezione omonima).</p>
+<div data-testid="print-answers">
+<h3>Le risposte date</h3>
+<p>Input della valutazione 1291948b: con le stesse risposte e la stessa versione del corpus lo strumento restituisce lo stesso esito.</p>
+<dl>
+<div class="print-avoid-break">
+<dt>Il soggetto è stato inserito nel Perimetro di Sicurezza Nazionale Cibernetica (PSNC) ai sensi dell&#x27;art. 1 c. 2-bis del D.L. 105/2019?</dt> <dd>No</dd>
+</div>
+<div class="print-avoid-break">
+<dt>Il soggetto è un&#x27;entità finanziaria regolata dal Regolamento (UE) 2022/2554 (DORA), ad esempio un ente creditizio (banca) o un gestore di una sede di negoziazione?</dt> <dd>Sì</dd>
+</div>
+<div class="print-avoid-break">
+<dt>Il soggetto eroga servizi cloud destinati a una Pubblica Amministrazione, qualificati ai sensi del Regolamento Cloud per la PA (Decreto Direttoriale ACN n. 21007/24)?</dt> <dd>No</dd>
+</div>
+<div class="print-avoid-break">
+<dt>Il soggetto è un ente pubblico o ha capitale, quote o partecipazioni pubbliche?</dt> <dd>Sì</dd>
+</div>
+<div class="print-avoid-break">
+<dt>Quale tipo di partecipazione pubblica?</dt> <dd>Società in house di uno dei soggetti elencati dall&#x27;art. 1 c. 1 L. 90/2024 (PA centrali, Regioni e Province autonome, Città metropolitane, Comuni con più di 100.000 abitanti o capoluoghi di regione, società di trasporto pubblico indicate dalla norma, Aziende sanitarie locali)</dd>
+</div>
+<div class="print-avoid-break">
+<dt>Il soggetto fornisce anche servizi gestiti o servizi di sicurezza gestiti ad altre organizzazioni (B2B), tramite un&#x27;interconnessione diretta tra la rete del fornitore e quella del cliente?</dt> <dd>Sì</dd>
+</div>
+<div class="print-avoid-break">
+<dt>Il soggetto è stato individuato come soggetto critico ai sensi del D.Lgs. 134/2024?</dt> <dd>Sì</dd>
+</div>
+<div class="print-avoid-break">
+<dt>A quale categoria dimensionale appartiene il soggetto, secondo la Raccomandazione UE 2003/361/CE?</dt> <dd>Media impresa (non piccola; meno di 250 effettivi e fatturato fino a 50 M€ o bilancio fino a 43 M€)</dd>
+</div>
+</dl>
+</div>
+</section>
+<section class="hidden print:block" data-testid="print-limits">
+<div>
+<div class="print-avoid-break" data-print-group="head">
+<div>
+<div>
+<div>
+<h2>Cosa non gestisce il tool</h2>
+<p>Limiti dichiarati dello strumento, dal catalogo eccezioni: per esteso le voci emerse dalle risposte date, in una riga le voci non gestite. Ogni voce resta da valutare con un consulente qualificato.</p>
+</div>
+<h3>Avvisi emersi dalle risposte date</h3>
+</div>
+</div>
+<div class="print-avoid-break print:rounded-panel print:border">
+<div data-limit="cloud_stabilimento_principale_multi_ue">
+<span>Fornitori cloud con stabilimenti in più Stati membri (art. 5 D.Lgs. 138/2024)</span>
+<span> (Segnalato, non valutato dal tool)</span>
+<span>I fornitori di servizi di cloud computing sono soggetti alla giurisdizione dello Stato membro in cui hanno lo stabilimento principale nell&#x27;Unione; la giurisdizione nazionale ricorre, tra l&#x27;altro, se lo stabilimento principale è in Italia o se il soggetto, senza stabilimenti nell&#x27;Unione, ha designato il rappresentante in Italia (art. 5 D.Lgs. 138/2024). Lo strumento non valuta lo stabilimento principale: per un soggetto con stabilimenti in più Stati membri l&#x27;esito va riesaminato con un consulente qualificato. <span>
+<a href="#fonte-6">6</a>
+</span>
+</span>
+</div>
+</div>
+</div>
+<div class="print-avoid-break print:rounded-panel print:border print:mt-2">
+<div data-limit="dora_entita_finanziaria_fuori_settori_3_4">
+<span>Entità finanziarie DORA fuori dai settori 3 e 4 dell&#x27;Allegato I</span>
+<span> (Segnalato, non valutato dal tool)</span>
+<span>L&#x27;art. 3 c. 14 D.Lgs. 138/2024 esclude l&#x27;art. 17 e i Capi IV e V del decreto solo per i soggetti dei settori 3 (settore bancario) e 4 (infrastrutture dei mercati finanziari) dell&#x27;Allegato I. Per un&#x27;entità finanziaria regolata dal Regolamento (UE) 2022/2554 che rientra nell&#x27;ambito NIS per un altro settore, la Det. ACN 127437/2026 prevede esoneri limitati agli adempimenti sulla piattaforma ACN (referente CSIRT, art. 7 c. 6; parte dell&#x27;aggiornamento annuale, art. 16 c. 13; elencazione e categorizzazione delle attività, art. 20 c. 6), mentre i Capi IV e V restano applicabili secondo il testo dell&#x27;art. 3 c. 14. L&#x27;esito indicato segue le regole del settore; il caso va approfondito con un consulente qualificato. <span>
+<a href="#fonte-7">7</a>
+<a href="#fonte-14">14</a>
+<a href="#fonte-17">17</a>
+<a href="#fonte-18">18</a>
+<a href="#fonte-19">19</a>
+</span>
+</span>
+</div>
+</div>
+<div class="print-avoid-break print:rounded-panel print:border print:mt-2">
+<div data-limit="dora_soggetti_esentati_art_3_c_15">
+<span>Soggetti esentati dall&#x27;ambito del Regolamento DORA (art. 3 c. 15)</span>
+<span> (Segnalato, non valutato dal tool)</span>
+<span>Il decreto non si applica ai soggetti esentati dall&#x27;ambito di applicazione del Regolamento (UE) 2022/2554 (art. 3 c. 15 D.Lgs. 138/2024). Lo strumento non valuta questa esenzione: se il caso è pertinente, l&#x27;esito va riesaminato con un consulente qualificato. <span>
+<a href="#fonte-8">8</a>
+</span>
+</span>
+</div>
+</div>
+</div>
+<div class="print-avoid-break">
+<h3>Non gestito dal tool</h3>
+<ul>
+<li data-limit="dora_massive_disapplication">Settore bancario e infrastrutture dei mercati finanziari (art. 3 c. 14)</li>
+<li data-limit="safeguard_dimensional_dpcm_221">Salvaguardia dimensionale (DPCM 221/2024)</li>
+<li data-limit="dimensione_autodichiarata">Categoria dimensionale indicata dall&#x27;utente</li>
+<li data-limit="consolidamento_di_gruppo">Dati dimensionali delle imprese collegate o associate</li>
+<li data-limit="confine_50_43">Soglie di fatturato e di bilancio della media impresa</li>
+<li data-limit="copertura_settoriale_parziale">Settori e tipologie valutati dallo strumento</li>
+<li data-limit="anteprima_di_studio_non_consulenza">Anteprima di studio: strumento informativo, non consulenza</li>
+</ul>
+</div>
+<p data-testid="print-limits-others">Altre 3 voci segnalate per questo settore, non emerse dalle risposte date, sono nella pagina &quot;Cosa non gestisce il tool&quot; dello strumento.</p>
+</section>
+<p class="hidden print:block">Parte tecnica, per il consulente</p>
+<section id="come-calcolato" class="hidden print:block" aria-labelledby="trace-title">
+<div class="print-avoid-break" data-print-group="head">
+<div>
+<h2 id="trace-title">Come è stato calcolato</h2>
+</div>
+<div class="print-avoid-break print:border-0 print:bg-transparent print:px-0 print:pb-0 print:pt-0">
+<p data-stage="regime_routing">
+<span>Regimi speciali:</span> <span>Non applicabile alle risposte date.</span>
+</p>
+</div>
+</div>
+<div class="print-avoid-break print:border-0 print:bg-transparent print:px-0 print:pb-0 print:pt-2">
+<p data-stage="type_exclusion">
+<span>Esclusioni per tipologia:</span> <span>Non applicabile alle risposte date.</span>
+</p>
+</div>
+<div class="print-avoid-break print:border-0 print:bg-transparent print:px-0 print:pb-0 print:pt-2">
+<div data-testid="trace-decided" data-stage="size_blind">
+<h3>Regole indipendenti dalla dimensione</h3>
+<p>Il soggetto risulta individuato come soggetto critico ai sensi del D.Lgs. 134/2024. Sulla base degli input forniti, l&#x27;analisi suggerisce il rientro nel perimetro NIS2 italiano come soggetto essenziale, indipendentemente dalla dimensione (art. 3 c. 5 lett. a) e art. 6 c. 1 lett. b) D.Lgs. 138/2024; FAQ ACN AMB.NO.1). Verifica obbligatoria con consulente qualificato. <span>
+<a href="#fonte-1">1</a>
+<a href="#fonte-2">2</a>
+<a href="#fonte-9">9</a>
+</span>
+</p>
+</div>
+</div>
+<div class="print-avoid-break print:border-0 print:bg-transparent print:px-0 print:pb-0 print:pt-2">
+<p data-stage="dimensional">
+<span>Regole dimensionali:</span> <span>Non applicabile alle risposte date.</span>
+</p>
+</div>
+</section>
+<section aria-labelledby="fonti-title">
+<div class="print-keep-with-next">
+<h2 id="fonti-title">Fonti citate in questo esito</h2>
+<p>Citate al livello verificato: articolo e comma, o codice FAQ. Ogni voce apre la scheda nella knowledge base.</p>
+</div>
+<div class="print:border-0 print:bg-transparent print:p-0">
+<div>
+<h3>Decreto NIS (D.Lgs. 138/2024)</h3>
+<ol>
+<li id="fonte-1" class="print-avoid-break" data-testid="source" data-source="dlgs_138_2024_art_3_c_5_lett_a">
+<span>1</span>
+<span>
+<span>D.Lgs. 138/2024, art. 3 c. 5 lett. a)</span>
+<span>Il decreto si applica, indipendentemente dalle dimensioni, ai soggetti identificati come soggetti critici.</span>
+<a class="print:hidden" href="https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/D.Lgs.%20138-2024%20(Decreto%20NIS).md?plain=1#L30">Apri la scheda</a>
+<span class="hidden print:block" data-testid="source-url">https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/D.Lgs.%20138-2024%20(Decreto%20NIS).md?plain=1#L30</span>
+</span>
+</li>
+<li id="fonte-2" class="print-avoid-break" data-testid="source" data-source="dlgs_138_2024_art_6_c_1_lett_b">
+<span>2</span>
+<span>
+<span>D.Lgs. 138/2024, art. 6 c. 1 lett. b)</span>
+<span>Sono essenziali, indipendentemente dalle dimensioni, i soggetti identificati come soggetti critici.</span>
+<a class="print:hidden" href="https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/D.Lgs.%20138-2024%20(Decreto%20NIS).md?plain=1#L30">Apri la scheda</a>
+<span class="hidden print:block" data-testid="source-url">https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/D.Lgs.%20138-2024%20(Decreto%20NIS).md?plain=1#L30</span>
+</span>
+</li>
+<li id="fonte-3" class="print-avoid-break" data-testid="source" data-source="dlgs_138_2024_art_3_c_8">
+<span>3</span>
+<span>
+<span>D.Lgs. 138/2024, art. 3 c. 8</span>
+<span>Il decreto si applica, indipendentemente dalle dimensioni, ai soggetti delle tipologie dell&#x27;Allegato IV individuati secondo il c. 13.</span>
+<a class="print:hidden" href="https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/D.Lgs.%20138-2024%20(Decreto%20NIS).md?plain=1#L29">Apri la scheda</a>
+<span class="hidden print:block" data-testid="source-url">https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/D.Lgs.%20138-2024%20(Decreto%20NIS).md?plain=1#L29</span>
+</span>
+</li>
+<li id="fonte-4" class="print-avoid-break" data-testid="source" data-source="dlgs_138_2024_art_3_c_13">
+<span>4</span>
+<span>
+<span>D.Lgs. 138/2024, art. 3 c. 13</span>
+<span>I soggetti dei cc. 8 e 9 sono individuati dall&#x27;ACN su proposta delle Autorità di settore, con notifica al soggetto.</span>
+<a class="print:hidden" href="https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/D.Lgs.%20138-2024%20(Decreto%20NIS).md?plain=1#L29">Apri la scheda</a>
+<span class="hidden print:block" data-testid="source-url">https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/D.Lgs.%20138-2024%20(Decreto%20NIS).md?plain=1#L29</span>
+</span>
+</li>
+<li id="fonte-5" class="print-avoid-break" data-testid="source" data-source="dlgs_138_2024_art_7_c_1_lett_d">
+<span>5</span>
+<span>
+<span>D.Lgs. 138/2024, art. 7 c. 1 lett. d)</span>
+<span>In registrazione si indicano, ove applicabile, i settori, i sottosettori e le tipologie di soggetto pertinenti.</span>
+<a class="print:hidden" href="https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/D.Lgs.%20138-2024%20(Decreto%20NIS).md?plain=1#L26">Apri la scheda</a>
+<span class="hidden print:block" data-testid="source-url">https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/D.Lgs.%20138-2024%20(Decreto%20NIS).md?plain=1#L26</span>
+</span>
+</li>
+<li id="fonte-6" class="print-avoid-break" data-testid="source" data-source="dlgs_138_2024_art_5">
+<span>6</span>
+<span>
+<span>D.Lgs. 138/2024, art. 5</span>
+<span>Giurisdizione nazionale: soggetti stabiliti in Italia, con regole proprie per i servizi transfrontalieri.</span>
+<a class="print:hidden" href="https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/FAQ%20NIS%20-%20Ambito.md?plain=1#L204">Apri la scheda</a>
+<span class="hidden print:block" data-testid="source-url">https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/FAQ%20NIS%20-%20Ambito.md?plain=1#L204</span>
+</span>
+</li>
+<li id="fonte-7" class="print-avoid-break" data-testid="source" data-source="dlgs_138_2024_art_3_c_14">
+<span>7</span>
+<span>
+<span>D.Lgs. 138/2024, art. 3 c. 14</span>
+<span>Art. 17 e Capi IV e V non si applicano ai soggetti dei settori 3 e 4 dell&#x27;Allegato I, ai quali si applica il Regolamento DORA.</span>
+<a class="print:hidden" href="https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/D.Lgs.%20138-2024%20(Decreto%20NIS).md?plain=1#L33">Apri la scheda</a>
+<span class="hidden print:block" data-testid="source-url">https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/D.Lgs.%20138-2024%20(Decreto%20NIS).md?plain=1#L33</span>
+</span>
+</li>
+<li id="fonte-8" class="print-avoid-break" data-testid="source" data-source="dlgs_138_2024_art_3_c_15">
+<span>8</span>
+<span>
+<span>D.Lgs. 138/2024, art. 3 c. 15</span>
+<span>Il decreto non si applica ai soggetti esentati dall&#x27;ambito del Regolamento DORA.</span>
+<a class="print:hidden" href="https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/D.Lgs.%20138-2024%20(Decreto%20NIS).md?plain=1#L33">Apri la scheda</a>
+<span class="hidden print:block" data-testid="source-url">https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/D.Lgs.%20138-2024%20(Decreto%20NIS).md?plain=1#L33</span>
+</span>
+</li>
+</ol>
+</div>
+<div>
+<h3>FAQ ACN</h3>
+<ol>
+<li id="fonte-9" class="print-avoid-break" data-testid="source" data-source="faq_amb_no_1">
+<span>9</span>
+<span>
+<span>FAQ ACN AMB.NO.1</span>
+<span>I soggetti critici del D.Lgs. 134/2024 sono soggetti essenziali ai sensi del decreto NIS.</span>
+<a class="print:hidden" href="https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/FAQ%20NIS%20-%20Ambito.md?plain=1#L223">Apri la scheda</a>
+<span class="hidden print:block" data-testid="source-url">https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/FAQ%20NIS%20-%20Ambito.md?plain=1#L223</span>
+</span>
+</li>
+<li id="fonte-10" class="print-avoid-break" data-testid="source" data-source="faq_a1_9_1">
+<span>10</span>
+<span>
+<span>FAQ ACN A1.9.1</span>
+<span>Tipologie della gestione dei servizi TIC: fornitori di servizi gestiti e di servizi di sicurezza gestiti.</span>
+<a class="print:hidden" href="https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/FAQ%20NIS%20-%20Settori%2C%20sottosettori%20e%20tipologie%20di%20soggetto.md?plain=1#L116">Apri la scheda</a>
+<span class="hidden print:block" data-testid="source-url">https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/FAQ%20NIS%20-%20Settori%2C%20sottosettori%20e%20tipologie%20di%20soggetto.md?plain=1#L116</span>
+</span>
+</li>
+<li id="fonte-11" class="print-avoid-break" data-testid="source" data-source="faq_a1_9_2">
+<span>11</span>
+<span>
+<span>FAQ ACN A1.9.2</span>
+<span>Assistenza o amministrazione attiva svolta tramite interconnessione diretta tra la rete del fornitore e quella del cliente.</span>
+<a class="print:hidden" href="https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/FAQ%20NIS%20-%20Settori%2C%20sottosettori%20e%20tipologie%20di%20soggetto.md?plain=1#L118">Apri la scheda</a>
+<span class="hidden print:block" data-testid="source-url">https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/FAQ%20NIS%20-%20Settori%2C%20sottosettori%20e%20tipologie%20di%20soggetto.md?plain=1#L118</span>
+</span>
+</li>
+<li id="fonte-12" class="print-avoid-break" data-testid="source" data-source="faq_a1_9_3">
+<span>12</span>
+<span>
+<span>FAQ ACN A1.9.3</span>
+<span>Fornitori di servizi gestiti: assistenza o amministrazione attiva tramite interconnessione diretta, con esempi.</span>
+<a class="print:hidden" href="https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/FAQ%20NIS%20-%20Settori%2C%20sottosettori%20e%20tipologie%20di%20soggetto.md?plain=1#L125">Apri la scheda</a>
+<span class="hidden print:block" data-testid="source-url">https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/FAQ%20NIS%20-%20Settori%2C%20sottosettori%20e%20tipologie%20di%20soggetto.md?plain=1#L125</span>
+</span>
+</li>
+<li id="fonte-13" class="print-avoid-break" data-testid="source" data-source="faq_a1_9_4">
+<span>13</span>
+<span>
+<span>FAQ ACN A1.9.4</span>
+<span>Fornitori di servizi di sicurezza gestiti: servizi tipici, elenco non esaustivo.</span>
+<a class="print:hidden" href="https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/FAQ%20NIS%20-%20Settori%2C%20sottosettori%20e%20tipologie%20di%20soggetto.md?plain=1#L132">Apri la scheda</a>
+<span class="hidden print:block" data-testid="source-url">https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/FAQ%20NIS%20-%20Settori%2C%20sottosettori%20e%20tipologie%20di%20soggetto.md?plain=1#L132</span>
+</span>
+</li>
+<li id="fonte-14" class="print-avoid-break" data-testid="source" data-source="faq_amb_no_2">
+<span>14</span>
+<span>
+<span>FAQ ACN AMB.NO.2</span>
+<span>DORA come disciplina speciale per i soggetti dei settori bancario e delle infrastrutture dei mercati finanziari.</span>
+<a class="print:hidden" href="https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/FAQ%20NIS%20-%20Ambito.md?plain=1#L228">Apri la scheda</a>
+<span class="hidden print:block" data-testid="source-url">https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/FAQ%20NIS%20-%20Ambito.md?plain=1#L228</span>
+</span>
+</li>
+</ol>
+</div>
+<div>
+<h3>Determinazioni ACN</h3>
+<ol>
+<li id="fonte-15" class="print-avoid-break" data-testid="source" data-source="det_piattaforma_127437_2026_art_4_c_8">
+<span>15</span>
+<span>
+<span>Det. ACN 127437/2026, art. 4 c. 8</span>
+<span>Per i soggetti della L. 90/2024 la designazione del punto di contatto NIS può soddisfare l&#x27;obbligo di nomina del referente per la cybersicurezza.</span>
+<a class="print:hidden" href="https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/Determinazione%20ACN%20piattaforma%20e%20procedure%20-%202026-04-13.md?plain=1#L34">Apri la scheda</a>
+<span class="hidden print:block" data-testid="source-url">https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/Determinazione%20ACN%20piattaforma%20e%20procedure%20-%202026-04-13.md?plain=1#L34</span>
+</span>
+</li>
+<li id="fonte-16" class="print-avoid-break" data-testid="source" data-source="det_piattaforma_127437_2026_art_11_c_2_lett_g">
+<span>16</span>
+<span>
+<span>Det. ACN 127437/2026, art. 11 c. 2 lett. g)</span>
+<span>Nella dichiarazione di registrazione si elencano le tipologie di soggetto degli Allegati I-IV a cui il soggetto è riconducibile.</span>
+<a class="print:hidden" href="https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/Determinazione%20ACN%20piattaforma%20e%20procedure%20-%202026-04-13.md?plain=1#L51">Apri la scheda</a>
+<span class="hidden print:block" data-testid="source-url">https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/Determinazione%20ACN%20piattaforma%20e%20procedure%20-%202026-04-13.md?plain=1#L51</span>
+</span>
+</li>
+<li id="fonte-17" class="print-avoid-break" data-testid="source" data-source="det_piattaforma_127437_2026_art_7_c_6">
+<span>17</span>
+<span>
+<span>Det. ACN 127437/2026, art. 7 c. 6</span>
+<span>Le entità finanziarie DORA in ambito NIS sono esentate dalla designazione del referente CSIRT, salva l&#x27;adesione volontaria.</span>
+<a class="print:hidden" href="https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/Determinazione%20ACN%20piattaforma%20e%20procedure%20-%202026-04-13.md?plain=1#L38">Apri la scheda</a>
+<span class="hidden print:block" data-testid="source-url">https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/Determinazione%20ACN%20piattaforma%20e%20procedure%20-%202026-04-13.md?plain=1#L38</span>
+</span>
+</li>
+<li id="fonte-18" class="print-avoid-break" data-testid="source" data-source="det_piattaforma_127437_2026_art_16_c_13">
+<span>18</span>
+<span>
+<span>Det. ACN 127437/2026, art. 16 c. 13</span>
+<span>Le entità finanziarie DORA in ambito NIS sono esonerate da parte dell&#x27;aggiornamento annuale delle informazioni, salva l&#x27;adesione volontaria.</span>
+<a class="print:hidden" href="https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/Determinazione%20ACN%20piattaforma%20e%20procedure%20-%202026-04-13.md?plain=1#L38">Apri la scheda</a>
+<span class="hidden print:block" data-testid="source-url">https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/Determinazione%20ACN%20piattaforma%20e%20procedure%20-%202026-04-13.md?plain=1#L38</span>
+</span>
+</li>
+<li id="fonte-19" class="print-avoid-break" data-testid="source" data-source="det_piattaforma_127437_2026_art_20_c_6">
+<span>19</span>
+<span>
+<span>Det. ACN 127437/2026, art. 20 c. 6</span>
+<span>Le entità finanziarie DORA in ambito NIS sono esonerate dall&#x27;elencazione e categorizzazione delle attività, salva l&#x27;adesione volontaria.</span>
+<a class="print:hidden" href="https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/Determinazione%20ACN%20piattaforma%20e%20procedure%20-%202026-04-13.md?plain=1#L38">Apri la scheda</a>
+<span class="hidden print:block" data-testid="source-url">https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/Determinazione%20ACN%20piattaforma%20e%20procedure%20-%202026-04-13.md?plain=1#L38</span>
+</span>
+</li>
+</ol>
+</div>
+<div>
+<h3>Altre fonti</h3>
+<ol>
+<li id="fonte-20" class="print-avoid-break" data-testid="source" data-source="l90_2024_art_1_c_1">
+<span>20</span>
+<span>
+<span>L. 90/2024, art. 1 c. 1</span>
+<span>Soggetti della L. 90/2024: PA centrali, Regioni, Città metropolitane, grandi Comuni, trasporto pubblico indicato, ASL e loro società in house qualificate.</span>
+<a class="print:hidden" href="https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/Legge%2090-2024%20(cybersicurezza%20nazionale).md?plain=1#L28">Apri la scheda</a>
+<span class="hidden print:block" data-testid="source-url">https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/Legge%2090-2024%20(cybersicurezza%20nazionale).md?plain=1#L28</span>
+</span>
+</li>
+<li id="fonte-21" class="print-avoid-break" data-testid="source" data-source="l90_2024_art_1_c_7_lett_a">
+<span>21</span>
+<span>
+<span>L. 90/2024, art. 1 c. 7 lett. a)</span>
+<span>Le disposizioni dell&#x27;art. 1 non si applicano ai soggetti richiamati dalla lettera, tra cui i soggetti del perimetro di sicurezza nazionale cibernetica.</span>
+<a class="print:hidden" href="https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/synthesis/Coordinamento%20L.%2090-2024%20e%20NIS2.md?plain=1#L46">Apri la scheda</a>
+<span class="hidden print:block" data-testid="source-url">https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/synthesis/Coordinamento%20L.%2090-2024%20e%20NIS2.md?plain=1#L46</span>
+</span>
+</li>
+<li id="fonte-22" class="print-avoid-break" data-testid="source" data-source="l90_2024_art_15_bis">
+<span>22</span>
+<span>
+<span>L. 90/2024, art. 15-bis</span>
+<span>Ogni riferimento al D.Lgs. 65/2018 si intende alle corrispondenti disposizioni del D.Lgs. 138/2024.</span>
+<a class="print:hidden" href="https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/Legge%2090-2024%20(cybersicurezza%20nazionale).md?plain=1#L174">Apri la scheda</a>
+<span class="hidden print:block" data-testid="source-url">https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/Legge%2090-2024%20(cybersicurezza%20nazionale).md?plain=1#L174</span>
+</span>
+</li>
+<li id="fonte-23" class="print-avoid-break" data-testid="source" data-source="dlgs_175_2016">
+<span>23</span>
+<span>
+<span>D.Lgs. 175/2016</span>
+<span>Testo unico sulle società a partecipazione pubblica: società in house, partecipate e a controllo pubblico.</span>
+<a class="print:hidden" href="https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/FAQ%20NIS%20-%20Settori%2C%20sottosettori%20e%20tipologie%20di%20soggetto.md?plain=1#L251">Apri la scheda</a>
+<span class="hidden print:block" data-testid="source-url">https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/FAQ%20NIS%20-%20Settori%2C%20sottosettori%20e%20tipologie%20di%20soggetto.md?plain=1#L251</span>
+</span>
+</li>
+<li id="fonte-24" class="print-avoid-break" data-testid="source" data-source="dlgs_134_2024">
+<span>24</span>
+<span>
+<span>D.Lgs. 134/2024</span>
+<span>Decreto sui soggetti critici: la qualifica si acquisisce con l&#x27;inserimento nell&#x27;elenco adottato con DPCM.</span>
+<a class="print:hidden" href="https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/FAQ%20NIS%20-%20Ambito.md?plain=1#L225">Apri la scheda</a>
+<span class="hidden print:block" data-testid="source-url">https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/FAQ%20NIS%20-%20Ambito.md?plain=1#L225</span>
+</span>
+</li>
+</ol>
+</div>
+</div>
+</section>
+</td>
+</tr>
+</tbody>
+</table>"
+`;
+
 exports[`printed verdict of E05 > matches the print-mode DOM snapshot 1`] = `
 "<table class="print-frame">
 <thead data-testid="print-header">
@@ -102,7 +700,7 @@ exports[`printed verdict of E05 > matches the print-mode DOM snapshot 1`] = `
 <section class="print:hidden" aria-labelledby="punti-title">
 <h2 id="punti-title">2 punti da valutare con un consulente</h2>
 <div>
-<div data-testid="notice" data-notice="cloud_stabilimento_principale_multi_ue">
+<div class="print-avoid-break" data-testid="notice" data-notice="cloud_stabilimento_principale_multi_ue">
 <div>
 <span aria-hidden="true">
 </span>
@@ -114,7 +712,7 @@ exports[`printed verdict of E05 > matches the print-mode DOM snapshot 1`] = `
 </span>
 </p>
 </div>
-<div data-testid="notice" data-notice="cloud_pa_fornitore_qualificato_a1_8_2">
+<div class="print-avoid-break" data-testid="notice" data-notice="cloud_pa_fornitore_qualificato_a1_8_2">
 <div>
 <span aria-hidden="true">
 </span>
@@ -131,6 +729,7 @@ exports[`printed verdict of E05 > matches the print-mode DOM snapshot 1`] = `
 </div>
 </section>
 <section class="hidden print:block" data-testid="print-consultant">
+<div class="print-avoid-break">
 <div>
 <h2>Cosa portare al consulente</h2>
 <p>Punti da valutare con un consulente qualificato, dai dati di questa valutazione.</p>
@@ -153,7 +752,8 @@ exports[`printed verdict of E05 > matches the print-mode DOM snapshot 1`] = `
 <dd>valutazione 6b077a1f, corpus 0.13.1</dd>
 </div>
 </dl>
-<div>
+</div>
+<div class="print-avoid-break">
 <h3>Avvisi emersi</h3>
 <ul>
 <li>Fornitori cloud con stabilimenti in più Stati membri (art. 5 D.Lgs. 138/2024)</li>
@@ -164,25 +764,25 @@ exports[`printed verdict of E05 > matches the print-mode DOM snapshot 1`] = `
 <h3>Le risposte date</h3>
 <p>Input della valutazione 6b077a1f: con le stesse risposte e la stessa versione del corpus lo strumento restituisce lo stesso esito.</p>
 <dl>
-<div>
+<div class="print-avoid-break">
 <dt>Il soggetto è stato inserito nel Perimetro di Sicurezza Nazionale Cibernetica (PSNC) ai sensi dell&#x27;art. 1 c. 2-bis del D.L. 105/2019?</dt> <dd>No</dd>
 </div>
-<div>
+<div class="print-avoid-break">
 <dt>Il soggetto è un&#x27;entità finanziaria regolata dal Regolamento (UE) 2022/2554 (DORA), ad esempio un ente creditizio (banca) o un gestore di una sede di negoziazione?</dt> <dd>No</dd>
 </div>
-<div>
+<div class="print-avoid-break">
 <dt>Il soggetto eroga servizi cloud destinati a una Pubblica Amministrazione, qualificati ai sensi del Regolamento Cloud per la PA (Decreto Direttoriale ACN n. 21007/24)?</dt> <dd>Sì</dd>
 </div>
-<div>
+<div class="print-avoid-break">
 <dt>Il soggetto è un ente pubblico o ha capitale, quote o partecipazioni pubbliche?</dt> <dd>No</dd>
 </div>
-<div>
+<div class="print-avoid-break">
 <dt>Il soggetto fornisce anche servizi gestiti o servizi di sicurezza gestiti ad altre organizzazioni (B2B), tramite un&#x27;interconnessione diretta tra la rete del fornitore e quella del cliente?</dt> <dd>No</dd>
 </div>
-<div>
+<div class="print-avoid-break">
 <dt>Il soggetto è stato individuato come soggetto critico ai sensi del D.Lgs. 134/2024?</dt> <dd>No</dd>
 </div>
-<div>
+<div class="print-avoid-break">
 <dt>A quale categoria dimensionale appartiene il soggetto, secondo la Raccomandazione UE 2003/361/CE?</dt> <dd>Grande impresa (250 effettivi o più, oppure fatturato oltre 50 M€ e bilancio oltre 43 M€)</dd>
 </div>
 </dl>
@@ -190,21 +790,29 @@ exports[`printed verdict of E05 > matches the print-mode DOM snapshot 1`] = `
 </section>
 <section class="hidden print:block" data-testid="print-limits">
 <div>
+<div class="print-avoid-break" data-print-group="head">
+<div>
+<div>
+<div>
 <h2>Cosa non gestisce il tool</h2>
 <p>Limiti dichiarati dello strumento, dal catalogo eccezioni: per esteso le voci emerse dalle risposte date, in una riga le voci non gestite. Ogni voce resta da valutare con un consulente qualificato.</p>
 </div>
-<div>
 <h3>Avvisi emersi dalle risposte date</h3>
-<ul>
-<li data-limit="cloud_stabilimento_principale_multi_ue">
+</div>
+</div>
+<div class="print-avoid-break print:rounded-panel print:border">
+<div data-limit="cloud_stabilimento_principale_multi_ue">
 <span>Fornitori cloud con stabilimenti in più Stati membri (art. 5 D.Lgs. 138/2024)</span>
 <span> (Segnalato, non valutato dal tool)</span>
 <span>I fornitori di servizi di cloud computing sono soggetti alla giurisdizione dello Stato membro in cui hanno lo stabilimento principale nell&#x27;Unione; la giurisdizione nazionale ricorre, tra l&#x27;altro, se lo stabilimento principale è in Italia o se il soggetto, senza stabilimenti nell&#x27;Unione, ha designato il rappresentante in Italia (art. 5 D.Lgs. 138/2024). Lo strumento non valuta lo stabilimento principale: per un soggetto con stabilimenti in più Stati membri l&#x27;esito va riesaminato con un consulente qualificato. <span>
 <a href="#fonte-2">2</a>
 </span>
 </span>
-</li>
-<li data-limit="cloud_pa_fornitore_qualificato_a1_8_2">
+</div>
+</div>
+</div>
+<div class="print-avoid-break print:rounded-panel print:border print:mt-2">
+<div data-limit="cloud_pa_fornitore_qualificato_a1_8_2">
 <span>Fornitori cloud qualificati per la PA (Regolamento Cloud)</span>
 <span> (Segnalato, non valutato dal tool)</span>
 <span>Secondo la FAQ ACN A1.8.2, i fornitori di servizi cloud qualificati ai sensi del Regolamento Cloud (Decreto Direttoriale ACN n. 21007/24) che superano i massimali delle piccole imprese rientrano nell&#x27;ambito NIS come fornitori di servizi di cloud computing (Allegato I, punto 8). La sostituzione del modello di categorizzazione prevista dall&#x27;art. 4 della Det. ACN 155238/2026 riguarda i soggetti che hanno svolto la classificazione dei propri dati e servizi, cioè le pubbliche amministrazioni (FAQ CAT.8): per il fornitore l&#x27;esito segue le regole ordinarie del settore. <span>
@@ -213,10 +821,10 @@ exports[`printed verdict of E05 > matches the print-mode DOM snapshot 1`] = `
 <a href="#fonte-6">6</a>
 </span>
 </span>
-</li>
-</ul>
 </div>
-<div>
+</div>
+</div>
+<div class="print-avoid-break">
 <h3>Non gestito dal tool</h3>
 <ul>
 <li data-limit="dora_massive_disapplication">Settore bancario e infrastrutture dei mercati finanziari (art. 3 c. 14)</li>
@@ -232,17 +840,27 @@ exports[`printed verdict of E05 > matches the print-mode DOM snapshot 1`] = `
 </section>
 <p class="hidden print:block">Parte tecnica, per il consulente</p>
 <section id="come-calcolato" class="hidden print:block" aria-labelledby="trace-title">
-<h2 id="trace-title">Come è stato calcolato</h2>
+<div class="print-avoid-break" data-print-group="head">
 <div>
+<h2 id="trace-title">Come è stato calcolato</h2>
+</div>
+<div class="print-avoid-break print:border-0 print:bg-transparent print:px-0 print:pb-0 print:pt-0">
 <p data-stage="regime_routing">
 <span>Regimi speciali:</span> <span>Non applicabile alle risposte date.</span>
 </p>
+</div>
+</div>
+<div class="print-avoid-break print:border-0 print:bg-transparent print:px-0 print:pb-0 print:pt-2">
 <p data-stage="type_exclusion">
 <span>Esclusioni per tipologia:</span> <span>Non applicabile alle risposte date.</span>
 </p>
+</div>
+<div class="print-avoid-break print:border-0 print:bg-transparent print:px-0 print:pb-0 print:pt-2">
 <p data-stage="size_blind">
 <span>Regole indipendenti dalla dimensione:</span> <span>Non applicabile alle risposte date.</span>
 </p>
+</div>
+<div class="print-avoid-break print:border-0 print:bg-transparent print:px-0 print:pb-0 print:pt-2">
 <div data-testid="trace-decided" data-stage="dimensional">
 <h3>Regole dimensionali</h3>
 <p>Dimensione dichiarata: Grande impresa. Classificazione secondo FAQ ACN AMB.DI.1 e Racc. UE 2003/361. Sulla base degli input forniti, l&#x27;analisi suggerisce il rientro nel perimetro NIS2 italiano come soggetto essenziale (Allegato I p. 8, infrastrutture digitali; art. 6 c. 1 lett. a) D.Lgs. 138/2024). <span>
@@ -255,15 +873,15 @@ exports[`printed verdict of E05 > matches the print-mode DOM snapshot 1`] = `
 </div>
 </section>
 <section aria-labelledby="fonti-title">
-<div>
+<div class="print-keep-with-next">
 <h2 id="fonti-title">Fonti citate in questo esito</h2>
 <p>Citate al livello verificato: articolo e comma, o codice FAQ. Ogni voce apre la scheda nella knowledge base.</p>
 </div>
-<div>
+<div class="print:border-0 print:bg-transparent print:p-0">
 <div>
 <h3>Decreto NIS (D.Lgs. 138/2024)</h3>
 <ol>
-<li id="fonte-1" data-testid="source" data-source="dlgs_138_2024_art_6_c_1_lett_a">
+<li id="fonte-1" class="print-avoid-break" data-testid="source" data-source="dlgs_138_2024_art_6_c_1_lett_a">
 <span>1</span>
 <span>
 <span>D.Lgs. 138/2024, art. 6 c. 1 lett. a)</span>
@@ -272,7 +890,7 @@ exports[`printed verdict of E05 > matches the print-mode DOM snapshot 1`] = `
 <span class="hidden print:block" data-testid="source-url">https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/D.Lgs.%20138-2024%20(Decreto%20NIS).md?plain=1#L42</span>
 </span>
 </li>
-<li id="fonte-2" data-testid="source" data-source="dlgs_138_2024_art_5">
+<li id="fonte-2" class="print-avoid-break" data-testid="source" data-source="dlgs_138_2024_art_5">
 <span>2</span>
 <span>
 <span>D.Lgs. 138/2024, art. 5</span>
@@ -286,7 +904,7 @@ exports[`printed verdict of E05 > matches the print-mode DOM snapshot 1`] = `
 <div>
 <h3>FAQ ACN</h3>
 <ol>
-<li id="fonte-3" data-testid="source" data-source="faq_amb_di_1">
+<li id="fonte-3" class="print-avoid-break" data-testid="source" data-source="faq_amb_di_1">
 <span>3</span>
 <span>
 <span>FAQ ACN AMB.DI.1</span>
@@ -295,7 +913,7 @@ exports[`printed verdict of E05 > matches the print-mode DOM snapshot 1`] = `
 <span class="hidden print:block" data-testid="source-url">https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/FAQ%20NIS%20-%20Ambito.md?plain=1#L106</span>
 </span>
 </li>
-<li id="fonte-4" data-testid="source" data-source="faq_a1_8_2">
+<li id="fonte-4" class="print-avoid-break" data-testid="source" data-source="faq_a1_8_2">
 <span>4</span>
 <span>
 <span>FAQ ACN A1.8.2</span>
@@ -304,7 +922,7 @@ exports[`printed verdict of E05 > matches the print-mode DOM snapshot 1`] = `
 <span class="hidden print:block" data-testid="source-url">https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/FAQ%20NIS%20-%20Categorizzazione.md?plain=1#L113</span>
 </span>
 </li>
-<li id="fonte-5" data-testid="source" data-source="faq_cat_8">
+<li id="fonte-5" class="print-avoid-break" data-testid="source" data-source="faq_cat_8">
 <span>5</span>
 <span>
 <span>FAQ ACN CAT.8</span>
@@ -318,7 +936,7 @@ exports[`printed verdict of E05 > matches the print-mode DOM snapshot 1`] = `
 <div>
 <h3>Determinazioni ACN</h3>
 <ol>
-<li id="fonte-6" data-testid="source" data-source="det_acn_155238_2026_art_4">
+<li id="fonte-6" class="print-avoid-break" data-testid="source" data-source="det_acn_155238_2026_art_4">
 <span>6</span>
 <span>
 <span>Det. ACN 155238/2026, art. 4</span>
@@ -332,7 +950,7 @@ exports[`printed verdict of E05 > matches the print-mode DOM snapshot 1`] = `
 <div>
 <h3>Altre fonti</h3>
 <ol>
-<li id="fonte-7" data-testid="source" data-source="racc_ue_2003_361">
+<li id="fonte-7" class="print-avoid-break" data-testid="source" data-source="racc_ue_2003_361">
 <span>7</span>
 <span>
 <span>Racc. 2003/361/CE</span>
@@ -451,7 +1069,7 @@ exports[`printed verdict of E10 > matches the print-mode DOM snapshot 1`] = `
 <section class="print:hidden" aria-labelledby="punti-title">
 <h2 id="punti-title">3 punti da valutare con un consulente</h2>
 <div>
-<div data-testid="notice" data-notice="pa_organi_costituzionali_capo_v_art_4_c_2">
+<div class="print-avoid-break" data-testid="notice" data-notice="pa_organi_costituzionali_capo_v_art_4_c_2">
 <div>
 <span aria-hidden="true">
 </span>
@@ -463,7 +1081,7 @@ exports[`printed verdict of E10 > matches the print-mode DOM snapshot 1`] = `
 </span>
 </p>
 </div>
-<div data-testid="notice" data-notice="pa_esclusioni_sicurezza_nazionale_art_4_c_3">
+<div class="print-avoid-break" data-testid="notice" data-notice="pa_esclusioni_sicurezza_nazionale_art_4_c_3">
 <div>
 <span aria-hidden="true">
 </span>
@@ -475,7 +1093,7 @@ exports[`printed verdict of E10 > matches the print-mode DOM snapshot 1`] = `
 </span>
 </p>
 </div>
-<div data-testid="notice" data-notice="pa_prerequisito_istat_s13">
+<div class="print-avoid-break" data-testid="notice" data-notice="pa_prerequisito_istat_s13">
 <div>
 <span aria-hidden="true">
 </span>
@@ -490,12 +1108,15 @@ exports[`printed verdict of E10 > matches the print-mode DOM snapshot 1`] = `
 </div>
 </div>
 </section>
-<section aria-labelledby="segnalazioni-title">
+<section aria-labelledby="segnalazioni-title" data-testid="signals">
+<div class="print-avoid-break" data-print-group="head">
+<div>
 <div>
 <h2 id="segnalazioni-title">Altre segnalazioni dalle risposte date</h2>
 <p>Si aggiungono all&#x27;esito e non lo modificano: indicano altri ambiti o regimi da verificare con un consulente.</p>
 </div>
-<div>
+</div>
+<div class="print-avoid-break print:rounded-panel print:border">
 <p data-testid="signal" data-signal="l90_cumulo">Il soggetto potrebbe rientrare anche nel perimetro della Legge 90/2024 (art. 1 c. 1, cybersicurezza nazionale): l&#x27;appartenenza va verificata. Il rapporto con il regime NIS va valutato caso per caso: le disposizioni dell&#x27;art. 1 della legge non si applicano ai soggetti richiamati dall&#x27;art. 1 c. 7 lett. a), tra cui i soggetti del Perimetro di Sicurezza Nazionale Cibernetica; il rinvio di quella lettera al D.Lgs. 65/2018 è da intendersi alle corrispondenti disposizioni del D.Lgs. 138/2024 (art. 15-bis). Verifica con consulente qualificato. Per i soggetti dell&#x27;art. 1 c. 1 L. 90/2024 che sono anche soggetti NIS, la designazione del Punto di contatto NIS può soddisfare l&#x27;obbligo di nomina e comunicazione del referente per la cybersicurezza (art. 8 c. 2 L. 90/2024; art. 4 c. 8 Det. piattaforma 127437/2026). <span>
 <a href="#fonte-7">7</a>
 <a href="#fonte-9">9</a>
@@ -504,8 +1125,10 @@ exports[`printed verdict of E10 > matches the print-mode DOM snapshot 1`] = `
 </span>
 </p>
 </div>
+</div>
 </section>
 <section class="hidden print:block" data-testid="print-consultant">
+<div class="print-avoid-break">
 <div>
 <h2>Cosa portare al consulente</h2>
 <p>Punti da valutare con un consulente qualificato, dai dati di questa valutazione.</p>
@@ -528,7 +1151,8 @@ exports[`printed verdict of E10 > matches the print-mode DOM snapshot 1`] = `
 <dd>valutazione fc8341d3, corpus 0.13.1</dd>
 </div>
 </dl>
-<div>
+</div>
+<div class="print-avoid-break">
 <h3>Avvisi emersi</h3>
 <ul>
 <li>Organi costituzionali e di rilievo costituzionale: Capo V non applicabile</li>
@@ -541,19 +1165,19 @@ exports[`printed verdict of E10 > matches the print-mode DOM snapshot 1`] = `
 <h3>Le risposte date</h3>
 <p>Input della valutazione fc8341d3: con le stesse risposte e la stessa versione del corpus lo strumento restituisce lo stesso esito.</p>
 <dl>
-<div>
+<div class="print-avoid-break">
 <dt>A quale categoria dell&#x27;Allegato III appartiene il soggetto?</dt> <dd>Amministrazione centrale (lett. a): Organi costituzionali e di rilievo costituzionale; Presidenza del Consiglio dei ministri e Ministeri; Agenzie fiscali; Autorità amministrative indipendenti</dd>
 </div>
-<div>
+<div class="print-avoid-break">
 <dt>L&#x27;amministrazione ha classificato i propri dati e servizi digitali ai sensi del Regolamento Cloud per la PA (Decreto Direttoriale ACN n. 21007/24, art. 3)?</dt> <dd>No</dd>
 </div>
-<div>
+<div class="print-avoid-break">
 <dt>Il soggetto è stato inserito nel Perimetro di Sicurezza Nazionale Cibernetica (PSNC) ai sensi dell&#x27;art. 1 c. 2-bis del D.L. 105/2019?</dt> <dd>No</dd>
 </div>
-<div>
+<div class="print-avoid-break">
 <dt>Il soggetto è un&#x27;entità finanziaria regolata dal Regolamento (UE) 2022/2554 (DORA), ad esempio un ente creditizio (banca) o un gestore di una sede di negoziazione?</dt> <dd>No</dd>
 </div>
-<div>
+<div class="print-avoid-break">
 <dt>Il soggetto è stato individuato come soggetto critico ai sensi del D.Lgs. 134/2024?</dt> <dd>No</dd>
 </div>
 </dl>
@@ -561,29 +1185,39 @@ exports[`printed verdict of E10 > matches the print-mode DOM snapshot 1`] = `
 </section>
 <section class="hidden print:block" data-testid="print-limits">
 <div>
+<div class="print-avoid-break" data-print-group="head">
+<div>
+<div>
+<div>
 <h2>Cosa non gestisce il tool</h2>
 <p>Limiti dichiarati dello strumento, dal catalogo eccezioni: per esteso le voci emerse dalle risposte date, in una riga le voci non gestite. Ogni voce resta da valutare con un consulente qualificato.</p>
 </div>
-<div>
 <h3>Avvisi emersi dalle risposte date</h3>
-<ul>
-<li data-limit="pa_organi_costituzionali_capo_v_art_4_c_2">
+</div>
+</div>
+<div class="print-avoid-break print:rounded-panel print:border">
+<div data-limit="pa_organi_costituzionali_capo_v_art_4_c_2">
 <span>Organi costituzionali e di rilievo costituzionale: Capo V non applicabile</span>
 <span> (Segnalato, non valutato dal tool)</span>
 <span>Agli organi costituzionali e di rilievo costituzionale non si applicano le previsioni del Capo V del decreto, dedicato a vigilanza ed esecuzione (art. 4 c. 2, seconda parte). Lo strumento non modella questa differenza: l&#x27;esito sull&#x27;ambito resta quello indicato, mentre le conseguenze in termini di vigilanza vanno approfondite con un consulente qualificato. <span>
 <a href="#fonte-5">5</a>
 </span>
 </span>
-</li>
-<li data-limit="pa_esclusioni_sicurezza_nazionale_art_4_c_3">
+</div>
+</div>
+</div>
+<div class="print-avoid-break print:rounded-panel print:border print:mt-2">
+<div data-limit="pa_esclusioni_sicurezza_nazionale_art_4_c_3">
 <span>Esclusioni di sicurezza nazionale (art. 4 D.Lgs. 138/2024) per attività</span>
 <span> (Segnalato, non valutato dal tool)</span>
 <span>Il decreto non si applica agli enti, organi e articolazioni della pubblica amministrazione che operano nei settori della pubblica sicurezza, della difesa nazionale o dell&#x27;attività di contrasto, agli organismi di informazione per la sicurezza e all&#x27;ACN (art. 4 c. 3). Lo strumento non valuta l&#x27;ambito di attività del soggetto: se il caso è pertinente, l&#x27;esito va riesaminato con un consulente qualificato. <span>
 <a href="#fonte-6">6</a>
 </span>
 </span>
-</li>
-<li data-limit="pa_prerequisito_istat_s13">
+</div>
+</div>
+<div class="print-avoid-break print:rounded-panel print:border print:mt-2">
+<div data-limit="pa_prerequisito_istat_s13">
 <span>Inclusione nell&#x27;elenco ISTAT delle amministrazioni pubbliche</span>
 <span> (Segnalato, non valutato dal tool)</span>
 <span>Il rientro delle pubbliche amministrazioni dell&#x27;Allegato III presuppone che il soggetto sia tra le amministrazioni pubbliche di cui all&#x27;art. 1 c. 3 L. 196/2009, cioè nell&#x27;elenco ISTAT delle amministrazioni pubbliche (art. 3 c. 6 D.Lgs. 138/2024). Lo strumento non verifica l&#x27;inclusione nell&#x27;elenco, che va confermata con un consulente qualificato. <span>
@@ -591,10 +1225,10 @@ exports[`printed verdict of E10 > matches the print-mode DOM snapshot 1`] = `
 <a href="#fonte-8">8</a>
 </span>
 </span>
-</li>
-</ul>
 </div>
-<div>
+</div>
+</div>
+<div class="print-avoid-break">
 <h3>Non gestito dal tool</h3>
 <ul>
 <li data-limit="dora_massive_disapplication">Settore bancario e infrastrutture dei mercati finanziari (art. 3 c. 14)</li>
@@ -610,14 +1244,22 @@ exports[`printed verdict of E10 > matches the print-mode DOM snapshot 1`] = `
 </section>
 <p class="hidden print:block">Parte tecnica, per il consulente</p>
 <section id="come-calcolato" class="hidden print:block" aria-labelledby="trace-title">
-<h2 id="trace-title">Come è stato calcolato</h2>
+<div class="print-avoid-break" data-print-group="head">
 <div>
+<h2 id="trace-title">Come è stato calcolato</h2>
+</div>
+<div class="print-avoid-break print:border-0 print:bg-transparent print:px-0 print:pb-0 print:pt-0">
 <p data-stage="regime_routing">
 <span>Regimi speciali:</span> <span>Non applicabile alle risposte date.</span>
 </p>
+</div>
+</div>
+<div class="print-avoid-break print:border-0 print:bg-transparent print:px-0 print:pb-0 print:pt-2">
 <p data-stage="type_exclusion">
 <span>Esclusioni per tipologia:</span> <span>Non applicabile alle risposte date.</span>
 </p>
+</div>
+<div class="print-avoid-break print:border-0 print:bg-transparent print:px-0 print:pb-0 print:pt-2">
 <div data-testid="trace-decided" data-stage="size_blind">
 <h3>Regole indipendenti dalla dimensione</h3>
 <p>Per le amministrazioni centrali dell&#x27;Allegato III lett. a) (organi costituzionali e di rilievo costituzionale, Presidenza del Consiglio dei ministri e Ministeri, Agenzie fiscali, Autorità amministrative indipendenti), l&#x27;analisi suggerisce il rientro nel perimetro NIS2 italiano come soggetto essenziale, indipendentemente dalla dimensione (art. 3 c. 6 e art. 6 c. 1 lett. e) D.Lgs. 138/2024). L&#x27;elenco dei soggetti essenziali e importanti è stabilito con determinazione dell&#x27;ACN (art. 40 c. 5 lett. a)). La valutazione presuppone l&#x27;inclusione nell&#x27;elenco ISTAT (Lista S13). Verifica obbligatoria con consulente qualificato. <span>
@@ -629,21 +1271,23 @@ exports[`printed verdict of E10 > matches the print-mode DOM snapshot 1`] = `
 </span>
 </p>
 </div>
+</div>
+<div class="print-avoid-break print:border-0 print:bg-transparent print:px-0 print:pb-0 print:pt-2">
 <p data-stage="dimensional">
 <span>Regole dimensionali:</span> <span>Non applicabile alle risposte date.</span>
 </p>
 </div>
 </section>
 <section aria-labelledby="fonti-title">
-<div>
+<div class="print-keep-with-next">
 <h2 id="fonti-title">Fonti citate in questo esito</h2>
 <p>Citate al livello verificato: articolo e comma, o codice FAQ. Ogni voce apre la scheda nella knowledge base.</p>
 </div>
-<div>
+<div class="print:border-0 print:bg-transparent print:p-0">
 <div>
 <h3>Decreto NIS (D.Lgs. 138/2024)</h3>
 <ol>
-<li id="fonte-1" data-testid="source" data-source="dlgs_138_2024_allegato_III">
+<li id="fonte-1" class="print-avoid-break" data-testid="source" data-source="dlgs_138_2024_allegato_III">
 <span>1</span>
 <span>
 <span>D.Lgs. 138/2024, Allegato III</span>
@@ -652,7 +1296,7 @@ exports[`printed verdict of E10 > matches the print-mode DOM snapshot 1`] = `
 <span class="hidden print:block" data-testid="source-url">https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/D.Lgs.%20138-2024%20(Decreto%20NIS).md?plain=1#L35</span>
 </span>
 </li>
-<li id="fonte-2" data-testid="source" data-source="dlgs_138_2024_art_3_c_6">
+<li id="fonte-2" class="print-avoid-break" data-testid="source" data-source="dlgs_138_2024_art_3_c_6">
 <span>2</span>
 <span>
 <span>D.Lgs. 138/2024, art. 3 c. 6</span>
@@ -661,7 +1305,7 @@ exports[`printed verdict of E10 > matches the print-mode DOM snapshot 1`] = `
 <span class="hidden print:block" data-testid="source-url">https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/D.Lgs.%20138-2024%20(Decreto%20NIS).md?plain=1#L34</span>
 </span>
 </li>
-<li id="fonte-3" data-testid="source" data-source="dlgs_138_2024_art_6_c_1_lett_e">
+<li id="fonte-3" class="print-avoid-break" data-testid="source" data-source="dlgs_138_2024_art_6_c_1_lett_e">
 <span>3</span>
 <span>
 <span>D.Lgs. 138/2024, art. 6 c. 1 lett. e)</span>
@@ -670,7 +1314,7 @@ exports[`printed verdict of E10 > matches the print-mode DOM snapshot 1`] = `
 <span class="hidden print:block" data-testid="source-url">https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/D.Lgs.%20138-2024%20(Decreto%20NIS).md?plain=1#L42</span>
 </span>
 </li>
-<li id="fonte-4" data-testid="source" data-source="dlgs_138_2024_art_40_c_5_lett_a">
+<li id="fonte-4" class="print-avoid-break" data-testid="source" data-source="dlgs_138_2024_art_40_c_5_lett_a">
 <span>4</span>
 <span>
 <span>D.Lgs. 138/2024, art. 40 c. 5 lett. a)</span>
@@ -679,7 +1323,7 @@ exports[`printed verdict of E10 > matches the print-mode DOM snapshot 1`] = `
 <span class="hidden print:block" data-testid="source-url">https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/D.Lgs.%20138-2024%20(Decreto%20NIS).md?plain=1#L8</span>
 </span>
 </li>
-<li id="fonte-5" data-testid="source" data-source="dlgs_138_2024_art_4_c_2">
+<li id="fonte-5" class="print-avoid-break" data-testid="source" data-source="dlgs_138_2024_art_4_c_2">
 <span>5</span>
 <span>
 <span>D.Lgs. 138/2024, art. 4 c. 2</span>
@@ -688,7 +1332,7 @@ exports[`printed verdict of E10 > matches the print-mode DOM snapshot 1`] = `
 <span class="hidden print:block" data-testid="source-url">https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/D.Lgs.%20138-2024%20(Decreto%20NIS).md?plain=1#L41</span>
 </span>
 </li>
-<li id="fonte-6" data-testid="source" data-source="dlgs_138_2024_art_4_c_3">
+<li id="fonte-6" class="print-avoid-break" data-testid="source" data-source="dlgs_138_2024_art_4_c_3">
 <span>6</span>
 <span>
 <span>D.Lgs. 138/2024, art. 4 c. 3</span>
@@ -702,7 +1346,7 @@ exports[`printed verdict of E10 > matches the print-mode DOM snapshot 1`] = `
 <div>
 <h3>Determinazioni ACN</h3>
 <ol>
-<li id="fonte-7" data-testid="source" data-source="det_piattaforma_127437_2026_art_4_c_8">
+<li id="fonte-7" class="print-avoid-break" data-testid="source" data-source="det_piattaforma_127437_2026_art_4_c_8">
 <span>7</span>
 <span>
 <span>Det. ACN 127437/2026, art. 4 c. 8</span>
@@ -716,7 +1360,7 @@ exports[`printed verdict of E10 > matches the print-mode DOM snapshot 1`] = `
 <div>
 <h3>Altre fonti</h3>
 <ol>
-<li id="fonte-8" data-testid="source" data-source="l_196_2009_art_1_c_3">
+<li id="fonte-8" class="print-avoid-break" data-testid="source" data-source="l_196_2009_art_1_c_3">
 <span>8</span>
 <span>
 <span>L. 196/2009, art. 1 c. 3</span>
@@ -725,7 +1369,7 @@ exports[`printed verdict of E10 > matches the print-mode DOM snapshot 1`] = `
 <span class="hidden print:block" data-testid="source-url">https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/D.Lgs.%20138-2024%20(Decreto%20NIS).md?plain=1#L34</span>
 </span>
 </li>
-<li id="fonte-9" data-testid="source" data-source="l90_2024_art_1_c_1">
+<li id="fonte-9" class="print-avoid-break" data-testid="source" data-source="l90_2024_art_1_c_1">
 <span>9</span>
 <span>
 <span>L. 90/2024, art. 1 c. 1</span>
@@ -734,7 +1378,7 @@ exports[`printed verdict of E10 > matches the print-mode DOM snapshot 1`] = `
 <span class="hidden print:block" data-testid="source-url">https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/Legge%2090-2024%20(cybersicurezza%20nazionale).md?plain=1#L28</span>
 </span>
 </li>
-<li id="fonte-10" data-testid="source" data-source="l90_2024_art_1_c_7_lett_a">
+<li id="fonte-10" class="print-avoid-break" data-testid="source" data-source="l90_2024_art_1_c_7_lett_a">
 <span>10</span>
 <span>
 <span>L. 90/2024, art. 1 c. 7 lett. a)</span>
@@ -743,7 +1387,7 @@ exports[`printed verdict of E10 > matches the print-mode DOM snapshot 1`] = `
 <span class="hidden print:block" data-testid="source-url">https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/synthesis/Coordinamento%20L.%2090-2024%20e%20NIS2.md?plain=1#L46</span>
 </span>
 </li>
-<li id="fonte-11" data-testid="source" data-source="l90_2024_art_15_bis">
+<li id="fonte-11" class="print-avoid-break" data-testid="source" data-source="l90_2024_art_15_bis">
 <span>11</span>
 <span>
 <span>L. 90/2024, art. 15-bis</span>
@@ -862,7 +1506,7 @@ exports[`printed verdict of E27 > matches the print-mode DOM snapshot 1`] = `
 <section class="print:hidden" aria-labelledby="punti-title">
 <h2 id="punti-title">2 punti da valutare con un consulente</h2>
 <div>
-<div data-testid="notice" data-notice="energia_regime_transitorio_ose">
+<div class="print-avoid-break" data-testid="notice" data-notice="energia_regime_transitorio_ose">
 <div>
 <span aria-hidden="true">
 </span>
@@ -875,7 +1519,7 @@ exports[`printed verdict of E27 > matches the print-mode DOM snapshot 1`] = `
 </span>
 </p>
 </div>
-<div data-testid="notice" data-notice="punti_ricarica_non_pun_attivita_ulteriore">
+<div class="print-avoid-break" data-testid="notice" data-notice="punti_ricarica_non_pun_attivita_ulteriore">
 <div>
 <span aria-hidden="true">
 </span>
@@ -889,12 +1533,15 @@ exports[`printed verdict of E27 > matches the print-mode DOM snapshot 1`] = `
 </div>
 </div>
 </section>
-<section aria-labelledby="segnalazioni-title">
+<section aria-labelledby="segnalazioni-title" data-testid="signals">
+<div class="print-avoid-break" data-print-group="head">
+<div>
 <div>
 <h2 id="segnalazioni-title">Altre segnalazioni dalle risposte date</h2>
 <p>Si aggiungono all&#x27;esito e non lo modificano: indicano altri ambiti o regimi da verificare con un consulente.</p>
 </div>
-<div>
+</div>
+<div class="print-avoid-break print:rounded-panel print:border">
 <p data-testid="signal" data-signal="cross_sector_multi_tipologia_elettrica">Il soggetto sembra svolgere più attività nel settore elettrico (es. distribuzione e vendita). La registrazione sulla piattaforma ACN indica tutte le tipologie pertinenti. La valutazione di rientro riguarda ciascuna tipologia svolta. Verifica con consulente qualificato. <span>
 <a href="#fonte-2">2</a>
 <a href="#fonte-7">7</a>
@@ -902,8 +1549,10 @@ exports[`printed verdict of E27 > matches the print-mode DOM snapshot 1`] = `
 </span>
 </p>
 </div>
+</div>
 </section>
 <section class="hidden print:block" data-testid="print-consultant">
+<div class="print-avoid-break">
 <div>
 <h2>Cosa portare al consulente</h2>
 <p>Punti da valutare con un consulente qualificato, dai dati di questa valutazione.</p>
@@ -926,7 +1575,8 @@ exports[`printed verdict of E27 > matches the print-mode DOM snapshot 1`] = `
 <dd>valutazione e75c00d2, corpus 0.13.1</dd>
 </div>
 </dl>
-<div>
+</div>
+<div class="print-avoid-break">
 <h3>Avvisi emersi</h3>
 <ul>
 <li>Regime transitorio degli ex operatori di servizi essenziali (art. 5 Det. ACN 379907/2025)</li>
@@ -938,34 +1588,34 @@ exports[`printed verdict of E27 > matches the print-mode DOM snapshot 1`] = `
 <h3>Le risposte date</h3>
 <p>Input della valutazione e75c00d2: con le stesse risposte e la stessa versione del corpus lo strumento restituisce lo stesso esito.</p>
 <dl>
-<div>
+<div class="print-avoid-break">
 <dt>Il soggetto è stato inserito nel Perimetro di Sicurezza Nazionale Cibernetica (PSNC) ai sensi dell&#x27;art. 1 c. 2-bis del D.L. 105/2019?</dt> <dd>No</dd>
 </div>
-<div>
+<div class="print-avoid-break">
 <dt>Il soggetto è un&#x27;entità finanziaria regolata dal Regolamento (UE) 2022/2554 (DORA), ad esempio un ente creditizio (banca) o un gestore di una sede di negoziazione?</dt> <dd>No</dd>
 </div>
-<div>
+<div class="print-avoid-break">
 <dt>Il soggetto eroga servizi cloud destinati a una Pubblica Amministrazione, qualificati ai sensi del Regolamento Cloud per la PA (Decreto Direttoriale ACN n. 21007/24)?</dt> <dd>No</dd>
 </div>
-<div>
+<div class="print-avoid-break">
 <dt>Quale attività svolge principalmente il soggetto nel settore elettrico?</dt> <dd>Produzione di energia elettrica</dd>
 </div>
-<div>
+<div class="print-avoid-break">
 <dt>Oltre all&#x27;attività principale, il soggetto ne svolge altre tra queste nel settore elettrico?</dt> <dd>Gestione di punti di ricarica per veicoli elettrici</dd>
 </div>
-<div>
+<div class="print-avoid-break">
 <dt>Il soggetto è obbligato a registrarsi sul PUN (Piattaforma Unica Nazionale) come gestore di punti di ricarica, ai sensi del DM MASE n. 106 del 16/03/2023?</dt> <dd>No, non obbligato alla registrazione su PUN</dd>
 </div>
-<div>
+<div class="print-avoid-break">
 <dt>Il soggetto risponde ai requisiti della definizione di «clienti attivi» e non svolge altre attività riconducibili agli Allegati I e II del D.Lgs. 138/2024?</dt> <dd>No</dd>
 </div>
-<div>
+<div class="print-avoid-break">
 <dt>Il soggetto è un ente pubblico o ha capitale, quote o partecipazioni pubbliche?</dt> <dd>No</dd>
 </div>
-<div>
+<div class="print-avoid-break">
 <dt>Il soggetto è stato individuato come soggetto critico ai sensi del D.Lgs. 134/2024?</dt> <dd>No</dd>
 </div>
-<div>
+<div class="print-avoid-break">
 <dt>A quale categoria dimensionale appartiene il soggetto, secondo la Raccomandazione UE 2003/361/CE?</dt> <dd>Media impresa (non piccola; meno di 250 effettivi e fatturato fino a 50 M€ o bilancio fino a 43 M€)</dd>
 </div>
 </dl>
@@ -973,13 +1623,18 @@ exports[`printed verdict of E27 > matches the print-mode DOM snapshot 1`] = `
 </section>
 <section class="hidden print:block" data-testid="print-limits">
 <div>
+<div class="print-avoid-break" data-print-group="head">
+<div>
+<div>
+<div>
 <h2>Cosa non gestisce il tool</h2>
 <p>Limiti dichiarati dello strumento, dal catalogo eccezioni: per esteso le voci emerse dalle risposte date, in una riga le voci non gestite. Ogni voce resta da valutare con un consulente qualificato.</p>
 </div>
-<div>
 <h3>Avvisi emersi dalle risposte date</h3>
-<ul>
-<li data-limit="energia_regime_transitorio_ose">
+</div>
+</div>
+<div class="print-avoid-break print:rounded-panel print:border">
+<div data-limit="energia_regime_transitorio_ose">
 <span>Regime transitorio degli ex operatori di servizi essenziali (art. 5 Det. ACN 379907/2025)</span>
 <span> (Segnalato, non valutato dal tool)</span>
 <span>Secondo l&#x27;art. 5 della Det. ACN 379907/2025, i soggetti già operatori di servizi essenziali ai sensi del D.Lgs. 65/2018 mantengono, limitatamente ai sistemi informativi e di rete già individuati in quel quadro, le misure tecniche e organizzative già adottate, salvo contrasti con il decreto NIS. Il regime transitorio riguarda le misure, non l&#x27;ambito. Per l&#x27;ambito, un soggetto già identificato come operatore di servizi essenziali può essere individuato dall&#x27;ACN indipendentemente dalla dimensione (art. 3 c. 9 lett. a) D.Lgs. 138/2024, con le procedure del c. 13). Lo strumento non chiede se il soggetto era un operatore di servizi essenziali: il caso va approfondito con un consulente qualificato. <span>
@@ -987,18 +1642,21 @@ exports[`printed verdict of E27 > matches the print-mode DOM snapshot 1`] = `
 <a href="#fonte-10">10</a>
 </span>
 </span>
-</li>
-<li data-limit="punti_ricarica_non_pun_attivita_ulteriore">
+</div>
+</div>
+</div>
+<div class="print-avoid-break print:rounded-panel print:border print:mt-2">
+<div data-limit="punti_ricarica_non_pun_attivita_ulteriore">
 <span>Punti di ricarica senza obbligo di registrazione sul PUN, accanto ad altre attività</span>
 <span> (Segnalato, non valutato dal tool)</span>
 <span>Il soggetto indica, tra le attività dichiarate, la gestione di punti di ricarica senza obbligo di registrazione sul PUN, o con obbligo non noto. Secondo la FAQ ACN A1.1.a.3 rientrano nella definizione della tipologia «gestore di un punto di ricarica» solo i soggetti obbligati a registrarsi sul PUN. Poiché il soggetto dichiara anche altre attività del settore elettrico, l&#x27;esito indicato segue le regole del settore per quelle attività; l&#x27;attività di ricarica va approfondita con un consulente qualificato. <span>
 <a href="#fonte-8">8</a>
 </span>
 </span>
-</li>
-</ul>
 </div>
-<div>
+</div>
+</div>
+<div class="print-avoid-break">
 <h3>Non gestito dal tool</h3>
 <ul>
 <li data-limit="dora_massive_disapplication">Settore bancario e infrastrutture dei mercati finanziari (art. 3 c. 14)</li>
@@ -1014,17 +1672,27 @@ exports[`printed verdict of E27 > matches the print-mode DOM snapshot 1`] = `
 </section>
 <p class="hidden print:block">Parte tecnica, per il consulente</p>
 <section id="come-calcolato" class="hidden print:block" aria-labelledby="trace-title">
-<h2 id="trace-title">Come è stato calcolato</h2>
+<div class="print-avoid-break" data-print-group="head">
 <div>
+<h2 id="trace-title">Come è stato calcolato</h2>
+</div>
+<div class="print-avoid-break print:border-0 print:bg-transparent print:px-0 print:pb-0 print:pt-0">
 <p data-stage="regime_routing">
 <span>Regimi speciali:</span> <span>Non applicabile alle risposte date.</span>
 </p>
+</div>
+</div>
+<div class="print-avoid-break print:border-0 print:bg-transparent print:px-0 print:pb-0 print:pt-2">
 <p data-stage="type_exclusion">
 <span>Esclusioni per tipologia:</span> <span>Non decisivo: tra le attività dichiarate ce n&#x27;è almeno una senza esclusione.</span>
 </p>
+</div>
+<div class="print-avoid-break print:border-0 print:bg-transparent print:px-0 print:pb-0 print:pt-2">
 <p data-stage="size_blind">
 <span>Regole indipendenti dalla dimensione:</span> <span>Non applicabile alle risposte date.</span>
 </p>
+</div>
+<div class="print-avoid-break print:border-0 print:bg-transparent print:px-0 print:pb-0 print:pt-2">
 <div data-testid="trace-decided" data-stage="dimensional">
 <h3>Regole dimensionali</h3>
 <p>Dimensione dichiarata: Media impresa. Classificazione secondo FAQ ACN AMB.DI.1 e Racc. UE 2003/361. Sulla base degli input forniti, l&#x27;analisi suggerisce il rientro nel perimetro NIS2 italiano come soggetto importante (Allegato I p. 1, energia; art. 6 c. 3 D.Lgs. 138/2024). Per &#x27;fatturato&#x27; si intende quello complessivo del soggetto, non solo dell&#x27;attività NIS (FAQ A1.2). Per i produttori, non rientrano i clienti attivi che non svolgono altre attività degli Allegati I e II (FAQ A1.1.a.4). <span>
@@ -1039,15 +1707,15 @@ exports[`printed verdict of E27 > matches the print-mode DOM snapshot 1`] = `
 </div>
 </section>
 <section aria-labelledby="fonti-title">
-<div>
+<div class="print-keep-with-next">
 <h2 id="fonti-title">Fonti citate in questo esito</h2>
 <p>Citate al livello verificato: articolo e comma, o codice FAQ. Ogni voce apre la scheda nella knowledge base.</p>
 </div>
-<div>
+<div class="print:border-0 print:bg-transparent print:p-0">
 <div>
 <h3>Decreto NIS (D.Lgs. 138/2024)</h3>
 <ol>
-<li id="fonte-1" data-testid="source" data-source="dlgs_138_2024_art_6_c_3">
+<li id="fonte-1" class="print-avoid-break" data-testid="source" data-source="dlgs_138_2024_art_6_c_3">
 <span>1</span>
 <span>
 <span>D.Lgs. 138/2024, art. 6 c. 3</span>
@@ -1056,7 +1724,7 @@ exports[`printed verdict of E27 > matches the print-mode DOM snapshot 1`] = `
 <span class="hidden print:block" data-testid="source-url">https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/D.Lgs.%20138-2024%20(Decreto%20NIS).md?plain=1#L42</span>
 </span>
 </li>
-<li id="fonte-2" data-testid="source" data-source="dlgs_138_2024_art_7_c_1_lett_d">
+<li id="fonte-2" class="print-avoid-break" data-testid="source" data-source="dlgs_138_2024_art_7_c_1_lett_d">
 <span>2</span>
 <span>
 <span>D.Lgs. 138/2024, art. 7 c. 1 lett. d)</span>
@@ -1065,7 +1733,7 @@ exports[`printed verdict of E27 > matches the print-mode DOM snapshot 1`] = `
 <span class="hidden print:block" data-testid="source-url">https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/D.Lgs.%20138-2024%20(Decreto%20NIS).md?plain=1#L26</span>
 </span>
 </li>
-<li id="fonte-3" data-testid="source" data-source="dlgs_138_2024_art_3_c_9">
+<li id="fonte-3" class="print-avoid-break" data-testid="source" data-source="dlgs_138_2024_art_3_c_9">
 <span>3</span>
 <span>
 <span>D.Lgs. 138/2024, art. 3 c. 9</span>
@@ -1079,7 +1747,7 @@ exports[`printed verdict of E27 > matches the print-mode DOM snapshot 1`] = `
 <div>
 <h3>FAQ ACN</h3>
 <ol>
-<li id="fonte-4" data-testid="source" data-source="faq_amb_di_1">
+<li id="fonte-4" class="print-avoid-break" data-testid="source" data-source="faq_amb_di_1">
 <span>4</span>
 <span>
 <span>FAQ ACN AMB.DI.1</span>
@@ -1088,7 +1756,7 @@ exports[`printed verdict of E27 > matches the print-mode DOM snapshot 1`] = `
 <span class="hidden print:block" data-testid="source-url">https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/FAQ%20NIS%20-%20Ambito.md?plain=1#L106</span>
 </span>
 </li>
-<li id="fonte-5" data-testid="source" data-source="faq_a1_2">
+<li id="fonte-5" class="print-avoid-break" data-testid="source" data-source="faq_a1_2">
 <span>5</span>
 <span>
 <span>FAQ ACN A1.2</span>
@@ -1097,7 +1765,7 @@ exports[`printed verdict of E27 > matches the print-mode DOM snapshot 1`] = `
 <span class="hidden print:block" data-testid="source-url">https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/FAQ%20NIS%20-%20Settori%2C%20sottosettori%20e%20tipologie%20di%20soggetto.md?plain=1#L51</span>
 </span>
 </li>
-<li id="fonte-6" data-testid="source" data-source="faq_a1_1_a_4">
+<li id="fonte-6" class="print-avoid-break" data-testid="source" data-source="faq_a1_1_a_4">
 <span>6</span>
 <span>
 <span>FAQ ACN A1.1.a.4</span>
@@ -1106,7 +1774,7 @@ exports[`printed verdict of E27 > matches the print-mode DOM snapshot 1`] = `
 <span class="hidden print:block" data-testid="source-url">https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/FAQ%20NIS%20-%20Settori%2C%20sottosettori%20e%20tipologie%20di%20soggetto.md?plain=1#L37</span>
 </span>
 </li>
-<li id="fonte-7" data-testid="source" data-source="faq_settori_sottosettori">
+<li id="fonte-7" class="print-avoid-break" data-testid="source" data-source="faq_settori_sottosettori">
 <span>7</span>
 <span>
 <span>FAQ ACN Settori, sottosettori e tipologie di soggetto</span>
@@ -1115,7 +1783,7 @@ exports[`printed verdict of E27 > matches the print-mode DOM snapshot 1`] = `
 <span class="hidden print:block" data-testid="source-url">https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/FAQ%20NIS%20-%20Settori%2C%20sottosettori%20e%20tipologie%20di%20soggetto.md?plain=1#L17</span>
 </span>
 </li>
-<li id="fonte-8" data-testid="source" data-source="faq_a1_1_a_3">
+<li id="fonte-8" class="print-avoid-break" data-testid="source" data-source="faq_a1_1_a_3">
 <span>8</span>
 <span>
 <span>FAQ ACN A1.1.a.3</span>
@@ -1129,7 +1797,7 @@ exports[`printed verdict of E27 > matches the print-mode DOM snapshot 1`] = `
 <div>
 <h3>Determinazioni ACN</h3>
 <ol>
-<li id="fonte-9" data-testid="source" data-source="det_piattaforma_127437_2026_art_11_c_2_lett_g">
+<li id="fonte-9" class="print-avoid-break" data-testid="source" data-source="det_piattaforma_127437_2026_art_11_c_2_lett_g">
 <span>9</span>
 <span>
 <span>Det. ACN 127437/2026, art. 11 c. 2 lett. g)</span>
@@ -1138,7 +1806,7 @@ exports[`printed verdict of E27 > matches the print-mode DOM snapshot 1`] = `
 <span class="hidden print:block" data-testid="source-url">https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/Determinazione%20ACN%20piattaforma%20e%20procedure%20-%202026-04-13.md?plain=1#L51</span>
 </span>
 </li>
-<li id="fonte-10" data-testid="source" data-source="det_acn_379907_2025_art_5">
+<li id="fonte-10" class="print-avoid-break" data-testid="source" data-source="det_acn_379907_2025_art_5">
 <span>10</span>
 <span>
 <span>Det. ACN 379907/2025, art. 5</span>
@@ -1152,7 +1820,7 @@ exports[`printed verdict of E27 > matches the print-mode DOM snapshot 1`] = `
 <div>
 <h3>Altre fonti</h3>
 <ol>
-<li id="fonte-11" data-testid="source" data-source="racc_ue_2003_361">
+<li id="fonte-11" class="print-avoid-break" data-testid="source" data-source="racc_ue_2003_361">
 <span>11</span>
 <span>
 <span>Racc. 2003/361/CE</span>
