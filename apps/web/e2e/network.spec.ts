@@ -61,11 +61,25 @@ test("a full session sends requests only to the origin, without CSP violations",
   expect(violations).toEqual([]);
 });
 
-test("preview stage: noindex on every page, robots.txt disallows everything", async ({ page, request }) => {
+/**
+ * Indexing follows the release stage of the build under test: NIS2_RELEASE_STAGE, the same variable
+ * the build reads (apps/web/lib/release.ts). The local export is built as "preview"; production
+ * builds since the release act of v0.1.0 are "public" (run with NIS2_RELEASE_STAGE=public and
+ * E2E_BASE_URL=<public URL>).
+ */
+const STAGE = process.env.NIS2_RELEASE_STAGE === "public" ? "public" : "preview";
+
+test(`${STAGE} stage: indexing of every page and robots.txt`, async ({ page, request }) => {
   for (const url of ["/", "/limiti/"]) {
     await page.goto(url);
-    await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", /noindex/);
+    if (STAGE === "public") await expect(page.locator('meta[name="robots"]')).toHaveCount(0);
+    else await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", /noindex/);
   }
   const robots = await (await request.get("/robots.txt")).text();
-  expect(robots).toMatch(/Disallow: \//);
+  if (STAGE === "public") {
+    expect(robots).toMatch(/Allow: \//);
+    expect(robots).not.toMatch(/Disallow/);
+  } else {
+    expect(robots).toMatch(/Disallow: \//);
+  }
 });

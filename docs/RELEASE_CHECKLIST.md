@@ -75,6 +75,17 @@ Da eseguire solo su decisione nel Project, non in S4.2. In quest'ordine:
    `E2E_BASE_URL=<URL definitivo> pnpm --filter @nis2-check/web exec playwright test`, più controllo
    a mano di `robots.txt`, meta `robots` e header.
 
+## Esecuzione dell'atto di rilascio v0.1.0 (2026-11-02)
+
+- Alias `ambito-nis2.vercel.app` aggiunto al progetto (disponibile al primo tentativo); il vecchio
+  alias resta attivo.
+- `NIS2_RELEASE_STAGE=public` solo in produzione: `robots.txt` con `Allow: /`, nessun meta `robots`.
+- Vercel Authentication solo sulle anteprime: 200 anonimo sull'alias.
+- E2e contro l'URL pubblico (`E2E_BASE_URL=https://ambito-nis2.vercel.app NIS2_RELEASE_STAGE=public`):
+  15 verdi, 1 saltato (PDF di esempio); la sessione completa invia richieste solo all'origine, senza
+  violazioni CSP. Il test di indicizzazione segue `NIS2_RELEASE_STAGE` (anteprima in locale, pubblico
+  sull'URL di produzione).
+
 ## Enumerazione completa dei percorsi
 
 `pnpm engine:enumerate --full`, da eseguire prima di ogni rilascio; esito registrato qui e in `docs/STATUS.md`.
