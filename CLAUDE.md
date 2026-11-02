@@ -25,7 +25,7 @@ nis2-check/
                         (pin 15.5: la linea 14.x è fuori supporto, con CVE senza fix — S2, 2026-10-28)
                         PDF = stampa del browser da foglio di stile @media print (ADR 0018)
   packages/engine     → funzione pura, zero dipendenze runtime, nessun I/O
-    tests/fixtures/   → scenari golden E01–E27 (legati a corpus_version)
+    tests/fixtures/   → scenari golden E01–E28 (legati a corpus_version)
   packages/corpus     → loader YAML + schemi zod + corpus:validate
     corpus/           → il corpus: VERSION, CHANGELOG.md, sectors/, wizard/, signals/, regimes/, exceptions/, citations/, conflicts/
   docs/               → ARCHITECTURE.md (viva), decisions/ (ADR), STATUS.md, CORPUS_SCHEMA.md
@@ -103,7 +103,7 @@ interface ReasoningStep {           // ADR 0016, §5
 
 ## Testing
 
-- **Fixture golden E01–E27** = suite di regressione dell'engine; più il test di enumerazione dei percorsi (ADR 0016 §6). Verdi obbligatorie prima di ogni merge che tocca engine o corpus. Un cambiamento di esito atteso richiede aggiornamento esplicito della fixture con motivazione nel commit (mai "aggiustare il test perché passi").
+- **Fixture golden E01–E28** = suite di regressione dell'engine; più il test di enumerazione dei percorsi (ADR 0016 §6). Verdi obbligatorie prima di ogni merge che tocca engine o corpus. Un cambiamento di esito atteso richiede aggiornamento esplicito della fixture con motivazione nel commit (mai "aggiustare il test perché passi").
 - **Validazione corpus in build-time** (zod): schema, `verdict_outcome` obbligatorio, invariante escalate→ambiguous, citation ID ben formati, referenze signals esistenti. CI fallisce su violazione.
 - Unit (engine, schemi) → integration (corpus reale + engine) → E2E Playwright (da v1.0).
 - Commenti estensivi nel codice; JSDoc in inglese.

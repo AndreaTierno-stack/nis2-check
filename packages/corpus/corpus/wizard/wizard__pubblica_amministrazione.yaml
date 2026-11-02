@@ -42,6 +42,10 @@ excluded_common_questions:
 # degli artt. 3 cc. 6-7 non si chiedono PSNC e classificazione Cloud PA, che riguardano la
 # categorizzazione delle attivita' dei soggetti NIS (Det. ACN 155238/2026, artt. 4-5). La domanda
 # soggetto_critico resta: l'art. 3 c. 5 lett. a) e' un canale autonomo (ADR 0015).
+# Corpus 0.13.0 (ADR 0016, review F03): la categoria e' l'attivita' dichiarata della PA; solo
+# l'esclusione dell'art. 4 c. 2 e' una mappatura di stadio 2, gli altri valori non escludono.
+activity_inputs: [categoria_pa]
+
 common_question_visibility:
   psnc: { input: categoria_pa, op: neq, value: esclusa_art_4_c_2 }
 
@@ -49,6 +53,7 @@ sector_specific_questions:
   # Domanda principale: quale categoria dell'Allegato III
   - id: categoria_pa
     kind: single_select
+    activity: esclusa_art_4_c_2   # esclude solo la categoria dell'art. 4 c. 2 (stadio 2)
     label_it: "A quale categoria dell'Allegato III appartiene il soggetto?"
     help_text_it: |
       Le categorie riprendono l'Allegato III del D.Lgs. 138/2024, che riguarda
@@ -70,6 +75,15 @@ sector_specific_questions:
         label_it: "Altro soggetto pubblico (lett. d): enti di regolazione dell'attività economica, enti produttori di servizi economici, enti a struttura associativa, enti produttori di servizi assistenziali, ricreativi e culturali, enti e istituzioni di ricerca, istituti zooprofilattici sperimentali"
       - id: canale_allegato_iv
         label_it: "Nessuna delle precedenti: soggetto pubblico o a partecipazione pubblica fuori dall'Allegato III (es. trasporto pubblico locale, istituto di istruzione che svolge ricerca, soggetto di interesse culturale, società in-house)"
+    outcome_mapping:
+      - answer: esclusa_art_4_c_2
+        outcome: out_of_scope
+        verdict_outcome: likely_out_of_scope   # vincolo fisso: out_of_scope -> likely_out_of_scope
+        reasoning_trace: "Il soggetto indicato (Parlamento italiano, Autorita' giudiziaria, Banca d'Italia o Unita' di informazione finanziaria per l'Italia) e' tra quelli che l'art. 4 c. 2 D.Lgs. 138/2024 non ricomprende tra le pubbliche amministrazioni dell'art. 3 cc. 6-7. Sulla base degli input forniti, l'analisi suggerisce che il soggetto non rientri nel perimetro NIS2 italiano come pubblica amministrazione dell'Allegato III. Verifica obbligatoria con consulente qualificato."
+        citations: [dlgs_138_2024_art_4_c_2]
+        # categoria_pa e' a scelta singola: l'esclusione non puo' essere retrocessa da un'altra
+        # attivita'; il campo e' obbligatorio (ADR 0016 amendment) e rinvia al conflitto.
+        notices_if_demoted: [esclusione_tipologica_vs_inclusione_size_blind]
 
   # Sotto-domanda condizionale: sottotipo della categoria c)
   - id: sottotipo_c

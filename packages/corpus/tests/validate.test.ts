@@ -339,6 +339,9 @@ describe('corpus:validate', () => {
     it('conflict catalog entry no longer referenced -> E_CATALOG_UNREFERENCED', () => {
       const errors = errorsAfter((c) => {
         c.conflicts = {};
+        // corpus 0.13.0: the PA art. 4 c. 2 mapping also points to the entry (notices_if_demoted)
+        const categoria = wizard(c, 'pubblica_amministrazione').sector_specific_questions.find((x: Doc) => x.id === 'categoria_pa');
+        categoria.outcome_mapping[0].notices_if_demoted = ['pa_organi_costituzionali_capo_v_art_4_c_2'];
       });
       expectCode(errors, 'E_CATALOG_UNREFERENCED', 'exceptions__catalog.yaml');
     });

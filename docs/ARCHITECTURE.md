@@ -22,7 +22,7 @@ nis2-check/
     src/answers.ts          domande del settore, visibilità, validazione delle risposte
     src/conditions.ts       visible_if (ADR 0010) e condizioni stringa, input assente = falso
     src/sha256.ts           inputHash, sincrono e senza dipendenze
-    tests/fixtures/         scenari golden E01–E27 (corpus_version, input, expected)
+    tests/fixtures/         scenari golden E01–E28 (corpus_version, input, expected)
   packages/corpus/          corpus + loader + schemi zod + corpus:validate
     corpus/                 VERSION · CHANGELOG.md · sectors/ · wizard/ · signals/ · regimes/
                             exceptions/ (catalogo eccezioni, ADR 0012) · citations/ (registro citazioni)
@@ -82,8 +82,9 @@ cloud_pa (segnali)          wizard di settore    wizard__disambiguation
 La L. 90/2024 non è un gate: è il signal cumulativo `l90_cumulo` (ADR 0001).
 
 **PA (ADR 0011).** Le lettere a)-d) dell'Allegato III hanno verdetto categoriale (a)
-essenziale, b)-d) importanti); l'opzione `esclusa_art_4_c_2` porta a
-`likely_out_of_scope`; il canale Allegato IV è alternativo alle lettere nella stessa
+essenziale, b)-d) importanti); l'opzione `esclusa_art_4_c_2` è un'esclusione di
+stadio 2 (`outcome_mapping` su `categoria_pa`, input di attività, corpus 0.13.0) che porta a
+`likely_out_of_scope`, salvo il soggetto critico: allora decide il conflitto (2)×(3) (`ambiguous`, E28); il canale Allegato IV è alternativo alle lettere nella stessa
 domanda. Nel percorso PA l'override Cloud PA scatta sulla domanda
 `classificazione_cloud_pa`; la domanda comune `cloud_pa` (rivolta ai fornitori) non è
 posta alla PA. Le lett. b)-d) individuate come soggetto critico sono essenziali (ADR 0015).
@@ -128,7 +129,7 @@ test di enumerazione).
 - **Test** (`packages/engine/tests/`): valutatore di condizioni (tabella di verità con assenti
   e operatori non usati dal corpus); visibilità e validazione sul corpus reale; stadi su un
   mini-corpus sintetico valido (un caso per stadio, esclusione per attività, conflitto, difetti,
-  avvisi da posizioni diverse, purezza, sha256); fixture golden E01–E27; enumerazione dei
+  avvisi da posizioni diverse, purezza, sha256); fixture golden E01–E28; enumerazione dei
   percorsi (cloud 480 e PA 304 combinazioni tutte, energia 417.792 campionate con seed fisso:
   25.000), con le proprietà dell'ADR 0016 §6, la raggiungibilità di ogni voce segnalata e
   l'etichetta di ogni citazione emessa. L'enumerazione dell'energia nel test è un

@@ -748,6 +748,10 @@ exports[`printed verdict of E10 > matches the print-mode DOM snapshot 1`] = `
 </span>
 </span>
 </li>
+<li data-limit="esclusione_tipologica_vs_inclusione_size_blind">
+<span>Esclusione per tipologia o per categoria e inclusione indipendente dalla dimensione: prevalenza non attestata</span>
+<span>Il soggetto risulta escluso per tipologia (FAQ ACN) o per categoria (art. 4 c. 2 D.Lgs. 138/2024), ma risulta anche individuato come soggetto critico ai sensi del D.Lgs. 134/2024, che il decreto pone in ambito indipendentemente dalla dimensione (art. 3 c. 5 lett. a) D.Lgs. 138/2024). Le fonti verificate dallo strumento non indicano quale dei due criteri prevalga: la prevalenza non è attestata. Lo strumento indirizza il caso a un consulente qualificato. </span>
+</li>
 <li data-limit="psnc_cloud_pa_precedenza_non_attestata">
 <span>PSNC e Cloud PA insieme: precedenza non indicata dalle fonti</span>
 <span>Per un&#x27;amministrazione inserita nel PSNC che ha anche classificato i propri dati e servizi ai sensi del Regolamento Cloud, le fonti disponibili non indicano quale disciplina prevalga tra l&#x27;attribuzione d&#x27;ufficio della categoria «alto» ai servizi PSNC (art. 5 Det. ACN 155238/2026) e la sostituzione del modello di categorizzazione (art. 4). Lo strumento indirizza il caso a un consulente qualificato; l&#x27;ordine con cui i due regimi sono elencati non indica una precedenza. </span>
@@ -1190,8 +1194,8 @@ exports[`printed verdict of E27 > matches the print-mode DOM snapshot 1`] = `
 </span>
 </li>
 <li data-limit="esclusione_tipologica_vs_inclusione_size_blind">
-<span>Esclusione per tipologia e inclusione indipendente dalla dimensione: prevalenza non attestata</span>
-<span>Il soggetto dichiara attività tutte escluse per tipologia secondo le FAQ ACN, ma risulta anche individuato come soggetto critico ai sensi del D.Lgs. 134/2024, che il decreto pone in ambito indipendentemente dalla dimensione (art. 3 c. 5 lett. a) D.Lgs. 138/2024). Le fonti verificate dallo strumento non indicano quale dei due criteri prevalga: la prevalenza non è attestata. Lo strumento indirizza il caso a un consulente qualificato. </span>
+<span>Esclusione per tipologia o per categoria e inclusione indipendente dalla dimensione: prevalenza non attestata</span>
+<span>Il soggetto risulta escluso per tipologia (FAQ ACN) o per categoria (art. 4 c. 2 D.Lgs. 138/2024), ma risulta anche individuato come soggetto critico ai sensi del D.Lgs. 134/2024, che il decreto pone in ambito indipendentemente dalla dimensione (art. 3 c. 5 lett. a) D.Lgs. 138/2024). Le fonti verificate dallo strumento non indicano quale dei due criteri prevalga: la prevalenza non è attestata. Lo strumento indirizza il caso a un consulente qualificato. </span>
 </li>
 </ul>
 </div>

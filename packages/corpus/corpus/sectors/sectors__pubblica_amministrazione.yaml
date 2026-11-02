@@ -130,13 +130,18 @@ qualification_rules:
     citations: [dlgs_138_2024_allegato_III, dlgs_138_2024_art_3_c_6, dlgs_138_2024_art_6_c_1_lett_e, dlgs_138_2024_art_40_c_5_lett_a, l_196_2009_art_1_c_3]
     notices: [pa_organi_costituzionali_capo_v_art_4_c_2, pa_esclusioni_sicurezza_nazionale_art_4_c_3, pa_prerequisito_istat_s13]
 
-  # Soggetti che l'art. 4 c. 2 non ricomprende tra le PA dell'art. 3 cc. 6-7
-  - condition: categoria_pa == esclusa_art_4_c_2
+  # Soggetti che l'art. 4 c. 2 non ricomprende tra le PA dell'art. 3 cc. 6-7: dal corpus 0.13.0
+  # l'esclusione e' una mappatura di stadio 2 su categoria_pa (wizard PA, ADR 0016). Se il soggetto
+  # e' anche individuato come soggetto critico, l'art. 3 c. 5 lett. a) e' un canale autonomo
+  # (l'art. 4 c. 2 esclude solo dai cc. 6-7): questa regola di stadio 3 include, e la coppia con
+  # l'esclusione di stadio 2 decide dal blocco conflicts (review 2026-11-02, F03).
+  - condition: categoria_pa == esclusa_art_4_c_2 AND soggetto_critico == yes
     stage: size_blind
-    outcome: out_of_scope
-    verdict_outcome: likely_out_of_scope   # vincolo fisso: out_of_scope -> likely_out_of_scope
-    reasoning_trace: "Il soggetto indicato (Parlamento italiano, Autorita' giudiziaria, Banca d'Italia o Unita' di informazione finanziaria per l'Italia) e' tra quelli che l'art. 4 c. 2 D.Lgs. 138/2024 non ricomprende tra le pubbliche amministrazioni dell'art. 3 cc. 6-7. Sulla base degli input forniti, l'analisi suggerisce che il soggetto non rientri nel perimetro NIS2 italiano come pubblica amministrazione dell'Allegato III. Verifica obbligatoria con consulente qualificato."
-    citations: [dlgs_138_2024_art_4_c_2]
+    outcome: categorical_assessment
+    verdict_outcome: likely_in_scope   # vincolo fisso: categorical_assessment in-scope -> likely_in_scope
+    qualifica: essenziale
+    reasoning_trace: "Il soggetto risulta individuato come soggetto critico ai sensi del D.Lgs. 134/2024. Sulla base degli input forniti, l'analisi suggerisce il rientro nel perimetro NIS2 italiano come soggetto essenziale, indipendentemente dalla dimensione (art. 3 c. 5 lett. a) e art. 6 c. 1 lett. b) D.Lgs. 138/2024; FAQ ACN AMB.NO.1). Verifica obbligatoria con consulente qualificato."
+    citations: [dlgs_138_2024_art_3_c_5_lett_a, dlgs_138_2024_art_6_c_1_lett_b, faq_amb_no_1]
 
   # Categoria b) — importante per art. 6 c. 3, elevabile ex art. 6 c. 2
   - condition: categoria_pa == b AND soggetto_critico == no

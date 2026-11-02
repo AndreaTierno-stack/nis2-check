@@ -80,12 +80,12 @@ Limiti dello strumento oltre il catalogo:
 
 ```sh
 pnpm corpus:validate              # schema e invarianti del corpus e delle fixture
-pnpm test                         # validator, engine (fixture golden E01-E27, percorsi), web
+pnpm test                         # validator, engine (fixture golden E01-E28, percorsi), web
 pnpm engine:enumerate --full      # tutte le combinazioni di risposte dei tre settori
 pnpm --filter @nis2-check/web test:e2e   # dopo il build: wizard, PDF, pagina dei limiti, rete
 ```
 
-- **Fixture golden** (`packages/engine/tests/fixtures/`): 27 scenari con l'esito atteso e il riferimento al costrutto del corpus che lo produce.
+- **Fixture golden** (`packages/engine/tests/fixtures/`): 28 scenari con l'esito atteso e il riferimento al costrutto del corpus che lo produce.
 - **Enumerazione completa**: 418.576 combinazioni valutate, 0 violazioni delle proprietà dell'engine (esecuzione del 2026-10-30, corpus 0.11.0; si ripete a ogni rilascio, esito in `docs/STATUS.md`).
 - **Registro citazioni** (`packages/corpus/corpus/citations/citations__registry.yaml`): 76 voci; ogni ID usato dal corpus ha il nodo della knowledge base e le righe che lo attestano. Nell'app ogni fonte apre quella riga.
 - **CI** (GitHub Actions): lint, typecheck, validazione del corpus, test, build ed e2e a ogni push.

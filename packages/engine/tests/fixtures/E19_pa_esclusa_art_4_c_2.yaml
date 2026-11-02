@@ -19,6 +19,6 @@ expected:
   signals: []
   notices: []
   regime_routing: []
-  corpus_ref: "wizard/wizard__pubblica_amministrazione.yaml#categoria_pa[esclusa_art_4_c_2] -> sectors/sectors__pubblica_amministrazione.yaml#qualification_rules[categoria_pa==esclusa_art_4_c_2]"
+  corpus_ref: "wizard/wizard__pubblica_amministrazione.yaml#categoria_pa.outcome_mapping[answer==esclusa_art_4_c_2]"
 
 citations: [dlgs_138_2024_art_4_c_2]

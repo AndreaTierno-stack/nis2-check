@@ -160,10 +160,10 @@ exceptions:
   # ADR 0016 (corpus 0.10.0): conflitto tra stadi, referenziata da conflicts/conflicts__stages.yaml
   - id: esclusione_tipologica_vs_inclusione_size_blind
     status: segnalato
-    title: "Esclusione per tipologia e inclusione indipendente dalla dimensione: prevalenza non attestata"
-    description: "Il soggetto dichiara attività tutte escluse per tipologia secondo le FAQ ACN, ma risulta anche individuato come soggetto critico ai sensi del D.Lgs. 134/2024, che il decreto pone in ambito indipendentemente dalla dimensione (art. 3 c. 5 lett. a) D.Lgs. 138/2024). Le fonti verificate dallo strumento non indicano quale dei due criteri prevalga: la prevalenza non è attestata. Lo strumento indirizza il caso a un consulente qualificato."
+    title: "Esclusione per tipologia o per categoria e inclusione indipendente dalla dimensione: prevalenza non attestata"
+    description: "Il soggetto risulta escluso per tipologia (FAQ ACN) o per categoria (art. 4 c. 2 D.Lgs. 138/2024), ma risulta anche individuato come soggetto critico ai sensi del D.Lgs. 134/2024, che il decreto pone in ambito indipendentemente dalla dimensione (art. 3 c. 5 lett. a) D.Lgs. 138/2024). Le fonti verificate dallo strumento non indicano quale dei due criteri prevalga: la prevalenza non è attestata. Lo strumento indirizza il caso a un consulente qualificato."
     citations: [dlgs_138_2024_art_3_c_5_lett_a]
-    applies_to: [energia_elettrica]
+    applies_to: [energia_elettrica, pubblica_amministrazione]
 
   # ADR 0016 amendment (corpus 0.10.0): esclusione per attivita' non decisiva
   - id: punti_ricarica_non_pun_attivita_ulteriore
