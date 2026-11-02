@@ -63,7 +63,7 @@ exports[`printed verdict of E05 > matches the print-mode DOM snapshot 1`] = `
 </div>
 <p>Parte sintetica</p>
 </section>
-<p>Anteprima di studio: non è un parere legale e non sostituisce la registrazione sulla piattaforma ACN.</p>
+<p class="print:hidden">Anteprima di studio: non è un parere legale e non sostituisce la registrazione sulla piattaforma ACN.</p>
 <div data-testid="outcome" data-outcome="likely_in_scope" data-mode="categorical_assessment">
 <div>
 <h1>Esito del pre-screening</h1>
@@ -410,7 +410,7 @@ exports[`printed verdict of E10 > matches the print-mode DOM snapshot 1`] = `
 </div>
 <p>Parte sintetica</p>
 </section>
-<p>Anteprima di studio: non è un parere legale e non sostituisce la registrazione sulla piattaforma ACN.</p>
+<p class="print:hidden">Anteprima di studio: non è un parere legale e non sostituisce la registrazione sulla piattaforma ACN.</p>
 <div data-testid="outcome" data-outcome="likely_in_scope" data-mode="categorical_assessment">
 <div>
 <h1>Esito del pre-screening</h1>
@@ -821,7 +821,7 @@ exports[`printed verdict of E27 > matches the print-mode DOM snapshot 1`] = `
 </div>
 <p>Parte sintetica</p>
 </section>
-<p>Anteprima di studio: non è un parere legale e non sostituisce la registrazione sulla piattaforma ACN.</p>
+<p class="print:hidden">Anteprima di studio: non è un parere legale e non sostituisce la registrazione sulla piattaforma ACN.</p>
 <div data-testid="outcome" data-outcome="likely_in_scope" data-mode="categorical_assessment">
 <div>
 <h1>Esito del pre-screening</h1>

@@ -189,7 +189,7 @@ function TracePanel({ props, sources, className }: { props: VerdictProps; source
 /**
  * Main column of the verdict page: banner, outcome, notices, trace (folded), sources. In print
  * (ADR 0018) the same panels, framed by the repeated header and foot, with the cover, the
- * answers given, the trace unfolded and the limits of the path.
+ * answers given, the trace unfolded and the limits of the path; the banner stays on screen.
  */
 export function VerdictMain(props: VerdictProps) {
   const [open, setOpen] = useState(false);
@@ -197,7 +197,8 @@ export function VerdictMain(props: VerdictProps) {
   return (
     <PrintFrame props={props}>
       <PrintCover props={props} />
-      <p className="rounded-full bg-warn-soft px-5 py-3 text-sm font-medium text-warn-text">{copy.verdict.banner}</p>
+      {/* screen only: on paper the full notice of the cover covers it (S4.2, Blocco 6) */}
+      <p className="rounded-full bg-warn-soft px-5 py-3 text-sm font-medium text-warn-text print:hidden">{copy.verdict.banner}</p>
       <OutcomePanel props={props} sources={sources} open={open} onToggle={() => setOpen((o) => !o)} />
       <NoticesPanel props={props} sources={sources} />
       <SignalsPanel props={props} sources={sources} />

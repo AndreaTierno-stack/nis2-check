@@ -70,6 +70,11 @@ describe.each(["E05", "E10", "E27"])("printed verdict of %s", (id) => {
     expect(limits).not.toContain('data-testid="disclaimer"');
   });
 
+  it("keeps the preview banner off paper: the full notice of the cover covers it", () => {
+    const banner = html.slice(html.lastIndexOf("<p", html.indexOf(copy.verdict.banner)), html.indexOf(copy.verdict.banner));
+    expect(banner).toContain("print:hidden");
+  });
+
   it("shows the company name only when given", () => {
     expect(html.includes('data-testid="print-company"')).toBe(id === "E05");
   });
