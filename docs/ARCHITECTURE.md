@@ -296,6 +296,15 @@ Una limitazione nuova entra prima nel catalogo, poi nei documenti generati.
 - **Qualità**: ESLint anche su `packages/*` (oggi solo web); zod 4: migrazione in v0.1.1,
   advisory accettata per corpus locale fidato validato in build; lint dei vincoli di copy
   esteso dai testi del catalogo ai reasoning trace e ai testi del wizard.
+- **Advisory accettate** (`pnpm.auditConfig.ignoreCves` nel `package.json` di root; registrate
+  il 2026-11-02, riesame al prossimo rilascio, v0.1.1). Nessuna è presente nell'export statico
+  servito agli utenti; nessun `pnpm.overrides`.
+
+  | Pacchetto | Advisory | Motivo |
+  |---|---|---|
+  | zod 3.25.76 | GHSA-mrhx-c7xc-m3w5 / CVE-2023-54404 | Valida solo il corpus locale fidato, in build e nei test; nessun input dell'utente passa da zod. Migrazione a zod 4 in v0.1.1 |
+  | postcss 8.4.31 (interno a `next@15.5.28`) | GHSA-qx2v-qp2m-jg93 / CVE-2026-41305; GHSA-6g55-p6wh-862q / CVE-2026-45623; GHSA-fxqj-rqcc-2cmp / CVE-2026-69153; GHSA-r28c-9q8g-f849 / CVE-2026-73646 | Solo build di Next, su CSS del repo; non è nell'export. Si chiude con l'aggiornamento di Next che lo porta a ≥ 8.5.23 |
+  | minimatch 3.1.5 (interno a ESLint) | GHSA-g3hv-75wg-m249 / CVE-2026-118764 | Solo sviluppo e CI (lint), su glob del repo; non è nell'export |
 - **Rilascio** (ADR 0017): anteprima di studio con disclaimer AS-IS, checklist pre-rilascio
   (CI verde, `pnpm engine:enumerate --full` senza violazioni, review avversaria interna),
   deploy Vercel. Nessun gate con reviewer terzo.
