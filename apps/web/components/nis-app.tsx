@@ -13,14 +13,17 @@ import { QuestionPage } from "@/components/wizard/question-page";
 import { SectorPage } from "@/components/wizard/sector-page";
 import type { WebCorpus } from "@/lib/corpus.server";
 import { DISCLAIMER_ENTRY } from "@/lib/links";
+import { copy } from "@/src/copy.it";
+import { printVerdict } from "@/lib/print";
 import { EMPTY, clearSession, readSession, writeSession, type Session } from "@/lib/session";
 import { pruneAnswers, sectorContext, visibleQuestions } from "@/lib/wizard";
 
-type Outcome = { verdict: Verdict } | { issues: readonly AnswerIssue[] };
+type Outcome = { verdict: Verdict; evaluatedAt: Date } | { issues: readonly AnswerIssue[] };
 
 function run(corpus: WebCorpus, sectorId: string, answers: Session["answers"]): Outcome {
   try {
-    return { verdict: evaluate({ sectorId, answers }, corpus) };
+    // evaluatedAt: date and time printed on the PDF (ADR 0018); the engine itself has no clock
+    return { verdict: evaluate({ sectorId, answers }, corpus), evaluatedAt: new Date() };
   } catch (e) {
     if (e instanceof InvalidAnswersError) return { issues: e.issues };
     throw e;
@@ -31,6 +34,8 @@ function run(corpus: WebCorpus, sectorId: string, answers: Session["answers"]): 
 export function NisApp({ corpus }: { corpus: WebCorpus }) {
   const [accepted, setAccepted] = useState(false);
   const [session, setSession] = useState<Session>(EMPTY);
+  // optional company name for the PDF cover: in memory only, never written to sessionStorage
+  const [companyName, setCompanyName] = useState("");
   const disclaimer = Object.values(corpus.exceptions)
     .flatMap((f) => f.exceptions)
     .find((e) => e.id === DISCLAIMER_ENTRY);
@@ -44,6 +49,7 @@ export function NisApp({ corpus }: { corpus: WebCorpus }) {
   const restart = () => {
     clearSession();
     setSession(EMPTY);
+    setCompanyName("");
   };
 
   const ctx = useMemo(() => (session.sectorId ? sectorContext(corpus, session.sectorId) : undefined), [corpus, session.sectorId]);
@@ -88,18 +94,24 @@ export function NisApp({ corpus }: { corpus: WebCorpus }) {
   } else if (outcome && "issues" in outcome) {
     main = <InvalidAnswers ctx={ctx} issues={outcome.issues} onGoTo={goTo} />;
   } else if (outcome) {
-    const props = { corpus, ctx, answers: session.answers, verdict: outcome.verdict, onEdit: goTo };
+    const print = { evaluatedAt: outcome.evaluatedAt, companyName, ...(corpus.releaseDate ? { releaseDate: corpus.releaseDate } : {}) };
+    const props = { corpus, ctx, answers: session.answers, verdict: outcome.verdict, onEdit: goTo, print };
+    const hash = outcome.verdict.inputHash.slice(0, 8);
     main = <VerdictMain {...props} />;
-    side = <VerdictSide {...props} />;
+    side = <VerdictSide {...props} pdf={{ companyName, onCompanyName: setCompanyName, onPrint: () => printVerdict(copy.print.fileTitle(hash)) }} />;
   }
 
   return (
     <div className="flex min-h-screen flex-col">
-      <Header step={accepted ? session.step : null} onRestart={accepted ? restart : undefined} />
+      <div className="print:hidden">
+        <Header step={accepted ? session.step : null} onRestart={accepted ? restart : undefined} />
+      </div>
       <main className="flex-1">
         <Columns main={main} side={side} />
       </main>
-      <Footer disclaimer={disclaimer.description} />
+      <div className="print:hidden">
+        <Footer disclaimer={disclaimer.description} />
+      </div>
     </div>
   );
 }

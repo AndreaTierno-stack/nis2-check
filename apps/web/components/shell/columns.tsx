@@ -6,12 +6,12 @@ import type { ReactNode } from "react";
  */
 export function Columns({ main, side }: { main: ReactNode; side?: ReactNode }) {
   return (
-    <div className="mx-auto flex max-w-6xl flex-wrap items-start gap-6 px-4 py-8">
+    <div className="mx-auto flex max-w-6xl flex-wrap items-start gap-6 px-4 py-8 print:block print:max-w-none print:p-0">
       <div className="min-w-0 space-y-6" style={{ flex: "999 1 560px" }}>
         {main}
       </div>
       {side && (
-        <aside className="min-w-0 space-y-4" style={{ flex: "1 1 280px", maxWidth: 320 }}>
+        <aside className="min-w-0 space-y-4 print:hidden" style={{ flex: "1 1 280px", maxWidth: 320 }}>
           {side}
         </aside>
       )}

@@ -10,3 +10,66 @@
     @apply bg-ground text-text;
   }
 }
+
+/*
+ * Printed Verdict (ADR 0018): the PDF is the browser print of the verdict page.
+ * .print-frame is a <table> (components/verdict/print.tsx): a plain block on screen, a table in
+ * print, so that its head and foot repeat on every page in Chrome and Firefox. @page margin
+ * boxes are not used (support differs between browsers).
+ */
+.print-frame,
+.print-frame > tbody,
+.print-frame > tbody > tr,
+.print-frame > tbody > tr > td {
+  display: block;
+}
+.print-frame > thead,
+.print-frame > tfoot {
+  display: none;
+}
+
+@media print {
+  @page {
+    size: A4;
+    margin: 12mm 12mm 14mm;
+  }
+  html,
+  body {
+    background: #ffffff;
+  }
+  body {
+    /* colored headers and badges keep their background even with "background graphics" off */
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    font-size: 10.5pt;
+  }
+  .print-frame {
+    display: table;
+    width: 100%;
+    border-collapse: collapse;
+  }
+  .print-frame > thead {
+    display: table-header-group;
+  }
+  .print-frame > tfoot {
+    display: table-footer-group;
+  }
+  .print-frame > tbody {
+    display: table-row-group;
+  }
+  .print-frame > tbody > tr {
+    display: table-row;
+  }
+  .print-frame > tbody > tr > td {
+    display: table-cell;
+  }
+  .print-avoid-break {
+    break-inside: avoid;
+  }
+  /* no heading alone at the foot of a page */
+  h1,
+  h2,
+  h3 {
+    break-after: avoid;
+  }
+}

@@ -157,7 +157,21 @@ test di enumerazione).
   riga di verifica, tipologia, qualifica, regimi; avvisi dal catalogo; "Come è stato
   calcolato" ripiegato, quattro righe per gli stadi dell'ADR 0016; fonti numerate e
   raggruppate per `source_group` del registro, con etichetta e link alla riga della KB;
-  colonna laterale con le risposte, azioni di S4.2 disabilitate, riga tecnica).
+  colonna laterale con le risposte, "Scarica PDF" con il nome azienda facoltativo, pagina dei
+  limiti (S4.2, disabilitata), riga tecnica). Nome mostrato: "Ambito NIS2".
+- **PDF (S4.2, ADR 0018).** Stampa del browser della pagina dell'esito: "Scarica PDF" chiama
+  `window.print()` (`lib/print.ts`). `@media print` in `app/globals.css`: nasconde barra,
+  footer, colonna laterale e pulsanti; la colonna principale è dentro `.print-frame`, una
+  `<table>` che a schermo è un blocco e in stampa ripete `thead` (marchio, codice, data e ora) e
+  `tfoot` (avviso di una riga da `content/disclaimer.ts` e watermark `corpus vX.Y.Z (data del
+  CHANGELOG) · inputHash[0:8]`) su ogni pagina. Parti solo di stampa (`hidden print:block`,
+  `components/verdict/print.tsx`): copertina (titolo di CLAUDE.md, nome azienda facoltativo mai
+  persistito, settore, data e ora in ora italiana, versione e data del corpus, codice), risposte
+  date, "Parte tecnica" con la trace sempre stampata e l'URL esplicito di ogni fonte, blocco
+  "Cosa non gestisce il tool" (`lib/limits.ts`: tutte le voci `non_gestito` e le `segnalato`
+  del settore, prima quelle emerse). Colori stampati anche senza grafica di sfondo
+  (`print-color-adjust: exact`). La data di rilascio del corpus si legge dal CHANGELOG al build
+  (`lib/corpus.server.ts`).
 - **Token** (`tailwind.config.ts`, unici colori: la palette di Tailwind è sostituita):
   ground #eef1ee, surface #ffffff, text #1b1f1d, text-muted #6b716d, text-soft #505753,
   border #dfe4df e #e3e8e3, accent #1d6b47 (hover #155237), accent-soft #e3efe8, warn #d98b1a,
@@ -171,8 +185,13 @@ test di enumerazione).
   delle fonti si formattano dall'id della citazione con i nomi degli atti di `copy.it.ts`.
 - **Test.** Vitest in node (render con `react-dom/server`, nessuna libreria DOM): logica del
   wizard, scala e colori, fonti, snapshot del DOM senza stili per E05, E22, E25, E26, E11, lint
-  di copy. Playwright sull'export (`scripts/serve-out.mjs`): E01, E05, E11, E22, E25 cliccate
-  dall'inizio; in CI dopo la build (circa 40 s su 1:48 totali).
+  di copy (anche di `content/disclaimer.ts`); snapshot in modalità stampa (classi ridotte a
+  quelle che decidono la stampa) per E05, E10, E27, con intestazione, piè di pagina, watermark,
+  risposte, URL delle fonti e limiti del percorso. Playwright sull'export
+  (`scripts/serve-out.mjs`): E01, E05, E11, E22, E25 cliccate dall'inizio; E05 ed E27 con
+  `emulateMedia({ media: 'print' })` (disclaimer, versione del corpus, URL delle fonti, parti a
+  schermo nascoste); in CI dopo la build. `E2E_BROWSER=firefox` esegue gli stessi e2e su Firefox
+  in locale; `PDF_OUT=<dir>` scrive i PDF di esempio di E05 ed E27 (Chromium).
 
 ## 3. Invarianti dello schema
 

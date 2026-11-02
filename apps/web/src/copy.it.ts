@@ -6,10 +6,10 @@
  */
 export const copy = {
   meta: {
-    title: "nis2-check: pre-screening dell'ambito NIS2 italiano",
+    title: "Ambito NIS2: pre-screening dell'ambito NIS2 italiano",
     description: "Anteprima di studio open source di pre-screening dell'ambito NIS2 italiano. Non è un parere legale.",
   },
-  brand: "nis2-check",
+  brand: "Ambito NIS2",
   steps: { sector: "Settore", questions: "Domande", verdict: "Esito" },
   newEvaluation: "Nuova valutazione",
   footer: {
@@ -83,12 +83,36 @@ export const copy = {
     answersTitle: "Le risposte date",
     edit: "Modifica le risposte",
     editOne: "Modifica",
-    pdf: "Scarica il riepilogo (PDF)",
+    pdf: "Scarica PDF",
+    pdfHint: "Si apre la finestra di stampa del browser: scegli \"Salva come PDF\".",
+    companyLabel: "Nome azienda analizzata (facoltativo)",
+    companyHelp: "Compare solo nella copertina del PDF. Non viene salvato e non lascia il browser.",
     limits: "Cosa non gestisce il tool",
     comingSoon: "in arrivo",
     tech: (version: string, catalog: number, hash: string) =>
       `Corpus ${version}, catalogo eccezioni ${catalog} voci. Valutazione ${hash}. Nessun dato lascia il browser.`,
     none: "Nessuna selezione",
+  },
+  /** Printed Verdict (ADR 0018): cover, repeated header, answers, limits of the path. */
+  print: {
+    docTitle: "Esito preliminare di verifica dell'ambito NIS2",
+    company: "Nome azienda analizzata",
+    sector: "Settore",
+    evaluatedAt: "Data e ora della valutazione",
+    italianTime: "ora italiana",
+    corpus: "Versione del corpus",
+    corpusRelease: (version: string, date?: string) => (date ? `${version}, rilasciata il ${date}` : version),
+    code: "Codice della valutazione",
+    header: (hash: string) => `Valutazione ${hash}`,
+    summaryPart: "Parte sintetica",
+    technicalPart: "Parte tecnica, per il consulente",
+    answersSubtitle: (hash: string) =>
+      `Input della valutazione ${hash}: con le stesse risposte e la stessa versione del corpus lo strumento restituisce lo stesso esito.`,
+    limitsTitle: "Cosa non gestisce il tool",
+    limitsIntro:
+      "Limiti dichiarati dello strumento, dal catalogo eccezioni: le voci segnalate per il settore valutato e tutte le voci non gestite. Ogni voce resta da valutare con un consulente qualificato.",
+    raised: "Emerso da questa valutazione",
+    fileTitle: (hash: string) => `Esito preliminare ambito NIS2 ${hash}`,
   },
   /** Names of the acts, for the references of the "Fonti" section (formatted from the citation id). */
   acts: {
