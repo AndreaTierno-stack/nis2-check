@@ -125,7 +125,7 @@ exceptions:
   - id: individuazione_acn_art_3_c_9
     status: segnalato
     title: "Soggetti individuati dall'ACN indipendentemente dalla dimensione (art. 3 c. 9)"
-    description: "Il decreto si applica anche, indipendentemente dalla dimensione, ai soggetti dei settori e delle tipologie degli Allegati I-IV individuati dall'ACN secondo le procedure dell'art. 3 c. 13, quando ricorre uno dei criteri dell'art. 3 c. 9 (ad esempio unico fornitore nazionale di un servizio essenziale, o elemento sistemico della catena di approvvigionamento di soggetti essenziali o importanti). L'individuazione è notificata al soggetto. Lo strumento non può conoscerla: un soggetto sotto le soglie dimensionali potrebbe comunque rientrare."
+    description: "Il decreto si applica anche, indipendentemente dalla dimensione, ai soggetti dei settori e delle tipologie degli Allegati I-IV individuati dall'ACN secondo le procedure dell'art. 3 c. 13, quando ricorre uno dei criteri dell'art. 3 c. 9: ad esempio il soggetto già identificato come operatore di servizi essenziali ai sensi del D.Lgs. 65/2018 (lett. a)), l'unico fornitore nazionale di un servizio essenziale (lett. b)) o l'elemento sistemico della catena di approvvigionamento di soggetti essenziali o importanti (lett. f)). L'individuazione è notificata al soggetto. Lo strumento non può conoscerla: un soggetto sotto le soglie dimensionali potrebbe comunque rientrare."
     citations: [dlgs_138_2024_art_3_c_9, dlgs_138_2024_art_3_c_13, dlgs_138_2024_art_6_c_2]
     applies_to: [cloud_computing, energia_elettrica]
 
@@ -139,8 +139,8 @@ exceptions:
   - id: energia_regime_transitorio_ose
     status: segnalato
     title: "Regime transitorio degli ex operatori di servizi essenziali (art. 5 Det. ACN 379907/2025)"
-    description: "Secondo l'art. 5 della Det. ACN 379907/2025, i soggetti già operatori di servizi essenziali ai sensi del D.Lgs. 65/2018 mantengono, limitatamente ai sistemi informativi e di rete già individuati in quel quadro, le misure tecniche e organizzative già adottate, salvo contrasti con il decreto NIS. Il regime riguarda le misure, non l'ambito: l'esito indicato non cambia, e lo strumento non chiede se il soggetto era un operatore di servizi essenziali."
-    citations: [det_acn_379907_2025_art_5]
+    description: "Secondo l'art. 5 della Det. ACN 379907/2025, i soggetti già operatori di servizi essenziali ai sensi del D.Lgs. 65/2018 mantengono, limitatamente ai sistemi informativi e di rete già individuati in quel quadro, le misure tecniche e organizzative già adottate, salvo contrasti con il decreto NIS. Il regime transitorio riguarda le misure, non l'ambito. Per l'ambito, un soggetto già identificato come operatore di servizi essenziali può essere individuato dall'ACN indipendentemente dalla dimensione (art. 3 c. 9 lett. a) D.Lgs. 138/2024, con le procedure del c. 13). Lo strumento non chiede se il soggetto era un operatore di servizi essenziali: il caso va approfondito con un consulente qualificato."
+    citations: [det_acn_379907_2025_art_5, dlgs_138_2024_art_3_c_9]
     applies_to: [energia_elettrica]
 
   - id: cloud_stabilimento_principale_multi_ue

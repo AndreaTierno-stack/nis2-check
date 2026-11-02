@@ -310,7 +310,7 @@ exports[`printed verdict of E05 > matches the print-mode DOM snapshot 1`] = `
 </li>
 <li data-limit="individuazione_acn_art_3_c_9">
 <span>Soggetti individuati dall&#x27;ACN indipendentemente dalla dimensione (art. 3 c. 9)</span>
-<span>Il decreto si applica anche, indipendentemente dalla dimensione, ai soggetti dei settori e delle tipologie degli Allegati I-IV individuati dall&#x27;ACN secondo le procedure dell&#x27;art. 3 c. 13, quando ricorre uno dei criteri dell&#x27;art. 3 c. 9 (ad esempio unico fornitore nazionale di un servizio essenziale, o elemento sistemico della catena di approvvigionamento di soggetti essenziali o importanti). L&#x27;individuazione è notificata al soggetto. Lo strumento non può conoscerla: un soggetto sotto le soglie dimensionali potrebbe comunque rientrare. </span>
+<span>Il decreto si applica anche, indipendentemente dalla dimensione, ai soggetti dei settori e delle tipologie degli Allegati I-IV individuati dall&#x27;ACN secondo le procedure dell&#x27;art. 3 c. 13, quando ricorre uno dei criteri dell&#x27;art. 3 c. 9: ad esempio il soggetto già identificato come operatore di servizi essenziali ai sensi del D.Lgs. 65/2018 (lett. a)), l&#x27;unico fornitore nazionale di un servizio essenziale (lett. b)) o l&#x27;elemento sistemico della catena di approvvigionamento di soggetti essenziali o importanti (lett. f)). L&#x27;individuazione è notificata al soggetto. Lo strumento non può conoscerla: un soggetto sotto le soglie dimensionali potrebbe comunque rientrare. </span>
 </li>
 <li data-limit="imprese_collegate_art_3_c_10">
 <span>Imprese collegate a un soggetto essenziale o importante (art. 3 c. 10)</span>
@@ -883,10 +883,10 @@ exports[`printed verdict of E27 > matches the print-mode DOM snapshot 1`] = `
 <div>
 <p>Dimensione dichiarata: Media impresa. Classificazione secondo FAQ ACN AMB.DI.1 e Racc. UE 2003/361. Sulla base degli input forniti, l&#x27;analisi suggerisce il rientro nel perimetro NIS2 italiano come soggetto <strong>importante</strong> (Allegato I p. 1, energia; art. 6 c. 3 D.Lgs. 138/2024). Per &#x27;fatturato&#x27; si intende quello complessivo del soggetto, non solo dell&#x27;attività NIS (FAQ A1.2). Per i produttori, non rientrano i clienti attivi che non svolgono altre attività degli Allegati I e II (FAQ A1.1.a.4). <span>
 <a href="#fonte-1">1</a>
-<a href="#fonte-3">3</a>
 <a href="#fonte-4">4</a>
 <a href="#fonte-5">5</a>
-<a href="#fonte-10">10</a>
+<a href="#fonte-6">6</a>
+<a href="#fonte-11">11</a>
 </span>
 </p>
 <p>Verifica obbligatoria con consulente qualificato prima di assumere conclusioni operative.</p>
@@ -918,8 +918,9 @@ exports[`printed verdict of E27 > matches the print-mode DOM snapshot 1`] = `
 <h3>Regime transitorio degli ex operatori di servizi essenziali (art. 5 Det. ACN 379907/2025)</h3>
 <span>Segnalato, non valutato dal tool</span>
 </div>
-<p>Secondo l&#x27;art. 5 della Det. ACN 379907/2025, i soggetti già operatori di servizi essenziali ai sensi del D.Lgs. 65/2018 mantengono, limitatamente ai sistemi informativi e di rete già individuati in quel quadro, le misure tecniche e organizzative già adottate, salvo contrasti con il decreto NIS. Il regime riguarda le misure, non l&#x27;ambito: l&#x27;esito indicato non cambia, e lo strumento non chiede se il soggetto era un operatore di servizi essenziali. <span>
-<a href="#fonte-9">9</a>
+<p>Secondo l&#x27;art. 5 della Det. ACN 379907/2025, i soggetti già operatori di servizi essenziali ai sensi del D.Lgs. 65/2018 mantengono, limitatamente ai sistemi informativi e di rete già individuati in quel quadro, le misure tecniche e organizzative già adottate, salvo contrasti con il decreto NIS. Il regime transitorio riguarda le misure, non l&#x27;ambito. Per l&#x27;ambito, un soggetto già identificato come operatore di servizi essenziali può essere individuato dall&#x27;ACN indipendentemente dalla dimensione (art. 3 c. 9 lett. a) D.Lgs. 138/2024, con le procedure del c. 13). Lo strumento non chiede se il soggetto era un operatore di servizi essenziali: il caso va approfondito con un consulente qualificato. <span>
+<a href="#fonte-3">3</a>
+<a href="#fonte-10">10</a>
 </span>
 </p>
 </div>
@@ -931,7 +932,7 @@ exports[`printed verdict of E27 > matches the print-mode DOM snapshot 1`] = `
 <span>Segnalato, non valutato dal tool</span>
 </div>
 <p>Il soggetto indica, tra le attività dichiarate, la gestione di punti di ricarica senza obbligo di registrazione sul PUN, o con obbligo non noto. Secondo la FAQ ACN A1.1.a.3 rientrano nella definizione della tipologia «gestore di un punto di ricarica» solo i soggetti obbligati a registrarsi sul PUN. Poiché il soggetto dichiara anche altre attività del settore elettrico, l&#x27;esito indicato segue le regole del settore per quelle attività; l&#x27;attività di ricarica va approfondita con un consulente qualificato. <span>
-<a href="#fonte-7">7</a>
+<a href="#fonte-8">8</a>
 </span>
 </p>
 </div>
@@ -945,8 +946,8 @@ exports[`printed verdict of E27 > matches the print-mode DOM snapshot 1`] = `
 <div>
 <p data-testid="signal" data-signal="cross_sector_multi_tipologia_elettrica">Il soggetto sembra svolgere piu&#x27; attivita&#x27; nel settore elettrico (es. distribuzione e vendita). La registrazione sulla piattaforma ACN indica tutte le tipologie pertinenti. La valutazione di rientro riguarda ciascuna tipologia svolta. Verifica con consulente qualificato. <span>
 <a href="#fonte-2">2</a>
-<a href="#fonte-6">6</a>
-<a href="#fonte-8">8</a>
+<a href="#fonte-7">7</a>
+<a href="#fonte-9">9</a>
 </span>
 </p>
 </div>
@@ -1016,10 +1017,10 @@ exports[`printed verdict of E27 > matches the print-mode DOM snapshot 1`] = `
 <h3>Regole dimensionali</h3>
 <p>Dimensione dichiarata: Media impresa. Classificazione secondo FAQ ACN AMB.DI.1 e Racc. UE 2003/361. Sulla base degli input forniti, l&#x27;analisi suggerisce il rientro nel perimetro NIS2 italiano come soggetto importante (Allegato I p. 1, energia; art. 6 c. 3 D.Lgs. 138/2024). Per &#x27;fatturato&#x27; si intende quello complessivo del soggetto, non solo dell&#x27;attività NIS (FAQ A1.2). Per i produttori, non rientrano i clienti attivi che non svolgono altre attività degli Allegati I e II (FAQ A1.1.a.4). <span>
 <a href="#fonte-1">1</a>
-<a href="#fonte-3">3</a>
 <a href="#fonte-4">4</a>
 <a href="#fonte-5">5</a>
-<a href="#fonte-10">10</a>
+<a href="#fonte-6">6</a>
+<a href="#fonte-11">11</a>
 </span>
 </p>
 </div>
@@ -1052,13 +1053,22 @@ exports[`printed verdict of E27 > matches the print-mode DOM snapshot 1`] = `
 <span class="hidden print:block" data-testid="source-url">https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/D.Lgs.%20138-2024%20(Decreto%20NIS).md?plain=1#L26</span>
 </span>
 </li>
+<li id="fonte-3" data-testid="source" data-source="dlgs_138_2024_art_3_c_9">
+<span>3</span>
+<span>
+<span>D.Lgs. 138/2024, art. 3 c. 9</span>
+<span>Il decreto si applica ai soggetti degli Allegati I-IV individuati dall&#x27;ACN quando ricorre uno dei criteri del comma.</span>
+<a class="print:hidden" href="https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/D.Lgs.%20138-2024%20(Decreto%20NIS).md?plain=1#L31">Apri la scheda</a>
+<span class="hidden print:block" data-testid="source-url">https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/D.Lgs.%20138-2024%20(Decreto%20NIS).md?plain=1#L31</span>
+</span>
+</li>
 </ol>
 </div>
 <div>
 <h3>FAQ ACN</h3>
 <ol>
-<li id="fonte-3" data-testid="source" data-source="faq_amb_di_1">
-<span>3</span>
+<li id="fonte-4" data-testid="source" data-source="faq_amb_di_1">
+<span>4</span>
 <span>
 <span>FAQ ACN AMB.DI.1</span>
 <span>Definizione di micro, piccola e media impresa secondo la Raccomandazione 2003/361/CE.</span>
@@ -1066,8 +1076,8 @@ exports[`printed verdict of E27 > matches the print-mode DOM snapshot 1`] = `
 <span class="hidden print:block" data-testid="source-url">https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/FAQ%20NIS%20-%20Ambito.md?plain=1#L106</span>
 </span>
 </li>
-<li id="fonte-4" data-testid="source" data-source="faq_a1_2">
-<span>4</span>
+<li id="fonte-5" data-testid="source" data-source="faq_a1_2">
+<span>5</span>
 <span>
 <span>FAQ ACN A1.2</span>
 <span>Il fatturato considerato è quello complessivo, non solo quello delle attività NIS.</span>
@@ -1075,8 +1085,8 @@ exports[`printed verdict of E27 > matches the print-mode DOM snapshot 1`] = `
 <span class="hidden print:block" data-testid="source-url">https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/FAQ%20NIS%20-%20Settori%2C%20sottosettori%20e%20tipologie%20di%20soggetto.md?plain=1#L51</span>
 </span>
 </li>
-<li id="fonte-5" data-testid="source" data-source="faq_a1_1_a_4">
-<span>5</span>
+<li id="fonte-6" data-testid="source" data-source="faq_a1_1_a_4">
+<span>6</span>
 <span>
 <span>FAQ ACN A1.1.a.4</span>
 <span>I clienti attivi che non svolgono altre attività degli Allegati I e II non rientrano tra i produttori.</span>
@@ -1084,8 +1094,8 @@ exports[`printed verdict of E27 > matches the print-mode DOM snapshot 1`] = `
 <span class="hidden print:block" data-testid="source-url">https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/FAQ%20NIS%20-%20Settori%2C%20sottosettori%20e%20tipologie%20di%20soggetto.md?plain=1#L37</span>
 </span>
 </li>
-<li id="fonte-6" data-testid="source" data-source="faq_settori_sottosettori">
-<span>6</span>
+<li id="fonte-7" data-testid="source" data-source="faq_settori_sottosettori">
+<span>7</span>
 <span>
 <span>FAQ ACN Settori, sottosettori e tipologie di soggetto</span>
 <span>Settori, sottosettori e tipologie di soggetto: atti UE, criteri dimensionali e qualifiche per sottosettore.</span>
@@ -1093,8 +1103,8 @@ exports[`printed verdict of E27 > matches the print-mode DOM snapshot 1`] = `
 <span class="hidden print:block" data-testid="source-url">https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/FAQ%20NIS%20-%20Settori%2C%20sottosettori%20e%20tipologie%20di%20soggetto.md?plain=1#L17</span>
 </span>
 </li>
-<li id="fonte-7" data-testid="source" data-source="faq_a1_1_a_3">
-<span>7</span>
+<li id="fonte-8" data-testid="source" data-source="faq_a1_1_a_3">
+<span>8</span>
 <span>
 <span>FAQ ACN A1.1.a.3</span>
 <span>Rientrano nella definizione di gestore di punti di ricarica solo i soggetti obbligati a registrarsi sul PUN.</span>
@@ -1107,8 +1117,8 @@ exports[`printed verdict of E27 > matches the print-mode DOM snapshot 1`] = `
 <div>
 <h3>Determinazioni ACN</h3>
 <ol>
-<li id="fonte-8" data-testid="source" data-source="det_piattaforma_127437_2026_art_11_c_2_lett_g">
-<span>8</span>
+<li id="fonte-9" data-testid="source" data-source="det_piattaforma_127437_2026_art_11_c_2_lett_g">
+<span>9</span>
 <span>
 <span>Det. ACN 127437/2026, art. 11 c. 2 lett. g)</span>
 <span>Nella dichiarazione di registrazione si elencano le tipologie di soggetto degli Allegati I-IV a cui il soggetto è riconducibile.</span>
@@ -1116,8 +1126,8 @@ exports[`printed verdict of E27 > matches the print-mode DOM snapshot 1`] = `
 <span class="hidden print:block" data-testid="source-url">https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/Determinazione%20ACN%20piattaforma%20e%20procedure%20-%202026-04-13.md?plain=1#L51</span>
 </span>
 </li>
-<li id="fonte-9" data-testid="source" data-source="det_acn_379907_2025_art_5">
-<span>9</span>
+<li id="fonte-10" data-testid="source" data-source="det_acn_379907_2025_art_5">
+<span>10</span>
 <span>
 <span>Det. ACN 379907/2025, art. 5</span>
 <span>Gli ex operatori di servizi essenziali mantengono, per i sistemi già individuati, le misure tecniche e organizzative già adottate.</span>
@@ -1130,8 +1140,8 @@ exports[`printed verdict of E27 > matches the print-mode DOM snapshot 1`] = `
 <div>
 <h3>Altre fonti</h3>
 <ol>
-<li id="fonte-10" data-testid="source" data-source="racc_ue_2003_361">
-<span>10</span>
+<li id="fonte-11" data-testid="source" data-source="racc_ue_2003_361">
+<span>11</span>
 <span>
 <span>Racc. 2003/361/CE</span>
 <span>Raccomandazione della Commissione sulla definizione di micro, piccola e media impresa.</span>
@@ -1153,15 +1163,16 @@ exports[`printed verdict of E27 > matches the print-mode DOM snapshot 1`] = `
 <ul>
 <li data-limit="energia_regime_transitorio_ose">
 <span>Regime transitorio degli ex operatori di servizi essenziali (art. 5 Det. ACN 379907/2025)</span>
-<span>Secondo l&#x27;art. 5 della Det. ACN 379907/2025, i soggetti già operatori di servizi essenziali ai sensi del D.Lgs. 65/2018 mantengono, limitatamente ai sistemi informativi e di rete già individuati in quel quadro, le misure tecniche e organizzative già adottate, salvo contrasti con il decreto NIS. Il regime riguarda le misure, non l&#x27;ambito: l&#x27;esito indicato non cambia, e lo strumento non chiede se il soggetto era un operatore di servizi essenziali. <span>
-<a href="#fonte-9">9</a>
+<span>Secondo l&#x27;art. 5 della Det. ACN 379907/2025, i soggetti già operatori di servizi essenziali ai sensi del D.Lgs. 65/2018 mantengono, limitatamente ai sistemi informativi e di rete già individuati in quel quadro, le misure tecniche e organizzative già adottate, salvo contrasti con il decreto NIS. Il regime transitorio riguarda le misure, non l&#x27;ambito. Per l&#x27;ambito, un soggetto già identificato come operatore di servizi essenziali può essere individuato dall&#x27;ACN indipendentemente dalla dimensione (art. 3 c. 9 lett. a) D.Lgs. 138/2024, con le procedure del c. 13). Lo strumento non chiede se il soggetto era un operatore di servizi essenziali: il caso va approfondito con un consulente qualificato. <span>
+<a href="#fonte-3">3</a>
+<a href="#fonte-10">10</a>
 </span>
 </span>
 </li>
 <li data-limit="punti_ricarica_non_pun_attivita_ulteriore">
 <span>Punti di ricarica senza obbligo di registrazione sul PUN, accanto ad altre attività</span>
 <span>Il soggetto indica, tra le attività dichiarate, la gestione di punti di ricarica senza obbligo di registrazione sul PUN, o con obbligo non noto. Secondo la FAQ ACN A1.1.a.3 rientrano nella definizione della tipologia «gestore di un punto di ricarica» solo i soggetti obbligati a registrarsi sul PUN. Poiché il soggetto dichiara anche altre attività del settore elettrico, l&#x27;esito indicato segue le regole del settore per quelle attività; l&#x27;attività di ricarica va approfondita con un consulente qualificato. <span>
-<a href="#fonte-7">7</a>
+<a href="#fonte-8">8</a>
 </span>
 </span>
 </li>
@@ -1180,7 +1191,10 @@ exports[`printed verdict of E27 > matches the print-mode DOM snapshot 1`] = `
 </li>
 <li data-limit="individuazione_acn_art_3_c_9">
 <span>Soggetti individuati dall&#x27;ACN indipendentemente dalla dimensione (art. 3 c. 9)</span>
-<span>Il decreto si applica anche, indipendentemente dalla dimensione, ai soggetti dei settori e delle tipologie degli Allegati I-IV individuati dall&#x27;ACN secondo le procedure dell&#x27;art. 3 c. 13, quando ricorre uno dei criteri dell&#x27;art. 3 c. 9 (ad esempio unico fornitore nazionale di un servizio essenziale, o elemento sistemico della catena di approvvigionamento di soggetti essenziali o importanti). L&#x27;individuazione è notificata al soggetto. Lo strumento non può conoscerla: un soggetto sotto le soglie dimensionali potrebbe comunque rientrare. </span>
+<span>Il decreto si applica anche, indipendentemente dalla dimensione, ai soggetti dei settori e delle tipologie degli Allegati I-IV individuati dall&#x27;ACN secondo le procedure dell&#x27;art. 3 c. 13, quando ricorre uno dei criteri dell&#x27;art. 3 c. 9: ad esempio il soggetto già identificato come operatore di servizi essenziali ai sensi del D.Lgs. 65/2018 (lett. a)), l&#x27;unico fornitore nazionale di un servizio essenziale (lett. b)) o l&#x27;elemento sistemico della catena di approvvigionamento di soggetti essenziali o importanti (lett. f)). L&#x27;individuazione è notificata al soggetto. Lo strumento non può conoscerla: un soggetto sotto le soglie dimensionali potrebbe comunque rientrare. <span>
+<a href="#fonte-3">3</a>
+</span>
+</span>
 </li>
 <li data-limit="imprese_collegate_art_3_c_10">
 <span>Imprese collegate a un soggetto essenziale o importante (art. 3 c. 10)</span>
@@ -1189,7 +1203,7 @@ exports[`printed verdict of E27 > matches the print-mode DOM snapshot 1`] = `
 <li data-limit="prosumer_definizione_cliente_attivo">
 <span>Definizione di cliente attivo non attestata</span>
 <span>La FAQ ACN A1.1.a.4 esclude dall&#x27;ambito le organizzazioni che rispondono ai requisiti della definizione di «clienti attivi» (direttiva (UE) 2019/944, art. 2, punto 8) e non svolgono altre attività riconducibili agli Allegati I e II. Il testo di quella definizione non è tra le fonti verificate dallo strumento: l&#x27;esito dipende dalla risposta fornita e va confermato con un consulente qualificato. <span>
-<a href="#fonte-5">5</a>
+<a href="#fonte-6">6</a>
 </span>
 </span>
 </li>
@@ -1213,23 +1227,23 @@ exports[`printed verdict of E27 > matches the print-mode DOM snapshot 1`] = `
 <li data-limit="dimensione_autodichiarata">
 <span>Categoria dimensionale indicata dall&#x27;utente</span>
 <span>La categoria dimensionale (micro o piccola, media, grande impresa) è indicata dall&#x27;utente secondo la Raccomandazione 2003/361/CE, come riportata dalla FAQ ACN AMB.DI.1. Lo strumento non la calcola a partire da effettivi, fatturato e totale di bilancio. <span>
-<a href="#fonte-3">3</a>
-<a href="#fonte-10">10</a>
+<a href="#fonte-4">4</a>
+<a href="#fonte-11">11</a>
 </span>
 </span>
 </li>
 <li data-limit="consolidamento_di_gruppo">
 <span>Dati dimensionali delle imprese collegate o associate</span>
 <span>Per un soggetto che fa parte di un gruppo, i dati dimensionali possono andare sommati con quelli delle imprese collegate o associate (art. 3 c. 4 D.Lgs. 138/2024, che rinvia all&#x27;art. 6 par. 2 dell&#x27;allegato della Raccomandazione 2003/361/CE). Lo strumento non esegue questo calcolo: usa la categoria indicata dall&#x27;utente. <span>
-<a href="#fonte-10">10</a>
+<a href="#fonte-11">11</a>
 </span>
 </span>
 </li>
 <li data-limit="confine_50_43">
 <span>Soglie di fatturato e di bilancio della media impresa</span>
 <span>Per la media impresa contano gli effettivi e almeno uno dei due dati contabili: fatturato annuo fino a 50 milioni di euro oppure totale di bilancio annuo fino a 43 milioni di euro (Raccomandazione 2003/361/CE, come riportata dalla FAQ ACN AMB.DI.1). Quando i due dati cadono su lati diversi delle soglie la classificazione richiede attenzione; lo strumento non la calcola e usa la categoria indicata dall&#x27;utente. <span>
-<a href="#fonte-3">3</a>
-<a href="#fonte-10">10</a>
+<a href="#fonte-4">4</a>
+<a href="#fonte-11">11</a>
 </span>
 </span>
 </li>

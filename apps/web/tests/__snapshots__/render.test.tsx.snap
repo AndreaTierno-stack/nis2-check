@@ -333,7 +333,7 @@ exports[`verdict page of E05 > matches the DOM snapshot 1`] = `
 </li>
 <li data-limit="individuazione_acn_art_3_c_9">
 <span>Soggetti individuati dall&#x27;ACN indipendentemente dalla dimensione (art. 3 c. 9)</span>
-<span>Il decreto si applica anche, indipendentemente dalla dimensione, ai soggetti dei settori e delle tipologie degli Allegati I-IV individuati dall&#x27;ACN secondo le procedure dell&#x27;art. 3 c. 13, quando ricorre uno dei criteri dell&#x27;art. 3 c. 9 (ad esempio unico fornitore nazionale di un servizio essenziale, o elemento sistemico della catena di approvvigionamento di soggetti essenziali o importanti). L&#x27;individuazione è notificata al soggetto. Lo strumento non può conoscerla: un soggetto sotto le soglie dimensionali potrebbe comunque rientrare. </span>
+<span>Il decreto si applica anche, indipendentemente dalla dimensione, ai soggetti dei settori e delle tipologie degli Allegati I-IV individuati dall&#x27;ACN secondo le procedure dell&#x27;art. 3 c. 13, quando ricorre uno dei criteri dell&#x27;art. 3 c. 9: ad esempio il soggetto già identificato come operatore di servizi essenziali ai sensi del D.Lgs. 65/2018 (lett. a)), l&#x27;unico fornitore nazionale di un servizio essenziale (lett. b)) o l&#x27;elemento sistemico della catena di approvvigionamento di soggetti essenziali o importanti (lett. f)). L&#x27;individuazione è notificata al soggetto. Lo strumento non può conoscerla: un soggetto sotto le soglie dimensionali potrebbe comunque rientrare. </span>
 </li>
 <li data-limit="imprese_collegate_art_3_c_10">
 <span>Imprese collegate a un soggetto essenziale o importante (art. 3 c. 10)</span>
@@ -1554,7 +1554,7 @@ exports[`verdict page of E25 > matches the DOM snapshot 1`] = `
 </li>
 <li data-limit="individuazione_acn_art_3_c_9">
 <span>Soggetti individuati dall&#x27;ACN indipendentemente dalla dimensione (art. 3 c. 9)</span>
-<span>Il decreto si applica anche, indipendentemente dalla dimensione, ai soggetti dei settori e delle tipologie degli Allegati I-IV individuati dall&#x27;ACN secondo le procedure dell&#x27;art. 3 c. 13, quando ricorre uno dei criteri dell&#x27;art. 3 c. 9 (ad esempio unico fornitore nazionale di un servizio essenziale, o elemento sistemico della catena di approvvigionamento di soggetti essenziali o importanti). L&#x27;individuazione è notificata al soggetto. Lo strumento non può conoscerla: un soggetto sotto le soglie dimensionali potrebbe comunque rientrare. </span>
+<span>Il decreto si applica anche, indipendentemente dalla dimensione, ai soggetti dei settori e delle tipologie degli Allegati I-IV individuati dall&#x27;ACN secondo le procedure dell&#x27;art. 3 c. 13, quando ricorre uno dei criteri dell&#x27;art. 3 c. 9: ad esempio il soggetto già identificato come operatore di servizi essenziali ai sensi del D.Lgs. 65/2018 (lett. a)), l&#x27;unico fornitore nazionale di un servizio essenziale (lett. b)) o l&#x27;elemento sistemico della catena di approvvigionamento di soggetti essenziali o importanti (lett. f)). L&#x27;individuazione è notificata al soggetto. Lo strumento non può conoscerla: un soggetto sotto le soglie dimensionali potrebbe comunque rientrare. </span>
 </li>
 <li data-limit="imprese_collegate_art_3_c_10">
 <span>Imprese collegate a un soggetto essenziale o importante (art. 3 c. 10)</span>
@@ -1562,7 +1562,7 @@ exports[`verdict page of E25 > matches the DOM snapshot 1`] = `
 </li>
 <li data-limit="energia_regime_transitorio_ose">
 <span>Regime transitorio degli ex operatori di servizi essenziali (art. 5 Det. ACN 379907/2025)</span>
-<span>Secondo l&#x27;art. 5 della Det. ACN 379907/2025, i soggetti già operatori di servizi essenziali ai sensi del D.Lgs. 65/2018 mantengono, limitatamente ai sistemi informativi e di rete già individuati in quel quadro, le misure tecniche e organizzative già adottate, salvo contrasti con il decreto NIS. Il regime riguarda le misure, non l&#x27;ambito: l&#x27;esito indicato non cambia, e lo strumento non chiede se il soggetto era un operatore di servizi essenziali. </span>
+<span>Secondo l&#x27;art. 5 della Det. ACN 379907/2025, i soggetti già operatori di servizi essenziali ai sensi del D.Lgs. 65/2018 mantengono, limitatamente ai sistemi informativi e di rete già individuati in quel quadro, le misure tecniche e organizzative già adottate, salvo contrasti con il decreto NIS. Il regime transitorio riguarda le misure, non l&#x27;ambito. Per l&#x27;ambito, un soggetto già identificato come operatore di servizi essenziali può essere individuato dall&#x27;ACN indipendentemente dalla dimensione (art. 3 c. 9 lett. a) D.Lgs. 138/2024, con le procedure del c. 13). Lo strumento non chiede se il soggetto era un operatore di servizi essenziali: il caso va approfondito con un consulente qualificato. </span>
 </li>
 <li data-limit="esclusione_tipologica_vs_inclusione_size_blind">
 <span>Esclusione per tipologia o per categoria e inclusione indipendente dalla dimensione: prevalenza non attestata</span>
@@ -1782,8 +1782,8 @@ exports[`verdict page of E26 > matches the DOM snapshot 1`] = `
 <p>Ogni attivita&#x27; dichiarata dal soggetto risulta esclusa per tipologia (FAQ ACN) o per categoria (art. 4 c. 2 D.Lgs. 138/2024), ma il soggetto risulta anche incluso indipendentemente dalla dimensione, come soggetto critico ai sensi del D.Lgs. 134/2024 (art. 3 c. 5 lett. a) D.Lgs. 138/2024). Le fonti verificate non indicano quale dei due criteri prevalga. Consulenza qualificata necessaria. <span>
 <a href="#fonte-1">1</a>
 <a href="#fonte-2">2</a>
-<a href="#fonte-3">3</a>
 <a href="#fonte-4">4</a>
+<a href="#fonte-5">5</a>
 </span>
 </p>
 <p>Verifica obbligatoria con consulente qualificato prima di assumere conclusioni operative.</p>
@@ -1828,7 +1828,7 @@ exports[`verdict page of E26 > matches the DOM snapshot 1`] = `
 <span>Segnalato, non valutato dal tool</span>
 </div>
 <p>La FAQ ACN A1.1.a.4 esclude dall&#x27;ambito le organizzazioni che rispondono ai requisiti della definizione di «clienti attivi» (direttiva (UE) 2019/944, art. 2, punto 8) e non svolgono altre attività riconducibili agli Allegati I e II. Il testo di quella definizione non è tra le fonti verificate dallo strumento: l&#x27;esito dipende dalla risposta fornita e va confermato con un consulente qualificato. <span>
-<a href="#fonte-3">3</a>
+<a href="#fonte-4">4</a>
 </span>
 </p>
 </div>
@@ -1839,8 +1839,9 @@ exports[`verdict page of E26 > matches the DOM snapshot 1`] = `
 <h3>Regime transitorio degli ex operatori di servizi essenziali (art. 5 Det. ACN 379907/2025)</h3>
 <span>Segnalato, non valutato dal tool</span>
 </div>
-<p>Secondo l&#x27;art. 5 della Det. ACN 379907/2025, i soggetti già operatori di servizi essenziali ai sensi del D.Lgs. 65/2018 mantengono, limitatamente ai sistemi informativi e di rete già individuati in quel quadro, le misure tecniche e organizzative già adottate, salvo contrasti con il decreto NIS. Il regime riguarda le misure, non l&#x27;ambito: l&#x27;esito indicato non cambia, e lo strumento non chiede se il soggetto era un operatore di servizi essenziali. <span>
-<a href="#fonte-5">5</a>
+<p>Secondo l&#x27;art. 5 della Det. ACN 379907/2025, i soggetti già operatori di servizi essenziali ai sensi del D.Lgs. 65/2018 mantengono, limitatamente ai sistemi informativi e di rete già individuati in quel quadro, le misure tecniche e organizzative già adottate, salvo contrasti con il decreto NIS. Il regime transitorio riguarda le misure, non l&#x27;ambito. Per l&#x27;ambito, un soggetto già identificato come operatore di servizi essenziali può essere individuato dall&#x27;ACN indipendentemente dalla dimensione (art. 3 c. 9 lett. a) D.Lgs. 138/2024, con le procedure del c. 13). Lo strumento non chiede se il soggetto era un operatore di servizi essenziali: il caso va approfondito con un consulente qualificato. <span>
+<a href="#fonte-3">3</a>
+<a href="#fonte-6">6</a>
 </span>
 </p>
 </div>
@@ -1855,8 +1856,8 @@ exports[`verdict page of E26 > matches the DOM snapshot 1`] = `
 <p data-testid="signal" data-signal="cer_signal">Il soggetto risulta individuato come soggetto critico ai sensi del D.Lgs. 134/2024, che recepisce la direttiva (UE) 2022/2557 sulla resilienza dei soggetti critici. Questa individuazione porta il soggetto nel perimetro NIS2 italiano come soggetto essenziale, indipendentemente dalla dimensione (art. 3 c. 5 lett. a) e art. 6 c. 1 lett. b) D.Lgs. 138/2024; FAQ ACN AMB.NO.1); la disciplina dei soggetti critici resta distinta e si aggiunge a quella NIS2. Da non confondere con le comunita&#x27; energetiche rinnovabili (CACER). Lo strumento non valuta gli obblighi della disciplina dei soggetti critici. Verifica con consulente qualificato. <span>
 <a href="#fonte-1">1</a>
 <a href="#fonte-2">2</a>
-<a href="#fonte-4">4</a>
-<a href="#fonte-6">6</a>
+<a href="#fonte-5">5</a>
+<a href="#fonte-7">7</a>
 </span>
 </p>
 </div>
@@ -1915,7 +1916,7 @@ exports[`verdict page of E26 > matches the DOM snapshot 1`] = `
 <div data-testid="trace-decided" data-stage="type_exclusion">
 <h3>Esclusioni per tipologia</h3>
 <p>Il soggetto dichiara di rispondere ai requisiti della definizione di clienti attivi e di non svolgere altre attività riconducibili agli Allegati I e II. Secondo la FAQ ACN A1.1.a.4 queste organizzazioni non rientrano nell&#x27;ambito di applicazione del decreto NIS: sulla base degli input forniti, l&#x27;analisi suggerisce che il soggetto non rientri nel perimetro NIS2 italiano come produttore. La definizione di clienti attivi non è tra le fonti verificate dallo strumento. Verifica obbligatoria con consulente qualificato. <span>
-<a href="#fonte-3">3</a>
+<a href="#fonte-4">4</a>
 </span>
 </p>
 </div>
@@ -1924,7 +1925,7 @@ exports[`verdict page of E26 > matches the DOM snapshot 1`] = `
 <p>Il soggetto risulta individuato come soggetto critico ai sensi del D.Lgs. 134/2024. Sulla base degli input forniti, l&#x27;analisi suggerisce il rientro nel perimetro NIS2 italiano come soggetto essenziale, indipendentemente dalla dimensione (art. 3 c. 5 lett. a) e art. 6 c. 1 lett. b) D.Lgs. 138/2024; FAQ ACN AMB.NO.1). Verifica obbligatoria con consulente qualificato. <span>
 <a href="#fonte-1">1</a>
 <a href="#fonte-2">2</a>
-<a href="#fonte-4">4</a>
+<a href="#fonte-5">5</a>
 </span>
 </p>
 </div>
@@ -1936,8 +1937,8 @@ exports[`verdict page of E26 > matches the DOM snapshot 1`] = `
 <p>Ogni attivita&#x27; dichiarata dal soggetto risulta esclusa per tipologia (FAQ ACN) o per categoria (art. 4 c. 2 D.Lgs. 138/2024), ma il soggetto risulta anche incluso indipendentemente dalla dimensione, come soggetto critico ai sensi del D.Lgs. 134/2024 (art. 3 c. 5 lett. a) D.Lgs. 138/2024). Le fonti verificate non indicano quale dei due criteri prevalga. Consulenza qualificata necessaria. <span>
 <a href="#fonte-1">1</a>
 <a href="#fonte-2">2</a>
-<a href="#fonte-3">3</a>
 <a href="#fonte-4">4</a>
+<a href="#fonte-5">5</a>
 </span>
 </p>
 </div>
@@ -1970,13 +1971,22 @@ exports[`verdict page of E26 > matches the DOM snapshot 1`] = `
 <span data-testid="source-url">https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/D.Lgs.%20138-2024%20(Decreto%20NIS).md?plain=1#L30</span>
 </span>
 </li>
+<li id="fonte-3" data-testid="source" data-source="dlgs_138_2024_art_3_c_9">
+<span>3</span>
+<span>
+<span>D.Lgs. 138/2024, art. 3 c. 9</span>
+<span>Il decreto si applica ai soggetti degli Allegati I-IV individuati dall&#x27;ACN quando ricorre uno dei criteri del comma.</span>
+<a href="https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/D.Lgs.%20138-2024%20(Decreto%20NIS).md?plain=1#L31">Apri la scheda</a>
+<span data-testid="source-url">https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/D.Lgs.%20138-2024%20(Decreto%20NIS).md?plain=1#L31</span>
+</span>
+</li>
 </ol>
 </div>
 <div>
 <h3>FAQ ACN</h3>
 <ol>
-<li id="fonte-3" data-testid="source" data-source="faq_a1_1_a_4">
-<span>3</span>
+<li id="fonte-4" data-testid="source" data-source="faq_a1_1_a_4">
+<span>4</span>
 <span>
 <span>FAQ ACN A1.1.a.4</span>
 <span>I clienti attivi che non svolgono altre attività degli Allegati I e II non rientrano tra i produttori.</span>
@@ -1984,8 +1994,8 @@ exports[`verdict page of E26 > matches the DOM snapshot 1`] = `
 <span data-testid="source-url">https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/FAQ%20NIS%20-%20Settori%2C%20sottosettori%20e%20tipologie%20di%20soggetto.md?plain=1#L37</span>
 </span>
 </li>
-<li id="fonte-4" data-testid="source" data-source="faq_amb_no_1">
-<span>4</span>
+<li id="fonte-5" data-testid="source" data-source="faq_amb_no_1">
+<span>5</span>
 <span>
 <span>FAQ ACN AMB.NO.1</span>
 <span>I soggetti critici del D.Lgs. 134/2024 sono soggetti essenziali ai sensi del decreto NIS.</span>
@@ -1998,8 +2008,8 @@ exports[`verdict page of E26 > matches the DOM snapshot 1`] = `
 <div>
 <h3>Determinazioni ACN</h3>
 <ol>
-<li id="fonte-5" data-testid="source" data-source="det_acn_379907_2025_art_5">
-<span>5</span>
+<li id="fonte-6" data-testid="source" data-source="det_acn_379907_2025_art_5">
+<span>6</span>
 <span>
 <span>Det. ACN 379907/2025, art. 5</span>
 <span>Gli ex operatori di servizi essenziali mantengono, per i sistemi già individuati, le misure tecniche e organizzative già adottate.</span>
@@ -2012,8 +2022,8 @@ exports[`verdict page of E26 > matches the DOM snapshot 1`] = `
 <div>
 <h3>Altre fonti</h3>
 <ol>
-<li id="fonte-6" data-testid="source" data-source="dlgs_134_2024">
-<span>6</span>
+<li id="fonte-7" data-testid="source" data-source="dlgs_134_2024">
+<span>7</span>
 <span>
 <span>D.Lgs. 134/2024</span>
 <span>Decreto sui soggetti critici: la qualifica si acquisisce con l&#x27;inserimento nell&#x27;elenco adottato con DPCM.</span>
@@ -2043,14 +2053,15 @@ exports[`verdict page of E26 > matches the DOM snapshot 1`] = `
 <li data-limit="prosumer_definizione_cliente_attivo">
 <span>Definizione di cliente attivo non attestata</span>
 <span>La FAQ ACN A1.1.a.4 esclude dall&#x27;ambito le organizzazioni che rispondono ai requisiti della definizione di «clienti attivi» (direttiva (UE) 2019/944, art. 2, punto 8) e non svolgono altre attività riconducibili agli Allegati I e II. Il testo di quella definizione non è tra le fonti verificate dallo strumento: l&#x27;esito dipende dalla risposta fornita e va confermato con un consulente qualificato. <span>
-<a href="#fonte-3">3</a>
+<a href="#fonte-4">4</a>
 </span>
 </span>
 </li>
 <li data-limit="energia_regime_transitorio_ose">
 <span>Regime transitorio degli ex operatori di servizi essenziali (art. 5 Det. ACN 379907/2025)</span>
-<span>Secondo l&#x27;art. 5 della Det. ACN 379907/2025, i soggetti già operatori di servizi essenziali ai sensi del D.Lgs. 65/2018 mantengono, limitatamente ai sistemi informativi e di rete già individuati in quel quadro, le misure tecniche e organizzative già adottate, salvo contrasti con il decreto NIS. Il regime riguarda le misure, non l&#x27;ambito: l&#x27;esito indicato non cambia, e lo strumento non chiede se il soggetto era un operatore di servizi essenziali. <span>
-<a href="#fonte-5">5</a>
+<span>Secondo l&#x27;art. 5 della Det. ACN 379907/2025, i soggetti già operatori di servizi essenziali ai sensi del D.Lgs. 65/2018 mantengono, limitatamente ai sistemi informativi e di rete già individuati in quel quadro, le misure tecniche e organizzative già adottate, salvo contrasti con il decreto NIS. Il regime transitorio riguarda le misure, non l&#x27;ambito. Per l&#x27;ambito, un soggetto già identificato come operatore di servizi essenziali può essere individuato dall&#x27;ACN indipendentemente dalla dimensione (art. 3 c. 9 lett. a) D.Lgs. 138/2024, con le procedure del c. 13). Lo strumento non chiede se il soggetto era un operatore di servizi essenziali: il caso va approfondito con un consulente qualificato. <span>
+<a href="#fonte-3">3</a>
+<a href="#fonte-6">6</a>
 </span>
 </span>
 </li>
@@ -2069,7 +2080,10 @@ exports[`verdict page of E26 > matches the DOM snapshot 1`] = `
 </li>
 <li data-limit="individuazione_acn_art_3_c_9">
 <span>Soggetti individuati dall&#x27;ACN indipendentemente dalla dimensione (art. 3 c. 9)</span>
-<span>Il decreto si applica anche, indipendentemente dalla dimensione, ai soggetti dei settori e delle tipologie degli Allegati I-IV individuati dall&#x27;ACN secondo le procedure dell&#x27;art. 3 c. 13, quando ricorre uno dei criteri dell&#x27;art. 3 c. 9 (ad esempio unico fornitore nazionale di un servizio essenziale, o elemento sistemico della catena di approvvigionamento di soggetti essenziali o importanti). L&#x27;individuazione è notificata al soggetto. Lo strumento non può conoscerla: un soggetto sotto le soglie dimensionali potrebbe comunque rientrare. </span>
+<span>Il decreto si applica anche, indipendentemente dalla dimensione, ai soggetti dei settori e delle tipologie degli Allegati I-IV individuati dall&#x27;ACN secondo le procedure dell&#x27;art. 3 c. 13, quando ricorre uno dei criteri dell&#x27;art. 3 c. 9: ad esempio il soggetto già identificato come operatore di servizi essenziali ai sensi del D.Lgs. 65/2018 (lett. a)), l&#x27;unico fornitore nazionale di un servizio essenziale (lett. b)) o l&#x27;elemento sistemico della catena di approvvigionamento di soggetti essenziali o importanti (lett. f)). L&#x27;individuazione è notificata al soggetto. Lo strumento non può conoscerla: un soggetto sotto le soglie dimensionali potrebbe comunque rientrare. <span>
+<a href="#fonte-3">3</a>
+</span>
+</span>
 </li>
 <li data-limit="imprese_collegate_art_3_c_10">
 <span>Imprese collegate a un soggetto essenziale o importante (art. 3 c. 10)</span>
@@ -2136,7 +2150,7 @@ exports[`verdict page of E26 > matches the DOM snapshot 1`] = `
 <div data-testid="trace-decided" data-stage="type_exclusion">
 <h3>Esclusioni per tipologia</h3>
 <p>Il soggetto dichiara di rispondere ai requisiti della definizione di clienti attivi e di non svolgere altre attività riconducibili agli Allegati I e II. Secondo la FAQ ACN A1.1.a.4 queste organizzazioni non rientrano nell&#x27;ambito di applicazione del decreto NIS: sulla base degli input forniti, l&#x27;analisi suggerisce che il soggetto non rientri nel perimetro NIS2 italiano come produttore. La definizione di clienti attivi non è tra le fonti verificate dallo strumento. Verifica obbligatoria con consulente qualificato. <span>
-<a href="#fonte-3">3</a>
+<a href="#fonte-4">4</a>
 </span>
 </p>
 </div>
@@ -2145,7 +2159,7 @@ exports[`verdict page of E26 > matches the DOM snapshot 1`] = `
 <p>Il soggetto risulta individuato come soggetto critico ai sensi del D.Lgs. 134/2024. Sulla base degli input forniti, l&#x27;analisi suggerisce il rientro nel perimetro NIS2 italiano come soggetto essenziale, indipendentemente dalla dimensione (art. 3 c. 5 lett. a) e art. 6 c. 1 lett. b) D.Lgs. 138/2024; FAQ ACN AMB.NO.1). Verifica obbligatoria con consulente qualificato. <span>
 <a href="#fonte-1">1</a>
 <a href="#fonte-2">2</a>
-<a href="#fonte-4">4</a>
+<a href="#fonte-5">5</a>
 </span>
 </p>
 </div>
@@ -2157,8 +2171,8 @@ exports[`verdict page of E26 > matches the DOM snapshot 1`] = `
 <p>Ogni attivita&#x27; dichiarata dal soggetto risulta esclusa per tipologia (FAQ ACN) o per categoria (art. 4 c. 2 D.Lgs. 138/2024), ma il soggetto risulta anche incluso indipendentemente dalla dimensione, come soggetto critico ai sensi del D.Lgs. 134/2024 (art. 3 c. 5 lett. a) D.Lgs. 138/2024). Le fonti verificate non indicano quale dei due criteri prevalga. Consulenza qualificata necessaria. <span>
 <a href="#fonte-1">1</a>
 <a href="#fonte-2">2</a>
-<a href="#fonte-3">3</a>
 <a href="#fonte-4">4</a>
+<a href="#fonte-5">5</a>
 </span>
 </p>
 </div>

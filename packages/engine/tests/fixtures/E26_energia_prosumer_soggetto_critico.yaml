@@ -31,4 +31,4 @@ expected:
   corpus_ref: "conflicts/conflicts__stages.yaml#conflicts[esclusione_tipologica_vs_inclusione_size_blind] + wizard/wizard__energia_elettrica.yaml#produttore_cliente_attivo.outcome_mapping[answer==si] + sectors/sectors__energia_elettrica.yaml#qualification_rules[soggetto_critico==yes] + exceptions/exceptions__catalog.yaml#exceptions[esclusione_tipologica_vs_inclusione_size_blind, prosumer_definizione_cliente_attivo, energia_regime_transitorio_ose]"
 
 # Citazioni come le produce l'engine: conflitto, esclusione, regola del soggetto critico, segnale, voci di catalogo.
-citations: [dlgs_138_2024_art_3_c_5_lett_a, faq_a1_1_a_4, dlgs_138_2024_art_6_c_1_lett_b, faq_amb_no_1, dlgs_134_2024, det_acn_379907_2025_art_5]
+citations: [dlgs_138_2024_art_3_c_5_lett_a, faq_a1_1_a_4, dlgs_138_2024_art_6_c_1_lett_b, faq_amb_no_1, dlgs_134_2024, det_acn_379907_2025_art_5, dlgs_138_2024_art_3_c_9]
