@@ -1,7 +1,34 @@
 # Checklist pre-rilascio (file vivo)
 
-> Si esegue e si documenta a ogni rilascio del tool. Completata in S4.2, Blocco 6 (prompt S4.2);
-> questa prima stesura nasce nel Blocco 3 per la voce sull'indicizzazione.
+> Si esegue e si documenta a ogni rilascio del tool. Prima stesura nel Blocco 3 di S4.2 (voce
+> sull'indicizzazione), completata ed eseguita nel Blocco 6 (2026-11-02, corpus 0.13.1). L'atto di
+> rilascio resta da decidere nel Project.
+
+## Controlli pre-rilascio
+
+Ogni voce si esegue sul commit candidato; l'esito di ogni esecuzione si registra nella tabella
+in fondo alla sezione.
+
+1. **CI verde sul `main`** (GitHub Actions: install, lint, typecheck, `corpus:validate`, test, build).
+2. **`pnpm corpus:validate` verde** in locale, con la versione del corpus attesa.
+3. **E2e Playwright verdi in locale** (`pnpm --filter @nis2-check/web exec playwright test`), prima del push.
+4. **Enumerazione completa** dei percorsi senza violazioni (sezione sotto).
+5. **`pnpm audit`**: nessuna advisory oltre quelle in `pnpm.auditConfig.ignoreCves` del `package.json`
+   di root; ciascuna ignorata ha motivo e data di riesame in `docs/ARCHITECTURE.md` (§7, "Advisory accettate").
+6. **Fine riga LF**: `.gitattributes` con `* text=auto eol=lf` ed eccezioni binarie; `git ls-files --eol`
+   mostra solo `i/lf` per i file di testo.
+7. **Avviso identico da sorgente unica** su click-wrap, esito (piè di pagina), PDF (copertina), pagina
+   dei limiti e README: `apps/web/tests/limits.test.tsx` ("is rendered identically by click-wrap,
+   footer, PDF and limits page") e `apps/web/tests/readme.test.ts` (avviso tra i marcatori, nelle
+   prime righe).
+8. **Nessuna richiesta verso host esterni** dall'export statico: `apps/web/e2e/network.spec.ts`
+   (riferimenti dell'export, sessione completa solo verso l'origine, nessuna violazione CSP).
+9. **Protezione del deploy attiva** fino all'atto di rilascio: richiesta anonima all'URL di
+   produzione con risposta 302 verso il login Vercel (sezione "Protezione del deploy").
+
+| Data | Commit | Corpus | Esito |
+|---|---|---|---|
+| 2026-11-02 | aa517bc | 0.13.1 | 1 CI verde (run 41441503448); 2 verde (43 file YAML, 28 fixture); 3 13 verdi, 1 saltato (PDF di esempio, solo con `PDF_OUT`); 4 418.564 combinazioni, 0 violazioni; 5 uscita 0, 6 advisory tutte in `ignoreCves` (il conteggio "7" di pnpm somma due volte minimatch, presente su due percorsi); 6 rinormalizzazione senza modifiche, indice già LF; 7 e 8 verdi; 9 302 su `/` e `/robots.txt` |
 
 ## Indicizzazione e anteprima (Blocco 3)
 
@@ -17,7 +44,8 @@
 
 - Progetto Vercel `nis2-check`: Vercel Authentication con `deploymentType: all` (piano Hobby): ogni
   URL, produzione compresa, risponde 302 verso il login Vercel a chi non è membro del team.
-  Verificato con richieste anonime il 2026-11-02. Nessun link di condivisione emesso.
+  Verificato con richieste anonime il 2026-11-02 (Blocco 3 e di nuovo nel Blocco 6). Nessun link di
+  condivisione emesso.
 - Fino al rilascio la review e i test lavorano sull'export locale `apps/web/out`.
 
 ## Atto di rilascio
@@ -48,3 +76,4 @@ Da eseguire solo su decisione nel Project, non in S4.2. In quest'ordine:
 |---|---|---|---|---|
 | 2026-10-30 | 0.11.0 | 418.576 (cloud 480, energia 417.792, PA 304) | 0 | S4.1, Blocco 0 |
 | 2026-11-02 | 0.13.0 | 418.564 (cloud 480, energia 417.792, PA 292) | 0 | S4.2, correzioni della review avversaria; PA: all'organo escluso dall'art. 4 c. 2 non si pongono più PSNC e classificazione Cloud PA (A1). Citazioni emesse: 60 |
+| 2026-11-02 | 0.13.1 | 418.564 (cloud 480, energia 417.792, PA 292) | 0 | S4.2, Blocco 6: patch di testi, nessuna regola cambiata; rieseguita comunque. Citazioni emesse: 60 |
