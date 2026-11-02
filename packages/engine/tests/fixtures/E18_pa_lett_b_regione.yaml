@@ -6,7 +6,7 @@ description_it: >
   essere elevata a essenziale con individuazione dell'ACN (art. 6 c. 2). Fino a corpus
   0.4.0 la lett. b) portava una qualifica essenziale solo inferita (ADR 0011). Signal
   di cumulo L. 90 attivo.
-corpus_version: 0.13.2
+corpus_version: 0.13.3
 sector: pubblica_amministrazione
 
 inputs:

@@ -3,7 +3,7 @@ name: cloud_grande_nessun_regime
 description_it: >
   Fornitore cloud privato di grande dimensione, nessun regime correlato attivo.
   Percorso categoriale standard: soggetto essenziale (Allegato I p. 8).
-corpus_version: 0.13.2
+corpus_version: 0.13.3
 sector: cloud_computing
 
 inputs:

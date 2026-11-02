@@ -13,6 +13,13 @@ Ogni bump ha una voce in questo file; le fixture dichiarano `corpus_version` e s
 
 ## [Unreleased]
 
+## [0.13.3] — 2026-11-02 — Riga standard come unica sede di "Verifica obbligatoria" (S4.2)
+
+Patch (testi e lint di copy). Decisione dell'autore del 2026-11-02 (STATUS, punto 30). Esiti, citazioni e avvisi invariati.
+- **Testi**: tolta la chiusa "Verifica obbligatoria con consulente qualificato." dagli 11 testi di esito che la ripetevano: 7 regole della PA (`sectors/sectors__pubblica_amministrazione.yaml`, `qualification_rules[0]` e `[2]`-`[7]`; in una nella forma lunga "... prima di assumere conclusioni operative."), il canale Allegato IV della PA, le mappature `registrato_pun` "no" e `produttore_cliente_attivo` "si" del questionario energia, la mappatura dell'organo escluso dall'art. 4 c. 2 del questionario PA. La riga standard sotto l'esito della pagina ("Verifica obbligatoria con consulente qualificato prima di assumere conclusioni operative.") resta l'unica sede della frase.
+- **Lint di copy (validator)**: `corpus:validate` blocca (`E_COPY`) "Verifica obbligatoria" nei testi di regole, mappature del questionario, override, canale Allegato IV e casi fuori ambito residui; segnali e catalogo non sono controllati, e lì resta ammessa la forma "verifica con consulente qualificato". Test di guasto su ogni tipo di testo.
+- Fixture E01-E28: `corpus_version` 0.13.2 → 0.13.3.
+
 ## [0.13.2] — 2026-11-02 — Testi: soggetto critico, aiuto della dimensione senza tabella (S4.2)
 
 Patch (testi e lint di copy). Decisioni dell'autore del 2026-11-02. Esiti, citazioni e avvisi invariati.

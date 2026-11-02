@@ -5,7 +5,7 @@ description_it: >
   A1.1.a.3 "non rientra automaticamente" per questo solo titolo: NON e'
   un'esclusione categoriale, ma una segnalazione (verso "fuori"). La dimensione
   e' raccolta ma non determina l'esito, che si origina al nodo registrato_pun.
-corpus_version: 0.13.2
+corpus_version: 0.13.3
 sector: energia_elettrica
 
 inputs:
