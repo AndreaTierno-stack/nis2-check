@@ -29,6 +29,7 @@ in fondo alla sezione.
 | Data | Commit | Corpus | Esito |
 |---|---|---|---|
 | 2026-11-02 | aa517bc | 0.13.1 | 1 CI verde (run 41441503448); 2 verde (43 file YAML, 28 fixture); 3 13 verdi, 1 saltato (PDF di esempio, solo con `PDF_OUT`); 4 418.564 combinazioni, 0 violazioni; 5 uscita 0, 6 advisory tutte in `ignoreCves` (il conteggio "7" di pnpm somma due volte minimatch, presente su due percorsi); 6 rinormalizzazione senza modifiche, indice già LF; 7 e 8 verdi; 9 302 su `/` e `/robots.txt` |
+| 2026-11-02 | 1959d84 | 0.13.2 | Dopo la verifica Firefox dell'autore (impaginazione a schede, `cer_signal`): 1 CI verde (run 41464307767); 2 verde; 3 15 verdi e 1 saltato su Chromium e su Firefox; 4 418.564, 0 violazioni; 5 invariato (uscita 0, nessuna advisory fuori da `ignoreCves`); 6 tutto `i/lf`; 7 e 8 verdi; 9 302 |
 
 ## Indicizzazione e anteprima (Blocco 3)
 
@@ -77,3 +78,4 @@ Da eseguire solo su decisione nel Project, non in S4.2. In quest'ordine:
 | 2026-10-30 | 0.11.0 | 418.576 (cloud 480, energia 417.792, PA 304) | 0 | S4.1, Blocco 0 |
 | 2026-11-02 | 0.13.0 | 418.564 (cloud 480, energia 417.792, PA 292) | 0 | S4.2, correzioni della review avversaria; PA: all'organo escluso dall'art. 4 c. 2 non si pongono più PSNC e classificazione Cloud PA (A1). Citazioni emesse: 60 |
 | 2026-11-02 | 0.13.1 | 418.564 (cloud 480, energia 417.792, PA 292) | 0 | S4.2, Blocco 6: patch di testi, nessuna regola cambiata; rieseguita comunque. Citazioni emesse: 60 |
+| 2026-11-02 | 0.13.2 | 418.564 (cloud 480, energia 417.792, PA 292) | 0 | S4.2, dopo la verifica Firefox: patch di testo di `cer_signal`. Citazioni emesse: 60 |
