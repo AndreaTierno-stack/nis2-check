@@ -374,6 +374,16 @@ scrivono mai a mano. Una limitazione nuova entra prima nel catalogo, poi nelle p
 - **Qualità**: ESLint anche su `packages/*` (oggi solo web); zod 4: migrazione in v0.1.1,
   advisory accettata per corpus locale fidato validato in build; lint dei vincoli di copy
   esteso dai testi del catalogo ai reasoning trace e ai testi del wizard.
+- **Review avversaria del 2026-11-02, findings bassi** (`docs/verifications/2026-11-02-review-avversaria.md`):
+  F13 tabella delle soglie nell'help della domanda `dimension` resa come markdown grezzo (render delle
+  tabelle nell'help); F15 domande non pertinenti (`cloud_pa` posta all'energia, `dora` alla PA,
+  domande dopo `esclusa_art_4_c_2`, attività ulteriore uguale alla principale) e contatore che cresce;
+  F16 espansione "comunità energetiche rinnovabili (CACER)" (naming di CLAUDE.md, decisione
+  dell'autore); F18 apostrofi al posto degli accenti e frasi da nota interna nei testi del corpus,
+  etichette diverse per la stessa regola, motivo dello stadio dimensionale diverso tra C3 ed E9;
+  F20 condizione ISTAT S13 posta anche al soggetto critico PA; F21 pagina 404 in inglese.
+  Medi in backlog: F14 glossario dei termini per il lettore non esperto; F12 passi successivi
+  informativi dopo l'esito (scope).
 - **CSP con hash** (backlog): sostituire `'unsafe-inline'` di `script-src` con gli hash sha256
   degli script inline, calcolati dopo il build (gli header di `vercel.json` sono statici: serve
   un passo che li scriva o una CSP in `<meta>` per pagina).
