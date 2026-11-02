@@ -50,6 +50,10 @@ in fondo alla sezione.
   Verificato con richieste anonime il 2026-11-02 (Blocco 3 e di nuovo nel Blocco 6). Nessun link di
   condivisione emesso.
 - Fino al rilascio la review e i test lavorano sull'export locale `apps/web/out`.
+- Atto di rilascio del 2026-11-02: Vercel Authentication da `all` a `preview` (protette solo le
+  anteprime). Richieste anonime: 200 su `https://ambito-nis2.vercel.app/`, `/limiti/` e
+  `/robots.txt`, 200 anche sul vecchio alias `nis2-check-three.vercel.app` (resta attivo, nessun
+  redirect configurato).
 
 ## Atto di rilascio
 
