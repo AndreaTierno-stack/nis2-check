@@ -18,19 +18,23 @@ Standard library only. Usage::
     python scripts/export_kb.py [VAULT_PATH]
     py scripts/export_kb.py [VAULT_PATH]      # Windows (Python launcher)
 
-``VAULT_PATH`` defaults to ``C:\\Users\\Francesco\\Desktop\\LLM_Wiki``.
+Vault path, in order: the ``VAULT_PATH`` argument; the ``NIS2_KB_PATH`` environment
+variable; ``../LLM_Wiki`` next to this repository (the KB clone beside the tool clone).
 """
 
 from __future__ import annotations
 
+import os
 import re
 import shutil
 import sys
 from collections import defaultdict
 from pathlib import Path
 
-DEFAULT_VAULT = Path(r"C:\Users\Francesco\Desktop\LLM_Wiki")
-EXPORT_DIR = Path(__file__).resolve().parent.parent / "export"
+REPO_ROOT = Path(__file__).resolve().parent.parent
+# No user-specific path in the code: argument, then NIS2_KB_PATH, then the sibling clone.
+DEFAULT_VAULT = Path(os.environ["NIS2_KB_PATH"]) if os.environ.get("NIS2_KB_PATH") else REPO_ROOT.parent / "LLM_Wiki"
+EXPORT_DIR = REPO_ROOT / "export"
 EXPORTED_SCOPES = {"nis2_tool", "both"}
 LAYERS = ("sources", "entities", "concepts", "synthesis")
 

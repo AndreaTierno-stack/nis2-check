@@ -34,7 +34,8 @@ nis2-check/
     src/lint.ts             lint testuali (booleani YAML 1.1 non quotati)
     src/cli.ts              pnpm corpus:validate
   docs/                     ARCHITECTURE.md · STATUS.md · decisions/ (ADR)
-  export/                   export della KB per il Project Knowledge (scripts/export_kb.py)
+  export/                   export della KB per il Project Knowledge (scripts/export_kb.py; vault da
+                            argomento, NIS2_KB_PATH o ../LLM_Wiki accanto al repo)
 ```
 
 Dipendenze tra pacchetti: `engine` importa da `corpus` solo tipi (`Corpus`); in
