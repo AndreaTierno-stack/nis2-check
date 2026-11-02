@@ -98,3 +98,44 @@ describe("sources", () => {
     expect(all.filter((id) => formatReference(id) === id)).toEqual([]);
   });
 });
+
+describe("printed verdict data (ADR 0018)", () => {
+  it("reads the release date of a version from the CHANGELOG heading", async () => {
+    const { releaseDate } = await import("@/lib/print");
+    const log = "## [Unreleased]\n\n## [0.12.0] — 2026-10-30 — Nome\n\n## [0.11.1] — 2026-10-29 — Avviso\n";
+    expect(releaseDate(log, "0.12.0")).toBe("2026-10-30");
+    expect(releaseDate(log, "0.11.1")).toBe("2026-10-29");
+    expect(releaseDate(log, "0.1.0")).toBeUndefined();
+    expect(releaseDate(log, "0.12")).toBeUndefined();
+  });
+
+  it("the real CHANGELOG dates the current corpus version", async () => {
+    const fs = await import("node:fs");
+    const path = await import("node:path");
+    const { releaseDate } = await import("@/lib/print");
+    const dir = path.resolve(__dirname, "..", "..", "..", "packages", "corpus", "corpus");
+    const version = fs.readFileSync(path.join(dir, "VERSION"), "utf8").trim();
+    expect(releaseDate(fs.readFileSync(path.join(dir, "CHANGELOG.md"), "utf8"), version)).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+  });
+
+  it("watermark and date of the evaluation", async () => {
+    const { formatEvaluatedAt, watermark } = await import("@/lib/print");
+    expect(watermark("0.12.0", "2026-10-30", "0123456789abcdef")).toBe("corpus v0.12.0 (2026-10-30) · 01234567");
+    expect(watermark("0.12.0", undefined, "0123456789abcdef")).toBe("corpus v0.12.0 · 01234567");
+    expect(formatEvaluatedAt(new Date("2026-11-02T13:35:00Z"))).toBe("2 novembre 2026, 14:35");
+  });
+
+  it("limits of a path: every non_gestito entry, the segnalato entries of the sector, raised ones first", async () => {
+    const { catalogItems, limitsForPath } = await import("@/lib/limits");
+    const corpus = realCorpus();
+    const all = catalogItems(corpus);
+    const raised = ["punti_ricarica_non_pun_attivita_ulteriore", "energia_regime_transitorio_ose"];
+    const { notHandled, flagged } = limitsForPath(corpus, "energia_elettrica", raised);
+    expect(notHandled.map((e) => e.id)).toEqual(all.filter((e) => e.status === "non_gestito").map((e) => e.id));
+    expect(notHandled).toHaveLength(7);
+    expect(flagged.slice(0, 2).map((e) => [e.id, e.raised])).toEqual(raised.map((id) => [id, true]));
+    expect(flagged.every((e) => e.status === "segnalato" && e.appliesTo.includes("energia_elettrica"))).toBe(true);
+    expect(flagged.slice(2).every((e) => !e.raised)).toBe(true);
+    expect(flagged).toHaveLength(all.filter((e) => e.status === "segnalato" && e.appliesTo.includes("energia_elettrica")).length);
+  });
+});

@@ -24,3 +24,16 @@ export const withoutStyles = (html: string) =>
   html
     .replace(/\s(class|style)="[^"]*"/g, "")
     .replace(/></g, ">\n<");
+
+/**
+ * Print-mode markup for DOM snapshots (ADR 0018): class attributes reduced to the tokens that
+ * decide what is printed (`hidden`, `print:block`, `print:hidden`, ...), style attributes removed.
+ */
+export const printView = (html: string) =>
+  html
+    .replace(/\sclass="([^"]*)"/g, (_, cls: string) => {
+      const kept = cls.split(/\s+/).filter((t) => t === "hidden" || t.startsWith("print:") || t === "print-frame");
+      return kept.length ? ` class="${kept.join(" ")}"` : "";
+    })
+    .replace(/\sstyle="[^"]*"/g, "")
+    .replace(/></g, ">\n<");

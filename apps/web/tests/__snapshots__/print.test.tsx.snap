@@ -1,0 +1,1182 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`printed verdict of E05 > matches the print-mode DOM snapshot 1`] = `
+"<table class="print-frame">
+<thead data-testid="print-header">
+<tr>
+<td>
+<div>
+<span>
+<span>Ambito NIS2</span> · Esito preliminare di verifica dell&#x27;ambito NIS2</span>
+<span>Valutazione 6b077a1f · 2 novembre 2026, 14:35</span>
+</div>
+</td>
+</tr>
+</thead>
+<tfoot data-testid="print-footer">
+<tr>
+<td>
+<div>
+<p>Anteprima di studio: strumento informativo gratuito, non sostituisce una consulenza legale, una verifica certificata di terza parte o la registrazione sulla piattaforma ACN. Disclaimer non sottoposto a review legale.</p>
+<p data-testid="watermark">corpus v0.12.0 (2026-10-30) · 6b077a1f</p>
+</div>
+</td>
+</tr>
+</tfoot>
+<tbody>
+<tr>
+<td>
+<section class="hidden print:block" data-testid="print-cover">
+<p>Ambito NIS2</p>
+<p>Esito preliminare di verifica dell&#x27;ambito NIS2</p>
+<dl>
+<div>
+<dt>Nome azienda analizzata</dt>
+<dd data-testid="print-company">Esempio S.r.l.</dd>
+</div>
+<div>
+<dt>Settore</dt>
+<dd>Cloud computing</dd>
+</div>
+<div>
+<dt>Data e ora della valutazione</dt>
+<dd>2 novembre 2026, 14:35 (ora italiana)</dd>
+</div>
+<div>
+<dt>Versione del corpus</dt>
+<dd>0.12.0, rilasciata il 2026-10-30</dd>
+</div>
+<div>
+<dt>Codice della valutazione</dt>
+<dd>6b077a1f</dd>
+</div>
+</dl>
+<p>Parte sintetica</p>
+</section>
+<p>Anteprima di studio: non è un parere legale e non sostituisce la registrazione sulla piattaforma ACN.</p>
+<div data-testid="outcome" data-outcome="likely_in_scope" data-mode="categorical_assessment">
+<div>
+<h1>Esito del pre-screening</h1>
+<ol aria-label="Esito del pre-screening">
+<li>Probabile esclusione</li>
+<li>Esito incerto</li>
+<li aria-current="true">Probabile rientro</li>
+</ol>
+</div>
+<div>
+<p>Dimensione dichiarata: Grande impresa. Classificazione secondo FAQ ACN AMB.DI.1 e Racc. UE 2003/361. In settore Allegato I (altamente critico) qualificato come soggetto <strong>essenziale</strong>. <span>
+<a href="#fonte-1">1</a>
+<a href="#fonte-3">3</a>
+<a href="#fonte-7">7</a>
+</span>
+</p>
+<p>Verifica obbligatoria con consulente qualificato prima di assumere conclusioni operative.</p>
+<hr/>
+<dl>
+<div>
+<dt>Tipologia</dt>
+<dd>Fornitore di servizi di cloud computing</dd>
+</div>
+<div>
+<dt>Qualifica suggerita</dt>
+<dd data-testid="qualifica">essenziale</dd>
+</div>
+<div>
+<dt>Regimi speciali</dt>
+<dd data-testid="regimi">Nessuno</dd>
+</div>
+</dl>
+<button class="print:hidden" aria-expanded="false" aria-controls="come-calcolato">Mostra come è stato calcolato</button>
+</div>
+</div>
+<section aria-labelledby="punti-title">
+<h2 id="punti-title">2 punti da valutare con un consulente</h2>
+<div>
+<div data-testid="notice" data-notice="cloud_stabilimento_principale_multi_ue">
+<div>
+<span aria-hidden="true">
+</span>
+<h3>Fornitori cloud con stabilimenti in più Stati membri (art. 5 D.Lgs. 138/2024)</h3>
+<span>Segnalato, non valutato dal tool</span>
+</div>
+<p>I fornitori di servizi di cloud computing sono soggetti alla giurisdizione dello Stato membro in cui hanno lo stabilimento principale nell&#x27;Unione; la giurisdizione nazionale ricorre, tra l&#x27;altro, se lo stabilimento principale è in Italia o se il soggetto, senza stabilimenti nell&#x27;Unione, ha designato il rappresentante in Italia (art. 5 D.Lgs. 138/2024). Lo strumento non valuta lo stabilimento principale: per un soggetto con stabilimenti in più Stati membri l&#x27;esito va riesaminato con un consulente qualificato. <span>
+<a href="#fonte-2">2</a>
+</span>
+</p>
+</div>
+<div data-testid="notice" data-notice="cloud_pa_fornitore_qualificato_a1_8_2">
+<div>
+<span aria-hidden="true">
+</span>
+<h3>Fornitori cloud qualificati per la PA (Regolamento Cloud)</h3>
+<span>Segnalato, non valutato dal tool</span>
+</div>
+<p>Secondo la FAQ ACN A1.8.2, i fornitori di servizi cloud qualificati ai sensi del Regolamento Cloud (Decreto Direttoriale ACN n. 21007/24) che superano i massimali delle piccole imprese rientrano nell&#x27;ambito NIS come fornitori di servizi di cloud computing (Allegato I, punto 8). La sostituzione del modello di categorizzazione prevista dall&#x27;art. 4 della Det. ACN 155238/2026 riguarda i soggetti che hanno svolto la classificazione dei propri dati e servizi, cioè le pubbliche amministrazioni (FAQ CAT.8): per il fornitore l&#x27;esito segue le regole ordinarie del settore. <span>
+<a href="#fonte-4">4</a>
+<a href="#fonte-5">5</a>
+<a href="#fonte-6">6</a>
+</span>
+</p>
+</div>
+</div>
+</section>
+<section class="hidden print:block" data-testid="print-answers">
+<h2>Le risposte date</h2>
+<p>Input della valutazione 6b077a1f: con le stesse risposte e la stessa versione del corpus lo strumento restituisce lo stesso esito.</p>
+<dl>
+<div>
+<dt>Il soggetto è stato formalmente inserito nel Perimetro di Sicurezza Nazionale Cibernetica (PSNC) ai sensi del DL 105/2019, con notifica ricevuta da ACN o dal CISR?</dt>
+<dd>No</dd>
+</div>
+<div>
+<dt>Il soggetto è un&#x27;entità finanziaria regolata dal Regolamento (UE) 2022/2554 (DORA), ad esempio un ente creditizio (banca) o un gestore di una sede di negoziazione?</dt>
+<dd>No</dd>
+</div>
+<div>
+<dt>Il soggetto eroga servizi cloud destinati a una Pubblica Amministrazione, qualificati ai sensi del Regolamento Cloud per la PA (Decreto Direttoriale ACN n. 21007/24)?</dt>
+<dd>Sì</dd>
+</div>
+<div>
+<dt>Il soggetto è un ente pubblico o ha capitale, quote o partecipazioni pubbliche?</dt>
+<dd>No</dd>
+</div>
+<div>
+<dt>Il soggetto fornisce anche servizi gestiti o servizi di sicurezza gestiti ad altre organizzazioni (B2B), tramite un&#x27;interconnessione diretta tra la rete del fornitore e quella del cliente?</dt>
+<dd>No</dd>
+</div>
+<div>
+<dt>Il soggetto è stato individuato come soggetto critico ai sensi del D.Lgs. 134/2024?</dt>
+<dd>No</dd>
+</div>
+<div>
+<dt>A quale categoria dimensionale appartiene il soggetto, secondo la Raccomandazione UE 2003/361/CE?</dt>
+<dd>Grande impresa (250 effettivi o più, oppure fatturato oltre 50 M€ e bilancio oltre 43 M€)</dd>
+</div>
+</dl>
+</section>
+<p class="hidden print:block">Parte tecnica, per il consulente</p>
+<section id="come-calcolato" class="hidden print:block" aria-labelledby="trace-title">
+<h2 id="trace-title">Come è stato calcolato</h2>
+<div>
+<p data-stage="regime_routing">
+<span>Regimi speciali:</span> <span>Non applicabile alle risposte date.</span>
+</p>
+<p data-stage="type_exclusion">
+<span>Esclusioni per tipologia:</span> <span>Non applicabile alle risposte date.</span>
+</p>
+<p data-stage="size_blind">
+<span>Regole indipendenti dalla dimensione:</span> <span>Non applicabile alle risposte date.</span>
+</p>
+<div data-testid="trace-decided" data-stage="dimensional">
+<h3>Regole dimensionali</h3>
+<p>Dimensione dichiarata: Grande impresa. Classificazione secondo FAQ ACN AMB.DI.1 e Racc. UE 2003/361. In settore Allegato I (altamente critico) qualificato come soggetto essenziale. <span>
+<a href="#fonte-1">1</a>
+<a href="#fonte-3">3</a>
+<a href="#fonte-7">7</a>
+</span>
+</p>
+</div>
+</div>
+</section>
+<section aria-labelledby="fonti-title">
+<div>
+<h2 id="fonti-title">Fonti citate in questo esito</h2>
+<p>Citate al livello verificato: articolo e comma, o codice FAQ. Ogni voce apre la scheda nella knowledge base.</p>
+</div>
+<div>
+<div>
+<h3>Decreto NIS (D.Lgs. 138/2024)</h3>
+<ol>
+<li id="fonte-1" data-testid="source" data-source="dlgs_138_2024_art_6">
+<span>1</span>
+<span>
+<span>D.Lgs. 138/2024, art. 6</span>
+<span>Qualifiche di soggetto essenziale e importante.</span>
+<a class="print:hidden" href="https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/D.Lgs.%20138-2024%20(Decreto%20NIS).md?plain=1#L30">Apri la scheda</a>
+<span class="hidden print:block" data-testid="source-url">https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/D.Lgs.%20138-2024%20(Decreto%20NIS).md?plain=1#L30</span>
+</span>
+</li>
+<li id="fonte-2" data-testid="source" data-source="dlgs_138_2024_art_5">
+<span>2</span>
+<span>
+<span>D.Lgs. 138/2024, art. 5</span>
+<span>Giurisdizione nazionale: soggetti stabiliti in Italia, con regole proprie per i servizi transfrontalieri.</span>
+<a class="print:hidden" href="https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/FAQ%20NIS%20-%20Ambito.md?plain=1#L204">Apri la scheda</a>
+<span class="hidden print:block" data-testid="source-url">https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/FAQ%20NIS%20-%20Ambito.md?plain=1#L204</span>
+</span>
+</li>
+</ol>
+</div>
+<div>
+<h3>FAQ ACN</h3>
+<ol>
+<li id="fonte-3" data-testid="source" data-source="faq_amb_di_1">
+<span>3</span>
+<span>
+<span>FAQ ACN AMB.DI.1</span>
+<span>Definizione di micro, piccola e media impresa secondo la Raccomandazione 2003/361/CE.</span>
+<a class="print:hidden" href="https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/FAQ%20NIS%20-%20Ambito.md?plain=1#L106">Apri la scheda</a>
+<span class="hidden print:block" data-testid="source-url">https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/FAQ%20NIS%20-%20Ambito.md?plain=1#L106</span>
+</span>
+</li>
+<li id="fonte-4" data-testid="source" data-source="faq_a1_8_2">
+<span>4</span>
+<span>
+<span>FAQ ACN A1.8.2</span>
+<span>I fornitori cloud qualificati per la PA rientrano come fornitori di servizi cloud se superano i massimali delle piccole imprese.</span>
+<a class="print:hidden" href="https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/FAQ%20NIS%20-%20Categorizzazione.md?plain=1#L113">Apri la scheda</a>
+<span class="hidden print:block" data-testid="source-url">https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/FAQ%20NIS%20-%20Categorizzazione.md?plain=1#L113</span>
+</span>
+</li>
+<li id="fonte-5" data-testid="source" data-source="faq_cat_8">
+<span>5</span>
+<span>
+<span>FAQ ACN CAT.8</span>
+<span>I soggetti che hanno classificato dati e servizi secondo il Regolamento Cloud applicano quel modello di categorizzazione.</span>
+<a class="print:hidden" href="https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/FAQ%20NIS%20-%20Categorizzazione.md?plain=1#L70">Apri la scheda</a>
+<span class="hidden print:block" data-testid="source-url">https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/FAQ%20NIS%20-%20Categorizzazione.md?plain=1#L70</span>
+</span>
+</li>
+</ol>
+</div>
+<div>
+<h3>Determinazioni ACN</h3>
+<ol>
+<li id="fonte-6" data-testid="source" data-source="det_acn_155238_2026_art_4">
+<span>6</span>
+<span>
+<span>Det. ACN 155238/2026, art. 4</span>
+<span>I soggetti che hanno svolto la classificazione del Regolamento Cloud applicano quel modello in luogo del modello di categorizzazione NIS.</span>
+<a class="print:hidden" href="https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/Determinazione%20ACN%20categorizzazione%20-%202026-04-13.md?plain=1#L36">Apri la scheda</a>
+<span class="hidden print:block" data-testid="source-url">https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/Determinazione%20ACN%20categorizzazione%20-%202026-04-13.md?plain=1#L36</span>
+</span>
+</li>
+</ol>
+</div>
+<div>
+<h3>Altre fonti</h3>
+<ol>
+<li id="fonte-7" data-testid="source" data-source="racc_ue_2003_361">
+<span>7</span>
+<span>
+<span>Racc. 2003/361/CE</span>
+<span>Raccomandazione della Commissione sulla definizione di micro, piccola e media impresa.</span>
+<a class="print:hidden" href="https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/FAQ%20NIS%20-%20Ambito.md?plain=1#L108">Apri la scheda</a>
+<span class="hidden print:block" data-testid="source-url">https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/FAQ%20NIS%20-%20Ambito.md?plain=1#L108</span>
+</span>
+</li>
+</ol>
+</div>
+</div>
+</section>
+<section class="hidden print:block" data-testid="print-limits">
+<h2>Cosa non gestisce il tool</h2>
+<p>Limiti dichiarati dello strumento, dal catalogo eccezioni: le voci segnalate per il settore valutato e tutte le voci non gestite. Ogni voce resta da valutare con un consulente qualificato.</p>
+<div>
+<h3>Segnalato, non valutato dal tool</h3>
+<ul>
+<li data-limit="cloud_stabilimento_principale_multi_ue">
+<span>Fornitori cloud con stabilimenti in più Stati membri (art. 5 D.Lgs. 138/2024)</span>
+<span> (Emerso da questa valutazione)</span>
+<span>I fornitori di servizi di cloud computing sono soggetti alla giurisdizione dello Stato membro in cui hanno lo stabilimento principale nell&#x27;Unione; la giurisdizione nazionale ricorre, tra l&#x27;altro, se lo stabilimento principale è in Italia o se il soggetto, senza stabilimenti nell&#x27;Unione, ha designato il rappresentante in Italia (art. 5 D.Lgs. 138/2024). Lo strumento non valuta lo stabilimento principale: per un soggetto con stabilimenti in più Stati membri l&#x27;esito va riesaminato con un consulente qualificato. <span>
+<a href="#fonte-2">2</a>
+</span>
+</span>
+</li>
+<li data-limit="cloud_pa_fornitore_qualificato_a1_8_2">
+<span>Fornitori cloud qualificati per la PA (Regolamento Cloud)</span>
+<span> (Emerso da questa valutazione)</span>
+<span>Secondo la FAQ ACN A1.8.2, i fornitori di servizi cloud qualificati ai sensi del Regolamento Cloud (Decreto Direttoriale ACN n. 21007/24) che superano i massimali delle piccole imprese rientrano nell&#x27;ambito NIS come fornitori di servizi di cloud computing (Allegato I, punto 8). La sostituzione del modello di categorizzazione prevista dall&#x27;art. 4 della Det. ACN 155238/2026 riguarda i soggetti che hanno svolto la classificazione dei propri dati e servizi, cioè le pubbliche amministrazioni (FAQ CAT.8): per il fornitore l&#x27;esito segue le regole ordinarie del settore. <span>
+<a href="#fonte-4">4</a>
+<a href="#fonte-5">5</a>
+<a href="#fonte-6">6</a>
+</span>
+</span>
+</li>
+<li data-limit="dora_entita_finanziaria_fuori_settori_3_4">
+<span>Entità finanziarie DORA fuori dai settori 3 e 4 dell&#x27;Allegato I</span>
+<span>L&#x27;art. 3 c. 14 D.Lgs. 138/2024 esclude l&#x27;art. 17 e i Capi IV e V del decreto solo per i soggetti dei settori 3 (settore bancario) e 4 (infrastrutture dei mercati finanziari) dell&#x27;Allegato I. Per un&#x27;entità finanziaria regolata dal Regolamento (UE) 2022/2554 che rientra nell&#x27;ambito NIS per un altro settore, la Det. ACN 127437/2026 prevede esoneri limitati agli adempimenti sulla piattaforma ACN (referente CSIRT, art. 7 c. 6; parte dell&#x27;aggiornamento annuale, art. 16 c. 13; elencazione e categorizzazione delle attività, art. 20 c. 6), mentre i Capi IV e V restano applicabili secondo il testo dell&#x27;art. 3 c. 14. L&#x27;esito indicato segue le regole del settore; il caso va approfondito con un consulente qualificato. </span>
+</li>
+<li data-limit="dora_soggetti_esentati_art_3_c_15">
+<span>Soggetti esentati dall&#x27;ambito del Regolamento DORA (art. 3 c. 15)</span>
+<span>Il decreto non si applica ai soggetti esentati dall&#x27;ambito di applicazione del Regolamento (UE) 2022/2554 (art. 3 c. 15 D.Lgs. 138/2024). Lo strumento non valuta questa esenzione: se il caso è pertinente, l&#x27;esito va riesaminato con un consulente qualificato. </span>
+</li>
+<li data-limit="individuazione_acn_art_3_c_9">
+<span>Soggetti individuati dall&#x27;ACN indipendentemente dalla dimensione (art. 3 c. 9)</span>
+<span>Il decreto si applica anche, indipendentemente dalla dimensione, ai soggetti dei settori e delle tipologie degli Allegati I-IV individuati dall&#x27;ACN secondo le procedure dell&#x27;art. 3 c. 13, quando ricorre uno dei criteri dell&#x27;art. 3 c. 9 (ad esempio unico fornitore nazionale di un servizio essenziale, o elemento sistemico della catena di approvvigionamento di soggetti essenziali o importanti). L&#x27;individuazione è notificata al soggetto. Lo strumento non può conoscerla: un soggetto sotto le soglie dimensionali potrebbe comunque rientrare. </span>
+</li>
+<li data-limit="imprese_collegate_art_3_c_10">
+<span>Imprese collegate a un soggetto essenziale o importante (art. 3 c. 10)</span>
+<span>Il decreto si applica, indipendentemente dalla dimensione, all&#x27;impresa collegata a un soggetto essenziale o importante che soddisfa almeno uno dei criteri dell&#x27;art. 3 c. 10, ad esempio se detiene o gestisce sistemi informativi e di rete da cui dipende la fornitura dei servizi di quel soggetto, o gli fornisce servizi TIC o di sicurezza. Lo strumento non valuta i rapporti di gruppo: un soggetto sotto le soglie dimensionali potrebbe comunque rientrare. </span>
+</li>
+</ul>
+</div>
+<div>
+<h3>Non gestito dal tool</h3>
+<ul>
+<li data-limit="dora_massive_disapplication">
+<span>Settore bancario e infrastrutture dei mercati finanziari (art. 3 c. 14)</span>
+<span>Ai soggetti essenziali o importanti dei settori 3 (settore bancario) e 4 (infrastrutture dei mercati finanziari) dell&#x27;Allegato I non si applicano l&#x27;art. 17 e i Capi IV e V del decreto; per questi soggetti si applica il Regolamento (UE) 2022/2554, noto come DORA (art. 3 c. 14 D.Lgs. 138/2024). Questi settori non sono tra quelli valutati dallo strumento in questa versione. </span>
+</li>
+<li data-limit="safeguard_dimensional_dpcm_221">
+<span>Salvaguardia dimensionale (DPCM 221/2024)</span>
+<span>L&#x27;art. 3 c. 4 D.Lgs. 138/2024 consente di non applicare il consolidamento dimensionale con le imprese collegate quando non è proporzionato, tenuto conto dell&#x27;indipendenza del soggetto in termini di sistemi informativi e di rete e di servizi forniti. La richiesta di questa salvaguardia dimensionale si presenta in fase di registrazione tramite la piattaforma ACN; l&#x27;ACN ne condivide gli elementi con le Autorità di settore interessate (art. 12 c. 2 Det. ACN 127437/2026). Le Autorità di settore procedono all&#x27;individuazione dei soggetti a cui si applica la deroga (art. 11 c. 4 lett. c) D.Lgs. 138/2024) e l&#x27;ACN la applica secondo i criteri del DPCM 221/2024, art. 3 c. 1 (art. 3 c. 12). Lo strumento non la valuta. </span>
+</li>
+<li data-limit="dimensione_autodichiarata">
+<span>Categoria dimensionale indicata dall&#x27;utente</span>
+<span>La categoria dimensionale (micro o piccola, media, grande impresa) è indicata dall&#x27;utente secondo la Raccomandazione 2003/361/CE, come riportata dalla FAQ ACN AMB.DI.1. Lo strumento non la calcola a partire da effettivi, fatturato e totale di bilancio. <span>
+<a href="#fonte-3">3</a>
+<a href="#fonte-7">7</a>
+</span>
+</span>
+</li>
+<li data-limit="consolidamento_di_gruppo">
+<span>Dati dimensionali delle imprese collegate o associate</span>
+<span>Per un soggetto che fa parte di un gruppo, i dati dimensionali possono andare sommati con quelli delle imprese collegate o associate (art. 3 c. 4 D.Lgs. 138/2024, che rinvia all&#x27;art. 6 par. 2 dell&#x27;allegato della Raccomandazione 2003/361/CE). Lo strumento non esegue questo calcolo: usa la categoria indicata dall&#x27;utente. <span>
+<a href="#fonte-7">7</a>
+</span>
+</span>
+</li>
+<li data-limit="confine_50_43">
+<span>Soglie di fatturato e di bilancio della media impresa</span>
+<span>Per la media impresa contano gli effettivi e almeno uno dei due dati contabili: fatturato annuo fino a 50 milioni di euro oppure totale di bilancio annuo fino a 43 milioni di euro (Raccomandazione 2003/361/CE, come riportata dalla FAQ ACN AMB.DI.1). Quando i due dati cadono su lati diversi delle soglie la classificazione richiede attenzione; lo strumento non la calcola e usa la categoria indicata dall&#x27;utente. <span>
+<a href="#fonte-3">3</a>
+<a href="#fonte-7">7</a>
+</span>
+</span>
+</li>
+<li data-limit="copertura_settoriale_parziale">
+<span>Settori e tipologie valutati dallo strumento</span>
+<span>Lo strumento valuta tre ambiti: il sottosettore energia elettrica (Allegato I, punto 1, lettera a), i fornitori di servizi di cloud computing (Allegato I, punto 8) e le pubbliche amministrazioni dell&#x27;Allegato III. Gli altri settori, sottosettori e tipologie degli Allegati I, II e IV non sono valutati. </span>
+</li>
+<li data-limit="anteprima_di_studio_non_consulenza">
+<span>Anteprima di studio: strumento informativo, non consulenza</span>
+<span>nis2-check è un&#x27;anteprima di studio: offre un esito preliminare e probabilistico sulla possibile applicabilità della disciplina NIS2 italiana (D.Lgs. 138/2024), sulla base delle risposte fornite. Non è un parere legale né una consulenza e non sostituisce la registrazione sulla piattaforma ACN: la verifica con un consulente qualificato è necessaria prima di assumere conclusioni operative. Le risposte restano nel browser e nessun dato viene inviato a un server. Questo avviso è fornito così com&#x27;è e non è stato rivisto da un legale. </span>
+</li>
+</ul>
+</div>
+</section>
+</td>
+</tr>
+</tbody>
+</table>"
+`;
+
+exports[`printed verdict of E10 > matches the print-mode DOM snapshot 1`] = `
+"<table class="print-frame">
+<thead data-testid="print-header">
+<tr>
+<td>
+<div>
+<span>
+<span>Ambito NIS2</span> · Esito preliminare di verifica dell&#x27;ambito NIS2</span>
+<span>Valutazione fc8341d3 · 2 novembre 2026, 14:35</span>
+</div>
+</td>
+</tr>
+</thead>
+<tfoot data-testid="print-footer">
+<tr>
+<td>
+<div>
+<p>Anteprima di studio: strumento informativo gratuito, non sostituisce una consulenza legale, una verifica certificata di terza parte o la registrazione sulla piattaforma ACN. Disclaimer non sottoposto a review legale.</p>
+<p data-testid="watermark">corpus v0.12.0 (2026-10-30) · fc8341d3</p>
+</div>
+</td>
+</tr>
+</tfoot>
+<tbody>
+<tr>
+<td>
+<section class="hidden print:block" data-testid="print-cover">
+<p>Ambito NIS2</p>
+<p>Esito preliminare di verifica dell&#x27;ambito NIS2</p>
+<dl>
+<div>
+<dt>Settore</dt>
+<dd>Pubblica amministrazione</dd>
+</div>
+<div>
+<dt>Data e ora della valutazione</dt>
+<dd>2 novembre 2026, 14:35 (ora italiana)</dd>
+</div>
+<div>
+<dt>Versione del corpus</dt>
+<dd>0.12.0, rilasciata il 2026-10-30</dd>
+</div>
+<div>
+<dt>Codice della valutazione</dt>
+<dd>fc8341d3</dd>
+</div>
+</dl>
+<p>Parte sintetica</p>
+</section>
+<p>Anteprima di studio: non è un parere legale e non sostituisce la registrazione sulla piattaforma ACN.</p>
+<div data-testid="outcome" data-outcome="likely_in_scope" data-mode="categorical_assessment">
+<div>
+<h1>Esito del pre-screening</h1>
+<ol aria-label="Esito del pre-screening">
+<li>Probabile esclusione</li>
+<li>Esito incerto</li>
+<li aria-current="true">Probabile rientro</li>
+</ol>
+</div>
+<div>
+<p>Per le amministrazioni centrali dell&#x27;Allegato III lett. a) (organi costituzionali e di rilievo costituzionale, Presidenza del Consiglio dei ministri e Ministeri, Agenzie fiscali, Autorita&#x27; amministrative indipendenti), l&#x27;analisi suggerisce il rientro nel perimetro NIS2 italiano come soggetto <strong>essenziale</strong>, indipendentemente dalla dimensione (art. 3 c. 6 e art. 6 c. 1 lett. e) D.Lgs. 138/2024). L&#x27;elenco dei soggetti essenziali e importanti e&#x27; stabilito con determinazione dell&#x27;ACN (art. 40 c. 5 lett. a)). La valutazione presuppone l&#x27;inclusione nell&#x27;elenco ISTAT (Lista S13). Verifica obbligatoria con consulente qualificato. <span>
+<a href="#fonte-1">1</a>
+<a href="#fonte-2">2</a>
+<a href="#fonte-3">3</a>
+<a href="#fonte-4">4</a>
+<a href="#fonte-8">8</a>
+</span>
+</p>
+<p>Verifica obbligatoria con consulente qualificato prima di assumere conclusioni operative.</p>
+<hr/>
+<dl>
+<div>
+<dt>Tipologia</dt>
+<dd>Amministrazione centrale (lett. a): Organi costituzionali e di rilievo costituzionale; Presidenza del Consiglio dei ministri e Ministeri; Agenzie fiscali; Autorità amministrative indipendenti</dd>
+</div>
+<div>
+<dt>Qualifica suggerita</dt>
+<dd data-testid="qualifica">essenziale</dd>
+</div>
+<div>
+<dt>Regimi speciali</dt>
+<dd data-testid="regimi">Nessuno</dd>
+</div>
+</dl>
+<button class="print:hidden" aria-expanded="false" aria-controls="come-calcolato">Mostra come è stato calcolato</button>
+</div>
+</div>
+<section aria-labelledby="punti-title">
+<h2 id="punti-title">3 punti da valutare con un consulente</h2>
+<div>
+<div data-testid="notice" data-notice="pa_organi_costituzionali_capo_v_art_4_c_2">
+<div>
+<span aria-hidden="true">
+</span>
+<h3>Organi costituzionali e di rilievo costituzionale: Capo V non applicabile</h3>
+<span>Segnalato, non valutato dal tool</span>
+</div>
+<p>Agli organi costituzionali e di rilievo costituzionale non si applicano le previsioni del Capo V del decreto, dedicato a vigilanza ed esecuzione (art. 4 c. 2, seconda parte). Lo strumento non modella questa differenza: l&#x27;esito sull&#x27;ambito resta quello indicato, mentre le conseguenze in termini di vigilanza vanno approfondite con un consulente qualificato. <span>
+<a href="#fonte-5">5</a>
+</span>
+</p>
+</div>
+<div data-testid="notice" data-notice="pa_esclusioni_sicurezza_nazionale_art_4_c_3">
+<div>
+<span aria-hidden="true">
+</span>
+<h3>Esclusioni di sicurezza nazionale (art. 4 D.Lgs. 138/2024) per attività</h3>
+<span>Segnalato, non valutato dal tool</span>
+</div>
+<p>Il decreto non si applica agli enti, organi e articolazioni della pubblica amministrazione che operano nei settori della pubblica sicurezza, della difesa nazionale o dell&#x27;attività di contrasto, agli organismi di informazione per la sicurezza e all&#x27;ACN (art. 4 c. 3). Lo strumento non valuta l&#x27;ambito di attività del soggetto: se il caso è pertinente, l&#x27;esito va riesaminato con un consulente qualificato. <span>
+<a href="#fonte-6">6</a>
+</span>
+</p>
+</div>
+<div data-testid="notice" data-notice="pa_prerequisito_istat_s13">
+<div>
+<span aria-hidden="true">
+</span>
+<h3>Inclusione nell&#x27;elenco ISTAT delle amministrazioni pubbliche</h3>
+<span>Segnalato, non valutato dal tool</span>
+</div>
+<p>Il rientro delle pubbliche amministrazioni dell&#x27;Allegato III presuppone che il soggetto sia tra le amministrazioni pubbliche di cui all&#x27;art. 1 c. 3 L. 196/2009, cioè nell&#x27;elenco ISTAT delle amministrazioni pubbliche (art. 3 c. 6 D.Lgs. 138/2024). Lo strumento non verifica l&#x27;inclusione nell&#x27;elenco, che va confermata con un consulente qualificato. <span>
+<a href="#fonte-2">2</a>
+<a href="#fonte-8">8</a>
+</span>
+</p>
+</div>
+</div>
+</section>
+<section class="hidden print:block" data-testid="print-answers">
+<h2>Le risposte date</h2>
+<p>Input della valutazione fc8341d3: con le stesse risposte e la stessa versione del corpus lo strumento restituisce lo stesso esito.</p>
+<dl>
+<div>
+<dt>Il soggetto è stato formalmente inserito nel Perimetro di Sicurezza Nazionale Cibernetica (PSNC) ai sensi del DL 105/2019, con notifica ricevuta da ACN o dal CISR?</dt>
+<dd>No</dd>
+</div>
+<div>
+<dt>Il soggetto è un&#x27;entità finanziaria regolata dal Regolamento (UE) 2022/2554 (DORA), ad esempio un ente creditizio (banca) o un gestore di una sede di negoziazione?</dt>
+<dd>No</dd>
+</div>
+<div>
+<dt>A quale categoria dell&#x27;Allegato III appartiene il soggetto?</dt>
+<dd>Amministrazione centrale (lett. a): Organi costituzionali e di rilievo costituzionale; Presidenza del Consiglio dei ministri e Ministeri; Agenzie fiscali; Autorità amministrative indipendenti</dd>
+</div>
+<div>
+<dt>L&#x27;amministrazione ha classificato i propri dati e servizi digitali ai sensi del Regolamento Cloud per la PA (Decreto Direttoriale ACN n. 21007/24, art. 3)?</dt>
+<dd>No</dd>
+</div>
+<div>
+<dt>Il soggetto è stato individuato come soggetto critico ai sensi del D.Lgs. 134/2024?</dt>
+<dd>No</dd>
+</div>
+</dl>
+</section>
+<p class="hidden print:block">Parte tecnica, per il consulente</p>
+<section id="come-calcolato" class="hidden print:block" aria-labelledby="trace-title">
+<h2 id="trace-title">Come è stato calcolato</h2>
+<div>
+<p data-stage="regime_routing">
+<span>Regimi speciali:</span> <span>Non applicabile alle risposte date.</span>
+</p>
+<p data-stage="type_exclusion">
+<span>Esclusioni per tipologia:</span> <span>Non applicabile alle risposte date.</span>
+</p>
+<div data-testid="trace-decided" data-stage="size_blind">
+<h3>Regole indipendenti dalla dimensione</h3>
+<p>Per le amministrazioni centrali dell&#x27;Allegato III lett. a) (organi costituzionali e di rilievo costituzionale, Presidenza del Consiglio dei ministri e Ministeri, Agenzie fiscali, Autorita&#x27; amministrative indipendenti), l&#x27;analisi suggerisce il rientro nel perimetro NIS2 italiano come soggetto essenziale, indipendentemente dalla dimensione (art. 3 c. 6 e art. 6 c. 1 lett. e) D.Lgs. 138/2024). L&#x27;elenco dei soggetti essenziali e importanti e&#x27; stabilito con determinazione dell&#x27;ACN (art. 40 c. 5 lett. a)). La valutazione presuppone l&#x27;inclusione nell&#x27;elenco ISTAT (Lista S13). Verifica obbligatoria con consulente qualificato. <span>
+<a href="#fonte-1">1</a>
+<a href="#fonte-2">2</a>
+<a href="#fonte-3">3</a>
+<a href="#fonte-4">4</a>
+<a href="#fonte-8">8</a>
+</span>
+</p>
+</div>
+<p data-stage="dimensional">
+<span>Regole dimensionali:</span> <span>Non applicabile alle risposte date.</span>
+</p>
+</div>
+</section>
+<section aria-labelledby="fonti-title">
+<div>
+<h2 id="fonti-title">Fonti citate in questo esito</h2>
+<p>Citate al livello verificato: articolo e comma, o codice FAQ. Ogni voce apre la scheda nella knowledge base.</p>
+</div>
+<div>
+<div>
+<h3>Decreto NIS (D.Lgs. 138/2024)</h3>
+<ol>
+<li id="fonte-1" data-testid="source" data-source="dlgs_138_2024_allegato_III">
+<span>1</span>
+<span>
+<span>D.Lgs. 138/2024, Allegato III</span>
+<span>Allegato III: le categorie di amministrazioni centrali, regionali, locali e di altro tipo.</span>
+<a class="print:hidden" href="https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/D.Lgs.%20138-2024%20(Decreto%20NIS).md?plain=1#L35">Apri la scheda</a>
+<span class="hidden print:block" data-testid="source-url">https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/D.Lgs.%20138-2024%20(Decreto%20NIS).md?plain=1#L35</span>
+</span>
+</li>
+<li id="fonte-2" data-testid="source" data-source="dlgs_138_2024_art_3_c_6">
+<span>2</span>
+<span>
+<span>D.Lgs. 138/2024, art. 3 c. 6</span>
+<span>Il decreto si applica, indipendentemente dalle dimensioni, alle PA dell&#x27;elenco ISTAT ricomprese nelle categorie dell&#x27;Allegato III.</span>
+<a class="print:hidden" href="https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/D.Lgs.%20138-2024%20(Decreto%20NIS).md?plain=1#L34">Apri la scheda</a>
+<span class="hidden print:block" data-testid="source-url">https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/D.Lgs.%20138-2024%20(Decreto%20NIS).md?plain=1#L34</span>
+</span>
+</li>
+<li id="fonte-3" data-testid="source" data-source="dlgs_138_2024_art_6_c_1_lett_e">
+<span>3</span>
+<span>
+<span>D.Lgs. 138/2024, art. 6 c. 1 lett. e)</span>
+<span>Sono essenziali, indipendentemente dalle dimensioni, le pubbliche amministrazioni centrali dell&#x27;Allegato III lett. a).</span>
+<a class="print:hidden" href="https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/D.Lgs.%20138-2024%20(Decreto%20NIS).md?plain=1#L42">Apri la scheda</a>
+<span class="hidden print:block" data-testid="source-url">https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/D.Lgs.%20138-2024%20(Decreto%20NIS).md?plain=1#L42</span>
+</span>
+</li>
+<li id="fonte-4" data-testid="source" data-source="dlgs_138_2024_art_40_c_5_lett_a">
+<span>4</span>
+<span>
+<span>D.Lgs. 138/2024, art. 40 c. 5 lett. a)</span>
+<span>L&#x27;elenco dei soggetti essenziali e importanti è stabilito con determinazione dell&#x27;ACN.</span>
+<a class="print:hidden" href="https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/D.Lgs.%20138-2024%20(Decreto%20NIS).md?plain=1#L8">Apri la scheda</a>
+<span class="hidden print:block" data-testid="source-url">https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/D.Lgs.%20138-2024%20(Decreto%20NIS).md?plain=1#L8</span>
+</span>
+</li>
+<li id="fonte-5" data-testid="source" data-source="dlgs_138_2024_art_4_c_2">
+<span>5</span>
+<span>
+<span>D.Lgs. 138/2024, art. 4 c. 2</span>
+<span>Le PA dell&#x27;art. 3 non comprendono Parlamento, Autorità giudiziaria, Banca d&#x27;Italia e UIF; agli organi costituzionali non si applica il Capo V.</span>
+<a class="print:hidden" href="https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/D.Lgs.%20138-2024%20(Decreto%20NIS).md?plain=1#L41">Apri la scheda</a>
+<span class="hidden print:block" data-testid="source-url">https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/D.Lgs.%20138-2024%20(Decreto%20NIS).md?plain=1#L41</span>
+</span>
+</li>
+<li id="fonte-6" data-testid="source" data-source="dlgs_138_2024_art_4_c_3">
+<span>6</span>
+<span>
+<span>D.Lgs. 138/2024, art. 4 c. 3</span>
+<span>Il decreto non si applica alle articolazioni della PA di pubblica sicurezza, difesa e contrasto, agli organismi di informazione e all&#x27;ACN.</span>
+<a class="print:hidden" href="https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/D.Lgs.%20138-2024%20(Decreto%20NIS).md?plain=1#L41">Apri la scheda</a>
+<span class="hidden print:block" data-testid="source-url">https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/D.Lgs.%20138-2024%20(Decreto%20NIS).md?plain=1#L41</span>
+</span>
+</li>
+</ol>
+</div>
+<div>
+<h3>Determinazioni ACN</h3>
+<ol>
+<li id="fonte-7" data-testid="source" data-source="det_piattaforma_127437_2026_art_4_c_8">
+<span>7</span>
+<span>
+<span>Det. ACN 127437/2026, art. 4 c. 8</span>
+<span>Per i soggetti della L. 90/2024 la designazione del punto di contatto NIS può soddisfare l&#x27;obbligo di nomina del referente per la cybersicurezza.</span>
+<a class="print:hidden" href="https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/Determinazione%20ACN%20piattaforma%20e%20procedure%20-%202026-04-13.md?plain=1#L34">Apri la scheda</a>
+<span class="hidden print:block" data-testid="source-url">https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/Determinazione%20ACN%20piattaforma%20e%20procedure%20-%202026-04-13.md?plain=1#L34</span>
+</span>
+</li>
+</ol>
+</div>
+<div>
+<h3>Altre fonti</h3>
+<ol>
+<li id="fonte-8" data-testid="source" data-source="l_196_2009_art_1_c_3">
+<span>8</span>
+<span>
+<span>L. 196/2009, art. 1 c. 3</span>
+<span>Elenco ISTAT delle amministrazioni pubbliche richiamato dall&#x27;art. 3 c. 6 del decreto NIS.</span>
+<a class="print:hidden" href="https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/D.Lgs.%20138-2024%20(Decreto%20NIS).md?plain=1#L34">Apri la scheda</a>
+<span class="hidden print:block" data-testid="source-url">https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/D.Lgs.%20138-2024%20(Decreto%20NIS).md?plain=1#L34</span>
+</span>
+</li>
+<li id="fonte-9" data-testid="source" data-source="l90_2024_art_1_c_1">
+<span>9</span>
+<span>
+<span>L. 90/2024, art. 1 c. 1</span>
+<span>Soggetti della L. 90/2024: PA centrali, Regioni, Città metropolitane, grandi Comuni, trasporto pubblico indicato, ASL e loro società in house qualificate.</span>
+<a class="print:hidden" href="https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/Legge%2090-2024%20(cybersicurezza%20nazionale).md?plain=1#L28">Apri la scheda</a>
+<span class="hidden print:block" data-testid="source-url">https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/Legge%2090-2024%20(cybersicurezza%20nazionale).md?plain=1#L28</span>
+</span>
+</li>
+<li id="fonte-10" data-testid="source" data-source="l90_2024_art_1_c_7_lett_a">
+<span>10</span>
+<span>
+<span>L. 90/2024, art. 1 c. 7 lett. a)</span>
+<span>Le disposizioni dell&#x27;art. 1 non si applicano ai soggetti richiamati dalla lettera, tra cui i soggetti del perimetro di sicurezza nazionale cibernetica.</span>
+<a class="print:hidden" href="https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/synthesis/Coordinamento%20L.%2090-2024%20e%20NIS2.md?plain=1#L46">Apri la scheda</a>
+<span class="hidden print:block" data-testid="source-url">https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/synthesis/Coordinamento%20L.%2090-2024%20e%20NIS2.md?plain=1#L46</span>
+</span>
+</li>
+<li id="fonte-11" data-testid="source" data-source="l90_2024_art_15_bis">
+<span>11</span>
+<span>
+<span>L. 90/2024, art. 15-bis</span>
+<span>Ogni riferimento al D.Lgs. 65/2018 si intende alle corrispondenti disposizioni del D.Lgs. 138/2024.</span>
+<a class="print:hidden" href="https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/Legge%2090-2024%20(cybersicurezza%20nazionale).md?plain=1#L174">Apri la scheda</a>
+<span class="hidden print:block" data-testid="source-url">https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/Legge%2090-2024%20(cybersicurezza%20nazionale).md?plain=1#L174</span>
+</span>
+</li>
+</ol>
+</div>
+</div>
+</section>
+<section class="hidden print:block" data-testid="print-limits">
+<h2>Cosa non gestisce il tool</h2>
+<p>Limiti dichiarati dello strumento, dal catalogo eccezioni: le voci segnalate per il settore valutato e tutte le voci non gestite. Ogni voce resta da valutare con un consulente qualificato.</p>
+<div>
+<h3>Segnalato, non valutato dal tool</h3>
+<ul>
+<li data-limit="pa_organi_costituzionali_capo_v_art_4_c_2">
+<span>Organi costituzionali e di rilievo costituzionale: Capo V non applicabile</span>
+<span> (Emerso da questa valutazione)</span>
+<span>Agli organi costituzionali e di rilievo costituzionale non si applicano le previsioni del Capo V del decreto, dedicato a vigilanza ed esecuzione (art. 4 c. 2, seconda parte). Lo strumento non modella questa differenza: l&#x27;esito sull&#x27;ambito resta quello indicato, mentre le conseguenze in termini di vigilanza vanno approfondite con un consulente qualificato. <span>
+<a href="#fonte-5">5</a>
+</span>
+</span>
+</li>
+<li data-limit="pa_esclusioni_sicurezza_nazionale_art_4_c_3">
+<span>Esclusioni di sicurezza nazionale (art. 4 D.Lgs. 138/2024) per attività</span>
+<span> (Emerso da questa valutazione)</span>
+<span>Il decreto non si applica agli enti, organi e articolazioni della pubblica amministrazione che operano nei settori della pubblica sicurezza, della difesa nazionale o dell&#x27;attività di contrasto, agli organismi di informazione per la sicurezza e all&#x27;ACN (art. 4 c. 3). Lo strumento non valuta l&#x27;ambito di attività del soggetto: se il caso è pertinente, l&#x27;esito va riesaminato con un consulente qualificato. <span>
+<a href="#fonte-6">6</a>
+</span>
+</span>
+</li>
+<li data-limit="pa_prerequisito_istat_s13">
+<span>Inclusione nell&#x27;elenco ISTAT delle amministrazioni pubbliche</span>
+<span> (Emerso da questa valutazione)</span>
+<span>Il rientro delle pubbliche amministrazioni dell&#x27;Allegato III presuppone che il soggetto sia tra le amministrazioni pubbliche di cui all&#x27;art. 1 c. 3 L. 196/2009, cioè nell&#x27;elenco ISTAT delle amministrazioni pubbliche (art. 3 c. 6 D.Lgs. 138/2024). Lo strumento non verifica l&#x27;inclusione nell&#x27;elenco, che va confermata con un consulente qualificato. <span>
+<a href="#fonte-2">2</a>
+<a href="#fonte-8">8</a>
+</span>
+</span>
+</li>
+<li data-limit="pa_qualifica_elevabile_art_6_c_2">
+<span>Qualifica di soggetto importante elevabile a essenziale</span>
+<span>Per le amministrazioni delle lettere b), c) e d) dell&#x27;Allegato III la qualifica di soggetto importante deriva dall&#x27;art. 6 c. 3; la qualifica può essere elevata a essenziale con individuazione dell&#x27;ACN (art. 6 c. 2). Lo strumento non può conoscere un&#x27;individuazione di questo tipo. </span>
+</li>
+<li data-limit="pa_categorie_aggiunte_dpcm_art_3_c_7">
+<span>Ulteriori categorie di PA individuate con DPCM</span>
+<span>Uno o più decreti del Presidente del Consiglio dei ministri possono individuare ulteriori categorie di pubbliche amministrazioni a cui si applica il decreto, adeguando l&#x27;elenco dell&#x27;Allegato III (art. 3 c. 7 e art. 40 c. 2 lett. b). Lo strumento considera solo le categorie dell&#x27;Allegato III: un soggetto pubblico che non vi rientra potrebbe essere compreso in una categoria aggiunta successivamente. </span>
+</li>
+<li data-limit="pa_lett_d_cumulo_l90_non_attestato">
+<span>Cumulo con la Legge 90/2024 per gli altri soggetti pubblici (lett. d)</span>
+<span>Per le amministrazioni della lettera d) dell&#x27;Allegato III lo strumento non segnala il cumulo con il perimetro della Legge 90/2024: l&#x27;appartenenza a quel perimetro non è attestata nelle fonti disponibili. La verifica va condotta con un consulente qualificato. <span>
+<a href="#fonte-1">1</a>
+<a href="#fonte-9">9</a>
+</span>
+</span>
+</li>
+<li data-limit="psnc_cloud_pa_precedenza_non_attestata">
+<span>PSNC e Cloud PA insieme: precedenza non indicata dalle fonti</span>
+<span>Per un&#x27;amministrazione inserita nel PSNC che ha anche classificato i propri dati e servizi ai sensi del Regolamento Cloud, le fonti disponibili non indicano quale disciplina prevalga tra l&#x27;attribuzione d&#x27;ufficio della categoria «alto» ai servizi PSNC (art. 5 Det. ACN 155238/2026) e la sostituzione del modello di categorizzazione (art. 4). Lo strumento indirizza il caso a un consulente qualificato; l&#x27;ordine con cui i due regimi sono elencati non indica una precedenza. </span>
+</li>
+<li data-limit="allegato_iv_individuazione_art_3_c_8">
+<span>Tipologie dell&#x27;Allegato IV: rientro solo su individuazione dell&#x27;ACN</span>
+<span>I soggetti delle tipologie dell&#x27;Allegato IV (trasporto pubblico locale, istituti di istruzione che svolgono attività di ricerca, soggetti che svolgono attività di interesse culturale, società in house, partecipate o a controllo pubblico) rientrano nel decreto, indipendentemente dalla dimensione, solo se individuati dall&#x27;ACN su proposta delle autorità di settore, con notifica al soggetto (art. 3 cc. 8 e 13 D.Lgs. 138/2024). Lo strumento non può determinare questa individuazione. </span>
+</li>
+<li data-limit="allegato_iv_attivita_culturale_criteri_mic">
+<span>Soggetti che svolgono attività di interesse culturale: criteri della proposta del Ministero della Cultura</span>
+<span>Per i soggetti che svolgono attività di interesse culturale, la FAQ ACN A4.3.3 indica gli elementi su cui si basa la proposta di individuazione del Ministero della Cultura: rilevanza dell&#x27;attività culturale, dipendenza critica dalle tecnologie dell&#x27;informazione e della comunicazione, impatto potenziale di un incidente informatico. La FAQ A4.3.4 precisa che per questa tipologia non valgono criteri dimensionali e che la valutazione è qualitativa e funzionale. Questi chiarimenti riguardano solo i soggetti culturali; lo strumento non valuta questi elementi. </span>
+</li>
+<li data-limit="pa_asl_identita_sanitaria">
+<span>Aziende sanitarie locali: identità nel settore sanitario non valutata</span>
+<span>Le Aziende sanitarie locali che erogano servizi di assistenza sanitaria sono riconducibili anche al settore sanitario dell&#x27;Allegato I, come prestatori di assistenza sanitaria: in questa veste sono soggetti importanti, ed essenziali se superano i massimali della media impresa (FAQ A3.c.4.1). Lo strumento valuta l&#x27;identità di amministrazione locale (Allegato III lett. c) e non il settore sanitario. </span>
+</li>
+</ul>
+</div>
+<div>
+<h3>Non gestito dal tool</h3>
+<ul>
+<li data-limit="dora_massive_disapplication">
+<span>Settore bancario e infrastrutture dei mercati finanziari (art. 3 c. 14)</span>
+<span>Ai soggetti essenziali o importanti dei settori 3 (settore bancario) e 4 (infrastrutture dei mercati finanziari) dell&#x27;Allegato I non si applicano l&#x27;art. 17 e i Capi IV e V del decreto; per questi soggetti si applica il Regolamento (UE) 2022/2554, noto come DORA (art. 3 c. 14 D.Lgs. 138/2024). Questi settori non sono tra quelli valutati dallo strumento in questa versione. </span>
+</li>
+<li data-limit="safeguard_dimensional_dpcm_221">
+<span>Salvaguardia dimensionale (DPCM 221/2024)</span>
+<span>L&#x27;art. 3 c. 4 D.Lgs. 138/2024 consente di non applicare il consolidamento dimensionale con le imprese collegate quando non è proporzionato, tenuto conto dell&#x27;indipendenza del soggetto in termini di sistemi informativi e di rete e di servizi forniti. La richiesta di questa salvaguardia dimensionale si presenta in fase di registrazione tramite la piattaforma ACN; l&#x27;ACN ne condivide gli elementi con le Autorità di settore interessate (art. 12 c. 2 Det. ACN 127437/2026). Le Autorità di settore procedono all&#x27;individuazione dei soggetti a cui si applica la deroga (art. 11 c. 4 lett. c) D.Lgs. 138/2024) e l&#x27;ACN la applica secondo i criteri del DPCM 221/2024, art. 3 c. 1 (art. 3 c. 12). Lo strumento non la valuta. </span>
+</li>
+<li data-limit="dimensione_autodichiarata">
+<span>Categoria dimensionale indicata dall&#x27;utente</span>
+<span>La categoria dimensionale (micro o piccola, media, grande impresa) è indicata dall&#x27;utente secondo la Raccomandazione 2003/361/CE, come riportata dalla FAQ ACN AMB.DI.1. Lo strumento non la calcola a partire da effettivi, fatturato e totale di bilancio. </span>
+</li>
+<li data-limit="consolidamento_di_gruppo">
+<span>Dati dimensionali delle imprese collegate o associate</span>
+<span>Per un soggetto che fa parte di un gruppo, i dati dimensionali possono andare sommati con quelli delle imprese collegate o associate (art. 3 c. 4 D.Lgs. 138/2024, che rinvia all&#x27;art. 6 par. 2 dell&#x27;allegato della Raccomandazione 2003/361/CE). Lo strumento non esegue questo calcolo: usa la categoria indicata dall&#x27;utente. </span>
+</li>
+<li data-limit="confine_50_43">
+<span>Soglie di fatturato e di bilancio della media impresa</span>
+<span>Per la media impresa contano gli effettivi e almeno uno dei due dati contabili: fatturato annuo fino a 50 milioni di euro oppure totale di bilancio annuo fino a 43 milioni di euro (Raccomandazione 2003/361/CE, come riportata dalla FAQ ACN AMB.DI.1). Quando i due dati cadono su lati diversi delle soglie la classificazione richiede attenzione; lo strumento non la calcola e usa la categoria indicata dall&#x27;utente. </span>
+</li>
+<li data-limit="copertura_settoriale_parziale">
+<span>Settori e tipologie valutati dallo strumento</span>
+<span>Lo strumento valuta tre ambiti: il sottosettore energia elettrica (Allegato I, punto 1, lettera a), i fornitori di servizi di cloud computing (Allegato I, punto 8) e le pubbliche amministrazioni dell&#x27;Allegato III. Gli altri settori, sottosettori e tipologie degli Allegati I, II e IV non sono valutati. <span>
+<a href="#fonte-1">1</a>
+</span>
+</span>
+</li>
+<li data-limit="anteprima_di_studio_non_consulenza">
+<span>Anteprima di studio: strumento informativo, non consulenza</span>
+<span>nis2-check è un&#x27;anteprima di studio: offre un esito preliminare e probabilistico sulla possibile applicabilità della disciplina NIS2 italiana (D.Lgs. 138/2024), sulla base delle risposte fornite. Non è un parere legale né una consulenza e non sostituisce la registrazione sulla piattaforma ACN: la verifica con un consulente qualificato è necessaria prima di assumere conclusioni operative. Le risposte restano nel browser e nessun dato viene inviato a un server. Questo avviso è fornito così com&#x27;è e non è stato rivisto da un legale. </span>
+</li>
+</ul>
+</div>
+</section>
+</td>
+</tr>
+</tbody>
+</table>"
+`;
+
+exports[`printed verdict of E27 > matches the print-mode DOM snapshot 1`] = `
+"<table class="print-frame">
+<thead data-testid="print-header">
+<tr>
+<td>
+<div>
+<span>
+<span>Ambito NIS2</span> · Esito preliminare di verifica dell&#x27;ambito NIS2</span>
+<span>Valutazione e75c00d2 · 2 novembre 2026, 14:35</span>
+</div>
+</td>
+</tr>
+</thead>
+<tfoot data-testid="print-footer">
+<tr>
+<td>
+<div>
+<p>Anteprima di studio: strumento informativo gratuito, non sostituisce una consulenza legale, una verifica certificata di terza parte o la registrazione sulla piattaforma ACN. Disclaimer non sottoposto a review legale.</p>
+<p data-testid="watermark">corpus v0.12.0 (2026-10-30) · e75c00d2</p>
+</div>
+</td>
+</tr>
+</tfoot>
+<tbody>
+<tr>
+<td>
+<section class="hidden print:block" data-testid="print-cover">
+<p>Ambito NIS2</p>
+<p>Esito preliminare di verifica dell&#x27;ambito NIS2</p>
+<dl>
+<div>
+<dt>Settore</dt>
+<dd>Energia elettrica</dd>
+</div>
+<div>
+<dt>Data e ora della valutazione</dt>
+<dd>2 novembre 2026, 14:35 (ora italiana)</dd>
+</div>
+<div>
+<dt>Versione del corpus</dt>
+<dd>0.12.0, rilasciata il 2026-10-30</dd>
+</div>
+<div>
+<dt>Codice della valutazione</dt>
+<dd>e75c00d2</dd>
+</div>
+</dl>
+<p>Parte sintetica</p>
+</section>
+<p>Anteprima di studio: non è un parere legale e non sostituisce la registrazione sulla piattaforma ACN.</p>
+<div data-testid="outcome" data-outcome="likely_in_scope" data-mode="categorical_assessment">
+<div>
+<h1>Esito del pre-screening</h1>
+<ol aria-label="Esito del pre-screening">
+<li>Probabile esclusione</li>
+<li>Esito incerto</li>
+<li aria-current="true">Probabile rientro</li>
+</ol>
+</div>
+<div>
+<p>Dimensione dichiarata: Media impresa. Classificazione secondo FAQ ACN AMB.DI.1 e Racc. UE 2003/361. In settore Allegato I p. 1 (Energia) qualificato come soggetto <strong>importante</strong>. Per &#x27;fatturato&#x27; si intende quello complessivo del soggetto, non solo dell&#x27;attività NIS (FAQ A1.2). Per i produttori, non rientrano i clienti attivi che non svolgono altre attività degli Allegati I e II (FAQ A1.1.a.4). <span>
+<a href="#fonte-1">1</a>
+<a href="#fonte-3">3</a>
+<a href="#fonte-4">4</a>
+<a href="#fonte-5">5</a>
+<a href="#fonte-10">10</a>
+</span>
+</p>
+<p>Verifica obbligatoria con consulente qualificato prima di assumere conclusioni operative.</p>
+<hr/>
+<dl>
+<div>
+<dt>Tipologia</dt>
+<dd>Produzione di energia elettrica</dd>
+</div>
+<div>
+<dt>Qualifica suggerita</dt>
+<dd data-testid="qualifica">importante</dd>
+</div>
+<div>
+<dt>Regimi speciali</dt>
+<dd data-testid="regimi">Nessuno</dd>
+</div>
+</dl>
+<button class="print:hidden" aria-expanded="false" aria-controls="come-calcolato">Mostra come è stato calcolato</button>
+</div>
+</div>
+<section aria-labelledby="punti-title">
+<h2 id="punti-title">2 punti da valutare con un consulente</h2>
+<div>
+<div data-testid="notice" data-notice="energia_regime_transitorio_ose">
+<div>
+<span aria-hidden="true">
+</span>
+<h3>Regime transitorio degli ex operatori di servizi essenziali (art. 5 Det. ACN 379907/2025)</h3>
+<span>Segnalato, non valutato dal tool</span>
+</div>
+<p>Secondo l&#x27;art. 5 della Det. ACN 379907/2025, i soggetti già operatori di servizi essenziali ai sensi del D.Lgs. 65/2018 mantengono, limitatamente ai sistemi informativi e di rete già individuati in quel quadro, le misure tecniche e organizzative già adottate, salvo contrasti con il decreto NIS. Il regime riguarda le misure, non l&#x27;ambito: l&#x27;esito indicato non cambia, e lo strumento non chiede se il soggetto era un operatore di servizi essenziali. <span>
+<a href="#fonte-9">9</a>
+</span>
+</p>
+</div>
+<div data-testid="notice" data-notice="punti_ricarica_non_pun_attivita_ulteriore">
+<div>
+<span aria-hidden="true">
+</span>
+<h3>Punti di ricarica senza obbligo di registrazione sul PUN, accanto ad altre attività</h3>
+<span>Segnalato, non valutato dal tool</span>
+</div>
+<p>Il soggetto indica, tra le attività dichiarate, la gestione di punti di ricarica senza obbligo di registrazione sul PUN, o con obbligo non noto. Secondo la FAQ ACN A1.1.a.3 questi punti di ricarica non rientrano automaticamente per questo solo titolo. Poiché il soggetto dichiara anche altre attività del settore elettrico, l&#x27;esito indicato segue le regole del settore per quelle attività; l&#x27;attività di ricarica va approfondita con un consulente qualificato. <span>
+<a href="#fonte-7">7</a>
+</span>
+</p>
+</div>
+</div>
+</section>
+<section class="hidden print:block" data-testid="print-answers">
+<h2>Le risposte date</h2>
+<p>Input della valutazione e75c00d2: con le stesse risposte e la stessa versione del corpus lo strumento restituisce lo stesso esito.</p>
+<dl>
+<div>
+<dt>Il soggetto è stato formalmente inserito nel Perimetro di Sicurezza Nazionale Cibernetica (PSNC) ai sensi del DL 105/2019, con notifica ricevuta da ACN o dal CISR?</dt>
+<dd>No</dd>
+</div>
+<div>
+<dt>Il soggetto è un&#x27;entità finanziaria regolata dal Regolamento (UE) 2022/2554 (DORA), ad esempio un ente creditizio (banca) o un gestore di una sede di negoziazione?</dt>
+<dd>No</dd>
+</div>
+<div>
+<dt>Il soggetto eroga servizi cloud destinati a una Pubblica Amministrazione, qualificati ai sensi del Regolamento Cloud per la PA (Decreto Direttoriale ACN n. 21007/24)?</dt>
+<dd>No</dd>
+</div>
+<div>
+<dt>Quale attività svolge principalmente il soggetto nel settore elettrico?</dt>
+<dd>Produzione di energia elettrica</dd>
+</div>
+<div>
+<dt>Oltre all&#x27;attività principale, il soggetto ne svolge altre tra queste nel settore elettrico?</dt>
+<dd>Gestione punti di ricarica (su PUN)</dd>
+</div>
+<div>
+<dt>Il soggetto è obbligato a registrarsi sul PUN (Piattaforma Unica Nazionale) come gestore di punti di ricarica, ai sensi del DM MASE n. 106 del 16/03/2023?</dt>
+<dd>No, non obbligato alla registrazione su PUN</dd>
+</div>
+<div>
+<dt>Il soggetto risponde ai requisiti della definizione di «clienti attivi» e non svolge altre attività riconducibili agli Allegati I e II del D.Lgs. 138/2024?</dt>
+<dd>No</dd>
+</div>
+<div>
+<dt>Il soggetto è un ente pubblico o ha capitale, quote o partecipazioni pubbliche?</dt>
+<dd>No</dd>
+</div>
+<div>
+<dt>Il soggetto è stato individuato come soggetto critico ai sensi del D.Lgs. 134/2024?</dt>
+<dd>No</dd>
+</div>
+<div>
+<dt>A quale categoria dimensionale appartiene il soggetto, secondo la Raccomandazione UE 2003/361/CE?</dt>
+<dd>Media impresa (non piccola; meno di 250 effettivi e fatturato fino a 50 M€ o bilancio fino a 43 M€)</dd>
+</div>
+</dl>
+</section>
+<p class="hidden print:block">Parte tecnica, per il consulente</p>
+<section id="come-calcolato" class="hidden print:block" aria-labelledby="trace-title">
+<h2 id="trace-title">Come è stato calcolato</h2>
+<div>
+<p data-stage="regime_routing">
+<span>Regimi speciali:</span> <span>Non applicabile alle risposte date.</span>
+</p>
+<p data-stage="type_exclusion">
+<span>Esclusioni per tipologia:</span> <span>Non decisivo: tra le attività dichiarate ce n&#x27;è almeno una senza esclusione.</span>
+</p>
+<p data-stage="size_blind">
+<span>Regole indipendenti dalla dimensione:</span> <span>Non applicabile alle risposte date.</span>
+</p>
+<div data-testid="trace-decided" data-stage="dimensional">
+<h3>Regole dimensionali</h3>
+<p>Dimensione dichiarata: Media impresa. Classificazione secondo FAQ ACN AMB.DI.1 e Racc. UE 2003/361. In settore Allegato I p. 1 (Energia) qualificato come soggetto importante. Per &#x27;fatturato&#x27; si intende quello complessivo del soggetto, non solo dell&#x27;attività NIS (FAQ A1.2). Per i produttori, non rientrano i clienti attivi che non svolgono altre attività degli Allegati I e II (FAQ A1.1.a.4). <span>
+<a href="#fonte-1">1</a>
+<a href="#fonte-3">3</a>
+<a href="#fonte-4">4</a>
+<a href="#fonte-5">5</a>
+<a href="#fonte-10">10</a>
+</span>
+</p>
+</div>
+</div>
+</section>
+<section aria-labelledby="fonti-title">
+<div>
+<h2 id="fonti-title">Fonti citate in questo esito</h2>
+<p>Citate al livello verificato: articolo e comma, o codice FAQ. Ogni voce apre la scheda nella knowledge base.</p>
+</div>
+<div>
+<div>
+<h3>Decreto NIS (D.Lgs. 138/2024)</h3>
+<ol>
+<li id="fonte-1" data-testid="source" data-source="dlgs_138_2024_art_6">
+<span>1</span>
+<span>
+<span>D.Lgs. 138/2024, art. 6</span>
+<span>Qualifiche di soggetto essenziale e importante.</span>
+<a class="print:hidden" href="https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/D.Lgs.%20138-2024%20(Decreto%20NIS).md?plain=1#L30">Apri la scheda</a>
+<span class="hidden print:block" data-testid="source-url">https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/D.Lgs.%20138-2024%20(Decreto%20NIS).md?plain=1#L30</span>
+</span>
+</li>
+<li id="fonte-2" data-testid="source" data-source="dlgs_138_2024_art_7_c_1_lett_d">
+<span>2</span>
+<span>
+<span>D.Lgs. 138/2024, art. 7 c. 1 lett. d)</span>
+<span>In registrazione si indicano, ove applicabile, i settori, i sottosettori e le tipologie di soggetto pertinenti.</span>
+<a class="print:hidden" href="https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/D.Lgs.%20138-2024%20(Decreto%20NIS).md?plain=1#L26">Apri la scheda</a>
+<span class="hidden print:block" data-testid="source-url">https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/D.Lgs.%20138-2024%20(Decreto%20NIS).md?plain=1#L26</span>
+</span>
+</li>
+</ol>
+</div>
+<div>
+<h3>FAQ ACN</h3>
+<ol>
+<li id="fonte-3" data-testid="source" data-source="faq_amb_di_1">
+<span>3</span>
+<span>
+<span>FAQ ACN AMB.DI.1</span>
+<span>Definizione di micro, piccola e media impresa secondo la Raccomandazione 2003/361/CE.</span>
+<a class="print:hidden" href="https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/FAQ%20NIS%20-%20Ambito.md?plain=1#L106">Apri la scheda</a>
+<span class="hidden print:block" data-testid="source-url">https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/FAQ%20NIS%20-%20Ambito.md?plain=1#L106</span>
+</span>
+</li>
+<li id="fonte-4" data-testid="source" data-source="faq_a1_2">
+<span>4</span>
+<span>
+<span>FAQ ACN A1.2</span>
+<span>Il fatturato considerato è quello complessivo, non solo quello delle attività NIS.</span>
+<a class="print:hidden" href="https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/FAQ%20NIS%20-%20Settori%2C%20sottosettori%20e%20tipologie%20di%20soggetto.md?plain=1#L51">Apri la scheda</a>
+<span class="hidden print:block" data-testid="source-url">https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/FAQ%20NIS%20-%20Settori%2C%20sottosettori%20e%20tipologie%20di%20soggetto.md?plain=1#L51</span>
+</span>
+</li>
+<li id="fonte-5" data-testid="source" data-source="faq_a1_1_a_4">
+<span>5</span>
+<span>
+<span>FAQ ACN A1.1.a.4</span>
+<span>I clienti attivi che non svolgono altre attività degli Allegati I e II non rientrano tra i produttori.</span>
+<a class="print:hidden" href="https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/FAQ%20NIS%20-%20Settori%2C%20sottosettori%20e%20tipologie%20di%20soggetto.md?plain=1#L37">Apri la scheda</a>
+<span class="hidden print:block" data-testid="source-url">https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/FAQ%20NIS%20-%20Settori%2C%20sottosettori%20e%20tipologie%20di%20soggetto.md?plain=1#L37</span>
+</span>
+</li>
+<li id="fonte-6" data-testid="source" data-source="faq_settori_sottosettori">
+<span>6</span>
+<span>
+<span>FAQ ACN Settori, sottosettori e tipologie di soggetto</span>
+<span>Settori, sottosettori e tipologie di soggetto: atti UE, criteri dimensionali e qualifiche per sottosettore.</span>
+<a class="print:hidden" href="https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/FAQ%20NIS%20-%20Settori%2C%20sottosettori%20e%20tipologie%20di%20soggetto.md?plain=1#L17">Apri la scheda</a>
+<span class="hidden print:block" data-testid="source-url">https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/FAQ%20NIS%20-%20Settori%2C%20sottosettori%20e%20tipologie%20di%20soggetto.md?plain=1#L17</span>
+</span>
+</li>
+<li id="fonte-7" data-testid="source" data-source="faq_a1_1_a_3">
+<span>7</span>
+<span>
+<span>FAQ ACN A1.1.a.3</span>
+<span>Rientrano i gestori di punti di ricarica registrati su PUN; i punti non obbligati alla registrazione non rientrano automaticamente.</span>
+<a class="print:hidden" href="https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/FAQ%20NIS%20-%20Settori%2C%20sottosettori%20e%20tipologie%20di%20soggetto.md?plain=1#L36">Apri la scheda</a>
+<span class="hidden print:block" data-testid="source-url">https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/FAQ%20NIS%20-%20Settori%2C%20sottosettori%20e%20tipologie%20di%20soggetto.md?plain=1#L36</span>
+</span>
+</li>
+</ol>
+</div>
+<div>
+<h3>Determinazioni ACN</h3>
+<ol>
+<li id="fonte-8" data-testid="source" data-source="det_piattaforma_127437_2026_art_11_c_2_lett_g">
+<span>8</span>
+<span>
+<span>Det. ACN 127437/2026, art. 11 c. 2 lett. g)</span>
+<span>Nella dichiarazione di registrazione si elencano le tipologie di soggetto degli Allegati I-IV a cui il soggetto è riconducibile.</span>
+<a class="print:hidden" href="https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/Determinazione%20ACN%20piattaforma%20e%20procedure%20-%202026-04-13.md?plain=1#L51">Apri la scheda</a>
+<span class="hidden print:block" data-testid="source-url">https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/Determinazione%20ACN%20piattaforma%20e%20procedure%20-%202026-04-13.md?plain=1#L51</span>
+</span>
+</li>
+<li id="fonte-9" data-testid="source" data-source="det_acn_379907_2025_art_5">
+<span>9</span>
+<span>
+<span>Det. ACN 379907/2025, art. 5</span>
+<span>Gli ex operatori di servizi essenziali mantengono, per i sistemi già individuati, le misure tecniche e organizzative già adottate.</span>
+<a class="print:hidden" href="https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/Determinazione%20ACN%20specifiche%20di%20base%20-%20379907-2025-12-19.md?plain=1#L44">Apri la scheda</a>
+<span class="hidden print:block" data-testid="source-url">https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/Determinazione%20ACN%20specifiche%20di%20base%20-%20379907-2025-12-19.md?plain=1#L44</span>
+</span>
+</li>
+</ol>
+</div>
+<div>
+<h3>Altre fonti</h3>
+<ol>
+<li id="fonte-10" data-testid="source" data-source="racc_ue_2003_361">
+<span>10</span>
+<span>
+<span>Racc. 2003/361/CE</span>
+<span>Raccomandazione della Commissione sulla definizione di micro, piccola e media impresa.</span>
+<a class="print:hidden" href="https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/FAQ%20NIS%20-%20Ambito.md?plain=1#L108">Apri la scheda</a>
+<span class="hidden print:block" data-testid="source-url">https://github.com/AndreaTierno-stack/nis2-knowledge-it/blob/main/wiki/sources/FAQ%20NIS%20-%20Ambito.md?plain=1#L108</span>
+</span>
+</li>
+</ol>
+</div>
+</div>
+</section>
+<section class="hidden print:block" data-testid="print-limits">
+<h2>Cosa non gestisce il tool</h2>
+<p>Limiti dichiarati dello strumento, dal catalogo eccezioni: le voci segnalate per il settore valutato e tutte le voci non gestite. Ogni voce resta da valutare con un consulente qualificato.</p>
+<div>
+<h3>Segnalato, non valutato dal tool</h3>
+<ul>
+<li data-limit="energia_regime_transitorio_ose">
+<span>Regime transitorio degli ex operatori di servizi essenziali (art. 5 Det. ACN 379907/2025)</span>
+<span> (Emerso da questa valutazione)</span>
+<span>Secondo l&#x27;art. 5 della Det. ACN 379907/2025, i soggetti già operatori di servizi essenziali ai sensi del D.Lgs. 65/2018 mantengono, limitatamente ai sistemi informativi e di rete già individuati in quel quadro, le misure tecniche e organizzative già adottate, salvo contrasti con il decreto NIS. Il regime riguarda le misure, non l&#x27;ambito: l&#x27;esito indicato non cambia, e lo strumento non chiede se il soggetto era un operatore di servizi essenziali. <span>
+<a href="#fonte-9">9</a>
+</span>
+</span>
+</li>
+<li data-limit="punti_ricarica_non_pun_attivita_ulteriore">
+<span>Punti di ricarica senza obbligo di registrazione sul PUN, accanto ad altre attività</span>
+<span> (Emerso da questa valutazione)</span>
+<span>Il soggetto indica, tra le attività dichiarate, la gestione di punti di ricarica senza obbligo di registrazione sul PUN, o con obbligo non noto. Secondo la FAQ ACN A1.1.a.3 questi punti di ricarica non rientrano automaticamente per questo solo titolo. Poiché il soggetto dichiara anche altre attività del settore elettrico, l&#x27;esito indicato segue le regole del settore per quelle attività; l&#x27;attività di ricarica va approfondita con un consulente qualificato. <span>
+<a href="#fonte-7">7</a>
+</span>
+</span>
+</li>
+<li data-limit="dora_entita_finanziaria_fuori_settori_3_4">
+<span>Entità finanziarie DORA fuori dai settori 3 e 4 dell&#x27;Allegato I</span>
+<span>L&#x27;art. 3 c. 14 D.Lgs. 138/2024 esclude l&#x27;art. 17 e i Capi IV e V del decreto solo per i soggetti dei settori 3 (settore bancario) e 4 (infrastrutture dei mercati finanziari) dell&#x27;Allegato I. Per un&#x27;entità finanziaria regolata dal Regolamento (UE) 2022/2554 che rientra nell&#x27;ambito NIS per un altro settore, la Det. ACN 127437/2026 prevede esoneri limitati agli adempimenti sulla piattaforma ACN (referente CSIRT, art. 7 c. 6; parte dell&#x27;aggiornamento annuale, art. 16 c. 13; elencazione e categorizzazione delle attività, art. 20 c. 6), mentre i Capi IV e V restano applicabili secondo il testo dell&#x27;art. 3 c. 14. L&#x27;esito indicato segue le regole del settore; il caso va approfondito con un consulente qualificato. </span>
+</li>
+<li data-limit="dora_soggetti_esentati_art_3_c_15">
+<span>Soggetti esentati dall&#x27;ambito del Regolamento DORA (art. 3 c. 15)</span>
+<span>Il decreto non si applica ai soggetti esentati dall&#x27;ambito di applicazione del Regolamento (UE) 2022/2554 (art. 3 c. 15 D.Lgs. 138/2024). Lo strumento non valuta questa esenzione: se il caso è pertinente, l&#x27;esito va riesaminato con un consulente qualificato. </span>
+</li>
+<li data-limit="individuazione_acn_art_3_c_9">
+<span>Soggetti individuati dall&#x27;ACN indipendentemente dalla dimensione (art. 3 c. 9)</span>
+<span>Il decreto si applica anche, indipendentemente dalla dimensione, ai soggetti dei settori e delle tipologie degli Allegati I-IV individuati dall&#x27;ACN secondo le procedure dell&#x27;art. 3 c. 13, quando ricorre uno dei criteri dell&#x27;art. 3 c. 9 (ad esempio unico fornitore nazionale di un servizio essenziale, o elemento sistemico della catena di approvvigionamento di soggetti essenziali o importanti). L&#x27;individuazione è notificata al soggetto. Lo strumento non può conoscerla: un soggetto sotto le soglie dimensionali potrebbe comunque rientrare. </span>
+</li>
+<li data-limit="imprese_collegate_art_3_c_10">
+<span>Imprese collegate a un soggetto essenziale o importante (art. 3 c. 10)</span>
+<span>Il decreto si applica, indipendentemente dalla dimensione, all&#x27;impresa collegata a un soggetto essenziale o importante che soddisfa almeno uno dei criteri dell&#x27;art. 3 c. 10, ad esempio se detiene o gestisce sistemi informativi e di rete da cui dipende la fornitura dei servizi di quel soggetto, o gli fornisce servizi TIC o di sicurezza. Lo strumento non valuta i rapporti di gruppo: un soggetto sotto le soglie dimensionali potrebbe comunque rientrare. </span>
+</li>
+<li data-limit="prosumer_definizione_cliente_attivo">
+<span>Definizione di cliente attivo non attestata</span>
+<span>La FAQ ACN A1.1.a.4 esclude dall&#x27;ambito le organizzazioni che rispondono ai requisiti della definizione di «clienti attivi» (direttiva (UE) 2019/944, art. 2, punto 8) e non svolgono altre attività riconducibili agli Allegati I e II. Il testo di quella definizione non è tra le fonti verificate dallo strumento: l&#x27;esito dipende dalla risposta fornita e va confermato con un consulente qualificato. <span>
+<a href="#fonte-5">5</a>
+</span>
+</span>
+</li>
+<li data-limit="esclusione_tipologica_vs_inclusione_size_blind">
+<span>Esclusione per tipologia e inclusione indipendente dalla dimensione: prevalenza non attestata</span>
+<span>Il soggetto dichiara attività tutte escluse per tipologia secondo le FAQ ACN, ma risulta anche individuato come soggetto critico ai sensi del D.Lgs. 134/2024, che il decreto pone in ambito indipendentemente dalla dimensione (art. 3 c. 5 lett. a) D.Lgs. 138/2024). Le fonti verificate dallo strumento non indicano quale dei due criteri prevalga: la prevalenza non è attestata. Lo strumento indirizza il caso a un consulente qualificato. </span>
+</li>
+</ul>
+</div>
+<div>
+<h3>Non gestito dal tool</h3>
+<ul>
+<li data-limit="dora_massive_disapplication">
+<span>Settore bancario e infrastrutture dei mercati finanziari (art. 3 c. 14)</span>
+<span>Ai soggetti essenziali o importanti dei settori 3 (settore bancario) e 4 (infrastrutture dei mercati finanziari) dell&#x27;Allegato I non si applicano l&#x27;art. 17 e i Capi IV e V del decreto; per questi soggetti si applica il Regolamento (UE) 2022/2554, noto come DORA (art. 3 c. 14 D.Lgs. 138/2024). Questi settori non sono tra quelli valutati dallo strumento in questa versione. </span>
+</li>
+<li data-limit="safeguard_dimensional_dpcm_221">
+<span>Salvaguardia dimensionale (DPCM 221/2024)</span>
+<span>L&#x27;art. 3 c. 4 D.Lgs. 138/2024 consente di non applicare il consolidamento dimensionale con le imprese collegate quando non è proporzionato, tenuto conto dell&#x27;indipendenza del soggetto in termini di sistemi informativi e di rete e di servizi forniti. La richiesta di questa salvaguardia dimensionale si presenta in fase di registrazione tramite la piattaforma ACN; l&#x27;ACN ne condivide gli elementi con le Autorità di settore interessate (art. 12 c. 2 Det. ACN 127437/2026). Le Autorità di settore procedono all&#x27;individuazione dei soggetti a cui si applica la deroga (art. 11 c. 4 lett. c) D.Lgs. 138/2024) e l&#x27;ACN la applica secondo i criteri del DPCM 221/2024, art. 3 c. 1 (art. 3 c. 12). Lo strumento non la valuta. </span>
+</li>
+<li data-limit="dimensione_autodichiarata">
+<span>Categoria dimensionale indicata dall&#x27;utente</span>
+<span>La categoria dimensionale (micro o piccola, media, grande impresa) è indicata dall&#x27;utente secondo la Raccomandazione 2003/361/CE, come riportata dalla FAQ ACN AMB.DI.1. Lo strumento non la calcola a partire da effettivi, fatturato e totale di bilancio. <span>
+<a href="#fonte-3">3</a>
+<a href="#fonte-10">10</a>
+</span>
+</span>
+</li>
+<li data-limit="consolidamento_di_gruppo">
+<span>Dati dimensionali delle imprese collegate o associate</span>
+<span>Per un soggetto che fa parte di un gruppo, i dati dimensionali possono andare sommati con quelli delle imprese collegate o associate (art. 3 c. 4 D.Lgs. 138/2024, che rinvia all&#x27;art. 6 par. 2 dell&#x27;allegato della Raccomandazione 2003/361/CE). Lo strumento non esegue questo calcolo: usa la categoria indicata dall&#x27;utente. <span>
+<a href="#fonte-10">10</a>
+</span>
+</span>
+</li>
+<li data-limit="confine_50_43">
+<span>Soglie di fatturato e di bilancio della media impresa</span>
+<span>Per la media impresa contano gli effettivi e almeno uno dei due dati contabili: fatturato annuo fino a 50 milioni di euro oppure totale di bilancio annuo fino a 43 milioni di euro (Raccomandazione 2003/361/CE, come riportata dalla FAQ ACN AMB.DI.1). Quando i due dati cadono su lati diversi delle soglie la classificazione richiede attenzione; lo strumento non la calcola e usa la categoria indicata dall&#x27;utente. <span>
+<a href="#fonte-3">3</a>
+<a href="#fonte-10">10</a>
+</span>
+</span>
+</li>
+<li data-limit="copertura_settoriale_parziale">
+<span>Settori e tipologie valutati dallo strumento</span>
+<span>Lo strumento valuta tre ambiti: il sottosettore energia elettrica (Allegato I, punto 1, lettera a), i fornitori di servizi di cloud computing (Allegato I, punto 8) e le pubbliche amministrazioni dell&#x27;Allegato III. Gli altri settori, sottosettori e tipologie degli Allegati I, II e IV non sono valutati. </span>
+</li>
+<li data-limit="anteprima_di_studio_non_consulenza">
+<span>Anteprima di studio: strumento informativo, non consulenza</span>
+<span>nis2-check è un&#x27;anteprima di studio: offre un esito preliminare e probabilistico sulla possibile applicabilità della disciplina NIS2 italiana (D.Lgs. 138/2024), sulla base delle risposte fornite. Non è un parere legale né una consulenza e non sostituisce la registrazione sulla piattaforma ACN: la verifica con un consulente qualificato è necessaria prima di assumere conclusioni operative. Le risposte restano nel browser e nessun dato viene inviato a un server. Questo avviso è fornito così com&#x27;è e non è stato rivisto da un legale. </span>
+</li>
+</ul>
+</div>
+</section>
+</td>
+</tr>
+</tbody>
+</table>"
+`;
