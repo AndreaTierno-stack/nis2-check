@@ -296,6 +296,27 @@ PR, Node 24, solo action di GitHub, nessun servizio terzo.
 `node_modules/.pnpm` superano facilmente il limite di 260 caratteri e Node non legge
 il `package.json` dei pacchetti (errore `ERR_PACKAGE_IMPORT_NOT_DEFINED` di vitest).
 
+**Deploy (S4.2, Vercel).** Progetto collegato al repository GitHub, radice del monorepo:
+`vercel.json` dichiara `framework: null`, install `pnpm install --frozen-lockfile`, build
+`pnpm --filter @nis2-check/web build`, output `apps/web/out`. Solo file statici: nessuna
+funzione serverless, nessuna variabile d'ambiente, Web Analytics e Speed Insights spenti. Il
+deploy non sostituisce la CI GitHub Actions e la CI non ha step di deploy.
+
+- **Header** (`vercel.json`, applicati anche da `scripts/serve-out.mjs`, quindi gli e2e girano
+  sotto la stessa CSP): `Content-Security-Policy` senza origini esterne (`default-src 'self'`,
+  `script-src` e `style-src` `'self' 'unsafe-inline'`, `img-src 'self' data:`, `object-src
+  'none'`, `base-uri 'self'`, `form-action 'none'`, `frame-ancestors 'none'`),
+  `Referrer-Policy: no-referrer`, `X-Content-Type-Options: nosniff`, `X-Frame-Options: DENY`,
+  `Permissions-Policy` senza fotocamera, microfono, geolocalizzazione, pagamenti, USB.
+  `'unsafe-inline'` serve agli script inline dell'export statico di Next e agli attributi
+  `style`: senza, il wizard non parte (verificato). La stampa non dipende dalla CSP.
+- **Indicizzazione** (`lib/release.ts`): variabile di build `NIS2_RELEASE_STAGE`, default
+  `preview`: `<meta name="robots" content="noindex, nofollow">` su ogni pagina e `robots.txt`
+  con `Disallow: /`. Solo `public` li toglie, al tag v0.1.0 (`docs/RELEASE_CHECKLIST.md`).
+- **Test** (`e2e/network.spec.ts`): nessun riferimento esterno in `<script>`, `<link>`, `<img>`
+  dell'export; una sessione completa (click-wrap, wizard, esito, stampa, pagina dei limiti)
+  chiede solo all'origine, senza violazioni CSP; noindex e `robots.txt` in anteprima.
+
 ## 6bis. Documenti generati dal catalogo eccezioni
 
 I limiti dichiarati si **generano** da `exceptions/exceptions__catalog.yaml` al build: non si
@@ -335,6 +356,9 @@ scrivono mai a mano. Una limitazione nuova entra prima nel catalogo, poi nelle p
 - **Qualità**: ESLint anche su `packages/*` (oggi solo web); zod 4: migrazione in v0.1.1,
   advisory accettata per corpus locale fidato validato in build; lint dei vincoli di copy
   esteso dai testi del catalogo ai reasoning trace e ai testi del wizard.
+- **CSP con hash** (backlog): sostituire `'unsafe-inline'` di `script-src` con gli hash sha256
+  degli script inline, calcolati dopo il build (gli header di `vercel.json` sono statici: serve
+  un passo che li scriva o una CSP in `<meta>` per pagina).
 - **Advisory accettate** (`pnpm.auditConfig.ignoreCves` nel `package.json` di root; registrate
   il 2026-11-02, riesame al prossimo rilascio, v0.1.1). Nessuna è presente nell'export statico
   servito agli utenti; nessun `pnpm.overrides`.

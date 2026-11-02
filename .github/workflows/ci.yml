@@ -44,5 +44,5 @@ jobs:
         run: pnpm build
       - name: Install Chromium for e2e
         run: pnpm --filter @nis2-check/web exec playwright install --with-deps --only-shell chromium
-      - name: e2e (fixtures and printed verdict on the static export)
+      - name: e2e (fixtures, printed verdict, limits page, network on the static export)
         run: pnpm --filter @nis2-check/web test:e2e

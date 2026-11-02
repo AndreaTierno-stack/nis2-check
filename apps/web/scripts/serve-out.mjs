@@ -1,12 +1,18 @@
 // Minimal static server for the export in out/ (e2e tests only; no dependency).
+// It applies the headers of vercel.json, so the e2e run under the deployed CSP.
 import http from "node:http";
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
-const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..", "out");
+const here = path.dirname(fileURLToPath(import.meta.url));
+const root = path.resolve(here, "..", "out");
 const port = Number(process.env.PORT ?? 4173);
 const types = { ".html": "text/html", ".js": "text/javascript", ".css": "text/css", ".woff2": "font/woff2", ".ico": "image/x-icon", ".txt": "text/plain", ".json": "application/json" };
+const vercel = JSON.parse(fs.readFileSync(path.resolve(here, "..", "..", "..", "vercel.json"), "utf8"));
+const headers = Object.fromEntries(
+  (vercel.headers ?? []).filter((h) => h.source === "/(.*)").flatMap((h) => h.headers.map((x) => [x.key, x.value])),
+);
 
 http
   .createServer((req, res) => {
@@ -15,7 +21,7 @@ http
     if (!file.startsWith(root)) return res.writeHead(403).end();
     if (fs.existsSync(file) && fs.statSync(file).isDirectory()) file = path.join(file, "index.html");
     if (!fs.existsSync(file)) file = path.join(root, "404.html");
-    res.writeHead(200, { "content-type": types[path.extname(file)] ?? "application/octet-stream" });
+    res.writeHead(200, { ...headers, "content-type": types[path.extname(file)] ?? "application/octet-stream" });
     fs.createReadStream(file).pipe(res);
   })
   .listen(port, () => console.log(`serving ${root} on http://localhost:${port}`));

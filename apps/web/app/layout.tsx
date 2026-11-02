@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Public_Sans } from "next/font/google";
+import { isIndexable } from "@/lib/release";
 import { copy } from "@/src/copy.it";
 import "./globals.css";
 
@@ -10,6 +11,8 @@ const publicSans = Public_Sans({ subsets: ["latin"], variable: "--font-public-sa
 export const metadata: Metadata = {
   title: copy.meta.title,
   description: copy.meta.description,
+  // preview until the v0.1.0 tag: no indexing (lib/release.ts)
+  ...(isIndexable() ? {} : { robots: { index: false, follow: false } }),
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
