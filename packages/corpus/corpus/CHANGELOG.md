@@ -13,6 +13,13 @@ Ogni bump ha una voce in questo file; le fixture dichiarano `corpus_version` e s
 
 ## [Unreleased]
 
+## [0.12.1] — 2026-11-02 — Avviso di anteprima senza nome di prodotto (S4.2)
+
+Patch (catalogo, solo testi). Decisione dell'autore del 2026-11-02. Esiti attesi invariati.
+- **`exceptions/exceptions__catalog.yaml`**, voce `anteprima_di_studio_non_consulenza`: "nis2-check è un'anteprima di studio" diventa "Questo strumento è un'anteprima di studio"; il resto della descrizione è invariato. Il testo non porta più un nome di prodotto (nome mostrato nell'app: "Ambito NIS2"; repo e pacchetti restano nis2-check).
+- Ricerca di "nis2-check" nei testi rivolti all'utente di catalogo, questionario, regimi, segnali, settori e registro citazioni: nessun'altra occorrenza.
+- Fixture E01-E27: `corpus_version` 0.12.0 → 0.12.1.
+
 ## [0.12.0] — 2026-10-30 — Nome e descrizione dei settori (S4.1)
 
 Minor (schema).

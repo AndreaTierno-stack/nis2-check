@@ -7,12 +7,15 @@
  * "Print mode" snapshot: classes are reduced to the tokens that decide print visibility
  * (`hidden`, `print:*`), so the snapshot shows what is on paper and what is screen-only.
  */
+import fs from "node:fs";
+import path from "node:path";
 import { renderToStaticMarkup } from "react-dom/server";
 import { describe, expect, it } from "vitest";
 import { evaluate } from "@nis2-check/engine";
 import { PRINT_NOTICE } from "@/content/disclaimer";
 import { PrintAnswers } from "@/components/verdict/print";
 import { VerdictMain } from "@/components/verdict/verdict-main";
+import { releaseDate } from "@/lib/print";
 import { buildSources } from "@/lib/sources";
 import { answerRows } from "@/lib/verdict";
 import { sectorContext } from "@/lib/wizard";
@@ -21,12 +24,14 @@ import { fixture, printView, realCorpus } from "./helpers";
 
 const noop = () => {};
 const AT = new Date("2026-11-02T13:35:00Z");
+const CORPUS_DIR = path.resolve(__dirname, "..", "..", "..", "packages", "corpus", "corpus");
+const RELEASE = releaseDate(fs.readFileSync(path.join(CORPUS_DIR, "CHANGELOG.md"), "utf8"), realCorpus().version)!;
 
 describe.each(["E05", "E10", "E27"])("printed verdict of %s", (id) => {
   const fx = fixture(id);
   const corpus = realCorpus();
   const verdict = evaluate({ sectorId: fx.sector, answers: fx.inputs }, corpus);
-  const print = { evaluatedAt: AT, companyName: id === "E05" ? "Esempio S.r.l." : "", releaseDate: "2026-10-30" };
+  const print = { evaluatedAt: AT, companyName: id === "E05" ? "Esempio S.r.l." : "", releaseDate: RELEASE };
   const props = { corpus, ctx: sectorContext(corpus, fx.sector), answers: fx.inputs as Record<string, string | string[]>, verdict, onEdit: noop, print };
   const html = renderToStaticMarkup(<VerdictMain {...props} />);
 
@@ -34,7 +39,7 @@ describe.each(["E05", "E10", "E27"])("printed verdict of %s", (id) => {
     expect(html).toContain('data-testid="print-header"');
     expect(html).toContain('data-testid="print-footer"');
     expect(html).toContain(PRINT_NOTICE);
-    expect(html).toContain(`corpus v${verdict.corpusVersion} (2026-10-30) · ${verdict.inputHash.slice(0, 8)}`);
+    expect(html).toContain(`corpus v${verdict.corpusVersion} (${RELEASE}) · ${verdict.inputHash.slice(0, 8)}`);
     expect(html).toContain("2 novembre 2026, 14:35");
   });
 
