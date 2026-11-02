@@ -1,5 +1,5 @@
 # ============================================================================
-# Registro delle citazioni — attestazione KB dei citation ID (corpus 0.12.0)
+# Registro delle citazioni — attestazione KB dei citation ID (corpus 0.13.1)
 # ============================================================================
 # Ogni voce collega un citation ID al nodo KB che lo attesta, con riga e modo
 # dell'attestazione. Da corpus 0.6.0 il registro copre tutti gli ID usati nel
@@ -11,9 +11,12 @@
 # (_allegato_III); direttiva NIS2 con prefisso dir_nis2_; FAQ ACN con il codice
 # (faq_a1_1_a_1); faq_settori_sottosettori = pagina FAQ nel suo insieme.
 #
-# Nodi KB: LLM_Wiki (nis2-knowledge-it), HEAD f373942 (dopo DEC-009, lint del
-# 2026-10-30), stesse righe nell'export del Project Knowledge. Righe verificate con grep
-# sui nodi; fedelta' riscontrata sui PDF in raw/ (verifiche del 2026-10-28 e del
+# Nodi KB: LLM_Wiki (nis2-knowledge-it), HEAD 064d9e3 (dopo DEC-010 e il naming
+# "configurazioni CACER", 2026-11-02), stesse righe nell'export del Project Knowledge
+# (c69efb5). Corpus 0.13.1: da f373942 cambiano solo i nodi D.Lgs. 138/2024 (riga 42,
+# art. 6 c. 1 lett. a)) e FAQ Settori (righe 30 e 36, A1.1.a.3), con sostituzioni riga per
+# riga: nessuna riga del registro si sposta; righe 42, 30 e 36 riscontrate sul testo nuovo.
+# Righe verificate con grep sui nodi; fedelta' riscontrata sui PDF in raw/ (verifiche del 2026-10-28 e del
 # 2026-10-30, docs/verifications/2026-10-28-registro-citazioni.md e
 # 2026-10-30-lint-kb.md). "Fonte non in raw/" = atto citato dalla KB ma non presente
 # tra le fonti del vault. Corpus 0.7.0: righe riallineate a f373942 (il lint ha spostato
