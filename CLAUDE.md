@@ -23,11 +23,11 @@ Monorepo pnpm workspaces:
 nis2-check/
   apps/web            → Next.js 15.5 App Router (export statico), React 19, TypeScript strict, TailwindCSS 3, shadcn/ui
                         (pin 15.5: la linea 14.x è fuori supporto, con CVE senza fix — S2, 2026-10-28)
+                        PDF = stampa del browser da foglio di stile @media print (ADR 0018)
   packages/engine     → funzione pura, zero dipendenze runtime, nessun I/O
     tests/fixtures/   → scenari golden E01–E27 (legati a corpus_version)
   packages/corpus     → loader YAML + schemi zod + corpus:validate
     corpus/           → il corpus: VERSION, CHANGELOG.md, sectors/, wizard/, signals/, regimes/, exceptions/, citations/, conflicts/
-  packages/pdf        → generazione PDF client-side
   docs/               → ARCHITECTURE.md (viva), decisions/ (ADR), STATUS.md, CORPUS_SCHEMA.md
   export/             → export della KB per il Project Knowledge (scripts/export_kb.py)
 ```
@@ -110,7 +110,7 @@ interface ReasoningStep {           // ADR 0016, §5
 
 ## Deliverable PDF
 
-Naming: "Esito preliminare di verifica dell'ambito NIS2" (mai wording da certificato). Watermark: `corpus vX.Y.Z · ultima det. ACN considerata: [data] · [primi 8 char di inputHash]`. Disclaimer di non-consulenza in piè di pagina di **ogni** pagina. Struttura ibrida: parte sintetica (verdetto + segnalazioni regimi) per il lettore non esperto; parte tecnica (citazioni puntuali, open question, regimi correlati possibili) per il consulente. Campo opzionale "Nome azienda analizzata" in copertina. Generazione interamente client-side.
+Naming: "Esito preliminare di verifica dell'ambito NIS2" (mai wording da certificato). Watermark: `corpus vX.Y.Z (data di rilascio dal CHANGELOG) · [primi 8 char di inputHash]` (la voce "ultima det. ACN considerata" è caduta: nessun campo nel corpus, ADR 0018). Intestazione e piè di pagina con il nome "Ambito NIS2" e il disclaimer di non-consulenza su **ogni** pagina, in aggiunta al watermark. Struttura ibrida: parte sintetica (verdetto + segnalazioni regimi) per il lettore non esperto; parte tecnica (citazioni puntuali con URL esplicito, open question, regimi correlati possibili) per il consulente. Campo opzionale "Nome azienda analizzata" accanto a "Scarica PDF", vuoto per default, mai persistito, solo in copertina. Generazione interamente client-side: stampa del browser (`window.print()` + `@media print`), nessuna libreria PDF (ADR 0018).
 
 ## Observability (solo client-side)
 
@@ -118,7 +118,7 @@ Consentito: `reasoningTrace` nel Verdict; console log strutturati gated `?debug=
 
 ## CI/CD e workflow
 
-GitHub Actions su ogni push/PR: install → lint → typecheck → `corpus:validate` → test → build. Conventional commits (`feat:`, `fix:`, `docs:`, `chore:`, `test:`, `corpus:`); i commit `corpus:` citano la versione (es. `corpus: bump 0.2.1 — attestation patch, DIV-P1 closed`). `docs/ARCHITECTURE.md` è documentazione viva: si aggiorna nello stesso commit che cambia l'architettura. Le decisioni con alternative scartate → ADR in `docs/decisions/` (indice in `docs/decisions/README.md`; 0013 non assegnato; prossimo numero: 0018). `docs/STATUS.md` è la fonte unica dello stato di avanzamento e dei punti aperti; si aggiorna in chiusura di ogni sessione (data, stato sintetico, punti aperti, una riga di log).
+GitHub Actions su ogni push/PR: install → lint → typecheck → `corpus:validate` → test → build. Conventional commits (`feat:`, `fix:`, `docs:`, `chore:`, `test:`, `corpus:`); i commit `corpus:` citano la versione (es. `corpus: bump 0.2.1 — attestation patch, DIV-P1 closed`). `docs/ARCHITECTURE.md` è documentazione viva: si aggiorna nello stesso commit che cambia l'architettura. Le decisioni con alternative scartate → ADR in `docs/decisions/` (indice in `docs/decisions/README.md`; 0013 non assegnato; prossimo numero: 0019). `docs/STATUS.md` è la fonte unica dello stato di avanzamento e dei punti aperti; si aggiorna in chiusura di ogni sessione (data, stato sintetico, punti aperti, una riga di log).
 
 ## Autonomia di Claude Code
 

@@ -2,7 +2,7 @@
 
 > Documentazione viva: si aggiorna nello stesso commit che cambia l'architettura
 > (CLAUDE.md, CI/CD e workflow). Stato di avanzamento e punti aperti: `docs/STATUS.md`.
-> Ultimo aggiornamento: 2026-10-28, sessione corpus 0.5.0 (pacchetto PA, catalogo eccezioni).
+> Ultimo aggiornamento: 2026-11-02, S4.2 (PDF dal foglio di stile di stampa, ADR 0018; advisory accettate).
 
 nis2-check è uno strumento **informativo** di pre-screening dell'ambito NIS2 italiano:
 non fa compliance, audit o certificazione. Il valore sta nel **corpus normativo
@@ -33,7 +33,6 @@ nis2-check/
     src/corpusRef.ts        risoluzione dei corpus_ref delle fixture
     src/lint.ts             lint testuali (booleani YAML 1.1 non quotati)
     src/cli.ts              pnpm corpus:validate
-  packages/pdf/             PDF client-side (v0.1.0: da implementare)
   docs/                     ARCHITECTURE.md · STATUS.md · decisions/ (ADR)
   export/                   export della KB per il Project Knowledge (scripts/export_kb.py)
 ```
@@ -291,11 +290,12 @@ Una limitazione nuova entra prima nel catalogo, poi nei documenti generati.
 - **Web (S4.2)**: PDF con foglio di stile di stampa, pagina "Cosa non gestisce il tool" dal
   catalogo, click-wrap finale, deploy Vercel, README per il lettore di dieci minuti. Wizard,
   esito ed Explainability Mode: fatti in S4.1 (§2ter).
-- **PDF**: `packages/pdf` secondo CLAUDE.md (watermark, disclaimer su ogni pagina).
-- **Qualità**: ESLint anche su `packages/*` (oggi solo web); migrazione a zod 4
-  (advisory di zod 3 sulla memoria con collezioni enormi, non rilevante su un corpus
-  locale fidato); lint dei vincoli di copy esteso dai testi del catalogo ai
-  reasoning trace e ai testi del wizard.
+- **PDF** (ADR 0018): stampa del browser dalla pagina dell'esito (`window.print()` e
+  `@media print` in `apps/web`), nessuna libreria PDF; contenuto secondo CLAUDE.md
+  ("Deliverable PDF": watermark, intestazione e disclaimer su ogni pagina).
+- **Qualità**: ESLint anche su `packages/*` (oggi solo web); zod 4: migrazione in v0.1.1,
+  advisory accettata per corpus locale fidato validato in build; lint dei vincoli di copy
+  esteso dai testi del catalogo ai reasoning trace e ai testi del wizard.
 - **Rilascio** (ADR 0017): anteprima di studio con disclaimer AS-IS, checklist pre-rilascio
   (CI verde, `pnpm engine:enumerate --full` senza violazioni, review avversaria interna),
   deploy Vercel. Nessun gate con reviewer terzo.

@@ -21,6 +21,7 @@ non si riassegnano e non si rinumerano.
 | 0014 | Regimi instradati in v0.1: PSNC (cloud, energia, PA) e Cloud PA (solo PA) |
 | 0015 | Soggetti critici (D.Lgs. 134/2024): essenziali a prescindere dalla dimensione |
 | 0016 | Ordine di valutazione dell'engine v0.1 e semantica degli input assenti |
-| 0017 | Ritiro del gate pre-lancio e della review legale del disclaimer (supera ADR 0008) |
+| 0017 | Ritiro del gate pre-lancio e della review legale del disclaimer (supera ADR 0008; amendment 2026-11-02: repo privato fino al pre-rilascio) |
+| 0018 | PDF dal foglio di stile di stampa |
 
-Prossimo numero: 0018.
+Prossimo numero: 0019.
