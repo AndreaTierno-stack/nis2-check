@@ -159,7 +159,7 @@ test di enumerazione).
   settore); Domande (una per schermata, help dal YAML; binarie e multiple a pillole, singole
   a righe radio; `InvalidAnswersError` mostrato come elenco di domande da completare); Esito
   (banner di anteprima; pannello dell'esito con scala a tre posizioni, frase del corpus,
-  riga di verifica, tipologia, qualifica, regimi; avvisi dal catalogo; altre segnalazioni (i segnali del Verdict con il testo del corpus); "Come è stato
+  riga di verifica, tipologia, qualifica, regimi; avvisi dal catalogo; altre segnalazioni (i segnali del Verdict con il testo del corpus: pannello "Altre segnalazioni dalle risposte date", aggiunta successiva al mockup del Verdict, review avversaria del 2026-11-02, F04); "Come è stato
   calcolato" ripiegato, quattro righe per gli stadi dell'ADR 0016; fonti numerate e
   raggruppate per `source_group` del registro, con etichetta e link alla riga della KB;
   colonna laterale con le risposte, "Scarica PDF" con il nome azienda facoltativo, link alla
