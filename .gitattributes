@@ -1,0 +1,18 @@
+# Line endings: LF in the repository and in the working tree, on every platform
+# (S4.2, Blocco 6). Overrides core.autocrlf of the local Git configuration.
+* text=auto eol=lf
+
+# Binary files: no conversion, no textual diff
+*.ico   binary
+*.png   binary
+*.jpg   binary
+*.jpeg  binary
+*.gif   binary
+*.webp  binary
+*.pdf   binary
+*.woff  binary
+*.woff2 binary
+*.ttf   binary
+*.otf   binary
+*.zip   binary
+*.gz    binary
