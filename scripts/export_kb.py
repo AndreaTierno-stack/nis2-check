@@ -16,6 +16,7 @@ After the export it prints:
 Standard library only. Usage::
 
     python scripts/export_kb.py [VAULT_PATH]
+    py scripts/export_kb.py [VAULT_PATH]      # Windows (Python launcher)
 
 ``VAULT_PATH`` defaults to ``C:\\Users\\Francesco\\Desktop\\LLM_Wiki``.
 """

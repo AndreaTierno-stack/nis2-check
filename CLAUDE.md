@@ -29,7 +29,7 @@ nis2-check/
   packages/corpus     → loader YAML + schemi zod + corpus:validate
     corpus/           → il corpus: VERSION, CHANGELOG.md, sectors/, wizard/, signals/, regimes/, exceptions/, citations/, conflicts/
   docs/               → ARCHITECTURE.md (viva), decisions/ (ADR), STATUS.md, CORPUS_SCHEMA.md
-  export/             → export della KB per il Project Knowledge (scripts/export_kb.py)
+  export/             → export della KB per il Project Knowledge (scripts/export_kb.py; su Windows: `py scripts/export_kb.py`)
 ```
 
 I `corpus_ref` delle fixture sono relativi alla radice del corpus (`packages/corpus/corpus/`), non al monorepo.
