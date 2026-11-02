@@ -51,3 +51,7 @@ commerciale, informativo e mai di consulenza (CLAUDE.md).
 ## Fonti
 
 - Decisione dell'autore del 2026-10-30; ADR 0008; CLAUDE.md (vincoli non negoziabili).
+
+## Amendment 2026-11-02: repo privato fino al pre-rilascio
+
+La clausola dell'ADR 0008 sul repo `nis2-check` privato fino al pre-rilascio v0.1.0 resta in vigore; il passaggio a pubblico si decide nel Project a fine S4.2.
