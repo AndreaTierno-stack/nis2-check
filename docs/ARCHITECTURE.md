@@ -304,13 +304,21 @@ deploy non sostituisce la CI GitHub Actions e la CI non ha step di deploy.
 
 - **Progetto** (2026-11-02): `nis2-check` (`prj_eEKbLen6DVeWqvGuH7MVar13mBsa`) sul team personale, piano
   Hobby, Node 24.x come la CI, collegato a GitHub: ogni push su `main` è un deploy di produzione.
-  URL di produzione: `https://nis2-check-three.vercel.app`. Deployment Protection effettiva: Vercel
-  Authentication con `deploymentType: all_except_custom_domains`, cioè gli URL dei singoli deploy
-  e gli alias del team e del ramo chiedono il login Vercel, l'alias di produzione no (risposta 200
-  a chiunque); nessuna password, nessun IP fidato. Web Analytics non abilitato (API:
-  `web_analytics_not_enabled`); Speed Insights: nessuno script nella pagina.
-- **e2e sul deploy**: `E2E_BASE_URL=https://nis2-check-three.vercel.app pnpm --filter
-  @nis2-check/web exec playwright test` (stesse specifiche, senza server locale).
+  URL di produzione: `https://nis2-check-three.vercel.app` (provvisorio). Deployment Protection
+  effettiva: Vercel Authentication con `deploymentType: all` (dal 2026-11-02, disponibile sul piano
+  Hobby): ogni URL del progetto, produzione compresa, risponde 302 verso il login Vercel a chi non
+  è membro del team (verificato con richieste anonime); nessuna password, nessun IP fidato, nessun
+  link di condivisione. Fino al rilascio la review e i test lavorano sull'export locale
+  `apps/web/out`. Web Analytics non abilitato (API: `web_analytics_not_enabled`); Speed Insights:
+  nessuno script nella pagina. La protezione si toglie solo con l'atto di rilascio
+  (`docs/RELEASE_CHECKLIST.md`).
+- **Versione di Node su Vercel**: il progetto è impostato a 24.x come la CI, ma `engines: ">=24"`
+  del `package.json` di root prevale a ogni deploy (avviso del build) e riporta il progetto
+  all'ultima major. Backlog: fissare `engines` a `24.x` (decisione dell'autore).
+- **e2e sul deploy**: `E2E_BASE_URL=<origine> pnpm --filter @nis2-check/web exec playwright test`
+  (stesse specifiche, senza server locale). Con la protezione attiva richiede l'accesso: si usa
+  dopo l'atto di rilascio, contro l'URL definitivo (eseguito il 2026-11-02 contro l'alias di
+  produzione prima della protezione: 13 test verdi).
 
 - **Header** (`vercel.json`, applicati anche da `scripts/serve-out.mjs`, quindi gli e2e girano
   sotto la stessa CSP): `Content-Security-Policy` senza origini esterne (`default-src 'self'`,
