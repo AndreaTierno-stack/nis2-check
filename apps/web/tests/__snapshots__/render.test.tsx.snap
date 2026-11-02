@@ -529,7 +529,7 @@ exports[`verdict page of E11 > matches the DOM snapshot 1`] = `
 </ol>
 </div>
 <div>
-<p>Il soggetto si indica come soggetto pubblico o a partecipazione pubblica fuori dalle categorie dell&#x27;Allegato III. Potrebbe rientrare nel perimetro NIS2 italiano tramite l&#x27;Allegato IV, indipendentemente dalla dimensione, solo se individuato dall&#x27;ACN su proposta delle Autorita&#x27; di settore, con notifica al soggetto (art. 3 cc. 8 e 13 D.Lgs. 138/2024; FAQ ACN A4.1). Lo strumento non puo&#x27; determinare questa individuazione. Verifica obbligatoria con consulente qualificato. <span>
+<p>Il soggetto si indica come soggetto pubblico o a partecipazione pubblica fuori dalle categorie dell&#x27;Allegato III. Potrebbe rientrare nel perimetro NIS2 italiano tramite l&#x27;Allegato IV, indipendentemente dalla dimensione, solo se individuato dall&#x27;ACN su proposta delle Autorità di settore, con notifica al soggetto (art. 3 cc. 8 e 13 D.Lgs. 138/2024; FAQ ACN A4.1). Lo strumento non può determinare questa individuazione. Verifica obbligatoria con consulente qualificato. <span>
 <a href="#fonte-1">1</a>
 <a href="#fonte-2">2</a>
 <a href="#fonte-5">5</a>
@@ -593,13 +593,13 @@ exports[`verdict page of E11 > matches the DOM snapshot 1`] = `
 <p>Si aggiungono all&#x27;esito e non lo modificano: indicano altri ambiti o regimi da verificare con un consulente.</p>
 </div>
 <div>
-<p data-testid="signal" data-signal="allegato_iv_individuazione">Il soggetto potrebbe rientrare nel perimetro NIS tramite l&#x27;Allegato IV, indipendentemente dalla dimensione (art. 3 c. 8 D.Lgs. 138/2024). Questo NON e&#x27; un rientro automatico: i soggetti delle tipologie dell&#x27;Allegato IV sono individuati con determinazione dell&#x27;ACN, su proposta delle Autorita&#x27; di settore interessate, sentito il Tavolo per l&#x27;attuazione della disciplina NIS; l&#x27;Autorita&#x27; nazionale competente NIS notifica l&#x27;individuazione al soggetto, e sono tenuti alla registrazione solo i soggetti a cui e&#x27; stata notificata (art. 3 c. 13; FAQ ACN A4.1). Lo strumento non puo&#x27; determinare questo rientro: verifica obbligatoria con consulente qualificato. <span>
+<p data-testid="signal" data-signal="allegato_iv_individuazione">Il soggetto potrebbe rientrare nel perimetro NIS tramite l&#x27;Allegato IV, indipendentemente dalla dimensione (art. 3 c. 8 D.Lgs. 138/2024). Questo NON è un rientro automatico: i soggetti delle tipologie dell&#x27;Allegato IV sono individuati con determinazione dell&#x27;ACN, su proposta delle Autorità di settore interessate, sentito il Tavolo per l&#x27;attuazione della disciplina NIS; l&#x27;Autorità nazionale competente NIS notifica l&#x27;individuazione al soggetto, e sono tenuti alla registrazione solo i soggetti a cui è stata notificata (art. 3 c. 13; FAQ ACN A4.1). Lo strumento non può determinare questo rientro: verifica obbligatoria con consulente qualificato. <span>
 <a href="#fonte-1">1</a>
 <a href="#fonte-2">2</a>
 <a href="#fonte-5">5</a>
 </span>
 </p>
-<p data-testid="signal" data-signal="cross_sector_inhouse_all_iv">Il soggetto, in quanto societa&#x27; a capitale interamente o prevalentemente pubblico (in-house, controllata o partecipata di maggioranza ex D.Lgs. 175/2016), potrebbe rientrare nel perimetro NIS anche tramite il canale di individuazione governativa dell&#x27;Allegato IV. Non e&#x27; un rientro automatico: dipende da un&#x27;individuazione dell&#x27;ACN su proposta dell&#x27;autorita&#x27; di settore (art. 3 cc. 8 e 13 D.Lgs. 138/2024). Questo canale va valutato a parte. Verifica con consulente qualificato. <span>
+<p data-testid="signal" data-signal="cross_sector_inhouse_all_iv">Il soggetto, in quanto società a capitale interamente o prevalentemente pubblico (in-house, controllata o partecipata di maggioranza ex D.Lgs. 175/2016), potrebbe rientrare nel perimetro NIS anche tramite il canale di individuazione governativa dell&#x27;Allegato IV. Non è un rientro automatico: dipende da un&#x27;individuazione dell&#x27;ACN su proposta dell&#x27;autorità di settore (art. 3 cc. 8 e 13 D.Lgs. 138/2024). Questo canale va valutato a parte. Verifica con consulente qualificato. <span>
 <a href="#fonte-1">1</a>
 <a href="#fonte-2">2</a>
 <a href="#fonte-7">7</a>
@@ -719,7 +719,7 @@ exports[`verdict page of E11 > matches the DOM snapshot 1`] = `
 </p>
 <div data-testid="trace-decided" data-stage="size_blind">
 <h3>Regole indipendenti dalla dimensione</h3>
-<p>Il soggetto si indica come soggetto pubblico o a partecipazione pubblica fuori dalle categorie dell&#x27;Allegato III. Potrebbe rientrare nel perimetro NIS2 italiano tramite l&#x27;Allegato IV, indipendentemente dalla dimensione, solo se individuato dall&#x27;ACN su proposta delle Autorita&#x27; di settore, con notifica al soggetto (art. 3 cc. 8 e 13 D.Lgs. 138/2024; FAQ ACN A4.1). Lo strumento non puo&#x27; determinare questa individuazione. Verifica obbligatoria con consulente qualificato. <span>
+<p>Il soggetto si indica come soggetto pubblico o a partecipazione pubblica fuori dalle categorie dell&#x27;Allegato III. Potrebbe rientrare nel perimetro NIS2 italiano tramite l&#x27;Allegato IV, indipendentemente dalla dimensione, solo se individuato dall&#x27;ACN su proposta delle Autorità di settore, con notifica al soggetto (art. 3 cc. 8 e 13 D.Lgs. 138/2024; FAQ ACN A4.1). Lo strumento non può determinare questa individuazione. Verifica obbligatoria con consulente qualificato. <span>
 <a href="#fonte-1">1</a>
 <a href="#fonte-2">2</a>
 <a href="#fonte-5">5</a>
@@ -832,7 +832,7 @@ exports[`verdict page of E11 > matches the DOM snapshot 1`] = `
 </p>
 <div data-testid="trace-decided" data-stage="size_blind">
 <h3>Regole indipendenti dalla dimensione</h3>
-<p>Il soggetto si indica come soggetto pubblico o a partecipazione pubblica fuori dalle categorie dell&#x27;Allegato III. Potrebbe rientrare nel perimetro NIS2 italiano tramite l&#x27;Allegato IV, indipendentemente dalla dimensione, solo se individuato dall&#x27;ACN su proposta delle Autorita&#x27; di settore, con notifica al soggetto (art. 3 cc. 8 e 13 D.Lgs. 138/2024; FAQ ACN A4.1). Lo strumento non puo&#x27; determinare questa individuazione. Verifica obbligatoria con consulente qualificato. <span>
+<p>Il soggetto si indica come soggetto pubblico o a partecipazione pubblica fuori dalle categorie dell&#x27;Allegato III. Potrebbe rientrare nel perimetro NIS2 italiano tramite l&#x27;Allegato IV, indipendentemente dalla dimensione, solo se individuato dall&#x27;ACN su proposta delle Autorità di settore, con notifica al soggetto (art. 3 cc. 8 e 13 D.Lgs. 138/2024; FAQ ACN A4.1). Lo strumento non può determinare questa individuazione. Verifica obbligatoria con consulente qualificato. <span>
 <a href="#fonte-1">1</a>
 <a href="#fonte-2">2</a>
 <a href="#fonte-5">5</a>
@@ -971,7 +971,7 @@ exports[`verdict page of E22 > matches the DOM snapshot 1`] = `
 </ol>
 </div>
 <div>
-<p>L&#x27;amministrazione appare contemporaneamente in perimetro PSNC e tra i soggetti che hanno classificato dati e servizi ai sensi del Regolamento Cloud. L&#x27;ordine di precedenza tra l&#x27;automatismo &#x27;alto&#x27; PSNC (art. 5 Det. ACN 155238/2026) e la sostituzione di modello Cloud PA (art. 4) non è esplicitato nelle fonti normative disponibili. Consulenza qualificata necessaria, con eventuale interlocuzione diretta ACN. <span>
+<p>L&#x27;amministrazione appare contemporaneamente in perimetro PSNC e tra i soggetti che hanno classificato dati e servizi ai sensi del Regolamento Cloud. L&#x27;ordine di precedenza tra l&#x27;automatismo &#x27;alto&#x27; PSNC (art. 5 Det. ACN 155238/2026) e la sostituzione di modello Cloud PA (art. 4) non è esplicitato nelle fonti normative disponibili. Il caso va valutato con un consulente qualificato, eventualmente anche con un&#x27;interlocuzione diretta con l&#x27;ACN. <span>
 <a href="#fonte-1">1</a>
 <a href="#fonte-2">2</a>
 </span>
@@ -1106,7 +1106,7 @@ exports[`verdict page of E22 > matches the DOM snapshot 1`] = `
 <div>
 <div data-testid="trace-decided" data-stage="regime_routing">
 <h3>Regimi speciali</h3>
-<p>L&#x27;amministrazione appare contemporaneamente in perimetro PSNC e tra i soggetti che hanno classificato dati e servizi ai sensi del Regolamento Cloud. L&#x27;ordine di precedenza tra l&#x27;automatismo &#x27;alto&#x27; PSNC (art. 5 Det. ACN 155238/2026) e la sostituzione di modello Cloud PA (art. 4) non è esplicitato nelle fonti normative disponibili. Consulenza qualificata necessaria, con eventuale interlocuzione diretta ACN. <span>
+<p>L&#x27;amministrazione appare contemporaneamente in perimetro PSNC e tra i soggetti che hanno classificato dati e servizi ai sensi del Regolamento Cloud. L&#x27;ordine di precedenza tra l&#x27;automatismo &#x27;alto&#x27; PSNC (art. 5 Det. ACN 155238/2026) e la sostituzione di modello Cloud PA (art. 4) non è esplicitato nelle fonti normative disponibili. Il caso va valutato con un consulente qualificato, eventualmente anche con un&#x27;interlocuzione diretta con l&#x27;ACN. <span>
 <a href="#fonte-1">1</a>
 <a href="#fonte-2">2</a>
 </span>
@@ -1163,7 +1163,7 @@ exports[`verdict page of E22 > matches the DOM snapshot 1`] = `
 <div>
 <div data-testid="trace-decided" data-stage="regime_routing">
 <h3>Regimi speciali</h3>
-<p>L&#x27;amministrazione appare contemporaneamente in perimetro PSNC e tra i soggetti che hanno classificato dati e servizi ai sensi del Regolamento Cloud. L&#x27;ordine di precedenza tra l&#x27;automatismo &#x27;alto&#x27; PSNC (art. 5 Det. ACN 155238/2026) e la sostituzione di modello Cloud PA (art. 4) non è esplicitato nelle fonti normative disponibili. Consulenza qualificata necessaria, con eventuale interlocuzione diretta ACN. <span>
+<p>L&#x27;amministrazione appare contemporaneamente in perimetro PSNC e tra i soggetti che hanno classificato dati e servizi ai sensi del Regolamento Cloud. L&#x27;ordine di precedenza tra l&#x27;automatismo &#x27;alto&#x27; PSNC (art. 5 Det. ACN 155238/2026) e la sostituzione di modello Cloud PA (art. 4) non è esplicitato nelle fonti normative disponibili. Il caso va valutato con un consulente qualificato, eventualmente anche con un&#x27;interlocuzione diretta con l&#x27;ACN. <span>
 <a href="#fonte-1">1</a>
 <a href="#fonte-2">2</a>
 </span>
@@ -1659,7 +1659,7 @@ exports[`verdict page of E26 > matches the DOM snapshot 1`] = `
 </ol>
 </div>
 <div>
-<p>Ogni attivita&#x27; dichiarata dal soggetto risulta esclusa per tipologia (FAQ ACN) o per categoria (art. 4 c. 2 D.Lgs. 138/2024), ma il soggetto risulta anche incluso indipendentemente dalla dimensione, come soggetto critico ai sensi del D.Lgs. 134/2024 (art. 3 c. 5 lett. a) D.Lgs. 138/2024). Le fonti verificate non indicano quale dei due criteri prevalga. Consulenza qualificata necessaria. <span>
+<p>Ogni attività dichiarata dal soggetto risulta esclusa per tipologia (FAQ ACN) o per categoria (art. 4 c. 2 D.Lgs. 138/2024), ma il soggetto risulta anche incluso indipendentemente dalla dimensione, come soggetto critico ai sensi del D.Lgs. 134/2024 (art. 3 c. 5 lett. a) D.Lgs. 138/2024). Le fonti verificate non indicano quale dei due criteri prevalga: il caso va valutato con un consulente qualificato. <span>
 <a href="#fonte-1">1</a>
 <a href="#fonte-2">2</a>
 <a href="#fonte-4">4</a>
@@ -1733,7 +1733,7 @@ exports[`verdict page of E26 > matches the DOM snapshot 1`] = `
 <p>Si aggiungono all&#x27;esito e non lo modificano: indicano altri ambiti o regimi da verificare con un consulente.</p>
 </div>
 <div>
-<p data-testid="signal" data-signal="cer_signal">Il soggetto risulta individuato come soggetto critico ai sensi del D.Lgs. 134/2024, che recepisce la direttiva (UE) 2022/2557 sulla resilienza dei soggetti critici. Questa individuazione porta il soggetto nel perimetro NIS2 italiano come soggetto essenziale, indipendentemente dalla dimensione (art. 3 c. 5 lett. a) e art. 6 c. 1 lett. b) D.Lgs. 138/2024; FAQ ACN AMB.NO.1); la disciplina dei soggetti critici resta distinta e si aggiunge a quella NIS2. Da non confondere con le comunita&#x27; energetiche rinnovabili (configurazioni CACER). Lo strumento non valuta gli obblighi della disciplina dei soggetti critici. Verifica con consulente qualificato. <span>
+<p data-testid="signal" data-signal="cer_signal">Il soggetto risulta individuato come soggetto critico ai sensi del D.Lgs. 134/2024, che recepisce la direttiva (UE) 2022/2557 sulla resilienza dei soggetti critici. Questa individuazione porta il soggetto nel perimetro NIS2 italiano come soggetto essenziale, indipendentemente dalla dimensione (art. 3 c. 5 lett. a) e art. 6 c. 1 lett. b) D.Lgs. 138/2024; FAQ ACN AMB.NO.1); la disciplina dei soggetti critici resta distinta e si aggiunge a quella NIS2. Da non confondere con le comunità energetiche rinnovabili (configurazioni CACER). Lo strumento non valuta gli obblighi della disciplina dei soggetti critici. Verifica con consulente qualificato. <span>
 <a href="#fonte-1">1</a>
 <a href="#fonte-2">2</a>
 <a href="#fonte-5">5</a>
@@ -1885,7 +1885,7 @@ exports[`verdict page of E26 > matches the DOM snapshot 1`] = `
 </p>
 <div data-testid="trace-conflict">
 <p>Due passaggi danno esiti diversi: decide la regola sui conflitti.</p>
-<p>Ogni attivita&#x27; dichiarata dal soggetto risulta esclusa per tipologia (FAQ ACN) o per categoria (art. 4 c. 2 D.Lgs. 138/2024), ma il soggetto risulta anche incluso indipendentemente dalla dimensione, come soggetto critico ai sensi del D.Lgs. 134/2024 (art. 3 c. 5 lett. a) D.Lgs. 138/2024). Le fonti verificate non indicano quale dei due criteri prevalga. Consulenza qualificata necessaria. <span>
+<p>Ogni attività dichiarata dal soggetto risulta esclusa per tipologia (FAQ ACN) o per categoria (art. 4 c. 2 D.Lgs. 138/2024), ma il soggetto risulta anche incluso indipendentemente dalla dimensione, come soggetto critico ai sensi del D.Lgs. 134/2024 (art. 3 c. 5 lett. a) D.Lgs. 138/2024). Le fonti verificate non indicano quale dei due criteri prevalga: il caso va valutato con un consulente qualificato. <span>
 <a href="#fonte-1">1</a>
 <a href="#fonte-2">2</a>
 <a href="#fonte-4">4</a>
@@ -2017,7 +2017,7 @@ exports[`verdict page of E26 > matches the DOM snapshot 1`] = `
 </p>
 <div data-testid="trace-conflict">
 <p>Due passaggi danno esiti diversi: decide la regola sui conflitti.</p>
-<p>Ogni attivita&#x27; dichiarata dal soggetto risulta esclusa per tipologia (FAQ ACN) o per categoria (art. 4 c. 2 D.Lgs. 138/2024), ma il soggetto risulta anche incluso indipendentemente dalla dimensione, come soggetto critico ai sensi del D.Lgs. 134/2024 (art. 3 c. 5 lett. a) D.Lgs. 138/2024). Le fonti verificate non indicano quale dei due criteri prevalga. Consulenza qualificata necessaria. <span>
+<p>Ogni attività dichiarata dal soggetto risulta esclusa per tipologia (FAQ ACN) o per categoria (art. 4 c. 2 D.Lgs. 138/2024), ma il soggetto risulta anche incluso indipendentemente dalla dimensione, come soggetto critico ai sensi del D.Lgs. 134/2024 (art. 3 c. 5 lett. a) D.Lgs. 138/2024). Le fonti verificate non indicano quale dei due criteri prevalga: il caso va valutato con un consulente qualificato. <span>
 <a href="#fonte-1">1</a>
 <a href="#fonte-2">2</a>
 <a href="#fonte-4">4</a>

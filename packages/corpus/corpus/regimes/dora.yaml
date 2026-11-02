@@ -46,6 +46,6 @@ meta:
     - det_piattaforma_127437_2026_art_16_c_13
     - det_piattaforma_127437_2026_art_20_c_6
   open_points:
-    - "Obbligo NIS residuo per i settori 3 e 4: l'art. 3 c. 14 esclude art. 17 e Capi IV-V; la FAQ AMB.NO.2 indica la sola registrazione (art. 7 c. 1) ed e' incoerente al suo interno; la Det. 127437/2026 art. 16 c. 13 presuppone l'aggiornamento annuale salvo il c. 3 lett. b). Da attestare prima di popolare residual_nis_obligation."
-    - "Fornitori terzi di servizi TIC ai sensi del Reg. UE 2022/2554: nessuna citazione del corpus li riguarda (non sono entita' finanziarie ne' soggetti dei settori 3-4); il testo DORA non e' in raw/."
+    - "Obbligo NIS residuo per i settori 3 e 4: l'art. 3 c. 14 esclude art. 17 e Capi IV-V; la FAQ AMB.NO.2 indica la sola registrazione (art. 7 c. 1) ed è incoerente al suo interno; la Det. 127437/2026 art. 16 c. 13 presuppone l'aggiornamento annuale salvo il c. 3 lett. b). Da attestare prima di popolare residual_nis_obligation."
+    - "Fornitori terzi di servizi TIC ai sensi del Reg. UE 2022/2554: nessuna citazione del corpus li riguarda (non sono entità finanziarie né soggetti dei settori 3-4); il testo DORA non è in raw/."
     - "Art. 3 c. 15: il decreto non si applica ai soggetti esentati dall'ambito del Reg. UE 2022/2554; segnalato con la voce di catalogo dora_soggetti_esentati_art_3_c_15, non valutato."

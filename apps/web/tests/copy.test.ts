@@ -10,8 +10,8 @@ describe("copy.it.ts", () => {
   });
 
   it("the lint catches the forbidden forms", () => {
-    const errors = lintUiCopy({ a: "Rientri nel perimetro", b: "Report di compliance", c: "Esito — incerto", d: "Devi registrarti" });
-    expect(errors).toHaveLength(4);
+    const errors = lintUiCopy({ a: "Rientri nel perimetro", b: "Report di compliance", c: "Esito — incerto", d: "Devi registrarti", e: "Attivita' non dichiarata" });
+    expect(errors).toHaveLength(5);
   });
 });
 

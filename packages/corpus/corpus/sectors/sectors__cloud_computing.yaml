@@ -89,7 +89,7 @@ overrides:
   - trigger: psnc == yes
     override_kind: category_override
     reference: regimes/psnc.yaml
-    reasoning_trace: "Ai servizi PSNC del soggetto e' attribuita d'ufficio la categoria di rilevanza 'impatto alto', fuori dal procedimento ordinario di categorizzazione (art. 5 Det. ACN 155238/2026); i servizi NIS non PSNC mantengono il procedimento ordinario. L'inserimento nel PSNC non restringe l'ambito NIS, che segue le regole del settore. Lo strumento non formula un esito sul rapporto tra gli obblighi NIS e quelli del PSNC, regolato dall'art. 33 D.Lgs. 138/2024: il caso va valutato con un consulente qualificato."
+    reasoning_trace: "Ai servizi PSNC del soggetto è attribuita d'ufficio la categoria di rilevanza 'impatto alto', fuori dal procedimento ordinario di categorizzazione (art. 5 Det. ACN 155238/2026); i servizi NIS non PSNC mantengono il procedimento ordinario. L'inserimento nel PSNC non restringe l'ambito NIS, che segue le regole del settore. Lo strumento non formula un esito sul rapporto tra gli obblighi NIS e quelli del PSNC, regolato dall'art. 33 D.Lgs. 138/2024: il caso va valutato con un consulente qualificato."
     # citations coincidenti con regimes/psnc.yaml (invariante override/regime, ADR 0009)
     citations: [det_acn_155238_2026_art_5, dl_105_2019_art_1_c_2_bis, dlgs_138_2024_art_33]
 

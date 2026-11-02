@@ -47,7 +47,7 @@ meta:
 # non e' una domanda al wizard, e' un'assunzione che entra nei reasoning_trace.
 rientro_prerequisite:
   id: istat_s13
-  assumption_it: "La valutazione presuppone l'inclusione del soggetto nell'elenco ISTAT delle amministrazioni pubbliche (c.d. Lista S13, ex art. 1 c. 3 L. 196/2009). Questo prerequisito non e' verificato dallo strumento e va confermato con il consulente."
+  assumption_it: "La valutazione presuppone l'inclusione del soggetto nell'elenco ISTAT delle amministrazioni pubbliche (c.d. Lista S13, ex art. 1 c. 3 L. 196/2009). Questo prerequisito non è verificato dallo strumento e va confermato con il consulente."
   citations: [l_196_2009_art_1_c_3]
 
 # ============================================================================
@@ -57,7 +57,7 @@ rientro_prerequisite:
 categorie:
   - id: a
     label_it: "Amministrazioni centrali"
-    descrizione_it: "Allegato III lett. a): Organi costituzionali e di rilievo costituzionale; Presidenza del Consiglio dei ministri e Ministeri; Agenzie fiscali; Autorita' amministrative indipendenti. L'art. 4 c. 2 non vi ricomprende Parlamento italiano, Autorita' giudiziaria, Banca d'Italia e Unita' di informazione finanziaria per l'Italia."
+    descrizione_it: "Allegato III lett. a): Organi costituzionali e di rilievo costituzionale; Presidenza del Consiglio dei ministri e Ministeri; Agenzie fiscali; Autorità amministrative indipendenti. L'art. 4 c. 2 non vi ricomprende Parlamento italiano, Autorità giudiziaria, Banca d'Italia e Unità di informazione finanziaria per l'Italia."
     faq_code: A3_a
     citations: [dlgs_138_2024_allegato_III, dlgs_138_2024_art_4_c_2, faq_settori_sottosettori]
 
@@ -69,7 +69,7 @@ categorie:
 
   - id: c
     label_it: "Amministrazioni locali"
-    descrizione_it: "Allegato III lett. c): quattro sottotipi con trattamento non uniforme (l'ASL ha doppia identita')."
+    descrizione_it: "Allegato III lett. c): quattro sottotipi con trattamento non uniforme (l'ASL ha doppia identità)."
     faq_code: A3_c
     citations: [dlgs_138_2024_allegato_III, faq_settori_sottosettori]
     sottotipi:
@@ -95,7 +95,7 @@ categorie:
     citations: [dlgs_138_2024_allegato_III, faq_settori_sottosettori]
     sottotipi:
       - id: enti_regolazione_attivita_economica
-        label_it: "Enti di regolazione dell'attivita' economica"
+        label_it: "Enti di regolazione dell'attività economica"
       - id: enti_produttori_servizi_economici
         label_it: "Enti produttori di servizi economici"
       - id: enti_struttura_associativa
@@ -126,7 +126,7 @@ qualification_rules:
     outcome: categorical_assessment
     verdict_outcome: likely_in_scope   # vincolo fisso: categorical_assessment in-scope -> likely_in_scope
     qualifica: essenziale
-    reasoning_trace: "Per le amministrazioni centrali dell'Allegato III lett. a) (organi costituzionali e di rilievo costituzionale, Presidenza del Consiglio dei ministri e Ministeri, Agenzie fiscali, Autorita' amministrative indipendenti), l'analisi suggerisce il rientro nel perimetro NIS2 italiano come soggetto essenziale, indipendentemente dalla dimensione (art. 3 c. 6 e art. 6 c. 1 lett. e) D.Lgs. 138/2024). L'elenco dei soggetti essenziali e importanti e' stabilito con determinazione dell'ACN (art. 40 c. 5 lett. a)). La valutazione presuppone l'inclusione nell'elenco ISTAT (Lista S13). Verifica obbligatoria con consulente qualificato."
+    reasoning_trace: "Per le amministrazioni centrali dell'Allegato III lett. a) (organi costituzionali e di rilievo costituzionale, Presidenza del Consiglio dei ministri e Ministeri, Agenzie fiscali, Autorità amministrative indipendenti), l'analisi suggerisce il rientro nel perimetro NIS2 italiano come soggetto essenziale, indipendentemente dalla dimensione (art. 3 c. 6 e art. 6 c. 1 lett. e) D.Lgs. 138/2024). L'elenco dei soggetti essenziali e importanti è stabilito con determinazione dell'ACN (art. 40 c. 5 lett. a)). La valutazione presuppone l'inclusione nell'elenco ISTAT (Lista S13). Verifica obbligatoria con consulente qualificato."
     citations: [dlgs_138_2024_allegato_III, dlgs_138_2024_art_3_c_6, dlgs_138_2024_art_6_c_1_lett_e, dlgs_138_2024_art_40_c_5_lett_a, l_196_2009_art_1_c_3]
     notices: [pa_organi_costituzionali_capo_v_art_4_c_2, pa_esclusioni_sicurezza_nazionale_art_4_c_3, pa_prerequisito_istat_s13]
 
@@ -149,7 +149,7 @@ qualification_rules:
     outcome: categorical_assessment
     verdict_outcome: likely_in_scope   # vincolo fisso: categorical_assessment in-scope -> likely_in_scope
     qualifica: importante
-    reasoning_trace: "Per le Regioni e Province autonome (Allegato III lett. b), l'analisi suggerisce il rientro nel perimetro NIS2 italiano come soggetto importante, indipendentemente dalla dimensione (art. 3 c. 6 e art. 6 c. 3 D.Lgs. 138/2024); la qualifica puo' essere elevata a essenziale con individuazione dell'ACN (art. 6 c. 2). La valutazione presuppone l'inclusione nell'elenco ISTAT (Lista S13). Verifica obbligatoria con consulente qualificato."
+    reasoning_trace: "Per le Regioni e Province autonome (Allegato III lett. b), l'analisi suggerisce il rientro nel perimetro NIS2 italiano come soggetto importante, indipendentemente dalla dimensione (art. 3 c. 6 e art. 6 c. 3 D.Lgs. 138/2024); la qualifica può essere elevata a essenziale con individuazione dell'ACN (art. 6 c. 2). La valutazione presuppone l'inclusione nell'elenco ISTAT (Lista S13). Verifica obbligatoria con consulente qualificato."
     citations: [dlgs_138_2024_allegato_III, dlgs_138_2024_art_3_c_6, dlgs_138_2024_art_6_c_3, dlgs_138_2024_art_6_c_2, l_196_2009_art_1_c_3]
     notices: [pa_qualifica_elevabile_art_6_c_2, pa_esclusioni_sicurezza_nazionale_art_4_c_3, pa_prerequisito_istat_s13]
 
@@ -159,7 +159,7 @@ qualification_rules:
     outcome: categorical_assessment
     verdict_outcome: likely_in_scope   # vincolo fisso: categorical_assessment in-scope -> likely_in_scope
     qualifica: importante
-    reasoning_trace: "Per le amministrazioni locali (Allegato III lett. c), l'analisi suggerisce il rientro nel perimetro NIS2 italiano come soggetto importante, indipendentemente dalla dimensione (art. 3 c. 6 e art. 6 c. 3 D.Lgs. 138/2024); la qualifica puo' essere elevata a essenziale con individuazione dell'ACN (art. 6 c. 2). La valutazione presuppone l'inclusione nell'elenco ISTAT (Lista S13). Verifica obbligatoria con consulente qualificato prima di assumere conclusioni operative."
+    reasoning_trace: "Per le amministrazioni locali (Allegato III lett. c), l'analisi suggerisce il rientro nel perimetro NIS2 italiano come soggetto importante, indipendentemente dalla dimensione (art. 3 c. 6 e art. 6 c. 3 D.Lgs. 138/2024); la qualifica può essere elevata a essenziale con individuazione dell'ACN (art. 6 c. 2). La valutazione presuppone l'inclusione nell'elenco ISTAT (Lista S13). Verifica obbligatoria con consulente qualificato prima di assumere conclusioni operative."
     citations: [dlgs_138_2024_allegato_III, dlgs_138_2024_art_3_c_6, dlgs_138_2024_art_6_c_3, dlgs_138_2024_art_6_c_2, faq_settori_sottosettori]
     notices: [pa_qualifica_elevabile_art_6_c_2, pa_esclusioni_sicurezza_nazionale_art_4_c_3, pa_prerequisito_istat_s13]
 
@@ -169,7 +169,7 @@ qualification_rules:
     outcome: categorical_assessment
     verdict_outcome: likely_in_scope   # vincolo fisso: categorical_assessment in-scope -> likely_in_scope
     qualifica: importante
-    reasoning_trace: "Per gli altri soggetti pubblici dell'Allegato III lett. d) (enti di regolazione dell'attivita' economica, enti produttori di servizi economici, enti a struttura associativa, enti produttori di servizi assistenziali, ricreativi e culturali, enti e istituzioni di ricerca, istituti zooprofilattici sperimentali), l'analisi suggerisce il rientro nel perimetro NIS2 italiano come soggetto importante, indipendentemente dalla dimensione (art. 3 c. 6 e art. 6 c. 3 D.Lgs. 138/2024); la qualifica puo' essere elevata a essenziale con individuazione dell'ACN (art. 6 c. 2). La valutazione presuppone l'inclusione nell'elenco ISTAT (Lista S13). Verifica obbligatoria con consulente qualificato."
+    reasoning_trace: "Per gli altri soggetti pubblici dell'Allegato III lett. d) (enti di regolazione dell'attività economica, enti produttori di servizi economici, enti a struttura associativa, enti produttori di servizi assistenziali, ricreativi e culturali, enti e istituzioni di ricerca, istituti zooprofilattici sperimentali), l'analisi suggerisce il rientro nel perimetro NIS2 italiano come soggetto importante, indipendentemente dalla dimensione (art. 3 c. 6 e art. 6 c. 3 D.Lgs. 138/2024); la qualifica può essere elevata a essenziale con individuazione dell'ACN (art. 6 c. 2). La valutazione presuppone l'inclusione nell'elenco ISTAT (Lista S13). Verifica obbligatoria con consulente qualificato."
     citations: [dlgs_138_2024_allegato_III, dlgs_138_2024_art_3_c_6, dlgs_138_2024_art_6_c_3, dlgs_138_2024_art_6_c_2, l_196_2009_art_1_c_3]
     notices: [pa_qualifica_elevabile_art_6_c_2, pa_esclusioni_sicurezza_nazionale_art_4_c_3, pa_lett_d_cumulo_l90_non_attestato, pa_prerequisito_istat_s13]
 
@@ -224,13 +224,13 @@ overrides:
   - trigger: classificazione_cloud_pa == yes
     override_kind: model_substitution
     reference: regimes/cloud_pa.yaml
-    reasoning_trace: "Per una Pubblica Amministrazione, la classificazione dei dati e dei servizi ai sensi del Regolamento Cloud (Decreto Direttoriale ACN n. 21007/24 del 27 giugno 2024, art. 3) comporta l'applicazione del modello Cloud PA (ordinari/critici/strategici) in luogo del modello di categorizzazione NIS, ai sensi dell'art. 4 Det. ACN 155238/2026. L'elenco delle attivita' e dei servizi coincide con quello dei dati e servizi digitali classificati ai sensi del Regolamento Cloud. La classificazione riguarda la categorizzazione delle attivita' e dei servizi e non restringe l'ambito: per le pubbliche amministrazioni dell'Allegato III il rientro nel perimetro NIS2 e' indipendente dalla dimensione (art. 3 c. 6 D.Lgs. 138/2024). Lo strumento non formula un esito sull'applicazione del modello Cloud PA in luogo del modello NIS: il caso va valutato con un consulente qualificato."
+    reasoning_trace: "Per una Pubblica Amministrazione, la classificazione dei dati e dei servizi ai sensi del Regolamento Cloud (Decreto Direttoriale ACN n. 21007/24 del 27 giugno 2024, art. 3) comporta l'applicazione del modello Cloud PA (ordinari/critici/strategici) in luogo del modello di categorizzazione NIS, ai sensi dell'art. 4 Det. ACN 155238/2026. L'elenco delle attività e dei servizi coincide con quello dei dati e servizi digitali classificati ai sensi del Regolamento Cloud. La classificazione riguarda la categorizzazione delle attività e dei servizi e non restringe l'ambito: per le pubbliche amministrazioni dell'Allegato III il rientro nel perimetro NIS2 è indipendente dalla dimensione (art. 3 c. 6 D.Lgs. 138/2024). Lo strumento non formula un esito sull'applicazione del modello Cloud PA in luogo del modello NIS: il caso va valutato con un consulente qualificato."
     citations: [dd_acn_21007_24_art_3, det_acn_155238_2026_art_4, dlgs_138_2024_art_3_c_6]
   # ADR 0014 (corpus 0.6.0): PSNC per la PA, sul regime esistente
   - trigger: psnc == yes
     override_kind: category_override
     reference: regimes/psnc.yaml
-    reasoning_trace: "Ai servizi PSNC dell'amministrazione e' attribuita d'ufficio la categoria di rilevanza 'impatto alto', fuori dal procedimento ordinario di categorizzazione (art. 5 Det. ACN 155238/2026); i servizi NIS non PSNC mantengono il procedimento ordinario. L'inserimento nel PSNC non restringe l'ambito NIS: per le pubbliche amministrazioni dell'Allegato III il rientro nel perimetro e' indipendente dalla dimensione (art. 3 c. 6 D.Lgs. 138/2024). Lo strumento non formula un esito sul rapporto tra gli obblighi NIS e quelli del PSNC, regolato dall'art. 33 D.Lgs. 138/2024: il caso va valutato con un consulente qualificato."
+    reasoning_trace: "Ai servizi PSNC dell'amministrazione è attribuita d'ufficio la categoria di rilevanza 'impatto alto', fuori dal procedimento ordinario di categorizzazione (art. 5 Det. ACN 155238/2026); i servizi NIS non PSNC mantengono il procedimento ordinario. L'inserimento nel PSNC non restringe l'ambito NIS: per le pubbliche amministrazioni dell'Allegato III il rientro nel perimetro è indipendente dalla dimensione (art. 3 c. 6 D.Lgs. 138/2024). Lo strumento non formula un esito sul rapporto tra gli obblighi NIS e quelli del PSNC, regolato dall'art. 33 D.Lgs. 138/2024: il caso va valutato con un consulente qualificato."
     # citations coincidenti con regimes/psnc.yaml (invariante override/regime, ADR 0009)
     citations: [det_acn_155238_2026_art_5, dl_105_2019_art_1_c_2_bis, dlgs_138_2024_art_33]
 
@@ -259,7 +259,7 @@ allegato_iv_channel:
   signal: allegato_iv_individuazione
   verdict_strategy: qualitative_signal_only
   verdict_outcome: ambiguous   # canale All. IV (incl. in-house): dipende da atto dell'autorita', non determinabile in self-assessment
-  reasoning_trace: "Il soggetto si indica come soggetto pubblico o a partecipazione pubblica fuori dalle categorie dell'Allegato III. Potrebbe rientrare nel perimetro NIS2 italiano tramite l'Allegato IV, indipendentemente dalla dimensione, solo se individuato dall'ACN su proposta delle Autorita' di settore, con notifica al soggetto (art. 3 cc. 8 e 13 D.Lgs. 138/2024; FAQ ACN A4.1). Lo strumento non puo' determinare questa individuazione. Verifica obbligatoria con consulente qualificato."
+  reasoning_trace: "Il soggetto si indica come soggetto pubblico o a partecipazione pubblica fuori dalle categorie dell'Allegato III. Potrebbe rientrare nel perimetro NIS2 italiano tramite l'Allegato IV, indipendentemente dalla dimensione, solo se individuato dall'ACN su proposta delle Autorità di settore, con notifica al soggetto (art. 3 cc. 8 e 13 D.Lgs. 138/2024; FAQ ACN A4.1). Lo strumento non può determinare questa individuazione. Verifica obbligatoria con consulente qualificato."
   citations: [dlgs_138_2024_art_3_c_8, dlgs_138_2024_art_3_c_13, faq_a4_1]
   # soggetti pubblici fuori dalle categorie dell'Allegato III: possibili categorie aggiunte con DPCM
   notices: [pa_categorie_aggiunte_dpcm_art_3_c_7, allegato_iv_individuazione_art_3_c_8]
@@ -282,19 +282,19 @@ allegato_iv_channel:
       autorita_proponente: MUR
       l90_overlap: possible
     - id: attivita_culturale
-      label_it: "Soggetto che svolge attivita' di interesse culturale"
+      label_it: "Soggetto che svolge attività di interesse culturale"
       autorita_proponente: MiC
       l90_overlap: possible
     # Corpus 0.7.0: l'art. 1 c. 1 L. 90/2024 comprende le societa' in house dei soggetti
     # elencati solo se forniscono servizi informatici, di trasporto, di acque reflue o di
     # gestione dei rifiuti: profilo distinto (stesso ID dell'opzione cloud).
     - id: inhouse_soggetto_l90
-      label_it: "Societa' in house di un soggetto dell'art. 1 c. 1 L. 90/2024, con servizi qualificati"
+      label_it: "Società in house di un soggetto dell'art. 1 c. 1 L. 90/2024, con servizi qualificati"
       autorita_proponente: autorita_di_settore
       l90_overlap: "yes"                  # in house qualificata: art. 1 c. 1 L. 90
       unifies_with: cross_sector_inhouse_all_iv
     - id: societa_inhouse
-      label_it: "Altra societa' in-house, partecipata, controllata (D.Lgs. 175/2016)"
+      label_it: "Altra società in-house, partecipata, controllata (D.Lgs. 175/2016)"
       autorita_proponente: autorita_di_settore
       l90_overlap: "no"                   # fuori dall'art. 1 c. 1 L. 90 (corpus 0.7.0)
       # Per gli in-house questo signal coincide con cross_sector_inhouse_all_iv
@@ -309,8 +309,8 @@ out_of_scope_mvp:
   - case: settore_sanitario_allegato_I_p5
     handling: cross_sector_signal
     verdict_outcome: ambiguous   # settore sanitario non pilota: doppia identita' ASL segnalata, non valutata
-    scope_evolution_note: "Il settore Sanitario (Allegato I p. 5), rilevante per la doppia identita' ASL, non e' tra i 3 settori pilota del MVP; segnalato ma non valutato."
+    scope_evolution_note: "Il settore Sanitario (Allegato I p. 5), rilevante per la doppia identità ASL, non è tra i 3 settori pilota del MVP; segnalato ma non valutato."
   - case: allegato_iv_determinazione
     handling: qualitative_signal_only
     verdict_outcome: ambiguous   # canale All. IV non self-assessable (dipende da atto dell'autorita')
-    scope_evolution_note: "Il canale Allegato IV non e' determinabile da self-assessment (dipende da atto dell'autorita'); il MVP lo segnala soltanto."
+    scope_evolution_note: "Il canale Allegato IV non è determinabile da self-assessment (dipende da atto dell'autorità); il MVP lo segnala soltanto."

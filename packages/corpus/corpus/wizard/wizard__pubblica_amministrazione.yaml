@@ -79,7 +79,7 @@ sector_specific_questions:
       - answer: esclusa_art_4_c_2
         outcome: out_of_scope
         verdict_outcome: likely_out_of_scope   # vincolo fisso: out_of_scope -> likely_out_of_scope
-        reasoning_trace: "Il soggetto indicato (Parlamento italiano, Autorita' giudiziaria, Banca d'Italia o Unita' di informazione finanziaria per l'Italia) e' tra quelli che l'art. 4 c. 2 D.Lgs. 138/2024 non ricomprende tra le pubbliche amministrazioni dell'art. 3 cc. 6-7. Sulla base degli input forniti, l'analisi suggerisce che il soggetto non rientri nel perimetro NIS2 italiano come pubblica amministrazione dell'Allegato III. Verifica obbligatoria con consulente qualificato."
+        reasoning_trace: "Il soggetto indicato (Parlamento italiano, Autorità giudiziaria, Banca d'Italia o Unità di informazione finanziaria per l'Italia) è tra quelli che l'art. 4 c. 2 D.Lgs. 138/2024 non ricomprende tra le pubbliche amministrazioni dell'art. 3 cc. 6-7. Sulla base degli input forniti, l'analisi suggerisce che il soggetto non rientri nel perimetro NIS2 italiano come pubblica amministrazione dell'Allegato III. Verifica obbligatoria con consulente qualificato."
         citations: [dlgs_138_2024_art_4_c_2]
         # categoria_pa e' a scelta singola: l'esclusione non puo' essere retrocessa da un'altra
         # attivita'; il campo e' obbligatorio (ADR 0016 amendment) e rinvia al conflitto.
@@ -195,6 +195,6 @@ multi_regime_intersection:
   - trigger: psnc == yes AND classificazione_cloud_pa == yes
     outcome: escalate_to_advisor
     verdict_outcome: ambiguous   # vincolo fisso: escalate_to_advisor -> sempre ambiguous (l'engine copia senza inferenza)
-    reasoning_trace: "L'amministrazione appare contemporaneamente in perimetro PSNC e tra i soggetti che hanno classificato dati e servizi ai sensi del Regolamento Cloud. L'ordine di precedenza tra l'automatismo 'alto' PSNC (art. 5 Det. ACN 155238/2026) e la sostituzione di modello Cloud PA (art. 4) non è esplicitato nelle fonti normative disponibili. Consulenza qualificata necessaria, con eventuale interlocuzione diretta ACN."
+    reasoning_trace: "L'amministrazione appare contemporaneamente in perimetro PSNC e tra i soggetti che hanno classificato dati e servizi ai sensi del Regolamento Cloud. L'ordine di precedenza tra l'automatismo 'alto' PSNC (art. 5 Det. ACN 155238/2026) e la sostituzione di modello Cloud PA (art. 4) non è esplicitato nelle fonti normative disponibili. Il caso va valutato con un consulente qualificato, eventualmente anche con un'interlocuzione diretta con l'ACN."
     citations: [det_acn_155238_2026_art_4, det_acn_155238_2026_art_5]
     notices: [psnc_cloud_pa_precedenza_non_attestata]

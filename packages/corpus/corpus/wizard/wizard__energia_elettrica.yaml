@@ -112,13 +112,13 @@ sector_specific_questions:
         outcome: qualitative_signal_only
         verdict_outcome: likely_out_of_scope
         notices_if_demoted: [punti_ricarica_non_pun_attivita_ulteriore]
-        reasoning_trace: "Secondo la FAQ ACN A1.1.a.3 i soggetti non obbligati alla registrazione sul PUN (art. 5 del DM MASE n. 106/2023) non rientrano nella definizione della tipologia di soggetto 'gestore di un punto di ricarica'. Sulla base degli input forniti, l'analisi suggerisce la probabile esclusione dal perimetro NIS2 italiano per questa attivita'; il soggetto potrebbe rientrarvi per un'altra tipologia o se l'obbligo di registrazione sopravvenisse. Verifica obbligatoria con consulente qualificato."
+        reasoning_trace: "Secondo la FAQ ACN A1.1.a.3 i soggetti non obbligati alla registrazione sul PUN (art. 5 del DM MASE n. 106/2023) non rientrano nella definizione della tipologia di soggetto 'gestore di un punto di ricarica'. Sulla base degli input forniti, l'analisi suggerisce la probabile esclusione dal perimetro NIS2 italiano per questa attività; il soggetto potrebbe rientrarvi per un'altra tipologia o se l'obbligo di registrazione sopravvenisse. Verifica obbligatoria con consulente qualificato."
         citations: [faq_a1_1_a_3]
       - answer: non_so
         outcome: qualitative_signal_only
         verdict_outcome: ambiguous
         notices_if_demoted: [punti_ricarica_non_pun_attivita_ulteriore]
-        reasoning_trace: "Obbligo di registrazione su PUN non noto: la qualificazione del gestore di punti di ricarica dipende da tale obbligo (A1.1.a.3, DM MASE 106/2023). Segnalazione con invito a verificare l'obbligo PUN. Verifica con consulente qualificato."
+        reasoning_trace: "Obbligo di registrazione su PUN non noto: la qualificazione del gestore di punti di ricarica dipende da tale obbligo (A1.1.a.3, DM MASE 106/2023). Verifica con consulente qualificato."
         citations: [faq_a1_1_a_3, dm_mase_106_2023]
 
   # C-E2 (corpus 0.6.0): esclusione dei clienti attivi, FAQ A1.1.a.4, con le due

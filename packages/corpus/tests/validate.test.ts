@@ -5,7 +5,7 @@
  * rule-input invariant (S2), and the exceptions catalog checks (corpus 0.5.0, ADR 0012).
  */
 import { beforeAll, describe, expect, it } from 'vitest';
-import { loadFromDisk, validateCorpus, type RawCorpus, type SourceTexts } from '../src/index.ts';
+import { apostropheAccents, loadFromDisk, validateCorpus, type RawCorpus, type SourceTexts } from '../src/index.ts';
 
 type Doc = Record<string, any>;
 
@@ -395,6 +395,41 @@ describe('corpus:validate', () => {
         pa(c).cumulative_signals[0].applies_to_categories = ['a'];
       });
       expectCode(errors, 'E_TRIGGER', 'sectors__pubblica_amministrazione.yaml');
+    });
+  });
+
+  describe('corpus 0.13.1 faults (review F18, apostrophe instead of accent)', () => {
+    it('apostrophized vowel in a rule trace -> E_COPY', () => {
+      const errors = errorsAfter((c) => {
+        const r = sector(c, 'energia_elettrica').qualification_rules[1];
+        r.reasoning_trace = `${r.reasoning_trace} L'attivita' e' dichiarata.`;
+      });
+      expectCode(errors, 'E_COPY', 'sectors__energia_elettrica.yaml > qualification_rules[1] > reasoning_trace');
+    });
+
+    it('apostrophized vowel in a wizard option label -> E_COPY', () => {
+      const errors = errorsAfter((c) => {
+        wizard(c, 'pubblica_amministrazione').sector_specific_questions[0].options[0].label_it += ' (piu\' categorie)';
+      });
+      expectCode(errors, 'E_COPY', 'wizard__pubblica_amministrazione.yaml');
+    });
+
+    it('apostrophized vowel in a registry label and in a signal -> E_COPY', () => {
+      const errors = errorsAfter((c) => {
+        const reg = (c.citations['citations/citations__registry.yaml'] as Doc).citations;
+        reg[0].label = "Specifiche di base: e' il modello dell'allegato 2";
+        const sig = (c.signals['signals/signals__cumulative_regimes.yaml'] as Doc).signals[0];
+        sig.base_reasoning_trace = 'Il cumulo puo\' applicarsi.';
+      });
+      expectCode(errors, 'E_COPY', 'citations__registry.yaml');
+      expectCode(errors, 'E_COPY', 'signals__cumulative_regimes.yaml');
+    });
+
+    it('elisions, single-quoted spans and "po\'" are not flagged', () => {
+      expect(apostropheAccents("l'analisi della categoria 'impatto alto' e dell'Allegato")).toEqual([]);
+      expect(apostropheAccents("'«servizio di cloud computing»: ... in varie ubicazioni'")).toEqual([]);
+      expect(apostropheAccents("un po' di contesto")).toEqual([]);
+      expect(apostropheAccents("E' una attivita' che ne' l'una ne' l'altra")).toEqual(["E'", "attivita'", "ne'", "ne'"]);
     });
   });
 });
