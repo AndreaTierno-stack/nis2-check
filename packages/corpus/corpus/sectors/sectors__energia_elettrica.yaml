@@ -96,7 +96,7 @@ tipologie:
     categorization_model: model_1
     typical_psnc_overlap: none
     typical_l90_overlap: conditional
-    scoping_note_it: "Rientra solo se registrato su PUN (DM MASE 106/2023). I meri punti vendita con ricarica non registrati su PUN non rientrano automaticamente (A1.1.a.3)."
+    scoping_note_it: "Rientrano nella definizione della tipologia solo i soggetti obbligati a registrarsi sul PUN (art. 5 DM MASE 106/2023); i punti vendita con ricarica non obbligati alla registrazione non rientrano nella definizione (A1.1.a.3)."
 
 qualification_rules:
   # ADR 0015: soggetto critico (D.Lgs. 134/2024) -> essenziale a prescindere dalla

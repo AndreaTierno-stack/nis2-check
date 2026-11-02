@@ -297,7 +297,7 @@ citations:
   - id: dm_mase_106_2023
     kb_node: wiki/sources/FAQ NIS - Settori, sottosettori e tipologie di soggetto.md
     kb_lines: 30, 36
-    attestation: "A1.1.a.3: gestori di punti di ricarica registrati su PUN 'ex DM MASE n. 106 del 16/03/2023'; i punti vendita che offrono ricarica ma non sono obbligati alla registrazione su PUN non rientrano automaticamente. Fedele alla FAQ (art. 5 del DM). Fonte non in raw/."
+    attestation: "A1.1.a.3: gestori di punti di ricarica registrati su PUN 'ex DM MASE n. 106 del 16/03/2023'; rientrano nella definizione della tipologia solo i soggetti obbligati alla registrazione ai sensi dell'art. 5 del DM (KB DEC-010). Fonte non in raw/."
     label: "Decreto ministeriale che prevede la registrazione dei punti di ricarica sulla Piattaforma Unica Nazionale (PUN)."
     source_group: altro
   - id: dpcm_221_2024_art_3_c_1
@@ -321,8 +321,8 @@ citations:
   - id: faq_a1_1_a_3
     kb_node: wiki/sources/FAQ NIS - Settori, sottosettori e tipologie di soggetto.md
     kb_lines: "36"
-    attestation: "A1.1.a.3: rientrano i gestori di punti di ricarica registrati su PUN (ex DM MASE n. 106 del 16/03/2023); i punti vendita che offrono ricarica ma non sono obbligati alla registrazione su PUN 'non rientrano automaticamente'."
-    label: "Rientrano i gestori di punti di ricarica registrati su PUN; i punti non obbligati alla registrazione non rientrano automaticamente."
+    attestation: "A1.1.a.3 (testo verificato sul PDF in raw/, KB DEC-010): i punti vendita che offrono punti di ricarica 'non rientrano nella definizione della tipologia di soggetto di gestore di un punto di ricarica'; 'rientrano in tale definizione solo i soggetti di cui all'articolo 5 del dm MASE n. 106 del 16 marzo 2023', obbligati a registrarsi sulla PUN."
+    label: "Rientrano nella definizione di gestore di punti di ricarica solo i soggetti obbligati a registrarsi sul PUN."
     source_group: faq_acn
   - id: faq_a1_1_a_4
     kb_node: wiki/sources/FAQ NIS - Settori, sottosettori e tipologie di soggetto.md

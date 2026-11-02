@@ -42,7 +42,7 @@ sector_specific_questions:
       - id: partecipante_aggregazione
         label_it: "Aggregazione, gestione della domanda o stoccaggio"
       - id: gestore_punti_ricarica
-        label_it: "Gestione di punti di ricarica (registrati su PUN)"
+        label_it: "Gestione di punti di ricarica per veicoli elettrici"
 
   # Multi-identita' intra-settore: rileva attivita' elettriche ulteriori oltre la principale
   # NOTA IMPLEMENTAZIONE: l'UI deve escludere a runtime l'opzione gia' scelta in
@@ -70,7 +70,7 @@ sector_specific_questions:
       - id: partecipante_aggregazione
         label_it: "Aggregazione, gestione domanda, stoccaggio"
       - id: gestore_punti_ricarica
-        label_it: "Gestione punti di ricarica (su PUN)"
+        label_it: "Gestione di punti di ricarica per veicoli elettrici"
     on_any_selected:
       activates_signals: [cross_sector_multi_tipologia_elettrica]
 
@@ -88,9 +88,10 @@ sector_specific_questions:
         - { input: attivita_elettriche_ulteriori, op: includes, value: gestore_punti_ricarica }
     label_it: "Il soggetto è obbligato a registrarsi sul PUN (Piattaforma Unica Nazionale) come gestore di punti di ricarica, ai sensi del DM MASE n. 106 del 16/03/2023?"
     help_text_it: |
-      Rientrano nel settore elettrico i gestori di punti di ricarica registrati
-      su PUN. I punti vendita che offrono ricarica ma non sono obbligati alla
-      registrazione su PUN non rientrano automaticamente per questo solo titolo.
+      Secondo la FAQ ACN A1.1.a.3 rientrano nella definizione della tipologia
+      «gestore di un punto di ricarica» solo i soggetti obbligati a registrarsi
+      sul PUN (art. 5 del DM MASE n. 106/2023); i punti vendita che offrono
+      ricarica senza questo obbligo non rientrano nella definizione.
     options:
       - id: si
         label_it: "Sì, registrato o obbligato alla registrazione su PUN"
@@ -105,10 +106,13 @@ sector_specific_questions:
         label_it: "Non so"
     outcome_mapping:
       - answer: "no"
-        outcome: qualitative_signal_only   # "non rientrano automaticamente" NON e' esclusione categoriale
+        # Esito invariato (corpus 0.13.0, review F08): la FAQ A1.1.a.3 esclude dalla definizione della
+        # tipologia (testo verificato in raw/, KB DEC-010); l'esclusione riguarda la sola attivita' di
+        # ricarica, per questo il modo resta qualitative_signal_only.
+        outcome: qualitative_signal_only
         verdict_outcome: likely_out_of_scope
         notices_if_demoted: [punti_ricarica_non_pun_attivita_ulteriore]
-        reasoning_trace: "Punti di ricarica non obbligati alla registrazione su PUN: secondo A1.1.a.3 non rientrano automaticamente per questo solo titolo. Non e' un'esclusione categoriale: il soggetto potrebbe rientrare per altra tipologia o per obbligo PUN sopravvenuto. Segnalazione, non verdetto di esclusione. Verifica con consulente qualificato."
+        reasoning_trace: "Secondo la FAQ ACN A1.1.a.3 i soggetti non obbligati alla registrazione sul PUN (art. 5 del DM MASE n. 106/2023) non rientrano nella definizione della tipologia di soggetto 'gestore di un punto di ricarica'. Sulla base degli input forniti, l'analisi suggerisce la probabile esclusione dal perimetro NIS2 italiano per questa attivita'; il soggetto potrebbe rientrarvi per un'altra tipologia o se l'obbligo di registrazione sopravvenisse. Verifica obbligatoria con consulente qualificato."
         citations: [faq_a1_1_a_3]
       - answer: non_so
         outcome: qualitative_signal_only

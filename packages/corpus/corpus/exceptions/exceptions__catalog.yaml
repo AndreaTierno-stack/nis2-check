@@ -169,7 +169,7 @@ exceptions:
   - id: punti_ricarica_non_pun_attivita_ulteriore
     status: segnalato
     title: "Punti di ricarica senza obbligo di registrazione sul PUN, accanto ad altre attività"
-    description: "Il soggetto indica, tra le attività dichiarate, la gestione di punti di ricarica senza obbligo di registrazione sul PUN, o con obbligo non noto. Secondo la FAQ ACN A1.1.a.3 questi punti di ricarica non rientrano automaticamente per questo solo titolo. Poiché il soggetto dichiara anche altre attività del settore elettrico, l'esito indicato segue le regole del settore per quelle attività; l'attività di ricarica va approfondita con un consulente qualificato."
+    description: "Il soggetto indica, tra le attività dichiarate, la gestione di punti di ricarica senza obbligo di registrazione sul PUN, o con obbligo non noto. Secondo la FAQ ACN A1.1.a.3 rientrano nella definizione della tipologia «gestore di un punto di ricarica» solo i soggetti obbligati a registrarsi sul PUN. Poiché il soggetto dichiara anche altre attività del settore elettrico, l'esito indicato segue le regole del settore per quelle attività; l'attività di ricarica va approfondita con un consulente qualificato."
     citations: [faq_a1_1_a_3]
     applies_to: [energia_elettrica]
 

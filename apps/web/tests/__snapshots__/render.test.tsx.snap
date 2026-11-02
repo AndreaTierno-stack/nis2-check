@@ -5,9 +5,10 @@ exports[`question screen > renders the visible question with its corpus label, h
 <p>Domanda 6 di 9</p>
 <fieldset>
 <legend>Il soggetto è obbligato a registrarsi sul PUN (Piattaforma Unica Nazionale) come gestore di punti di ricarica, ai sensi del DM MASE n. 106 del 16/03/2023?</legend>
-<p>Rientrano nel settore elettrico i gestori di punti di ricarica registrati
-su PUN. I punti vendita che offrono ricarica ma non sono obbligati alla
-registrazione su PUN non rientrano automaticamente per questo solo titolo.</p>
+<p>Secondo la FAQ ACN A1.1.a.3 rientrano nella definizione della tipologia
+«gestore di un punto di ricarica» solo i soggetti obbligati a registrarsi
+sul PUN (art. 5 del DM MASE n. 106/2023); i punti vendita che offrono
+ricarica senza questo obbligo non rientrano nella definizione.</p>
 <div role="radiogroup">
 <label data-option="si">
 <input type="radio" name="registrato_pun" value="si"/>
@@ -1569,7 +1570,7 @@ exports[`verdict page of E25 > matches the DOM snapshot 1`] = `
 </li>
 <li data-limit="punti_ricarica_non_pun_attivita_ulteriore">
 <span>Punti di ricarica senza obbligo di registrazione sul PUN, accanto ad altre attività</span>
-<span>Il soggetto indica, tra le attività dichiarate, la gestione di punti di ricarica senza obbligo di registrazione sul PUN, o con obbligo non noto. Secondo la FAQ ACN A1.1.a.3 questi punti di ricarica non rientrano automaticamente per questo solo titolo. Poiché il soggetto dichiara anche altre attività del settore elettrico, l&#x27;esito indicato segue le regole del settore per quelle attività; l&#x27;attività di ricarica va approfondita con un consulente qualificato. </span>
+<span>Il soggetto indica, tra le attività dichiarate, la gestione di punti di ricarica senza obbligo di registrazione sul PUN, o con obbligo non noto. Secondo la FAQ ACN A1.1.a.3 rientrano nella definizione della tipologia «gestore di un punto di ricarica» solo i soggetti obbligati a registrarsi sul PUN. Poiché il soggetto dichiara anche altre attività del settore elettrico, l&#x27;esito indicato segue le regole del settore per quelle attività; l&#x27;attività di ricarica va approfondita con un consulente qualificato. </span>
 </li>
 </ul>
 </div>
@@ -2076,7 +2077,7 @@ exports[`verdict page of E26 > matches the DOM snapshot 1`] = `
 </li>
 <li data-limit="punti_ricarica_non_pun_attivita_ulteriore">
 <span>Punti di ricarica senza obbligo di registrazione sul PUN, accanto ad altre attività</span>
-<span>Il soggetto indica, tra le attività dichiarate, la gestione di punti di ricarica senza obbligo di registrazione sul PUN, o con obbligo non noto. Secondo la FAQ ACN A1.1.a.3 questi punti di ricarica non rientrano automaticamente per questo solo titolo. Poiché il soggetto dichiara anche altre attività del settore elettrico, l&#x27;esito indicato segue le regole del settore per quelle attività; l&#x27;attività di ricarica va approfondita con un consulente qualificato. </span>
+<span>Il soggetto indica, tra le attività dichiarate, la gestione di punti di ricarica senza obbligo di registrazione sul PUN, o con obbligo non noto. Secondo la FAQ ACN A1.1.a.3 rientrano nella definizione della tipologia «gestore di un punto di ricarica» solo i soggetti obbligati a registrarsi sul PUN. Poiché il soggetto dichiara anche altre attività del settore elettrico, l&#x27;esito indicato segue le regole del settore per quelle attività; l&#x27;attività di ricarica va approfondita con un consulente qualificato. </span>
 </li>
 </ul>
 </div>
