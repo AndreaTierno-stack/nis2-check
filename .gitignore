@@ -17,3 +17,6 @@ out/
 
 # Test coverage
 coverage/
+
+# Local status with personal data and third-party names (never versioned)
+docs/STATUS-private.md
