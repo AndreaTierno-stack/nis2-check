@@ -158,7 +158,7 @@ test di enumerazione).
   settore); Domande (una per schermata, help dal YAML; binarie e multiple a pillole, singole
   a righe radio; `InvalidAnswersError` mostrato come elenco di domande da completare); Esito
   (banner di anteprima; pannello dell'esito con scala a tre posizioni, frase del corpus,
-  riga di verifica, tipologia, qualifica, regimi; avvisi dal catalogo; "Come è stato
+  riga di verifica, tipologia, qualifica, regimi; avvisi dal catalogo; altre segnalazioni (i segnali del Verdict con il testo del corpus); "Come è stato
   calcolato" ripiegato, quattro righe per gli stadi dell'ADR 0016; fonti numerate e
   raggruppate per `source_group` del registro, con etichetta e link alla riga della KB;
   colonna laterale con le risposte, "Scarica PDF" con il nome azienda facoltativo, link alla
@@ -173,7 +173,7 @@ test di enumerazione).
   persistito, settore, data e ora in ora italiana, versione e data del corpus, codice), risposte
   date, "Parte tecnica" con la trace sempre stampata e l'URL esplicito di ogni fonte, blocco
   "Cosa non gestisce il tool" (`lib/limits.ts`: tutte le voci `non_gestito` e le `segnalato`
-  del settore, prima quelle emerse). Colori stampati anche senza grafica di sfondo
+  del settore, divise tra emerse dalle risposte e altre voci del settore). Colori stampati anche senza grafica di sfondo
   (`print-color-adjust: exact`). La data di rilascio del corpus si legge dal CHANGELOG al build
   (`lib/corpus.server.ts`).
 - **Token** (`tailwind.config.ts`, unici colori: la palette di Tailwind è sostituita):

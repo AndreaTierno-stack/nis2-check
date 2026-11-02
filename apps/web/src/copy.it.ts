@@ -55,6 +55,8 @@ export const copy = {
       gestito: "Gestito dal tool",
       non_gestito: "Non gestito dal tool",
     },
+    signalsTitle: "Altre segnalazioni dalle risposte date",
+    signalsSubtitle: "Si aggiungono all'esito e non lo modificano: indicano altri ambiti o regimi da verificare con un consulente.",
     traceTitle: "Come è stato calcolato",
     stages: {
       regime_routing: "Regimi speciali",
@@ -128,7 +130,8 @@ export const copy = {
     limitsTitle: "Cosa non gestisce il tool",
     limitsIntro:
       "Limiti dichiarati dello strumento, dal catalogo eccezioni: le voci segnalate per il settore valutato e tutte le voci non gestite. Ogni voce resta da valutare con un consulente qualificato.",
-    raised: "Emerso da questa valutazione",
+    limitsRaised: "Segnalato ed emerso dalle risposte date",
+    limitsOther: "Altri casi segnalati per questo settore, non emersi dalle risposte date (descrivono situazioni che le risposte non indicano)",
     fileTitle: (hash: string) => `Esito preliminare ambito NIS2 ${hash}`,
   },
   /** Names of the acts, for the references of the "Fonti" section (formatted from the citation id). */

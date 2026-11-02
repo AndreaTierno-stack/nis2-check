@@ -10,6 +10,7 @@ import { TracePanel, VerdictMain } from "@/components/verdict/verdict-main";
 import { VerdictSide } from "@/components/verdict/verdict-side";
 import { QuestionPage } from "@/components/wizard/question-page";
 import { buildSources } from "@/lib/sources";
+import { signalItems } from "@/lib/verdict";
 import { sectorContext, visibleQuestions } from "@/lib/wizard";
 import { fixture, realCorpus, withoutStyles } from "./helpers";
 
@@ -50,5 +51,23 @@ describe("question screen", () => {
     expect(html).toContain('data-question="registrato_pun"');
     expect(html).toContain('data-option="non_so"');
     expect(withoutStyles(html)).toMatchSnapshot();
+  });
+});
+
+describe("signals on the verdict page (review 2026-11-02, F04)", () => {
+  const corpus = realCorpus();
+  const fixtures = Object.values(corpus.fixtures);
+
+  it.each(fixtures.map((f) => [f.scenario_id, f] as const))("%s shows exactly its expected signals, with their corpus text", (_, fx) => {
+    const verdict = evaluate({ sectorId: fx.sector, answers: fx.inputs }, corpus);
+    const props = { corpus, ctx: sectorContext(corpus, fx.sector), answers: fx.inputs as Record<string, string | string[]>, verdict, onEdit: noop };
+    const html = renderToStaticMarkup(<VerdictMain {...props} />);
+    const shown = [...html.matchAll(/data-signal="([^"]+)"/g)].map((m) => m[1]);
+    expect(shown).toEqual(fx.expected.signals ?? []);
+    for (const s of signalItems(verdict, corpus, fx.sector)) expect(s.text.length).toBeGreaterThan(40);
+  });
+
+  it("at least one fixture exercises the panel", () => {
+    expect(fixtures.some((f) => (f.expected.signals ?? []).length > 0)).toBe(true);
   });
 });

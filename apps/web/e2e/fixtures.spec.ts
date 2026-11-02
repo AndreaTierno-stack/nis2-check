@@ -15,5 +15,7 @@ for (const id of ["E01", "E05", "E11", "E22", "E25"]) {
     if (fx.expected.qualifica) await expect(page.getByTestId("qualifica")).toHaveText(fx.expected.qualifica);
     const notices = await page.getByTestId("notice").evaluateAll((els) => els.map((e) => e.getAttribute("data-notice")));
     if (fx.expected.notices) expect(notices).toEqual(fx.expected.notices);
+    const signals = await page.getByTestId("signal").evaluateAll((els) => els.map((e) => e.getAttribute("data-signal")));
+    expect(signals).toEqual(fx.expected.signals ?? []);
   });
 }

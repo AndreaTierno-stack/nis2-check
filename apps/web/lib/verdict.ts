@@ -53,6 +53,19 @@ export function notices(v: Verdict, corpus: Corpus) {
   });
 }
 
+/**
+ * Signals of the Verdict (l90_cumulo, cross_sector_*, allegato_iv_individuazione): the corpus text
+ * (base_reasoning_trace, plus the sector context when declared) and citations, in Verdict order.
+ * They add to the outcome and never change it (ADR 0001).
+ */
+export function signalItems(v: Verdict, corpus: Corpus, sectorId: string) {
+  const all = new Map(Object.values(corpus.signals).flatMap((f) => f.signals.map((s) => [s.id, s] as const)));
+  return v.signals.flatMap(({ id }) => {
+    const s = all.get(id);
+    return s ? [{ id, text: `${s.base_reasoning_trace}${s.sector_context?.[sectorId] ?? ""}`, citations: [...s.citations] }] : [];
+  });
+}
+
 export const STAGES = ["regime_routing", "type_exclusion", "size_blind", "dimensional"] as const satisfies readonly Stage[];
 
 export interface TraceRow {

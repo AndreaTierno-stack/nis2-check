@@ -7,7 +7,7 @@ import { Card } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { buildSources, type Sources } from "@/lib/sources";
 import { cn } from "@/lib/utils";
-import { SCALE, facts, notices, resolutionStep, scalePosition, tone, traceRows } from "@/lib/verdict";
+import { SCALE, facts, notices, resolutionStep, scalePosition, signalItems, tone, traceRows } from "@/lib/verdict";
 import { copy } from "@/src/copy.it";
 import { Cite } from "./cite";
 import { SourcesPanel } from "./sources-panel";
@@ -123,6 +123,29 @@ function NoticesPanel({ props, sources }: { props: VerdictProps; sources: Source
   );
 }
 
+/** Signals of the Verdict, with their corpus text: shown on screen and printed (review 2026-11-02, F04). */
+function SignalsPanel({ props, sources }: { props: VerdictProps; sources: Sources }) {
+  const list = signalItems(props.verdict, props.corpus, props.ctx.sectorId);
+  if (!list.length) return null;
+  return (
+    <section className="space-y-3" aria-labelledby="segnalazioni-title">
+      <div className="print-keep-with-next space-y-1">
+        <h2 id="segnalazioni-title" className="text-lg font-semibold">
+          {copy.verdict.signalsTitle}
+        </h2>
+        <p className="text-sm text-text-soft">{copy.verdict.signalsSubtitle}</p>
+      </div>
+      <Card className="divide-y divide-border">
+        {list.map((s) => (
+          <p key={s.id} className="print-avoid-break p-5 text-sm text-text-soft" data-testid="signal" data-signal={s.id}>
+            {s.text} <Cite ids={s.citations} sources={sources} />
+          </p>
+        ))}
+      </Card>
+    </section>
+  );
+}
+
 function TracePanel({ props, sources, className }: { props: VerdictProps; sources: Sources; className?: string }) {
   const rows = traceRows(props.verdict);
   const resolution = resolutionStep(props.verdict);
@@ -176,6 +199,7 @@ export function VerdictMain(props: VerdictProps) {
       <p className="rounded-full bg-warn-soft px-5 py-3 text-sm font-medium text-warn-text">{copy.verdict.banner}</p>
       <OutcomePanel props={props} sources={sources} open={open} onToggle={() => setOpen((o) => !o)} />
       <NoticesPanel props={props} sources={sources} />
+      <SignalsPanel props={props} sources={sources} />
       <PrintAnswers props={props} />
       <PrintTechnicalHeading />
       <TracePanel props={props} sources={sources} className={open ? undefined : "hidden print:block"} />

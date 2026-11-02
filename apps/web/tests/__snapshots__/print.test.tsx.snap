@@ -277,11 +277,10 @@ exports[`printed verdict of E05 > matches the print-mode DOM snapshot 1`] = `
 <p>Limiti dichiarati dello strumento, dal catalogo eccezioni: le voci segnalate per il settore valutato e tutte le voci non gestite. Ogni voce resta da valutare con un consulente qualificato.</p>
 </div>
 <div>
-<h3>Segnalato, non valutato dal tool</h3>
+<h3>Segnalato ed emerso dalle risposte date</h3>
 <ul>
 <li data-limit="cloud_stabilimento_principale_multi_ue">
 <span>Fornitori cloud con stabilimenti in più Stati membri (art. 5 D.Lgs. 138/2024)</span>
-<span> (Emerso da questa valutazione)</span>
 <span>I fornitori di servizi di cloud computing sono soggetti alla giurisdizione dello Stato membro in cui hanno lo stabilimento principale nell&#x27;Unione; la giurisdizione nazionale ricorre, tra l&#x27;altro, se lo stabilimento principale è in Italia o se il soggetto, senza stabilimenti nell&#x27;Unione, ha designato il rappresentante in Italia (art. 5 D.Lgs. 138/2024). Lo strumento non valuta lo stabilimento principale: per un soggetto con stabilimenti in più Stati membri l&#x27;esito va riesaminato con un consulente qualificato. <span>
 <a href="#fonte-2">2</a>
 </span>
@@ -289,7 +288,6 @@ exports[`printed verdict of E05 > matches the print-mode DOM snapshot 1`] = `
 </li>
 <li data-limit="cloud_pa_fornitore_qualificato_a1_8_2">
 <span>Fornitori cloud qualificati per la PA (Regolamento Cloud)</span>
-<span> (Emerso da questa valutazione)</span>
 <span>Secondo la FAQ ACN A1.8.2, i fornitori di servizi cloud qualificati ai sensi del Regolamento Cloud (Decreto Direttoriale ACN n. 21007/24) che superano i massimali delle piccole imprese rientrano nell&#x27;ambito NIS come fornitori di servizi di cloud computing (Allegato I, punto 8). La sostituzione del modello di categorizzazione prevista dall&#x27;art. 4 della Det. ACN 155238/2026 riguarda i soggetti che hanno svolto la classificazione dei propri dati e servizi, cioè le pubbliche amministrazioni (FAQ CAT.8): per il fornitore l&#x27;esito segue le regole ordinarie del settore. <span>
 <a href="#fonte-4">4</a>
 <a href="#fonte-5">5</a>
@@ -297,6 +295,11 @@ exports[`printed verdict of E05 > matches the print-mode DOM snapshot 1`] = `
 </span>
 </span>
 </li>
+</ul>
+</div>
+<div>
+<h3>Altri casi segnalati per questo settore, non emersi dalle risposte date (descrivono situazioni che le risposte non indicano)</h3>
+<ul>
 <li data-limit="dora_entita_finanziaria_fuori_settori_3_4">
 <span>Entità finanziarie DORA fuori dai settori 3 e 4 dell&#x27;Allegato I</span>
 <span>L&#x27;art. 3 c. 14 D.Lgs. 138/2024 esclude l&#x27;art. 17 e i Capi IV e V del decreto solo per i soggetti dei settori 3 (settore bancario) e 4 (infrastrutture dei mercati finanziari) dell&#x27;Allegato I. Per un&#x27;entità finanziaria regolata dal Regolamento (UE) 2022/2554 che rientra nell&#x27;ambito NIS per un altro settore, la Det. ACN 127437/2026 prevede esoneri limitati agli adempimenti sulla piattaforma ACN (referente CSIRT, art. 7 c. 6; parte dell&#x27;aggiornamento annuale, art. 16 c. 13; elencazione e categorizzazione delle attività, art. 20 c. 6), mentre i Capi IV e V restano applicabili secondo il testo dell&#x27;art. 3 c. 14. L&#x27;esito indicato segue le regole del settore; il caso va approfondito con un consulente qualificato. </span>
@@ -503,6 +506,21 @@ exports[`printed verdict of E10 > matches the print-mode DOM snapshot 1`] = `
 </div>
 </div>
 </section>
+<section aria-labelledby="segnalazioni-title">
+<div>
+<h2 id="segnalazioni-title">Altre segnalazioni dalle risposte date</h2>
+<p>Si aggiungono all&#x27;esito e non lo modificano: indicano altri ambiti o regimi da verificare con un consulente.</p>
+</div>
+<div>
+<p data-testid="signal" data-signal="l90_cumulo">Il soggetto potrebbe rientrare anche nel perimetro della Legge 90/2024 (art. 1 c. 1, cybersicurezza nazionale): l&#x27;appartenenza va verificata. Il rapporto con il regime NIS va valutato caso per caso: le disposizioni dell&#x27;art. 1 della legge non si applicano ai soggetti richiamati dall&#x27;art. 1 c. 7 lett. a), tra cui i soggetti del Perimetro di Sicurezza Nazionale Cibernetica; il rinvio di quella lettera al D.Lgs. 65/2018 e&#x27; da intendersi alle corrispondenti disposizioni del D.Lgs. 138/2024 (art. 15-bis). Verifica con consulente qualificato. Per i soggetti dell&#x27;art. 1 c. 1 L. 90/2024 che sono anche soggetti NIS, la designazione del Punto di contatto NIS puo&#x27; soddisfare l&#x27;obbligo di nomina e comunicazione del referente per la cybersicurezza (art. 8 c. 2 L. 90/2024; art. 4 c. 8 Det. piattaforma 127437/2026). <span>
+<a href="#fonte-7">7</a>
+<a href="#fonte-9">9</a>
+<a href="#fonte-10">10</a>
+<a href="#fonte-11">11</a>
+</span>
+</p>
+</div>
+</section>
 <section class="hidden print:block" data-testid="print-answers">
 <div>
 <h2>Le risposte date</h2>
@@ -685,11 +703,10 @@ exports[`printed verdict of E10 > matches the print-mode DOM snapshot 1`] = `
 <p>Limiti dichiarati dello strumento, dal catalogo eccezioni: le voci segnalate per il settore valutato e tutte le voci non gestite. Ogni voce resta da valutare con un consulente qualificato.</p>
 </div>
 <div>
-<h3>Segnalato, non valutato dal tool</h3>
+<h3>Segnalato ed emerso dalle risposte date</h3>
 <ul>
 <li data-limit="pa_organi_costituzionali_capo_v_art_4_c_2">
 <span>Organi costituzionali e di rilievo costituzionale: Capo V non applicabile</span>
-<span> (Emerso da questa valutazione)</span>
 <span>Agli organi costituzionali e di rilievo costituzionale non si applicano le previsioni del Capo V del decreto, dedicato a vigilanza ed esecuzione (art. 4 c. 2, seconda parte). Lo strumento non modella questa differenza: l&#x27;esito sull&#x27;ambito resta quello indicato, mentre le conseguenze in termini di vigilanza vanno approfondite con un consulente qualificato. <span>
 <a href="#fonte-5">5</a>
 </span>
@@ -697,7 +714,6 @@ exports[`printed verdict of E10 > matches the print-mode DOM snapshot 1`] = `
 </li>
 <li data-limit="pa_esclusioni_sicurezza_nazionale_art_4_c_3">
 <span>Esclusioni di sicurezza nazionale (art. 4 D.Lgs. 138/2024) per attività</span>
-<span> (Emerso da questa valutazione)</span>
 <span>Il decreto non si applica agli enti, organi e articolazioni della pubblica amministrazione che operano nei settori della pubblica sicurezza, della difesa nazionale o dell&#x27;attività di contrasto, agli organismi di informazione per la sicurezza e all&#x27;ACN (art. 4 c. 3). Lo strumento non valuta l&#x27;ambito di attività del soggetto: se il caso è pertinente, l&#x27;esito va riesaminato con un consulente qualificato. <span>
 <a href="#fonte-6">6</a>
 </span>
@@ -705,13 +721,17 @@ exports[`printed verdict of E10 > matches the print-mode DOM snapshot 1`] = `
 </li>
 <li data-limit="pa_prerequisito_istat_s13">
 <span>Inclusione nell&#x27;elenco ISTAT delle amministrazioni pubbliche</span>
-<span> (Emerso da questa valutazione)</span>
 <span>Il rientro delle pubbliche amministrazioni dell&#x27;Allegato III presuppone che il soggetto sia tra le amministrazioni pubbliche di cui all&#x27;art. 1 c. 3 L. 196/2009, cioè nell&#x27;elenco ISTAT delle amministrazioni pubbliche (art. 3 c. 6 D.Lgs. 138/2024). Lo strumento non verifica l&#x27;inclusione nell&#x27;elenco, che va confermata con un consulente qualificato. <span>
 <a href="#fonte-2">2</a>
 <a href="#fonte-8">8</a>
 </span>
 </span>
 </li>
+</ul>
+</div>
+<div>
+<h3>Altri casi segnalati per questo settore, non emersi dalle risposte date (descrivono situazioni che le risposte non indicano)</h3>
+<ul>
 <li data-limit="pa_qualifica_elevabile_art_6_c_2">
 <span>Qualifica di soggetto importante elevabile a essenziale</span>
 <span>Per le amministrazioni delle lettere b), c) e d) dell&#x27;Allegato III la qualifica di soggetto importante deriva dall&#x27;art. 6 c. 3; la qualifica può essere elevata a essenziale con individuazione dell&#x27;ACN (art. 6 c. 2). Lo strumento non può conoscere un&#x27;individuazione di questo tipo. </span>
@@ -913,6 +933,20 @@ exports[`printed verdict of E27 > matches the print-mode DOM snapshot 1`] = `
 </div>
 </div>
 </section>
+<section aria-labelledby="segnalazioni-title">
+<div>
+<h2 id="segnalazioni-title">Altre segnalazioni dalle risposte date</h2>
+<p>Si aggiungono all&#x27;esito e non lo modificano: indicano altri ambiti o regimi da verificare con un consulente.</p>
+</div>
+<div>
+<p data-testid="signal" data-signal="cross_sector_multi_tipologia_elettrica">Il soggetto sembra svolgere piu&#x27; attivita&#x27; nel settore elettrico (es. distribuzione e vendita). La registrazione sulla piattaforma ACN indica tutte le tipologie pertinenti. La valutazione di rientro riguarda ciascuna tipologia svolta. Verifica con consulente qualificato. <span>
+<a href="#fonte-2">2</a>
+<a href="#fonte-6">6</a>
+<a href="#fonte-8">8</a>
+</span>
+</p>
+</div>
+</section>
 <section class="hidden print:block" data-testid="print-answers">
 <div>
 <h2>Le risposte date</h2>
@@ -1111,11 +1145,10 @@ exports[`printed verdict of E27 > matches the print-mode DOM snapshot 1`] = `
 <p>Limiti dichiarati dello strumento, dal catalogo eccezioni: le voci segnalate per il settore valutato e tutte le voci non gestite. Ogni voce resta da valutare con un consulente qualificato.</p>
 </div>
 <div>
-<h3>Segnalato, non valutato dal tool</h3>
+<h3>Segnalato ed emerso dalle risposte date</h3>
 <ul>
 <li data-limit="energia_regime_transitorio_ose">
 <span>Regime transitorio degli ex operatori di servizi essenziali (art. 5 Det. ACN 379907/2025)</span>
-<span> (Emerso da questa valutazione)</span>
 <span>Secondo l&#x27;art. 5 della Det. ACN 379907/2025, i soggetti già operatori di servizi essenziali ai sensi del D.Lgs. 65/2018 mantengono, limitatamente ai sistemi informativi e di rete già individuati in quel quadro, le misure tecniche e organizzative già adottate, salvo contrasti con il decreto NIS. Il regime riguarda le misure, non l&#x27;ambito: l&#x27;esito indicato non cambia, e lo strumento non chiede se il soggetto era un operatore di servizi essenziali. <span>
 <a href="#fonte-9">9</a>
 </span>
@@ -1123,12 +1156,16 @@ exports[`printed verdict of E27 > matches the print-mode DOM snapshot 1`] = `
 </li>
 <li data-limit="punti_ricarica_non_pun_attivita_ulteriore">
 <span>Punti di ricarica senza obbligo di registrazione sul PUN, accanto ad altre attività</span>
-<span> (Emerso da questa valutazione)</span>
 <span>Il soggetto indica, tra le attività dichiarate, la gestione di punti di ricarica senza obbligo di registrazione sul PUN, o con obbligo non noto. Secondo la FAQ ACN A1.1.a.3 questi punti di ricarica non rientrano automaticamente per questo solo titolo. Poiché il soggetto dichiara anche altre attività del settore elettrico, l&#x27;esito indicato segue le regole del settore per quelle attività; l&#x27;attività di ricarica va approfondita con un consulente qualificato. <span>
 <a href="#fonte-7">7</a>
 </span>
 </span>
 </li>
+</ul>
+</div>
+<div>
+<h3>Altri casi segnalati per questo settore, non emersi dalle risposte date (descrivono situazioni che le risposte non indicano)</h3>
+<ul>
 <li data-limit="dora_entita_finanziaria_fuori_settori_3_4">
 <span>Entità finanziarie DORA fuori dai settori 3 e 4 dell&#x27;Allegato I</span>
 <span>L&#x27;art. 3 c. 14 D.Lgs. 138/2024 esclude l&#x27;art. 17 e i Capi IV e V del decreto solo per i soggetti dei settori 3 (settore bancario) e 4 (infrastrutture dei mercati finanziari) dell&#x27;Allegato I. Per un&#x27;entità finanziaria regolata dal Regolamento (UE) 2022/2554 che rientra nell&#x27;ambito NIS per un altro settore, la Det. ACN 127437/2026 prevede esoneri limitati agli adempimenti sulla piattaforma ACN (referente CSIRT, art. 7 c. 6; parte dell&#x27;aggiornamento annuale, art. 16 c. 13; elencazione e categorizzazione delle attività, art. 20 c. 6), mentre i Capi IV e V restano applicabili secondo il testo dell&#x27;art. 3 c. 14. L&#x27;esito indicato segue le regole del settore; il caso va approfondito con un consulente qualificato. </span>

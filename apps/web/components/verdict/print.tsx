@@ -124,9 +124,12 @@ export function PrintTechnicalHeading() {
  */
 export function PrintLimits({ props, sources }: { props: VerdictProps; sources: Sources }) {
   const { flagged, notHandled } = limitsForPath(props.corpus, props.ctx.sectorId, props.verdict.notices);
+  // review 2026-11-02, F09: entries raised by the answers apart from the other entries of the
+  // sector, whose texts describe situations the user did not declare
   const groups = [
-    { key: "segnalato" as const, items: flagged },
-    { key: "non_gestito" as const, items: notHandled.map((e) => ({ ...e, raised: false })) },
+    { key: "raised", title: copy.print.limitsRaised, items: flagged.filter((e) => e.raised) },
+    { key: "other", title: copy.print.limitsOther, items: flagged.filter((e) => !e.raised) },
+    { key: "non_gestito", title: copy.verdict.status.non_gestito, items: notHandled.map((e) => ({ ...e, raised: false })) },
   ].filter((g) => g.items.length);
   return (
     <section className="hidden space-y-3 print:block" data-testid="print-limits">
@@ -136,7 +139,7 @@ export function PrintLimits({ props, sources }: { props: VerdictProps; sources: 
       </div>
       {groups.map((g) => (
         <div key={g.key} className="space-y-2 rounded-panel border border-border p-5">
-          <h3 className="font-semibold">{copy.verdict.status[g.key]}</h3>
+          <h3 className="font-semibold">{g.title}</h3>
           <ul className="space-y-2">
             {g.items.map((e) =>
               e.id === DISCLAIMER_ENTRY ? (
@@ -146,7 +149,6 @@ export function PrintLimits({ props, sources }: { props: VerdictProps; sources: 
               ) : (
               <li key={e.id} className="print-avoid-break text-sm" data-limit={e.id}>
                 <span className="font-semibold">{e.title}</span>
-                {e.raised && <span className="text-text-muted"> ({copy.print.raised})</span>}
                 <span className="block text-text-soft">
                   {e.description} <Cite ids={e.citations} sources={sources} />
                 </span>
