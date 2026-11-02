@@ -33,6 +33,9 @@ Da eseguire solo su decisione nel Project, non in S4.2. In quest'ordine:
    `Disallow: /`. Valore accettato dal codice: `public` (ogni altro valore resta `preview`).
 5. URL pubblico definitivo: alias più pulito di `nis2-check-three.vercel.app` o dominio custom, da
    decidere prima del post di rilascio; aggiornare il segnaposto del README.
-6. Verifica e2e contro l'URL definitivo:
+6. Issue abilitate sul repository con un template minimo, scritto all'atto di rilascio: riferimento
+   normativo (articolo e comma, codice FAQ o protocollo); passaggio del testo ufficiale; settore,
+   risposte e codice della valutazione dal PDF.
+7. Verifica e2e contro l'URL definitivo:
    `E2E_BASE_URL=<URL definitivo> pnpm --filter @nis2-check/web exec playwright test`, più controllo
    a mano di `robots.txt`, meta `robots` e header.
