@@ -1,18 +1,86 @@
 /**
- * Product and legal notice of the tool (S4.2): the single source of the texts that are
- * not in the exceptions catalog. The catalog entry `anteprima_di_studio_non_consulenza`
- * stays the source of the non-consultancy notice (corpus 0.11.1); this file holds the
- * product side (study preview, licence, review status, privacy, authorities).
+ * Notice of the tool (S4.2): the single source of the product and legal texts that are not
+ * in the exceptions catalog. The notice shown to the user is always composed by
+ * `composeDisclaimer` from two sources, each the only one for its content:
  *
- * DRAFT: operational draft subject to legal review (bozza operativa soggetta a review
- * legale). The text is declared AS-IS and not reviewed by a lawyer (ADR 0017).
+ * - the catalog entry `anteprima_di_studio_non_consulenza` (corpus 0.12.1): study preview,
+ *   not legal advice, not a substitute for the ACN registration, answers stay in the
+ *   browser, AS-IS and not reviewed by a lawyer;
+ * - this file: free and open source, three-position outcomes never categorical, no
+ *   third-party certified verification, MIT licence AS-IS, limits page, official sources.
+ *
+ * The composed notice is used by the click-wrap, the footer of every page (verdict page
+ * included), the printed PDF and the limits page; the README carries the same text between
+ * markers, checked by a test (S4.2 block 4).
+ *
+ * DRAFT: operational draft subject to legal review ("bozza operativa soggetta a review
+ * legale"). Declared AS-IS and not reviewed by a lawyer (ADR 0017).
  *
  * Checked by the copy lint of ADR 0012 (tests/copy.test.ts).
  */
+
+/** Href of the limits page ("Cosa non gestisce il tool"), generated from the catalog. */
+export const LIMITS_HREF = "/limiti/";
+/** Official sources that prevail over the tool. */
+export const ACN_HREF = "https://www.acn.gov.it";
+export const NORMATTIVA_HREF = "https://www.normattiva.it";
+
+/** A run of text, or a link with its label. */
+export type Segment = string | { label: string; href: string };
 
 /** One line repeated at the foot of every printed page of the PDF (ADR 0018). */
 export const PRINT_NOTICE =
   "Anteprima di studio: strumento informativo gratuito, non sostituisce una consulenza legale, una verifica certificata di terza parte o la registrazione sulla piattaforma ACN. Disclaimer non sottoposto a review legale.";
 
+/** Product and legal paragraphs, after the catalog entry. */
+export const PRODUCT_PARAGRAPHS: readonly (readonly Segment[])[] = [
+  [
+    "È uno strumento informativo gratuito e open source, pubblicato come anteprima di studio. Non sostituisce una verifica certificata di terza parte.",
+  ],
+  [
+    "Gli esiti sono espressi su tre posizioni (probabile esclusione, esito incerto, probabile rientro) e non sono mai categorici: dipendono dalle risposte fornite e dalla versione del corpus normativo.",
+  ],
+  ["Il codice è distribuito con licenza MIT, così com'è (AS-IS), senza garanzie di alcun tipo."],
+  ["I limiti dichiarati dello strumento sono elencati nella pagina ", { label: "Cosa non gestisce il tool", href: LIMITS_HREF }, "."],
+  [
+    "Fanno fede i testi ufficiali: le pubblicazioni dell'Agenzia per la Cybersicurezza Nazionale (",
+    { label: "acn.gov.it", href: ACN_HREF },
+    ") e la normativa vigente su ",
+    { label: "Normattiva", href: NORMATTIVA_HREF },
+    ".",
+  ],
+];
+
+export interface CatalogNotice {
+  title: string;
+  description: string;
+}
+
+export interface ComposedDisclaimer {
+  title: string;
+  paragraphs: (readonly Segment[])[];
+}
+
+/** The notice of the tool: catalog entry first (title and description), then the product paragraphs. */
+export function composeDisclaimer(entry: CatalogNotice): ComposedDisclaimer {
+  return { title: entry.title, paragraphs: [[entry.description], ...PRODUCT_PARAGRAPHS] };
+}
+
+/** Plain text of a paragraph (links as their label). */
+export const segmentText = (p: readonly Segment[]): string => p.map((s) => (typeof s === "string" ? s : s.label)).join("");
+
+/**
+ * Markdown of the composed notice, for the README block between markers. Relative links
+ * (the limits page) are resolved against `siteUrl` when given.
+ */
+export function disclaimerMarkdown(d: ComposedDisclaimer, siteUrl?: string): string {
+  const href = (h: string) => (h.startsWith("/") && siteUrl ? `${siteUrl.replace(/\/$/, "")}${h}` : h);
+  const para = (p: readonly Segment[]) => p.map((s) => (typeof s === "string" ? s : `[${s.label}](${href(s.href)})`)).join("");
+  return [`**${d.title}**`, ...d.paragraphs.map(para)].join("\n\n");
+}
+
 /** Every string of this file, keyed by name, for the copy lint. */
-export const disclaimerStrings = (): Record<string, string> => ({ PRINT_NOTICE });
+export const disclaimerStrings = (): Record<string, string> => ({
+  PRINT_NOTICE,
+  ...Object.fromEntries(PRODUCT_PARAGRAPHS.map((p, i) => [`PRODUCT_PARAGRAPHS[${i}]`, segmentText(p)])),
+});

@@ -14,6 +14,7 @@ export const copy = {
   newEvaluation: "Nuova valutazione",
   footer: {
     method: "Fonti e metodo",
+    limits: "Cosa non gestisce il tool",
     source: "Codice sorgente",
   },
   clickWrap: {
@@ -88,10 +89,26 @@ export const copy = {
     companyLabel: "Nome azienda analizzata (facoltativo)",
     companyHelp: "Compare solo nella copertina del PDF. Non viene salvato e non lascia il browser.",
     limits: "Cosa non gestisce il tool",
-    comingSoon: "in arrivo",
     tech: (version: string, catalog: number, hash: string) =>
       `Corpus ${version}, catalogo eccezioni ${catalog} voci. Valutazione ${hash}. Nessun dato lascia il browser.`,
     none: "Nessuna selezione",
+  },
+  /** Limits page, generated from the exceptions catalog (S4.2). */
+  limits: {
+    metaTitle: "Cosa non gestisce il tool · Ambito NIS2",
+    title: "Cosa non gestisce il tool",
+    intro: (version: string, count: number) =>
+      `Limiti dichiarati dello strumento, generati dal catalogo eccezioni del corpus ${version}: ${count} voci. Ogni voce resta da valutare con un consulente qualificato.`,
+    sections: {
+      gestito: "Casi che lo strumento riconosce nelle risposte e tratta nel calcolo dell'esito.",
+      segnalato:
+        "Casi che lo strumento non valuta: quando le risposte li fanno emergere, l'esito li mostra come punti da valutare con un consulente qualificato.",
+      non_gestito: "Casi fuori dal perimetro dello strumento, dichiarati.",
+    },
+    count: (n: number) => (n === 1 ? "1 voce" : `${n} voci`),
+    appliesTo: "Riguarda",
+    sourcesTitle: "Fonti citate in questa pagina",
+    back: "Torna allo strumento",
   },
   /** Printed Verdict (ADR 0018): cover, repeated header, answers, limits of the path. */
   print: {

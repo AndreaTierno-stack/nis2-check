@@ -147,7 +147,11 @@ test di enumerazione).
   `evaluate`. Nessuna chiamata di rete a runtime: il font (Public Sans, `next/font/google`)
   si scarica al build e si serve dall'export; gli unici link esterni sono di navigazione (KB
   e codice su GitHub).
-- **Stato.** Click-wrap accettato in memoria (al ricaricamento si chiede di nuovo); risposte,
+- **Route.** `/` (lo strumento) e `/limiti/` (pagina dei limiti, §6bis, raggiungibile anche senza
+  click-wrap); `trailingSlash: true`, ogni pagina è una cartella con `index.html`.
+- **Stato.** Click-wrap accettato in memoria (al ricaricamento si chiede di nuovo; nessun
+  cookie, nessuno storage); il click-wrap mostra l'avviso composto (§6bis), il footer lo ripete
+  dopo l'accettazione; risposte,
   settore, domanda corrente e passo in `sessionStorage` (`lib/session.ts`), mai
   `localStorage`; le risposte di domande non più visibili si potano a ogni modifica.
 - **Pagine** (un'unica route, passo nello stepper): Settore (nome e descrizione dai file di
@@ -157,8 +161,8 @@ test di enumerazione).
   riga di verifica, tipologia, qualifica, regimi; avvisi dal catalogo; "Come è stato
   calcolato" ripiegato, quattro righe per gli stadi dell'ADR 0016; fonti numerate e
   raggruppate per `source_group` del registro, con etichetta e link alla riga della KB;
-  colonna laterale con le risposte, "Scarica PDF" con il nome azienda facoltativo, pagina dei
-  limiti (S4.2, disabilitata), riga tecnica). Nome mostrato: "Ambito NIS2".
+  colonna laterale con le risposte, "Scarica PDF" con il nome azienda facoltativo, link alla
+  pagina dei limiti, riga tecnica). Nome mostrato: "Ambito NIS2".
 - **PDF (S4.2, ADR 0018).** Stampa del browser della pagina dell'esito: "Scarica PDF" chiama
   `window.print()` (`lib/print.ts`). `@media print` in `app/globals.css`: nasconde barra,
   footer, colonna laterale e pulsanti; la colonna principale è dentro `.print-frame`, una
@@ -178,9 +182,10 @@ test di enumerazione).
   warn-soft #fff4e0, warn-text #7a4a0c. Raggi: pannelli 20px, righe 16px, il resto a pillola.
   Nessuna ombra, nessun gradiente; mai contenitori dentro contenitori.
 - **Copy.** Ogni testo normativo viene dal corpus (domande, help, frasi dell'esito, avvisi,
-  trace) o dal registro (etichette delle fonti); anche l'avviso del click-wrap e del footer è
-  una voce del catalogo (`anteprima_di_studio_non_consulenza`). Le stringhe di navigazione e
-  struttura vivono solo in `apps/web/src/copy.it.ts`, sottoposto al lint di copy
+  trace) o dal registro (etichette delle fonti); l'avviso del click-wrap e del footer parte
+  dalla voce del catalogo `anteprima_di_studio_non_consulenza`. Le stringhe di navigazione e
+  struttura vivono solo in `apps/web/src/copy.it.ts`, i testi di prodotto dell'avviso in
+  `apps/web/content/disclaimer.ts` (§6bis); entrambi sottoposti al lint di copy
   (`lintUiCopy`: parole vietate di ADR 0012 e CLAUDE.md, nessun trattino lungo). I riferimenti
   delle fonti si formattano dall'id della citazione con i nomi degli atti di `copy.it.ts`.
 - **Test.** Vitest in node (render con `react-dom/server`, nessuna libreria DOM): logica del
@@ -190,7 +195,8 @@ test di enumerazione).
   risposte, URL delle fonti e limiti del percorso. Playwright sull'export
   (`scripts/serve-out.mjs`): E01, E05, E11, E22, E25 cliccate dall'inizio; E05 ed E27 con
   `emulateMedia({ media: 'print' })` (disclaimer, versione del corpus, URL delle fonti, parti a
-  schermo nascoste); in CI dopo la build. `E2E_BROWSER=firefox` esegue gli stessi e2e su Firefox
+  schermo nascoste); click-wrap bloccante e richiesto al ricaricamento, pagina dei limiti con le
+  30 voci in tre sezioni, link dall'esito; in CI dopo la build. `E2E_BROWSER=firefox` esegue gli stessi e2e su Firefox
   in locale; `PDF_OUT=<dir>` scrive i PDF di esempio di E05 ed E27 (Chromium).
 
 ## 3. Invarianti dello schema
@@ -292,9 +298,25 @@ il `package.json` dei pacchetti (errore `ERR_PACKAGE_IMPORT_NOT_DEFINED` di vite
 
 ## 6bis. Documenti generati dal catalogo eccezioni
 
-`docs/known-limitations.md` e le sezioni "limitazioni" del disclaimer si **generano**
-da `exceptions/exceptions__catalog.yaml` (script in S4): non si scrivono mai a mano.
-Una limitazione nuova entra prima nel catalogo, poi nei documenti generati.
+I limiti dichiarati si **generano** da `exceptions/exceptions__catalog.yaml` al build: non si
+scrivono mai a mano. Una limitazione nuova entra prima nel catalogo, poi nelle pagine.
+
+- **Pagina "Cosa non gestisce il tool"** (`/limiti/`, `components/limits/limits-page.tsx`, S4.2):
+  tre sezioni (gestito, segnalato, non gestito) con titolo, descrizione, settori o regimi
+  interessati (etichetta del settore, o titolo della voce di catalogo del regime) e citazioni
+  dal registro, numerate in una sezione "Fonti". Invariante bidirezionale nei test (ogni voce
+  del catalogo è nella pagina, ogni voce della pagina è nel catalogo) e lint di copy dei testi.
+- **Blocco "Cosa non gestisce il tool" del PDF**: stessa sorgente (`lib/limits.ts`), voci del
+  percorso (§2ter).
+- **Avviso dello strumento** (`content/disclaimer.ts`, bozza operativa soggetta a review
+  legale): `composeDisclaimer` compone la voce `anteprima_di_studio_non_consulenza` del catalogo
+  con i paragrafi di prodotto (gratuito e open source, esiti su tre posizioni mai categorici,
+  nessuna verifica certificata di terza parte, licenza MIT AS-IS, pagina dei limiti, ACN e
+  Normattiva come fonti che fanno fede). Un solo renderer (`components/disclaimer.tsx`) per
+  click-wrap, footer di ogni pagina (pagina dell'esito compresa), PDF e pagina dei limiti, dove
+  la voce di catalogo è resa come avviso completo e chiude l'elenco; test di identità sulle
+  quattro superfici. Il README ne riporterà il testo tra marcatori (`disclaimerMarkdown`), con
+  un test di confronto (S4.2, Blocco 4).
 
 ## 7. Cosa manca per v0.1.0
 
@@ -304,11 +326,9 @@ Una limitazione nuova entra prima nel catalogo, poi nei documenti generati.
   (`docs/verifications/2026-10-28-registro-citazioni.md`), poi gli ID oggi degradati
   (art. 7 c. 1 lett. d), art. 11 c. 2 lett. g), FAQ GEN.6, A1.8.1, A1.9.1); migrazione dei
   casi residui di `out_of_scope_mvp` (PA) nel catalogo.
-- **Documenti generati (S4)**: script che genera `docs/known-limitations.md` e le
-  sezioni limitazioni del disclaimer dal catalogo.
-- **Web (S4.2)**: PDF con foglio di stile di stampa, pagina "Cosa non gestisce il tool" dal
-  catalogo, click-wrap finale, deploy Vercel, README per il lettore di dieci minuti. Wizard,
-  esito ed Explainability Mode: fatti in S4.1 (§2ter).
+- **Web (S4.2)**: deploy Vercel, README per il lettore di dieci minuti. Fatti: wizard, esito ed
+  Explainability Mode (S4.1, §2ter); PDF, pagina "Cosa non gestisce il tool" dal catalogo,
+  click-wrap con l'avviso composto (S4.2, §2ter e §6bis).
 - **PDF** (ADR 0018): stampa del browser dalla pagina dell'esito (`window.print()` e
   `@media print` in `apps/web`), nessuna libreria PDF; contenuto secondo CLAUDE.md
   ("Deliverable PDF": watermark, intestazione e disclaimer su ogni pagina).

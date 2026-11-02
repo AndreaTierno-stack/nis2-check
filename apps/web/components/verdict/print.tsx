@@ -7,7 +7,9 @@
  */
 import type { ReactNode } from "react";
 import { PRINT_NOTICE } from "@/content/disclaimer";
-import { limitsForPath } from "@/lib/limits";
+import { Disclaimer } from "@/components/disclaimer";
+import { DISCLAIMER_ENTRY } from "@/lib/links";
+import { limitsForPath, toolNotice } from "@/lib/limits";
 import { formatEvaluatedAt, watermark } from "@/lib/print";
 import type { Sources } from "@/lib/sources";
 import { answerRows } from "@/lib/verdict";
@@ -116,7 +118,10 @@ export function PrintTechnicalHeading() {
   return <p className="hidden pt-2 text-sm font-semibold text-text-soft print:block">{copy.print.technicalPart}</p>;
 }
 
-/** "Cosa non gestisce il tool": catalog entries pertinent to the evaluated path (lib/limits.ts). */
+/**
+ * "Cosa non gestisce il tool": catalog entries pertinent to the evaluated path (lib/limits.ts).
+ * The notice of the tool, a non_gestito entry, closes the list as the full composed notice.
+ */
 export function PrintLimits({ props, sources }: { props: VerdictProps; sources: Sources }) {
   const { flagged, notHandled } = limitsForPath(props.corpus, props.ctx.sectorId, props.verdict.notices);
   const groups = [
@@ -133,7 +138,12 @@ export function PrintLimits({ props, sources }: { props: VerdictProps; sources: 
         <div key={g.key} className="space-y-2 rounded-panel border border-border p-5">
           <h3 className="font-semibold">{copy.verdict.status[g.key]}</h3>
           <ul className="space-y-2">
-            {g.items.map((e) => (
+            {g.items.map((e) =>
+              e.id === DISCLAIMER_ENTRY ? (
+                <li key={e.id} className="print-avoid-break text-sm text-text-soft" data-limit={e.id}>
+                  <Disclaimer notice={toolNotice(props.corpus)} heading="h3" />
+                </li>
+              ) : (
               <li key={e.id} className="print-avoid-break text-sm" data-limit={e.id}>
                 <span className="font-semibold">{e.title}</span>
                 {e.raised && <span className="text-text-muted"> ({copy.print.raised})</span>}
@@ -141,7 +151,8 @@ export function PrintLimits({ props, sources }: { props: VerdictProps; sources: 
                   {e.description} <Cite ids={e.citations} sources={sources} />
                 </span>
               </li>
-            ))}
+              ),
+            )}
           </ul>
         </div>
       ))}

@@ -10,6 +10,8 @@
  */
 const nextConfig = {
   output: "export",
+  // every page is a folder with index.html (/limiti/): served as is by Vercel and by scripts/serve-out.mjs
+  trailingSlash: true,
   images: { unoptimized: true },
   transpilePackages: ["@nis2-check/engine", "@nis2-check/corpus"],
 };

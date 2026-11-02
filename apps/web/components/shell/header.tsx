@@ -6,7 +6,7 @@ import { copy } from "@/src/copy.it";
 const STEPS: Step[] = ["sector", "questions", "verdict"];
 const LABEL: Record<Step, string> = { sector: copy.steps.sector, questions: copy.steps.questions, verdict: copy.steps.verdict };
 
-export function Header({ step, onRestart }: { step: Step | null; onRestart?: () => void }) {
+export function Header({ step, onRestart, backHref }: { step: Step | null; onRestart?: () => void; backHref?: string }) {
   return (
     <header className="bg-surface">
       <div className="mx-auto flex max-w-6xl flex-wrap items-center gap-4 px-4 py-3">
@@ -40,6 +40,11 @@ export function Header({ step, onRestart }: { step: Step | null; onRestart?: () 
               );
             })}
           </ol>
+        )}
+        {backHref && (
+          <Button asChild variant="outline" size="bar" className="ml-auto">
+            <a href={backHref}>{copy.limits.back}</a>
+          </Button>
         )}
         {onRestart && (
           <Button variant="outline" size="bar" className="ml-auto" onClick={onRestart}>

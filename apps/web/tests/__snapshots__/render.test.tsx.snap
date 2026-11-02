@@ -376,8 +376,15 @@ exports[`verdict page of E05 > matches the DOM snapshot 1`] = `
 <span>Lo strumento valuta tre ambiti: il sottosettore energia elettrica (Allegato I, punto 1, lettera a), i fornitori di servizi di cloud computing (Allegato I, punto 8) e le pubbliche amministrazioni dell&#x27;Allegato III. Gli altri settori, sottosettori e tipologie degli Allegati I, II e IV non sono valutati. </span>
 </li>
 <li data-limit="anteprima_di_studio_non_consulenza">
-<span>Anteprima di studio: strumento informativo, non consulenza</span>
-<span>Questo strumento è un&#x27;anteprima di studio: offre un esito preliminare e probabilistico sulla possibile applicabilità della disciplina NIS2 italiana (D.Lgs. 138/2024), sulla base delle risposte fornite. Non è un parere legale né una consulenza e non sostituisce la registrazione sulla piattaforma ACN: la verifica con un consulente qualificato è necessaria prima di assumere conclusioni operative. Le risposte restano nel browser e nessun dato viene inviato a un server. Questo avviso è fornito così com&#x27;è e non è stato rivisto da un legale. </span>
+<div data-testid="disclaimer">
+<h3>Anteprima di studio: strumento informativo, non consulenza</h3>
+<p data-text="Questo strumento è un&#x27;anteprima di studio: offre un esito preliminare e probabilistico sulla possibile applicabilità della disciplina NIS2 italiana (D.Lgs. 138/2024), sulla base delle risposte fornite. Non è un parere legale né una consulenza e non sostituisce la registrazione sulla piattaforma ACN: la verifica con un consulente qualificato è necessaria prima di assumere conclusioni operative. Le risposte restano nel browser e nessun dato viene inviato a un server. Questo avviso è fornito così com&#x27;è e non è stato rivisto da un legale.">Questo strumento è un&#x27;anteprima di studio: offre un esito preliminare e probabilistico sulla possibile applicabilità della disciplina NIS2 italiana (D.Lgs. 138/2024), sulla base delle risposte fornite. Non è un parere legale né una consulenza e non sostituisce la registrazione sulla piattaforma ACN: la verifica con un consulente qualificato è necessaria prima di assumere conclusioni operative. Le risposte restano nel browser e nessun dato viene inviato a un server. Questo avviso è fornito così com&#x27;è e non è stato rivisto da un legale.</p>
+<p data-text="È uno strumento informativo gratuito e open source, pubblicato come anteprima di studio. Non sostituisce una verifica certificata di terza parte.">È uno strumento informativo gratuito e open source, pubblicato come anteprima di studio. Non sostituisce una verifica certificata di terza parte.</p>
+<p data-text="Gli esiti sono espressi su tre posizioni (probabile esclusione, esito incerto, probabile rientro) e non sono mai categorici: dipendono dalle risposte fornite e dalla versione del corpus normativo.">Gli esiti sono espressi su tre posizioni (probabile esclusione, esito incerto, probabile rientro) e non sono mai categorici: dipendono dalle risposte fornite e dalla versione del corpus normativo.</p>
+<p data-text="Il codice è distribuito con licenza MIT, così com&#x27;è (AS-IS), senza garanzie di alcun tipo.">Il codice è distribuito con licenza MIT, così com&#x27;è (AS-IS), senza garanzie di alcun tipo.</p>
+<p data-text="I limiti dichiarati dello strumento sono elencati nella pagina Cosa non gestisce il tool.">I limiti dichiarati dello strumento sono elencati nella pagina <a href="/limiti/">Cosa non gestisce il tool</a>.</p>
+<p data-text="Fanno fede i testi ufficiali: le pubblicazioni dell&#x27;Agenzia per la Cybersicurezza Nazionale (acn.gov.it) e la normativa vigente su Normattiva.">Fanno fede i testi ufficiali: le pubblicazioni dell&#x27;Agenzia per la Cybersicurezza Nazionale (<a href="https://www.acn.gov.it">acn.gov.it</a>) e la normativa vigente su <a href="https://www.normattiva.it">Normattiva</a>.</p>
+</div>
 </li>
 </ul>
 </div>
@@ -473,9 +480,7 @@ exports[`verdict page of E05 > matches the DOM snapshot 1`] = `
 <button disabled="" data-testid="download-pdf">Scarica PDF</button>
 <p>Si apre la finestra di stampa del browser: scegli &quot;Salva come PDF&quot;.</p>
 </div>
-<span title="in arrivo">
-<button disabled="">Cosa non gestisce il tool</button>
-</span>
+<a href="/limiti/" data-testid="limits-link">Cosa non gestisce il tool</a>
 <p data-testid="tech">Corpus 0.12.1, catalogo eccezioni 30 voci. Valutazione 6b077a1f. Nessun dato lascia il browser.</p>"
 `;
 
@@ -825,8 +830,15 @@ exports[`verdict page of E11 > matches the DOM snapshot 1`] = `
 <span>Lo strumento valuta tre ambiti: il sottosettore energia elettrica (Allegato I, punto 1, lettera a), i fornitori di servizi di cloud computing (Allegato I, punto 8) e le pubbliche amministrazioni dell&#x27;Allegato III. Gli altri settori, sottosettori e tipologie degli Allegati I, II e IV non sono valutati. </span>
 </li>
 <li data-limit="anteprima_di_studio_non_consulenza">
-<span>Anteprima di studio: strumento informativo, non consulenza</span>
-<span>Questo strumento è un&#x27;anteprima di studio: offre un esito preliminare e probabilistico sulla possibile applicabilità della disciplina NIS2 italiana (D.Lgs. 138/2024), sulla base delle risposte fornite. Non è un parere legale né una consulenza e non sostituisce la registrazione sulla piattaforma ACN: la verifica con un consulente qualificato è necessaria prima di assumere conclusioni operative. Le risposte restano nel browser e nessun dato viene inviato a un server. Questo avviso è fornito così com&#x27;è e non è stato rivisto da un legale. </span>
+<div data-testid="disclaimer">
+<h3>Anteprima di studio: strumento informativo, non consulenza</h3>
+<p data-text="Questo strumento è un&#x27;anteprima di studio: offre un esito preliminare e probabilistico sulla possibile applicabilità della disciplina NIS2 italiana (D.Lgs. 138/2024), sulla base delle risposte fornite. Non è un parere legale né una consulenza e non sostituisce la registrazione sulla piattaforma ACN: la verifica con un consulente qualificato è necessaria prima di assumere conclusioni operative. Le risposte restano nel browser e nessun dato viene inviato a un server. Questo avviso è fornito così com&#x27;è e non è stato rivisto da un legale.">Questo strumento è un&#x27;anteprima di studio: offre un esito preliminare e probabilistico sulla possibile applicabilità della disciplina NIS2 italiana (D.Lgs. 138/2024), sulla base delle risposte fornite. Non è un parere legale né una consulenza e non sostituisce la registrazione sulla piattaforma ACN: la verifica con un consulente qualificato è necessaria prima di assumere conclusioni operative. Le risposte restano nel browser e nessun dato viene inviato a un server. Questo avviso è fornito così com&#x27;è e non è stato rivisto da un legale.</p>
+<p data-text="È uno strumento informativo gratuito e open source, pubblicato come anteprima di studio. Non sostituisce una verifica certificata di terza parte.">È uno strumento informativo gratuito e open source, pubblicato come anteprima di studio. Non sostituisce una verifica certificata di terza parte.</p>
+<p data-text="Gli esiti sono espressi su tre posizioni (probabile esclusione, esito incerto, probabile rientro) e non sono mai categorici: dipendono dalle risposte fornite e dalla versione del corpus normativo.">Gli esiti sono espressi su tre posizioni (probabile esclusione, esito incerto, probabile rientro) e non sono mai categorici: dipendono dalle risposte fornite e dalla versione del corpus normativo.</p>
+<p data-text="Il codice è distribuito con licenza MIT, così com&#x27;è (AS-IS), senza garanzie di alcun tipo.">Il codice è distribuito con licenza MIT, così com&#x27;è (AS-IS), senza garanzie di alcun tipo.</p>
+<p data-text="I limiti dichiarati dello strumento sono elencati nella pagina Cosa non gestisce il tool.">I limiti dichiarati dello strumento sono elencati nella pagina <a href="/limiti/">Cosa non gestisce il tool</a>.</p>
+<p data-text="Fanno fede i testi ufficiali: le pubblicazioni dell&#x27;Agenzia per la Cybersicurezza Nazionale (acn.gov.it) e la normativa vigente su Normattiva.">Fanno fede i testi ufficiali: le pubblicazioni dell&#x27;Agenzia per la Cybersicurezza Nazionale (<a href="https://www.acn.gov.it">acn.gov.it</a>) e la normativa vigente su <a href="https://www.normattiva.it">Normattiva</a>.</p>
+</div>
 </li>
 </ul>
 </div>
@@ -915,9 +927,7 @@ exports[`verdict page of E11 > matches the DOM snapshot 1`] = `
 <button disabled="" data-testid="download-pdf">Scarica PDF</button>
 <p>Si apre la finestra di stampa del browser: scegli &quot;Salva come PDF&quot;.</p>
 </div>
-<span title="in arrivo">
-<button disabled="">Cosa non gestisce il tool</button>
-</span>
+<a href="/limiti/" data-testid="limits-link">Cosa non gestisce il tool</a>
 <p data-testid="tech">Corpus 0.12.1, catalogo eccezioni 30 voci. Valutazione 8bc08ffe. Nessun dato lascia il browser.</p>"
 `;
 
@@ -1188,8 +1198,15 @@ exports[`verdict page of E22 > matches the DOM snapshot 1`] = `
 <span>Lo strumento valuta tre ambiti: il sottosettore energia elettrica (Allegato I, punto 1, lettera a), i fornitori di servizi di cloud computing (Allegato I, punto 8) e le pubbliche amministrazioni dell&#x27;Allegato III. Gli altri settori, sottosettori e tipologie degli Allegati I, II e IV non sono valutati. </span>
 </li>
 <li data-limit="anteprima_di_studio_non_consulenza">
-<span>Anteprima di studio: strumento informativo, non consulenza</span>
-<span>Questo strumento è un&#x27;anteprima di studio: offre un esito preliminare e probabilistico sulla possibile applicabilità della disciplina NIS2 italiana (D.Lgs. 138/2024), sulla base delle risposte fornite. Non è un parere legale né una consulenza e non sostituisce la registrazione sulla piattaforma ACN: la verifica con un consulente qualificato è necessaria prima di assumere conclusioni operative. Le risposte restano nel browser e nessun dato viene inviato a un server. Questo avviso è fornito così com&#x27;è e non è stato rivisto da un legale. </span>
+<div data-testid="disclaimer">
+<h3>Anteprima di studio: strumento informativo, non consulenza</h3>
+<p data-text="Questo strumento è un&#x27;anteprima di studio: offre un esito preliminare e probabilistico sulla possibile applicabilità della disciplina NIS2 italiana (D.Lgs. 138/2024), sulla base delle risposte fornite. Non è un parere legale né una consulenza e non sostituisce la registrazione sulla piattaforma ACN: la verifica con un consulente qualificato è necessaria prima di assumere conclusioni operative. Le risposte restano nel browser e nessun dato viene inviato a un server. Questo avviso è fornito così com&#x27;è e non è stato rivisto da un legale.">Questo strumento è un&#x27;anteprima di studio: offre un esito preliminare e probabilistico sulla possibile applicabilità della disciplina NIS2 italiana (D.Lgs. 138/2024), sulla base delle risposte fornite. Non è un parere legale né una consulenza e non sostituisce la registrazione sulla piattaforma ACN: la verifica con un consulente qualificato è necessaria prima di assumere conclusioni operative. Le risposte restano nel browser e nessun dato viene inviato a un server. Questo avviso è fornito così com&#x27;è e non è stato rivisto da un legale.</p>
+<p data-text="È uno strumento informativo gratuito e open source, pubblicato come anteprima di studio. Non sostituisce una verifica certificata di terza parte.">È uno strumento informativo gratuito e open source, pubblicato come anteprima di studio. Non sostituisce una verifica certificata di terza parte.</p>
+<p data-text="Gli esiti sono espressi su tre posizioni (probabile esclusione, esito incerto, probabile rientro) e non sono mai categorici: dipendono dalle risposte fornite e dalla versione del corpus normativo.">Gli esiti sono espressi su tre posizioni (probabile esclusione, esito incerto, probabile rientro) e non sono mai categorici: dipendono dalle risposte fornite e dalla versione del corpus normativo.</p>
+<p data-text="Il codice è distribuito con licenza MIT, così com&#x27;è (AS-IS), senza garanzie di alcun tipo.">Il codice è distribuito con licenza MIT, così com&#x27;è (AS-IS), senza garanzie di alcun tipo.</p>
+<p data-text="I limiti dichiarati dello strumento sono elencati nella pagina Cosa non gestisce il tool.">I limiti dichiarati dello strumento sono elencati nella pagina <a href="/limiti/">Cosa non gestisce il tool</a>.</p>
+<p data-text="Fanno fede i testi ufficiali: le pubblicazioni dell&#x27;Agenzia per la Cybersicurezza Nazionale (acn.gov.it) e la normativa vigente su Normattiva.">Fanno fede i testi ufficiali: le pubblicazioni dell&#x27;Agenzia per la Cybersicurezza Nazionale (<a href="https://www.acn.gov.it">acn.gov.it</a>) e la normativa vigente su <a href="https://www.normattiva.it">Normattiva</a>.</p>
+</div>
 </li>
 </ul>
 </div>
@@ -1277,9 +1294,7 @@ exports[`verdict page of E22 > matches the DOM snapshot 1`] = `
 <button disabled="" data-testid="download-pdf">Scarica PDF</button>
 <p>Si apre la finestra di stampa del browser: scegli &quot;Salva come PDF&quot;.</p>
 </div>
-<span title="in arrivo">
-<button disabled="">Cosa non gestisce il tool</button>
-</span>
+<a href="/limiti/" data-testid="limits-link">Cosa non gestisce il tool</a>
 <p data-testid="tech">Corpus 0.12.1, catalogo eccezioni 30 voci. Valutazione ed5e0377. Nessun dato lascia il browser.</p>"
 `;
 
@@ -1541,8 +1556,15 @@ exports[`verdict page of E25 > matches the DOM snapshot 1`] = `
 <span>Lo strumento valuta tre ambiti: il sottosettore energia elettrica (Allegato I, punto 1, lettera a), i fornitori di servizi di cloud computing (Allegato I, punto 8) e le pubbliche amministrazioni dell&#x27;Allegato III. Gli altri settori, sottosettori e tipologie degli Allegati I, II e IV non sono valutati. </span>
 </li>
 <li data-limit="anteprima_di_studio_non_consulenza">
-<span>Anteprima di studio: strumento informativo, non consulenza</span>
-<span>Questo strumento è un&#x27;anteprima di studio: offre un esito preliminare e probabilistico sulla possibile applicabilità della disciplina NIS2 italiana (D.Lgs. 138/2024), sulla base delle risposte fornite. Non è un parere legale né una consulenza e non sostituisce la registrazione sulla piattaforma ACN: la verifica con un consulente qualificato è necessaria prima di assumere conclusioni operative. Le risposte restano nel browser e nessun dato viene inviato a un server. Questo avviso è fornito così com&#x27;è e non è stato rivisto da un legale. </span>
+<div data-testid="disclaimer">
+<h3>Anteprima di studio: strumento informativo, non consulenza</h3>
+<p data-text="Questo strumento è un&#x27;anteprima di studio: offre un esito preliminare e probabilistico sulla possibile applicabilità della disciplina NIS2 italiana (D.Lgs. 138/2024), sulla base delle risposte fornite. Non è un parere legale né una consulenza e non sostituisce la registrazione sulla piattaforma ACN: la verifica con un consulente qualificato è necessaria prima di assumere conclusioni operative. Le risposte restano nel browser e nessun dato viene inviato a un server. Questo avviso è fornito così com&#x27;è e non è stato rivisto da un legale.">Questo strumento è un&#x27;anteprima di studio: offre un esito preliminare e probabilistico sulla possibile applicabilità della disciplina NIS2 italiana (D.Lgs. 138/2024), sulla base delle risposte fornite. Non è un parere legale né una consulenza e non sostituisce la registrazione sulla piattaforma ACN: la verifica con un consulente qualificato è necessaria prima di assumere conclusioni operative. Le risposte restano nel browser e nessun dato viene inviato a un server. Questo avviso è fornito così com&#x27;è e non è stato rivisto da un legale.</p>
+<p data-text="È uno strumento informativo gratuito e open source, pubblicato come anteprima di studio. Non sostituisce una verifica certificata di terza parte.">È uno strumento informativo gratuito e open source, pubblicato come anteprima di studio. Non sostituisce una verifica certificata di terza parte.</p>
+<p data-text="Gli esiti sono espressi su tre posizioni (probabile esclusione, esito incerto, probabile rientro) e non sono mai categorici: dipendono dalle risposte fornite e dalla versione del corpus normativo.">Gli esiti sono espressi su tre posizioni (probabile esclusione, esito incerto, probabile rientro) e non sono mai categorici: dipendono dalle risposte fornite e dalla versione del corpus normativo.</p>
+<p data-text="Il codice è distribuito con licenza MIT, così com&#x27;è (AS-IS), senza garanzie di alcun tipo.">Il codice è distribuito con licenza MIT, così com&#x27;è (AS-IS), senza garanzie di alcun tipo.</p>
+<p data-text="I limiti dichiarati dello strumento sono elencati nella pagina Cosa non gestisce il tool.">I limiti dichiarati dello strumento sono elencati nella pagina <a href="/limiti/">Cosa non gestisce il tool</a>.</p>
+<p data-text="Fanno fede i testi ufficiali: le pubblicazioni dell&#x27;Agenzia per la Cybersicurezza Nazionale (acn.gov.it) e la normativa vigente su Normattiva.">Fanno fede i testi ufficiali: le pubblicazioni dell&#x27;Agenzia per la Cybersicurezza Nazionale (<a href="https://www.acn.gov.it">acn.gov.it</a>) e la normativa vigente su <a href="https://www.normattiva.it">Normattiva</a>.</p>
+</div>
 </li>
 </ul>
 </div>
@@ -1650,9 +1672,7 @@ exports[`verdict page of E25 > matches the DOM snapshot 1`] = `
 <button disabled="" data-testid="download-pdf">Scarica PDF</button>
 <p>Si apre la finestra di stampa del browser: scegli &quot;Salva come PDF&quot;.</p>
 </div>
-<span title="in arrivo">
-<button disabled="">Cosa non gestisce il tool</button>
-</span>
+<a href="/limiti/" data-testid="limits-link">Cosa non gestisce il tool</a>
 <p data-testid="tech">Corpus 0.12.1, catalogo eccezioni 30 voci. Valutazione 4b72d542. Nessun dato lascia il browser.</p>"
 `;
 
@@ -2025,8 +2045,15 @@ exports[`verdict page of E26 > matches the DOM snapshot 1`] = `
 <span>Lo strumento valuta tre ambiti: il sottosettore energia elettrica (Allegato I, punto 1, lettera a), i fornitori di servizi di cloud computing (Allegato I, punto 8) e le pubbliche amministrazioni dell&#x27;Allegato III. Gli altri settori, sottosettori e tipologie degli Allegati I, II e IV non sono valutati. </span>
 </li>
 <li data-limit="anteprima_di_studio_non_consulenza">
-<span>Anteprima di studio: strumento informativo, non consulenza</span>
-<span>Questo strumento è un&#x27;anteprima di studio: offre un esito preliminare e probabilistico sulla possibile applicabilità della disciplina NIS2 italiana (D.Lgs. 138/2024), sulla base delle risposte fornite. Non è un parere legale né una consulenza e non sostituisce la registrazione sulla piattaforma ACN: la verifica con un consulente qualificato è necessaria prima di assumere conclusioni operative. Le risposte restano nel browser e nessun dato viene inviato a un server. Questo avviso è fornito così com&#x27;è e non è stato rivisto da un legale. </span>
+<div data-testid="disclaimer">
+<h3>Anteprima di studio: strumento informativo, non consulenza</h3>
+<p data-text="Questo strumento è un&#x27;anteprima di studio: offre un esito preliminare e probabilistico sulla possibile applicabilità della disciplina NIS2 italiana (D.Lgs. 138/2024), sulla base delle risposte fornite. Non è un parere legale né una consulenza e non sostituisce la registrazione sulla piattaforma ACN: la verifica con un consulente qualificato è necessaria prima di assumere conclusioni operative. Le risposte restano nel browser e nessun dato viene inviato a un server. Questo avviso è fornito così com&#x27;è e non è stato rivisto da un legale.">Questo strumento è un&#x27;anteprima di studio: offre un esito preliminare e probabilistico sulla possibile applicabilità della disciplina NIS2 italiana (D.Lgs. 138/2024), sulla base delle risposte fornite. Non è un parere legale né una consulenza e non sostituisce la registrazione sulla piattaforma ACN: la verifica con un consulente qualificato è necessaria prima di assumere conclusioni operative. Le risposte restano nel browser e nessun dato viene inviato a un server. Questo avviso è fornito così com&#x27;è e non è stato rivisto da un legale.</p>
+<p data-text="È uno strumento informativo gratuito e open source, pubblicato come anteprima di studio. Non sostituisce una verifica certificata di terza parte.">È uno strumento informativo gratuito e open source, pubblicato come anteprima di studio. Non sostituisce una verifica certificata di terza parte.</p>
+<p data-text="Gli esiti sono espressi su tre posizioni (probabile esclusione, esito incerto, probabile rientro) e non sono mai categorici: dipendono dalle risposte fornite e dalla versione del corpus normativo.">Gli esiti sono espressi su tre posizioni (probabile esclusione, esito incerto, probabile rientro) e non sono mai categorici: dipendono dalle risposte fornite e dalla versione del corpus normativo.</p>
+<p data-text="Il codice è distribuito con licenza MIT, così com&#x27;è (AS-IS), senza garanzie di alcun tipo.">Il codice è distribuito con licenza MIT, così com&#x27;è (AS-IS), senza garanzie di alcun tipo.</p>
+<p data-text="I limiti dichiarati dello strumento sono elencati nella pagina Cosa non gestisce il tool.">I limiti dichiarati dello strumento sono elencati nella pagina <a href="/limiti/">Cosa non gestisce il tool</a>.</p>
+<p data-text="Fanno fede i testi ufficiali: le pubblicazioni dell&#x27;Agenzia per la Cybersicurezza Nazionale (acn.gov.it) e la normativa vigente su Normattiva.">Fanno fede i testi ufficiali: le pubblicazioni dell&#x27;Agenzia per la Cybersicurezza Nazionale (<a href="https://www.acn.gov.it">acn.gov.it</a>) e la normativa vigente su <a href="https://www.normattiva.it">Normattiva</a>.</p>
+</div>
 </li>
 </ul>
 </div>
@@ -2150,8 +2177,6 @@ exports[`verdict page of E26 > matches the DOM snapshot 1`] = `
 <button disabled="" data-testid="download-pdf">Scarica PDF</button>
 <p>Si apre la finestra di stampa del browser: scegli &quot;Salva come PDF&quot;.</p>
 </div>
-<span title="in arrivo">
-<button disabled="">Cosa non gestisce il tool</button>
-</span>
+<a href="/limiti/" data-testid="limits-link">Cosa non gestisce il tool</a>
 <p data-testid="tech">Corpus 0.12.1, catalogo eccezioni 30 voci. Valutazione 2f542c8d. Nessun dato lascia il browser.</p>"
 `;

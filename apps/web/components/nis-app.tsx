@@ -12,8 +12,8 @@ import { InvalidAnswers } from "@/components/wizard/invalid-answers";
 import { QuestionPage } from "@/components/wizard/question-page";
 import { SectorPage } from "@/components/wizard/sector-page";
 import type { WebCorpus } from "@/lib/corpus.server";
-import { DISCLAIMER_ENTRY } from "@/lib/links";
 import { copy } from "@/src/copy.it";
+import { toolNotice } from "@/lib/limits";
 import { printVerdict } from "@/lib/print";
 import { EMPTY, clearSession, readSession, writeSession, type Session } from "@/lib/session";
 import { pruneAnswers, sectorContext, visibleQuestions } from "@/lib/wizard";
@@ -36,10 +36,7 @@ export function NisApp({ corpus }: { corpus: WebCorpus }) {
   const [session, setSession] = useState<Session>(EMPTY);
   // optional company name for the PDF cover: in memory only, never written to sessionStorage
   const [companyName, setCompanyName] = useState("");
-  const disclaimer = Object.values(corpus.exceptions)
-    .flatMap((f) => f.exceptions)
-    .find((e) => e.id === DISCLAIMER_ENTRY);
-  if (!disclaimer) throw new Error(`catalog entry ${DISCLAIMER_ENTRY} missing`);
+  const notice = useMemo(() => toolNotice(corpus), [corpus]);
 
   useEffect(() => setSession(readSession()), []);
   const update = (next: Session) => {
@@ -64,7 +61,7 @@ export function NisApp({ corpus }: { corpus: WebCorpus }) {
   let side: React.ReactNode = undefined;
 
   if (!accepted) {
-    main = <ClickWrap title={disclaimer.title} text={disclaimer.description} onAccept={() => setAccepted(true)} />;
+    main = <ClickWrap notice={notice} onAccept={() => setAccepted(true)} />;
   } else if (session.step === "sector" || !ctx || !session.sectorId) {
     main = <SectorPage corpus={corpus} onChoose={(sectorId) => update({ step: "questions", sectorId, answers: {} })} />;
   } else if (session.step === "questions") {
@@ -110,7 +107,8 @@ export function NisApp({ corpus }: { corpus: WebCorpus }) {
         <Columns main={main} side={side} />
       </main>
       <div className="print:hidden">
-        <Footer disclaimer={disclaimer.description} />
+        {/* the click-wrap already shows the full notice: the footer keeps only the links there */}
+        <Footer {...(accepted ? { notice } : {})} />
       </div>
     </div>
   );

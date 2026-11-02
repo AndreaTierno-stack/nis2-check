@@ -1,6 +1,7 @@
 import { useId } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { LIMITS_HREF } from "@/content/disclaimer";
 import { answerRows, catalogSize } from "@/lib/verdict";
 import { copy } from "@/src/copy.it";
 import type { VerdictProps } from "./types";
@@ -12,7 +13,7 @@ export interface PdfAction {
   onPrint: () => void;
 }
 
-/** Side column: the answers given, PDF download with the optional company name, limits (S4.2), technical line. Not printed. */
+/** Side column: the answers given, PDF download with the optional company name, limits page, technical line. Not printed. */
 export function VerdictSide({ verdict, ctx, answers, corpus, onEdit, pdf }: VerdictProps & { pdf?: PdfAction }) {
   const rows = answerRows(ctx, answers);
   const companyId = useId();
@@ -63,11 +64,11 @@ export function VerdictSide({ verdict, ctx, answers, corpus, onEdit, pdf }: Verd
         </Button>
         <p className="text-xs text-text-muted">{copy.sidebar.pdfHint}</p>
       </Card>
-      <span title={copy.sidebar.comingSoon} className="block">
-        <Button variant="outline" className="w-full" disabled>
+      <Button asChild variant="outline" className="w-full">
+        <a href={LIMITS_HREF} data-testid="limits-link">
           {copy.sidebar.limits}
-        </Button>
-      </span>
+        </a>
+      </Button>
       <p className="text-xs text-text-muted" data-testid="tech">
         {copy.sidebar.tech(verdict.corpusVersion, catalogSize(corpus), verdict.inputHash.slice(0, 8))}
       </p>
