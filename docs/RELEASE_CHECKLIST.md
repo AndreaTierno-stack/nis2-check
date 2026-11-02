@@ -36,7 +36,9 @@ in fondo alla sezione.
 - Variabile di build `NIS2_RELEASE_STAGE` (`apps/web/lib/release.ts`), default **`preview`**:
   `<meta name="robots" content="noindex, nofollow">` su ogni pagina e `robots.txt` con
   `Disallow: /`. Verificato da `apps/web/e2e/network.spec.ts`.
-- Valore attuale: **`preview`** (nessuna variabile d'ambiente su Vercel).
+- Valore attuale: **`public`** in produzione dal 2026-11-02 (atto di rilascio v0.1.0, variabile
+  `NIS2_RELEASE_STAGE=public` sul progetto Vercel, solo ambiente Production); le anteprime restano
+  `preview`.
 - Al tag v0.1.0, solo su decisione nel Project: build con `NIS2_RELEASE_STAGE=public` (variabile
   sul progetto Vercel, ambiente Production, o cambio del default nel codice con commit dedicato),
   poi controllo di `robots.txt` e del meta `robots` sull'URL di produzione.
