@@ -44,7 +44,7 @@ Indirizzo pubblico: **[URL DA DEFINIRE ALL'ATTO DI RILASCIO]**. Fino al rilascio
 4. Si legge l'esito, con i punti da valutare con un consulente, il percorso di calcolo e le fonti.
 5. Facoltativo: "Scarica PDF" apre la finestra di stampa del browser ("Salva come PDF"). Il nome dell'azienda, se indicato, compare solo nella copertina del PDF e non viene salvato.
 
-In locale (Node 24 o successivo, pnpm via corepack):
+In locale (Node 24, pnpm via corepack):
 
 ```sh
 corepack enable

@@ -10,7 +10,7 @@ dichiarativo**; il codice lo esegue senza interpretarlo.
 
 ## 1. Struttura
 
-Monorepo pnpm (workspaces `apps/*`, `packages/*`), Node ≥ 24, TypeScript strict.
+Monorepo pnpm (workspaces `apps/*`, `packages/*`), Node 24, TypeScript strict.
 
 ```
 nis2-check/
@@ -312,9 +312,9 @@ deploy non sostituisce la CI GitHub Actions e la CI non ha step di deploy.
   `apps/web/out`. Web Analytics non abilitato (API: `web_analytics_not_enabled`); Speed Insights:
   nessuno script nella pagina. La protezione si toglie solo con l'atto di rilascio
   (`docs/RELEASE_CHECKLIST.md`).
-- **Versione di Node su Vercel**: il progetto è impostato a 24.x come la CI, ma `engines: ">=24"`
-  del `package.json` di root prevale a ogni deploy (avviso del build) e riporta il progetto
-  all'ultima major. Backlog: fissare `engines` a `24.x` (decisione dell'autore).
+- **Versione di Node**: `engines: "24.x"` nel `package.json` di root (2026-11-02), come la CI e
+  l'impostazione del progetto Vercel; con `>=24` Vercel riportava il progetto all'ultima major a
+  ogni deploy.
 - **e2e sul deploy**: `E2E_BASE_URL=<origine> pnpm --filter @nis2-check/web exec playwright test`
   (stesse specifiche, senza server locale). Con la protezione attiva richiede l'accesso: si usa
   dopo l'atto di rilascio, contro l'URL definitivo (eseguito il 2026-11-02 contro l'alias di
