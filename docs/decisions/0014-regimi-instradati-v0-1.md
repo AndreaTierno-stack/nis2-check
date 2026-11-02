@@ -104,3 +104,7 @@ trovato che due dei tre instradamenti si reggevano su un'inferenza:
   `det_piattaforma_127437_2026_art_7_c_6`, `_art_16_c_13`, `_art_20_c_6`
 - KB: `[[concepts/Coordinamento DORA-NIS]]`, `[[sources/FAQ NIS - Categorizzazione]]`,
   `[[sources/FAQ NIS - Settori, sottosettori e tipologie di soggetto]]`
+
+## Nota 2026-11-02 (corpus 0.13.0, review avversaria F01)
+
+Gli override PSNC e Cloud PA restano escalation (`ambiguous`), ma i testi dicono che il regime non restringe l'ambito: riguarda la categorizzazione delle attività (artt. 4-5 Det. ACN 155238/2026); per la PA dell'Allegato III il rientro è indipendente dalla dimensione (art. 3 c. 6); lo strumento non formula un esito sul rapporto tra obblighi NIS e PSNC (art. 33 D.Lgs. 138/2024). Riesame per v0.2: PSNC e Cloud PA come avvisi (F01, strada b).

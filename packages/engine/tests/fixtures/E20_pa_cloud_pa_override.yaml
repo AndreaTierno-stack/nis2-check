@@ -28,4 +28,4 @@ expected:
       exceptions_catalog_entry: cloud_pa_model_substitution
   corpus_ref: "wizard/wizard__pubblica_amministrazione.yaml#classificazione_cloud_pa -> sectors/sectors__pubblica_amministrazione.yaml#overrides[classificazione_cloud_pa==yes] -> regimes/cloud_pa.yaml + exceptions/exceptions__catalog.yaml#exceptions[cloud_pa_model_substitution]"
 
-citations: [dd_acn_21007_24_art_3, det_acn_155238_2026_art_4]
+citations: [dd_acn_21007_24_art_3, det_acn_155238_2026_art_4, dlgs_138_2024_art_3_c_6]

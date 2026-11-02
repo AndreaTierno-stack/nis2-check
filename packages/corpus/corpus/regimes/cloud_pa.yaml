@@ -34,4 +34,4 @@ meta:
   referenced_by:
     - "sectors/sectors__pubblica_amministrazione.yaml#overrides"
     - "wizard/wizard__pubblica_amministrazione.yaml#classificazione_cloud_pa"
-  citations: [dd_acn_21007_24_art_3, det_acn_155238_2026_art_4]
+  citations: [dd_acn_21007_24_art_3, det_acn_155238_2026_art_4, dlgs_138_2024_art_3_c_6]

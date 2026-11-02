@@ -22,8 +22,8 @@ exceptions:
   - id: psnc_category_override
     status: gestito
     title: "Perimetro di Sicurezza Nazionale Cibernetica (PSNC)"
-    description: "Per un soggetto inserito nel PSNC i servizi PSNC sono categorizzati d'ufficio e il procedimento ordinario non si applica a quei servizi. Lo strumento riconosce l'inserimento nel PSNC e indirizza la valutazione a un consulente qualificato, senza valutare il regime nel merito."
-    citations: [det_acn_155238_2026_art_5, dl_105_2019_art_1_c_2_bis]
+    description: "Per un soggetto inserito nel PSNC ai servizi PSNC è attribuita d'ufficio la categoria di rilevanza 'impatto alto' e il procedimento ordinario di categorizzazione non si applica a quei servizi (art. 5 Det. ACN 155238/2026). L'inserimento nel PSNC non restringe l'ambito NIS. Lo strumento riconosce l'inserimento e indirizza la valutazione a un consulente qualificato, senza valutare il regime nel merito e senza formulare un esito sul rapporto tra gli obblighi NIS e quelli del PSNC (art. 33 D.Lgs. 138/2024)."
+    citations: [det_acn_155238_2026_art_5, dl_105_2019_art_1_c_2_bis, dlgs_138_2024_art_33]
     applies_to: [psnc]
 
   # ADR 0014: nessun settore del corpus instrada al regime DORA (art. 3 c. 14 riservato
@@ -38,7 +38,7 @@ exceptions:
   - id: cloud_pa_model_substitution
     status: gestito
     title: "Dati e servizi classificati dalla PA (Regolamento Cloud)"
-    description: "Per i soggetti che hanno svolto la classificazione dei propri dati e servizi ai sensi dell'art. 3 del Regolamento Cloud per la PA si applica il modello Cloud PA (ordinari, critici, strategici) in luogo del modello di categorizzazione NIS (art. 4 Det. ACN 155238/2026). Lo strumento riconosce il caso nel percorso della pubblica amministrazione e indirizza la valutazione a un consulente qualificato, senza valutare il regime nel merito."
+    description: "Per i soggetti che hanno svolto la classificazione dei propri dati e servizi ai sensi dell'art. 3 del Regolamento Cloud per la PA si applica il modello Cloud PA (ordinari, critici, strategici) in luogo del modello di categorizzazione NIS (art. 4 Det. ACN 155238/2026): riguarda la categorizzazione delle attività e dei servizi e non restringe l'ambito. Lo strumento riconosce il caso nel percorso della pubblica amministrazione e indirizza la valutazione a un consulente qualificato, senza valutare il regime nel merito."
     citations: [dd_acn_21007_24_art_3, det_acn_155238_2026_art_4]
     applies_to: [cloud_pa, pubblica_amministrazione]
 

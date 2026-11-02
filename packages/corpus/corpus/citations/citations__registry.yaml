@@ -234,6 +234,12 @@ citations:
     attestation: "Riscontro parola per parola su Normattiva del 2026-10-27 (provenance_note, riga 8); la riga 42 rinvia all'art. 40 c. 5; dal 2026-10-28 (DEC-008) la riga 63 ne riporta il testo: con determinazione ACN, ai sensi degli artt. 3 e 6, è stabilito l'elenco dei soggetti essenziali e dei soggetti importanti di cui all'art. 7 c. 2."
     label: "L'elenco dei soggetti essenziali e importanti è stabilito con determinazione dell'ACN."
     source_group: decreto_nis
+  - id: dlgs_138_2024_art_33
+    kb_node: wiki/sources/D.Lgs. 138-2024 (Decreto NIS).md
+    kb_lines: "54"
+    attestation: "Art. 33, Coordinamento con il perimetro di sicurezza nazionale cibernetica (attestazione a livello di articolo): obblighi del D.L. 105/2019 considerati almeno equivalenti; ai beni ICT inseriti negli elenchi del perimetro non si applica il decreto."
+    label: "Coordinamento tra il decreto NIS e il perimetro di sicurezza nazionale cibernetica."
+    source_group: decreto_nis
   - id: dlgs_138_2024_art_4_c_2
     kb_node: wiki/sources/D.Lgs. 138-2024 (Decreto NIS).md
     kb_lines: "41"

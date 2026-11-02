@@ -31,4 +31,4 @@ expected:
       exceptions_catalog_entry: psnc_category_override
   corpus_ref: "sectors/sectors__energia_elettrica.yaml#overrides[psnc==yes] -> regimes/psnc.yaml"
 
-citations: [det_acn_155238_2026_art_5, dl_105_2019_art_1_c_2_bis]
+citations: [det_acn_155238_2026_art_5, dl_105_2019_art_1_c_2_bis, dlgs_138_2024_art_33]
