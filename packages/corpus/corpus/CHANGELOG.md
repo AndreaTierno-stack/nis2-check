@@ -13,6 +13,11 @@ Ogni bump ha una voce in questo file; le fixture dichiarano `corpus_version` e s
 
 ## [Unreleased]
 
+## [0.13.0] — 2026-11-02 — Correzioni dalla review avversaria (S4.2, Blocco 5)
+
+Minor: cambiano questionario, regole, conflitti e schema. Decisioni dell'autore del 2026-11-02 sul triage di `docs/verifications/2026-11-02-review-avversaria.md`. Un commit per voce.
+- Fixture E01-E27: `corpus_version` 0.12.2 → 0.13.0.
+
 ## [0.12.2] — 2026-11-02 — Avviso di anteprima: esito orientativo, "non rivisto" in un solo punto (S4.2)
 
 Patch (catalogo, solo testi). Decisione dell'autore del 2026-11-02. Esiti attesi invariati.
