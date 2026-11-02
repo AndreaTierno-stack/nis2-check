@@ -39,18 +39,30 @@ const PHASES = ['disambiguation', 'sector_specific', 'standard_identification'] 
 
 const isBinary = (kind: WizardQuestion['kind']) => kind === 'binary' || kind === 'binary_with_conditional_followup';
 
-function toWizardQuestions(list: readonly Question[] | undefined, file: string, key: string, skip: ReadonlySet<string>): WizardQuestion[] {
+/**
+ * Questions of one list of a wizard file. `visibility` (common blocks only) is the sector-scoped
+ * visible_if of `common_question_visibility` (ADR 0010 amendment, corpus 0.13.0): it applies to
+ * the common question in this sector and replaces nothing elsewhere.
+ */
+function toWizardQuestions(
+  list: readonly Question[] | undefined,
+  file: string,
+  key: string,
+  skip: ReadonlySet<string>,
+  visibility: Readonly<Record<string, NonNullable<Question['visible_if']>>> = {},
+): WizardQuestion[] {
   const out: WizardQuestion[] = [];
   (list ?? []).forEach((q, i) => {
     if (skip.has(q.id)) return;
     const locator = `${file}#${key}[${i}]`;
+    const visibleIf = visibility[q.id] ?? q.visible_if;
     out.push({
       id: q.id,
       kind: q.kind,
       optional: q.optional === true,
       optionIds: (q.options ?? []).map((o) => o.id),
       node: q,
-      ...(q.visible_if !== undefined ? { visibleIf: q.visible_if } : {}),
+      ...(visibleIf !== undefined ? { visibleIf } : {}),
       locator,
     });
     const f = q.conditional_followup;
@@ -85,18 +97,19 @@ export function resolveSector(sectorId: string, corpus: Corpus): SectorContext {
   const [wizardPath, wizard] = wizardEntry;
   const common = Object.entries(corpus.wizard).filter(([, w]) => w.meta.block_id !== undefined);
   const excluded = new Set(wizard.excluded_common_questions ?? []);
+  const visibility = wizard.common_question_visibility ?? {};
   const none = new Set<string>();
 
   const questions: WizardQuestion[] = [];
   for (const phase of wizard.flow_order ?? PHASES) {
     if (phase === 'disambiguation') {
-      for (const [p, w] of common) questions.push(...toWizardQuestions(w.questions, p, 'questions', excluded));
+      for (const [p, w] of common) questions.push(...toWizardQuestions(w.questions, p, 'questions', excluded, visibility));
     } else if (phase === 'sector_specific') {
       questions.push(...toWizardQuestions(wizard.questions, wizardPath, 'questions', none));
       questions.push(...toWizardQuestions(wizard.sector_specific_questions, wizardPath, 'sector_specific_questions', none));
     } else {
       for (const [p, w] of common) {
-        questions.push(...toWizardQuestions(w.standard_identification_questions, p, 'standard_identification_questions', excluded));
+        questions.push(...toWizardQuestions(w.standard_identification_questions, p, 'standard_identification_questions', excluded, visibility));
       }
       questions.push(...toWizardQuestions(wizard.standard_identification_questions, wizardPath, 'standard_identification_questions', none));
     }

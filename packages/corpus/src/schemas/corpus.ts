@@ -139,6 +139,31 @@ export const CorpusSchema = CorpusInput.superRefine((c, ctx) => {
     (w.excluded_common_questions ?? []).forEach((id, i) => {
       if (!commonQuestionIds.has(id)) issue([...base, 'excluded_common_questions', i], E.REF_QUESTION, `"${id}" is not a question of the common block`);
     });
+    // ADR 0010 amendment (corpus 0.13.0): sector-scoped visibility of common questions. The target
+    // is a common question the wizard asks; every input is a question of this wizard asked in an
+    // earlier phase of its flow_order (visibility reads only answers already given, ADR 0016 §3).
+    Object.entries(w.common_question_visibility ?? {}).forEach(([target, cond]) => {
+      const cp: Path = [...base, 'common_question_visibility', target];
+      if (!commonQuestionIds.has(target)) return issue(cp, E.VISIBLE_IF, `"${target}" is not a question of the common block`);
+      if ((w.excluded_common_questions ?? []).includes(target)) return issue(cp, E.VISIBLE_IF, `"${target}" is excluded from this wizard`);
+      const flow = w.flow_order ?? ['disambiguation', 'sector_specific', 'standard_identification'];
+      const targetPhase = commonBlocks.some(([, b]) => (b.standard_identification_questions ?? []).some((q) => q.id === target)) ? 'standard_identification' : 'disambiguation';
+      const ownPhase = (id: string) =>
+        [...(w.questions ?? []), ...(w.sector_specific_questions ?? [])].some((q) => q.id === id || q.conditional_followup?.id === id)
+          ? 'sector_specific'
+          : (w.standard_identification_questions ?? []).some((q) => q.id === id)
+            ? 'standard_identification'
+            : undefined;
+      const idx = questionIndex(wp);
+      for (const c of conditionsOf(cond)) {
+        const phase = ownPhase(c.input);
+        if (!phase) issue(cp, E.VISIBLE_IF, `"${c.input}" is not a question of this wizard`);
+        else if (flow.indexOf(phase) >= flow.indexOf(targetPhase)) issue(cp, E.VISIBLE_IF, `"${c.input}" is not asked before "${target}" in flow_order`);
+        const t = idx.get(c.input);
+        if (t && !t.values.has(c.value)) issue(cp, E.VISIBLE_IF, `"${c.value}" is not an option of "${c.input}"`);
+        if (t && c.op === 'includes' && t.kind !== 'multi_select') issue(cp, E.VISIBLE_IF, `"includes" requires a multi_select input ("${c.input}" is ${t.kind})`);
+      }
+    });
     const idx = questionIndex(wp);
     (w.activity_inputs ?? []).forEach((a, i) => {
       const target = idx.get(a);

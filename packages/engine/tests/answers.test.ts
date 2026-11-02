@@ -126,3 +126,37 @@ describe('answer validation', () => {
     }
   });
 });
+
+describe('sector-scoped visibility of common questions (ADR 0010 amendment, corpus 0.13.0)', () => {
+  const visibleIds = (sectorId: string, answers: Answers) => [...checkAnswers(resolveSector(sectorId, realCorpus()), answers).visible];
+
+  it('in cloud and energy psnc stays visible as before, first question of the flow', () => {
+    for (const sectorId of ['cloud_computing', 'energia_elettrica']) {
+      const ctx = resolveSector(sectorId, realCorpus());
+      expect(ctx.questions[0]!.id).toBe('psnc');
+      expect(ctx.questions[0]!.visibleIf).toBeUndefined();
+      expect(visibleIds(sectorId, {})).toContain('psnc');
+    }
+  });
+
+  it('in the PA the category comes first; psnc and the Cloud PA classification are not asked to an art. 4 c. 2 body', () => {
+    const ctx = resolveSector('pubblica_amministrazione', realCorpus());
+    expect(ctx.questions[0]!.id).toBe('categoria_pa');
+    const excluded = visibleIds('pubblica_amministrazione', { categoria_pa: 'esclusa_art_4_c_2' });
+    expect(excluded).not.toContain('psnc');
+    expect(excluded).not.toContain('classificazione_cloud_pa');
+    expect(excluded).toContain('dora');
+    expect(excluded).toContain('soggetto_critico');
+    for (const categoria of ['a', 'b', 'c', 'd', 'canale_allegato_iv']) {
+      const shown = visibleIds('pubblica_amministrazione', { categoria_pa: categoria });
+      expect(shown).toContain('psnc');
+      expect(shown).toContain('classificazione_cloud_pa');
+    }
+  });
+
+  it('answering psnc for an art. 4 c. 2 body is a not_visible issue', () => {
+    const ctx = resolveSector('pubblica_amministrazione', realCorpus());
+    const { issues } = checkAnswers(ctx, { categoria_pa: 'esclusa_art_4_c_2', psnc: 'yes', dora: 'no', soggetto_critico: 'no' });
+    expect(issues.map((i) => [i.questionId, i.kind])).toContainEqual(['psnc', 'not_visible']);
+  });
+});

@@ -83,3 +83,9 @@ non regge più.
   c. 2 lett. b) e c. 5 lett. a): riscontro Normattiva 2026-10-27 (DEC-007 A); nodo KB
   `wiki/sources/D.Lgs. 138-2024 (Decreto NIS).md`, righe 8 e 25-36; registro
   `packages/corpus/corpus/citations/citations__registry.yaml`.
+
+## Nota 2026-11-02 (corpus 0.13.0)
+
+Ordine del wizard PA: la domanda di settore (`categoria_pa`) precede il blocco comune
+(`flow_order: sector_specific, disambiguation, standard_identification`); all'organo escluso
+dall'art. 4 c. 2 non si pongono `psnc` né `classificazione_cloud_pa` (ADR 0010, amendment).

@@ -191,6 +191,12 @@ export const WizardFile = z
      * no rule, trigger or fixture of the sector may read them.
      */
     excluded_common_questions: z.array(Id).optional(),
+    /**
+     * Visibility of common-block questions in this wizard only (ADR 0010, amendment of corpus
+     * 0.13.0): common question id -> visible_if over questions of this wizard asked earlier in
+     * its flow_order. Other sectors keep the common question as declared in the block.
+     */
+    common_question_visibility: z.record(Id, VisibleIf).optional(),
     /** Inputs whose answers are the declared activities of the subject (ADR 0016 amendment). */
     activity_inputs: z.array(Id).min(1).optional(),
     questions: z.array(Question).optional(),

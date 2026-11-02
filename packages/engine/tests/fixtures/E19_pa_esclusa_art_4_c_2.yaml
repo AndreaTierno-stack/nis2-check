@@ -9,10 +9,8 @@ corpus_version: 0.13.0
 sector: pubblica_amministrazione
 
 inputs:
-  psnc: "no"
-  dora: "no"
   categoria_pa: esclusa_art_4_c_2
-  classificazione_cloud_pa: "no"
+  dora: "no"
   soggetto_critico: "no"
 
 expected:

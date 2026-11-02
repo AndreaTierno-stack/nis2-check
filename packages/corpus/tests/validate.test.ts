@@ -134,6 +134,28 @@ describe('corpus:validate', () => {
       expectCode(errors, 'E_VISIBLE_IF', 'wizard__energia_elettrica.yaml');
     });
 
+    // ADR 0010 amendment (corpus 0.13.0): sector-scoped visibility of common questions
+    it('common_question_visibility on a question that is not in the common block -> E_VISIBLE_IF', () => {
+      const errors = errorsAfter((c) => {
+        wizard(c, 'pubblica_amministrazione').common_question_visibility.categoria_pa = { input: 'categoria_pa', op: 'eq', value: 'a' };
+      });
+      expectCode(errors, 'E_VISIBLE_IF', 'wizard__pubblica_amministrazione.yaml');
+    });
+
+    it('common_question_visibility reading a question asked later in flow_order -> E_VISIBLE_IF', () => {
+      const errors = errorsAfter((c) => {
+        wizard(c, 'pubblica_amministrazione').flow_order = ['disambiguation', 'sector_specific', 'standard_identification'];
+      });
+      expectCode(errors, 'E_VISIBLE_IF', 'wizard__pubblica_amministrazione.yaml');
+    });
+
+    it('common_question_visibility on an excluded common question -> E_VISIBLE_IF', () => {
+      const errors = errorsAfter((c) => {
+        wizard(c, 'pubblica_amministrazione').common_question_visibility.cloud_pa = { input: 'categoria_pa', op: 'eq', value: 'a' };
+      });
+      expectCode(errors, 'E_VISIBLE_IF', 'wizard__pubblica_amministrazione.yaml');
+    });
+
     it('notice pointing to a missing catalog entry -> E_CATALOG_REF', () => {
       const errors = errorsAfter((c) => {
         sector(c, 'pubblica_amministrazione').qualification_rules[0].notices.push('voce_inesistente');

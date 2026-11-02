@@ -17,6 +17,7 @@ Ogni bump ha una voce in questo file; le fixture dichiarano `corpus_version` e s
 
 Minor: cambiano questionario, regole, conflitti e schema. Decisioni dell'autore del 2026-11-02 sul triage di `docs/verifications/2026-11-02-review-avversaria.md`. Un commit per voce.
 - Fixture E01-E27: `corpus_version` 0.12.2 → 0.13.0.
+- **A1, F02 (questionario, schema)**: nel wizard PA `categoria_pa` precede il blocco comune (`flow_order`); `psnc` (con `common_question_visibility`, campo nuovo dello schema del wizard: visibilità di settore di una domanda comune, ADR 0010 amendment) e `classificazione_cloud_pa` non sono posti all'organo escluso dall'art. 4 c. 2. Invariante nuovo n. 35 (`E_VISIBLE_IF`). Fixture E19: input senza `psnc` e `classificazione_cloud_pa` (non più posti), esito invariato; le altre fixture hanno Verdict identico.
 
 ## [0.12.2] — 2026-11-02 — Avviso di anteprima: esito orientativo, "non rivisto" in un solo punto (S4.2)
 

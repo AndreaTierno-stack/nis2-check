@@ -240,6 +240,7 @@ analizzi il corpus. Ogni violazione porta un codice stabile tra parentesi quadre
 | 32 | Ogni regola dichiara `stage` (`size_blind` o `dimensional`): una regola `dimensional` legge `dimension` e al più `soggetto_critico`, una `size_blind` non legge `dimension`; l'engine legge il campo | `E_RULE_STAGE_MISMATCH` | ADR 0016, amendment 3 (corpus 0.11.0) |
 | 33 | Due override dello stesso settore che possono scattare insieme, con regimi dagli esiti diversi, sono coperti da una `multi_regime_intersection` del wizard; l'engine non copia mai un "meta comune" | `E_REGIME_META_MISMATCH` | ADR 0016, amendment 3 (corpus 0.11.0) |
 | 34 | Voci del registro con `label` (una riga, dalla riga dell'export) e `source_group`; le etichette passano il lint di copy. Obbligatori per le citazioni emesse dall'engine (test di enumerazione), avviso per le altre | `W_CITATION_UNLABELED`, `E_COPY` | ADR 0016, amendment 3 (corpus 0.11.0) |
+| 35 | `common_question_visibility` di un wizard: la chiave è una domanda del blocco comune non esclusa; gli input sono domande del wizard poste in una fase precedente del `flow_order`; grammatica di ADR 0010 | `E_VISIBLE_IF` | ADR 0010, amendment (corpus 0.13.0) |
 
 Gli invarianti incrociati (2, 7–10, 13–18, 20, 22–26, 28 per il blocco referenziato) girano
 solo se la forma dei file è valida: zod non esegue i `superRefine` su un input di forma errata.
@@ -268,6 +269,9 @@ visible_if:
 - `input`: id di una domanda del wizard o del blocco comune; `value`: id di
   un'opzione (`yes`/`no` per le domande binarie).
 - `conditional_followup.trigger_on` resta per le sole sotto-domande annidate.
+- Visibilità di settore di una domanda comune (amendment del 2026-11-02, corpus 0.13.0):
+  `common_question_visibility: { psnc: { input: categoria_pa, op: neq, value: esclusa_art_4_c_2 } }`
+  nel wizard PA; vale solo in quel settore e legge domande poste prima nel suo `flow_order`.
 - Da fissare in S3: valore di una condizione il cui `input` non ha risposta.
 
 ## 5. `corpus_ref` delle fixture

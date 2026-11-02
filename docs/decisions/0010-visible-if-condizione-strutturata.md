@@ -90,3 +90,14 @@ concetto obbligano l'engine a due interpreti.
 - Vincolo derivato dalla struttura del corpus (non da fonte normativa esterna).
 - `packages/corpus/src/schemas/files.ts` (`VisibleIf`), `corpus.ts` (verifica degli
   identificatori).
+
+## Amendment 2026-11-02: visibilità di settore delle domande comuni (corpus 0.13.0)
+
+Un wizard di settore può dare un `visible_if` a una domanda del blocco comune con
+`common_question_visibility: { <id della domanda comune>: <visible_if> }`, nella stessa grammatica
+di questo ADR. La condizione vale solo in quel settore: negli altri la domanda comune resta come è
+dichiarata nel blocco. Vincoli verificati da `corpus:validate` (`E_VISIBLE_IF`): la chiave è una
+domanda del blocco comune non esclusa dal wizard; ogni `input` è una domanda del wizard posta in
+una fase precedente del suo `flow_order` (la visibilità legge solo risposte già date, ADR 0016 §3).
+Primo uso: nel PA `psnc` non è posta all'organo escluso dall'art. 4 c. 2 (review avversaria del
+2026-11-02, F02). ADR 0016 e l'invariante 26 di `docs/ARCHITECTURE.md` restano invariati.
