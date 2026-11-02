@@ -383,19 +383,27 @@ scrivono mai a mano. Una limitazione nuova entra prima nel catalogo, poi nelle p
   ("Deliverable PDF": watermark, intestazione e disclaimer su ogni pagina).
 - **Qualità**: ESLint anche su `packages/*` (oggi solo web); zod 4: migrazione in v0.1.1,
   advisory accettata per corpus locale fidato validato in build; lint dei vincoli di copy
-  esteso dai testi del catalogo ai reasoning trace e ai testi del wizard.
+  esteso dai testi del catalogo ai reasoning trace e ai testi del wizard (dal corpus 0.13.1 il
+  controllo delle vocali apostrofate copre già ogni testo del corpus e della UI).
 - **Review avversaria del 2026-11-02, findings bassi** (`docs/verifications/2026-11-02-review-avversaria.md`):
   F13 tabella delle soglie nell'help della domanda `dimension` resa come markdown grezzo (render delle
   tabelle nell'help); F15 domande non pertinenti (`cloud_pa` posta all'energia, `dora` alla PA,
   attività ulteriore uguale alla principale) e contatore che cresce, risolto in parte dal corpus
   0.13.0 (nel PA la categoria precede il blocco comune; all'organo escluso dall'art. 4 c. 2 non si
-  chiedono PSNC e classificazione Cloud PA); F18 apostrofi al posto degli accenti e frasi da nota
-  interna nei testi del corpus, motivo dello stadio dimensionale diverso tra C3 ed E9 (le etichette
-  delle regole dimensionali sono unificate in 0.13.0); F20 condizione ISTAT S13 posta anche al
+  chiedono PSNC e classificazione Cloud PA); F18 in parte: apostrofi al posto degli accenti e frasi
+  da nota interna risolti nel corpus 0.13.1, le etichette delle regole dimensionali unificate in
+  0.13.0; resta il motivo dello stadio dimensionale diverso tra C3 ed E9 (testo dell'app); F20 condizione ISTAT S13 posta anche al
   soggetto critico PA; F21 pagina 404 in inglese.
   Medi in backlog: F14 glossario dei termini per il lettore non esperto; F12 passi successivi
   informativi dopo l'esito (scope). Open point: F11 (domanda DORA e fornitori terzi di servizi TIC,
   testo DORA non in raw/), invariato. F16 risolto nel corpus 0.13.0 (configurazioni CACER).
+- **Registro citazioni, art. 5 D.Lgs. 138/2024** (backlog KB, emerso nel Blocco 6 di S4.2): la voce
+  `dlgs_138_2024_art_5` ha `source_group: decreto_nis` ma è attestata a livello di articolo nel nodo
+  FAQ Ambito (righe 204-206): il nodo del decreto non riporta l'art. 5. Da attestare nel nodo
+  D.Lgs. 138/2024 (verifica sul PDF in `raw/`, c. 1 lett. b) e c. 2), poi riallineare la voce.
+- **Nome della PUN** (open point, corpus 0.13.1): registro e questionario dicono "Piattaforma Unica
+  Nazionale"; la FAQ A1.1.a.3 nella KB (DEC-010) dice "Piattaforma nazionale unica dei punti di
+  ricarica". Allineare il copy dopo il riscontro sul testo, con una patch del corpus.
 - **CSP con hash** (backlog): sostituire `'unsafe-inline'` di `script-src` con gli hash sha256
   degli script inline, calcolati dopo il build (gli header di `vercel.json` sono statici: serve
   un passo che li scriva o una CSP in `<meta>` per pagina).
