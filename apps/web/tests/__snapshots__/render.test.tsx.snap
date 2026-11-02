@@ -559,7 +559,7 @@ exports[`verdict page of E11 > matches the DOM snapshot 1`] = `
 </ol>
 </div>
 <div>
-<p>Il soggetto si indica come soggetto pubblico o a partecipazione pubblica fuori dalle categorie dell&#x27;Allegato III. Potrebbe rientrare nel perimetro NIS2 italiano tramite l&#x27;Allegato IV, indipendentemente dalla dimensione, solo se individuato dall&#x27;ACN su proposta delle Autorità di settore, con notifica al soggetto (art. 3 cc. 8 e 13 D.Lgs. 138/2024; FAQ ACN A4.1). Lo strumento non può determinare questa individuazione. Verifica obbligatoria con consulente qualificato. <span>
+<p>Il soggetto si indica come soggetto pubblico o a partecipazione pubblica fuori dalle categorie dell&#x27;Allegato III. Potrebbe rientrare nel perimetro NIS2 italiano tramite l&#x27;Allegato IV, indipendentemente dalla dimensione, solo se individuato dall&#x27;ACN su proposta delle Autorità di settore, con notifica al soggetto (art. 3 cc. 8 e 13 D.Lgs. 138/2024; FAQ ACN A4.1). Lo strumento non può determinare questa individuazione. <span>
 <a href="#fonte-1">1</a>
 <a href="#fonte-2">2</a>
 <a href="#fonte-5">5</a>
@@ -773,7 +773,7 @@ exports[`verdict page of E11 > matches the DOM snapshot 1`] = `
 <div>
 <div data-testid="trace-decided" data-stage="size_blind">
 <h3>Regole indipendenti dalla dimensione</h3>
-<p>Il soggetto si indica come soggetto pubblico o a partecipazione pubblica fuori dalle categorie dell&#x27;Allegato III. Potrebbe rientrare nel perimetro NIS2 italiano tramite l&#x27;Allegato IV, indipendentemente dalla dimensione, solo se individuato dall&#x27;ACN su proposta delle Autorità di settore, con notifica al soggetto (art. 3 cc. 8 e 13 D.Lgs. 138/2024; FAQ ACN A4.1). Lo strumento non può determinare questa individuazione. Verifica obbligatoria con consulente qualificato. <span>
+<p>Il soggetto si indica come soggetto pubblico o a partecipazione pubblica fuori dalle categorie dell&#x27;Allegato III. Potrebbe rientrare nel perimetro NIS2 italiano tramite l&#x27;Allegato IV, indipendentemente dalla dimensione, solo se individuato dall&#x27;ACN su proposta delle Autorità di settore, con notifica al soggetto (art. 3 cc. 8 e 13 D.Lgs. 138/2024; FAQ ACN A4.1). Lo strumento non può determinare questa individuazione. <span>
 <a href="#fonte-1">1</a>
 <a href="#fonte-2">2</a>
 <a href="#fonte-5">5</a>
@@ -896,7 +896,7 @@ exports[`verdict page of E11 > matches the DOM snapshot 1`] = `
 <div>
 <div data-testid="trace-decided" data-stage="size_blind">
 <h3>Regole indipendenti dalla dimensione</h3>
-<p>Il soggetto si indica come soggetto pubblico o a partecipazione pubblica fuori dalle categorie dell&#x27;Allegato III. Potrebbe rientrare nel perimetro NIS2 italiano tramite l&#x27;Allegato IV, indipendentemente dalla dimensione, solo se individuato dall&#x27;ACN su proposta delle Autorità di settore, con notifica al soggetto (art. 3 cc. 8 e 13 D.Lgs. 138/2024; FAQ ACN A4.1). Lo strumento non può determinare questa individuazione. Verifica obbligatoria con consulente qualificato. <span>
+<p>Il soggetto si indica come soggetto pubblico o a partecipazione pubblica fuori dalle categorie dell&#x27;Allegato III. Potrebbe rientrare nel perimetro NIS2 italiano tramite l&#x27;Allegato IV, indipendentemente dalla dimensione, solo se individuato dall&#x27;ACN su proposta delle Autorità di settore, con notifica al soggetto (art. 3 cc. 8 e 13 D.Lgs. 138/2024; FAQ ACN A4.1). Lo strumento non può determinare questa individuazione. <span>
 <a href="#fonte-1">1</a>
 <a href="#fonte-2">2</a>
 <a href="#fonte-5">5</a>
@@ -1401,7 +1401,7 @@ exports[`verdict page of E25 > matches the DOM snapshot 1`] = `
 </ol>
 </div>
 <div>
-<p>Il soggetto dichiara di rispondere ai requisiti della definizione di clienti attivi e di non svolgere altre attività riconducibili agli Allegati I e II. Secondo la FAQ ACN A1.1.a.4 queste organizzazioni non rientrano nell&#x27;ambito di applicazione del decreto NIS: sulla base degli input forniti, l&#x27;analisi suggerisce che il soggetto non rientri nel perimetro NIS2 italiano come produttore. La definizione di clienti attivi non è tra le fonti verificate dallo strumento. Verifica obbligatoria con consulente qualificato. <span>
+<p>Il soggetto dichiara di rispondere ai requisiti della definizione di clienti attivi e di non svolgere altre attività riconducibili agli Allegati I e II. Secondo la FAQ ACN A1.1.a.4 queste organizzazioni non rientrano nell&#x27;ambito di applicazione del decreto NIS: sulla base degli input forniti, l&#x27;analisi suggerisce che il soggetto non rientri nel perimetro NIS2 italiano come produttore. La definizione di clienti attivi non è tra le fonti verificate dallo strumento. <span>
 <a href="#fonte-1">1</a>
 </span>
 </p>
@@ -1559,7 +1559,7 @@ exports[`verdict page of E25 > matches the DOM snapshot 1`] = `
 <div>
 <div data-testid="trace-decided" data-stage="type_exclusion">
 <h3>Esclusioni per tipologia</h3>
-<p>Il soggetto dichiara di rispondere ai requisiti della definizione di clienti attivi e di non svolgere altre attività riconducibili agli Allegati I e II. Secondo la FAQ ACN A1.1.a.4 queste organizzazioni non rientrano nell&#x27;ambito di applicazione del decreto NIS: sulla base degli input forniti, l&#x27;analisi suggerisce che il soggetto non rientri nel perimetro NIS2 italiano come produttore. La definizione di clienti attivi non è tra le fonti verificate dallo strumento. Verifica obbligatoria con consulente qualificato. <span>
+<p>Il soggetto dichiara di rispondere ai requisiti della definizione di clienti attivi e di non svolgere altre attività riconducibili agli Allegati I e II. Secondo la FAQ ACN A1.1.a.4 queste organizzazioni non rientrano nell&#x27;ambito di applicazione del decreto NIS: sulla base degli input forniti, l&#x27;analisi suggerisce che il soggetto non rientri nel perimetro NIS2 italiano come produttore. La definizione di clienti attivi non è tra le fonti verificate dallo strumento. <span>
 <a href="#fonte-1">1</a>
 </span>
 </p>
@@ -1616,7 +1616,7 @@ exports[`verdict page of E25 > matches the DOM snapshot 1`] = `
 <div>
 <div data-testid="trace-decided" data-stage="type_exclusion">
 <h3>Esclusioni per tipologia</h3>
-<p>Il soggetto dichiara di rispondere ai requisiti della definizione di clienti attivi e di non svolgere altre attività riconducibili agli Allegati I e II. Secondo la FAQ ACN A1.1.a.4 queste organizzazioni non rientrano nell&#x27;ambito di applicazione del decreto NIS: sulla base degli input forniti, l&#x27;analisi suggerisce che il soggetto non rientri nel perimetro NIS2 italiano come produttore. La definizione di clienti attivi non è tra le fonti verificate dallo strumento. Verifica obbligatoria con consulente qualificato. <span>
+<p>Il soggetto dichiara di rispondere ai requisiti della definizione di clienti attivi e di non svolgere altre attività riconducibili agli Allegati I e II. Secondo la FAQ ACN A1.1.a.4 queste organizzazioni non rientrano nell&#x27;ambito di applicazione del decreto NIS: sulla base degli input forniti, l&#x27;analisi suggerisce che il soggetto non rientri nel perimetro NIS2 italiano come produttore. La definizione di clienti attivi non è tra le fonti verificate dallo strumento. <span>
 <a href="#fonte-1">1</a>
 </span>
 </p>
@@ -2010,7 +2010,7 @@ exports[`verdict page of E26 > matches the DOM snapshot 1`] = `
 <div>
 <div data-testid="trace-decided" data-stage="type_exclusion">
 <h3>Esclusioni per tipologia</h3>
-<p>Il soggetto dichiara di rispondere ai requisiti della definizione di clienti attivi e di non svolgere altre attività riconducibili agli Allegati I e II. Secondo la FAQ ACN A1.1.a.4 queste organizzazioni non rientrano nell&#x27;ambito di applicazione del decreto NIS: sulla base degli input forniti, l&#x27;analisi suggerisce che il soggetto non rientri nel perimetro NIS2 italiano come produttore. La definizione di clienti attivi non è tra le fonti verificate dallo strumento. Verifica obbligatoria con consulente qualificato. <span>
+<p>Il soggetto dichiara di rispondere ai requisiti della definizione di clienti attivi e di non svolgere altre attività riconducibili agli Allegati I e II. Secondo la FAQ ACN A1.1.a.4 queste organizzazioni non rientrano nell&#x27;ambito di applicazione del decreto NIS: sulla base degli input forniti, l&#x27;analisi suggerisce che il soggetto non rientri nel perimetro NIS2 italiano come produttore. La definizione di clienti attivi non è tra le fonti verificate dallo strumento. <span>
 <a href="#fonte-4">4</a>
 </span>
 </p>
@@ -2154,7 +2154,7 @@ exports[`verdict page of E26 > matches the DOM snapshot 1`] = `
 <div>
 <div data-testid="trace-decided" data-stage="type_exclusion">
 <h3>Esclusioni per tipologia</h3>
-<p>Il soggetto dichiara di rispondere ai requisiti della definizione di clienti attivi e di non svolgere altre attività riconducibili agli Allegati I e II. Secondo la FAQ ACN A1.1.a.4 queste organizzazioni non rientrano nell&#x27;ambito di applicazione del decreto NIS: sulla base degli input forniti, l&#x27;analisi suggerisce che il soggetto non rientri nel perimetro NIS2 italiano come produttore. La definizione di clienti attivi non è tra le fonti verificate dallo strumento. Verifica obbligatoria con consulente qualificato. <span>
+<p>Il soggetto dichiara di rispondere ai requisiti della definizione di clienti attivi e di non svolgere altre attività riconducibili agli Allegati I e II. Secondo la FAQ ACN A1.1.a.4 queste organizzazioni non rientrano nell&#x27;ambito di applicazione del decreto NIS: sulla base degli input forniti, l&#x27;analisi suggerisce che il soggetto non rientri nel perimetro NIS2 italiano come produttore. La definizione di clienti attivi non è tra le fonti verificate dallo strumento. <span>
 <a href="#fonte-4">4</a>
 </span>
 </p>

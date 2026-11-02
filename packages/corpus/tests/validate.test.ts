@@ -398,7 +398,7 @@ describe('corpus:validate', () => {
     });
   });
 
-  describe('corpus 0.13.1-0.13.2 copy faults (review F18 apostrophes, F13 markdown syntax)', () => {
+  describe('corpus 0.13.1-0.13.3 copy faults (F18 apostrophes, F13 markdown syntax, repeated closing)', () => {
     it('apostrophized vowel in a rule trace -> E_COPY', () => {
       const errors = errorsAfter((c) => {
         const r = sector(c, 'energia_elettrica').qualification_rules[1];
@@ -440,6 +440,34 @@ describe('corpus:validate', () => {
       });
       expectCode(errors, 'E_COPY', 'sectors__cloud_computing.yaml > qualification_rules[0] > reasoning_trace: "#"');
       expect(errors.filter((e) => e.includes('referenced_by') || e.includes('applies_to'))).toEqual([]);
+    });
+
+    it('"Verifica obbligatoria" in rule, mapping, override and Annex IV channel texts -> E_COPY (0.13.3)', () => {
+      const closing = ' Verifica obbligatoria con consulente qualificato.';
+      const errors = errorsAfter((c) => {
+        const paSector = sector(c, 'pubblica_amministrazione');
+        paSector.qualification_rules[0].reasoning_trace += closing;
+        paSector.allegato_iv_channel.reasoning_trace += closing;
+        sector(c, 'cloud_computing').overrides[0].reasoning_trace += closing;
+        wizard(c, 'energia_elettrica').sector_specific_questions[2].outcome_mapping[0].reasoning_trace += closing;
+      });
+      for (const where of [
+        'sectors__pubblica_amministrazione.yaml > qualification_rules[0] > reasoning_trace',
+        'sectors__pubblica_amministrazione.yaml > allegato_iv_channel > reasoning_trace',
+        'sectors__cloud_computing.yaml > overrides[0] > reasoning_trace',
+        'wizard__energia_elettrica.yaml > sector_specific_questions[2] > outcome_mapping[0] > reasoning_trace',
+      ]) {
+        expectCode(errors, 'E_COPY', `${where}: "Verifica obbligatoria"`);
+      }
+    });
+
+    it('"Verifica obbligatoria" in a signal or a catalog entry is not this lint\'s business', () => {
+      const { corpus, sources } = fresh();
+      const sig = (corpus.signals['signals/signals__cumulative_regimes.yaml'] as Doc).signals[0];
+      sig.base_reasoning_trace += ' Verifica obbligatoria con consulente qualificato.';
+      const cat = (corpus.exceptions['exceptions/exceptions__catalog.yaml'] as Doc).exceptions[0];
+      cat.description += ' Verifica obbligatoria con consulente qualificato.';
+      expect(validateCorpus(corpus, sources).errors.filter((e) => e.includes('Verifica obbligatoria'))).toEqual([]);
     });
 
     it('elisions, single-quoted spans and "po\'" are not flagged', () => {

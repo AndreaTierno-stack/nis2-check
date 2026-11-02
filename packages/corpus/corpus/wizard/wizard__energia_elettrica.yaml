@@ -112,7 +112,7 @@ sector_specific_questions:
         outcome: qualitative_signal_only
         verdict_outcome: likely_out_of_scope
         notices_if_demoted: [punti_ricarica_non_pun_attivita_ulteriore]
-        reasoning_trace: "Secondo la FAQ ACN A1.1.a.3 i soggetti non obbligati alla registrazione sul PUN (art. 5 del DM MASE n. 106/2023) non rientrano nella definizione della tipologia di soggetto 'gestore di un punto di ricarica'. Sulla base degli input forniti, l'analisi suggerisce la probabile esclusione dal perimetro NIS2 italiano per questa attività; il soggetto potrebbe rientrarvi per un'altra tipologia o se l'obbligo di registrazione sopravvenisse. Verifica obbligatoria con consulente qualificato."
+        reasoning_trace: "Secondo la FAQ ACN A1.1.a.3 i soggetti non obbligati alla registrazione sul PUN (art. 5 del DM MASE n. 106/2023) non rientrano nella definizione della tipologia di soggetto 'gestore di un punto di ricarica'. Sulla base degli input forniti, l'analisi suggerisce la probabile esclusione dal perimetro NIS2 italiano per questa attività; il soggetto potrebbe rientrarvi per un'altra tipologia o se l'obbligo di registrazione sopravvenisse."
         citations: [faq_a1_1_a_3]
       - answer: non_so
         outcome: qualitative_signal_only
@@ -146,7 +146,7 @@ sector_specific_questions:
       - answer: si
         outcome: out_of_scope
         verdict_outcome: likely_out_of_scope   # vincolo fisso: out_of_scope -> likely_out_of_scope
-        reasoning_trace: "Il soggetto dichiara di rispondere ai requisiti della definizione di clienti attivi e di non svolgere altre attività riconducibili agli Allegati I e II. Secondo la FAQ ACN A1.1.a.4 queste organizzazioni non rientrano nell'ambito di applicazione del decreto NIS: sulla base degli input forniti, l'analisi suggerisce che il soggetto non rientri nel perimetro NIS2 italiano come produttore. La definizione di clienti attivi non è tra le fonti verificate dallo strumento. Verifica obbligatoria con consulente qualificato."
+        reasoning_trace: "Il soggetto dichiara di rispondere ai requisiti della definizione di clienti attivi e di non svolgere altre attività riconducibili agli Allegati I e II. Secondo la FAQ ACN A1.1.a.4 queste organizzazioni non rientrano nell'ambito di applicazione del decreto NIS: sulla base degli input forniti, l'analisi suggerisce che il soggetto non rientri nel perimetro NIS2 italiano come produttore. La definizione di clienti attivi non è tra le fonti verificate dallo strumento."
         citations: [faq_a1_1_a_4]
         notices: [prosumer_definizione_cliente_attivo]
         notices_if_demoted: [prosumer_definizione_cliente_attivo]

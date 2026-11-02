@@ -79,7 +79,7 @@ sector_specific_questions:
       - answer: esclusa_art_4_c_2
         outcome: out_of_scope
         verdict_outcome: likely_out_of_scope   # vincolo fisso: out_of_scope -> likely_out_of_scope
-        reasoning_trace: "Il soggetto indicato (Parlamento italiano, Autorità giudiziaria, Banca d'Italia o Unità di informazione finanziaria per l'Italia) è tra quelli che l'art. 4 c. 2 D.Lgs. 138/2024 non ricomprende tra le pubbliche amministrazioni dell'art. 3 cc. 6-7. Sulla base degli input forniti, l'analisi suggerisce che il soggetto non rientri nel perimetro NIS2 italiano come pubblica amministrazione dell'Allegato III. Verifica obbligatoria con consulente qualificato."
+        reasoning_trace: "Il soggetto indicato (Parlamento italiano, Autorità giudiziaria, Banca d'Italia o Unità di informazione finanziaria per l'Italia) è tra quelli che l'art. 4 c. 2 D.Lgs. 138/2024 non ricomprende tra le pubbliche amministrazioni dell'art. 3 cc. 6-7. Sulla base degli input forniti, l'analisi suggerisce che il soggetto non rientri nel perimetro NIS2 italiano come pubblica amministrazione dell'Allegato III."
         citations: [dlgs_138_2024_art_4_c_2]
         # categoria_pa e' a scelta singola: l'esclusione non puo' essere retrocessa da un'altra
         # attivita'; il campo e' obbligatorio (ADR 0016 amendment) e rinvia al conflitto.

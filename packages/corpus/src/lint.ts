@@ -170,6 +170,28 @@ export function lintMarkdownSyntax(groups: Record<string, Record<string, unknown
 }
 
 /**
+ * Outcome texts whose path contains one of these keys: rules, outcome mappings of the questionnaire,
+ * regime overrides, the Annex IV channel and the remaining out-of-scope cases.
+ */
+const OUTCOME_TEXT_KEYS = /(^|\s>\s)(qualification_rules|outcome_mapping|overrides|allegato_iv_channel|out_of_scope_mvp|multi_regime_intersection)(\[|\s>|$)/;
+
+/**
+ * "Verifica obbligatoria" in an outcome text (corpus 0.13.3): the verdict page prints the standard
+ * line "Verifica obbligatoria con consulente qualificato prima di assumere conclusioni operative."
+ * under the rule text, its only place. Signals and catalog are not checked: there the form
+ * "verifica con consulente qualificato" stays allowed.
+ */
+export function lintRepeatedClosing(groups: Record<string, Record<string, unknown>>): string[] {
+  const out: string[] = [];
+  walkStrings(groups, (file, path, text) => {
+    if (OUTCOME_TEXT_KEYS.test(path) && /verifica obbligatoria/i.test(text)) {
+      out.push(msg(E.COPY, `${file} > ${path}: "Verifica obbligatoria" repeats the standard line of the verdict page`));
+    }
+  });
+  return out;
+}
+
+/**
  * Copy lint for the navigation and structure strings of the web app (apps/web/src/copy.it.ts,
  * S4.1): the words of ADR 0012 and of CLAUDE.md constraint 1, no long dash and no apostrophe in
  * place of an accent (corpus 0.13.1).
