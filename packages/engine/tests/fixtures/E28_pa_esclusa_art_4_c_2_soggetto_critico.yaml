@@ -8,7 +8,7 @@ description_it: >
   rispetto ai cc. 6-7). Conflitto (2)x(3): esito, avviso e citazioni dal blocco conflicts
   (corpus 0.13.0, review avversaria del 2026-11-02, F03). PSNC e classificazione Cloud PA non
   sono poste a questo soggetto (ADR 0010, amendment).
-corpus_version: 0.13.0
+corpus_version: 0.13.1
 sector: pubblica_amministrazione
 
 inputs:

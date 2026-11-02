@@ -13,6 +13,15 @@ Ogni bump ha una voce in questo file; le fixture dichiarano `corpus_version` e s
 
 ## [Unreleased]
 
+## [0.13.1] — 2026-11-02 — Forma dei testi e registro sulla KB 064d9e3 (S4.2, Blocco 6)
+
+Patch: cambiano solo testi e registro; nessuna regola, domanda, citazione o esito. Decisione dell'autore del 2026-11-02 (finding basso F18 della review avversaria, `docs/verifications/2026-11-02-review-avversaria.md`). Nessun ingest.
+- **F18 (testi)**: le vocali finali scritte con l'apostrofo diventano lettere accentate ("attivita'" → "attività", "e'" → "è", "puo'" → "può", "Autorita'" → "Autorità", "piu'" → "più", "ne'" → "né") in tutti i valori di settori, questionario, segnali, regimi e conflitti: 66 parole in 9 file; i commenti YAML non cambiano. Frasi da nota interna riscritte: "Consulenza qualificata necessaria" nel conflitto `stage_2_and_stage_3` e nella mappatura di precedenza PSNC / Cloud PA del questionario PA diventa "il caso va valutato con un consulente qualificato" (forma dei testi degli override PSNC del 0.13.0); tolta "Segnalazione con invito a verificare l'obbligo PUN." dalla mappatura `registrato_pun == "non_noto"`, che chiude già con la verifica con consulente qualificato.
+- **Lint di copy (validator)**: `corpus:validate` blocca (`E_COPY`) le vocali apostrofate a fine parola in ogni valore di testo del corpus; lo stesso controllo vale per le stringhe della UI (`lintUiCopy`: `copy.it.ts`, avviso, README). Elisioni, citazioni tra apici singoli e "po'" passano. Test di guasto su testo di regola, opzione del questionario, etichetta del registro e segnale.
+- **Registro citazioni**: KB dichiarata 064d9e3 (prima f373942; export del Project Knowledge c69efb5). I nodi cambiati sono due, con sostituzioni riga per riga (DEC-010): D.Lgs. 138/2024 riga 42 (art. 6 c. 1 lett. a)) e FAQ Settori righe 30 e 36 (A1.1.a.3). Nessuna riga del registro si sposta; le righe citate dalle voci `dlgs_138_2024_art_6_c_1_lett_a`, `dlgs_138_2024_art_6_c_1_lett_e`, `dlgs_138_2024_art_6_c_2`, `dlgs_138_2024_art_6_c_3`, `dm_mase_106_2023` e `faq_a1_1_a_3` sono riscontrate sul testo nuovo. Registro a 77 voci.
+- Fixture E01-E28: `corpus_version` 0.13.0 → 0.13.1; esiti, citazioni e avvisi invariati.
+- Open point, non risolto in questa patch: il registro e il questionario chiamano la PUN "Piattaforma Unica Nazionale", la FAQ A1.1.a.3 nella KB "Piattaforma nazionale unica dei punti di ricarica".
+
 ## [0.13.0] — 2026-11-02 — Correzioni dalla review avversaria (S4.2, Blocco 5)
 
 Minor: cambiano questionario, regole, conflitti e schema. Decisioni dell'autore del 2026-11-02 sul triage di `docs/verifications/2026-11-02-review-avversaria.md`. Un commit per voce.

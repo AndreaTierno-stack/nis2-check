@@ -18,7 +18,7 @@ exports[`printed verdict of E05 > matches the print-mode DOM snapshot 1`] = `
 <td>
 <div>
 <p>Anteprima di studio: strumento informativo gratuito, non sostituisce una consulenza legale, una verifica certificata di terza parte o la registrazione sulla piattaforma ACN. Disclaimer non sottoposto a review legale.</p>
-<p data-testid="watermark">corpus v0.13.0 (2026-11-02) · 6b077a1f</p>
+<p data-testid="watermark">corpus v0.13.1 (2026-11-02) · 6b077a1f</p>
 </div>
 </td>
 </tr>
@@ -44,7 +44,7 @@ exports[`printed verdict of E05 > matches the print-mode DOM snapshot 1`] = `
 </div>
 <div>
 <dt>Versione del corpus</dt>
-<dd>0.13.0, rilasciata il 2026-11-02</dd>
+<dd>0.13.1, rilasciata il 2026-11-02</dd>
 </div>
 <div>
 <dt>Codice della valutazione</dt>
@@ -150,7 +150,7 @@ exports[`printed verdict of E05 > matches the print-mode DOM snapshot 1`] = `
 </div>
 <div>
 <dt>Codice e versione</dt>
-<dd>valutazione 6b077a1f, corpus 0.13.0</dd>
+<dd>valutazione 6b077a1f, corpus 0.13.1</dd>
 </div>
 </dl>
 <div>
@@ -369,7 +369,7 @@ exports[`printed verdict of E10 > matches the print-mode DOM snapshot 1`] = `
 <td>
 <div>
 <p>Anteprima di studio: strumento informativo gratuito, non sostituisce una consulenza legale, una verifica certificata di terza parte o la registrazione sulla piattaforma ACN. Disclaimer non sottoposto a review legale.</p>
-<p data-testid="watermark">corpus v0.13.0 (2026-11-02) · fc8341d3</p>
+<p data-testid="watermark">corpus v0.13.1 (2026-11-02) · fc8341d3</p>
 </div>
 </td>
 </tr>
@@ -391,7 +391,7 @@ exports[`printed verdict of E10 > matches the print-mode DOM snapshot 1`] = `
 </div>
 <div>
 <dt>Versione del corpus</dt>
-<dd>0.13.0, rilasciata il 2026-11-02</dd>
+<dd>0.13.1, rilasciata il 2026-11-02</dd>
 </div>
 <div>
 <dt>Codice della valutazione</dt>
@@ -525,7 +525,7 @@ exports[`printed verdict of E10 > matches the print-mode DOM snapshot 1`] = `
 </div>
 <div>
 <dt>Codice e versione</dt>
-<dd>valutazione fc8341d3, corpus 0.13.0</dd>
+<dd>valutazione fc8341d3, corpus 0.13.1</dd>
 </div>
 </dl>
 <div>
@@ -780,7 +780,7 @@ exports[`printed verdict of E27 > matches the print-mode DOM snapshot 1`] = `
 <td>
 <div>
 <p>Anteprima di studio: strumento informativo gratuito, non sostituisce una consulenza legale, una verifica certificata di terza parte o la registrazione sulla piattaforma ACN. Disclaimer non sottoposto a review legale.</p>
-<p data-testid="watermark">corpus v0.13.0 (2026-11-02) · e75c00d2</p>
+<p data-testid="watermark">corpus v0.13.1 (2026-11-02) · e75c00d2</p>
 </div>
 </td>
 </tr>
@@ -802,7 +802,7 @@ exports[`printed verdict of E27 > matches the print-mode DOM snapshot 1`] = `
 </div>
 <div>
 <dt>Versione del corpus</dt>
-<dd>0.13.0, rilasciata il 2026-11-02</dd>
+<dd>0.13.1, rilasciata il 2026-11-02</dd>
 </div>
 <div>
 <dt>Codice della valutazione</dt>
@@ -923,7 +923,7 @@ exports[`printed verdict of E27 > matches the print-mode DOM snapshot 1`] = `
 </div>
 <div>
 <dt>Codice e versione</dt>
-<dd>valutazione e75c00d2, corpus 0.13.0</dd>
+<dd>valutazione e75c00d2, corpus 0.13.1</dd>
 </div>
 </dl>
 <div>
