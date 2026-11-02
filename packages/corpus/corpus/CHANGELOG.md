@@ -13,6 +13,12 @@ Ogni bump ha una voce in questo file; le fixture dichiarano `corpus_version` e s
 
 ## [Unreleased]
 
+## [0.13.2] — 2026-11-02 — Segnalazione del soggetto critico senza la disambiguazione CACER (S4.2)
+
+Patch (solo testi). Decisione dell'autore del 2026-11-02. Esiti, citazioni e avvisi invariati.
+- **`signals/signals__cumulative_regimes.yaml`**, segnale `cer_signal`: tolta dal testo comune a tutti i settori la frase "Da non confondere con le comunità energetiche rinnovabili (configurazioni CACER).". Nessuna voce di catalogo e nessun testo del settore energia mostrato all'utente riporta la disambiguazione; restano il vincolo `copy_constraints` del settore energia (regola di redazione, non mostrata) e l'aiuto della domanda comune `soggetto_critico` ("Non riguarda le comunità energetiche rinnovabili (configurazioni CACER).").
+- Fixture E01-E28: `corpus_version` 0.13.1 → 0.13.2.
+
 ## [0.13.1] — 2026-11-02 — Forma dei testi e registro sulla KB 064d9e3 (S4.2, Blocco 6)
 
 Patch: cambiano solo testi e registro; nessuna regola, domanda, citazione o esito. Decisione dell'autore del 2026-11-02 (finding basso F18 della review avversaria, `docs/verifications/2026-11-02-review-avversaria.md`). Nessun ingest.

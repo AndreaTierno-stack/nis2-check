@@ -49,7 +49,7 @@ exports[`verdict page of E05 > matches the DOM snapshot 1`] = `
 <td>
 <div>
 <p>Anteprima di studio: strumento informativo gratuito, non sostituisce una consulenza legale, una verifica certificata di terza parte o la registrazione sulla piattaforma ACN. Disclaimer non sottoposto a review legale.</p>
-<p data-testid="watermark">corpus v0.13.1 · 6b077a1f</p>
+<p data-testid="watermark">corpus v0.13.2 · 6b077a1f</p>
 </div>
 </td>
 </tr>
@@ -67,7 +67,7 @@ exports[`verdict page of E05 > matches the DOM snapshot 1`] = `
 </div>
 <div>
 <dt>Versione del corpus</dt>
-<dd>0.13.1</dd>
+<dd>0.13.2</dd>
 </div>
 <div>
 <dt>Codice della valutazione</dt>
@@ -174,7 +174,7 @@ exports[`verdict page of E05 > matches the DOM snapshot 1`] = `
 </div>
 <div>
 <dt>Codice e versione</dt>
-<dd>valutazione 6b077a1f, corpus 0.13.1</dd>
+<dd>valutazione 6b077a1f, corpus 0.13.2</dd>
 </div>
 </dl>
 </div>
@@ -490,7 +490,7 @@ exports[`verdict page of E05 > matches the DOM snapshot 1`] = `
 <p>Si apre la finestra di stampa del browser: scegli &quot;Salva come PDF&quot;.</p>
 </div>
 <a href="/limiti/" data-testid="limits-link">Cosa non gestisce il tool</a>
-<p data-testid="tech">Corpus 0.13.1, catalogo eccezioni 30 voci. Valutazione 6b077a1f. Nessun dato lascia il browser.</p>"
+<p data-testid="tech">Corpus 0.13.2, catalogo eccezioni 30 voci. Valutazione 6b077a1f. Nessun dato lascia il browser.</p>"
 `;
 
 exports[`verdict page of E11 > matches the DOM snapshot 1`] = `
@@ -511,7 +511,7 @@ exports[`verdict page of E11 > matches the DOM snapshot 1`] = `
 <td>
 <div>
 <p>Anteprima di studio: strumento informativo gratuito, non sostituisce una consulenza legale, una verifica certificata di terza parte o la registrazione sulla piattaforma ACN. Disclaimer non sottoposto a review legale.</p>
-<p data-testid="watermark">corpus v0.13.1 · 8bc08ffe</p>
+<p data-testid="watermark">corpus v0.13.2 · 8bc08ffe</p>
 </div>
 </td>
 </tr>
@@ -529,7 +529,7 @@ exports[`verdict page of E11 > matches the DOM snapshot 1`] = `
 </div>
 <div>
 <dt>Versione del corpus</dt>
-<dd>0.13.1</dd>
+<dd>0.13.2</dd>
 </div>
 <div>
 <dt>Codice della valutazione</dt>
@@ -664,7 +664,7 @@ exports[`verdict page of E11 > matches the DOM snapshot 1`] = `
 </div>
 <div>
 <dt>Codice e versione</dt>
-<dd>valutazione 8bc08ffe, corpus 0.13.1</dd>
+<dd>valutazione 8bc08ffe, corpus 0.13.2</dd>
 </div>
 </dl>
 </div>
@@ -968,7 +968,7 @@ exports[`verdict page of E11 > matches the DOM snapshot 1`] = `
 <p>Si apre la finestra di stampa del browser: scegli &quot;Salva come PDF&quot;.</p>
 </div>
 <a href="/limiti/" data-testid="limits-link">Cosa non gestisce il tool</a>
-<p data-testid="tech">Corpus 0.13.1, catalogo eccezioni 30 voci. Valutazione 8bc08ffe. Nessun dato lascia il browser.</p>"
+<p data-testid="tech">Corpus 0.13.2, catalogo eccezioni 30 voci. Valutazione 8bc08ffe. Nessun dato lascia il browser.</p>"
 `;
 
 exports[`verdict page of E22 > matches the DOM snapshot 1`] = `
@@ -989,7 +989,7 @@ exports[`verdict page of E22 > matches the DOM snapshot 1`] = `
 <td>
 <div>
 <p>Anteprima di studio: strumento informativo gratuito, non sostituisce una consulenza legale, una verifica certificata di terza parte o la registrazione sulla piattaforma ACN. Disclaimer non sottoposto a review legale.</p>
-<p data-testid="watermark">corpus v0.13.1 · ed5e0377</p>
+<p data-testid="watermark">corpus v0.13.2 · ed5e0377</p>
 </div>
 </td>
 </tr>
@@ -1007,7 +1007,7 @@ exports[`verdict page of E22 > matches the DOM snapshot 1`] = `
 </div>
 <div>
 <dt>Versione del corpus</dt>
-<dd>0.13.1</dd>
+<dd>0.13.2</dd>
 </div>
 <div>
 <dt>Codice della valutazione</dt>
@@ -1100,7 +1100,7 @@ exports[`verdict page of E22 > matches the DOM snapshot 1`] = `
 </div>
 <div>
 <dt>Codice e versione</dt>
-<dd>valutazione ed5e0377, corpus 0.13.1</dd>
+<dd>valutazione ed5e0377, corpus 0.13.2</dd>
 </div>
 </dl>
 </div>
@@ -1332,7 +1332,7 @@ exports[`verdict page of E22 > matches the DOM snapshot 1`] = `
 <p>Si apre la finestra di stampa del browser: scegli &quot;Salva come PDF&quot;.</p>
 </div>
 <a href="/limiti/" data-testid="limits-link">Cosa non gestisce il tool</a>
-<p data-testid="tech">Corpus 0.13.1, catalogo eccezioni 30 voci. Valutazione ed5e0377. Nessun dato lascia il browser.</p>"
+<p data-testid="tech">Corpus 0.13.2, catalogo eccezioni 30 voci. Valutazione ed5e0377. Nessun dato lascia il browser.</p>"
 `;
 
 exports[`verdict page of E25 > matches the DOM snapshot 1`] = `
@@ -1353,7 +1353,7 @@ exports[`verdict page of E25 > matches the DOM snapshot 1`] = `
 <td>
 <div>
 <p>Anteprima di studio: strumento informativo gratuito, non sostituisce una consulenza legale, una verifica certificata di terza parte o la registrazione sulla piattaforma ACN. Disclaimer non sottoposto a review legale.</p>
-<p data-testid="watermark">corpus v0.13.1 · 4b72d542</p>
+<p data-testid="watermark">corpus v0.13.2 · 4b72d542</p>
 </div>
 </td>
 </tr>
@@ -1371,7 +1371,7 @@ exports[`verdict page of E25 > matches the DOM snapshot 1`] = `
 </div>
 <div>
 <dt>Versione del corpus</dt>
-<dd>0.13.1</dd>
+<dd>0.13.2</dd>
 </div>
 <div>
 <dt>Codice della valutazione</dt>
@@ -1462,7 +1462,7 @@ exports[`verdict page of E25 > matches the DOM snapshot 1`] = `
 </div>
 <div>
 <dt>Codice e versione</dt>
-<dd>valutazione 4b72d542, corpus 0.13.1</dd>
+<dd>valutazione 4b72d542, corpus 0.13.2</dd>
 </div>
 </dl>
 </div>
@@ -1712,7 +1712,7 @@ exports[`verdict page of E25 > matches the DOM snapshot 1`] = `
 <p>Si apre la finestra di stampa del browser: scegli &quot;Salva come PDF&quot;.</p>
 </div>
 <a href="/limiti/" data-testid="limits-link">Cosa non gestisce il tool</a>
-<p data-testid="tech">Corpus 0.13.1, catalogo eccezioni 30 voci. Valutazione 4b72d542. Nessun dato lascia il browser.</p>"
+<p data-testid="tech">Corpus 0.13.2, catalogo eccezioni 30 voci. Valutazione 4b72d542. Nessun dato lascia il browser.</p>"
 `;
 
 exports[`verdict page of E26 > matches the DOM snapshot 1`] = `
@@ -1733,7 +1733,7 @@ exports[`verdict page of E26 > matches the DOM snapshot 1`] = `
 <td>
 <div>
 <p>Anteprima di studio: strumento informativo gratuito, non sostituisce una consulenza legale, una verifica certificata di terza parte o la registrazione sulla piattaforma ACN. Disclaimer non sottoposto a review legale.</p>
-<p data-testid="watermark">corpus v0.13.1 · 2f542c8d</p>
+<p data-testid="watermark">corpus v0.13.2 · 2f542c8d</p>
 </div>
 </td>
 </tr>
@@ -1751,7 +1751,7 @@ exports[`verdict page of E26 > matches the DOM snapshot 1`] = `
 </div>
 <div>
 <dt>Versione del corpus</dt>
-<dd>0.13.1</dd>
+<dd>0.13.2</dd>
 </div>
 <div>
 <dt>Codice della valutazione</dt>
@@ -1889,7 +1889,7 @@ exports[`verdict page of E26 > matches the DOM snapshot 1`] = `
 </div>
 <div>
 <dt>Codice e versione</dt>
-<dd>valutazione 2f542c8d, corpus 0.13.1</dd>
+<dd>valutazione 2f542c8d, corpus 0.13.2</dd>
 </div>
 </dl>
 </div>
@@ -2268,5 +2268,5 @@ exports[`verdict page of E26 > matches the DOM snapshot 1`] = `
 <p>Si apre la finestra di stampa del browser: scegli &quot;Salva come PDF&quot;.</p>
 </div>
 <a href="/limiti/" data-testid="limits-link">Cosa non gestisce il tool</a>
-<p data-testid="tech">Corpus 0.13.1, catalogo eccezioni 30 voci. Valutazione 2f542c8d. Nessun dato lascia il browser.</p>"
+<p data-testid="tech">Corpus 0.13.2, catalogo eccezioni 30 voci. Valutazione 2f542c8d. Nessun dato lascia il browser.</p>"
 `;

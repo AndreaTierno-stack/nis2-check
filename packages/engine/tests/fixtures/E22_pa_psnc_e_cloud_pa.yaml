@@ -7,7 +7,7 @@ description_it: >
   attestata (STATUS 6), esito escalate_to_advisor / ambiguous con avviso di
   catalogo. regime_routing elenca i due regimi nell'ordine degli override del file
   di settore (cloud_pa, poi psnc): ordine posizionale, non precedenza.
-corpus_version: 0.13.1
+corpus_version: 0.13.2
 sector: pubblica_amministrazione
 
 inputs:

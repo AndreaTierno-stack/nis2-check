@@ -8,7 +8,7 @@ description_it: >
   percorso PA (classificazione_cloud_pa, fixture E22).
   Esito cambiato in 0.6.0: regime_routing da [cloud_pa, psnc] a [psnc]; esito
   invariato (escalate_to_advisor / ambiguous), ora dal meta del regime psnc.
-corpus_version: 0.13.1
+corpus_version: 0.13.2
 sector: cloud_computing
 
 inputs:

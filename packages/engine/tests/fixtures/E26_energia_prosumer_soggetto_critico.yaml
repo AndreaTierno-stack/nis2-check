@@ -8,7 +8,7 @@ description_it: >
   indipendentemente dalla dimensione (stadio 3, art. 3 c. 5 lett. a) D.Lgs. 138/2024).
   Conflitto (2)x(3): esito, avviso e citazioni dal blocco conflicts del corpus
   (corpus 0.10.0). La prevalenza tra i due criteri non e' attestata.
-corpus_version: 0.13.1
+corpus_version: 0.13.2
 sector: energia_elettrica
 
 inputs:

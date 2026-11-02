@@ -6,7 +6,7 @@ description_it: >
   possibile identita' di fornitore di servizi gestiti o di sicurezza gestiti
   (Allegato I p. 9), con interconnessione diretta tra le reti (FAQ A1.9.2)
   (cross_sector_cloud_msp).
-corpus_version: 0.13.1
+corpus_version: 0.13.2
 sector: cloud_computing
 
 inputs:
