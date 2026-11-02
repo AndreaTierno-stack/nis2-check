@@ -143,8 +143,10 @@ exports[`verdict page of E05 > matches the DOM snapshot 1`] = `
 </div>
 </section>
 <section data-testid="print-answers">
+<div>
 <h2>Le risposte date</h2>
 <p>Input della valutazione 6b077a1f: con le stesse risposte e la stessa versione del corpus lo strumento restituisce lo stesso esito.</p>
+</div>
 <dl>
 <div>
 <dt>Il soggetto è stato formalmente inserito nel Perimetro di Sicurezza Nazionale Cibernetica (PSNC) ai sensi del DL 105/2019, con notifica ricevuta da ACN o dal CISR?</dt>
@@ -292,8 +294,10 @@ exports[`verdict page of E05 > matches the DOM snapshot 1`] = `
 </div>
 </section>
 <section data-testid="print-limits">
+<div>
 <h2>Cosa non gestisce il tool</h2>
 <p>Limiti dichiarati dello strumento, dal catalogo eccezioni: le voci segnalate per il settore valutato e tutte le voci non gestite. Ogni voce resta da valutare con un consulente qualificato.</p>
+</div>
 <div>
 <h3>Segnalato, non valutato dal tool</h3>
 <ul>
@@ -590,8 +594,10 @@ exports[`verdict page of E11 > matches the DOM snapshot 1`] = `
 </div>
 </section>
 <section data-testid="print-answers">
+<div>
 <h2>Le risposte date</h2>
 <p>Input della valutazione 8bc08ffe: con le stesse risposte e la stessa versione del corpus lo strumento restituisce lo stesso esito.</p>
+</div>
 <dl>
 <div>
 <dt>Il soggetto è stato formalmente inserito nel Perimetro di Sicurezza Nazionale Cibernetica (PSNC) ai sensi del DL 105/2019, con notifica ricevuta da ACN o dal CISR?</dt>
@@ -730,8 +736,10 @@ exports[`verdict page of E11 > matches the DOM snapshot 1`] = `
 </div>
 </section>
 <section data-testid="print-limits">
+<div>
 <h2>Cosa non gestisce il tool</h2>
 <p>Limiti dichiarati dello strumento, dal catalogo eccezioni: le voci segnalate per il settore valutato e tutte le voci non gestite. Ogni voce resta da valutare con un consulente qualificato.</p>
+</div>
 <div>
 <h3>Segnalato, non valutato dal tool</h3>
 <ul>
@@ -1012,8 +1020,10 @@ exports[`verdict page of E22 > matches the DOM snapshot 1`] = `
 </div>
 </section>
 <section data-testid="print-answers">
+<div>
 <h2>Le risposte date</h2>
 <p>Input della valutazione ed5e0377: con le stesse risposte e la stessa versione del corpus lo strumento restituisce lo stesso esito.</p>
+</div>
 <dl>
 <div>
 <dt>Il soggetto è stato formalmente inserito nel Perimetro di Sicurezza Nazionale Cibernetica (PSNC) ai sensi del DL 105/2019, con notifica ricevuta da ACN o dal CISR?</dt>
@@ -1096,8 +1106,10 @@ exports[`verdict page of E22 > matches the DOM snapshot 1`] = `
 </div>
 </section>
 <section data-testid="print-limits">
+<div>
 <h2>Cosa non gestisce il tool</h2>
 <p>Limiti dichiarati dello strumento, dal catalogo eccezioni: le voci segnalate per il settore valutato e tutte le voci non gestite. Ogni voce resta da valutare con un consulente qualificato.</p>
+</div>
 <div>
 <h3>Segnalato, non valutato dal tool</h3>
 <ul>
@@ -1368,8 +1380,10 @@ exports[`verdict page of E25 > matches the DOM snapshot 1`] = `
 </div>
 </section>
 <section data-testid="print-answers">
+<div>
 <h2>Le risposte date</h2>
 <p>Input della valutazione 4b72d542: con le stesse risposte e la stessa versione del corpus lo strumento restituisce lo stesso esito.</p>
+</div>
 <dl>
 <div>
 <dt>Il soggetto è stato formalmente inserito nel Perimetro di Sicurezza Nazionale Cibernetica (PSNC) ai sensi del DL 105/2019, con notifica ricevuta da ACN o dal CISR?</dt>
@@ -1454,8 +1468,10 @@ exports[`verdict page of E25 > matches the DOM snapshot 1`] = `
 </div>
 </section>
 <section data-testid="print-limits">
+<div>
 <h2>Cosa non gestisce il tool</h2>
 <p>Limiti dichiarati dello strumento, dal catalogo eccezioni: le voci segnalate per il settore valutato e tutte le voci non gestite. Ogni voce resta da valutare con un consulente qualificato.</p>
+</div>
 <div>
 <h3>Segnalato, non valutato dal tool</h3>
 <ul>
@@ -1764,8 +1780,10 @@ exports[`verdict page of E26 > matches the DOM snapshot 1`] = `
 </div>
 </section>
 <section data-testid="print-answers">
+<div>
 <h2>Le risposte date</h2>
 <p>Input della valutazione 2f542c8d: con le stesse risposte e la stessa versione del corpus lo strumento restituisce lo stesso esito.</p>
+</div>
 <dl>
 <div>
 <dt>Il soggetto è stato formalmente inserito nel Perimetro di Sicurezza Nazionale Cibernetica (PSNC) ai sensi del DL 105/2019, con notifica ricevuta da ACN o dal CISR?</dt>
@@ -1926,8 +1944,10 @@ exports[`verdict page of E26 > matches the DOM snapshot 1`] = `
 </div>
 </section>
 <section data-testid="print-limits">
+<div>
 <h2>Cosa non gestisce il tool</h2>
 <p>Limiti dichiarati dello strumento, dal catalogo eccezioni: le voci segnalate per il settore valutato e tutte le voci non gestite. Ogni voce resta da valutare con un consulente qualificato.</p>
+</div>
 <div>
 <h3>Segnalato, non valutato dal tool</h3>
 <ul>

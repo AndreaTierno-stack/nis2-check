@@ -165,7 +165,7 @@ function SourcesPanel({ sources }: { sources: Sources }) {
   if (!sources.groups.length) return null;
   return (
     <section className="space-y-3" aria-labelledby="fonti-title">
-      <div className="space-y-1">
+      <div className="print-keep-with-next space-y-1">
         <h2 id="fonti-title" className="text-lg font-semibold">
           {copy.verdict.sourcesTitle}
         </h2>

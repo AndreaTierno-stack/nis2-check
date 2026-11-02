@@ -66,6 +66,11 @@
   .print-avoid-break {
     break-inside: avoid;
   }
+  /* a heading with its introductory line stays together and with what follows */
+  .print-keep-with-next {
+    break-inside: avoid;
+    break-after: avoid;
+  }
   /* no heading alone at the foot of a page */
   h1,
   h2,

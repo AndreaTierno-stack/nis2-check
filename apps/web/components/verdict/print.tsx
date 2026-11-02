@@ -95,8 +95,10 @@ export function PrintAnswers({ props }: { props: VerdictProps }) {
   const rows = answerRows(props.ctx, props.answers);
   return (
     <section className="hidden space-y-3 print:block" data-testid="print-answers">
-      <h2 className="text-lg font-semibold">{copy.sidebar.answersTitle}</h2>
-      <p className="text-sm text-text-soft">{copy.print.answersSubtitle(props.verdict.inputHash.slice(0, 8))}</p>
+      <div className="print-keep-with-next space-y-3">
+        <h2 className="text-lg font-semibold">{copy.sidebar.answersTitle}</h2>
+        <p className="text-sm text-text-soft">{copy.print.answersSubtitle(props.verdict.inputHash.slice(0, 8))}</p>
+      </div>
       <dl className="space-y-2 rounded-panel border border-border p-5 text-sm">
         {rows.map((r) => (
           <div key={r.id} className="print-avoid-break">
@@ -123,8 +125,10 @@ export function PrintLimits({ props, sources }: { props: VerdictProps; sources: 
   ].filter((g) => g.items.length);
   return (
     <section className="hidden space-y-3 print:block" data-testid="print-limits">
-      <h2 className="text-lg font-semibold">{copy.print.limitsTitle}</h2>
-      <p className="text-sm text-text-soft">{copy.print.limitsIntro}</p>
+      <div className="print-keep-with-next space-y-3">
+        <h2 className="text-lg font-semibold">{copy.print.limitsTitle}</h2>
+        <p className="text-sm text-text-soft">{copy.print.limitsIntro}</p>
+      </div>
       {groups.map((g) => (
         <div key={g.key} className="space-y-2 rounded-panel border border-border p-5">
           <h3 className="font-semibold">{copy.verdict.status[g.key]}</h3>
