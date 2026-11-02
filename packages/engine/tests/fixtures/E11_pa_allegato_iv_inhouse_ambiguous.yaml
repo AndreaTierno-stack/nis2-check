@@ -8,7 +8,7 @@ description_it: >
   con il signal in-house (l'engine deduplica in rendering). Corpus 0.7.0: l'opzione
   societa_inhouse non attiva piu' l90_cumulo, riservato a inhouse_soggetto_l90
   (art. 1 c. 1 L. 90/2024).
-corpus_version: 0.12.1
+corpus_version: 0.12.2
 sector: pubblica_amministrazione
 
 inputs:

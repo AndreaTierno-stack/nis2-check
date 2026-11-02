@@ -3,11 +3,12 @@
  * in the exceptions catalog. The notice shown to the user is always composed by
  * `composeDisclaimer` from two sources, each the only one for its content:
  *
- * - the catalog entry `anteprima_di_studio_non_consulenza` (corpus 0.12.1): study preview,
- *   not legal advice, not a substitute for the ACN registration, answers stay in the
- *   browser, AS-IS and not reviewed by a lawyer;
- * - this file: free and open source, three-position outcomes never categorical, no
- *   third-party certified verification, MIT licence AS-IS, limits page, official sources.
+ * - the catalog entry `anteprima_di_studio_non_consulenza` (corpus 0.12.2): study preview,
+ *   preliminary and indicative outcome, not legal advice, not a substitute for the ACN
+ *   registration, answers stay in the browser;
+ * - this file: free and open source, no third-party certified verification, three-position
+ *   outcomes never categorical, MIT licence AS-IS, limits page, official sources, and the
+ *   only statement that the notice is a draft not reviewed by a lawyer (DRAFT_NOTICE).
  *
  * The composed notice is used by the click-wrap, the footer of every page (verdict page
  * included), the printed PDF and the limits page; the README carries the same text between
@@ -39,11 +40,11 @@ export const DRAFT_NOTICE = "Questo avviso è una bozza e non è stato sottopost
  * Product and legal paragraphs, after the catalog entry. With the entry they cover (checked by
  * tests/limits.test.tsx): not legal advice or consultancy (entry), no substitute for a
  * third-party certified verification (paragraph 1), no substitute for the ACN registration
- * (entry), notice not reviewed by a lawyer (entry and DRAFT_NOTICE).
+ * (entry), notice not reviewed by a lawyer (DRAFT_NOTICE, the only source of this point).
  */
 export const PRODUCT_PARAGRAPHS: readonly (readonly Segment[])[] = [
   [
-    "È uno strumento informativo gratuito e open source, pubblicato come anteprima di studio. Non sostituisce una verifica certificata di terza parte.",
+    "È uno strumento informativo gratuito e open source. Non sostituisce una verifica certificata di terza parte.",
   ],
   [
     "Gli esiti sono espressi su tre posizioni (probabile esclusione, esito incerto, probabile rientro) e non sono mai categorici: dipendono dalle risposte fornite e dalla versione del corpus normativo.",

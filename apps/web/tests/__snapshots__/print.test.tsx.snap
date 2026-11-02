@@ -18,7 +18,7 @@ exports[`printed verdict of E05 > matches the print-mode DOM snapshot 1`] = `
 <td>
 <div>
 <p>Anteprima di studio: strumento informativo gratuito, non sostituisce una consulenza legale, una verifica certificata di terza parte o la registrazione sulla piattaforma ACN. Disclaimer non sottoposto a review legale.</p>
-<p data-testid="watermark">corpus v0.12.1 (2026-11-02) · 6b077a1f</p>
+<p data-testid="watermark">corpus v0.12.2 (2026-11-02) · 6b077a1f</p>
 </div>
 </td>
 </tr>
@@ -44,7 +44,7 @@ exports[`printed verdict of E05 > matches the print-mode DOM snapshot 1`] = `
 </div>
 <div>
 <dt>Versione del corpus</dt>
-<dd>0.12.1, rilasciata il 2026-11-02</dd>
+<dd>0.12.2, rilasciata il 2026-11-02</dd>
 </div>
 <div>
 <dt>Codice della valutazione</dt>
@@ -356,8 +356,8 @@ exports[`printed verdict of E05 > matches the print-mode DOM snapshot 1`] = `
 <li data-limit="anteprima_di_studio_non_consulenza">
 <div data-testid="disclaimer">
 <h3>Anteprima di studio: strumento informativo, non consulenza</h3>
-<p data-text="Questo strumento è un&#x27;anteprima di studio: offre un esito preliminare e probabilistico sulla possibile applicabilità della disciplina NIS2 italiana (D.Lgs. 138/2024), sulla base delle risposte fornite. Non è un parere legale né una consulenza e non sostituisce la registrazione sulla piattaforma ACN: la verifica con un consulente qualificato è necessaria prima di assumere conclusioni operative. Le risposte restano nel browser e nessun dato viene inviato a un server. Questo avviso è fornito così com&#x27;è e non è stato rivisto da un legale.">Questo strumento è un&#x27;anteprima di studio: offre un esito preliminare e probabilistico sulla possibile applicabilità della disciplina NIS2 italiana (D.Lgs. 138/2024), sulla base delle risposte fornite. Non è un parere legale né una consulenza e non sostituisce la registrazione sulla piattaforma ACN: la verifica con un consulente qualificato è necessaria prima di assumere conclusioni operative. Le risposte restano nel browser e nessun dato viene inviato a un server. Questo avviso è fornito così com&#x27;è e non è stato rivisto da un legale.</p>
-<p data-text="È uno strumento informativo gratuito e open source, pubblicato come anteprima di studio. Non sostituisce una verifica certificata di terza parte.">È uno strumento informativo gratuito e open source, pubblicato come anteprima di studio. Non sostituisce una verifica certificata di terza parte.</p>
+<p data-text="Questo strumento è un&#x27;anteprima di studio: offre un esito preliminare e orientativo sulla possibile applicabilità della disciplina NIS2 italiana (D.Lgs. 138/2024), sulla base delle risposte fornite. Non è un parere legale né una consulenza e non sostituisce la registrazione sulla piattaforma ACN: la verifica con un consulente qualificato è necessaria prima di assumere conclusioni operative. Le risposte restano nel browser e nessun dato viene inviato a un server.">Questo strumento è un&#x27;anteprima di studio: offre un esito preliminare e orientativo sulla possibile applicabilità della disciplina NIS2 italiana (D.Lgs. 138/2024), sulla base delle risposte fornite. Non è un parere legale né una consulenza e non sostituisce la registrazione sulla piattaforma ACN: la verifica con un consulente qualificato è necessaria prima di assumere conclusioni operative. Le risposte restano nel browser e nessun dato viene inviato a un server.</p>
+<p data-text="È uno strumento informativo gratuito e open source. Non sostituisce una verifica certificata di terza parte.">È uno strumento informativo gratuito e open source. Non sostituisce una verifica certificata di terza parte.</p>
 <p data-text="Gli esiti sono espressi su tre posizioni (probabile esclusione, esito incerto, probabile rientro) e non sono mai categorici: dipendono dalle risposte fornite e dalla versione del corpus normativo.">Gli esiti sono espressi su tre posizioni (probabile esclusione, esito incerto, probabile rientro) e non sono mai categorici: dipendono dalle risposte fornite e dalla versione del corpus normativo.</p>
 <p data-text="Il codice è distribuito con licenza MIT, così com&#x27;è (AS-IS), senza garanzie di alcun tipo.">Il codice è distribuito con licenza MIT, così com&#x27;è (AS-IS), senza garanzie di alcun tipo.</p>
 <p data-text="I limiti dichiarati dello strumento sono elencati nella pagina Cosa non gestisce il tool.">I limiti dichiarati dello strumento sono elencati nella pagina <a href="/limiti/">Cosa non gestisce il tool</a>.</p>
@@ -392,7 +392,7 @@ exports[`printed verdict of E10 > matches the print-mode DOM snapshot 1`] = `
 <td>
 <div>
 <p>Anteprima di studio: strumento informativo gratuito, non sostituisce una consulenza legale, una verifica certificata di terza parte o la registrazione sulla piattaforma ACN. Disclaimer non sottoposto a review legale.</p>
-<p data-testid="watermark">corpus v0.12.1 (2026-11-02) · fc8341d3</p>
+<p data-testid="watermark">corpus v0.12.2 (2026-11-02) · fc8341d3</p>
 </div>
 </td>
 </tr>
@@ -414,7 +414,7 @@ exports[`printed verdict of E10 > matches the print-mode DOM snapshot 1`] = `
 </div>
 <div>
 <dt>Versione del corpus</dt>
-<dd>0.12.1, rilasciata il 2026-11-02</dd>
+<dd>0.12.2, rilasciata il 2026-11-02</dd>
 </div>
 <div>
 <dt>Codice della valutazione</dt>
@@ -779,8 +779,8 @@ exports[`printed verdict of E10 > matches the print-mode DOM snapshot 1`] = `
 <li data-limit="anteprima_di_studio_non_consulenza">
 <div data-testid="disclaimer">
 <h3>Anteprima di studio: strumento informativo, non consulenza</h3>
-<p data-text="Questo strumento è un&#x27;anteprima di studio: offre un esito preliminare e probabilistico sulla possibile applicabilità della disciplina NIS2 italiana (D.Lgs. 138/2024), sulla base delle risposte fornite. Non è un parere legale né una consulenza e non sostituisce la registrazione sulla piattaforma ACN: la verifica con un consulente qualificato è necessaria prima di assumere conclusioni operative. Le risposte restano nel browser e nessun dato viene inviato a un server. Questo avviso è fornito così com&#x27;è e non è stato rivisto da un legale.">Questo strumento è un&#x27;anteprima di studio: offre un esito preliminare e probabilistico sulla possibile applicabilità della disciplina NIS2 italiana (D.Lgs. 138/2024), sulla base delle risposte fornite. Non è un parere legale né una consulenza e non sostituisce la registrazione sulla piattaforma ACN: la verifica con un consulente qualificato è necessaria prima di assumere conclusioni operative. Le risposte restano nel browser e nessun dato viene inviato a un server. Questo avviso è fornito così com&#x27;è e non è stato rivisto da un legale.</p>
-<p data-text="È uno strumento informativo gratuito e open source, pubblicato come anteprima di studio. Non sostituisce una verifica certificata di terza parte.">È uno strumento informativo gratuito e open source, pubblicato come anteprima di studio. Non sostituisce una verifica certificata di terza parte.</p>
+<p data-text="Questo strumento è un&#x27;anteprima di studio: offre un esito preliminare e orientativo sulla possibile applicabilità della disciplina NIS2 italiana (D.Lgs. 138/2024), sulla base delle risposte fornite. Non è un parere legale né una consulenza e non sostituisce la registrazione sulla piattaforma ACN: la verifica con un consulente qualificato è necessaria prima di assumere conclusioni operative. Le risposte restano nel browser e nessun dato viene inviato a un server.">Questo strumento è un&#x27;anteprima di studio: offre un esito preliminare e orientativo sulla possibile applicabilità della disciplina NIS2 italiana (D.Lgs. 138/2024), sulla base delle risposte fornite. Non è un parere legale né una consulenza e non sostituisce la registrazione sulla piattaforma ACN: la verifica con un consulente qualificato è necessaria prima di assumere conclusioni operative. Le risposte restano nel browser e nessun dato viene inviato a un server.</p>
+<p data-text="È uno strumento informativo gratuito e open source. Non sostituisce una verifica certificata di terza parte.">È uno strumento informativo gratuito e open source. Non sostituisce una verifica certificata di terza parte.</p>
 <p data-text="Gli esiti sono espressi su tre posizioni (probabile esclusione, esito incerto, probabile rientro) e non sono mai categorici: dipendono dalle risposte fornite e dalla versione del corpus normativo.">Gli esiti sono espressi su tre posizioni (probabile esclusione, esito incerto, probabile rientro) e non sono mai categorici: dipendono dalle risposte fornite e dalla versione del corpus normativo.</p>
 <p data-text="Il codice è distribuito con licenza MIT, così com&#x27;è (AS-IS), senza garanzie di alcun tipo.">Il codice è distribuito con licenza MIT, così com&#x27;è (AS-IS), senza garanzie di alcun tipo.</p>
 <p data-text="I limiti dichiarati dello strumento sono elencati nella pagina Cosa non gestisce il tool.">I limiti dichiarati dello strumento sono elencati nella pagina <a href="/limiti/">Cosa non gestisce il tool</a>.</p>
@@ -815,7 +815,7 @@ exports[`printed verdict of E27 > matches the print-mode DOM snapshot 1`] = `
 <td>
 <div>
 <p>Anteprima di studio: strumento informativo gratuito, non sostituisce una consulenza legale, una verifica certificata di terza parte o la registrazione sulla piattaforma ACN. Disclaimer non sottoposto a review legale.</p>
-<p data-testid="watermark">corpus v0.12.1 (2026-11-02) · e75c00d2</p>
+<p data-testid="watermark">corpus v0.12.2 (2026-11-02) · e75c00d2</p>
 </div>
 </td>
 </tr>
@@ -837,7 +837,7 @@ exports[`printed verdict of E27 > matches the print-mode DOM snapshot 1`] = `
 </div>
 <div>
 <dt>Versione del corpus</dt>
-<dd>0.12.1, rilasciata il 2026-11-02</dd>
+<dd>0.12.2, rilasciata il 2026-11-02</dd>
 </div>
 <div>
 <dt>Codice della valutazione</dt>
@@ -1199,8 +1199,8 @@ exports[`printed verdict of E27 > matches the print-mode DOM snapshot 1`] = `
 <li data-limit="anteprima_di_studio_non_consulenza">
 <div data-testid="disclaimer">
 <h3>Anteprima di studio: strumento informativo, non consulenza</h3>
-<p data-text="Questo strumento è un&#x27;anteprima di studio: offre un esito preliminare e probabilistico sulla possibile applicabilità della disciplina NIS2 italiana (D.Lgs. 138/2024), sulla base delle risposte fornite. Non è un parere legale né una consulenza e non sostituisce la registrazione sulla piattaforma ACN: la verifica con un consulente qualificato è necessaria prima di assumere conclusioni operative. Le risposte restano nel browser e nessun dato viene inviato a un server. Questo avviso è fornito così com&#x27;è e non è stato rivisto da un legale.">Questo strumento è un&#x27;anteprima di studio: offre un esito preliminare e probabilistico sulla possibile applicabilità della disciplina NIS2 italiana (D.Lgs. 138/2024), sulla base delle risposte fornite. Non è un parere legale né una consulenza e non sostituisce la registrazione sulla piattaforma ACN: la verifica con un consulente qualificato è necessaria prima di assumere conclusioni operative. Le risposte restano nel browser e nessun dato viene inviato a un server. Questo avviso è fornito così com&#x27;è e non è stato rivisto da un legale.</p>
-<p data-text="È uno strumento informativo gratuito e open source, pubblicato come anteprima di studio. Non sostituisce una verifica certificata di terza parte.">È uno strumento informativo gratuito e open source, pubblicato come anteprima di studio. Non sostituisce una verifica certificata di terza parte.</p>
+<p data-text="Questo strumento è un&#x27;anteprima di studio: offre un esito preliminare e orientativo sulla possibile applicabilità della disciplina NIS2 italiana (D.Lgs. 138/2024), sulla base delle risposte fornite. Non è un parere legale né una consulenza e non sostituisce la registrazione sulla piattaforma ACN: la verifica con un consulente qualificato è necessaria prima di assumere conclusioni operative. Le risposte restano nel browser e nessun dato viene inviato a un server.">Questo strumento è un&#x27;anteprima di studio: offre un esito preliminare e orientativo sulla possibile applicabilità della disciplina NIS2 italiana (D.Lgs. 138/2024), sulla base delle risposte fornite. Non è un parere legale né una consulenza e non sostituisce la registrazione sulla piattaforma ACN: la verifica con un consulente qualificato è necessaria prima di assumere conclusioni operative. Le risposte restano nel browser e nessun dato viene inviato a un server.</p>
+<p data-text="È uno strumento informativo gratuito e open source. Non sostituisce una verifica certificata di terza parte.">È uno strumento informativo gratuito e open source. Non sostituisce una verifica certificata di terza parte.</p>
 <p data-text="Gli esiti sono espressi su tre posizioni (probabile esclusione, esito incerto, probabile rientro) e non sono mai categorici: dipendono dalle risposte fornite e dalla versione del corpus normativo.">Gli esiti sono espressi su tre posizioni (probabile esclusione, esito incerto, probabile rientro) e non sono mai categorici: dipendono dalle risposte fornite e dalla versione del corpus normativo.</p>
 <p data-text="Il codice è distribuito con licenza MIT, così com&#x27;è (AS-IS), senza garanzie di alcun tipo.">Il codice è distribuito con licenza MIT, così com&#x27;è (AS-IS), senza garanzie di alcun tipo.</p>
 <p data-text="I limiti dichiarati dello strumento sono elencati nella pagina Cosa non gestisce il tool.">I limiti dichiarati dello strumento sono elencati nella pagina <a href="/limiti/">Cosa non gestisce il tool</a>.</p>

@@ -4,7 +4,7 @@ description_it: >
   Impresa elettrica di fornitura di dimensione media. Esercita la regola del
   fatturato complessivo (FAQ A1.2): il fatturato rilevante e' quello dell'intero
   soggetto, non solo dell'attivita' NIS. Soggetto importante.
-corpus_version: 0.12.1
+corpus_version: 0.12.2
 sector: energia_elettrica
 
 inputs:

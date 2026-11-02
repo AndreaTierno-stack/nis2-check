@@ -13,6 +13,12 @@ Ogni bump ha una voce in questo file; le fixture dichiarano `corpus_version` e s
 
 ## [Unreleased]
 
+## [0.12.2] — 2026-11-02 — Avviso di anteprima: esito orientativo, "non rivisto" in un solo punto (S4.2)
+
+Patch (catalogo, solo testi). Decisione dell'autore del 2026-11-02. Esiti attesi invariati.
+- **`exceptions/exceptions__catalog.yaml`**, voce `anteprima_di_studio_non_consulenza`: "un esito preliminare e probabilistico" diventa "un esito preliminare e orientativo" (l'engine è deterministico e non calcola probabilità); rimossa l'ultima frase ("Questo avviso è fornito così com'è e non è stato rivisto da un legale."): la dichiarazione di avviso non rivisto da un legale vive solo nella frase di chiusura dell'avviso composto dall'app web (`apps/web/content/disclaimer.ts`, ADR 0017), che riporta anche la licenza MIT AS-IS.
+- Fixture E01-E27: `corpus_version` 0.12.1 → 0.12.2.
+
 ## [0.12.1] — 2026-11-02 — Avviso di anteprima senza nome di prodotto (S4.2)
 
 Patch (catalogo, solo testi). Decisione dell'autore del 2026-11-02. Esiti attesi invariati.
