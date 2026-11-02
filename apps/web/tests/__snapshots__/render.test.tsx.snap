@@ -2019,7 +2019,7 @@ exports[`verdict page of E26 > matches the DOM snapshot 1`] = `
 <div>
 <div data-testid="trace-decided" data-stage="size_blind">
 <h3>Regole indipendenti dalla dimensione</h3>
-<p>Il soggetto risulta individuato come soggetto critico ai sensi del D.Lgs. 134/2024. Sulla base degli input forniti, l&#x27;analisi suggerisce il rientro nel perimetro NIS2 italiano come soggetto essenziale, indipendentemente dalla dimensione (art. 3 c. 5 lett. a) e art. 6 c. 1 lett. b) D.Lgs. 138/2024; FAQ ACN AMB.NO.1). Verifica obbligatoria con consulente qualificato. <span>
+<p>Il soggetto dichiara di essere stato individuato come soggetto critico ai sensi del D.Lgs. 134/2024. Sulla base degli input forniti, l&#x27;analisi suggerisce il rientro nel perimetro NIS2 italiano come soggetto essenziale, indipendentemente dalla dimensione (art. 3 c. 5 lett. a) e art. 6 c. 1 lett. b) D.Lgs. 138/2024; FAQ ACN AMB.NO.1). <span>
 <a href="#fonte-1">1</a>
 <a href="#fonte-2">2</a>
 <a href="#fonte-5">5</a>
@@ -2163,7 +2163,7 @@ exports[`verdict page of E26 > matches the DOM snapshot 1`] = `
 <div>
 <div data-testid="trace-decided" data-stage="size_blind">
 <h3>Regole indipendenti dalla dimensione</h3>
-<p>Il soggetto risulta individuato come soggetto critico ai sensi del D.Lgs. 134/2024. Sulla base degli input forniti, l&#x27;analisi suggerisce il rientro nel perimetro NIS2 italiano come soggetto essenziale, indipendentemente dalla dimensione (art. 3 c. 5 lett. a) e art. 6 c. 1 lett. b) D.Lgs. 138/2024; FAQ ACN AMB.NO.1). Verifica obbligatoria con consulente qualificato. <span>
+<p>Il soggetto dichiara di essere stato individuato come soggetto critico ai sensi del D.Lgs. 134/2024. Sulla base degli input forniti, l&#x27;analisi suggerisce il rientro nel perimetro NIS2 italiano come soggetto essenziale, indipendentemente dalla dimensione (art. 3 c. 5 lett. a) e art. 6 c. 1 lett. b) D.Lgs. 138/2024; FAQ ACN AMB.NO.1). <span>
 <a href="#fonte-1">1</a>
 <a href="#fonte-2">2</a>
 <a href="#fonte-5">5</a>

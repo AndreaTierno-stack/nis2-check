@@ -70,7 +70,7 @@ exports[`pagination of the printed verdict, case with long signals > matches the
 </ol>
 </div>
 <div>
-<p>Il soggetto risulta individuato come soggetto critico ai sensi del D.Lgs. 134/2024. Sulla base degli input forniti, l&#x27;analisi suggerisce il rientro nel perimetro NIS2 italiano come soggetto <strong>essenziale</strong>, indipendentemente dalla dimensione (art. 3 c. 5 lett. a) e art. 6 c. 1 lett. b) D.Lgs. 138/2024; FAQ ACN AMB.NO.1). Verifica obbligatoria con consulente qualificato. <span>
+<p>Il soggetto dichiara di essere stato individuato come soggetto critico ai sensi del D.Lgs. 134/2024. Sulla base degli input forniti, l&#x27;analisi suggerisce il rientro nel perimetro NIS2 italiano come soggetto <strong>essenziale</strong>, indipendentemente dalla dimensione (art. 3 c. 5 lett. a) e art. 6 c. 1 lett. b) D.Lgs. 138/2024; FAQ ACN AMB.NO.1). <span>
 <a href="#fonte-1">1</a>
 <a href="#fonte-2">2</a>
 <a href="#fonte-9">9</a>
@@ -334,7 +334,7 @@ exports[`pagination of the printed verdict, case with long signals > matches the
 <div class="print-avoid-break print:border-0 print:bg-transparent print:px-0 print:pb-0 print:pt-2">
 <div data-testid="trace-decided" data-stage="size_blind">
 <h3>Regole indipendenti dalla dimensione</h3>
-<p>Il soggetto risulta individuato come soggetto critico ai sensi del D.Lgs. 134/2024. Sulla base degli input forniti, l&#x27;analisi suggerisce il rientro nel perimetro NIS2 italiano come soggetto essenziale, indipendentemente dalla dimensione (art. 3 c. 5 lett. a) e art. 6 c. 1 lett. b) D.Lgs. 138/2024; FAQ ACN AMB.NO.1). Verifica obbligatoria con consulente qualificato. <span>
+<p>Il soggetto dichiara di essere stato individuato come soggetto critico ai sensi del D.Lgs. 134/2024. Sulla base degli input forniti, l&#x27;analisi suggerisce il rientro nel perimetro NIS2 italiano come soggetto essenziale, indipendentemente dalla dimensione (art. 3 c. 5 lett. a) e art. 6 c. 1 lett. b) D.Lgs. 138/2024; FAQ ACN AMB.NO.1). <span>
 <a href="#fonte-1">1</a>
 <a href="#fonte-2">2</a>
 <a href="#fonte-9">9</a>

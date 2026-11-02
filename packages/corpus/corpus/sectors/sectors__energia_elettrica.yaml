@@ -106,7 +106,7 @@ qualification_rules:
     outcome: categorical_assessment
     qualifica: essenziale
     verdict_outcome: likely_in_scope   # vincolo fisso: categorical_assessment in-scope -> likely_in_scope
-    reasoning_trace: "Il soggetto risulta individuato come soggetto critico ai sensi del D.Lgs. 134/2024. Sulla base degli input forniti, l'analisi suggerisce il rientro nel perimetro NIS2 italiano come soggetto essenziale, indipendentemente dalla dimensione (art. 3 c. 5 lett. a) e art. 6 c. 1 lett. b) D.Lgs. 138/2024; FAQ ACN AMB.NO.1). Verifica obbligatoria con consulente qualificato."
+    reasoning_trace: "Il soggetto dichiara di essere stato individuato come soggetto critico ai sensi del D.Lgs. 134/2024. Sulla base degli input forniti, l'analisi suggerisce il rientro nel perimetro NIS2 italiano come soggetto essenziale, indipendentemente dalla dimensione (art. 3 c. 5 lett. a) e art. 6 c. 1 lett. b) D.Lgs. 138/2024; FAQ ACN AMB.NO.1)."
     citations: [dlgs_138_2024_art_3_c_5_lett_a, dlgs_138_2024_art_6_c_1_lett_b, faq_amb_no_1]
     notices: [energia_regime_transitorio_ose]
   - condition: dimension == micro_or_piccola AND soggetto_critico == no
