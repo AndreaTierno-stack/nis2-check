@@ -18,14 +18,22 @@ const htmlFiles = (dir: string): string[] =>
     .readdirSync(dir, { withFileTypes: true })
     .flatMap((e) => (e.isDirectory() ? htmlFiles(path.join(dir, e.name)) : e.name.endsWith(".html") ? [path.join(dir, e.name)] : []));
 
-test("the export references no external resource", () => {
+const externalRefs = (html: string) =>
+  [...html.matchAll(/<(?:script|link|img)\b[^>]*?\s(?:src|href)="([^"]*)"/g)].map((m) => m[1]!).filter((ref) => !/^\/(?!\/)/.test(ref));
+
+test("the export references no external resource", async ({ request }) => {
+  if (process.env.E2E_BASE_URL) {
+    // deployed: the pages as served
+    for (const url of ["/", "/limiti/", "/404.html"]) {
+      const res = await request.get(url);
+      expect(res.status(), url).toBeLessThan(500);
+      expect(externalRefs(await res.text()), url).toEqual([]);
+    }
+    return;
+  }
   const files = htmlFiles(OUT);
   expect(files.length).toBeGreaterThan(1);
-  for (const file of files) {
-    const html = fs.readFileSync(file, "utf8");
-    const refs = [...html.matchAll(/<(?:script|link|img)\b[^>]*?\s(?:src|href)="([^"]*)"/g)].map((m) => m[1]!);
-    for (const ref of refs) expect(ref, `${path.relative(OUT, file)}: ${ref}`).toMatch(/^\/(?!\/)/);
-  }
+  for (const file of files) expect(externalRefs(fs.readFileSync(file, "utf8")), path.relative(OUT, file)).toEqual([]);
 });
 
 test("a full session sends requests only to the origin, without CSP violations", async ({ page, baseURL }) => {

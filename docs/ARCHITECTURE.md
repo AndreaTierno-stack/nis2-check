@@ -302,6 +302,16 @@ il `package.json` dei pacchetti (errore `ERR_PACKAGE_IMPORT_NOT_DEFINED` di vite
 funzione serverless, nessuna variabile d'ambiente, Web Analytics e Speed Insights spenti. Il
 deploy non sostituisce la CI GitHub Actions e la CI non ha step di deploy.
 
+- **Progetto** (2026-11-02): `nis2-check` (`prj_eEKbLen6DVeWqvGuH7MVar13mBsa`) sul team personale, piano
+  Hobby, Node 24.x come la CI, collegato a GitHub: ogni push su `main` è un deploy di produzione.
+  URL di produzione: `https://nis2-check-three.vercel.app`. Deployment Protection effettiva: Vercel
+  Authentication con `deploymentType: all_except_custom_domains`, cioè gli URL dei singoli deploy
+  e gli alias del team e del ramo chiedono il login Vercel, l'alias di produzione no (risposta 200
+  a chiunque); nessuna password, nessun IP fidato. Web Analytics non abilitato (API:
+  `web_analytics_not_enabled`); Speed Insights: nessuno script nella pagina.
+- **e2e sul deploy**: `E2E_BASE_URL=https://nis2-check-three.vercel.app pnpm --filter
+  @nis2-check/web exec playwright test` (stesse specifiche, senza server locale).
+
 - **Header** (`vercel.json`, applicati anche da `scripts/serve-out.mjs`, quindi gli e2e girano
   sotto la stessa CSP): `Content-Security-Policy` senza origini esterne (`default-src 'self'`,
   `script-src` e `style-src` `'self' 'unsafe-inline'`, `img-src 'self' data:`, `object-src
