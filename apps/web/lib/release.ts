@@ -10,3 +10,9 @@ export type ReleaseStage = "preview" | "public";
 export const RELEASE_STAGE: ReleaseStage = process.env.NIS2_RELEASE_STAGE === "public" ? "public" : "preview";
 
 export const isIndexable = (stage: ReleaseStage = RELEASE_STAGE): boolean => stage === "public";
+
+/**
+ * Definitive public URL of the tool, for the README and the links of its notice block.
+ * Undefined until the release act (docs/RELEASE_CHECKLIST.md): the README carries a marked placeholder.
+ */
+export const PUBLIC_URL: string | undefined = undefined;

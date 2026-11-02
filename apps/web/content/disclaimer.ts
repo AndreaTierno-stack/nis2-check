@@ -81,12 +81,15 @@ export function composeDisclaimer(entry: CatalogNotice): ComposedDisclaimer {
 export const segmentText = (p: readonly Segment[]): string => p.map((s) => (typeof s === "string" ? s : s.label)).join("");
 
 /**
- * Markdown of the composed notice, for the README block between markers. Relative links
- * (the limits page) are resolved against `siteUrl` when given.
+ * Markdown of the composed notice, for the README block between markers (tests/readme.test.ts).
+ * Relative links (the limits page) are resolved against `siteUrl`; without it (no definitive
+ * public URL yet, lib/release.ts) they stay plain text, so the README has no broken link and
+ * the same words as every other surface.
  */
 export function disclaimerMarkdown(d: ComposedDisclaimer, siteUrl?: string): string {
-  const href = (h: string) => (h.startsWith("/") && siteUrl ? `${siteUrl.replace(/\/$/, "")}${h}` : h);
-  const para = (p: readonly Segment[]) => p.map((s) => (typeof s === "string" ? s : `[${s.label}](${href(s.href)})`)).join("");
+  const link = (s: { label: string; href: string }) =>
+    !s.href.startsWith("/") ? `[${s.label}](${s.href})` : siteUrl ? `[${s.label}](${siteUrl.replace(/\/$/, "")}${s.href})` : s.label;
+  const para = (p: readonly Segment[]) => p.map((s) => (typeof s === "string" ? s : link(s))).join("");
   return [`**${d.title}**`, ...d.paragraphs.map(para)].join("\n\n");
 }
 
