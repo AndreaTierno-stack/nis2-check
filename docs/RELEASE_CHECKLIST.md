@@ -85,6 +85,12 @@ Da eseguire solo su decisione nel Project, non in S4.2. In quest'ordine:
   15 verdi, 1 saltato (PDF di esempio); la sessione completa invia richieste solo all'origine, senza
   violazioni CSP. Il test di indicizzazione segue `NIS2_RELEASE_STAGE` (anteprima in locale, pubblico
   sull'URL di produzione).
+- Repo `nis2-check` pubblico, issue abilitate, template `.github/ISSUE_TEMPLATE/errore-normativo.md`
+  con l'etichetta `normativo`.
+- Tag `v0.1.0` sul commit 00bb364 e GitHub Release
+  (<https://github.com/AndreaTierno-stack/nis2-check/releases/tag/v0.1.0>), note in
+  `docs/releases/v0.1.0.md`.
+- README della KB `nis2-knowledge-it` con il rimando al tool (e2d6cc5).
 
 ## Enumerazione completa dei percorsi
 
